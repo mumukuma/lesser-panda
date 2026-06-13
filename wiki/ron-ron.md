@@ -1,0 +1,92 @@
+---
+name: Ron-Ron
+japanese: ロンロン
+nicknames: []
+english_variants:
+  - Ron Ron
+  - Ronron
+sex: male
+born: 2002-06-28
+died: 2021-12-13
+species: Ailurus fulgens styani
+zoos:
+  - Tobe Zoo 伊予市立トベ動物園 (2002–2010)
+  - 東北サファリパーク (2010–2021)
+rpf_id: 208
+rpf_url: https://redpandafinder.com/#profile/208
+tags: [taofa-family, styani, male, deceased, zoo:Tohoku Safari Park]
+sources:
+  - https://redpandafinder.com/#profile/208
+---
+
+# Ron-Ron 🌈（ロンロン）
+
+> **小熊貓** | ♂ | Ailurus fulgens styani  
+> 生：2002-06-28 ｜ 歿：2021-12-13（享年 19 歲）  
+> **Taofa 之父**
+
+---
+
+## 名稱與別名
+
+| 類型 | 名稱 |
+|------|------|
+| 英文正式名 | Ron-Ron |
+| 日文（假名）| ロンロン |
+| 英文拼法變體 | Ron Ron、Ronron |
+
+---
+
+## 基本資料
+
+| 欄位 | 資料 |
+|------|------|
+| 亞種 | 中華小熊貓（*Ailurus fulgens styani*）|
+| 性別 | ♂ 雄性 |
+| 生日 | 2002 年 6 月 28 日 |
+| 忌日 | 2021 年 12 月 13 日 |
+| 享年 | 19 歲 |
+| 主要攝影者 | fetorus_mami |
+| 媒體數量 | 2,104 |
+| RedPandaFinder ID | [#208](https://redpandafinder.com/#profile/208) |
+
+---
+
+## 居住史
+
+```
+2002-06-28  出生於 Tobe Zoo（伊予市立トベ動物園）
+              愛媛縣伊予郡砥部町 🇯🇵
+
+2010-11-28  轉移至 東北サファリパーク
+              福島縣二本松市 🇯🇵
+
+2021-12-13  在 東北サファリパーク 辭世 🌈
+```
+
+> 注意：同名的「Ron-Ron」在 RedPandaFinder 上有多隻，本條目特指 profile #208、東北サファリパーク 的 Ron-Ron。
+
+---
+
+## 家族關係
+
+### 父母
+- 母：[[rin-rin]] 🌈
+- 父：[[ryuunosuke]] 🌈
+
+### 子女（與 [[shiryu]] 所生，共 3 隻）
+| 名稱 | 性別 | 生年 | 備注 |
+|------|------|------|------|
+| [[tian]] | ♂ | 2011 | 長子 |
+| [[rii-rii]] | ♀ | 2013 | 次女 |
+| [[taofa]] 🌈 | ♀ | 2015 | 三女，本 wiki 主角 |
+
+### 兄弟姊妹（共 6 隻）
+| 名稱 | 性別 | 生年 | 備注 |
+|------|------|------|------|
+| Aporo 🌈 | ♂ | 2004 | |
+| Luna 🌈 | ♀ | 2004 | |
+| Ten-Ten 🌈 | ♂ | 2005 | |
+| Kiki | ♀ | 2007 | |
+| Kei-Kei 🌈 | ♂ | 2008 | |
+| Ai-Ai 🌈 | ♀ | 2008 | |

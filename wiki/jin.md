@@ -1,0 +1,38 @@
+---
+name: Jin
+japanese: 仁, ジン
+sex: male
+born: 2016-07-31
+species: Ailurus fulgens styani
+zoos:
+  - Adventure World (2016–)
+rpf_id: 63
+rpf_url: https://redpandafinder.com/#profile/63
+tags: [styani, male, zoo:Adventure World]
+sources:
+  - https://redpandafinder.com/#profile/63
+---
+
+# Jin（仁 / ジン）
+
+> **小熊貓** ♂ | Ailurus fulgens styani  
+> 生日：2016 年 7 月 31 日（9 歲）  
+> 現居：Adventure World（和歌山縣白濱町）🇯🇵
+
+[[laila]] 🌈 與 [[shin-shin]] 🌈 之子，[[kirara]] 的弟弟。自出生起持續居住在和歌山縣 Adventure World（アドベンチャーワールド）。日文名「仁」意為仁義、仁愛。
+
+---
+
+## 居住史
+
+| 期間 | 動物園 | 地點 |
+|------|--------|------|
+| 2016/07/31– | Adventure World（アドベンチャーワールド） | 日本 和歌山縣白濱町 🇯🇵 |
+
+---
+
+## 家族
+
+- 母：[[laila]] 🌈
+- 父：[[shin-shin]] 🌈
+- 兄弟姊妹：[[kirara]] ♀（2014）、[[maruru]] ♂（2014）、[[kokoro]] ♂（2015）、[[mugi]] ♂（2018）

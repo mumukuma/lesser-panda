@@ -1,0 +1,52 @@
+---
+name: Chihiro
+japanese: チヒロ
+english_variants: [Tihiro]
+sex: female
+born: 2003-06-16
+died: 2019-10-24
+species: Ailurus fulgens styani
+zoos:
+  - 長野市茶臼山動物園 (2003–2005)
+  - 東武動物公園 (2005–2019)
+rpf_id: 220
+rpf_url: https://redpandafinder.com/#profile/220
+tags: [styani, female, deceased]
+sources:
+  - https://redpandafinder.com/#profile/220
+---
+
+# Chihiro 🌈（チヒロ）
+
+> **小熊貓** ♀ | Ailurus fulgens styani  
+> 生日：2003 年 6 月 16 日　歿日：2019 年 10 月 24 日（享年 16 歲）  
+> 終居：東武動物公園（埼玉県南埼玉郡宮代町）🇯🇵
+
+Liuxing 🌈 與 Yuu-Yuu 🌈 所生之女，與 Non-Non 🌈、Chi-Chi 🌈 為三胞胎。出生於長野市茶臼山動物園，2005 年移居東武動物公園。育有 5 隻子女（與 [[umi]] 🌈 所生），包括 [[daichi]] 🌈。
+
+---
+
+## 居住史
+
+| 期間 | 動物園 | 地點 |
+|------|--------|------|
+| 2003/06/16–2005/12/18 | 長野市茶臼山動物園（Nagano Chausuyama Zoo）🐣 | 日本 長野県 長野市 🇯🇵 |
+| 2005/12/18–2019/10/24 | 東武動物公園（Tobu Zoo）🌈 | 日本 埼玉県 南埼玉郡宮代町 🇯🇵 |
+
+---
+
+## 家族
+
+- 母：Liuxing 🌈
+- 父：Yuu-Yuu 🌈
+- 三胞胎：Non-Non 🌈、Chi-Chi 🌈
+
+### 子女（父：[[umi]] 🌈）
+
+| 姓名 | 性別 | 出生年 | 備注 |
+|------|------|--------|------|
+| [[aya]] 🌈 | ♀ | 2006 | RPF #217 |
+| Riku 🌈（RPF #139） | ♀ | 2006 | Aya 雙胞胎 |
+| Kokoro 🌈（RPF #123） | ♀ | 2007 | |
+| Yume 🌈（RPF #567） | ♀ | 2009 | [[daichi]] 雙胞胎 |
+| [[daichi]] 🌈 ♂ | ♂ | 2009 | [[taiyo-daichi]] 之父 |

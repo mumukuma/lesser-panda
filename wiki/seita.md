@@ -1,0 +1,53 @@
+---
+name: Seita
+japanese: セイタ, 星太
+nicknames: [Crafty]
+sex: male
+born: 2005-06-23
+died: 2024-11-30
+species: Ailurus fulgens styani
+zoos:
+  - Nagano Chausuyama Zoo (2005–2008)
+  - Sapporo Maruyama Zoo (2008–2024)
+rpf_id: 21
+rpf_url: https://redpandafinder.com/#profile/21
+tags: [styani, male, deceased, zoo:Sapporo Maruyama Zoo]
+sources:
+  - https://redpandafinder.com/#profile/21
+---
+
+# Seita（セイタ / 星太）🌈
+
+> **小熊貓** ♂ | Ailurus fulgens styani  
+> 生日：2005 年 6 月 23 日　歿：2024 年 11 月 30 日（享年 19 歲）  
+> 終居：Sapporo Maruyama Zoo（札幌市円山動物園）🇯🇵
+
+Liuxing（RPF #338）🌈 與 [[kiki]] 🌈 之子，與 Kirara（RPF #31 → [[kirara-31]]）🌈 及 Ron（RPF #82）🌈 為三胞胎。出生於長野市茶臼山動物園，2008 年移居札幌市円山動物園。與 [[coco]] 所育有五隻子女，其中 [[kin]] 🌈 為 [[kokin]] 🌈 的外祖父；[[laila]] 🌈 亦為 [[kirara]] 之母。父親 [[kiki]] 亦為 [[non]] 之父（Jaja 家族外祖父）。
+
+---
+
+## 居住史
+
+| 期間 | 動物園 | 地點 |
+|------|--------|------|
+| 2005/06/23–2008/06/28 | Nagano Chausuyama Zoo（長野市茶臼山動物園）🐣 | 日本 長野縣長野市 🇯🇵 |
+| 2008/06/28–2024/11/30 | Sapporo Maruyama Zoo（札幌市円山動物園）🌈 | 日本 北海道札幌市 🇯🇵 |
+
+---
+
+## 家族
+
+- 母：Liuxing（RPF #338）🌈
+- 父：[[kiki]] キキ 🌈（Non 之父、Jaja 外祖父）
+- 三胞胎：[[kirara-31]] キララ 🌈（RPF #31）、Ron（RPF #82）🌈
+- ½ 兄弟姊妹（父：[[kiki]]）：[[seina]] 🌈（RPF #89，Non 之母）、[[chihiro]] 🌈（RPF #220）、[[chi-chi]] 🌈（RPF #53）、[[non]] ノン（RPF #87）等 18 隻
+
+### 子女（母：[[coco]]）
+
+| 姓名 | 性別 | 出生 | 備注 |
+|------|------|------|------|
+| Lily（RPF #198）| ♀ | 2010 | 🌈 已歿 |
+| [[laila]] ライラ | ♀ | 2010 | 🌈 已歿；[[kirara]] 之母 |
+| [[kin]] キン | ♀ | 2012-07-20 | 🌈 已歿；[[kokin]] 之母 |
+| Gin（RPF #17）| ♀ | 2012 | 🌈 已歿；[[kin]] 雙胞胎 |
+| Hokuto（RPF #58）| ♂ | 2014 | 🌈 已歿 |

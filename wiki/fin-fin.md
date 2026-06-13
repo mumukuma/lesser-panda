@@ -1,0 +1,58 @@
+---
+name: Fin-Fin
+japanese: フィンフィン, タンポポ
+english_variants: [Finfin, Tanpopo]
+sex: female
+born: 2002-06-20
+died: 2018-02-06
+species: Ailurus fulgens styani
+zoos:
+  - Tama Zoological Park (2002–2003)
+  - Ikeda Zoo (2003–2018)
+rpf_id: 136
+rpf_url: https://redpandafinder.com/#profile/136
+tags: [styani, female, deceased]
+sources:
+  - https://redpandafinder.com/#profile/136
+---
+
+# Fin-Fin 🌈（フィンフィン / タンポポ）
+
+> **小熊貓** ♀ | Ailurus fulgens styani  
+> 生日：2002 年 6 月 20 日　歿日：2018 年 2 月 6 日（享年 15 歲）  
+> 終居：池田動物園（Ikeda Zoo），岡山市，岡山県
+
+[[fan-fan]] 🌈（#107）與 Ryutarou 🌈（#306）所生之女，一生大部分居住於 Ikeda Zoo。與不明雄性育有 Shun-Shun 🌈（2007，RPF #597），後與 [[tsubasa]] 🌈 育有 [[nokaze]]（2009）。
+
+⚠️ **跨家族連結**：Fin-Fin 與 [[ajisai]]（RPF #83，Sayuri 家族祖母）為同父同母的**全血緣姊妹**，因此 [[nokaze]] 是 [[ajisai]] 的外甥女，[[nohana]] 是 [[ajisai]] 的外曾甥女。
+
+---
+
+## 居住史
+
+| 期間 | 動物園 | 地點 |
+|------|--------|------|
+| 2002/06/20–2003/02/07 | 多摩動物公園（Tama Zoological Park） | 日本 東京都 日野市 🇯🇵 |
+| 2003/02/07–2018/02/06 | 池田動物園（Ikeda Zoo） | 日本 岡山県 岡山市 🇯🇵 |
+
+---
+
+## 家族
+
+- 母：[[fan-fan]] 🌈（RPF #107）
+- 父：Ryutarou 🌈（RPF #306）
+
+### 子女
+
+| 姓名 | 出生年 | 父親 | 備注 |
+|------|--------|------|------|
+| Shun-Shun 🌈（RPF #597） | 2007 | 不明 | |
+| [[nokaze]] ♀ | 2009 | [[tsubasa]] 🌈 | [[nohana]] 之母 |
+
+### 全血緣兄弟姊妹（部分，Fan-Fan × Ryutarou）
+
+| 姓名 | 出生年 | 備注 |
+|------|--------|------|
+| [[ajisai]] | 2006 | 現居長野市茶臼山動物園 |
+| Sumire（RPF #192） | 2004 | |
+| Kotarou 🌈（RPF #67） | 2006 | |

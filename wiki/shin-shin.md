@@ -1,0 +1,53 @@
+---
+name: Shin-Shin
+japanese: シンシン
+english_variants: [Shinshin]
+sex: male
+born: 2010-06-24
+died: 2024-01-24
+species: Ailurus fulgens styani
+zoos:
+  - Nishiyama Zoo (2010–2013)
+  - Adventure World (2013–2024)
+rpf_id: 66
+rpf_url: https://redpandafinder.com/#profile/66
+tags: [styani, male, deceased, zoo:Adventure World]
+sources:
+  - https://redpandafinder.com/#profile/66
+---
+
+# Shin-Shin（シンシン）🌈
+
+> **小熊貓** ♂ | Ailurus fulgens styani  
+> 生日：2010 年 6 月 24 日　歿：2024 年 1 月 24 日（享年 13 歲）  
+> 終居：Adventure World（和歌山縣白濱町）🇯🇵
+
+[[kirara]] 的父親、[[laila]] 的配偶。生於福井縣西山動物園，2013 年轉至冒險世界，於 2024 年 1 月離世。
+
+---
+
+## 居住史
+
+| 期間 | 動物園 | 地點 |
+|------|--------|------|
+| 2010/06/24–2013/02/28 | Nishiyama Zoo（西山動物園） | 日本 福井縣鯖江市 🇯🇵 |
+| 2013/02/28–2024/01/24 | Adventure World（アドベンチャーワールド）🌈 | 日本 和歌山縣白濱町 🇯🇵 |
+
+---
+
+## 家族
+
+- 母：Lala 🌈
+- 父：[[shun-shun]]（シュンシュン）🌈
+- 雙胞胎：Yan-Yan 🌈
+- 兄弟姊妹（含半血緣）：Chao（½）🌈、Syurara 🌈、Rai-Rai（½）🌈、Yan-Yan 🌈
+
+### 子女（與 [[laila]] 所生）
+
+| 姓名 | 出生年 |
+|------|--------|
+| [[kirara]] | 2014 |
+| Maruru（#62） | 2014 |
+| Kokoro（#64） | 2015 |
+| Jin（#63） | 2016 |
+| Mugi（#305） | 2018 |

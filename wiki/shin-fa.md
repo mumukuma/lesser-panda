@@ -1,0 +1,65 @@
+---
+name: Shin-Fa
+japanese: シンファ / 杏花
+nicknames: []
+english_variants: [Xinghua, Xinhua, Shinfa, Shi-nhowa, Shin-howa, Shinhowa]
+sex: female
+born: 2019-06-19
+species: Ailurus fulgens styani
+zoos:
+  - 多摩動物公園 (2019–2022)
+  - 熊本市動植物園 (2022–現在)
+rpf_id: 948
+rpf_url: https://redpandafinder.com/#profile/948
+tags: [taofa-family, styani, female, zoo:Kumamoto City Zoological and Botanical Gardens]
+sources:
+  - https://redpandafinder.com/#profile/948
+---
+
+# Shin-Fa（シンファ／杏花）
+
+> **小熊貓** | ♀ | Ailurus fulgens styani  
+> 生：2019-06-19 ｜ 現存（2026 年時 6 歲）  
+> **[[taofa]] 🌈 之三女 ｜ [[mei-fa]] 之雙胞胎姊妹**
+
+---
+
+## 基本資料
+
+| 欄位 | 資料 |
+|------|------|
+| 性別 | ♀ 雌性 |
+| 生日 | 2019 年 6 月 19 日 |
+| 現居 | 熊本市動植物園（熊本市東区、熊本県）|
+| 主要攝影者 | ssc6105 |
+| 媒體數量 | 1621 |
+
+---
+
+## 別名
+
+| 語言 | 名稱 |
+|------|------|
+| 日文 | シンファ、杏花 |
+| 英文別名 | Xinghua、Xinhua、Shinfa、Shi-nhowa、Shin-howa、Shinhowa |
+
+---
+
+## 居住史
+
+| 期間 | 地點 |
+|------|------|
+| 2019-06-19 — 2022-03-11 | 多摩動物公園（日野市、東京都）🐣 出生地 |
+| 2022-03-11 — 現在 | 熊本市動植物園（熊本市東区、熊本県）🏡 |
+
+---
+
+## 家族關係
+
+- 母：[[taofa]] 🌈
+- 父：[[franken]]
+- 雙胞胎姊妹：[[mei-fa]]（同日出生於不同動物園）
+- 同胞姊姊（全血緣）：[[rifa]]
+- 女兒：[[ako]]（2023，與 [[kabosu]] 所生）
+
+> **備注**：Mei-Fa 與 Shin-Fa 雖為雙胞胎，但出生後分別送往不同的動物園飼養。

@@ -1,0 +1,50 @@
+---
+name: Toro
+japanese: トロ
+sex: male
+born: 2004-06-29
+died: 2022-01-05
+species: Ailurus fulgens styani
+zoos:
+  - Saitama Children's Zoo (2004–2006)
+  - Yokohama Zoo Zoorasia (2006–2010)
+  - Himeji Central Park (2010–2022)
+rpf_id: 30
+rpf_url: https://redpandafinder.com/#profile/30
+tags: [styani, male, deceased, zoo:Himeji Central Park]
+sources:
+  - https://redpandafinder.com/#profile/30
+---
+
+# Toro（トロ）
+
+> **小熊貓** ♂ | Ailurus fulgens styani  
+> 生日：2004 年 6 月 29 日 — 2022 年 1 月 5 日 🌈（享年 17 歲）  
+> 最後居住地：Himeji Central Park（兵庫縣姬路市）
+
+Porin（#310 🌈）與 Maguro（#309 🌈）之子，與 Lala（#129）為雙胞胎。在 Himeji Central Park 與 [[kirara-31]] 育有 [[kiraly]]。**[[mochi]] 的外祖父**。
+
+---
+
+## 居住史
+
+| 期間 | 動物園 | 地點 |
+|------|--------|------|
+| 2004/06/29–2006/07/11 | Saitama Children's Zoo（埼玉縣兒童動物自然公園） | 日本 埼玉縣 🇯🇵 |
+| 2006/07/11–2010/04/22 | Yokohama Zoo "Zoorasia"（よこはま動物園ズーラシア） | 日本 神奈川縣橫濱市 🇯🇵 |
+| 2010/04/22–2022/01/05 | Himeji Central Park（姫路セントラルパーク） | 日本 兵庫縣姬路市 🇯🇵 |
+
+---
+
+## 家族
+
+- 母：Porin（#310 🌈，無條目）
+- 父：Maguro（#309 🌈，無條目）
+- 雙胞胎：Lala（#129，無條目）
+
+### 子女（母：[[kirara-31]]）
+
+| 姓名 | 出生年 | 備注 |
+|------|--------|------|
+| [[torori]]（#239） | 2011 | |
+| [[kiraly]] | 2011 | 🌈 |

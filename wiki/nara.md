@@ -1,0 +1,51 @@
+---
+name: Nara
+japanese: 楢, ナラ
+sex: female
+born: 2000-07-17
+died: 2012-03-18
+species: Ailurus fulgens styani
+zoos:
+  - Hiroshima City Asa Zoological Park (2000–2001)
+  - Shizuoka Municipal Nihondaira Zoo (2001–2012)
+rpf_id: 49
+rpf_url: https://redpandafinder.com/#profile/49
+tags: [styani, female, deceased, zoo:Shizuoka Municipal Nihondaira Zoo]
+sources:
+  - https://redpandafinder.com/#profile/49
+---
+
+# Nara（楢 / ナラ）
+
+> **小熊貓** ♀ | Ailurus fulgens styani  
+> 生日：2000 年 7 月 17 日 — 2012 年 3 月 18 日 🌈（享年 11 歲）  
+> 最後居住地：Shizuoka Municipal Nihondaira Zoo（靜岡縣靜岡市）
+
+Banana（#232 🌈）與 Ron-Ron（#231 🌈）之女（⚠️ 此 Ron-Ron 為 RPF #231，勿與 [[ron-ron]] #208 混淆），與 Buna（#336 🌈）為雙胞胎。子女包含 [[futa]]（#34，[[chiita]] 之父）與 [[miu]]（#326，[[kiku]] 之母）。**[[kiku]] 和 [[maru]] 的外祖母**。
+
+---
+
+## 居住史
+
+| 期間 | 動物園 | 地點 |
+|------|--------|------|
+| 2000/07/17–2001/12/18 | Hiroshima City Asa Zoological Park（廣島市安佐動物公園） | 日本 廣島縣 🇯🇵 |
+| 2001/12/18–2012/03/18 | Shizuoka Municipal Nihondaira Zoo（靜岡市日本平動物園） | 日本 靜岡縣靜岡市 🇯🇵 |
+
+---
+
+## 家族
+
+- 母：Banana（#232 🌈，無條目）
+- 父：Ron-Ron（#231 🌈，⚠️ 勿與 [[ron-ron]] #208 混淆）
+- 雙胞胎：Buna（#336 🌈）
+
+### 子女
+
+| 姓名 | 出生年 | 性別 | 父 | 備注 |
+|------|--------|------|-----|------|
+| [[futa]]（#34） | 2003 | ♂ | Fu-Fu（#? 🌈） | [[chiita]] 之父 |
+| [[shuuna]]（#44） | 2006 | ♀ | [[shuu-shuu]] 🌈 | |
+| [[kuu]]（#59 🌈） | 2008 | ♀ | [[shuu-shuu]] 🌈 | |
+| [[miu]]（#326 🌈） | 2010 | ♀ | [[shuu-shuu]] 🌈 | [[kiku]] 之母 |
+| Sea（#142 🌈） | 2010 | ♀ | [[shuu-shuu]] 🌈 | Miu 雙胞胎 |

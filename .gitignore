@@ -1,0 +1,27 @@
+# 系統雜物
+.DS_Store
+**/.DS_Store
+Untitled.canvas
+
+# Python
+__pycache__/
+*.pyc
+
+# 衍生資料庫（由 wiki 重建）
+redpanda.db
+test.db
+test.db-journal
+
+# 網站衍生產物（由 CI 重建）
+site/dist/
+site/data/pandas.json
+site/data/family.json
+site/data/zoos.json
+site/data/report.json
+node_modules/
+
+# Obsidian 本機 UI 狀態
+.obsidian/workspace.json
+
+# Claude 本機設定
+.claude/

@@ -1,0 +1,47 @@
+---
+name: Koto
+japanese: コト, 古都
+sex: female
+born: 2009-07-09
+died: 2022-11-15
+species: Ailurus fulgens styani
+zoos:
+  - Tokuyama Zoo (2009–2011)
+  - Kyoto City Zoo (2011–2022)
+rpf_id: 16
+rpf_url: https://redpandafinder.com/#profile/16
+tags: [styani, female, deceased]
+sources:
+  - https://redpandafinder.com/#profile/16
+---
+
+# Koto（コト / 古都）🌈
+
+> **小熊貓** ♀ | Ailurus fulgens styani  
+> 生日：2009 年 7 月 9 日　歿：2022 年 11 月 15 日（享年 13 歲）  
+> 終居：Kyoto City Zoo（京都府京都市左京區）🇯🇵
+
+[[tochi]] 🌈 與 Kotarou 🌈 之女，出生於德山動物園，2011 年移居京都市動物園，在此度過大半生。與 [[oolong]] 育有一子 [[mugi-oolong]] 🌈。半血緣妹妹包含 [[yuu-yuu-nono]]（2014，同母異父，父 [[nono]] 🌈）。
+
+---
+
+## 居住史
+
+| 期間 | 動物園 | 地點 |
+|------|--------|------|
+| 2009/07/09–2011/03/16 | Tokuyama Zoo（徳山動物園） | 日本 山口縣周南市 🇯🇵 |
+| 2011/03/16–2022/11/15 | Kyoto City Zoo（京都市動物園） | 日本 京都府京都市左京區 🇯🇵 |
+
+---
+
+## 家族
+
+- 母：Tochi 🌈
+- 父：Kotarou 🌈
+- 兄弟姊妹：Kojirou 🌈（2010）、Mikan（2011）、Kurumi（2011）、Nonta ½ 🌈（2012）、Riko ½（2013）、Ron-Ron ½（2013）、Hiko ½ 🌈（2014）、Yuu-Yuu ½（2014）
+
+### 子女（父：[[oolong]]）
+
+| 姓名 | 出生年 | 備注 |
+|------|--------|------|
+| [[mugi-oolong]] 🌈 | 2015-07-13 | RPF #5，移居市川，2025 年歿 |

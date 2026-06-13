@@ -1,0 +1,43 @@
+---
+name: Small
+japanese: 小さい
+sex: female
+born: 1997-12-11
+died: 2014-03-17
+species: Ailurus fulgens fulgens
+zoos:
+  - Perth Zoo（1997–1998）
+  - Mogo Zoo（1998）
+  - 熱川バナナワニ園（1998–2014）
+rpf_id: 1140
+rpf_url: https://redpandafinder.com/#profile/1140
+tags: [fulgens, female, deceased, zoo:熱川バナナワニ園]
+sources:
+  - https://redpandafinder.com/#profile/1140
+---
+
+# Small（小さい）
+
+> **小熊貓** ♀ | Ailurus fulgens fulgens  
+> 生日：1997 年 12 月 11 日 🌈 2014 年 3 月 17 日  
+> 出生地：Perth Zoo（澳大利亞）
+
+[[cinnamon]] 與 [[nuts-small]] 之母，雙胞胎姊妹為 Large 🌈。1998 年從澳大利亞輾轉移居熱川バナナワニ園，終身居於此，育有 12 子女（5 女 7 男）。
+
+---
+
+## 居住史
+
+| 期間 | 動物園 | 地點 |
+|------|--------|------|
+| 1997/12/11–1998/09/08 | Perth Zoo | 澳大利亞 珀斯 🇦🇺 |
+| 1998/09/08–1998/11/20 | Mogo Zoo | 澳大利亞 新南威爾斯 🇦🇺 |
+| 1998/11/20–2014/03/17 | 熱川バナナワニ園（Atagawa Tropical & Alligator Garden） | 日本 靜岡縣 東伊豆町 🇯🇵 |
+
+---
+
+## 家族
+
+- 雙胞胎姊妹：Large 🌈
+- 配偶：(no name) 🌈（RPF #1147）
+- 子女（共 12 名，節選有名者）：Sugar 🌈、Salt 🌈、Pepper 🌈、Maayu 🌈、Sid 🌈、[[cinnamon]]、[[nuts-small]]

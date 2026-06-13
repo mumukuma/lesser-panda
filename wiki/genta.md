@@ -1,0 +1,44 @@
+---
+name: Genta
+japanese: 源太, ゲンタ, 源
+sex: male
+born: 2012-07-03
+species: Ailurus fulgens styani
+zoos:
+  - Chiba Zoological Park (2012–2017)
+  - Tobu Zoo (2017–)
+rpf_id: 37
+rpf_url: https://redpandafinder.com/#profile/37
+tags: [styani, male, zoo:Tobu Zoo]
+sources:
+  - https://redpandafinder.com/#profile/37
+---
+
+# Genta（源太 / ゲンタ）
+
+> **小熊貓** ♂ | Ailurus fulgens styani  
+> 生日：2012 年 7 月 3 日（13 歲）  
+> 現居：Tobu Zoo（東武動物公園）埼玉縣 🇯🇵
+
+[[mei-mei]] 與 [[kuuta]] 🌈 之子，與 [[fuuna]] 為雙胞胎。Kuuta 所有子女中唯一的男性。出生於千葉市動物公園，2017 年移居東武動物公園。母 [[mei-mei]] 亦為 [[azuki]] 與 [[daizu]] 之母，因此 Genta 與 Azuki・Daizu 為半血緣兄弟（½）。祖父為 [[futa]]、祖母為 [[chi-chi]] 🌈。
+
+---
+
+## 居住史
+
+| 期間 | 動物園 | 地點 |
+|------|--------|------|
+| 2012/07/03–2017/10/31 | Chiba Zoological Park（千葉市動物公園）🐣 | 日本 千葉縣千葉市 🇯🇵 |
+| 2017/10/31– | Tobu Zoo（東武動物公園）🏡 | 日本 埼玉縣宮代町 🇯🇵 |
+
+---
+
+## 家族
+
+- 母：[[mei-mei]] メイメイ
+- 父：[[kuuta]] クウタ 🌈
+- 雙胞胎：[[fuuna]] 風菜 ♀
+- 全血緣兄弟姊妹：[[fuuna]]（2012）、[[mai]]（2013）、[[mii]]（2013）、[[meita]]（2014）、[[yui]]（2015）、[[yuu]]（2015）
+- ½ 姊妹（母：[[mei-mei]]）：[[azuki]]（2010）、[[daizu]]（2010）
+- 祖父：[[futa]] 風太
+- 祖母：[[chi-chi]] 🌈

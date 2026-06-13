@@ -1,0 +1,51 @@
+---
+name: Nuts
+japanese: ナツ
+english_variants: [Natsu, Natu]
+sex: female
+born: 2006-06-24
+died: 2018-11-23
+species: Ailurus fulgens styani
+zoos:
+  - Saitama Children's Zoo (2006–2018)
+rpf_id: 77
+rpf_url: https://redpandafinder.com/#profile/77
+tags: [styani, female, deceased, zoo:Saitama Children's Zoo]
+sources:
+  - https://redpandafinder.com/#profile/77
+---
+
+# Nuts（ナツ）🌈
+
+> **小熊貓** ♀ | Ailurus fulgens styani  
+> 生日：2006 年 6 月 24 日 — 2018 年 11 月 23 日 🌈（享年 12 歲）  
+> 終居：Saitama Children's Zoo（埼玉縣兒童動物自然公園）🇯🇵
+
+Porin 🌈 與 Maguro 🌈 之女，與 Coco 🌈 為雙胞胎。其兄弟 [[toro]] 🌈（#23）現已收錄於 Mochi 家族，與 Kiraly 家族有連結。終生於埼玉兒童動物自然公園，與 [[min-min]] 🌈 育有 [[taku]] 🌈 等五名子女。
+
+---
+
+## 居住史
+
+| 期間 | 動物園 | 地點 |
+|------|--------|------|
+| 2006/06/24–2018/11/23 | Saitama Children's Zoo（埼玉縣兒童動物自然公園）🌈 | 日本 埼玉縣東松山市 🇯🇵 |
+
+---
+
+## 家族
+
+- 母：Porin 🌈
+- 父：Maguro 🌈
+- 雙胞胎：Coco 🌈
+- 兄弟姊妹：[[toro]] 🌈（#23）、Lala（#129）、Noko 🌈、Yukiko 🌈、Tekka 🌈、Maki 🌈
+
+### 子女（父：[[min-min]] 🌈）
+
+| 姓名 | 出生年 | 備注 |
+|------|--------|------|
+| [[taku]] | 2010 | ♂ 🌈；Ann（#27）雙胞胎 |
+| Ann | 2010 | Ann（#27）；[[taku]] 🌈 雙胞胎 |
+| Hanabi | 2011 | |
+| Latte | 2013 | 🌈 |
+| Café | 2013 | |
