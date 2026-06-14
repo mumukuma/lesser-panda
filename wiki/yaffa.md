@@ -11,6 +11,8 @@ zoos:
 rpf_id: 1353
 rpf_url: https://redpandafinder.com/#profile/1353
 tags: [styani, male, zoo:Taipei Zoo]
+instagram:
+  - https://www.instagram.com/p/DYqQVYkEh6-/
 sources:
   - https://redpandafinder.com/#profile/1353
 ---

@@ -8,8 +8,8 @@
 需 Node 18+。**先確保資料已產生**（在 repo 根目錄）：
 
 ```bash
-python tools/build_db.py
-python site/scripts/export_json.py
+python3 tools/build_db.py
+python3 site/scripts/export_json.py
 ```
 
 然後在 `web/`（使用 pnpm）：

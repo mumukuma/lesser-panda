@@ -15,6 +15,8 @@ audit.py — wiki 資料完整度檢查 + 與 redpanda-lineage 比對
 無 lineage 時仍可跑「wiki 自身」那幾項檢查。
 """
 
+from __future__ import annotations  # 相容舊版 Python
+
 import re
 import sys
 import glob

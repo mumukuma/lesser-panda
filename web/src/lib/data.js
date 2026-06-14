@@ -32,6 +32,11 @@ export const displayName = (p, locale) =>
     : locale === 'zh-TW' ? p.kanji || p.name
     : p.name;
 
+// ── URL id：slug + 生日（同名也能區分）；slug 仍為資料主鍵 ──────
+for (const p of Object.values(pandas)) {
+  p.urlId = p.born ? `${p.slug}-${p.born}` : p.slug;
+}
+
 // ── 兄弟姊妹（全血／半血）─────────────────────────────
 for (const p of Object.values(pandas)) {
   const sibs = new Set();
@@ -54,7 +59,7 @@ const GRAPH = (() => {
   const nodes = {}, up = {}, down = {};
   for (const p of Object.values(pandas)) {
     nodes[p.slug] = [p.name, p.japanese || '', p.sex === 'female' ? 'f' : p.sex === 'male' ? 'm' : 'u',
-      p.born ? p.born.slice(0, 4) : '', p.died ? p.died.slice(0, 4) : null, p.kanji || ''];
+      p.born ? p.born.slice(0, 4) : '', p.died ? p.died.slice(0, 4) : null, p.kanji || '', p.urlId];
     if (p.mother || p.father) up[p.slug] = [p.mother, p.father];
     if (p.children.length) down[p.slug] = p.children;
   }
@@ -80,7 +85,7 @@ export function subGraph(slug) {
 
 export const searchData = {
   pandas: Object.values(pandas).map((p) => ({
-    slug: p.slug, n: p.name, j: p.japanese, k: p.kanji,
+    slug: p.slug, u: p.urlId, n: p.name, j: p.japanese, k: p.kanji,
     en: [...(p.english_variants || []), ...(p.nicknames || [])].join('|') || null,
     sex: p.sex, born: p.born, died: p.died,
     zoo: !p.died ? zooName(p.current_zoo, p.current_zoo_raw) || null : null,

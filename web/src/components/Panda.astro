@@ -36,7 +36,7 @@ const facts = [
 ].filter(Boolean);
 
 const link = (s) => pandas[s]
-  ? `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, s)}">${displayName(pandas[s], locale)}${pandas[s].died ? ' 🌈' : ''}</a>` : s;
+  ? `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, pandas[s].urlId)}">${displayName(pandas[s], locale)}${pandas[s].died ? ' 🌈' : ''}</a>` : s;
 const famRow = (label, slugs) => slugs && slugs.length
   ? `<li class="py-1"><span class="inline-block min-w-[9em] text-ink-soft text-[.88rem]">${label}</span>${slugs.map(link).join('、')}</li>` : '';
 

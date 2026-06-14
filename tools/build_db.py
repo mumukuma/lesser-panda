@@ -12,6 +12,8 @@ build_db.py — Red Panda Wiki → SQLite
 每次新增 wiki 條目後重跑即可更新 DB。
 """
 
+from __future__ import annotations  # 相容舊版 Python（str | None 等延後解析）
+
 import os
 import re
 import json

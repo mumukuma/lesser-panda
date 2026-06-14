@@ -37,7 +37,7 @@ const featured = ['taofa', 'shiryu', 'franken', 'shin-fa', 'ako'].filter((s) => 
 <h2 class="text-lg mt-7 mb-2.5 border-l-4 border-amber pl-2.5">{T.home_featured}</h2>
 <p class="flex flex-wrap gap-2">
   {featured.map((s) => (
-    <a href={pandaUrl(base, locale, s)}
+    <a href={pandaUrl(base, locale, pandas[s].urlId)}
        class="inline-flex items-center gap-1.5 bg-cream border border-line rounded-full px-3.5 py-1.5 text-[.92rem] no-underline hover:border-amber">
       <span class="font-semibold">{displayName(pandas[s], locale)}{pandas[s].died ? ' 🌈' : ''}</span>
     </a>

@@ -16,6 +16,8 @@ export_json.py — 從 redpanda.db 匯出網站所需的 JSON
 否則使用既有快取 site/data/zoos-master.json。
 """
 
+from __future__ import annotations  # 相容舊版 Python（str | None 等延後解析）
+
 import json
 import re
 import sqlite3

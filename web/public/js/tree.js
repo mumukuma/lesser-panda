@@ -108,7 +108,7 @@
       if (pts.size === 0) {
         if (moved < 6 && downTarget) {
           const s = downTarget.dataset.slug;
-          if (s !== CENTER) location.href = PAGE + 'p/' + s + '/';
+          if (s !== CENTER) location.href = PAGE + 'p/' + ((G.nodes[s] && G.nodes[s][6]) || s) + '/';
         }
         dragLast = null; downTarget = null; svg.style.cursor = 'grab';
       } else {

@@ -13,8 +13,8 @@ export function getStaticPaths() {
     out.push({ params: { path: path('') || undefined }, props: { locale: l.code, kind: 'home', relPath: '' } });
     out.push({ params: { path: path('search') }, props: { locale: l.code, kind: 'search', relPath: 'search' } });
     out.push({ params: { path: path('zoos') }, props: { locale: l.code, kind: 'zoos', relPath: 'zoos' } });
-    for (const slug of Object.keys(pandas)) {
-      out.push({ params: { path: path('p/' + slug) }, props: { locale: l.code, kind: 'panda', slug, relPath: 'p/' + slug } });
+    for (const p of Object.values(pandas)) {
+      out.push({ params: { path: path('p/' + p.urlId) }, props: { locale: l.code, kind: 'panda', slug: p.slug, relPath: 'p/' + p.urlId } });
     }
   }
   return out;

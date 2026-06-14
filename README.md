@@ -46,9 +46,9 @@
 需要 Python 3 與 Node 18+：
 
 ```bash
-python tools/build_db.py            # wiki → SQLite
-python site/scripts/export_json.py  # SQLite → JSON
-cd web && pnpm install && pnpm dev  # Astro 開發伺服器
+python3 tools/build_db.py            # wiki → SQLite
+python3 site/scripts/export_json.py  # SQLite → JSON
+cd web && pnpm install && pnpm dev   # Astro 開發伺服器
 ```
 
 詳細說明見 [`web/README.md`](web/README.md)。

@@ -33,7 +33,7 @@ red-panda-wiki/
 ```
 
 **真相來源是 `wiki/*.md`**；`redpanda.db`、`site/data/*.json`、網站都是衍生資料。
-改完 wiki 後重建：`python tools/build_db.py`（DB）→ `python site/scripts/export_json.py`（網站資料）。
+改完 wiki 後重建：`python3 tools/build_db.py`（DB）→ `python3 site/scripts/export_json.py`（網站資料）。
 網站本身由 GitHub Actions 自動建置部署；本地預覽見 `web/README.md`。
 
 ---
@@ -76,8 +76,8 @@ slug 全小寫、空格換連字號。小熊貓名字極常重複：
 4. 回頭把相關既有條目的純文字親屬改成 `[[wikilink]]`
 5. 更新 `wiki/index.md`：加入適當分類、更新頁首「最後更新」與「條目總數」
 6. 在 `wiki/log.md` 末端 append 一筆記錄
-7. 重跑 `python tools/build_db.py`
-8. 跑 `python tools/audit.py` 檢查資料完整度（缺欄位、與 lineage 不符等）；網站資料則重跑 `python site/scripts/export_json.py`
+7. 重跑 `python3 tools/build_db.py`
+8. 跑 `python tools/audit.py` 檢查資料完整度（缺欄位、與 lineage 不符等）；網站資料則重跑 `python3 site/scripts/export_json.py`
 
 ### ⚠️ log.md 絕對禁止 `[[wikilink]]`
 
@@ -106,7 +106,7 @@ log 格式：
 - 家系/血緣查詢用 SQLite 工具（在 wiki 根目錄執行）：
 
 ```bash
-python tools/build_db.py              # 重建 DB（改過 wiki 後必跑）
+python3 tools/build_db.py              # 重建 DB（改過 wiki 後必跑）
 python tools/query.py profile kiki    # 個體完整資料
 python tools/query.py ancestors taofa # 所有祖先
 python tools/query.py descendants kiki

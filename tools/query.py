@@ -16,6 +16,8 @@ query.py — 常用查詢工具
     db.ancestors("taofa")
 """
 
+from __future__ import annotations  # 相容舊版 Python
+
 import sqlite3, json, sys
 from pathlib import Path
 
