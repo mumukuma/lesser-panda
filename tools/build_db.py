@@ -260,6 +260,10 @@ def build_db():
         if isinstance(english_variants, str):
             english_variants = [english_variants]
 
+        instagram = fm.get("instagram", [])
+        if isinstance(instagram, str):
+            instagram = [instagram]
+
         row = {
             "slug":             slug,
             "name":             fm.get("name", ""),
@@ -273,6 +277,7 @@ def build_db():
             "rpf_id":           int(fm["rpf_id"]) if fm.get("rpf_id") else None,
             "rpf_url":          fm.get("rpf_url"),
             "tags":             json.dumps(tags_raw, ensure_ascii=False),
+            "instagram":        json.dumps(instagram, ensure_ascii=False) if instagram else None,
             "is_alive":         0 if fm.get("died") else 1,
         }
         panda_rows.append((slug, body, row))
@@ -281,10 +286,10 @@ def build_db():
     cur.executemany("""
         INSERT OR REPLACE INTO pandas
           (slug, name, japanese, nicknames, english_variants,
-           sex, born, died, species, rpf_id, rpf_url, tags, is_alive)
+           sex, born, died, species, rpf_id, rpf_url, tags, instagram, is_alive)
         VALUES
           (:slug,:name,:japanese,:nicknames,:english_variants,
-           :sex,:born,:died,:species,:rpf_id,:rpf_url,:tags,:is_alive)
+           :sex,:born,:died,:species,:rpf_id,:rpf_url,:tags,:instagram,:is_alive)
     """, [r for _, _, r in panda_rows])
     conn.commit()
     print(f"  ✅ 插入 {len(panda_rows)} 筆個體資料")

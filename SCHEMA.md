@@ -37,10 +37,14 @@ zoos:
 rpf_id: RedPandaFinder 的 profile ID
 rpf_url: https://redpandafinder.com/#profile/XXX
 tags: [標籤]
+instagram:                # 選填：同好的公開 IG 貼文連結，網站以官方 embed 展示（自動署名、連回原貼文）
+  - https://www.instagram.com/p/XXXXXXXXX/
 sources:
   - https://redpandafinder.com/#profile/XXX
 ---
 ```
+
+> `instagram` 為選填。只放**公開**貼文連結；網站用 Instagram 官方 embed 顯示，會自動標註原作者並連回原貼文（不複製圖片檔）。新增後重跑 `build_db.py` → `export_json.py` 即生效。
 
 ---
 

@@ -40,6 +40,8 @@
   "deceased_mark": "🌈",
   "sec_residences": "居住履歴",
   "sec_family": "家族",
+  "sec_photos": "写真",
+  "photos_note": "写真はファンの公開 Instagram 投稿を埋め込んだものです。著作権は各投稿者に帰属します。タップで元の投稿へ。",
   "sec_tree": "インタラクティブ家系図",
   "sec_children": "子ども",
   "th_period": "期間",

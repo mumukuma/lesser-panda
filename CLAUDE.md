@@ -12,19 +12,29 @@
 red-panda-wiki/
 ├── CLAUDE.md            ← 本文件（操作手冊）
 ├── SCHEMA.md            ← 頁面格式與標籤規範（權威來源）
+├── README.md            ← 專案總覽（對外）
+├── ROADMAP.md           ← 願望池與路線規劃
 ├── rpf-wiki-SKILL.md    ← RPF 抓取資料 → 建立條目的詳細 skill
 ├── redpanda.db          ← 由 wiki/*.md 產生的 SQLite（衍生品，可重建）
 ├── tools/
 │   ├── build_db.py      ← wiki/*.md → redpanda.db
 │   ├── query.py         ← 家系查詢 CLI / Python API
+│   ├── audit.py         ← 資料完整度檢查（與 redpanda-lineage 比對）
+│   ├── apply_lineage_fixes.py ← 依 lineage 保守補齊空白欄位
 │   └── schema.sql       ← SQLite schema
+├── site/
+│   ├── scripts/export_json.py ← redpanda.db → site/data/*.json（網站資料）
+│   └── src/i18n/        ← 三語介面字串
+├── web/                 ← Astro + Tailwind 網站前端（見 web/README.md）
 └── wiki/
     ├── index.md         ← 目錄（依家族分類），含條目總數
     ├── log.md           ← append-only 變更日誌
     └── [slug].md        ← 個體條目（每隻一頁）
 ```
 
-**真相來源是 `wiki/*.md`**；`redpanda.db` 是衍生資料，改完 wiki 後用 `python tools/build_db.py` 重建即可。
+**真相來源是 `wiki/*.md`**；`redpanda.db`、`site/data/*.json`、網站都是衍生資料。
+改完 wiki 後重建：`python tools/build_db.py`（DB）→ `python site/scripts/export_json.py`（網站資料）。
+網站本身由 GitHub Actions 自動建置部署；本地預覽見 `web/README.md`。
 
 ---
 
@@ -67,6 +77,7 @@ slug 全小寫、空格換連字號。小熊貓名字極常重複：
 5. 更新 `wiki/index.md`：加入適當分類、更新頁首「最後更新」與「條目總數」
 6. 在 `wiki/log.md` 末端 append 一筆記錄
 7. 重跑 `python tools/build_db.py`
+8. 跑 `python tools/audit.py` 檢查資料完整度（缺欄位、與 lineage 不符等）；網站資料則重跑 `python site/scripts/export_json.py`
 
 ### ⚠️ log.md 絕對禁止 `[[wikilink]]`
 

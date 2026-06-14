@@ -208,6 +208,7 @@ def main():
             "species": r["species"],
             "rpf_id": r["rpf_id"],
             "rpf_url": r["rpf_url"],
+            "instagram": json.loads(r["instagram"] or "[]"),
             "residences": [],
             "current_zoo": None,   # zoo master id
             "current_zoo_raw": None,

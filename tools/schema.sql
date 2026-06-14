@@ -5,6 +5,14 @@
 
 PRAGMA foreign_keys = ON;
 
+-- 每次重建乾淨（DB 為衍生品）；先 drop 參照方再 drop 被參照的 pandas
+DROP VIEW  IF EXISTS mates;
+DROP VIEW  IF EXISTS full_siblings;
+DROP TABLE IF EXISTS parent_child;
+DROP TABLE IF EXISTS twins;
+DROP TABLE IF EXISTS residences;
+DROP TABLE IF EXISTS pandas;
+
 -- ── 1. 個體基本資料 ─────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS pandas (
     slug        TEXT PRIMARY KEY,   -- 檔名（不含.md），e.g. "kiki", "mii-mii-371"
@@ -19,6 +27,7 @@ CREATE TABLE IF NOT EXISTS pandas (
     rpf_id      INTEGER,            -- Red Panda Finder profile ID
     rpf_url     TEXT,
     tags        TEXT,               -- JSON array，原始 tags
+    instagram   TEXT,               -- JSON array，公開 IG 貼文連結（curate，官方 embed 展示）
     is_alive    INTEGER  -- 0=已歿, 1=現存（由 build_db.py 填入）
 );
 

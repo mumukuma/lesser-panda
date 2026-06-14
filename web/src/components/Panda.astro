@@ -57,6 +57,19 @@ const CARD = 'bg-card border border-line rounded-card shadow-card p-[18px_20px]'
   </dl>
 </div>
 
+{p.instagram && p.instagram.length > 0 && (
+  <>
+    <h2 class={H3}>{T.sec_photos}</h2>
+    <div class="grid gap-4 [grid-template-columns:repeat(auto-fill,minmax(300px,1fr))] justify-items-center">
+      {p.instagram.map((url) => (
+        <blockquote class="instagram-media" data-instgrm-permalink={url} data-instgrm-version="14" style="margin:0;max-width:540px;width:100%"></blockquote>
+      ))}
+    </div>
+    <p class="text-ink-soft text-[.82rem] mt-2">{T.photos_note}</p>
+    <script is:inline async src="https://www.instagram.com/embed.js"></script>
+  </>
+)}
+
 {p.residences.length > 0 && (
   <>
     <h2 class={H3}>{T.sec_residences}</h2>
