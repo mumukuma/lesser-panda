@@ -2,6 +2,7 @@
   "name": "lesser-panda-web",
   "type": "module",
   "private": true,
+  "packageManager": "pnpm@9.15.9",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

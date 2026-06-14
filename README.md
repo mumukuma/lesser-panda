@@ -46,7 +46,7 @@
 ```bash
 python tools/build_db.py            # wiki → SQLite
 python site/scripts/export_json.py  # SQLite → JSON
-cd web && npm install && npm run dev # Astro 開發伺服器
+cd web && pnpm install && pnpm dev  # Astro 開發伺服器
 ```
 
 詳細說明見 [`web/README.md`](web/README.md)。

@@ -12,14 +12,16 @@ python tools/build_db.py
 python site/scripts/export_json.py
 ```
 
-然後在 `web/`：
+然後在 `web/`（使用 pnpm）：
 
 ```bash
-npm install
-npm run dev      # 本機開發伺服器
-npm run build    # 輸出 web/dist/
-npm run preview  # 預覽 build 結果
+pnpm install
+pnpm dev       # 本機開發伺服器
+pnpm build     # 輸出 web/dist/
+pnpm preview   # 預覽 build 結果
 ```
+
+> 沒裝 pnpm 的話：`corepack enable`（Node 內建）即可使用，或 `npm i -g pnpm`。
 
 > 資料路徑是相對於 `web/` 的 `../site/data`，所以 build 必須在 `web/` 目錄執行。
 
@@ -49,5 +51,5 @@ web/
 
 ## 部署
 
-GitHub Actions（`.github/workflows/deploy.yml`）會跑 Python 管線 → `cd web && npm ci && npm run build`
+GitHub Actions（`.github/workflows/deploy.yml`）會跑 Python 管線 → `cd web && pnpm install --frozen-lockfile && pnpm build`
 → 部署 `web/dist` 到 GitHub Pages（base path `/lesser-panda/`）。
