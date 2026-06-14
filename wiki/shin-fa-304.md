@@ -1,8 +1,13 @@
 ---
 name: Shin-Fa
-japanese: シンファ
+born: 2002-06-29
+died: 2008-10-05
+japanese: シンファ / 杏花
 sex: female
 species: Ailurus fulgens styani
+zoos:
+  - 東北サファリパーク （2002–2003）
+  - 市川市動植物園 （2003–2008）
 rpf_id: 304
 rpf_url: https://redpandafinder.com/#profile/304
 tags: [styani, female, deceased]

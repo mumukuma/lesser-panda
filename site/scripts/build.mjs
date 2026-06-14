@@ -35,6 +35,12 @@ const family = JSON.parse(readFileSync(join(DATA, 'family.json'), 'utf8'));
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
 const zooById = Object.fromEntries(zoos.map(z => [z.id, z]));
+
+/* 依語系挑主要顯示名：zh=漢字→英文、ja=日文→英文、en=英文 */
+const displayName = (p, locale) =>
+  locale === 'ja' ? (p.japanese || p.name)
+  : locale === 'zh-TW' ? (p.kanji || p.name)
+  : p.name;
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const inlineJson = (o) => JSON.stringify(o).replace(/</g, '\\u003c');
 const zooName = (id, raw) => id && zooById[id] ? (zooById[id].ja_name || zooById[id].en_name) : (raw || '');
@@ -63,7 +69,7 @@ const GRAPH = (() => {
   const nodes = {}, up = {}, down = {};
   for (const p of Object.values(pandas)) {
     nodes[p.slug] = [p.name, p.japanese || '', p.sex === 'female' ? 'f' : p.sex === 'male' ? 'm' : 'u',
-      p.born ? p.born.slice(0, 4) : '', p.died ? p.died.slice(0, 4) : null];
+      p.born ? p.born.slice(0, 4) : '', p.died ? p.died.slice(0, 4) : null, p.kanji || ''];
     if (p.mother || p.father) up[p.slug] = [p.mother, p.father];
     if (p.children.length) down[p.slug] = p.children;
   }
@@ -138,7 +144,7 @@ ${extraBody}
 
 const link = (ctx, slug) => {
   const q = pandas[slug];
-  return q ? `<a href="${ctx.pageBase}p/${slug}.html">${esc(q.name)}${q.died ? ' 🌈' : ''}</a>` : esc(slug);
+  return q ? `<a href="${ctx.pageBase}p/${slug}.html">${esc(displayName(q, ctx.locale.code))}${q.died ? ' 🌈' : ''}</a>` : esc(slug);
 };
 
 function pandaPage(ctx, p) {
@@ -160,6 +166,9 @@ function pandaPage(ctx, p) {
     p.rpf_url ? [T.field_rpf, `<a href="${esc(p.rpf_url)}" target="_blank" rel="noopener">#${esc(p.rpf_id)}</a>`] : null,
   ].filter(Boolean);
 
+  const primary = displayName(p, ctx.locale.code);
+  // 副標：列出與主名不同的其他寫法（英文 / 日文）
+  const altNames = [...new Set([p.name, p.japanese].filter(Boolean).filter(n => n !== primary))];
   const aka = [...(p.nicknames || []), ...(p.english_variants || [])];
 
   const residences = p.residences.length ? `
@@ -214,8 +223,8 @@ ${p.children.length ? `<h2 style="margin-top:18px">${T.sec_children}</h2>
   const body = `
 <p style="margin-top:20px"><a href="${pageBase}search.html">${T.back_to_search}</a></p>
 <div class="profile-head">
-  <h1 style="margin:6px 0">${esc(p.name)}${p.died ? ' 🌈' : ''}</h1>
-  ${p.japanese ? `<span class="ja">${esc(p.japanese)}</span>` : ''}
+  <h1 style="margin:6px 0">${esc(primary)}${p.died ? ' 🌈' : ''}</h1>
+  ${altNames.length ? `<span class="ja">${esc(altNames.join(' · '))}</span>` : ''}
 </div>
 ${aka.length ? `<p class="sub">${esc(aka.join('、'))}</p>` : ''}
 <div class="card"><dl class="facts">
@@ -226,7 +235,7 @@ ${familySec}
 ${treeSec}`;
 
   return layout(ctx, {
-    title: p.name, body, active: null,
+    title: primary, body, active: null,
     extraBody: `<script>
 (function(){var e=document.getElementById('age');if(!e||!e.dataset.born)return;
 var end=e.dataset.died?new Date(e.dataset.died):new Date();
@@ -238,7 +247,7 @@ if(a>=0)e.textContent='（'+${inlineJson(T.age_years)}.replace('{n}',a)+'）';})
 
 /* ── 首頁 / 搜尋 / 動物園 ─────────────────────────────── */
 
-function indexPage(ctx) {
+function indexPage(ctx, todayData) {
   const { T } = ctx;
   const alive = Object.values(pandas).filter(p => !p.died).length;
   const stats = [
@@ -261,16 +270,26 @@ function indexPage(ctx) {
     <a class="btn ghost" href="zoos.html">${T.nav_zoos}</a>
   </form>
 </div>
+<h2>${T.today_title}</h2>
+<div class="card today">
+  <h3 class="today-h">${T.today_birthdays}</h3>
+  <div id="today-birthdays" class="today-list"></div>
+  <h3 class="today-h">${T.today_rainbow}</h3>
+  <div id="today-rainbow" class="today-list"></div>
+</div>
 <h2>${T.home_featured}</h2>
 <p>${featured}</p>
 <p class="sub">${T.home_intro}</p>`;
-  return layout(ctx, { title: T.nav_home, body, active: 'index.html' });
+  return layout(ctx, {
+    title: T.nav_home, body, active: 'index.html',
+    extraBody: `<script>window.TODAY_DATA=${inlineJson(todayData)};</script><script src="${ctx.assetBase}today.js"></script>`,
+  });
 }
 
 function searchIndexData() {
   return {
     pandas: Object.values(pandas).map(p => ({
-      slug: p.slug, n: p.name, j: p.japanese,
+      slug: p.slug, n: p.name, j: p.japanese, k: p.kanji,
       en: [...(p.english_variants || []), ...(p.nicknames || [])].join('|') || null,
       sex: p.sex, born: p.born, died: p.died,
       zoo: !p.died ? zooName(p.current_zoo, p.current_zoo_raw) || null : null,
@@ -359,7 +378,7 @@ for (const locale of LOCALES) {
     relPath,
   });
 
-  writeFileSync(join(localeRoot, 'index.html'), indexPage(mkCtx(0, 'index.html')));
+  writeFileSync(join(localeRoot, 'index.html'), indexPage(mkCtx(0, 'index.html'), searchData));
   writeFileSync(join(localeRoot, 'search.html'), searchPage(mkCtx(0, 'search.html'), searchData));
   writeFileSync(join(localeRoot, 'zoos.html'), zoosPage(mkCtx(0, 'zoos.html')));
   pageCount += 3;
@@ -371,7 +390,7 @@ for (const locale of LOCALES) {
 
 mkdirSync(join(DIST, 'data'), { recursive: true });
 mkdirSync(join(DIST, 'vendor', 'images'), { recursive: true });
-for (const f of ['styles.css', 'search.js', 'map.js', 'tree.js', 'lang.js', 'sw.js', 'icon.svg']) {
+for (const f of ['styles.css', 'search.js', 'map.js', 'tree.js', 'lang.js', 'today.js', 'sw.js', 'icon.svg']) {
   copyFile(join(SRC, f), join(DIST, f));
 }
 for (const f of readdirSync(VENDOR)) {

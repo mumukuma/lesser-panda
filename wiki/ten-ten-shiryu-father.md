@@ -1,10 +1,18 @@
 ---
 name: Ten-Ten
+born: 1997-06-18
+zoos:
+  - 茶臼山動物園 （1997–1999）
+  - 東北サファリパーク （1999–2016）
+died: 2016-07-21
+japanese: 天天
 note: 此為 Shiryu 的父親，非 Ron-Ron 的兄弟 Ten-Ten
 sex: male
+rpf_id: 352
+rpf_url: https://redpandafinder.com/#profile/352
 tags: [taofa-family, styani, male, deceased]
 sources:
-  - https://redpandafinder.com/#profile/207
+  - https://redpandafinder.com/#profile/352
 ---
 
 # Ten-Ten 🌈（Shiryu 之父）

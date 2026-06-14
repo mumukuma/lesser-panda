@@ -1,5 +1,6 @@
 ---
 name: Rei
+japanese: 令
 sex: male
 born: 2019-07-01
 species: Ailurus fulgens styani

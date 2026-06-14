@@ -1,9 +1,16 @@
 ---
 name: Rishi
+born: 1999-07-08
+zoos:
+  - 東北サファリパーク （1999–2009）
+died: 2009-03-06
+japanese: 日食
 sex: female
+rpf_id: 365
+rpf_url: https://redpandafinder.com/#profile/365
 tags: [taofa-family, styani, female, deceased]
 sources:
-  - https://redpandafinder.com/#profile/207
+  - https://redpandafinder.com/#profile/365
 ---
 
 # Rishi 🌈

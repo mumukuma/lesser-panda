@@ -1,5 +1,6 @@
 ---
 name: Kazu
+japanese: 和
 sex: male
 born: 2019-07-02
 species: Ailurus fulgens styani

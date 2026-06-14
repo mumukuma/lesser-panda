@@ -1,7 +1,12 @@
 ---
 name: Pam
+born: 1997-06-26
+died: 2006-03-11
 sex: female
 species: Ailurus fulgens styani
+zoos:
+  - いしかわ動物園 （1997–1999）
+  - よこはま動物園ズーラシア （1999–2006）
 rpf_id: 360
 rpf_url: https://redpandafinder.com/#profile/360
 tags: [styani, female, deceased]

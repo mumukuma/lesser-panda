@@ -42,6 +42,36 @@ def get_db():
 
 # ── 動物園主檔 ────────────────────────────────────────────────
 
+# ── 漢字名抽取（供中文介面「漢字→英文」顯示規則）─────────────
+_KANJI_RE = re.compile(r"[一-鿿々]")   # CJK 統一漢字 + 々
+_KANA_RE = re.compile(r"[぀-ヿ]")          # 平假名 + 片假名
+
+# 從 redpanda-lineage 的 ja.othernames 救回、wiki japanese 欄位缺漏的漢字名
+# （以 rpf_id 為鍵；未來可逐步併回 wiki frontmatter 的 japanese 欄位）
+KANJI_BY_RPF = {
+    319: "暁", 318: "曙", 317: "旭", 295: "明日葉", 71: "福福", 947: "和",
+    359: "美美", 1450: "最中", 946: "令", 364: "怜怜", 82: "龍", 288: "六堡",
+    171: "緑之介", 304: "杏花", 164: "陽陽",
+}
+
+
+def clean_japanese(japanese: str | None) -> str | None:
+    """濾掉只有標點/波浪號等雜訊的 japanese 欄位（無假名也無漢字者視為無）。"""
+    if japanese and (_KANA_RE.search(japanese) or _KANJI_RE.search(japanese)):
+        return japanese
+    return None
+
+
+def extract_kanji(japanese: str | None, rpf_id=None) -> str | None:
+    """回傳可供中文顯示的漢字名；無漢字則 None（中文介面將退回英文名）。"""
+    if japanese:
+        tokens = re.split(r"[\s/／（）()、,，｜|]+", japanese)
+        pure = [t for t in tokens if t and _KANJI_RE.search(t) and not _KANA_RE.search(t)]
+        if pure:
+            return pure[0]
+    return KANJI_BY_RPF.get(rpf_id)
+
+
 def _to_float(v):
     try:
         return float(v)
@@ -167,7 +197,8 @@ def main():
         pandas[r["slug"]] = {
             "slug": r["slug"],
             "name": r["name"],
-            "japanese": r["japanese"],
+            "japanese": clean_japanese(r["japanese"]),
+            "kanji": extract_kanji(r["japanese"], r["rpf_id"]),
             "nicknames": json.loads(r["nicknames"] or "[]"),
             "english_variants": json.loads(r["english_variants"] or "[]"),
             "sex": r["sex"],

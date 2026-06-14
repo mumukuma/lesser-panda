@@ -1,6 +1,6 @@
 ---
 name: Monaka
-japanese: モナカ
+japanese: モナカ / 最中
 english_variants: [Monaka]
 sex: female
 born: 2025-07-11

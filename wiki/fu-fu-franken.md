@@ -1,6 +1,6 @@
 ---
 name: Fu-Fu
-japanese: ふーふー
+japanese: ふーふー / 福福
 sex: female
 born: 2014-06-22
 species: Ailurus fulgens styani

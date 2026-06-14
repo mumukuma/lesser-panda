@@ -1,6 +1,6 @@
 ---
 name: Ashitaba
-japanese: アシタバ
+japanese: アシタバ / 明日葉
 english_variants: [Ashitaba]
 sex: female
 born: 2016-06-22

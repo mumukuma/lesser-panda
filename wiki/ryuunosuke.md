@@ -1,5 +1,11 @@
 ---
 name: Ryuunosuke
+born: 1999-07-27
+zoos:
+  - 多摩動物公園 （1999–2001）
+  - 愛媛県立とべ動物園 （2001–2019）
+died: 2019-03-12
+japanese: 緑之介
 sex: male
 rpf_id: 171
 rpf_url: https://redpandafinder.com/#profile/171

@@ -1,6 +1,6 @@
 ---
 name: Ron
-japanese: ロン
+japanese: ロン / 龍
 english_variants: [龍]
 sex: male
 born: 2005-06-23

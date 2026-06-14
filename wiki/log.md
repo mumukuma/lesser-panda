@@ -1542,3 +1542,37 @@
 - `tools/build_db.py` 的雙胞胎正則只匹配「雙胞胎：」，漏掉「雙胞胎姊妹：」「雙胞胎兄弟：」等寫法，導致 14 組雙胞胎（如 `mei-fa`/`shin-fa`、`akebi`/`gumi`）未進入 DB
 - 修正後雙胞胎關係由 81 組增為 95 組
 - 另：新增 `site/` 資料夾（由 wiki 自動生成的靜態圖鑑網站，詳見 site/README.md），wiki 本身無任何變動
+
+---
+
+## [2026-06-13] update | 補完 Rifa、Mei-Fa 條目（原僅用 #query 搜尋連結，未爬 profile）
+
+**來源**：
+- https://redpandafinder.com/#profile/240 (Rifa 李花)
+- https://redpandafinder.com/#profile/949 (Mei-Fa 梅花)
+
+**說明**：
+- 這兩隻原以 `#query/` 搜尋連結建檔，`rpf_id`、`japanese` 皆缺（japanese 為 `~` 空佔位）
+- 依 RPF profile 補完整：
+  - `rifa.md` — rpf_id 240、japanese `リーファ / 李花`、english_variants（Li-Hua/Lihua/Ri-fa/Plum Flowers）
+  - `mei-fa.md` — rpf_id 949、japanese `メイファ / 梅花`、english_variants（Meifa/Mayfa/Meihua…）
+- Rifa=李花、Mei-Fa=梅花，與 Taofa（桃花）、Shin-Fa（杏花）的花系命名一致
+- 修正後網站中文介面正確顯示漢字名（先前因無漢字而退回英文）
+
+---
+
+## [2026-06-13] tooling+update | 新增資料完整度檢查；批次補齊 lineage 可得欄位
+
+**工具**：
+- `tools/audit.py` — wiki 資料完整度檢查（不重爬 RPF，改與 redpanda-lineage 整包比對）
+- `tools/apply_lineage_fixes.py` — 依 lineage 保守補齊空白欄位（只填空、不覆蓋）
+
+**更新條目（共 20 隻，資料來源 redpanda-lineage / RPF profile）**：
+- 補漢字名 15 隻：`akatsuki`(暁)、`akebono`(曙)、`asahi`(旭)、`ashitaba`(明日葉)、`fu-fu-franken`(福福)、`kazu`(和)、`mii-mii`(美美)、`monaka`(最中)、`rei`(令)、`rin-rin`(怜怜)、`ron-kiki`(龍)、`roppo`(六堡)、`ryuunosuke`(緑之介)、`shin-fa-304`(杏花)、`yan-yan-franken`(陽陽)
+- 補已歿狀態+卒日+生日+居住史：`katsuo`、`mii-mii`、`pam`、`rin-rin`、`ryuunosuke`、`shin-fa-304`
+- 補上正確 rpf_id（原誤指子女 profile 或缺漏），並交叉驗證親屬關係確認：
+  - `rishi` → #365（日食，Shiryu 之母）
+  - `ten-ten-shiryu-father` → #352（天天，Shiryu 之父）
+  - `tian` → #161（Taofa 之兄；lineage 顯示其另有子女，待日後擴充）
+
+**結果**：audit 由 32🟡/9⚪ 降為 0；358 隻全數與 lineage 對齊

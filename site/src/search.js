@@ -5,6 +5,12 @@
     await fetch(window.SITE_BASE + 'data/search-index.json').then(r => r.json());
   const pandas = data.pandas;
   const PAGE = window.PAGE_BASE ?? window.SITE_BASE;
+  const loc = window.LOCALE;
+  const nameOf = (p) => loc === 'ja' ? (p.j || p.n) : loc === 'zh-TW' ? (p.k || p.n) : p.n;
+  const altOf = (p) => {
+    const primary = nameOf(p);
+    return [...new Set([p.n, p.j].filter(Boolean).filter(x => x !== primary))].join(' · ');
+  };
 
   // 動物園下拉選單（依現居數排序）
   const zooCount = {};
@@ -34,8 +40,9 @@
       const life = p.died
         ? `${(p.born || '?').slice(0, 4)}–${p.died.slice(0, 4)} ${window.T.deceased_mark}`
         : `${(p.born || '?').slice(0, 4)}–${age !== null ? `（${age} 歲）` : ''}`;
+      const alt = altOf(p);
       return `<a class="card panda-card" href="${PAGE}p/${p.slug}.html">
-        <div class="nm">${p.n}${p.j ? `<span class="ja">${p.j}</span>` : ''}</div>
+        <div class="nm">${nameOf(p)}${alt ? `<span class="ja">${alt}</span>` : ''}</div>
         <div class="meta"><span class="badge ${sexCls}">${sexTxt}</span>${life}</div>
         <div class="meta">${p.zoo || ''}</div></a>`;
     }).join('');

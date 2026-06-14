@@ -65,6 +65,20 @@ h2 { font-size: 1.15rem; margin: 30px 0 10px; border-left: 4px solid var(--amber
 }
 .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
 
+/* today block */
+.today .today-h { font-size: .98rem; margin: 6px 0 10px; color: var(--rust-dark); }
+.today .today-h + .today-list { margin-bottom: 18px; }
+.today-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.today-chip {
+  display: inline-flex; align-items: baseline; gap: 6px; color: inherit;
+  background: var(--cream); border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 14px; font-size: .92rem;
+}
+.today-chip:hover { text-decoration: none; border-color: var(--amber); }
+.today-chip .nm { font-weight: 600; }
+.today-chip .info { font-size: .82rem; color: var(--ink-soft); }
+.today-empty { color: var(--ink-soft); font-size: .9rem; margin: 0; }
+
 /* stats */
 .stats { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0; }
 .stat { flex: 1 1 120px; text-align: center; padding: 14px 8px; }

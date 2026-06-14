@@ -1,15 +1,17 @@
 ---
 name: Mei-Fa
-japanese: ~
+japanese: メイファ / 梅花
+english_variants: [Meifa, Mayfa, Meihua, Mei-howa, Meihowa]
 sex: female
 born: 2019-06-19
 species: Ailurus fulgens styani
 zoos:
   - 九十九島動植物園森きらら (2019–現在)
-rpf_url: https://redpandafinder.com/#query/mei-fa
+rpf_id: 949
+rpf_url: https://redpandafinder.com/#profile/949
 tags: [taofa-family, styani, female, zoo:Kujukushima Zoological and Botanical Garden]
 sources:
-  - https://redpandafinder.com/#query/mei-fa
+  - https://redpandafinder.com/#profile/949
 ---
 
 # Mei-Fa

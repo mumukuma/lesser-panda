@@ -1,6 +1,6 @@
 ---
 name: Yan-Yan
-japanese: やんやん
+japanese: やんやん / 陽陽
 sex: male
 born: 2014-06-22
 species: Ailurus fulgens styani

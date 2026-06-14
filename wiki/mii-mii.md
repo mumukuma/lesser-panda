@@ -1,7 +1,14 @@
 ---
 name: Mii-Mii
+born: 1994-06-26
+died: 2015-03-31
+japanese: 美美
 sex: male
 species: Ailurus fulgens styani
+zoos:
+  - 川崎市夢見ヶ崎動物公園 （1994–1997）
+  - 横浜市立野毛山動物園 （1997–1998）
+  - よこはま動物園ズーラシア （1998–2015）
 rpf_id: 359
 rpf_url: https://redpandafinder.com/#profile/359
 tags: [styani, male, deceased]

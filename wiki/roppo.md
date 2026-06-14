@@ -1,5 +1,6 @@
 ---
 name: Roppo
+japanese: 六堡
 sex: male
 born: 2015-06-25
 species: Ailurus fulgens styani

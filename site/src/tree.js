@@ -7,6 +7,9 @@
   const G = window.GRAPH_DATA ||
     await fetch(window.SITE_BASE + 'data/graph.json').then(r => r.json());
   const PAGE = window.PAGE_BASE ?? window.SITE_BASE;
+  const LOC = window.LOCALE;
+  // d = [name, japanese, sex, bornYr, diedYr, kanji]
+  const nameByLoc = (d) => LOC === 'ja' ? (d[1] || d[0]) : LOC === 'zh-TW' ? (d[5] || d[0]) : d[0];
 
   const NODE_W = 118, NODE_H = 40, GAP_X = 14, ROW_H = 86;
   const unitW = NODE_W + GAP_X;
@@ -200,8 +203,10 @@
     const nodeSvg = (n) => {
       const d = G.nodes[n.slug];
       const cls = `tree-node ${d[2] === 'f' ? 'f' : d[2] === 'm' ? 'm' : ''} ${n.slug === CENTER ? 'center' : ''}`;
-      const label = d[0] + (d[4] ? ' 🌈' : '');
-      const sub = (d[1] ? d[1] + ' ' : '') + (d[3] ? d[3] : '');
+      const primary = nameByLoc(d);
+      const label = primary + (d[4] ? ' 🌈' : '');
+      const alt = [d[0], d[1]].find(x => x && x !== primary) || '';
+      const sub = (alt ? alt + ' ' : '') + (d[3] ? d[3] : '');
       return `<g class="${cls}" data-slug="${esc(n.slug)}" transform="translate(${n.x - NODE_W / 2},${n.y - NODE_H / 2})">
         <rect width="${NODE_W}" height="${NODE_H}" rx="9"></rect>
         <text x="${NODE_W / 2}" y="16" text-anchor="middle">${esc(label)}</text>

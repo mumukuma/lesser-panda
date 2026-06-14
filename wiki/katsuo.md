@@ -1,7 +1,13 @@
 ---
 name: Katsuo
+born: 2002-07-02
+died: 2010-11-30
 sex: male
 species: Ailurus fulgens styani
+zoos:
+  - 多摩動物公園 （2002–2003）
+  - 市川市動植物園 （2003–2009）
+  - 川崎市夢見ヶ崎動物公園 （2009–2010）
 rpf_id: 303
 rpf_url: https://redpandafinder.com/#profile/303
 tags: [styani, male, deceased]

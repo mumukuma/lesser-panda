@@ -1,5 +1,10 @@
 ---
 name: Rin-Rin
+born: 1999-07-09
+zoos:
+  - 愛媛県立とべ動物園 （1999–2014）
+died: 2014-11-04
+japanese: 怜怜
 note: 此為 Ron-Ron（profile/208）的母親
 sex: female
 rpf_id: 364

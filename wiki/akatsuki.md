@@ -1,6 +1,6 @@
 ---
 name: Akatsuki
-japanese: あかつき
+japanese: あかつき / 暁
 nicknames: [暁]
 sex: male
 born: 2018-07-25

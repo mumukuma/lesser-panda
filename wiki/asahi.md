@@ -1,6 +1,6 @@
 ---
 name: Asahi
-japanese: あさひ
+japanese: あさひ / 旭
 nicknames: [旭]
 sex: male
 born: 2018-07-25

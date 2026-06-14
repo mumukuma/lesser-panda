@@ -1,15 +1,17 @@
 ---
 name: Rifa
-japanese: ~
+japanese: リーファ / 李花
+english_variants: [Li-Hua, Lihua, Ri-fa, Plum Flowers]
 sex: female
 born: 2018-06-07
 species: Ailurus fulgens styani
 zoos:
   - 秋吉台サファリランド (2018–現在)
-rpf_url: https://redpandafinder.com/#query/rifa
+rpf_id: 240
+rpf_url: https://redpandafinder.com/#profile/240
 tags: [taofa-family, styani, female, zoo:Akiyoshidai Safari Land]
 sources:
-  - https://redpandafinder.com/#query/rifa
+  - https://redpandafinder.com/#profile/240
 ---
 
 # Rifa

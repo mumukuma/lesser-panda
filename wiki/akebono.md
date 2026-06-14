@@ -1,6 +1,6 @@
 ---
 name: Akebono
-japanese: あけぼの
+japanese: あけぼの / 曙
 nicknames: [曙]
 sex: male
 born: 2018-07-25
