@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── 主題變數（淺色預設）─────────────────────────────── */
+:root {
+  --bg: #fdf8f2; --bg-card: #ffffff; --ink: #3d2c23; --ink-soft: #7a6a5f;
+  --rust: #b5552d; --rust-dark: #8f3f1e; --amber: #e8a13c;
+  --cream: #f5e9d9; --line: #e8dccc; --female: #c2563f; --male: #3f7a8c;
+  --shadow: 0 1px 3px rgba(61,44,35,.08), 0 4px 14px rgba(61,44,35,.06);
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #17120f; --bg-card: #221b17; --ink: #f1e7de; --ink-soft: #ab9b8c;
+  --rust: #e0976a; --rust-dark: #c2703f; --amber: #e8a13c;
+  --cream: #322620; --line: #3a302a; --female: #e98c74; --male: #82b6c6;
+  --shadow: 0 1px 3px rgba(0,0,0,.45), 0 6px 18px rgba(0,0,0,.35);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #17120f; --bg-card: #221b17; --ink: #f1e7de; --ink-soft: #ab9b8c;
+    --rust: #e0976a; --rust-dark: #c2703f; --amber: #e8a13c;
+    --cream: #322620; --line: #3a302a; --female: #e98c74; --male: #82b6c6;
+    --shadow: 0 1px 3px rgba(0,0,0,.45), 0 6px 18px rgba(0,0,0,.35);
+  }
+}
+
+body { background: var(--bg); color: var(--ink); }
+
+/* 深色下，header 不用亮橘（白字對比不足），改深色漸層 */
+:root[data-theme="dark"] header.site-header { background: linear-gradient(135deg, #2c221c, #1d1611); }
+
+/* ── 家系圖 SVG（沿用，非 Tailwind）──────────────────── */
+#tree-box { height: 460px; overflow: hidden; touch-action: none; background: #fffdf9;
+  border: 1px solid var(--line); border-radius: 10px; user-select: none; }
+:root[data-theme="dark"] #tree-box { background: #1c1511; }
+#tree-box svg { display: block; width: 100%; height: 100%; }
+.tree-node { cursor: pointer; }
+.tree-node rect { fill: var(--bg-card); stroke: var(--line); stroke-width: 1.2; }
+.tree-node.f rect { stroke: var(--female); }
+.tree-node.m rect { stroke: var(--male); }
+.tree-node.center rect { fill: var(--cream); stroke: var(--rust); stroke-width: 2; }
+.tree-node text { font-size: 12px; fill: var(--ink); }
+.tree-node .sub { font-size: 10px; fill: var(--ink-soft); }
+.tree-link { fill: none; stroke: #d7c5b0; stroke-width: 1.4; }
+:root[data-theme="dark"] .tree-link { stroke: #5a4a3c; }
+.tree-link.twin { stroke: var(--amber); stroke-dasharray: 4 3; }
+
+/* Leaflet 地圖容器 */
+#map { height: 420px; border-radius: 14px; border: 1px solid var(--line); box-shadow: var(--shadow); z-index: 1; }
+@media (max-width: 560px) { #map { height: 300px; } #tree-box { height: 70vh; } }
+
+/* 表格在窄螢幕可橫向捲動 */
+@media (max-width: 560px) { table.scroll-x { display: block; overflow-x: auto; white-space: nowrap; } }

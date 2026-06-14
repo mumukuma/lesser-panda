@@ -63,4 +63,8 @@ site/
   `git clone --depth 1 https://github.com/wwoast/redpanda-lineage /tmp/redpanda-lineage`
 - wiki 居住史的園名若匹配不到主檔，會在 `site/data/report.json` 的
   `unmatched_zoo_names` 列出；常用別名請加進 `export_json.py` 的 `ZOO_ALIASES`。
+- **動物園 logo**：預設用官網 favicon（透過 Google favicon 服務即時載入）。
+  想替某園換成正式 logo，編輯 `site/data/zoo-logos.json`，格式 `{"動物園id": "圖片網址"}`，
+  例如 `{"17": "https://example.com/logo.png"}`（id 見 `site/data/zoos.json`）。
+  覆蓋優先於 favicon。
 - 第二期規劃（badge、IG 連結）資料會存瀏覽器 localStorage，與本生成流程無關。

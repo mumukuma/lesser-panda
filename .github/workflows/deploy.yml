@@ -33,13 +33,16 @@ jobs:
           python tools/build_db.py
           python site/scripts/export_json.py
 
-      - name: Build static site
-        run: node site/scripts/build.mjs
+      - name: Build Astro site
+        working-directory: web
+        run: |
+          npm ci
+          npm run build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site/dist
+          path: web/dist
 
   deploy:
     needs: build

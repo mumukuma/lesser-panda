@@ -1,0 +1,52 @@
+---
+import { pandas, zoos, family, i18n, displayName } from '../lib/data.js';
+import { pandaUrl, pageUrl } from '../lib/links.js';
+
+const { locale } = Astro.props;
+const T = i18n[locale];
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const alive = Object.values(pandas).filter((p) => !p.died).length;
+const stats = [
+  [Object.keys(pandas).length, T.stat_pandas],
+  [alive, T.stat_alive],
+  [zoos.length, T.stat_zoos],
+  [family.parent_child.length, T.stat_edges],
+];
+const featured = ['taofa', 'shiryu', 'franken', 'shin-fa', 'ako'].filter((s) => pandas[s]);
+---
+<h1 class="text-2xl font-bold mt-7 mb-1.5">{T.site_title}</h1>
+<p class="text-ink-soft mb-4">{T.site_subtitle}</p>
+
+<div class="flex gap-3 flex-wrap my-5">
+  {stats.map(([n, l]) => (
+    <div class="flex-1 min-w-[120px] text-center bg-card border border-line rounded-card shadow-card py-3.5 px-2">
+      <div class="text-3xl font-extrabold text-rust">{n}</div>
+      <div class="text-[.85rem] text-ink-soft">{l}</div>
+    </div>
+  ))}
+</div>
+
+<h2 class="text-lg mt-7 mb-2.5 border-l-4 border-amber pl-2.5">{T.today_title}</h2>
+<div class="bg-card border border-line rounded-card shadow-card p-5">
+  <h3 class="text-base mb-2.5 text-rust-dark">{T.today_birthdays}</h3>
+  <div id="today-birthdays" class="flex flex-wrap gap-2 mb-4"></div>
+  <h3 class="text-base mb-2.5 text-rust-dark">{T.today_rainbow}</h3>
+  <div id="today-rainbow" class="flex flex-wrap gap-2"></div>
+</div>
+
+<h2 class="text-lg mt-7 mb-2.5 border-l-4 border-amber pl-2.5">{T.home_featured}</h2>
+<p class="flex flex-wrap gap-2">
+  {featured.map((s) => (
+    <a href={pandaUrl(base, locale, s)}
+       class="inline-flex items-center gap-1.5 bg-cream border border-line rounded-full px-3.5 py-1.5 text-[.92rem] no-underline hover:border-amber">
+      <span class="font-semibold">{displayName(pandas[s], locale)}{pandas[s].died ? ' 🌈' : ''}</span>
+    </a>
+  ))}
+</p>
+<p class="text-ink-soft text-[.95rem] mt-3">{T.home_intro}</p>
+
+<form action={pageUrl(base, locale, 'search')} class="mt-5 flex gap-2.5 flex-wrap items-center bg-card border border-line rounded-card shadow-card p-4">
+  <input type="search" name="q" placeholder={T.search_placeholder}
+    class="flex-1 min-w-[220px] bg-card text-ink border border-line rounded-[10px] px-3.5 py-2.5" />
+  <button type="submit" class="bg-rust text-white rounded-full px-4 py-2 text-[.9rem] hover:bg-rust-dark">{T.nav_search}</button>
+</form>

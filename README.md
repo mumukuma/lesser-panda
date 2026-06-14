@@ -27,26 +27,29 @@
 .
 ├── wiki/              # 真相來源：個體條目 + index + log
 ├── tools/             # wiki → SQLite 的解析與家系查詢工具
-├── site/              # 靜態網站生成器（見 site/README.md）
-│   ├── scripts/       # 資料匯出 + 頁面生成
-│   ├── src/           # 樣式、前端腳本、i18n 字串
-│   └── vendor/        # Leaflet（本地化，無 CDN 依賴）
+├── site/              # 資料管線 + i18n 字串
+│   ├── scripts/       # build_db / export_json（wiki → JSON）
+│   ├── data/          # 產出的 JSON（中繼資料）
+│   └── src/i18n/      # 三語介面字串
+├── web/               # Astro + Tailwind 前端（見 web/README.md）
 ├── CLAUDE.md          # wiki 維護操作手冊
 └── SCHEMA.md          # 條目格式規範
 ```
 
+> 註：早期的 `site/scripts/build.mjs` + `site/src/` 是第一版純 HTML 生成器，
+> 現已由 `web/`（Astro + Tailwind）取代；資料管線（`tools/`、`site/scripts/export_json.py`）續用。
+
 ## 本地建置
 
-需要 Python 3 與 Node 18+，無 npm 相依套件：
+需要 Python 3 與 Node 18+：
 
 ```bash
 python tools/build_db.py            # wiki → SQLite
 python site/scripts/export_json.py  # SQLite → JSON
-node site/scripts/build.mjs         # JSON → site/dist/
-cd site/dist && python3 -m http.server 8000
+cd web && npm install && npm run dev # Astro 開發伺服器
 ```
 
-詳細說明見 [`site/README.md`](site/README.md)。
+詳細說明見 [`web/README.md`](web/README.md)。
 
 ## 部署
 

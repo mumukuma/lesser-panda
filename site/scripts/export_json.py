@@ -22,6 +22,7 @@ import sqlite3
 import sys
 import unicodedata
 from pathlib import Path
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent.parent.parent  # red-panda-wiki/
 SITE_DATA = ROOT / "site" / "data"
@@ -263,6 +264,18 @@ def main():
     # 各園現居個體
     used_zoo_ids = {p["current_zoo"] for p in pandas.values() if p["current_zoo"]}
     all_res_ids = {r["zoo_id"] for p in pandas.values() for r in p["residences"] if r["zoo_id"]}
+    # 動物園 logo：手動覆蓋（zoo-logos.json）優先，否則用官網 favicon
+    overrides = {}
+    ov_path = SITE_DATA / "zoo-logos.json"
+    if ov_path.exists():
+        overrides = {int(k): v for k, v in json.loads(ov_path.read_text(encoding="utf-8")).items()}
+
+    def zoo_logo(z):
+        if z["id"] in overrides:
+            return overrides[z["id"]]
+        host = urlparse(z["website"] or "").netloc
+        return f"https://www.google.com/s2/favicons?domain={host}&sz=64" if host else None
+
     zoos_out = []
     for z in zoos_master:
         if z["id"] not in all_res_ids:
@@ -270,7 +283,7 @@ def main():
         residents = sorted(
             [s for s, p in pandas.items() if p["current_zoo"] == z["id"]],
             key=lambda s: pandas[s]["born"] or "9999")
-        zoos_out.append({**z, "residents": residents})
+        zoos_out.append({**z, "logo": zoo_logo(z), "residents": residents})
     zoos_out.sort(key=lambda z: (-len(z["residents"]), z["id"]))
 
     # 輸出

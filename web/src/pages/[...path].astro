@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Home from '../components/Home.astro';
+import Search from '../components/Search.astro';
+import Zoos from '../components/Zoos.astro';
+import Panda from '../components/Panda.astro';
+import { pandas, zoos, LOCALES, searchData, subGraph, displayName } from '../lib/data.js';
+
+export function getStaticPaths() {
+  const out = [];
+  for (const l of LOCALES) {
+    const path = (sub) => (l.dir + sub).replace(/\/$/, '');
+    out.push({ params: { path: path('') || undefined }, props: { locale: l.code, kind: 'home', relPath: '' } });
+    out.push({ params: { path: path('search') }, props: { locale: l.code, kind: 'search', relPath: 'search' } });
+    out.push({ params: { path: path('zoos') }, props: { locale: l.code, kind: 'zoos', relPath: 'zoos' } });
+    for (const slug of Object.keys(pandas)) {
+      out.push({ params: { path: path('p/' + slug) }, props: { locale: l.code, kind: 'panda', slug, relPath: 'p/' + slug } });
+    }
+  }
+  return out;
+}
+
+const { locale, kind, slug, relPath } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+
+const titles = {
+  home: undefined,
+  search: (await import('../lib/data.js')).i18n[locale].nav_search,
+  zoos: (await import('../lib/data.js')).i18n[locale].nav_zoos,
+  panda: kind === 'panda' ? displayName(pandas[slug], locale) : undefined,
+};
+const active = kind === 'home' ? 'home' : kind;
+
+const p = kind === 'panda' ? pandas[slug] : null;
+const hasTree = p && (p.mother || p.father || p.children.length || (p.twins || []).length);
+const graph = hasTree ? subGraph(slug) : null;
+---
+<Layout locale={locale} relPath={relPath} active={active} title={titles[kind]}>
+  {kind === 'zoos' && <link slot="head" rel="stylesheet" href={`${base}vendor/leaflet.css`} />}
+
+  {kind === 'home' && <Home locale={locale} />}
+  {kind === 'search' && <Search locale={locale} />}
+  {kind === 'zoos' && <Zoos locale={locale} />}
+  {kind === 'panda' && <Panda locale={locale} slug={slug} />}
+
+  {kind === 'home' && (
+    <Fragment slot="scripts">
+      <script is:inline define:vars={{ data: searchData }}>window.TODAY_DATA = data;</script>
+      <script is:inline src={`${base}js/today.js`}></script>
+    </Fragment>
+  )}
+  {kind === 'search' && (
+    <Fragment slot="scripts">
+      <script is:inline define:vars={{ data: searchData }}>window.SEARCH_DATA = data;</script>
+      <script is:inline src={`${base}js/search.js`}></script>
+    </Fragment>
+  )}
+  {kind === 'zoos' && (
+    <Fragment slot="scripts">
+      <script is:inline define:vars={{ data: { zoos } }}>window.ZOOS_DATA = data;</script>
+      <script is:inline src={`${base}vendor/leaflet.js`}></script>
+      <script is:inline src={`${base}js/map.js`}></script>
+    </Fragment>
+  )}
+  {kind === 'panda' && hasTree && (
+    <Fragment slot="scripts">
+      <script is:inline define:vars={{ data: graph }}>window.GRAPH_DATA = data;</script>
+      <script is:inline src={`${base}js/tree.js`}></script>
+    </Fragment>
+  )}
+</Layout>

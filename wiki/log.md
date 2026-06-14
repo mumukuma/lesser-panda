@@ -1576,3 +1576,15 @@
   - `tian` → #161（Taofa 之兄；lineage 顯示其另有子女，待日後擴充）
 
 **結果**：audit 由 32🟡/9⚪ 降為 0；358 隻全數與 lineage 對齊
+
+---
+
+## [2026-06-13] tooling | 網站遷移至 Astro + Tailwind（web/）
+
+**說明**：
+- 新增 `web/`：Astro + Tailwind CSS 前端，取代第一版純 HTML 生成器（`site/scripts/build.mjs`）
+- 資料管線不變（`tools/` + `site/scripts/export_json.py` → `site/data/*.json`）
+- 單一 catch-all 路由生成全部 1083 頁（3 語系 × 361）
+- 深色模式（OS 優先 + 手動切換）、PWA（vite-pwa/Workbox）、首頁按鈕修正一併到位
+- GitHub Actions 改為 `cd web && npm ci && npm run build`，部署 `web/dist`
+- wiki 內容無變動

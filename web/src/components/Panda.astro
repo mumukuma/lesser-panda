@@ -1,0 +1,124 @@
+---
+import { pandas, i18n, displayName, zooName } from '../lib/data.js';
+import { pandaUrl, pageUrl } from '../lib/links.js';
+
+const { locale, slug } = Astro.props;
+const T = i18n[locale];
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const p = pandas[slug];
+
+const primary = displayName(p, locale);
+const altNames = [...new Set([p.name, p.japanese].filter(Boolean).filter((n) => n !== primary))];
+const aka = [...(p.nicknames || []), ...(p.english_variants || [])];
+const sexTxt = p.sex === 'female' ? T.sex_f : p.sex === 'male' ? T.sex_m : T.sex_unknown;
+
+const ageStr = (() => {
+  if (!p.born || p.born.length < 10) return '';
+  const end = p.died ? new Date(p.died) : new Date();
+  const a = Math.floor((end - new Date(p.born)) / 31557600000);
+  return a >= 0 ? `（${T.age_years.replace('{n}', a)}）` : '';
+})();
+
+const zoosHref = pageUrl(base, locale, 'zoos');
+const curZoo = !p.died && (p.current_zoo || p.current_zoo_raw)
+  ? (p.current_zoo
+      ? `<a class="text-rust hover:underline" href="${zoosHref}#zoo-${p.current_zoo}">${zooName(p.current_zoo, p.current_zoo_raw)}</a>`
+      : p.current_zoo_raw)
+  : null;
+
+const facts = [
+  [T.field_sex, `<span class="inline-block text-[.76rem] px-2 py-px rounded-full ${p.sex === 'female' ? 'bg-[#f7e3df] text-female' : p.sex === 'male' ? 'bg-[#dfeef2] text-male' : 'bg-cream text-rust-dark'}">${sexTxt}</span>`],
+  [T.field_born, p.born ? `${p.born} ${ageStr}` : '—'],
+  p.died ? [T.field_died, `${p.died} ${T.deceased_mark}`] : null,
+  [T.field_species, `<i>${p.species ? 'Ailurus fulgens ' + p.species : '—'}</i>`],
+  curZoo ? [T.field_zoo, curZoo] : null,
+  p.rpf_url ? [T.field_rpf, `<a class="text-rust hover:underline" href="${p.rpf_url}" target="_blank" rel="noopener">#${p.rpf_id}</a>`] : null,
+].filter(Boolean);
+
+const link = (s) => pandas[s]
+  ? `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, s)}">${displayName(pandas[s], locale)}${pandas[s].died ? ' 🌈' : ''}</a>` : s;
+const famRow = (label, slugs) => slugs && slugs.length
+  ? `<li class="py-1"><span class="inline-block min-w-[9em] text-ink-soft text-[.88rem]">${label}</span>${slugs.map(link).join('、')}</li>` : '';
+
+const hasTree = p.mother || p.father || p.children.length || (p.twins || []).length;
+const H3 = 'text-lg mt-7 mb-2.5 border-l-4 border-amber pl-2.5';
+const CARD = 'bg-card border border-line rounded-card shadow-card p-[18px_20px]';
+---
+<p class="mt-5"><a class="text-rust hover:underline" href={pageUrl(base, locale, 'search')}>{T.back_to_search}</a></p>
+<div class="flex gap-4 items-baseline flex-wrap">
+  <h1 class="text-2xl font-bold my-1.5">{primary}{p.died ? ' 🌈' : ''}</h1>
+  {altNames.length > 0 && <span class="text-ink-soft text-[1.1rem]">{altNames.join(' · ')}</span>}
+</div>
+{aka.length > 0 && <p class="text-ink-soft text-[.95rem] mb-2">{aka.join('、')}</p>}
+
+<div class={CARD}>
+  <dl class="grid grid-cols-[auto_1fr] gap-x-[18px] gap-y-1.5 m-0">
+    {facts.map(([k, v]) => (<><dt class="text-ink-soft text-[.88rem] whitespace-nowrap">{k}</dt><dd class="m-0"><Fragment set:html={v} /></dd></>))}
+  </dl>
+</div>
+
+{p.residences.length > 0 && (
+  <>
+    <h2 class={H3}>{T.sec_residences}</h2>
+    <div class={CARD}>
+      <table class="w-full text-[.93rem] scroll-x">
+        <tr class="text-left text-ink-soft text-[.84rem]"><th class="p-2">{T.th_period}</th><th class="p-2">{T.th_zoo}</th></tr>
+        {p.residences.map((r) => (
+          <tr class="border-t border-line">
+            <td class="p-2">{r.start || '?'}–{r.end || ''}</td>
+            <td class="p-2" set:html={r.zoo_id ? `<a class="text-rust hover:underline" href="${zoosHref}#zoo-${r.zoo_id}">${zooName(r.zoo_id, r.zoo_raw)}</a>` : (r.zoo_raw || '')} />
+          </tr>
+        ))}
+      </table>
+    </div>
+  </>
+)}
+
+<h2 class={H3}>{T.sec_family}</h2>
+<div class={CARD}>
+  <ul class="list-none p-0 m-0" set:html={[
+    famRow(T.rel_mother, p.mother ? [p.mother] : null),
+    famRow(T.rel_father, p.father ? [p.father] : null),
+    famRow(T.rel_twin, p.twins),
+    famRow(T.rel_siblings, p.full_siblings),
+    famRow(T.rel_half_siblings, p.half_siblings),
+  ].join('')} />
+  {p.children.length > 0 && (
+    <>
+      <h3 class="text-base mt-4 mb-2 font-semibold">{T.sec_children}</h3>
+      <table class="w-full text-[.93rem] scroll-x">
+        <tr class="text-left text-ink-soft text-[.84rem]"><th class="p-2">{T.th_name}</th><th class="p-2">{T.th_born_year}</th><th class="p-2">{T.th_other_parent}</th></tr>
+        {p.children.map((c) => {
+          const q = pandas[c];
+          const other = [q.mother, q.father].filter((s) => s && s !== p.slug)[0];
+          return (
+            <tr class="border-t border-line">
+              <td class="p-2" set:html={link(c)} />
+              <td class="p-2">{(q.born || '?').slice(0, 4)}</td>
+              <td class="p-2" set:html={other ? link(other) : '—'} />
+            </tr>
+          );
+        })}
+      </table>
+    </>
+  )}
+</div>
+
+{hasTree && (
+  <>
+    <h2 class={H3}>{T.sec_tree}</h2>
+    <div class={CARD}>
+      <div class="flex gap-2 items-center flex-wrap mb-2.5">
+        <button class="bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem] border-0 cursor-pointer" id="tree-up">{T.tree_more_ancestors}</button>
+        <button class="bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem] border-0 cursor-pointer" id="tree-down">{T.tree_more_descendants}</button>
+        <span class="inline-flex gap-1.5 ml-auto">
+          <button class="bg-cream text-rust rounded-full px-3 py-1.5 text-base leading-none border-0 cursor-pointer min-w-[38px]" id="tree-zoom-out" aria-label="zoom out">−</button>
+          <button class="bg-cream text-rust rounded-full px-3 py-1.5 text-base leading-none border-0 cursor-pointer min-w-[38px]" id="tree-zoom-in" aria-label="zoom in">＋</button>
+          <button class="bg-cream text-rust rounded-full px-3 py-1.5 text-base leading-none border-0 cursor-pointer min-w-[38px]" id="tree-reset" aria-label="reset">⟳</button>
+        </span>
+      </div>
+      <div id="tree-box" data-slug={slug}></div>
+      <p class="text-[.82rem] text-ink-soft mt-2">{T.tree_hint}</p>
+    </div>
+  </>
+)}

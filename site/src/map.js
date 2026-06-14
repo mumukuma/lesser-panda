@@ -23,6 +23,7 @@
     const name = z.ja_name || z.en_name;
     const m = L.marker([z.lat, z.lng]).addTo(map);
     m.bindPopup(
+      (z.logo ? `<img src="${z.logo}" alt="" style="height:18px;vertical-align:-4px;margin-right:5px" onerror="this.style.display='none'">` : '') +
       `<strong>${name}</strong><br>` +
       `${window.T.zoo_residents}：${z.residents.length}<br>` +
       `<a href="#zoo-${z.id}">↓</a> ・ ` +
@@ -36,6 +37,13 @@
   } else {
     map.setView([36.2, 138.2], 5);
   }
+  // 防跑版：容器尺寸在版面穩定後才確定，重新計算一次圖磚位置
+  const refit = () => {
+    map.invalidateSize();
+    if (all.length) map.fitBounds(L.featureGroup(all).getBounds().pad(0.1));
+  };
+  setTimeout(refit, 200);
+  window.addEventListener('load', refit);
 
   // 卡片上的「📍」按鈕：定位到該園並開啟 popup
   document.querySelectorAll('[data-zoo-focus]').forEach(btn => {

@@ -20,6 +20,11 @@ site/data/zoos.json
 site/data/report.json
 node_modules/
 
+# Astro（web/）
+web/node_modules/
+web/dist/
+web/.astro/
+
 # Obsidian 本機 UI 狀態
 .obsidian/workspace.json
 

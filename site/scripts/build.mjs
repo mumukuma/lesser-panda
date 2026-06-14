@@ -123,13 +123,14 @@ function layout(ctx, { title, body, active, extraHead = '', extraBody = '' }) {
 ${extraHead}
 <script>window.SITE_BASE=${JSON.stringify(assetBase)};window.PAGE_BASE=${JSON.stringify(pageBase)};window.T=${inlineJson(T)};window.LOCALE=${JSON.stringify(locale.code)};window.LOCALES=${inlineJson(localeMeta)};window.REL_PATH=${JSON.stringify(relPath)};</script>
 <script src="${assetBase}lang.js"></script>
+<script src="${assetBase}theme.js"></script>
 </head>
 <body>
 <header class="site"><div class="wrap">
   <a class="logo" href="${pageBase}index.html">🐾 ${T.site_title}</a>
   <nav>${NAV.map(([href, label]) =>
     `<a href="${pageBase}${href}"${active === href ? ' class="active"' : ''}>${label}</a>`).join('')}
-  ${langSelect}</nav>
+  <button id="theme-toggle" class="theme-btn" type="button" aria-label="切換深色模式">🌙</button>${langSelect}</nav>
 </div></header>
 <div class="wrap">
 ${body}
@@ -264,7 +265,7 @@ function indexPage(ctx, todayData) {
 <div class="stats">${stats.map(([n, l]) =>
   `<div class="card stat"><div class="num">${n}</div><div class="lbl">${l}</div></div>`).join('')}</div>
 <div class="card">
-  <form action="search.html" method="get" style="display:flex;gap:10px;flex-wrap:wrap">
+  <form action="search.html" method="get" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
     <input type="search" name="q" placeholder="${T.search_placeholder}" style="flex:1 1 220px;font:inherit;padding:9px 14px;border:1px solid var(--line);border-radius:10px">
     <button class="btn" type="submit">${T.nav_search}</button>
     <a class="btn ghost" href="zoos.html">${T.nav_zoos}</a>
@@ -325,7 +326,7 @@ function zoosPage(ctx) {
     const name = z.ja_name || z.en_name;
     const residents = z.residents.map(s => link(ctx, s)).join('、');
     return `<div class="card zoo-card" id="zoo-${z.id}">
-  <h3>${esc(name)}</h3>
+  <h3>${z.logo ? `<img class="zoo-logo" src="${esc(z.logo)}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}${esc(name)}</h3>
   <div class="loc">${esc(z.location_ja || z.location_en || z.country || '')}</div>
   <div class="residents"><strong>${T.zoo_residents}（${z.residents.length}）</strong><br>${residents || T.zoo_no_residents}</div>
   <div class="actions">
@@ -390,7 +391,7 @@ for (const locale of LOCALES) {
 
 mkdirSync(join(DIST, 'data'), { recursive: true });
 mkdirSync(join(DIST, 'vendor', 'images'), { recursive: true });
-for (const f of ['styles.css', 'search.js', 'map.js', 'tree.js', 'lang.js', 'today.js', 'sw.js', 'icon.svg']) {
+for (const f of ['styles.css', 'search.js', 'map.js', 'tree.js', 'lang.js', 'theme.js', 'today.js', 'sw.js', 'icon.svg']) {
   copyFile(join(SRC, f), join(DIST, f));
 }
 for (const f of readdirSync(VENDOR)) {
