@@ -1588,3 +1588,39 @@
 - 深色模式（OS 優先 + 手動切換）、PWA（vite-pwa/Workbox）、首頁按鈕修正一併到位
 - GitHub Actions 改為 `cd web && npm ci && npm run build`，部署 `web/dist`
 - wiki 內容無變動
+
+---
+
+## [2026-06-14] add | 神戸どうぶつ王国相關家族 7 隻
+
+**來源**：
+- https://redpandafinder.com/#profile/262 (Hina)
+- https://redpandafinder.com/#profile/263 (Suzu)
+- https://redpandafinder.com/#profile/330 (Sora)
+- https://redpandafinder.com/#profile/261 (Asahi)
+- https://redpandafinder.com/#profile/329 (Daichi)
+- https://redpandafinder.com/#profile/232 (Banana)
+- https://redpandafinder.com/#profile/189 (Nana)
+
+**新增條目**：
+- `hina.md` — 陽那（RPF #262），♀，生 2015-06-29，現居神戸どうぶつ王国；`gigi`×`daizu` 之女，`suzu`/`asahi-gigi` 三胞胎
+- `suzu.md` — 須々（RPF #263），♀，生 2015-06-29，現居神戸どうぶつ王国；三胞胎
+- `asahi-gigi.md` — 朝日（RPF #261），♂🌈，生 2015-06-29 歿 2019-09-04；三胞胎（⚠️ 勿與 `asahi` 混淆）
+- `nana-gigi.md` — 那々（RPF #189），♀🌈，生 2013-06-12 歿 2016-01-25；`yoichi` 雙胞胎（⚠️ 勿與 `nana-kiki` 混淆）
+- `banana.md` — バナナ（RPF #232），♀🌈，生 1996-08-09 歿 2013-06-06；`ron-ron-231` 配偶、Sora/Daichi 之母
+- `sora-330.md` — ソラ（RPF #330），♂，生 2006-08-01，現居神戸どうぶつ王国（2025–）；`daichi-329` 雙胞胎（⚠️ 勿與 `sora` 混淆）
+- `daichi-329.md` — ダイチ（RPF #329），♂🌈，生 2006-08-01 歿 2026-01-04，終居長崎バイオパーク；`sora-330` 雙胞胎（⚠️ 勿與 `daichi` 混淆）
+
+**更新條目**：
+- `daizu.md`、`gigi.md` — 子女改為 wikilink（hina/suzu/asahi-gigi/nana-gigi）
+- `ron-ron-231.md` — 新增配偶 `banana`；Sora/Daichi 改 wikilink；子女母方更正為 Banana
+- `index.md` — 新增「神戸どうぶつ王国 相關家族」區塊；條目總數更新為 365
+
+---
+
+## [2026-06-14] fix | build_db 居住史解析支援「只有年份」的日期
+
+**說明**：
+- `tools/build_db.py` 的居住史表格解析器原只接受完整日期（YYYY/MM/DD），導致只填年份的居住史（如「2016–現在」）被略過，現居判斷錯誤（如神戸どうぶつ王国的個體被誤判為前一園）
+- 修正 `DATE_RANGE_RE` 讓 start/end 的月日為選填；完整日期的舊條目行為不變
+- 修正後神戸どうぶつ王国現居名單正確顯示 Hina／Suzu／Sora／Yamato

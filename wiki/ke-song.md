@@ -1,5 +1,6 @@
 ---
 name: Ke Song
+chinese: 可頌
 japanese: カソン / クロワッサン
 english_variants: [Croissant, Dekesong, Kesung, Ke-Song, Kesong]
 sex: male

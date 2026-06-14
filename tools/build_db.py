@@ -270,6 +270,7 @@ def build_db():
             "slug":             slug,
             "name":             fm.get("name", ""),
             "japanese":         fm.get("japanese"),
+            "chinese":          fm.get("chinese"),
             "nicknames":        json.dumps(nicknames, ensure_ascii=False) if nicknames else None,
             "english_variants": json.dumps(english_variants, ensure_ascii=False) if english_variants else None,
             "sex":              sex,
@@ -287,10 +288,10 @@ def build_db():
 
     cur.executemany("""
         INSERT OR REPLACE INTO pandas
-          (slug, name, japanese, nicknames, english_variants,
+          (slug, name, japanese, chinese, nicknames, english_variants,
            sex, born, died, species, rpf_id, rpf_url, tags, instagram, is_alive)
         VALUES
-          (:slug,:name,:japanese,:nicknames,:english_variants,
+          (:slug,:name,:japanese,:chinese,:nicknames,:english_variants,
            :sex,:born,:died,:species,:rpf_id,:rpf_url,:tags,:instagram,:is_alive)
     """, [r for _, _, r in panda_rows])
     conn.commit()
@@ -381,9 +382,9 @@ def build_db():
 
 # ── 居住史表格解析（精確日期）──────────────────────────────────
 DATE_RANGE_RE = re.compile(
-    r"(\d{4})[/\-](\d{2})[/\-](\d{2})"   # start date
+    r"(\d{4})(?:[/\-](\d{2})[/\-](\d{2}))?"            # start：年，月日選填
     r"\s*[–—-]+\s*"
-    r"(?:(\d{4})[/\-](\d{2})[/\-](\d{2})|現在|今|)"  # end date or 現在
+    r"(?:(\d{4})(?:[/\-](\d{2})[/\-](\d{2}))?|現在|今)?"  # end：年(月日選填) / 現在 / 開放
 )
 ZOO_CELL_CLEAN_RE = re.compile(r"[🐣🌈🏡]|\（[^）]*）|\([^)]*\)")
 
@@ -413,8 +414,8 @@ def parse_residence_table(body: str, slug: str) -> list[dict]:
         if not dm:
             continue
 
-        start_date = f"{dm.group(1)}-{dm.group(2)}-{dm.group(3)}"
-        if dm.group(4):
+        start_date = f"{dm.group(1)}-{dm.group(2)}-{dm.group(3)}" if dm.group(2) and dm.group(3) else None
+        if dm.group(4) and dm.group(5) and dm.group(6):
             end_date = f"{dm.group(4)}-{dm.group(5)}-{dm.group(6)}"
         else:
             end_date = None

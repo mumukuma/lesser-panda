@@ -1,5 +1,6 @@
 ---
 name: Canele
+chinese: 可麗露
 japanese: カヌレ
 english_variants: [Canelé, Kelilu, Lulu]
 nicknames: [Lulu]

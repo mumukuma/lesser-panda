@@ -201,6 +201,7 @@ def main():
             "slug": r["slug"],
             "name": r["name"],
             "japanese": clean_japanese(r["japanese"]),
+            "chinese": r["chinese"],
             "kanji": extract_kanji(r["japanese"], r["rpf_id"]),
             "nicknames": json.loads(r["nicknames"] or "[]"),
             "english_variants": json.loads(r["english_variants"] or "[]"),
@@ -279,6 +280,14 @@ def main():
         host = urlparse(z["website"] or "").netloc
         return f"https://www.google.com/s2/favicons?domain={host}&sz=64" if host else None
 
+    # 動物園中文名覆蓋（非日本園多缺，手動補；忽略 _comment 等非數字鍵）
+    names_zh = {}
+    nm_path = SITE_DATA / "zoo-names.json"
+    if nm_path.exists():
+        for k, v in json.loads(nm_path.read_text(encoding="utf-8")).items():
+            if k.isdigit():
+                names_zh[int(k)] = v
+
     zoos_out = []
     for z in zoos_master:
         if z["id"] not in all_res_ids:
@@ -286,7 +295,7 @@ def main():
         residents = sorted(
             [s for s, p in pandas.items() if p["current_zoo"] == z["id"]],
             key=lambda s: pandas[s]["born"] or "9999")
-        zoos_out.append({**z, "logo": zoo_logo(z), "residents": residents})
+        zoos_out.append({**z, "logo": zoo_logo(z), "name_zh": names_zh.get(z["id"]), "residents": residents})
     zoos_out.sort(key=lambda z: (-len(z["residents"]), z["id"]))
 
     # 輸出

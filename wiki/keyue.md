@@ -1,5 +1,6 @@
 ---
 name: Keyue
+chinese: 可玥
 japanese: ケユェ
 sex: female
 born: 2015-06-20

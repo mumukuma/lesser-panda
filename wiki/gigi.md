@@ -41,3 +41,8 @@ sources:
 - 父：[[kiki]]（キキ）🌈
 - 三胞胎：[[non]]（ノン）、[[sara]]（サラ）
 - 全血緣兄弟姊妹：[[momo]]、[[mei-kiki]] 🌈、[[nana-kiki]] 🌈、[[chao]] 🌈、[[ren-kiki]] 🌈、[[tsubasa]] 🌈、[[airi]] 🌈、[[kokoro-kiki]] 🌈、[[sora-kiki]] 🌈、[[lala-kiki]]、[[luna-kiki]] 🌈
+
+### 子女（與 [[daizu]] 所生）
+
+- 2013 雙胞胎：[[nana-gigi]]（那々）🌈、[[yoichi]]（与一）🌈
+- 2015 三胞胎：[[hina]]（陽那）、[[suzu]]（須々）、[[asahi-gigi]]（朝日）🌈

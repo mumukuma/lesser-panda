@@ -11,9 +11,9 @@
   // d = [name, japanese, sex, bornYr, diedYr, kanji]
   const nameByLoc = (d) => LOC === 'ja' ? (d[1] || d[0]) : LOC === 'zh-TW' ? (d[5] || d[0]) : d[0];
 
-  const NODE_W = 118, NODE_H = 40, GAP_X = 14, ROW_H = 86;
+  const NODE_W = 104, NODE_H = 40, GAP_X = 11, ROW_H = 86;
   const unitW = NODE_W + GAP_X;
-  let upDepth = 2, downDepth = 2;
+  let upDepth = 2, downDepth = 2, showHalf = false;
 
   // 由 render() 設定，供 fitView 使用
   let worldW = 0, worldH = 0, focalX = 0, focalY = 0;
@@ -136,9 +136,20 @@
     const centerTwins = G.twins
       .filter(t => t.includes(CENTER))
       .map(t => (t[0] === CENTER ? t[1] : t[0]));
+    const [cm, cf] = parentsOf(CENTER);
+    // 手足：父母的其他子女（扣掉自己與雙胞胎）
+    const isFullSib = (s) => { const u = G.up[s] || []; return cm && cf && u.indexOf(cm) >= 0 && u.indexOf(cf) >= 0; };
+    const centerSibs = [];
+    [cm, cf].filter(Boolean).forEach(par => childrenOf(par).forEach(s => {
+      if (s !== CENTER && centerTwins.indexOf(s) < 0 && centerSibs.indexOf(s) < 0) centerSibs.push(s);
+    }));
+    centerSibs.sort((a, b) => (isFullSib(b) ? 1 : 0) - (isFullSib(a) ? 1 : 0));  // 全血在前
+    const hasHalf = centerSibs.some(s => !isFullSib(s));
+    const visSibs = showHalf ? centerSibs : centerSibs.filter(isFullSib);  // 預設只全血
+    const leftN = visSibs.length, rightN = centerTwins.length;
     const descUnits = leafCount(CENTER, 0);
     const ancUnits = Math.pow(2, Math.min(upDepth, maxUp(CENTER)));
-    const width = Math.max(descUnits, ancUnits, 2) * unitW + 40 + centerTwins.length * unitW;
+    const width = Math.max(descUnits, ancUnits, 2) * unitW + 40 + (leftN + rightN) * unitW;
     const upRows = Math.min(upDepth, maxUp(CENTER));
     const downRows = Math.min(downDepth, maxDown(CENTER));
     const height = (upRows + downRows + 1) * ROW_H + 30;
@@ -147,7 +158,7 @@
     const addNode = (slug, x, y) => { nodes.push({ slug, x, y }); return { x, y }; };
 
     function placeAnc(slug, level, slot, childPos) {
-      if (!slug || level > upRows) return;
+      if (!slug || level > upRows) return null;
       const span = width / Math.pow(2, level);
       const x = span * (slot + 0.5);
       const y = centerY - level * ROW_H;
@@ -156,9 +167,10 @@
       const [m, f] = parentsOf(slug);
       placeAnc(m, level + 1, slot * 2, pos);
       placeAnc(f, level + 1, slot * 2 + 1, pos);
+      return pos;
     }
 
-    const centerX = width / 2 - (centerTwins.length * unitW) / 2;
+    const centerX = width / 2 + (leftN - rightN) * unitW / 2;
     const centerPos = addNode(CENTER, centerX, centerY);
     centerTwins.forEach((t, i) => {
       const pos = addNode(t, centerX + (i + 1) * unitW, centerY);
@@ -167,8 +179,16 @@
       links.push({ x1: centerPos.x, y1: centerY, x2: pos.x, y2: centerY, twin: true });
     });
 
-    const [cm, cf] = parentsOf(CENTER);
-    if (upRows > 0) { placeAnc(cm, 1, 0, centerPos); placeAnc(cf, 1, 1, centerPos); }
+    let mPos = null, fPos = null;
+    if (upRows > 0) { mPos = placeAnc(cm, 1, 0, centerPos); fPos = placeAnc(cf, 1, 1, centerPos); }
+
+    // 手足放中心列左側，連到共享的父或母
+    visSibs.forEach((s, i) => {
+      const pos = addNode(s, centerX - (i + 1) * unitW, centerY);
+      const up = G.up[s] || [];
+      const par = (mPos && up.indexOf(cm) >= 0) ? mPos : (fPos && up.indexOf(cf) >= 0) ? fPos : (mPos || fPos);
+      if (par) links.push({ x1: par.x, y1: par.y + NODE_H / 2, x2: pos.x, y2: pos.y - NODE_H / 2, half: !isFullSib(s) });
+    });
 
     function placeDesc(slug, depth, left, unitsAvail, parentPos) {
       const x = left + (unitsAvail * unitW) / 2;
@@ -216,7 +236,7 @@
     worldW = width; worldH = height; focalX = centerX; focalY = centerY;
     box.innerHTML =
       `<svg preserveAspectRatio="xMidYMid meet" role="img" aria-label="family tree">` +
-      links.map(l => `<path class="tree-link ${l.twin ? 'twin' : ''}" d="${linkPath(l)}"></path>`).join('') +
+      links.map(l => `<path class="tree-link ${l.twin ? 'twin' : ''}${l.half ? ' half' : ''}" d="${linkPath(l)}"></path>`).join('') +
       nodes.map(nodeSvg).join('') + '</svg>';
 
     const svg = box.querySelector('svg');
@@ -228,11 +248,18 @@
     const btnDown = document.getElementById('tree-down');
     if (btnUp) btnUp.style.display = maxUp(CENTER) > upDepth ? '' : 'none';
     if (btnDown) btnDown.style.display = maxDown(CENTER) > downDepth ? '' : 'none';
+    const btnHalf = document.getElementById('tree-half');
+    if (btnHalf) {
+      btnHalf.style.display = hasHalf ? '' : 'none';
+      btnHalf.textContent = showHalf ? (window.T.tree_hide_half || 'Hide half-siblings')
+        : (window.T.tree_show_half || 'Show half-siblings');
+    }
   }
 
   const on = (id, fn) => { const b = document.getElementById(id); if (b) b.addEventListener('click', fn); };
   on('tree-up', () => { upDepth++; render(); });
   on('tree-down', () => { downDepth++; render(); });
+  on('tree-half', () => { showHalf = !showHalf; render(); });
   on('tree-zoom-in', () => { const s = box._svg; const r = pxSize(s)[2]; zoomAt(r.left + r.width / 2, r.top + r.height / 2, 0.8, s); });
   on('tree-zoom-out', () => { const s = box._svg; const r = pxSize(s)[2]; zoomAt(r.left + r.width / 2, r.top + r.height / 2, 1.25, s); });
   on('tree-reset', () => fitView(box._svg, true));

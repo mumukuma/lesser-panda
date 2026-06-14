@@ -14,8 +14,14 @@
   }).addTo(map);
 
   var byId = {};
+  var loc = window.LOCALE;
+  var zname = function (z) {
+    if (loc === 'ja') return z.ja_name || z.en_name;
+    if (loc === 'en') return z.en_name || z.ja_name;
+    return z.name_zh || z.ja_name || z.en_name;
+  };
   zoos.forEach(function (z) {
-    var name = z.ja_name || z.en_name;
+    var name = zname(z);
     var m = L.marker([z.lat, z.lng]).addTo(map);
     m.bindPopup(
       (z.logo ? '<img src="' + z.logo + '" alt="" style="height:18px;vertical-align:-4px;margin-right:5px" onerror="this.style.display=\'none\'">' : '') +

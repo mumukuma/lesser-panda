@@ -4,7 +4,7 @@ import Home from '../components/Home.astro';
 import Search from '../components/Search.astro';
 import Zoos from '../components/Zoos.astro';
 import Panda from '../components/Panda.astro';
-import { pandas, zoos, LOCALES, searchData, subGraph, displayName } from '../lib/data.js';
+import { pandas, zoos, LOCALES, searchDataFor, subGraph, displayName } from '../lib/data.js';
 
 export function getStaticPaths() {
   const out = [];
@@ -45,13 +45,13 @@ const graph = hasTree ? subGraph(slug) : null;
 
   {kind === 'home' && (
     <Fragment slot="scripts">
-      <script is:inline define:vars={{ data: searchData }}>window.TODAY_DATA = data;</script>
+      <script is:inline define:vars={{ data: searchDataFor(locale) }}>window.TODAY_DATA = data;</script>
       <script is:inline src={`${base}js/today.js`}></script>
     </Fragment>
   )}
   {kind === 'search' && (
     <Fragment slot="scripts">
-      <script is:inline define:vars={{ data: searchData }}>window.SEARCH_DATA = data;</script>
+      <script is:inline define:vars={{ data: searchDataFor(locale) }}>window.SEARCH_DATA = data;</script>
       <script is:inline src={`${base}js/search.js`}></script>
     </Fragment>
   )}

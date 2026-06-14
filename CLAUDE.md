@@ -2,7 +2,15 @@
 
 本資料夾是一個依 [llm-wiki 模式](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)運作的 Obsidian wiki：**LLM 負責撰寫與維護所有頁面，使用者負責提供資料來源與問問題**。
 
-主題：小熊貓（red panda）個體檔案，以 Taofa（桃花）家族為起點，目前 360+ 條目，多為日本動物園個體。資料來源以 [Red Panda Finder](https://redpandafinder.com)（RPF）為主。
+主題：小熊貓（red panda）個體檔案，以 Taofa（桃花）為起點逐步彙整，目前 360+ 條目，多為日本（及部分海外）動物園個體。
+
+## ⚠️ 資料來源原則（重要）
+
+- **`wiki/*.md` 是唯一正本與權威來源**，由站長校訂。
+- [Red Panda Finder](https://redpandafinder.com)（RPF）與 [redpanda-lineage](https://github.com/wwoast/redpanda-lineage) 只是**初期建立資料的基礎參考**，**非權威**。
+- 兩者衝突時，**一律以 wiki（站長的校訂）為準**，不可用 RPF/lineage 覆蓋既有資料。
+- `tools/audit.py`、`tools/apply_lineage_fixes.py` 與 lineage 的比對僅供**參考與補空白**；`apply_lineage_fixes` 只填空欄位、不覆蓋；audit 列出的「與 lineage 不符」是提示站長**檢視**，不代表 wiki 錯。
+- 名稱（尤其中文名 `chinese`、暱稱、別名）以站長提供為準；RPF 的羅馬拼音僅作後備。
 
 ---
 
@@ -55,7 +63,7 @@ red-panda-wiki/
 - **YAML frontmatter** 必填：`name`、`sex`、`born`、`species`、`zoos`、`rpf_id`、`rpf_url`、`tags`、`sources`；`japanese`、`nicknames`、`english_variants`、`died` 視情況。
 - **內容結構**：標題 → 引言區塊（性別/生日/現居）→ 一句話家族背景 → `## 居住史`（表格）→ `## 家族`（父母/雙胞胎/兄弟姊妹/子女）。
 - **wikilink**：對方已有條目才用 `[[slug]]`，否則純文字。已故加 🌈。½ 表半血緣。
-- **語言**：條目內文用繁體中文，動物園名沿用日文原名。
+- **語言**：條目內文用中文，動物園名沿用日文原名。
 
 ### 檔名與消歧（重要）
 

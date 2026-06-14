@@ -25,6 +25,7 @@ red-panda-wiki/
 ```yaml
 ---
 name: 英文名稱
+chinese: 中文名稱        # 台灣／中國出生個體的正式中文名；中文介面優先顯示（如 可忻、丫丫）
 japanese: 日文名稱（漢字 / 假名）
 nicknames: [暱稱1, 暱稱2]
 english_variants: [變體拼法1, 變體拼法2]
@@ -38,7 +39,7 @@ rpf_id: RedPandaFinder 的 profile ID
 rpf_url: https://redpandafinder.com/#profile/XXX
 tags: [標籤]
 instagram:                # 選填：同好的公開 IG 貼文連結，網站以官方 embed 展示（自動署名、連回原貼文）
-  - https://www.instagram.com/p/XXXXXXXXX/
+  - https://www.instagram.com/p/XXXXXXXXX/ 2025-06-01   # 可在連結後加貼文日期，網站依日期新到舊排序；超過 6 篇自動「顯示更多」
 sources:
   - https://redpandafinder.com/#profile/XXX
 ---

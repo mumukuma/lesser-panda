@@ -1,5 +1,6 @@
 ---
 name: Crepe
+chinese: 可麗餅
 japanese: クレープ
 english_variants: [Kelibing]
 sex: female

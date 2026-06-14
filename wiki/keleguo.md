@@ -1,5 +1,6 @@
 ---
 name: Keleguo
+chinese: 可樂果
 japanese: ケレグオ
 sex: female
 born: 2019-06-08

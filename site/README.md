@@ -25,7 +25,7 @@ cd site/dist && python3 -m http.server 8000
 
 ## 多語系
 
-- 繁中：`/`（根目錄）・日文：`/ja/`・英文：`/en/`，頁面右上角可切換
+- 中文：`/`（根目錄）・日文：`/ja/`・英文：`/en/`，頁面右上角可切換
 - 介面字串在 `src/i18n/{zh-TW,ja,en}.json`，新增語言＝翻譯一份 JSON
   並在 `build.mjs` 的 `LOCALES` 加一行
 

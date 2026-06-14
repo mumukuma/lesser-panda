@@ -5,7 +5,8 @@
   if (!data) return;
   var pandas = data.pandas, PAGE = window.PAGE || window.BASE || '', loc = window.LOCALE, T = window.T;
   var nameOf = function (p) { return loc === 'ja' ? (p.j || p.n) : loc === 'zh-TW' ? (p.k || p.n) : p.n; };
-  var altOf = function (p) { var pr = nameOf(p); return [p.n, p.j].filter(Boolean).filter(function (x) { return x !== pr; }).filter(function (v, i, a) { return a.indexOf(v) === i; }).join(' · '); };
+  // 顯示一個乾淨的副名：主名非英文時顯示英文，否則顯示日文名
+  var altOf = function (p) { var pr = nameOf(p); return pr !== p.n ? p.n : (p.j || ''); };
 
   var zooCount = {};
   pandas.forEach(function (p) { if (p.zoo) zooCount[p.zoo] = (zooCount[p.zoo] || 0) + 1; });

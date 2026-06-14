@@ -1,5 +1,5 @@
 ---
-import { zoos, pandas, i18n, displayName } from '../lib/data.js';
+import { zoos, pandas, i18n, displayName, zooName } from '../lib/data.js';
 import { pandaUrl } from '../lib/links.js';
 const { locale } = Astro.props;
 const T = i18n[locale];
@@ -16,7 +16,7 @@ const resLink = (s) =>
     <div class="bg-card border border-line rounded-card shadow-card p-[18px_20px]" id={`zoo-${z.id}`}>
       <h3 class="m-0 mb-1 text-[1.02rem] flex items-start gap-2.5 leading-snug">
         {z.logo && <img class="w-[26px] h-[26px] flex-none mt-px object-contain bg-white border border-line rounded-md p-0.5" src={z.logo} alt="" loading="lazy" onerror="this.style.display='none'" />}
-        {z.ja_name || z.en_name}
+        {zooName(z.id, z.en_name, locale)}
       </h3>
       <div class="text-[.84rem] text-ink-soft mb-2">{z.location_ja || z.location_en || z.country || ''}</div>
       <div class="text-[.9rem]">

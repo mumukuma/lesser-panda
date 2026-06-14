@@ -1,6 +1,6 @@
 /** Tailwind 設定：顏色全部對應 CSS 變數，深色模式由變數切換（OS 優先 + data-theme 手動）。 */
 module.exports = {
-  content: ['./src/**/*.{astro,html,js,jsx,ts,tsx,vue,md}'],
+  content: ['./src/**/*.{astro,html,js,jsx,ts,tsx,vue,md}', './public/**/*.js'],
   darkMode: ['selector', '[data-theme="dark"]'],
   theme: {
     extend: {

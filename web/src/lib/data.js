@@ -18,18 +18,24 @@ export const i18n = {
 };
 
 export const LOCALES = [
-  { code: 'zh-TW', htmlLang: 'zh-Hant', dir: '', label: '繁中' },
+  { code: 'zh-TW', htmlLang: 'zh-Hant', dir: '', label: '中文' },
   { code: 'ja', htmlLang: 'ja', dir: 'ja/', label: '日本語' },
   { code: 'en', htmlLang: 'en', dir: 'en/', label: 'EN' },
 ];
 
 const zooById = Object.fromEntries(zoos.map((z) => [z.id, z]));
-export const zooName = (id, raw) =>
-  id && zooById[id] ? zooById[id].ja_name || zooById[id].en_name : raw || '';
+// 動物園名依語系：zh＝中文名→日文漢字→英文；ja＝日文→英文；en＝英文→日文
+export const zooName = (id, raw, locale = 'zh-TW') => {
+  const z = id && zooById[id] ? zooById[id] : null;
+  if (!z) return raw || '';
+  if (locale === 'ja') return z.ja_name || z.en_name || raw || '';
+  if (locale === 'en') return z.en_name || z.ja_name || raw || '';
+  return z.name_zh || z.ja_name || z.en_name || raw || '';
+};
 
 export const displayName = (p, locale) =>
   locale === 'ja' ? p.japanese || p.name
-    : locale === 'zh-TW' ? p.kanji || p.name
+    : locale === 'zh-TW' ? p.chinese || p.kanji || p.name
     : p.name;
 
 // ── URL id：slug + 生日（同名也能區分）；slug 仍為資料主鍵 ──────
@@ -59,7 +65,7 @@ const GRAPH = (() => {
   const nodes = {}, up = {}, down = {};
   for (const p of Object.values(pandas)) {
     nodes[p.slug] = [p.name, p.japanese || '', p.sex === 'female' ? 'f' : p.sex === 'male' ? 'm' : 'u',
-      p.born ? p.born.slice(0, 4) : '', p.died ? p.died.slice(0, 4) : null, p.kanji || '', p.urlId];
+      p.born ? p.born.slice(0, 4) : '', p.died ? p.died.slice(0, 4) : null, p.chinese || p.kanji || '', p.urlId];
     if (p.mother || p.father) up[p.slug] = [p.mother, p.father];
     if (p.children.length) down[p.slug] = p.children;
   }
@@ -74,6 +80,10 @@ export function subGraph(slug) {
     if (a === slug && !set.has(b)) set.add(b);
     if (b === slug && !set.has(a)) set.add(a);
   });
+  // 手足：父母的其他子女（只加節點，不展開其後代）
+  (GRAPH.up[slug] || []).filter(Boolean).forEach((par) => {
+    (GRAPH.down[par] || []).forEach((sib) => { if (sib !== slug) set.add(sib); });
+  });
   const nodes = {}, up = {}, down = {};
   for (const s of set) {
     nodes[s] = GRAPH.nodes[s];
@@ -83,11 +93,11 @@ export function subGraph(slug) {
   return { nodes, up, down, twins: GRAPH.twins.filter(([a, b]) => set.has(a) && set.has(b)) };
 }
 
-export const searchData = {
+export const searchDataFor = (locale) => ({
   pandas: Object.values(pandas).map((p) => ({
-    slug: p.slug, u: p.urlId, n: p.name, j: p.japanese, k: p.kanji,
+    slug: p.slug, u: p.urlId, n: p.name, j: p.japanese, k: p.chinese || p.kanji,
     en: [...(p.english_variants || []), ...(p.nicknames || [])].join('|') || null,
     sex: p.sex, born: p.born, died: p.died,
-    zoo: !p.died ? zooName(p.current_zoo, p.current_zoo_raw) || null : null,
+    zoo: !p.died ? zooName(p.current_zoo, p.current_zoo_raw, locale) || null : null,
   })),
-};
+});

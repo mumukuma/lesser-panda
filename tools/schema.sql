@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS pandas (
     slug        TEXT PRIMARY KEY,   -- 檔名（不含.md），e.g. "kiki", "mii-mii-371"
     name        TEXT NOT NULL,      -- 英文名
     japanese    TEXT,               -- 日文名（漢字/假名）
+    chinese     TEXT,               -- 中文名（台灣／中國出生個體的正式中文名，優先用於中文介面）
     nicknames   TEXT,               -- JSON array，e.g. '["Beans","Forehead"]'
     english_variants TEXT,          -- JSON array，英文拼法變體
     sex         TEXT CHECK(sex IN ('male','female','unknown')),

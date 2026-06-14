@@ -1,5 +1,6 @@
 ---
 name: Kexin
+chinese: 可忻
 japanese: ケシーン
 english_variants: [Keshin]
 sex: male
