@@ -7,14 +7,14 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const resLink = (s) =>
   pandas[s] ? `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, pandas[s].urlId)}">${displayName(pandas[s], locale)}${pandas[s].died ? ' 🌈' : ''}</a>` : s;
 ---
-<h1 class="text-2xl font-bold mt-7 mb-1.5">{T.nav_zoos}</h1>
+<h1 class="font-display text-2xl font-semibold mt-7 mb-1.5">{T.nav_zoos}</h1>
 <p class="text-ink-soft mb-4">{T.zoos_intro}</p>
 <div id="map"><p class="p-5 text-ink-soft">Loading map…</p></div>
 
 <div class="grid gap-3.5 mt-4.5 [grid-template-columns:repeat(auto-fill,minmax(280px,1fr))]">
-  {zoos.map((z, i) => (
-    <div class="bg-card border border-line rounded-card shadow-card p-[18px_20px]" id={`zoo-${z.id}`}>
-      <h3 class="m-0 mb-1 text-[1.02rem] flex items-start gap-2.5 leading-snug">
+  {zoos.map((z) => (
+    <div class="card-soft pop p-[18px_20px]" id={`zoo-${z.id}`}>
+      <h3 class="font-display m-0 mb-1 text-[1.02rem] font-semibold flex items-start gap-2.5 leading-snug">
         {z.logo && <img class="w-[26px] h-[26px] flex-none mt-px object-contain bg-white border border-line rounded-md p-0.5" src={z.logo} alt="" loading="lazy" onerror="this.style.display='none'" />}
         {zooName(z.id, z.en_name, locale)}
       </h3>
@@ -24,9 +24,9 @@ const resLink = (s) =>
         <Fragment set:html={z.residents.map(resLink).join('、') || T.zoo_no_residents} />
       </div>
       <div class="mt-2.5 flex gap-2 flex-wrap">
-        {z.lat && <button class="bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem] border-0 cursor-pointer" data-zoo-focus={z.id}>📍</button>}
-        {z.lat && <a class="bg-rust text-white rounded-full px-3.5 py-1.5 text-[.85rem] no-underline hover:bg-rust-dark" target="_blank" rel="noopener" href={`https://www.google.com/maps/dir/?api=1&destination=${z.lat},${z.lng}`}>{T.zoo_directions}</a>}
-        {z.website && <a class="bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem] no-underline" target="_blank" rel="noopener" href={z.website}>{T.zoo_website}</a>}
+        {z.lat && <button class="pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem] border-0 cursor-pointer" data-zoo-focus={z.id}>📍</button>}
+        {z.lat && <a class="pop bg-rust text-white rounded-full px-3.5 py-1.5 text-[.85rem] no-underline hover:bg-rust-dark" target="_blank" rel="noopener" href={`https://www.google.com/maps/dir/?api=1&destination=${z.lat},${z.lng}`}>{T.zoo_directions}</a>}
+        {z.website && <a class="pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem] no-underline" target="_blank" rel="noopener" href={z.website}>{T.zoo_website}</a>}
       </div>
     </div>
   ))}
