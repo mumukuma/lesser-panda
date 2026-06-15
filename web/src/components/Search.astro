@@ -2,9 +2,9 @@
 import { i18n } from '../lib/data.js';
 const { locale } = Astro.props;
 const T = i18n[locale];
-const inputCls = 'bg-card text-ink border border-line rounded-[10px] px-3.5 py-2.5 font-[inherit]';
+const inputCls = 'bg-card text-ink border border-line rounded-input px-3.5 py-2.5 font-[inherit] focus:outline-none focus:border-rust';
 ---
-<h1 class="text-2xl font-bold mt-7 mb-1.5">{T.nav_search}</h1>
+<h1 class="font-display text-2xl font-semibold mt-7 mb-1.5">{T.nav_search}</h1>
 <div class="flex gap-2.5 flex-wrap items-center my-4">
   <input type="search" id="f-q" placeholder={T.search_placeholder} class={`flex-1 min-w-[240px] ${inputCls}`} />
   <select id="f-zoo" class={inputCls}><option value="">{T.filter_zoo}：{T.filter_all}</option></select>

@@ -30,3 +30,12 @@ web/.astro/
 
 # Claude 本機設定
 .claude/
+
+# 機密：API 金鑰等，絕不進版控
+.env
+.env.*
+!.env.example
+
+# 生成圖原始檔（可由 tools/gen_images.py 重建；只 ship 優化後的 webp）
+art-src/
+web/public/img/*.png

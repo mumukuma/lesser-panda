@@ -11,7 +11,7 @@
   var esc = function (s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
   var fill = function (t, n) { return t.replace('{n}', n); };
   var chip = function (p, info) {
-    return '<a class="inline-flex items-baseline gap-1.5 bg-cream border border-line rounded-full px-3.5 py-1.5 text-[.92rem] no-underline hover:border-amber" href="' + PAGE + 'p/' + (p.u || p.slug) + '/">' +
+    return '<a class="pop inline-flex items-baseline gap-1.5 bg-cream border border-line rounded-full px-3.5 py-1.5 text-[.92rem] no-underline hover:border-amber" href="' + PAGE + 'p/' + (p.u || p.slug) + '/">' +
       '<span class="font-semibold">' + esc(nameOf(p)) + (p.died ? ' 🌈' : '') + '</span>' +
       (info ? '<span class="text-[.82rem] text-ink-soft">' + esc(info) + '</span>' : '') + '</a>';
   };

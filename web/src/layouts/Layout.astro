@@ -22,9 +22,11 @@ const nav = [
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script is:inline>document.documentElement.classList.add('js');</script>
   <title>{title ? `${title} | ${T.site_title}` : T.site_title}</title>
   <meta name="theme-color" content="#b5552d" />
   <link rel="icon" href={`${base}icon.svg`} type="image/svg+xml" />
+  <link rel="preload" as="font" type="font/woff2" href={`${base}fonts/fredoka-latin.woff2`} crossorigin />
   <script is:inline define:vars={{ base, locale, page, T,
     locales: LOCALES.map((l) => ({ code: l.code, dir: l.dir, label: l.label })), langUrls }}>
     window.BASE = base; window.LOCALE = locale; window.PAGE = page;
@@ -34,31 +36,45 @@ const nav = [
   <script is:inline src={`${base}js/theme.js`}></script>
   <slot name="head" />
 </head>
-<body class="font-sans">
-  <header class="site-header sticky top-0 z-[500] bg-gradient-to-br from-rust to-rust-dark text-white shadow-card">
+<body class:list={['font-sans', active === 'home' && 'home']}>
+  <!-- 柔和天空（固定層，全站；裝飾用，輔助技術忽略）-->
+  <div class="forest-bg" aria-hidden="true">
+    <div class="sky"></div>
+  </div>
+
+  <header class="site-header" id="site-header">
     <div class="max-w-4xl mx-auto px-4 py-3 flex items-center gap-3 flex-wrap">
-      <a href={page} class="font-bold text-lg text-white no-underline flex items-center gap-2">🐾 {T.site_title}</a>
+      <a href={page} class="brand font-display font-semibold text-xl no-underline flex items-center gap-2 tracking-wide">
+        <span class="anim-bob inline-block">🐾</span> {T.site_title}
+      </a>
       <nav class="ml-auto flex items-center gap-1">
         {nav.map(([rp, label]) => (
           <a href={url(cur.dir, rp)}
-             class={`px-3 py-1.5 rounded-full text-[.92rem] no-underline ${active === (rp || 'home') ? 'bg-white/20 text-white font-semibold' : 'text-[#ffe9d6] hover:bg-white/15'}`}>{label}</a>
+             class={`nav-link px-3.5 py-1.5 rounded-full text-[.92rem] whitespace-nowrap no-underline ${active === (rp || 'home') ? 'active' : ''}`}>{label}</a>
         ))}
         <button id="theme-toggle" type="button" aria-label="切換深色模式"
-          class="text-[1.05rem] leading-none bg-transparent border-0 text-[#ffe9d6] cursor-pointer px-2 py-1.5 rounded-full hover:bg-white/15">🌙</button>
+          class="nav-link text-[1.05rem] leading-none bg-transparent border-0 cursor-pointer px-2 py-1.5 rounded-full">🌙</button>
         <select id="lang-select" aria-label="Language"
-          class="text-[.92rem] text-[#ffe9d6] bg-transparent border-0 rounded-full pl-3 pr-7 py-1.5 cursor-pointer appearance-none hover:bg-white/15"
-          style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23ffe9d6' stroke-width='1.5' fill='none'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 11px center">
+          class="nav-link text-[.92rem] bg-transparent border-0 rounded-full pl-3 pr-7 py-1.5 cursor-pointer appearance-none"
+          style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237a6a5f' stroke-width='1.5' fill='none'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 11px center">
           {LOCALES.map((l) => <option value={l.code} selected={l.code === locale}>{l.label}</option>)}
         </select>
       </nav>
     </div>
   </header>
-  <div class="max-w-4xl mx-auto px-4 pb-16">
+
+  <div class:list={['max-w-4xl mx-auto px-4 pb-16', active !== 'home' && 'pt-[68px]']}>
     <slot />
-    <footer class="mt-12 pt-4 border-t border-line text-ink-soft text-[.84rem]">
+    <footer class="mt-12 card-soft text-ink-soft text-[.84rem] px-4 py-3 text-center">
       {T.footer_note}・{T.data_note} {new Date().toISOString().slice(0, 10)}
     </footer>
   </div>
+  <!-- 森林地面：頁面最底（首頁限定）-->
+  <div class="forest-floor" aria-hidden="true">
+    <div class="layer trees"></div>
+    <div class="layer fore"></div>
+  </div>
   <slot name="scripts" />
+  <script is:inline src={`${base}js/reveal.js`}></script>
 </body>
 </html>
