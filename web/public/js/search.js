@@ -25,10 +25,10 @@
       var sexCls = p.sex === 'female' ? 'bg-[#f7e3df] text-female' : p.sex === 'male' ? 'bg-[#dfeef2] text-male' : 'bg-cream text-rust-dark';
       var sexTxt = p.sex === 'female' ? '♀' : p.sex === 'male' ? '♂' : '?';
       var age = ageOf(p);
-      var life = p.died ? ((p.born || '?').slice(0, 4) + '–' + p.died.slice(0, 4) + ' 🌈')
-        : ((p.born || '?').slice(0, 4) + '–' + (age !== null ? '（' + age + '）' : ''));
+      var life = p.died ? ((p.born || '?').slice(0, 4) + '-' + p.died.slice(0, 4) + ' 🌈')
+        : ((p.born || '?').slice(0, 4) + '-' + (age !== null ? '（' + age + '）' : ''));
       var alt = altOf(p);
-      return '<a class="block bg-card border border-line rounded-card shadow-card p-[13px_16px] no-underline text-ink hover:border-amber" href="' + PAGE + 'p/' + (p.u || p.slug) + '/">' +
+      return '<a class="block pop bg-card border border-line rounded-card shadow-card p-[13px_16px] no-underline text-ink hover:border-amber" href="' + PAGE + 'p/' + (p.u || p.slug) + '/">' +
         '<div class="font-bold">' + nameOf(p) + (alt ? '<span class="font-normal text-ink-soft text-[.9em] ml-1.5">' + alt + '</span>' : '') + '</div>' +
         '<div class="text-[.84rem] text-ink-soft mt-0.5"><span class="inline-block text-[.76rem] px-2 py-px rounded-full mr-1.5 ' + sexCls + '">' + sexTxt + '</span>' + life + '</div>' +
         '<div class="text-[.84rem] text-ink-soft">' + (p.zoo || '') + '</div></a>';
@@ -45,5 +45,6 @@
   var params = new URLSearchParams(location.search);
   if (params.get('q')) $('#f-q').value = params.get('q');
   if (params.get('zoo')) zooSel.value = params.get('zoo');
+  if (params.get('alive')) $('#f-alive').checked = true;
   apply();
 })();

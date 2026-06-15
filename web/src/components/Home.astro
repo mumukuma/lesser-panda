@@ -7,46 +7,90 @@ const T = i18n[locale];
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const alive = Object.values(pandas).filter((p) => !p.died).length;
 const stats = [
-  [Object.keys(pandas).length, T.stat_pandas],
-  [alive, T.stat_alive],
-  [zoos.length, T.stat_zoos],
-  [family.parent_child.length, T.stat_edges],
+  ['stat-individuals', Object.keys(pandas).length, T.stat_pandas, pageUrl(base, locale, 'search')],
+  ['stat-alive', alive, T.stat_alive, pageUrl(base, locale, 'search') + '?alive=1'],
+  ['stat-zoo', zoos.length, T.stat_zoos, pageUrl(base, locale, 'zoos')],
+  ['stat-family', family.parent_child.length, T.stat_edges, pageUrl(base, locale, 'search')],
 ];
 const featured = ['taofa', 'shiryu', 'franken', 'shin-fa', 'ako'].filter((s) => pandas[s]);
+const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';
+// hero 飄落葉子（裝飾，reduced-motion 下隱藏）
+const leaves = [
+  { left: '8%', dur: '8.5s', delay: '0s' },
+  { left: '26%', dur: '11s', delay: '2.4s' },
+  { left: '52%', dur: '9.5s', delay: '1.2s' },
+  { left: '72%', dur: '12s', delay: '3.6s' },
+  { left: '88%', dur: '10s', delay: '.6s' },
+];
 ---
-<h1 class="text-2xl font-bold mt-7 mb-1.5">{T.site_title}</h1>
-<p class="text-ink-soft mb-4">{T.site_subtitle}</p>
-
-<div class="flex gap-3 flex-wrap my-5">
-  {stats.map(([n, l]) => (
-    <div class="flex-1 min-w-[120px] text-center bg-card border border-line rounded-card shadow-card py-3.5 px-2">
-      <div class="text-3xl font-extrabold text-rust">{n}</div>
-      <div class="text-[.85rem] text-ink-soft">{l}</div>
+<!-- ── Hero：全幅森林（融入 header 與背景，底部化入頁面，非卡片）+ 吉祥物 ── -->
+<section class="relative mb-3">
+  <div class="hero-wrap full-bleed relative">
+    <div class="hero-forest">
+      <div class="absolute inset-0 overflow-hidden z-[1]" aria-hidden="true">
+        {leaves.map((l) => (
+          <span class="leaf" style={`left:${l.left};animation-duration:${l.dur};animation-delay:${l.delay}`}></span>
+        ))}
+      </div>
+      <img src={`${base}img/mascot-peek.webp`} alt="" width="120" height="120"
+           class="anim-float absolute right-[7%] top-[76px] w-[54px] sm:w-[74px] h-auto z-[2]" />
+      <div class="absolute left-1/2 -translate-x-1/2 bottom-[14px] sm:bottom-[18px] w-[144px] sm:w-[180px] z-[3]">
+        <img src={`${base}img/mascot.webp`} alt={T.site_title} width="272" height="320" fetchpriority="high" class="block w-full h-auto" />
+      </div>
     </div>
-  ))}
-</div>
+    <!-- 走路小熊貓：2 格 sprite，沿森林下緣左右來回（CSS 橫移 + 翻面，見 global.css .walker）-->
+    <div class="walker" aria-hidden="true">
+      <div class="walker-legs">
+        <img src={`${base}img/walk-sheet.webp`} alt="" width="340" height="178" loading="lazy" />
+      </div>
+    </div>
+  </div>
 
-<h2 class="text-lg mt-7 mb-2.5 border-l-4 border-amber pl-2.5">{T.today_title}</h2>
-<div class="bg-card border border-line rounded-card shadow-card p-5">
-  <h3 class="text-base mb-2.5 text-rust-dark">{T.today_birthdays}</h3>
-  <div id="today-birthdays" class="flex flex-wrap gap-2 mb-4"></div>
-  <h3 class="text-base mb-2.5 text-rust-dark">{T.today_rainbow}</h3>
-  <div id="today-rainbow" class="flex flex-wrap gap-2"></div>
-</div>
+  <div class="text-center -mt-2 relative z-[4]">
+    <h1 class="font-display text-3xl sm:text-4xl font-semibold text-rust-dark mb-1">{T.site_title}</h1>
+    <p class="text-ink-soft text-[1.02rem] mb-4">{T.site_subtitle}</p>
+    <form action={pageUrl(base, locale, 'search')}
+          class="flex gap-2.5 flex-wrap items-center justify-center card-soft p-3.5 max-w-2xl mx-auto">
+      <input type="search" name="q" placeholder={T.search_placeholder}
+        class="flex-1 min-w-[220px] bg-card text-ink border border-line rounded-input px-3.5 py-2.5 focus:outline-none focus:border-rust" />
+      <button type="submit" class="pop bg-rust text-white rounded-full px-5 py-2.5 text-[.92rem] font-semibold hover:bg-rust-dark">{T.nav_search}</button>
+    </form>
+  </div>
+</section>
 
-<h2 class="text-lg mt-7 mb-2.5 border-l-4 border-amber pl-2.5">{T.home_featured}</h2>
-<p class="flex flex-wrap gap-2">
-  {featured.map((s) => (
-    <a href={pandaUrl(base, locale, pandas[s].urlId)}
-       class="inline-flex items-center gap-1.5 bg-cream border border-line rounded-full px-3.5 py-1.5 text-[.92rem] no-underline hover:border-amber">
-      <span class="font-semibold">{displayName(pandas[s], locale)}{pandas[s].died ? ' 🌈' : ''}</span>
+<!-- ── 數字徽章 ─────────────────────────────────────────────── -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-6">
+  {stats.map(([icon, n, l, href]) => (
+    <a href={href} class="stat-card py-4 px-2">
+      <img src={`${base}img/${icon}.webp`} alt="" aria-hidden="true" width="96" height="96" loading="lazy"
+           class="stat-icon w-12 h-12 mx-auto mb-1.5 object-contain" />
+      <div class="text-3xl font-display font-semibold text-rust leading-none">{n}</div>
+      <div class="text-[.82rem] text-ink-soft mt-1.5">{l}</div>
     </a>
   ))}
-</p>
-<p class="text-ink-soft text-[.95rem] mt-3">{T.home_intro}</p>
+</div>
 
-<form action={pageUrl(base, locale, 'search')} class="mt-5 flex gap-2.5 flex-wrap items-center bg-card border border-line rounded-card shadow-card p-4">
-  <input type="search" name="q" placeholder={T.search_placeholder}
-    class="flex-1 min-w-[220px] bg-card text-ink border border-line rounded-[10px] px-3.5 py-2.5" />
-  <button type="submit" class="bg-rust text-white rounded-full px-4 py-2 text-[.9rem] hover:bg-rust-dark">{T.nav_search}</button>
-</form>
+<!-- ── 今天 ─────────────────────────────────────────────────── -->
+<section class="reveal">
+  <h2 class={H2}>{T.today_title}</h2>
+  <div class="card-soft p-5">
+    <h3 class="font-display text-base mb-2.5 text-rust-dark">{T.today_birthdays}</h3>
+    <div id="today-birthdays" class="flex flex-wrap gap-2 mb-4"></div>
+    <h3 class="font-display text-base mb-2.5 text-rust-dark">{T.today_rainbow}</h3>
+    <div id="today-rainbow" class="flex flex-wrap gap-2"></div>
+  </div>
+</section>
+
+<!-- ── 從這裡開始 ───────────────────────────────────────────── -->
+<section class="reveal">
+  <h2 class={H2}>{T.home_featured}</h2>
+  <p class="flex flex-wrap gap-2">
+    {featured.map((s) => (
+      <a href={pandaUrl(base, locale, pandas[s].urlId)}
+         class="pop inline-flex items-center gap-1.5 bg-cream border border-line rounded-full px-4 py-2 text-[.94rem] no-underline hover:border-amber">
+        <span class="font-display font-semibold">{displayName(pandas[s], locale)}{pandas[s].died ? ' 🌈' : ''}</span>
+      </a>
+    ))}
+  </p>
+  <p class="text-ink-soft text-[.92rem] mt-4">{T.home_intro}</p>
+</section>
