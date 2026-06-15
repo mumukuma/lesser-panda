@@ -60,5 +60,7 @@ const nav = [
     </footer>
   </div>
   <slot name="scripts" />
+  <script is:inline src="https://unpkg.com/@cobo-screenshot/sdk@1"></script>
+  <script is:inline>cobo.init({ workspaceId: "0fb0218a-9bc6-43ef-9916-c6682ebbd64f" })</script>
 </body>
 </html>
