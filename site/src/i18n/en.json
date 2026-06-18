@@ -1,6 +1,6 @@
 {
   "site_title": "Red Panda Encyclopedia",
-  "site_subtitle": "Taofa's family and the red pandas of Japanese zoos",
+  "site_subtitle": "A red panda individual database",
   "nav_home": "Home",
   "nav_search": "Search",
   "nav_zoos": "Zoo Map",
@@ -8,7 +8,7 @@
   "stat_alive": "Living",
   "stat_zoos": "Zoos",
   "stat_edges": "Parent links",
-  "home_intro": "Data is generated from a hand-maintained Obsidian wiki, sourced from Red Panda Finder and public zoo information.",
+  "home_intro": "This site's data lives in a hand-curated Obsidian wiki, which is the source of truth. Red Panda Finder and the redpanda-lineage project served as initial references, supplemented by zoos' public information.",
   "home_featured": "Start here",
   "today_title": "Today",
   "today_birthdays": "🎂 Birthdays today",
@@ -67,6 +67,5 @@
   "zoo_website": "Website",
   "back_to_search": "← Back to search",
   "data_note": "Data updated",
-  "footer_note": "Auto-generated from an Obsidian wiki · Source: Red Panda Finder",
-  "lang_name": "English"
+  "footer_note": "Auto-generated from a hand-curated Obsidian wiki (initial reference: Red Panda Finder & redpanda-lineage)"
 }

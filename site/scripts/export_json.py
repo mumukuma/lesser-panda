@@ -30,6 +30,9 @@ ROOT = Path(__file__).resolve().parent.parent.parent  # red-panda-wiki/
 SITE_DATA = ROOT / "site" / "data"
 LINEAGE = Path("/tmp/redpanda-lineage")
 DB_CANDIDATES = [ROOT / "redpanda.db", Path("/tmp/redpanda.db")]
+REGISTRY = ROOT / "data" / "zoos.json"   # 動物園唯一事實來源（作者維護）
+sys.path.insert(0, str(ROOT / "tools"))
+from zoo_registry import preclean as zpreclean, norm as znorm  # noqa: E402
 
 
 def get_db():
@@ -104,26 +107,29 @@ def parse_zoo_file(path: Path) -> dict:
 
 
 def load_zoo_master() -> list[dict]:
-    cache = SITE_DATA / "zoos-master.json"
-    if LINEAGE.exists():
-        zoos = []
-        for f in sorted(LINEAGE.glob("zoos/*/*.txt")):
-            try:
-                z = parse_zoo_file(f)
-                if z["ja_name"] or z["en_name"]:
-                    zoos.append(z)
-            except Exception as e:
-                print(f"  ⚠️ 解析失敗 {f.name}: {e}")
-        cache.parent.mkdir(parents=True, exist_ok=True)
-        cache.write_text(json.dumps(zoos, ensure_ascii=False, indent=1), encoding="utf-8")
-        print(f"  動物園主檔：{len(zoos)} 筆（已快取 zoos-master.json）")
-        return zoos
-    if cache.exists():
-        zoos = json.loads(cache.read_text(encoding="utf-8"))
-        print(f"  動物園主檔：{len(zoos)} 筆（來自快取）")
-        return zoos
-    print("  ⚠️ 無 lineage 資料夾也無快取，動物園座標將全部缺漏")
-    return []
+    """從唯一事實來源 data/zoos.json 載入動物園。canonical 即對外主名。"""
+    reg = json.loads(REGISTRY.read_text(encoding="utf-8"))
+    zoos, synth = [], 9000
+    for r in reg:
+        zid = r["lineage_id"]
+        if zid is None:
+            synth += 1
+            zid = synth
+        zoos.append({
+            "id": zid,
+            "ja_name": r["canonical"],          # canonical 為對外顯示主名
+            "en_name": r.get("en"),
+            "location_ja": r.get("location_ja"),
+            "location_en": r.get("location_en"),
+            "country": r.get("country"),
+            "lat": r.get("lat"), "lng": r.get("lng"),
+            "map": r.get("map"), "website": r.get("website"),
+            "name_zh": r.get("zh"),
+            "logo": r.get("logo"),
+            "_aliases": r.get("aliases") or [],
+        })
+    print(f"  動物園註冊表：{len(zoos)} 座（data/zoos.json）")
+    return zoos
 
 
 def norm(s: str) -> str:
@@ -160,26 +166,22 @@ ZOO_ALIASES = {
 
 
 def build_zoo_matcher(zoos: list[dict]):
+    """精確比對（canonical / en / aliases）。不再模糊猜；建檔時園名已是 canonical。"""
     index = {}
     for z in zoos:
-        for key in filter(None, [z["ja_name"], z["en_name"]]):
-            index[norm(key)] = z
-    keys = sorted(index.keys(), key=len, reverse=True)
-
-    aliases = {norm(a): norm(c) for a, c in ZOO_ALIASES.items()}
+        for key in filter(None, [z["ja_name"], z["en_name"], *z["_aliases"]]):
+            index.setdefault(znorm(key), z)
 
     def match(raw: str):
-        """wiki 居住史的園名（可能含日英並列、括號註記）→ 動物園記錄"""
-        cleaned = preclean(raw)
-        candidates = [norm(re.split(r"[（(]", cleaned)[0]), norm(cleaned)]
+        cleaned = zpreclean(raw)
+        candidates = [
+            znorm(re.split(r"[（(]", cleaned)[0]),
+            znorm(cleaned),
+            znorm(re.sub(r"[（(][^（）()]*[）)]", "", cleaned)),
+        ]
         for n in candidates:
-            n = aliases.get(n, n)
-            if n in index:
+            if n and n in index:
                 return index[n]
-        for n in candidates:
-            for k in keys:  # 子字串雙向包含（取最長 key 優先）
-                if len(k) >= 4 and len(n) >= 4 and (k in n or n in k):
-                    return index[k]
         return None
 
     return match
@@ -268,25 +270,12 @@ def main():
     # 各園現居個體
     used_zoo_ids = {p["current_zoo"] for p in pandas.values() if p["current_zoo"]}
     all_res_ids = {r["zoo_id"] for p in pandas.values() for r in p["residences"] if r["zoo_id"]}
-    # 動物園 logo：手動覆蓋（zoo-logos.json）優先，否則用官網 favicon
-    overrides = {}
-    ov_path = SITE_DATA / "zoo-logos.json"
-    if ov_path.exists():
-        overrides = {int(k): v for k, v in json.loads(ov_path.read_text(encoding="utf-8")).items()}
-
+    # 動物園 logo、中文名皆來自註冊表（data/zoos.json）；logo 缺則用官網 favicon
     def zoo_logo(z):
-        if z["id"] in overrides:
-            return overrides[z["id"]]
+        if z.get("logo"):
+            return z["logo"]
         host = urlparse(z["website"] or "").netloc
         return f"https://www.google.com/s2/favicons?domain={host}&sz=64" if host else None
-
-    # 動物園中文名覆蓋（非日本園多缺，手動補；忽略 _comment 等非數字鍵）
-    names_zh = {}
-    nm_path = SITE_DATA / "zoo-names.json"
-    if nm_path.exists():
-        for k, v in json.loads(nm_path.read_text(encoding="utf-8")).items():
-            if k.isdigit():
-                names_zh[int(k)] = v
 
     zoos_out = []
     for z in zoos_master:
@@ -295,7 +284,9 @@ def main():
         residents = sorted(
             [s for s, p in pandas.items() if p["current_zoo"] == z["id"]],
             key=lambda s: pandas[s]["born"] or "9999")
-        zoos_out.append({**z, "logo": zoo_logo(z), "name_zh": names_zh.get(z["id"]), "residents": residents})
+        rec = {k: v for k, v in z.items() if k != "_aliases"}
+        rec.update({"logo": zoo_logo(z), "name_zh": z.get("name_zh"), "residents": residents})
+        zoos_out.append(rec)
     zoos_out.sort(key=lambda z: (-len(z["residents"]), z["id"]))
 
     # 輸出

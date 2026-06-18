@@ -1,6 +1,6 @@
 # 🐾 小熊貓圖鑑 Red Panda Encyclopedia
 
-以 Taofa（桃花）家族為起點的小熊貓（red panda）個體資料庫，目前收錄 360+ 隻、多為日本動物園的個體。資料以手工維護的 Obsidian wiki 為正本，自動生成為一個多語系的靜態網站。
+小熊貓（red panda）個體資料庫，目前收錄 360+ 隻、多為日本動物園的個體。資料以手工維護的 Obsidian wiki 為正本，自動生成為一個多語系的靜態網站。
 
 **線上瀏覽**：https://mumukuma.github.io/lesser-panda/
 

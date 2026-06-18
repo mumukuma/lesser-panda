@@ -1660,3 +1660,106 @@
 **更新條目**：
 - `ren-katsuo.md`、`mai.md` — 子女 Rei 改為 wikilink，並標註另一方親本
 - `index.md` — Min-Fa 兄弟姊妹區塊新增 Rei；條目總數更新為 369
+
+---
+
+## [2026-06-18] update | slug 命名規則改為「名字-生日」，全部 369 條目改名
+
+**說明**：消歧後綴從「父名／RPF 編號／地名」混用，統一改為固定的「名字-生日」。生日用完整 `YYYY-MM-DD`（只知年份用 `YYYY`）。撞名（同名同生日）才加第三層消歧 = 媽媽的名字（不用父名）。網站尚未上線，未做舊網址轉址。
+
+**搬遷範圍**：
+- 全部 369 個條目檔名變更（如 `yan-yan-franken.md` → `yan-yan-2014-06-22.md`）
+- 全 wiki `[[wikilink]]` 同步替換 5885 個（含 `index.md`）；複查 0 孤兒、0 殘留舊 slug
+- `log.md` 歷史不動（其中既有的舊 slug 與 37 個違規 wikilink 留待另案清理）
+
+**特例（撞名／佔位名，用媽媽名消歧）**：
+- `sora-kiki.md` → `sora-seina-2008-06-16.md`（RPF #108，母 seina）
+- `sora-ten-ten.md` → `sora-nami-2008-06-16.md`（RPF #12，母 nami）
+- `baby-mametaro.md` → `baby-kiku-2021-06-10.md`（RPF #1299，母 kiku；待正式命名再改）
+- 只知年份：`tian.md` → `tian-1999.md`
+
+**更新文件／衍生資料**：
+- `CLAUDE.md`、`SCHEMA.md` — 消歧規則改寫為「名字-生日，撞名加媽媽名」
+- 重建 `redpanda.db`（369 個體／628 親子／98 雙胞胎／660 居住史）、重出 `site/data/*.json`
+- 對照表存於 `SLUG-MIGRATION-PLAN.md`、`slug_map.json`
+
+---
+
+## [2026-06-18] fix | 批次1：補齊缺漏的 species 欄位
+
+**說明**：5 筆條目缺 `species`，依其自身 tags 已標的亞種補齊（來源為 wiki 本身，非 RPF）。補後全 369 筆 species 無缺漏。
+
+**更新條目**：
+- `rin-rin-1999-07-09`、`rishi-1999-07-08`、`ryuunosuke-1999-07-27`、`ten-ten-1997-06-18`、`tian-2011` — 補 `species: Ailurus fulgens styani`
+- 重建 `redpanda.db`、重出 `site/data/*.json`
+
+---
+
+## [2026-06-18] fix | 批次1：補 8 筆日文名與 3 筆別名（來源 RPF Other Names）
+
+**來源**：
+- https://redpandafinder.com/#profile/289 (Anko)
+- https://redpandafinder.com/#profile/1424 (Emi)
+- https://redpandafinder.com/#profile/14 (Jasmine)
+- https://redpandafinder.com/#profile/303 (Katsuo)
+- https://redpandafinder.com/#profile/1305 (Kazunoko)
+- https://redpandafinder.com/#profile/290 (Kotarou)
+- https://redpandafinder.com/#profile/1451 (Nanako)
+- https://redpandafinder.com/#profile/360 (Pam)
+
+**更新條目**（補 `japanese`，部分含別名）：
+- `anko-2013-06-22` — japanese アンコ；nicknames Red-Bean
+- `emi-2023-07-09` — japanese えみ
+- `jasmine-2010-07-14` — japanese ジャスミン（另 RPF 列 Chinese「莉」，留待批次2 校訂）
+- `katsuo-2002-07-02` — japanese カツオ
+- `kazunoko-2021-08-04` — japanese かずのこ
+- `kotarou-2005-07-08` — japanese コタロウ；english_variants Kotaro
+- `nanako-2025-07-14` — japanese ななこ
+- `pam-1997-06-26` — japanese パム；english_variants Pamu
+- 重建 `redpanda.db`、重出 `site/data/*.json`
+
+- `malikha-2004-06-08` — japanese マリクハ（作者決定採用 RPF 片假名音譯）
+- `zeyar-2007-06-21` — japanese ゼイヤー（同上）
+
+補後全 369 筆 `japanese` 無缺漏。
+
+---
+
+## [2026-06-18] refactor | 批次3：動物園名正規化 + 建立園名唯一事實來源
+
+**目標**：終結「同園多種寫法、反覆正規化」。把園名集中到單一註冊表，build 時精確比對、寫錯報錯。
+
+**新增**：
+- `data/zoos.json` — 動物園註冊表（322 座；canonical 完整正式名、中文名、座標、官網、logo、aliases）。合併原本散在 `zoo-names.json`、`zoo-logos.json`、`export_json.py` 內 `ZOO_ALIASES` 三處的設定。
+- `tools/zoo_registry.py` — 載入註冊表並提供園名 resolver（精確比對）。
+
+**wiki 變更**：
+- frontmatter `zoos:` 園名統一為 canonical（504 行，先前已套用）。
+- 居住史園名來源統一：`build_db` 建檔時將每筆園名解析為 canonical（如 `Tama Zoological Park`→`多摩動物公園`、`Asahiyama Zoo`→`旭川市旭山動物園`），未登記報錯中止。
+- 修正：`横浜市立金沢動物園 Zoorasia`（誤帶他園名，移除 Zoorasia）、`福岡市動植物園`（原作動物園）、`いのちのたび博物館附属動物園`（與英名 Itozu no Mori 不符，歸入 `到津の森公園`）。
+
+**程式**：`export_json.py` 改讀 `data/zoos.json` 精確比對，移除模糊比對與 `ZOO_ALIASES`。重建後未匹配園名 **2→0**。
+
+**文件**：CLAUDE.md／SCHEMA.md 加註「園名以 `data/zoos.json` 為唯一事實來源；未登記 build 報錯」。
+
+**尚未做（phase 2）**：內文 `## 居住史` 表格改為自動生成（目前 .md 仍存手寫表格，但 DB／網站已一律顯示 canonical）。設計見 `ZOO-REGISTRY-DESIGN.md`。
+
+---
+
+## [2026-06-18] refactor | phase2：居住史單一事實來源 + 表格自動生成
+
+**目標**：居住史資料只存 frontmatter，內文表格自動生成、淘汰手寫。
+
+**變更**：
+- 居住史唯一來源改為 frontmatter `zoos:`，格式升級為含精確日期 `園名 (起 – 訖)`（如 `(2018-06-24 – 現在)`）。
+- 新增 `tools/gen_residence.py`：依 `zoos:` + `data/zoos.json` 自動生成內文 `## 居住史` 表格（地點、🐣出生地、🏡現居），改寫全 369 檔。
+- 地點順手收進註冊表（`location_ja` 補/更新 83 座，來源為 wiki），地點亦單一來源。
+- `build_db` 改為只讀 frontmatter（不再解析內文表格）；`parse_zoos` 支援精確日期。
+
+**資料修復**：救回 build_db 原本漏抓的 2 筆居住史（舊正則吃不到的日期格式）：
+- `asahi-2015-06-29` — 補回 `横浜・八景島シーパラダイス`（2019，過世地 🌈）
+- `kazunoko-2021-08-04` — 補回 `桐生が岡動物園`（現居 🏡）
+
+**驗證**：以遷移前快照守門（園序列零遺失）；重建後居住史 660→**662**（含救回 2），精確日期 616 不減，未匹配園名 0，audit 0 問題。
+
+**文件**：CLAUDE.md／SCHEMA.md 註明「居住史改 `zoos:`、表格勿手改、重跑 gen_residence.py」。至此 ROADMAP #14（園名正規化）與園資料單一事實來源完成。

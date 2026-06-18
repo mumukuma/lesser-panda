@@ -1,6 +1,6 @@
 {
   "site_title": "小熊貓圖鑑",
-  "site_subtitle": "Taofa 家族與日本動物園的小熊貓們",
+  "site_subtitle": "小熊貓個體資料庫",
   "nav_home": "首頁",
   "nav_search": "圖鑑搜尋",
   "nav_zoos": "動物園地圖",
@@ -8,7 +8,7 @@
   "stat_alive": "現存",
   "stat_zoos": "動物園",
   "stat_edges": "親子關係",
-  "home_intro": "本站資料來自手工維護的 Obsidian wiki，正本為 Red Panda Finder 與日本各動物園的公開資訊。",
+  "home_intro": "本站資料正本為手工校訂的 Obsidian wiki；Red Panda Finder 與 redpanda-lineage 專案僅作初期參考，並以日本各動物園的公開資訊補充。",
   "home_featured": "從這裡開始",
   "today_title": "今天",
   "today_birthdays": "🎂 今日生日",
@@ -67,5 +67,5 @@
   "zoo_website": "官網",
   "back_to_search": "← 回圖鑑搜尋",
   "data_note": "資料更新於",
-  "footer_note": "由 Obsidian wiki 自動生成・資料來源 Red Panda Finder"
+  "footer_note": "由 Obsidian wiki 自動生成・資料經人工校訂（初期參考：Red Panda Finder、redpanda-lineage）"
 }

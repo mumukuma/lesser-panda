@@ -13,8 +13,10 @@ red-panda-wiki/
 └── wiki/
     ├── index.md       ← 所有條目的目錄（依類別列出）
     ├── log.md         ← 新增記錄的 append-only 日誌
-    └── [name].md      ← 各個小熊貓的個人條目
+    └── [name]-[born].md ← 各個小熊貓的個人條目（slug = 名字-生日）
 ```
+
+> **命名規則（2026-06-18 起）**：slug 一律為 `slugify(name)-生日`（生日用 `YYYY-MM-DD`，只知年份用 `YYYY`）。撞名（同名同生日）才加第三層消歧 = **媽媽的名字**（不用父名）。詳見 `CLAUDE.md`「檔名與消歧」。
 
 ---
 
@@ -33,8 +35,8 @@ sex: female | male
 born: YYYY-MM-DD
 died: YYYY-MM-DD   # 若健在則省略
 species: Ailurus fulgens styani | Ailurus fulgens fulgens
-zoos:
-  - 動物園名稱 (起訖年份)
+zoos:                      # 居住史唯一來源；內文「## 居住史」表格由 tools/gen_residence.py 自動生成
+  - 動物園名稱 (起 – 訖)     # 園名須為 data/zoos.json 註冊表 canonical（未登記 build 報錯）；起訖可用 YYYY-MM-DD / YYYY / 現居留空
 rpf_id: RedPandaFinder 的 profile ID
 rpf_url: https://redpandafinder.com/#profile/XXX
 tags: [標籤]
@@ -69,7 +71,7 @@ sources:
 ## 操作流程
 
 ### 新增成員
-1. 在 `wiki/` 下建立 `[name].md`
+1. 在 `wiki/` 下建立 `[name]-[born].md`（slug = 名字-生日）
 2. 填入 YAML frontmatter
 3. 撰寫條目內容（基本資料 → 別名 → 居住史 → 家族 → 備注）
 4. 更新 `wiki/index.md`
@@ -98,4 +100,4 @@ sources:
 
 ---
 
-*本 wiki 以 Taofa（桃花）為核心起點，未來可擴展至所有相關家族成員。*
+*本 wiki 收錄小熊貓個體檔案，涵蓋相關家族成員與動物園個體。*

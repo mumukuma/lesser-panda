@@ -2,15 +2,16 @@
 
 本資料夾是一個依 [llm-wiki 模式](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)運作的 Obsidian wiki：**LLM 負責撰寫與維護所有頁面，使用者負責提供資料來源與問問題**。
 
-主題：小熊貓（red panda）個體檔案，以 Taofa（桃花）為起點逐步彙整，目前 360+ 條目，多為日本（及部分海外）動物園個體。
+主題：小熊貓（red panda）個體檔案，目前 360+ 條目，多為日本（及部分海外）動物園個體。
 
 ## ⚠️ 資料來源原則（重要）
 
-- **`wiki/*.md` 是唯一正本與權威來源**，由站長校訂。
+- **`wiki/*.md` 是唯一正本與權威來源**，由作者校訂。
 - [Red Panda Finder](https://redpandafinder.com)（RPF）與 [redpanda-lineage](https://github.com/wwoast/redpanda-lineage) 只是**初期建立資料的基礎參考**，**非權威**。
-- 兩者衝突時，**一律以 wiki（站長的校訂）為準**，不可用 RPF/lineage 覆蓋既有資料。
-- `tools/audit.py`、`tools/apply_lineage_fixes.py` 與 lineage 的比對僅供**參考與補空白**；`apply_lineage_fixes` 只填空欄位、不覆蓋；audit 列出的「與 lineage 不符」是提示站長**檢視**，不代表 wiki 錯。
-- 名稱（尤其中文名 `chinese`、暱稱、別名）以站長提供為準；RPF 的羅馬拼音僅作後備。
+- 兩者衝突時，**一律以 wiki（作者的校訂）為準**，不可用 RPF/lineage 覆蓋既有資料。
+- `tools/audit.py`、`tools/apply_lineage_fixes.py` 與 lineage 的比對僅供**參考與補空白**；`apply_lineage_fixes` 只填空欄位、不覆蓋；audit 列出的「與 lineage 不符」是提示作者**檢視**，不代表 wiki 錯。
+- 名稱（尤其中文名 `chinese`、暱稱、別名）以作者提供為準；RPF 的羅馬拼音僅作後備。
+- **動物園名以 `data/zoos.json`（註冊表）為唯一事實來源**：每座園的正式名（`canonical`，採完整正式名）、中文名、座標、官網、logo 只存這裡。wiki 條目（frontmatter `zoos:` 與內文居住史）一律寫 canonical 日文名；`build_db` 會精確比對，**寫了註冊表沒有的園名就報錯中止**（提示去登記或修正）。新增一座沒登記過的園 → 先在 `data/zoos.json` 加一筆，再寫條目。lineage 僅用來初次帶入座標，非權威。
 
 ---
 
@@ -24,8 +25,12 @@ red-panda-wiki/
 ├── ROADMAP.md           ← 願望池與路線規劃
 ├── rpf-wiki-SKILL.md    ← RPF 抓取資料 → 建立條目的詳細 skill
 ├── redpanda.db          ← 由 wiki/*.md 產生的 SQLite（衍生品，可重建）
+├── data/
+│   └── zoos.json        ← 動物園註冊表（唯一事實來源，作者維護；園名/中文/座標/官網/別名）
 ├── tools/
-│   ├── build_db.py      ← wiki/*.md → redpanda.db
+│   ├── build_db.py      ← wiki/*.md → redpanda.db（建檔時把園名解析為註冊表 canonical，未登記報錯）
+│   ├── zoo_registry.py  ← 載入 data/zoos.json 並提供園名比對 resolver
+│   ├── gen_residence.py ← 由 frontmatter zoos: 自動生成內文「## 居住史」表格（勿手改該表）
 │   ├── query.py         ← 家系查詢 CLI / Python API
 │   ├── audit.py         ← 資料完整度檢查（與 redpanda-lineage 比對）
 │   ├── apply_lineage_fixes.py ← 依 lineage 保守補齊空白欄位
@@ -41,7 +46,7 @@ red-panda-wiki/
 ```
 
 **真相來源是 `wiki/*.md`**；`redpanda.db`、`site/data/*.json`、網站都是衍生資料。
-改完 wiki 後重建：`python3 tools/build_db.py`（DB）→ `python3 site/scripts/export_json.py`（網站資料）。
+改完 wiki 後重建：`python3 tools/gen_residence.py`（依 `zoos:` 重生居住史表格）→ `python3 tools/build_db.py`（DB）→ `python3 site/scripts/export_json.py`（網站資料）。
 網站本身由 GitHub Actions 自動建置部署；本地預覽見 `web/README.md`。
 
 ---
@@ -61,18 +66,23 @@ red-panda-wiki/
 完整規範見 `SCHEMA.md` 與 `rpf-wiki-SKILL.md`，關鍵摘要：
 
 - **YAML frontmatter** 必填：`name`、`sex`、`born`、`species`、`zoos`、`rpf_id`、`rpf_url`、`tags`、`sources`；`japanese`、`nicknames`、`english_variants`、`died` 視情況。
-- **內容結構**：標題 → 引言區塊（性別/生日/現居）→ 一句話家族背景 → `## 居住史`（表格）→ `## 家族`（父母/雙胞胎/兄弟姊妹/子女）。
+- **內容結構**：標題 → 引言區塊（性別/生日/現居）→ 一句話家族背景 → `## 居住史`（**自動生成表格，勿手改**）→ `## 家族`（父母/雙胞胎/兄弟姊妹/子女）。
+- **居住史唯一來源是 frontmatter `zoos:`**，格式 `園名 (起 – 訖)`，起訖可用 `YYYY-MM-DD`／`YYYY`／現居留空（訖寫「現在」或空）。內文 `## 居住史` 表格由 `tools/gen_residence.py` 從此生成（含地點、🐣出生地、🏡現居），改居住史一律改 `zoos:` 再重跑該工具。
 - **wikilink**：對方已有條目才用 `[[slug]]`，否則純文字。已故加 🌈。½ 表半血緣。
 - **語言**：條目內文用中文，動物園名沿用日文原名。
 
 ### 檔名與消歧（重要）
 
-slug 全小寫、空格換連字號。小熊貓名字極常重複：
+**slug 一律為「名字-生日」**（2026-06-18 起，全部條目適用）。小熊貓名字極常重複，生日是個體本身的屬性、比父名穩定，故用生日當固定後綴：
 
-- 名字常見（Yan-Yan、Fu-Fu、Ten-Ten…）→ 加父名：`yan-yan-franken.md`
-- 同名並存 → 必須消歧，條目內加 `⚠️ 注意同名` 提示
-- 名字夠獨特 → 單名即可（`akebi.md`）
-- 不確定時優先加父名
+- 格式：`slugify(name)` + `-` + 生日。生日用完整 `YYYY-MM-DD`；只知年份則用 `YYYY`。
+  - 例：`yan-yan-2014-06-22.md`、`akebi-2020-06-29.md`、`tian-1999.md`（只知年份）
+- slugify：全小寫、空白/底線換連字號、去除 `'`、`()`、`.`。例：`Ke Song`→`ke-song`、`Pu'erh`→`puerh`。
+- **撞名（同名又同生日）才加第三層消歧 = 媽媽的名字**（slug），**不用父名**。
+  - 例：兩隻 Sora 都生於 2008-06-16 → `sora-seina-2008-06-16`（母 seina）、`sora-nami-2008-06-16`（母 nami）
+- 佔位名字（如未正式命名的 `Baby`）同樣用「名字-媽媽名-生日」，待正式命名後再改 slug。
+- 同名並存時，條目內仍加 `⚠️ 注意同名` 提示。
+- slug 可由 `name`+`born` 機械重建；日後若校訂某隻生日，需一併更名並修正所有 `[[wikilink]]`。
 
 ---
 

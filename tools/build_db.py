@@ -163,14 +163,24 @@ def parse_family(body: str) -> dict:
     return result
 
 
-# ── 居住史解析（從 YAML zoos 欄位）──────────────────────────
-ZOO_YEAR_RE = re.compile(r"^(.+?)\s*\((\d{4})\s*[–—-]\s*(\d{4}|現在|今|)?\s*\)$")
+# ── 居住史解析（從 YAML zoos 欄位，唯一事實來源）──────────────
+# 格式：「<園名> (<起> – <訖>)」；起訖可為 YYYY-MM-DD / YYYY / 現在(訖留空)
+ZOO_RANGE_RE = re.compile(
+    r"^(.+?)\s*[（(]\s*"
+    r"((?:\d{4}-\d{2}-\d{2})|(?:\d{4}))?\s*[–—~〜-]\s*"
+    r"((?:\d{4}-\d{2}-\d{2})|(?:\d{4})|現在|今)?\s*[）)]\s*$")
+
+def _ymd(s):
+    if not s:
+        return (None, None)
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", s):
+        return (s, int(s[:4]))
+    if re.fullmatch(r"\d{4}", s):
+        return (None, int(s))
+    return (None, None)
 
 def parse_zoos(zoos_raw) -> list[dict]:
-    """
-    輸入：YAML zoos 欄位（字串列表）
-    輸出：[{zoo_name, start_year, end_year}, ...]
-    """
+    """YAML zoos 欄位（字串列表）→ [{zoo_name, start_year, end_year, start_date, end_date}, ...]"""
     if not zoos_raw:
         return []
     if isinstance(zoos_raw, str):
@@ -178,16 +188,18 @@ def parse_zoos(zoos_raw) -> list[dict]:
     results = []
     for entry in zoos_raw:
         entry = entry.strip()
-        m = ZOO_YEAR_RE.match(entry)
+        m = ZOO_RANGE_RE.match(entry)
         if m:
-            zoo_name  = m.group(1).strip()
-            start_yr  = int(m.group(2))
-            end_raw   = m.group(3)
-            end_yr    = None if (not end_raw or end_raw in ("現在","今")) else int(end_raw)
-            results.append({"zoo_name": zoo_name, "start_year": start_yr, "end_year": end_yr})
+            zoo_name = m.group(1).strip()
+            sd, sy = _ymd(m.group(2))
+            end_raw = m.group(3)
+            ed, ey = (None, None) if (not end_raw or end_raw in ("現在", "今")) else _ymd(end_raw)
+            results.append({"zoo_name": zoo_name, "start_year": sy, "end_year": ey,
+                            "start_date": sd, "end_date": ed})
         else:
-            # 無法解析年份，至少記下動物園名
-            results.append({"zoo_name": entry, "start_year": None, "end_year": None})
+            # 無括號日期，至少記下動物園名
+            results.append({"zoo_name": entry, "start_year": None, "end_year": None,
+                            "start_date": None, "end_date": None})
     return results
 
 
@@ -356,18 +368,32 @@ def build_db():
     print(f"  ✅ 插入 {len(twin_rows)} 組雙胞胎關係")
 
     # ── Pass 3：居住史 ─────────────────────────────────────────
+    # 居住史唯一來源 = frontmatter zoos（含精確日期）；內文 ## 居住史 表格由
+    # tools/gen_residence.py 自動生成，僅供顯示，不再被解析。
     zoo_rows: list[dict] = []
     for slug, body, row in panda_rows:
-        # 嘗試從 markdown 居住史表格解析精確日期
-        precise = parse_residence_table(body, slug)
-        if precise:
-            zoo_rows.extend(precise)
+        fm_text = (WIKI_DIR / (slug + ".md")).read_text(encoding="utf-8")
+        fm2, _ = parse_frontmatter(fm_text)
+        for z in parse_zoos(fm2.get("zoos", [])):
+            zoo_rows.append({"slug": slug, **z})
+
+    # 園名解析為註冊表 canonical（唯一事實來源）；未登記 → 報錯中止
+    sys.path.insert(0, str(SCRIPT_DIR))
+    from zoo_registry import ZooRegistry
+    reg = ZooRegistry.load()
+    errors = []
+    for zr in zoo_rows:
+        rec = reg.resolve(zr["zoo_name"])
+        if rec is None:
+            errors.append((zr["slug"], zr["zoo_name"]))
         else:
-            # fallback：從 YAML zoos 欄位
-            fm_text = (WIKI_DIR / (slug + ".md")).read_text(encoding="utf-8")
-            fm2, _ = parse_frontmatter(fm_text)
-            for z in parse_zoos(fm2.get("zoos", [])):
-                zoo_rows.append({"slug": slug, **z, "start_date": None, "end_date": None})
+            zr["zoo_name"] = rec["canonical"]
+    if errors:
+        print(f"\n  ❌ {len(errors)} 筆居住史園名不在註冊表 data/zoos.json：")
+        for slug, nm in errors:
+            print(f"     {slug}: 「{nm}」")
+        print("  → 請先在 data/zoos.json 登記該園（或修正拼法），再重建。")
+        sys.exit(1)
 
     cur.executemany("""
         INSERT INTO residences (slug, zoo_name, start_year, end_year, start_date, end_date)

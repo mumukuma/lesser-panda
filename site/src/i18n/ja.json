@@ -1,6 +1,6 @@
 {
   "site_title": "レッサーパンダ図鑑",
-  "site_subtitle": "桃花（タオファ）一族と日本の動物園のレッサーパンダたち",
+  "site_subtitle": "レッサーパンダ個体データベース",
   "nav_home": "ホーム",
   "nav_search": "図鑑検索",
   "nav_zoos": "動物園マップ",
@@ -8,7 +8,7 @@
   "stat_alive": "現存",
   "stat_zoos": "動物園",
   "stat_edges": "親子関係",
-  "home_intro": "本サイトのデータは手作業で管理している Obsidian wiki から生成されています。出典は Red Panda Finder と各動物園の公開情報です。",
+  "home_intro": "本サイトのデータは手作業で校訂している Obsidian wiki が正本です。Red Panda Finder と redpanda-lineage プロジェクトを初期の参考とし、各動物園の公開情報で補っています。",
   "home_featured": "ここから始める",
   "today_title": "今日",
   "today_birthdays": "🎂 本日のお誕生日",
@@ -67,5 +67,5 @@
   "zoo_website": "公式サイト",
   "back_to_search": "← 図鑑検索に戻る",
   "data_note": "データ更新日",
-  "footer_note": "Obsidian wiki から自動生成・出典 Red Panda Finder"
+  "footer_note": "Obsidian wiki から自動生成・データは手作業で校訂（初期参考: Red Panda Finder・redpanda-lineage）"
 }
