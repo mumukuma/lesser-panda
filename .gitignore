@@ -39,3 +39,7 @@ web/.astro/
 # 生成圖原始檔（可由 tools/gen_images.py 重建；只 ship 優化後的 webp）
 art-src/
 web/public/img/*.png
+
+# session tooling artifacts
+.agents/
+skills-lock.json

@@ -1624,3 +1624,39 @@
 - `tools/build_db.py` 的居住史表格解析器原只接受完整日期（YYYY/MM/DD），導致只填年份的居住史（如「2016–現在」）被略過，現居判斷錯誤（如神戸どうぶつ王国的個體被誤判為前一園）
 - 修正 `DATE_RANGE_RE` 讓 start/end 的月日為選填；完整日期的舊條目行為不變
 - 修正後神戸どうぶつ王国現居名單正確顯示 Hina／Suzu／Sora／Yamato
+
+---
+
+## [2026-06-18] add | 補齊 Min-Fa 的三位兄弟姊妹
+
+**來源**：
+- https://redpandafinder.com/#profile/111 (Min-Fa)
+- https://redpandafinder.com/#profile/11 (Hao)
+- https://redpandafinder.com/#profile/56 (Ren)
+- https://redpandafinder.com/#profile/55 (Ruru)
+
+**背景**：確認 `min-fa`（RPF #111）親屬時，父母、雙胞胎、8 名子女均已建檔，唯三位兄弟姊妹僅以純文字提及，故補建。
+
+**新增條目**：
+- `hao.md` — Hao 好（RPF #11），♂🌈，生 2005-06-14 歿 2019-12-30，終居市川市動植物園；暱稱 Square-chin
+- `ren-katsuo.md` — Ren レン（RPF #56），♂，生 2008-06-21，現居 Omuta City Zoo；暱稱 Heartbreaker；`ruru` 雙胞胎（⚠️ 勿與 `ren` #252 混淆）
+- `ruru.md` — Ruru ルル（RPF #55），♀，生 2008-06-21，現居 Mishima Rakujuen Park；暱稱 Dig-a-bear（Lulu）；`ren-katsuo` 雙胞胎
+
+**更新條目**：
+- `min-fa.md`、`mei-fa-katsuo.md` — 兄弟姊妹改為 wikilink
+- `shin-fa-304.md`、`katsuo.md` — 子女表補上 Hao／Ren／Ruru（原僅列 Mei-Fa、Min-Fa）；`katsuo` 中 Min-Fa 備注更正為已歿
+- `index.md` — Jazz 家族新增「Min-Fa 的兄弟姊妹」區塊；條目總數更新為 368
+
+---
+
+## [2026-06-18] add | 補建 Rei（Ren #56 之子、Min-Fa 外甥）
+
+**來源**：
+- https://redpandafinder.com/#profile/243 (Rei)
+
+**新增條目**：
+- `rei-ren.md` — Rei レイ（RPF #243），♂，生 2018-06-26，現居 Omuta City Zoo；`mai` × `ren-katsuo` 之子（⚠️ 勿與 `rei` 混淆）
+
+**更新條目**：
+- `ren-katsuo.md`、`mai.md` — 子女 Rei 改為 wikilink，並標註另一方親本
+- `index.md` — Min-Fa 兄弟姊妹區塊新增 Rei；條目總數更新為 369

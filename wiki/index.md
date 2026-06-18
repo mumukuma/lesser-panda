@@ -1,6 +1,6 @@
 # Wiki 目錄 Index
 
-> 最後更新：2026-06-14 | 條目總數：365
+> 最後更新：2026-06-18 | 條目總數：369
 
 ---
 
@@ -477,6 +477,15 @@
 |------|------|------|------|
 | [[shin-fa-304]] | Shin-Fa — Min-Fa 之母（RPF #304，⚠️ 勿與 [[shin-fa]] #948 混淆） | ♀ | 🌈 已歿 |
 | [[katsuo]] | Katsuo — Min-Fa 之父（RPF #303）；亦為 [[mei-fa-katsuo]] 之父 | ♂ | 🌈 已歿 |
+
+### Min-Fa 的兄弟姊妹（Shin-Fa × Katsuo 其他子女）
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[hao]] | Hao 好 — Min-Fa 之兄（RPF #11）；暱稱 Square-chin | ♂ | 2005–2019 🌈 | Ichikawa Zoological & Botanical Gardens |
+| [[ren-katsuo]] | Ren レン — Min-Fa 之弟（RPF #56，⚠️ 勿與 [[ren]] #252 混淆）；暱稱 Heartbreaker；[[ruru]] 雙胞胎 | ♂ | 2008 | Omuta City Zoo |
+| [[ruru]] | Ruru ルル — Min-Fa 之妹（RPF #55）；暱稱 Dig-a-bear；[[ren-katsuo]] 雙胞胎 | ♀ | 2008 | Mishima Rakujuen Park |
+| [[rei-ren]] | Rei レイ — [[ren-katsuo]] × [[mai]] 之子、Min-Fa 外甥（RPF #243，⚠️ 勿與 [[rei]] 混淆） | ♂ | 2018 | Omuta City Zoo |
 
 ### 祖父母（父方 Gaia 的父母）
 

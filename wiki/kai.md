@@ -17,7 +17,7 @@ sources:
 # Kai（カイ）
 
 > **小熊貓** ♂ | Ailurus fulgens styani  
-> 生日：2008 年 6 月 16 日（17 歲）  
+> 生日：2008 年 6 月 16 日（18 歲）  
 > 現居：のいち動物公園（Noichi Zoological Park of Kochi Prefecture），高知縣香南市 🇯🇵
 
 [[nami]] 🌈 與 [[ten-ten-jirou]] 🌈 所生之子，雙胞胎兄弟為 [[sora-ten-ten]]。與 [[mitarashi]] 育有一女 [[maron]] 🌈（2017–2023）。

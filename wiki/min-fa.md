@@ -69,7 +69,7 @@ sources:
 
 | 姓名 | RPF | 生年 | 備注 |
 |------|-----|------|------|
-| Hao | #11 | 2005 | 🌈 已歿 |
+| [[hao]] | #11 | 2005 | 🌈 已歿 |
 | [[mei-fa-katsuo]] | #265 | 2006（雙胞胎） | 🌈 已歿；Yuufa 之母 |
-| Ren | #56 | 2008 | — |
-| Ruru | #55 | 2008 | — |
+| [[ren-katsuo]] | #56 | 2008 | 現居 Omuta City Zoo |
+| [[ruru]] | #55 | 2008 | 現居 Mishima Rakujuen Park |
