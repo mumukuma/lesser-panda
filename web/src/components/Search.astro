@@ -6,9 +6,9 @@ const inputCls = 'bg-card text-ink border border-line rounded-input px-3.5 py-2.
 ---
 <h1 class="font-display text-2xl font-semibold mt-7 mb-1.5">{T.nav_search}</h1>
 <div class="flex gap-2.5 flex-wrap items-center my-4">
-  <input type="search" id="f-q" placeholder={T.search_placeholder} class={`flex-1 min-w-[240px] ${inputCls}`} />
-  <select id="f-zoo" class={inputCls}><option value="">{T.filter_zoo}：{T.filter_all}</option></select>
-  <select id="f-sex" class={inputCls}>
+  <input type="search" id="f-q" placeholder={T.search_placeholder} class={`flex-1 min-w-0 w-full sm:w-auto sm:min-w-[240px] ${inputCls}`} />
+  <select id="f-zoo" class={`w-full sm:w-auto min-w-0 max-w-full ${inputCls}`}><option value="">{T.filter_zoo}：{T.filter_all}</option></select>
+  <select id="f-sex" class={`w-full sm:w-auto ${inputCls}`}>
     <option value="">{T.filter_sex}：{T.filter_all}</option>
     <option value="female">{T.filter_female}</option>
     <option value="male">{T.filter_male}</option>

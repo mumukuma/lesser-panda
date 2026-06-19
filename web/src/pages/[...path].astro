@@ -4,6 +4,7 @@ import Home from '../components/Home.astro';
 import Search from '../components/Search.astro';
 import Zoos from '../components/Zoos.astro';
 import Panda from '../components/Panda.astro';
+import Feedback from '../components/Feedback.astro';
 import { pandas, zoos, LOCALES, searchDataFor, subGraph, displayName } from '../lib/data.js';
 
 export function getStaticPaths() {
@@ -13,6 +14,7 @@ export function getStaticPaths() {
     out.push({ params: { path: path('') || undefined }, props: { locale: l.code, kind: 'home', relPath: '' } });
     out.push({ params: { path: path('search') }, props: { locale: l.code, kind: 'search', relPath: 'search' } });
     out.push({ params: { path: path('zoos') }, props: { locale: l.code, kind: 'zoos', relPath: 'zoos' } });
+    out.push({ params: { path: path('feedback') }, props: { locale: l.code, kind: 'feedback', relPath: 'feedback' } });
     for (const p of Object.values(pandas)) {
       out.push({ params: { path: path('p/' + p.urlId) }, props: { locale: l.code, kind: 'panda', slug: p.slug, relPath: 'p/' + p.urlId } });
     }
@@ -27,6 +29,7 @@ const titles = {
   home: undefined,
   search: (await import('../lib/data.js')).i18n[locale].nav_search,
   zoos: (await import('../lib/data.js')).i18n[locale].nav_zoos,
+  feedback: (await import('../lib/data.js')).i18n[locale].nav_feedback,
   panda: kind === 'panda' ? displayName(pandas[slug], locale) : undefined,
 };
 const active = kind === 'home' ? 'home' : kind;
@@ -41,6 +44,7 @@ const graph = hasTree ? subGraph(slug) : null;
   {kind === 'home' && <Home locale={locale} />}
   {kind === 'search' && <Search locale={locale} />}
   {kind === 'zoos' && <Zoos locale={locale} />}
+  {kind === 'feedback' && <Feedback locale={locale} />}
   {kind === 'panda' && <Panda locale={locale} slug={slug} />}
 
   {kind === 'home' && (
@@ -60,6 +64,11 @@ const graph = hasTree ? subGraph(slug) : null;
       <script is:inline define:vars={{ data: { zoos } }}>window.ZOOS_DATA = data;</script>
       <script is:inline src={`${base}vendor/leaflet.js`}></script>
       <script is:inline src={`${base}js/map.js`}></script>
+    </Fragment>
+  )}
+  {kind === 'feedback' && (
+    <Fragment slot="scripts">
+      <script is:inline async src="https://tally.so/widgets/embed.js"></script>
     </Fragment>
   )}
   {kind === 'panda' && hasTree && (

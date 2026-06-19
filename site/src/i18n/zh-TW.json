@@ -4,6 +4,7 @@
   "nav_home": "首頁",
   "nav_search": "圖鑑搜尋",
   "nav_zoos": "動物園地圖",
+  "nav_feedback": "資料回報",
   "stat_pandas": "個體",
   "stat_alive": "現存",
   "stat_zoos": "動物園",
@@ -66,6 +67,11 @@
   "zoo_directions": "🧭 路線導航",
   "zoo_website": "官網",
   "back_to_search": "← 回圖鑑搜尋",
+  "feedback_title": "回報資料更正",
+  "feedback_intro": "發現某隻小熊貓的資料有誤嗎？歡迎回報。所有回報都會由作者逐筆查證後才更新——本站資料以人工校訂為準。為了讓我們對得上是哪一隻，請盡量附上該個體的網頁網址或 Red Panda Finder 連結。謝謝你的協助！",
+  "feedback_form_title": "資料回報表單",
+  "feedback_setup": "回報表單建置中，很快就好，請稍後再回來。",
+  "report_error": "回報這頁資料有誤",
   "data_note": "資料更新於",
   "footer_note": "由 Obsidian wiki 自動生成・資料經人工校訂（初期參考：Red Panda Finder、redpanda-lineage）"
 }

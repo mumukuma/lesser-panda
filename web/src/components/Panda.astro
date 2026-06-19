@@ -1,6 +1,7 @@
 ---
 import { pandas, i18n, displayName, zooName } from '../lib/data.js';
 import { pandaUrl, pageUrl } from '../lib/links.js';
+import { feedbackFormId } from '../lib/feedback.js';
 
 const { locale, slug } = Astro.props;
 const T = i18n[locale];
@@ -8,6 +9,14 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const p = pandas[slug];
 
 const primary = displayName(p, locale);
+
+// 回報這頁資料有誤：開啟 Tally 表單並用 hidden fields 預填個體身分（panda/slug/url）
+const fid = feedbackFormId(locale);
+const origin = Astro.site ? Astro.site.origin : '';
+const pageHref = origin + pandaUrl(base, locale, p.urlId);
+const reportUrl = fid
+  ? `https://tally.so/r/${fid}?panda=${encodeURIComponent(p.name)}&slug=${encodeURIComponent(p.slug)}&url=${encodeURIComponent(pageHref)}`
+  : null;
 const altNames = [...new Set([p.name, p.japanese].filter(Boolean).filter((n) => n !== primary))];
 const aka = [...(p.nicknames || []), ...(p.english_variants || [])];
 
@@ -70,6 +79,11 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
   <dl class="grid grid-cols-[auto_1fr] gap-x-[18px] gap-y-1.5 m-0 mt-3 relative">
     {facts.map(([k, v]) => (<><dt class="text-ink-soft text-[.88rem] whitespace-nowrap">{k}</dt><dd class="m-0"><Fragment set:html={v} /></dd></>))}
   </dl>
+  {reportUrl && (
+    <p class="mt-3 text-right relative">
+      <a class="text-ink-soft text-[.82rem] no-underline hover:text-rust hover:underline" href={reportUrl} target="_blank" rel="noopener">✏️ {T.report_error}</a>
+    </p>
+  )}
 </div>
 
 {igPosts.length > 0 && (

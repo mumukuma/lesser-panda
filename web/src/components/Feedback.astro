@@ -1,0 +1,32 @@
+---
+import { i18n } from '../lib/data.js';
+import { feedbackFormId } from '../lib/feedback.js';
+const { locale } = Astro.props;
+const T = i18n[locale];
+const formId = feedbackFormId(locale);
+const src = formId
+  ? `https://tally.so/embed/${formId}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`
+  : null;
+---
+<h1 class="font-display text-2xl font-semibold mt-7 mb-1.5">{T.feedback_title}</h1>
+<p class="text-ink-soft mb-4 leading-relaxed">{T.feedback_intro}</p>
+
+{src ? (
+  <div class="card-soft p-2 sm:p-4">
+    <iframe
+      data-tally-src={src}
+      loading="lazy"
+      width="100%"
+      height="500"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      title={T.feedback_form_title}
+    ></iframe>
+  </div>
+) : (
+  <div class="card-soft p-8 text-center text-ink-soft">
+    <div class="text-3xl mb-3">🐾</div>
+    {T.feedback_setup}
+  </div>
+)}

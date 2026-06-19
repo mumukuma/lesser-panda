@@ -43,15 +43,11 @@ const nav = [
   </div>
 
   <header class="site-header" id="site-header">
-    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center gap-3 flex-wrap">
-      <a href={page} class="brand font-display font-semibold text-xl no-underline flex items-center gap-2 tracking-wide">
+    <div class="max-w-4xl mx-auto px-4 py-2.5 sm:py-3 flex items-center gap-x-2 gap-y-1.5 flex-wrap sm:flex-nowrap">
+      <a href={page} class="brand order-1 font-display font-semibold text-lg sm:text-xl no-underline flex items-center gap-2 tracking-wide">
         <span class="anim-bob inline-block">🐾</span> {T.site_title}
       </a>
-      <nav class="ml-auto flex items-center gap-1">
-        {nav.map(([rp, label]) => (
-          <a href={url(cur.dir, rp)}
-             class={`nav-link px-3.5 py-1.5 rounded-full text-[.92rem] whitespace-nowrap no-underline ${active === (rp || 'home') ? 'active' : ''}`}>{label}</a>
-        ))}
+      <div class="order-2 sm:order-3 ml-auto flex items-center gap-1">
         <button id="theme-toggle" type="button" aria-label="切換深色模式"
           class="nav-link text-[1.05rem] leading-none bg-transparent border-0 cursor-pointer px-2 py-1.5 rounded-full">🌙</button>
         <select id="lang-select" aria-label="Language"
@@ -59,11 +55,17 @@ const nav = [
           style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237a6a5f' stroke-width='1.5' fill='none'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 11px center">
           {LOCALES.map((l) => <option value={l.code} selected={l.code === locale}>{l.label}</option>)}
         </select>
+      </div>
+      <nav class="order-3 sm:order-2 w-full sm:w-auto sm:ml-auto flex items-center justify-center gap-1">
+        {nav.map(([rp, label]) => (
+          <a href={url(cur.dir, rp)}
+             class={`nav-link px-3.5 py-1.5 rounded-full text-[.92rem] whitespace-nowrap no-underline ${active === (rp || 'home') ? 'active' : ''}`}>{label}</a>
+        ))}
       </nav>
     </div>
   </header>
 
-  <div class:list={['max-w-4xl mx-auto px-4 pb-16', active !== 'home' && 'pt-[68px]']}>
+  <div class:list={['max-w-4xl mx-auto px-4 pb-16', active !== 'home' && 'pt-[120px] sm:pt-[68px]']}>
     <slot />
     <footer class="mt-12 card-soft text-ink-soft text-[.84rem] px-4 py-3 text-center">
       {T.footer_note}・{T.data_note} {new Date().toISOString().slice(0, 10)}
