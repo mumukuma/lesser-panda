@@ -4,7 +4,7 @@
   "nav_home": "Home",
   "nav_search": "Search",
   "nav_zoos": "Zoo Map",
-  "nav_feedback": "Report",
+  "nav_feedback": "Report a missing panda or zoo",
   "stat_pandas": "Pandas",
   "stat_alive": "Living",
   "stat_zoos": "Zoos",
@@ -67,11 +67,12 @@
   "zoo_directions": "🧭 Directions",
   "zoo_website": "Website",
   "back_to_search": "← Back to search",
-  "feedback_title": "Report a correction or update",
-  "feedback_intro": "Spotted something wrong about a red panda, or have news such as a zoo transfer, a birth, or a death? Please let us know. Every report is reviewed and verified by the author before anything is updated — this site's data is hand-curated. So we can tell which panda you mean, please include the individual's page URL or a Red Panda Finder link where possible; for a transfer, please also add the destination zoo, the effective date, and a source. Thank you for helping!",
-  "feedback_form_title": "Data correction form",
+  "feedback_title": "Report a missing panda or zoo",
+  "feedback_intro": "Is there a red panda or a zoo the directory doesn't have yet? Tell us here. Please include the name (panda or zoo) and a Red Panda Finder or official zoo-site link. Every report is verified by the author before anything is added. Thanks!",
+  "feedback_form_title": "Missing report form",
   "feedback_setup": "The report form is being set up — please check back soon.",
   "report_error": "Report info or an update on this page",
   "data_note": "Data updated",
-  "footer_note": "Auto-generated from a hand-curated Obsidian wiki (initial reference: Red Panda Finder & redpanda-lineage)"
+  "footer_note": "Auto-generated from a hand-curated Obsidian wiki (initial reference: Red Panda Finder & redpanda-lineage)",
+  "feedback_footer_link": "Report a missing panda or zoo"
 }

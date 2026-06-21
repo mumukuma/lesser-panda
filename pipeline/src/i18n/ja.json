@@ -4,7 +4,7 @@
   "nav_home": "ホーム",
   "nav_search": "図鑑検索",
   "nav_zoos": "動物園マップ",
-  "nav_feedback": "情報提供",
+  "nav_feedback": "図鑑にない子・園の報告",
   "stat_pandas": "個体",
   "stat_alive": "現存",
   "stat_zoos": "動物園",
@@ -67,11 +67,12 @@
   "zoo_directions": "🧭 経路案内",
   "zoo_website": "公式サイト",
   "back_to_search": "← 図鑑検索に戻る",
-  "feedback_title": "データ修正・近況のご報告",
-  "feedback_intro": "レッサーパンダの情報に誤り、または新しい情報（移動・訃報・出産など）はありませんか？ぜひお知らせください。いただいた情報は管理人が一件ずつ確認のうえ反映します（当サイトのデータは手作業での校訂を正とします）。どの子のことか特定できるよう、できれば個体ページの URL または Red Panda Finder のリンクを添えてください。移動の場合は「移動先の園・適用日」と出典もお書き添えください。ご協力ありがとうございます！",
-  "feedback_form_title": "情報提供フォーム",
+  "feedback_title": "図鑑にまだいない子・動物園の報告",
+  "feedback_intro": "図鑑にまだいないレッサーパンダ、または載っていない動物園はありますか？ここでお知らせください。名前／園名と、Red Panda Finder または公式サイトのリンクを添えてください。いただいた情報は管理人が確認のうえ追加します。ご協力ありがとうございます！",
+  "feedback_form_title": "報告フォーム",
   "feedback_setup": "フォームは準備中です。まもなく公開しますので、もう少々お待ちください。",
   "report_error": "このページの情報・近況を報告",
   "data_note": "データ更新日",
-  "footer_note": "Obsidian wiki から自動生成・データは手作業で校訂（初期参考: Red Panda Finder・redpanda-lineage）"
+  "footer_note": "Obsidian wiki から自動生成・データは手作業で校訂（初期参考: Red Panda Finder・redpanda-lineage）",
+  "feedback_footer_link": "図鑑にない子・園を報告"
 }

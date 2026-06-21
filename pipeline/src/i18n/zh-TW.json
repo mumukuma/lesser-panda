@@ -4,7 +4,7 @@
   "nav_home": "首頁",
   "nav_search": "圖鑑搜尋",
   "nav_zoos": "動物園地圖",
-  "nav_feedback": "資料回報",
+  "nav_feedback": "回報缺少的熊或動物園",
   "stat_pandas": "個體",
   "stat_alive": "現存",
   "stat_zoos": "動物園",
@@ -67,11 +67,12 @@
   "zoo_directions": "🧭 路線導航",
   "zoo_website": "官網",
   "back_to_search": "← 回圖鑑搜尋",
-  "feedback_title": "回報資料或近況",
-  "feedback_intro": "發現某隻小熊貓的資料有誤，或有新消息（例如轉園、過世、出生）嗎？歡迎回報。所有回報都會由作者逐筆查證後才更新——本站資料以人工校訂為準。為了讓我們對得上是哪一隻，請盡量附上該個體的網頁網址或 Red Panda Finder 連結；若是轉園，也請附上「轉到哪一園、生效日期」與來源。謝謝你的協助！",
-  "feedback_form_title": "資料回報表單",
+  "feedback_title": "回報圖鑑還沒有的熊或動物園",
+  "feedback_intro": "圖鑑還沒有這隻小熊貓，或少了某座動物園嗎？在這裡告訴我們。請附上名字／園名，以及 Red Panda Finder 或動物園官網連結。所有回報會由作者查證後才新增（資料以人工校訂為準）。謝謝你的協助！",
+  "feedback_form_title": "報缺表單",
   "feedback_setup": "回報表單建置中，很快就好，請稍後再回來。",
   "report_error": "回報這頁資料／近況",
   "data_note": "資料更新於",
-  "footer_note": "由 Obsidian wiki 自動生成・資料經人工校訂（初期參考：Red Panda Finder、redpanda-lineage）"
+  "footer_note": "由 Obsidian wiki 自動生成・資料經人工校訂（初期參考：Red Panda Finder、redpanda-lineage）",
+  "feedback_footer_link": "回報圖鑑沒有的熊或動物園"
 }
