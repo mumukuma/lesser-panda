@@ -14,8 +14,9 @@ const primary = displayName(p, locale);
 const fid = feedbackFormId(locale);
 const origin = Astro.site ? Astro.site.origin : '';
 const pageHref = origin + pandaUrl(base, locale, p.urlId);
-const reportUrl = fid
-  ? `https://tally.so/r/${fid}?panda=${encodeURIComponent(p.name)}&slug=${encodeURIComponent(p.slug)}&url=${encodeURIComponent(pageHref)}`
+// 內嵌 Tally：hidden fields（panda/slug/url）以 query 帶入，預設收合、點按鈕才載入
+const reportEmbedSrc = fid
+  ? `https://tally.so/embed/${fid}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&panda=${encodeURIComponent(p.name)}&slug=${encodeURIComponent(p.slug)}&url=${encodeURIComponent(pageHref)}`
   : null;
 const altNames = [...new Set([p.name, p.japanese].filter(Boolean).filter((n) => n !== primary))];
 const aka = [...(p.nicknames || []), ...(p.english_variants || [])];
@@ -52,7 +53,6 @@ const facts = [
   p.died ? [T.field_died, `${p.died} ${T.deceased_mark}`] : null,
   [T.field_species, `<i>${p.species ? 'Ailurus fulgens ' + p.species : '-'}</i>`],
   curZoo ? [T.field_zoo, curZoo] : null,
-  p.rpf_url ? [T.field_rpf, `<a class="text-rust hover:underline" href="${p.rpf_url}" target="_blank" rel="noopener">#${p.rpf_id}</a>`] : null,
 ].filter(Boolean);
 
 const link = (s) => pandas[s]
@@ -79,12 +79,52 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
   <dl class="grid grid-cols-[auto_1fr] gap-x-[18px] gap-y-1.5 m-0 mt-3 relative">
     {facts.map(([k, v]) => (<><dt class="text-ink-soft text-[.88rem] whitespace-nowrap">{k}</dt><dd class="m-0"><Fragment set:html={v} /></dd></>))}
   </dl>
-  {reportUrl && (
-    <p class="mt-3 text-right relative">
-      <a class="text-ink-soft text-[.82rem] no-underline hover:text-rust hover:underline" href={reportUrl} target="_blank" rel="noopener">✏️ {T.report_error}</a>
-    </p>
+  {reportEmbedSrc && (
+    <div class="mt-3 relative">
+      <div class="text-right">
+        <button type="button" id="report-toggle" aria-expanded="false" aria-controls="report-panel"
+          class="text-ink-soft text-[.82rem] no-underline hover:text-rust hover:underline cursor-pointer bg-transparent border-0 p-0">✏️ {T.report_error}</button>
+      </div>
+      <div id="report-panel" hidden class="card-soft p-2 sm:p-4 mt-2"></div>
+    </div>
   )}
 </div>
+{reportEmbedSrc && (
+  <script is:inline define:vars={{ src: reportEmbedSrc, title: T.report_error }}>
+    (function () {
+      var btn = document.getElementById('report-toggle');
+      var panel = document.getElementById('report-panel');
+      if (!btn || !panel) return;
+      var loaded = false;
+      btn.addEventListener('click', function () {
+        if (panel.hasAttribute('hidden')) {
+          panel.removeAttribute('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          if (!loaded) {
+            var f = document.createElement('iframe');
+            f.setAttribute('data-tally-src', src);
+            f.setAttribute('loading', 'lazy');
+            f.width = '100%'; f.height = '420';
+            f.frameBorder = '0'; f.marginHeight = '0'; f.marginWidth = '0';
+            f.title = title;
+            panel.appendChild(f);
+            if (window.Tally) {
+              window.Tally.loadEmbeds();
+            } else {
+              var s = document.createElement('script');
+              s.src = 'https://tally.so/widgets/embed.js';
+              document.body.appendChild(s);
+            }
+            loaded = true;
+          }
+        } else {
+          panel.setAttribute('hidden', '');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+  </script>
+)}
 
 {igPosts.length > 0 && (
   <>

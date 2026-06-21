@@ -3,13 +3,16 @@ import { i18n } from '../lib/data.js';
 import { missingFormId } from '../lib/feedback.js';
 const { locale } = Astro.props;
 const T = i18n[locale];
+
+// 單一回報表單：第一題的「類型」下拉與其延伸題目都在 Tally 表單(2EVJlb)裡，
+// 頁面只負責嵌入這一張，保持與個熊表單一致（下拉留在表單內）。
 const formId = missingFormId(locale);
 const src = formId
   ? `https://tally.so/embed/${formId}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`
   : null;
 ---
-<h1 class="font-display text-2xl font-semibold mt-7 mb-1.5">{T.feedback_title}</h1>
-<p class="text-ink-soft mb-4 leading-relaxed">{T.feedback_intro}</p>
+<h1 class="font-display text-2xl font-semibold mt-7 mb-1.5">{T.feedback_hub_title}</h1>
+<p class="text-ink-soft mb-4 leading-relaxed">{T.feedback_hub_intro}</p>
 
 {src ? (
   <div class="card-soft p-2 sm:p-4">

@@ -38,9 +38,11 @@ export const displayName = (p, locale) =>
     : locale === 'zh-TW' ? p.chinese || p.kanji || p.name
     : p.name;
 
-// ── URL id：slug + 生日（同名也能區分）；slug 仍為資料主鍵 ──────
+// ── URL id：自 2026-06-18 起 slug 本身已是「名字-生日」(撞名再加媽媽名)，
+//    全域唯一且已含生日，故 urlId 直接等於 slug。
+//    （舊版在此再接一次 -born，會產生 /p/<name>-<born>-<born>/ 的重複生日失效連結。）──
 for (const p of Object.values(pandas)) {
-  p.urlId = p.born ? `${p.slug}-${p.born}` : p.slug;
+  p.urlId = p.slug;
 }
 
 // ── 兄弟姊妹（全血／半血）─────────────────────────────

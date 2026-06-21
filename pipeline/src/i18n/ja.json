@@ -4,7 +4,7 @@
   "nav_home": "ホーム",
   "nav_search": "図鑑検索",
   "nav_zoos": "動物園マップ",
-  "nav_feedback": "図鑑にない子・園の報告",
+  "nav_feedback": "報告とフィードバック",
   "stat_pandas": "個体",
   "stat_alive": "現存",
   "stat_zoos": "動物園",
@@ -71,8 +71,10 @@
   "feedback_intro": "図鑑にまだいないレッサーパンダ、または載っていない動物園はありますか？ここでお知らせください。名前／園名と、Red Panda Finder または公式サイトのリンクを添えてください。いただいた情報は管理人が確認のうえ追加します。ご協力ありがとうございます！",
   "feedback_form_title": "報告フォーム",
   "feedback_setup": "フォームは準備中です。まもなく公開しますので、もう少々お待ちください。",
+  "feedback_hub_title": "報告とフィードバック",
+  "feedback_hub_intro": "図鑑をより充実・使いやすくするためのご協力に感謝します。下のフォームの「種類」からお選びください：いない子・動物園の報告、その他のご意見・ご提案、または「願いの池」へのリクエスト。いただいた内容は管理人が確認のうえ対応します。",
   "report_error": "このページの情報・近況を報告",
   "data_note": "データ更新日",
   "footer_note": "Obsidian wiki から自動生成・データは手作業で校訂（初期参考: Red Panda Finder・redpanda-lineage）",
-  "feedback_footer_link": "図鑑にない子・園を報告"
+  "feedback_footer_link": "不具合・不足の報告"
 }
