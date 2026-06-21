@@ -35,8 +35,8 @@ red-panda-wiki/
 │   ├── audit.py         ← 資料完整度檢查（與 redpanda-lineage 比對）
 │   ├── apply_lineage_fixes.py ← 依 lineage 保守補齊空白欄位
 │   └── schema.sql       ← SQLite schema
-├── site/
-│   ├── scripts/export_json.py ← redpanda.db → site/data/*.json（網站資料）
+├── pipeline/
+│   ├── scripts/export_json.py ← redpanda.db → pipeline/data/*.json（網站資料）
 │   └── src/i18n/        ← 三語介面字串
 ├── web/                 ← Astro + Tailwind 網站前端（見 web/README.md）
 └── wiki/
@@ -45,8 +45,8 @@ red-panda-wiki/
     └── [slug].md        ← 個體條目（每隻一頁）
 ```
 
-**真相來源是 `wiki/*.md`**；`redpanda.db`、`site/data/*.json`、網站都是衍生資料。
-改完 wiki 後重建：`python3 tools/gen_residence.py`（依 `zoos:` 重生居住史表格）→ `python3 tools/build_db.py`（DB）→ `python3 site/scripts/export_json.py`（網站資料）。
+**真相來源是 `wiki/*.md`**；`redpanda.db`、`pipeline/data/*.json`、網站都是衍生資料。
+改完 wiki 後重建：`python3 tools/gen_residence.py`（依 `zoos:` 重生居住史表格）→ `python3 tools/build_db.py`（DB）→ `python3 pipeline/scripts/export_json.py`（網站資料）。
 網站本身由 GitHub Actions 自動建置部署；本地預覽見 `web/README.md`。
 
 ---
@@ -95,7 +95,7 @@ red-panda-wiki/
 5. 更新 `wiki/index.md`：加入適當分類、更新頁首「最後更新」與「條目總數」
 6. 在 `wiki/log.md` 末端 append 一筆記錄
 7. 重跑 `python3 tools/build_db.py`
-8. 跑 `python tools/audit.py` 檢查資料完整度（缺欄位、與 lineage 不符等）；網站資料則重跑 `python3 site/scripts/export_json.py`
+8. 跑 `python tools/audit.py` 檢查資料完整度（缺欄位、與 lineage 不符等）；網站資料則重跑 `python3 pipeline/scripts/export_json.py`
 
 ### ⚠️ log.md 絕對禁止 `[[wikilink]]`
 

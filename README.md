@@ -34,7 +34,7 @@
 │   ├── build_db.py / query.py
 │   ├── zoo_registry.py    # 載入 data/zoos.json 並比對園名
 │   └── gen_residence.py   # 由 zoos: 自動生成內文居住史表格
-├── site/              # 資料管線 + i18n 字串
+├── pipeline/              # 資料管線 + i18n 字串
 │   ├── scripts/       # export_json（SQLite → JSON）
 │   ├── data/          # 產出的 JSON（中繼資料）
 │   └── src/i18n/      # 三語介面字串
@@ -43,8 +43,9 @@
 └── SCHEMA.md          # 條目格式規範
 ```
 
-> 註：早期的 `site/scripts/build.mjs` + `site/src/` 是第一版純 HTML 生成器，
-> 現已由 `web/`（Astro + Tailwind）取代；資料管線（`tools/`、`site/scripts/export_json.py`）續用。
+> 註：第一版純 HTML 生成器（`build.mjs` + `src/*.js` + `dist/`，當時在舊的 `site/` 目錄）
+> 已於 2026-06 移除，由 `web/`（Astro + Tailwind）取代；該目錄並更名為 `pipeline/`，
+> 現只剩資料管線（`scripts/export_json.py`）、管線輸出（`data/`）與三語介面字串（`src/i18n/`）。
 
 ## 本地建置
 
@@ -53,7 +54,7 @@
 ```bash
 python3 tools/gen_residence.py       # 由 zoos: 重生居住史表格
 python3 tools/build_db.py            # wiki → SQLite（園名未登記會報錯）
-python3 site/scripts/export_json.py  # SQLite → JSON
+python3 pipeline/scripts/export_json.py  # SQLite → JSON
 cd web && pnpm install && pnpm dev   # Astro 開發伺服器
 ```
 

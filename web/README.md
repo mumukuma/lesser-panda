@@ -1,7 +1,7 @@
 # web/ — Astro + Tailwind 前端
 
 小熊貓圖鑑的網站，用 [Astro](https://astro.build) + Tailwind CSS 建置。
-資料來自 Python 管線產出的 `../site/data/*.json`（正本仍是 `wiki/*.md`）。
+資料來自 Python 管線產出的 `../pipeline/data/*.json`（正本仍是 `wiki/*.md`）。
 
 ## 開發 / 建置
 
@@ -9,7 +9,7 @@
 
 ```bash
 python3 tools/build_db.py
-python3 site/scripts/export_json.py
+python3 pipeline/scripts/export_json.py
 ```
 
 然後在 `web/`（使用 pnpm）：
@@ -23,7 +23,7 @@ pnpm preview   # 預覽 build 結果
 
 > 沒裝 pnpm 的話：`corepack enable`（Node 內建）即可使用，或 `npm i -g pnpm`。
 
-> 資料路徑是相對於 `web/` 的 `../site/data`，所以 build 必須在 `web/` 目錄執行。
+> 資料路徑是相對於 `web/` 的 `../pipeline/data`，所以 build 必須在 `web/` 目錄執行。
 
 ## 結構
 
@@ -32,7 +32,7 @@ web/
 ├── astro.config.mjs       # base=/lesser-panda、Tailwind、PWA(vite-pwa)
 ├── tailwind.config.cjs    # 顏色對應 CSS 變數；深色模式由變數切換
 ├── src/
-│   ├── lib/data.js        # 讀 ../site/data + i18n，算衍生資料（家系、搜尋、漢字名）
+│   ├── lib/data.js        # 讀 ../pipeline/data + i18n，算衍生資料（家系、搜尋、漢字名）
 │   ├── lib/links.js       # 連結 helper
 │   ├── layouts/Layout.astro    # header/nav/語言下拉/深色切換/全域變數
 │   ├── components/        # Home / Search / Zoos / Panda

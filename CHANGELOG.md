@@ -21,7 +21,7 @@
 ## v0.6 — 2026-06-14 ・ 動物園名稱在地化
 
 - 動物園名稱依語系顯示：中文＝中文名→日文漢字→英文；日文＝日文名；英文＝英文
-- 新增 22 個非日本動物園的中文名（`site/data/zoo-names.json`，可手動增修），例如台北、首爾、鹿特丹
+- 新增 22 個非日本動物園的中文名（`pipeline/data/zoo-names.json`，可手動增修），例如台北、首爾、鹿特丹
 - 卡片、地圖彈窗、個體頁居住史皆套用
 
 ## v0.5 — 2026-06-14 ・ IG 照片展示 + 個體網址改版
@@ -39,13 +39,13 @@
 - PWA 改用成熟的 vite-pwa（Workbox），更新與快取更穩定
 - 改用 **pnpm**；GitHub Actions 同步調整
 - 修正：首頁搜尋／動物園按鈕對齊
-- 資料管線（`tools/`、`site/scripts/export_json.py`）與 wiki 完全不變
+- 資料管線（`tools/`、`pipeline/scripts/export_json.py`）與 wiki 完全不變
 
 ## v0.3 — 2026-06-13 ・ 內容與體驗
 
 - **今天的小熊貓**：首頁顯示當日生日與當日「前往小熊星球」（🌈）
 - **語系名字顯示**：中文＝漢字（無則退英文）、日文＝日文名、英文＝英文
-- **動物園 logo**：用官網 favicon，可在 `site/data/zoo-logos.json` 手動覆蓋
+- **動物園 logo**：用官網 favicon，可在 `pipeline/data/zoo-logos.json` 手動覆蓋
 - **資料完整度檢查工具**（`tools/audit.py`）：與 redpanda-lineage 本地比對，不重爬 RPF
 - 家系圖手機體驗：雙指縮放、拖曳平移、載入置中於焦點
 - 全站手機版 RWD 調整

@@ -112,7 +112,7 @@
 
 ```
 改 wiki → python3 tools/build_db.py → python tools/audit.py
-        → python3 site/scripts/export_json.py → 在 log.md append 一筆 → commit
+        → python3 pipeline/scripts/export_json.py → 在 log.md append 一筆 → commit
 ```
 
 `tools/audit.py`（與 lineage 比對）可在套用後當 sanity check。

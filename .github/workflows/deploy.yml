@@ -37,7 +37,7 @@ jobs:
       - name: Build data pipeline (wiki → SQLite → JSON)
         run: |
           python tools/build_db.py
-          python site/scripts/export_json.py
+          python pipeline/scripts/export_json.py
 
       - name: Build Astro site
         working-directory: web

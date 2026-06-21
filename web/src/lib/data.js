@@ -1,20 +1,20 @@
-/* 資料層：讀取 Python 管線產出的 site/data/*.json 與 i18n，計算衍生資料。
+/* 資料層：讀取 Python 管線產出的 pipeline/data/*.json 與 i18n，計算衍生資料。
    （與舊 build.mjs 邏輯一致，資料管線完全沿用） */
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 // 路徑相對於 astro build 的 cwd（web/）。CI 與本機皆從 web/ 執行，
-// ../site/... 即 repo 的 site 資料夾（Python 管線的輸出）。
+// ../pipeline/... 即 repo 的 pipeline 資料夾（Python 管線的輸出）。
 const read = (rel) => JSON.parse(readFileSync(resolve(process.cwd(), '..', rel), 'utf8'));
 
-export const pandas = read('site/data/pandas.json').pandas;
-export const zoos = read('site/data/zoos.json').zoos;
-export const family = read('site/data/family.json');
+export const pandas = read('pipeline/data/pandas.json').pandas;
+export const zoos = read('pipeline/data/zoos.json').zoos;
+export const family = read('pipeline/data/family.json');
 
 export const i18n = {
-  'zh-TW': read('site/src/i18n/zh-TW.json'),
-  ja: read('site/src/i18n/ja.json'),
-  en: read('site/src/i18n/en.json'),
+  'zh-TW': read('pipeline/src/i18n/zh-TW.json'),
+  ja: read('pipeline/src/i18n/ja.json'),
+  en: read('pipeline/src/i18n/en.json'),
 };
 
 export const LOCALES = [

@@ -27,7 +27,7 @@
 1. 用 `python tools/query.py profile <兩隻>` 比對：**雙胞胎 = 同父母且同生日**；同年不同日只是手足。
 2. 改兩隻條目的 `## 家族關係` 區塊文字，標明關係（雙胞胎用「雙胞胎」字樣；½ 表半血緣）。
 3. 確認彼此用 `[[slug]]` 互連（對方有條目才連）。
-4. 重建：`python3 tools/build_db.py` → `python3 site/scripts/export_json.py`。
+4. 重建：`python3 tools/build_db.py` → `python3 pipeline/scripts/export_json.py`。
 
 ### B. 名字（拼法／中文名／暱稱）
 

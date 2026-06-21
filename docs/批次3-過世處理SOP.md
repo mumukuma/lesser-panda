@@ -45,7 +45,7 @@
 ```bash
 python3 tools/gen_residence.py     # died 會影響居住史「終」與現居呈現
 python3 tools/build_db.py
-python3 site/scripts/export_json.py
+python3 pipeline/scripts/export_json.py
 ```
 
 ## 步驟 5：記 log
@@ -113,7 +113,7 @@ python3 site/scripts/export_json.py
 ```bash
 python3 tools/build_db.py
 python tools/audit.py          # 檢查缺欄位／與 lineage 不符
-python3 site/scripts/export_json.py
+python3 pipeline/scripts/export_json.py
 ```
 
 條目總數用 `ls wiki/*.md | wc -l` 減 2 核對；推 `main` 自動部署。

@@ -94,7 +94,7 @@ zoos:
 ```bash
 python3 tools/gen_residence.py    # 依新的 zoos: 重生內文「## 居住史」表
 python3 tools/build_db.py         # 重建 DB（園名未登記會在這報錯）
-python3 site/scripts/export_json.py   # 重生網站資料
+python3 pipeline/scripts/export_json.py   # 重生網站資料
 ```
 
 `build_db.py` 沒報錯 = 園名都對得上註冊表。若報「未登記」就回步驟 3。

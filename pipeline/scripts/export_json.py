@@ -4,16 +4,16 @@ export_json.py — 從 redpanda.db 匯出網站所需的 JSON
 
 用法（在 wiki 根目錄執行）：
     python tools/build_db.py          # 先重建 DB
-    python site/scripts/export_json.py
+    python pipeline/scripts/export_json.py
 
-輸出（site/data/）：
+輸出（pipeline/data/）：
     pandas.json   — 所有個體完整資料（含居住史、現居）
     family.json   — 親子邊 + 雙胞胎邊（家系圖用）
     zoos.json     — 動物園（含座標），及各園現居個體
     report.json   — 匯出統計與未匹配動物園名（除錯用）
 
 動物園主檔來源：/tmp/redpanda-lineage（若存在則重新解析並快取），
-否則使用既有快取 site/data/zoos-master.json。
+否則使用既有快取 pipeline/data/zoos-master.json。
 """
 
 from __future__ import annotations  # 相容舊版 Python（str | None 等延後解析）
@@ -27,7 +27,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent.parent.parent  # red-panda-wiki/
-SITE_DATA = ROOT / "site" / "data"
+OUT_DATA = ROOT / "pipeline" / "data"
 LINEAGE = Path("/tmp/redpanda-lineage")
 DB_CANDIDATES = [ROOT / "redpanda.db", Path("/tmp/redpanda.db")]
 REGISTRY = ROOT / "data" / "zoos.json"   # 動物園唯一事實來源（作者維護）
@@ -192,7 +192,7 @@ def build_zoo_matcher(zoos: list[dict]):
 def main():
     conn, db_path = get_db()
     print(f"讀取 {db_path}")
-    SITE_DATA.mkdir(parents=True, exist_ok=True)
+    OUT_DATA.mkdir(parents=True, exist_ok=True)
 
     zoos_master = load_zoo_master()
     match_zoo = build_zoo_matcher(zoos_master)
@@ -305,9 +305,9 @@ def main():
         },
     }
     for fname, data in out.items():
-        (SITE_DATA / fname).write_text(
+        (OUT_DATA / fname).write_text(
             json.dumps(data, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-        print(f"  ✅ site/data/{fname}")
+        print(f"  ✅ pipeline/data/{fname}")
     print(f"完成：{len(pandas)} 個體 / {len(edges)} 親子邊 / {len(zoos_out)} 動物園"
           f"（未匹配園名 {len(unmatched)} 種）")
 
