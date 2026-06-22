@@ -68,7 +68,11 @@ const nav = [
   <div class:list={['max-w-4xl mx-auto px-4 pb-16', active !== 'home' && 'pt-[120px] sm:pt-[68px]']}>
     <slot />
     <footer class="mt-12 card-soft text-ink-soft text-[.84rem] px-4 py-3 text-center">
-      <a href={url(cur.dir, 'feedback')} class="text-rust no-underline hover:underline">🐾 {T.feedback_footer_link}</a>
+      <div class="flex flex-wrap justify-center items-center gap-x-3 gap-y-1">
+        <a href={url(cur.dir, 'feedback')} class="text-rust no-underline hover:underline">🐾 {T.feedback_footer_link}</a>
+        <span aria-hidden="true" class="hidden sm:inline opacity-40">·</span>
+        <a href={url(cur.dir, 'thanks')} class="text-rust no-underline hover:underline">{T.thanks_footer_link}</a>
+      </div>
       <div class="mt-1.5">{T.footer_note}・{T.data_note} {new Date().toISOString().slice(0, 10)}</div>
     </footer>
   </div>

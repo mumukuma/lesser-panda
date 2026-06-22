@@ -5,6 +5,7 @@ import Search from '../components/Search.astro';
 import Zoos from '../components/Zoos.astro';
 import Panda from '../components/Panda.astro';
 import Feedback from '../components/Feedback.astro';
+import Thanks from '../components/Thanks.astro';
 import { pandas, zoos, LOCALES, searchDataFor, subGraph, displayName } from '../lib/data.js';
 
 export function getStaticPaths() {
@@ -15,6 +16,7 @@ export function getStaticPaths() {
     out.push({ params: { path: path('search') }, props: { locale: l.code, kind: 'search', relPath: 'search' } });
     out.push({ params: { path: path('zoos') }, props: { locale: l.code, kind: 'zoos', relPath: 'zoos' } });
     out.push({ params: { path: path('feedback') }, props: { locale: l.code, kind: 'feedback', relPath: 'feedback' } });
+    out.push({ params: { path: path('thanks') }, props: { locale: l.code, kind: 'thanks', relPath: 'thanks' } });
     for (const p of Object.values(pandas)) {
       out.push({ params: { path: path('p/' + p.urlId) }, props: { locale: l.code, kind: 'panda', slug: p.slug, relPath: 'p/' + p.urlId } });
     }
@@ -30,6 +32,7 @@ const titles = {
   search: (await import('../lib/data.js')).i18n[locale].nav_search,
   zoos: (await import('../lib/data.js')).i18n[locale].nav_zoos,
   feedback: (await import('../lib/data.js')).i18n[locale].nav_feedback,
+  thanks: (await import('../lib/data.js')).i18n[locale].thanks_title,
   panda: kind === 'panda' ? displayName(pandas[slug], locale) : undefined,
 };
 const active = kind === 'home' ? 'home' : kind;
@@ -45,6 +48,7 @@ const graph = hasTree ? subGraph(slug) : null;
   {kind === 'search' && <Search locale={locale} />}
   {kind === 'zoos' && <Zoos locale={locale} />}
   {kind === 'feedback' && <Feedback locale={locale} />}
+  {kind === 'thanks' && <Thanks locale={locale} />}
   {kind === 'panda' && <Panda locale={locale} slug={slug} />}
 
   {kind === 'home' && (

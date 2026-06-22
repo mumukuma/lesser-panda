@@ -1,0 +1,26 @@
+---
+import { i18n, contributors } from '../lib/data.js';
+const { locale } = Astro.props;
+const T = i18n[locale];
+
+// 只顯示名字；過濾掉空白項，保留作者維護的順序
+const names = (contributors || [])
+  .map((c) => (typeof c === 'string' ? c : c && c.name))
+  .filter((n) => n && String(n).trim())
+  .map((n) => String(n).trim());
+---
+<h1 class="font-display text-2xl font-semibold mt-7 mb-1.5">🐾 {T.thanks_title}</h1>
+<p class="text-ink-soft mb-5 leading-relaxed">{T.thanks_intro}</p>
+
+{names.length > 0 ? (
+  <ul class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 list-none p-0 m-0">
+    {names.map((n) => (
+      <li class="card-soft text-center px-3 py-2.5 text-[.95rem] break-words">{n}</li>
+    ))}
+  </ul>
+) : (
+  <div class="card-soft p-8 text-center text-ink-soft">
+    <div class="text-3xl mb-3">🐾</div>
+    {T.thanks_empty}
+  </div>
+)}

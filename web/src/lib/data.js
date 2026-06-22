@@ -11,6 +11,9 @@ export const pandas = read('pipeline/data/pandas.json').pandas;
 export const zoos = read('pipeline/data/zoos.json').zoos;
 export const family = read('pipeline/data/family.json');
 
+// 致謝名單：作者維護的 data/contributors.json（非衍生資料，直接讀 repo 根的 data/）
+export const contributors = read('data/contributors.json').contributors || [];
+
 export const i18n = {
   'zh-TW': read('pipeline/src/i18n/zh-TW.json'),
   ja: read('pipeline/src/i18n/ja.json'),

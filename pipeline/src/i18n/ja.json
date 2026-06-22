@@ -76,5 +76,9 @@
   "report_error": "このページの情報・近況を報告",
   "data_note": "データ更新日",
   "footer_note": "Obsidian wiki から自動生成・データは手作業で校訂（初期参考: Red Panda Finder・redpanda-lineage）",
-  "feedback_footer_link": "不具合・不足の報告"
+  "feedback_footer_link": "不具合・不足の報告",
+  "thanks_footer_link": "謝辞",
+  "thanks_title": "謝辞",
+  "thanks_intro": "この図鑑がより充実してきたのは、いない子・動物園・近況の報告にご協力くださった多くの方々のおかげです。お手伝いいただいた皆さまに感謝します。（公開掲載に同意いただいた方のみ掲載）",
+  "thanks_empty": "これからお名前が並んでいきます。報告フォームからのご協力をお待ちしています。いただいたお名前はこちらに掲載されます。"
 }

@@ -76,5 +76,9 @@
   "report_error": "Report info or an update on this page",
   "data_note": "Data updated",
   "footer_note": "Auto-generated from a hand-curated Obsidian wiki (initial reference: Red Panda Finder & redpanda-lineage)",
-  "feedback_footer_link": "Report a problem or missing panda/zoo"
+  "feedback_footer_link": "Report a problem or missing panda/zoo",
+  "thanks_footer_link": "Thanks",
+  "thanks_title": "Thanks",
+  "thanks_intro": "This directory keeps growing thanks to the many fans who help report missing pandas, zoos, and updates. Here are the friends who've helped — thank you! (Listed with their consent to be credited publicly.)",
+  "thanks_empty": "Names will start appearing here soon. Help out through the report form and your name will show up here."
 }
