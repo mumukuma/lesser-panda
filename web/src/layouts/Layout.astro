@@ -4,6 +4,9 @@ import { LOCALES, i18n } from '../lib/data.js';
 
 const { locale, relPath = '', active = '', title } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');   // 確保結尾有 /
+// Google Analytics 4：建好資源後把下面換成你的 Measurement ID（G- 開頭）。
+// 只在 production build（pnpm build）載入，本機 dev 不送資料。
+const GA_ID = 'G-DNK1GL5F3Q';
 const T = i18n[locale];
 const cur = LOCALES.find((l) => l.code === locale);
 
@@ -22,6 +25,17 @@ const nav = [
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  {import.meta.env.PROD && GA_ID && !GA_ID.includes('XXXX') && (
+    <>
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+      <script is:inline define:vars={{ GA_ID }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', GA_ID);
+      </script>
+    </>
+  )}
   <script is:inline>document.documentElement.classList.add('js');</script>
   <title>{title ? `${title} | ${T.site_title}` : T.site_title}</title>
   <meta name="theme-color" content="#b5552d" />

@@ -2,10 +2,10 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import AstroPWA from '@vite-pwa/astro';
 
-// GitHub Pages：https://mumukuma.github.io/lesser-panda/
+// 自訂網域（apex）：https://ressapanda.com
 export default defineConfig({
-  site: 'https://mumukuma.github.io',
-  base: '/lesser-panda',
+  site: 'https://ressapanda.com',
+  base: '/',
   trailingSlash: 'ignore',
   integrations: [
     tailwind(),
@@ -14,12 +14,12 @@ export default defineConfig({
       manifest: {
         name: '小熊貓圖鑑',
         short_name: '小熊貓圖鑑',
-        start_url: '/lesser-panda/',
-        scope: '/lesser-panda/',
+        start_url: '/',
+        scope: '/',
         display: 'standalone',
         background_color: '#fdf8f2',
         theme_color: '#b5552d',
-        icons: [{ src: '/lesser-panda/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
+        icons: [{ src: '/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
       },
       workbox: {
         navigateFallback: null,
