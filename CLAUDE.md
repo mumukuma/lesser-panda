@@ -77,7 +77,7 @@ red-panda-wiki/
 
 - 格式：`slugify(name)` + `-` + 生日。生日用完整 `YYYY-MM-DD`；只知年份則用 `YYYY`。
   - 例：`yan-yan-2014-06-22.md`、`akebi-2020-06-29.md`、`tian-1999.md`（只知年份）
-- slugify：全小寫、空白/底線換連字號、去除 `'`、`()`、`.`。例：`Ke Song`→`ke-song`、`Pu'erh`→`puerh`。
+- slugify：全小寫、空白/底線換連字號、去除 `'`、`()`、`.`；**重音字母轉為對應基本拉丁字母（不可整個刪掉）**，作法為 NFKD 正規化後去掉組合附加符號（é→e、ó→o、ú→u、ñ→n…）。例：`Ke Song`→`ke-song`、`Pu'erh`→`puerh`、`Réra`→`rera`、`Miró`→`miro`、`Kelú`→`kelu`。
 - **撞名（同名又同生日）才加第三層消歧 = 媽媽的名字**（slug），**不用父名**。
   - 例：兩隻 Sora 都生於 2008-06-16 → `sora-seina-2008-06-16`（母 seina）、`sora-nami-2008-06-16`（母 nami）
 - 佔位名字（如未正式命名的 `Baby`）同樣用「名字-媽媽名-生日」，待正式命名後再改 slug。

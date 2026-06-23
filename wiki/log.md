@@ -881,11 +881,11 @@
 - `chin-chin.md` — 陳々（RPF #778）♂，1991-07-14 生，2009-02-17 歿；Hirakata Park；Boo-Boo 之父
 
 **更新條目**：
-- `fin-fin.md` — 母親改為 `[[fan-fan]]` wikilink
-- `ajisai.md` — 母親改為 `[[fan-fan]]` wikilink
-- `katsuo.md` — 補充父親 `[[tan-tan]]` 及母親 `[[fan-fan]]` 資訊
-- `yoichi.md` — 母親改為 `[[daizu]]` wikilink
-- `index.md` — 新增「Azuki 家族（多摩動物公園）」區塊，`其他相關` 欄補充 `[[azuki]]`，條目總數更新為 219
+- `fin-fin.md` — 母親改為 `fan-fan` wikilink
+- `ajisai.md` — 母親改為 `fan-fan` wikilink
+- `katsuo.md` — 補充父親 `tan-tan` 及母親 `fan-fan` 資訊
+- `yoichi.md` — 母親改為 `daizu` wikilink
+- `index.md` — 新增「Azuki 家族（多摩動物公園）」區塊，`其他相關` 欄補充 `azuki`，條目總數更新為 219
 
 ---
 
@@ -911,10 +911,10 @@
 - Baby（RPF #1425, ♀, 2023-07-09–2023-07-25 🌈）— 僅存活 16 日
 
 **跨家族連結：**
-- `oolong`（RPF #15）= [[oolong]]（Milk 家族祖父），確認同一個體
-- `airi` 之父 Kiki（RPF #81）= [[kiki]]（Jaja 家族外祖父）
-- `airi` 之母 Seina（RPF #89）= [[seina]]（Jaja/Nohana 跨家族連結）
-- `airi` 雙胞胎 Tsubasa（RPF #487）= [[tsubasa]]（Nohana 家族、Taiyo 家族祖父）
+- `oolong`（RPF #15）= `oolong`（Milk 家族祖父），確認同一個體
+- `airi` 之父 Kiki（RPF #81）= `kiki`（Jaja 家族外祖父）
+- `airi` 之母 Seina（RPF #89）= `seina`（Jaja/Nohana 跨家族連結）
+- `airi` 雙胞胎 Tsubasa（RPF #487）= `tsubasa`（Nohana 家族、Taiyo 家族祖父）
 
 **index.md：** 219 → 229 條目
 
@@ -941,10 +941,10 @@
 - `xianchi.md` — Xianchi シャンチー（RPF #172），生於 2007-06-26，現居とべ動物園；`shiryu` 之雙胞胎兄弟！
 
 **更新條目**：
-- `shiryu.md` — Xianchi 雙胞胎兄弟改為 wikilink `[[xianchi]]`
-- `rishi.md` — 補充 `[[xianchi]]` 為其子女之一
+- `shiryu.md` — Xianchi 雙胞胎兄弟改為 wikilink `xianchi`
+- `rishi.md` — 補充 `xianchi` 為其子女之一
 - `luna.md` — 補充 `fuuka-kou-kou` wikilink、確認父親為 `kou-kou`
-- `yuuka.md` — 子女 Yuuki 改為 `[[yuuki]]` wikilink；同名警告補充 `yuuka-yuuki`
+- `yuuka.md` — 子女 Yuuki 改為 `yuuki` wikilink；同名警告補充 `yuuka-yuuki`
 - `fuuka.md` — 新增同名消歧提示（⚠️ 勿與 RPF #258 的 `fuuka-kou-kou` 混淆）
 - `index.md` — 新增「秋吉台サファリランド家族」區塊，條目總數更新為 236
 
@@ -1028,7 +1028,7 @@
 - https://redpandafinder.com/#profile/88 (Momo モモ)
 
 **新增條目**：
-- `momo.md` — Momo モモ（RPF #88），♀，生於 2011-06-24，現居長野市茶臼山動物園；[[seina]] 🌈 × [[kiki]] 🌈 之女，[[non]] 之姊，無子女
+- `momo.md` — Momo モモ（RPF #88），♀，生於 2011-06-24，現居長野市茶臼山動物園；`seina` 🌈 × `kiki` 🌈 之女，`non` 之姊，無子女
 - `mei-kiki.md` — Mei メイ（RPF #1245），♀，2003-06-21 – 2006-08-26 🌈，終居 Seoul Zoo
 - `nana-kiki.md` — Nana ナナ（RPF #1244），♀，2004-06-17 – 2008-11-27 🌈，終居長野市茶臼山動物園
 - `ren-kiki.md` — Ren 恋（RPF #1242），♂，2004-06-17 – 2016-05-14 🌈，終居 Yuki Zoo
@@ -1096,7 +1096,7 @@
 - https://redpandafinder.com/#profile/328 (Aiai)
 
 **新增條目**：
-- `ken-ken.md` — Ken-Ken ケンケン / 賢健 🌈（RPF #126），生於 2006-07-18，歿 2022-03-26，終居野毛山動物園；[[fuuka]] 五女之父
+- `ken-ken.md` — Ken-Ken ケンケン / 賢健 🌈（RPF #126），生於 2006-07-18，歿 2022-03-26，終居野毛山動物園；`fuuka` 五女之父
 - `mii-mii-371.md` — Mii-Mii 美美 🌈（RPF #371），生於 1992-08-07，歿 2006-11-01，終居徳山動物園；8 子女之母（⚠️ 勿與 `mii-mii` #359 混淆）
 - `hei.md` — Hei 平 🌈（RPF #372），生於 1995-07-18，歿 2008-01-07，終居徳山動物園；8 子女之父
 - `purin.md` — Purin プリン 🌈（RPF #802），生於 1997-07-02，歿 2003-08-02，終居東武動物公園；Ken-Ken 之兄
@@ -1158,17 +1158,17 @@
 - https://redpandafinder.com/#profile/58 (Hokuto)
 
 **新增條目**：
-- `gin.md` — ギン（RPF #17），Coco × Seita の次女、Kin 🌈 の雙胞胎，生於 2012-07-20，歿 2020-07-22，終居 Sapporo Maruyama Zoo；[[marumi]] の母（父：[[eita]]）
-- `lily.md` — リリィ（RPF #198），Coco × Seita の長女、Laila 🌈 の雙胞胎，生於 2010-07-10，歿 2018-06-01，終居 Chilean National Zoo；[[cara]]・[[mel]]・[[kelu]] の母（父：[[kouta]] 🌈）
+- `gin.md` — ギン（RPF #17），Coco × Seita の次女、Kin 🌈 の雙胞胎，生於 2012-07-20，歿 2020-07-22，終居 Sapporo Maruyama Zoo；`marumi` の母（父：`eita`）
+- `lily.md` — リリィ（RPF #198），Coco × Seita の長女、Laila 🌈 の雙胞胎，生於 2010-07-10，歿 2018-06-01，終居 Chilean National Zoo；`cara`・`mel`・`kelu` の母（父：`kouta` 🌈）
 - `hokuto.md` — 北斗（RPF #58），Coco × Seita の長男（唯一男性），生於 2014-07-11，歿 2021-04-02，終居 Yuki Zoo（山梨縣甲府市）
 
 **更新條目**：
 - `kin.md` — twin を `gin` に wikilink 化；兄弟姊妹に `lily`・`hokuto` wikilink 追加；tag を `zoo:Kushiro City Zoo
 - `laila.md` — 母・父・twin・兄弟姊妹を全て wikilink 化
 - `coco.md` — 子女表を全て wikilink 化（`lily`・`gin`・`hokuto` 追加）
-- `marumi.md` — 母を `[[gin]]` に wikilink 化
-- `cara.md`・`mel.md`・`kelu.md` — 母を `[[lily]]` に wikilink 化
-- `index.md` — 「Coco × Seita 家族」節新設；Coco の説明に `[[lily]]` 追加；條目總數 283
+- `marumi.md` — 母を `gin` に wikilink 化
+- `cara.md`・`mel.md`・`kelu.md` — 母を `lily` に wikilink 化
+- `index.md` — 「Coco × Seita 家族」節新設；Coco の説明に `lily` 追加；條目總數 283
 
 ---
 
@@ -1212,8 +1212,8 @@
 - `chao-kiki.md` — Chao チャオ（RPF #1243），seina 🌈 × kiki 🌈 之子，nana-kiki 🌈・ren-kiki 🌈 的**三胞胎**兄弟，生於 2004-06-17，歿 2012-12-04，終居多摩動物公園；英名 Tyao/Ciao（⚠️ 勿與 chao RPF #84 混淆）
 
 **更新條目**：
-- `sora-kiki.md` — 修正：雙胞胎由「同年出生」改為「雙胞胎：lala-kiki」；移除誤リンク [[chao]]→改為 [[chao-kiki]]；新增 ½ 兄弟姊妹節（ron-kiki・kirara-31・seita）；兄弟姊妹改為表格格式含性別
-- `lala-kiki.md` — 同步修正：雙胞胎明記、[[chao]] 誤リンク改為 [[chao-kiki]]、½ 兄弟姊妹節新增
+- `sora-kiki.md` — 修正：雙胞胎由「同年出生」改為「雙胞胎：lala-kiki」；移除誤リンク `chao`→改為 `chao-kiki`；新增 ½ 兄弟姊妹節（ron-kiki・kirara-31・seita）；兄弟姊妹改為表格格式含性別
+- `lala-kiki.md` — 同步修正：雙胞胎明記、`chao` 誤リンク改為 `chao-kiki`、½ 兄弟姊妹節新增
 - `index.md` — Momo 家族節新增 chao-kiki 條目；nana-kiki・ren-kiki 補充三胞胎說明；sora-kiki・lala-kiki 補充雙胞胎說明；條目總數更新為 293
 
 ---
@@ -1235,7 +1235,7 @@
 - `ron-ron-231.md` — ロンロン（RPF #231，⚠️ 勿與 ron-ron #208 或 ron-ron-nono #190 混淆），生於 1995-06-30，歿 2011-01-16，終居廣島市安佐動物公園；`shii` 之父、`teru` 之祖父；另育有 `nara` 🌈、`tochi` 🌈 等共 12 名子女
 
 **更新條目**：
-- `aiai.md` — 子女表中 Teru 改為 `[[teru]]` wikilink，補充居住史
+- `aiai.md` — 子女表中 Teru 改為 `teru` wikilink，補充居住史
 - `index.md` — 新增「Teru 家族（長崎 → 浜松 → 市川）」節；條目總數更新為 298
 
 ---
@@ -1287,9 +1287,9 @@
 - `marimo.md` — マリモ（RPF #74），♀，fan-fan 🌈 × boo-boo 🌈 之女，暱稱 Miss Manners，生於 2008-06-24；多摩動物公園（出生）→ 福岡市動植物園（2011-05-28–），現居福岡
 
 **更新條目**：
-- `fan-fan.md` — 修正錯誤：Marimo 原誤列於「與 tan-tan 所生」組（tan-tan 死於 2007，Marimo 生於 2008，邏輯矛盾）；改為新增「與 boo-boo 所生」組，將 `[[marimo]]` 正確歸入，補充性別 ♀
-- `boo-boo.md` — 新增「與 fan-fan 所生」組，將 `[[marimo]]` 從「其他雌性」組移出，補充性別 ♀；更新標題摘要行
-- `index.md` — Azuki 家族下新增「Fan-Fan × Boo-Boo 之女」子節，加入 `[[marimo]]`；條目總數更新為 306
+- `fan-fan.md` — 修正錯誤：Marimo 原誤列於「與 tan-tan 所生」組（tan-tan 死於 2007，Marimo 生於 2008，邏輯矛盾）；改為新增「與 boo-boo 所生」組，將 `marimo` 正確歸入，補充性別 ♀
+- `boo-boo.md` — 新增「與 fan-fan 所生」組，將 `marimo` 從「其他雌性」組移出，補充性別 ♀；更新標題摘要行
+- `index.md` — Azuki 家族下新增「Fan-Fan × Boo-Boo 之女」子節，加入 `marimo`；條目總數更新為 306
 
 ---
 
@@ -1304,17 +1304,17 @@
 - https://redpandafinder.com/#profile/183 (Sun)
 
 **更新條目**：
-- `ayame.md` — 修正父親為 `[[ken-ken]]`（wikilink）；補充配偶 `[[aqua]]`（RPF #179）；4 名子女全部加 wikilink
+- `ayame.md` — 修正父親為 `ken-ken`（wikilink）；補充配偶 `aqua`（RPF #179）；4 名子女全部加 wikilink
 
 **新增條目**：
-- `aqua.md` — アクア（RPF #179）🌈，♂，生於 2010-07-06，歿 2021-01-24，現居石川動物園；`[[raichi]]`（RPF #4）之全血緣兄弟；`[[ayame]]` 配偶
-- `sumire-ayame.md` — スミレ（RPF #182），♀，`[[ayame]]` × `[[aqua]]` 長女，`[[marine]]` 雙胞胎，生於 2014-07-11，現居徳山動物園
-- `marine.md` — マリン（RPF #181），♀，`[[ayame]]` × `[[aqua]]` 次女，`[[sumire-ayame]]` 雙胞胎，生於 2014-07-11，現居石川動物園
-- `luna-aqua.md` — ルナ（RPF #73），♀，`[[ayame]]` × `[[aqua]]` 三女，`[[sun]]` 雙胞胎，生於 2015-08-23，現居徳山動物園；Nei（RPF #376，`[[kokin]]` 子女之父）之母
-- `sun.md` — サン（RPF #183），♀，`[[ayame]]` × `[[aqua]]` 四女，`[[luna-aqua]]` 雙胞胎，生於 2015-08-23，現居石川動物園
+- `aqua.md` — アクア（RPF #179）🌈，♂，生於 2010-07-06，歿 2021-01-24，現居石川動物園；`raichi`（RPF #4）之全血緣兄弟；`ayame` 配偶
+- `sumire-ayame.md` — スミレ（RPF #182），♀，`ayame` × `aqua` 長女，`marine` 雙胞胎，生於 2014-07-11，現居徳山動物園
+- `marine.md` — マリン（RPF #181），♀，`ayame` × `aqua` 次女，`sumire-ayame` 雙胞胎，生於 2014-07-11，現居石川動物園
+- `luna-aqua.md` — ルナ（RPF #73），♀，`ayame` × `aqua` 三女，`sun` 雙胞胎，生於 2015-08-23，現居徳山動物園；Nei（RPF #376，`kokin` 子女之父）之母
+- `sun.md` — サン（RPF #183），♀，`ayame` × `aqua` 四女，`luna-aqua` 雙胞胎，生於 2015-08-23，現居石川動物園
 
 **更新條目**：
-- `index.md` — Fuuka 家族下新增「Ayame 子女」子節（含 `[[aqua]]`、`[[sumire-ayame]]`、`[[marine]]`、`[[luna-aqua]]`、`[[sun]]`）；條目總數更新為 311
+- `index.md` — Fuuka 家族下新增「Ayame 子女」子節（含 `aqua`、`sumire-ayame`、`marine`、`luna-aqua`、`sun`）；條目總數更新為 311
 
 ---
 
@@ -1344,7 +1344,7 @@
 
 **更新條目**：
 - `mitarashi.md` — 子女欄補充 `maron` 🌈 之父（`kai`）的 wikilink
-- `nono.md` — 雙胞胎 Nami 補充 wikilink `[[nami]]` 🌈
+- `nono.md` — 雙胞胎 Nami 補充 wikilink `nami` 🌈
 - `index.md` — 新增「Kai 家族」及「Kai 祖父母」節；條目總數更新為 320
 
 ---
@@ -1376,10 +1376,10 @@
 - `lessy.md` — とうや（RPF #259），♂，`luna` 🌈 × `kou-kou` 🌈 之子，`ichiha` 雙胞胎，韓国名 레시，生於 2014-08-18，現居 Everland 🇰🇷
 
 **更新條目**：
-- `rii-rii-charmin.md` — Takenoko 改為 `[[takenoko]]` wikilink，補充父親 `[[aru]]` 及性別 ♂
-- `karin.md` — Luka 改為 `[[luka]]` wikilink，補充父親 `[[aru]]`
-- `fuuka-kou-kou.md` — 兄弟姊妹表全部改為 wikilink；修正 Hinata #32 性別（♀→♂），更新為 `[[hinata-tsubasa]]`；補充 Ichiha/Lessy 性別
-- `luna.md` — 子女表全部改為 wikilink；修正 Hinata #32 性別（♀→♂）；補充 Rina/Kota/Haru/Aru/Ichiha/Lessy 父親欄（`[[kou-kou]]`）
+- `rii-rii-charmin.md` — Takenoko 改為 `takenoko` wikilink，補充父親 `aru` 及性別 ♂
+- `karin.md` — Luka 改為 `luka` wikilink，補充父親 `aru`
+- `fuuka-kou-kou.md` — 兄弟姊妹表全部改為 wikilink；修正 Hinata #32 性別（♀→♂），更新為 `hinata-tsubasa`；補充 Ichiha/Lessy 性別
+- `luna.md` — 子女表全部改為 wikilink；修正 Hinata #32 性別（♀→♂）；補充 Rina/Kota/Haru/Aru/Ichiha/Lessy 父親欄（`kou-kou`）
 - `kou-kou.md` — 子女表全部改為 wikilink；補充性別與雙胞胎關係
 - `index.md` — 新增「Aru 家族（秋吉台 × 羽村 × 上野）」節；條目總數更新為 330
 
@@ -1763,3 +1763,31 @@
 **驗證**：以遷移前快照守門（園序列零遺失）；重建後居住史 660→**662**（含救回 2），精確日期 616 不減，未匹配園名 0，audit 0 問題。
 
 **文件**：CLAUDE.md／SCHEMA.md 註明「居住史改 `zoos:`、表格勿手改、重跑 gen_residence.py」。至此 ROADMAP #14（園名正規化）與園資料單一事實來源完成。
+
+## [2026-06-23] fix | slug 去重音正規化（重音字母轉基本拉丁字母）
+
+修正 3 筆 slug：舊作法把重音字母整個刪掉，產生讀不出原名的 slug。改為「重音轉對應基本拉丁字母」並更名、修所有 `[[wikilink]]`。
+
+**更名**：
+- `rra-2021-07-31` → `rera-2021-07-31`（`Réra` レラ，RPF #1309）
+- `mir-2025-08-04` → `miro-2025-08-04`（`Miró` ミロ，RPF #1454）
+- `kel-2015-12-25` → `kelu-2015-12-25`（`Kelú` ケルー，RPF #200）
+
+**更新條目**：
+- `index.md` — 3 處 wikilink 改新 slug
+- `asunaro-2016-06-22`、`kojirou-2012-06-18`、`rimu-2021-07-31`、`kokin-2017-06-28`、`shingen-2011-06-18` — 指向 `rera` 的 wikilink
+- `milk-2018-06-28`、`anko-2021-07-01`、`mugi-2018-08-05`、`kinako-2021-07-01`、`eisaku-2018-07-15` — 指向 `miro` 的 wikilink
+- `mel-2013-07-10`、`lily-2010-07-10`、`coco-2006-06-24`、`cara-2013-07-10`、`kouta-2010-07-02` — 指向 `kelu` 的 wikilink
+
+**文件**：CLAUDE.md slugify 規則加註「重音字母轉基本拉丁字母（NFKD 去附加符號），不可整個刪掉」。
+
+**驗證**：wiki 內無殘留舊 slug；壞 wikilink 0；build_db / audit 通過（369 個體、0 問題）。
+
+## [2026-06-23] fix | log.md 移除 wikilink（符合「log 禁止 wikilink」規則）
+
+依 CLAUDE.md「log.md 絕對禁止 wikilink」（否則 Obsidian graph 會把 log 變成中心節點），把歷史記錄中的 `[[...]]` 全部改為 backtick 名稱。
+
+- 39 處 → 2 處；其中多數原本已包在 backtick 內（graph 安全），但仍統一改為純 backtick 名稱（去掉方括號）。
+- 真正會污染 graph 的 bare wikilink（如 `[[seina]]`、`[[kelu]]`、`[[chao-kiki]]` 等）全數修掉。
+- 保留 2 處刻意的「meta」引用：行內 `` `[[wikilink]]` `` 是在描述「wikilink」這個概念/動作本身（非個體名），維持原樣。
+- 純歷史記錄，未動任何條目資料；build/audit 不受影響。

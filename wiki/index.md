@@ -236,7 +236,7 @@
 |------|------|------|------|--------|
 | [[anko-2021-07-01]] | Anko アンコ — Milk 長女（父：Hibiki 🌈）；Kinako 雙胞胎 | ♀ | 2021 | Hakkeijima Sea Paradise |
 | [[kinako-2021-07-01]] | Kinako キナコ — Milk 次女（父：Hibiki 🌈）；Anko 雙胞胎 | ♀ | 2021 | Nagano Chausuyama Zoo |
-| [[mir-2025-08-04]] | Miró ミロ — Milk 之子（父：[[mugi-2018-08-05]] RPF #305） | ♂ | 2025 | Nagano Chausuyama Zoo |
+| [[miro-2025-08-04]] | Miró ミロ — Milk 之子（父：[[mugi-2018-08-05]] RPF #305） | ♂ | 2025 | Nagano Chausuyama Zoo |
 
 ### 祖父母（母方 Yuufa 的父母）
 
@@ -696,7 +696,7 @@
 
 | 條目 | 說明 | 性別 | 生年 | 動物園 |
 |------|------|------|------|--------|
-| [[rra-2021-07-31]] | Réra レラ — Kokin 之 ½ 弟；Rimu 雙胞胎 | ♂ | 2021 | Kushiro City Zoo |
+| [[rera-2021-07-31]] | Réra レラ — Kokin 之 ½ 弟；Rimu 雙胞胎 | ♂ | 2021 | Kushiro City Zoo |
 | [[rimu-2021-07-31]] | Rimu リム — Kokin 之 ½ 弟；Réra 雙胞胎 | ♂ | 2021 | Kushiro City Zoo |
 
 ### 祖父母（母方 Kin 的父母）
@@ -719,11 +719,11 @@
 
 ## Coco × Seita 家族（札幌 × 全球）
 
-> [[coco-2006-06-24]] 🌈 × [[seita-2005-06-23]] 🌈 の全 5 子女。[[laila-2010-07-10]] は [[kirara-2014-06-06]] の母として Mirai 家族へ、[[lily-2010-07-10]]・[[cara-2013-07-10]]・[[mel-2013-07-10]]・[[kel-2015-12-25]] は Kouta 家族へ、[[gin-2012-07-20]] は [[marumi-2016-06-15]] の母として Eita 家族へ繋がる。
+> [[coco-2006-06-24]] 🌈 × [[seita-2005-06-23]] 🌈 の全 5 子女。[[laila-2010-07-10]] は [[kirara-2014-06-06]] の母として Mirai 家族へ、[[lily-2010-07-10]]・[[cara-2013-07-10]]・[[mel-2013-07-10]]・[[kelu-2015-12-25]] は Kouta 家族へ、[[gin-2012-07-20]] は [[marumi-2016-06-15]] の母として Eita 家族へ繋がる。
 
 | 條目 | 說明 | 性別 | 生卒 | 動物園 |
 |------|------|------|------|--------|
-| [[lily-2010-07-10]] | Lily リリィ — [[laila-2010-07-10]] 🌈 雙胞胎姊妹；[[cara-2013-07-10]]・[[mel-2013-07-10]]・[[kel-2015-12-25]] 之母（× [[kouta-2010-07-02]] 🌈） | ♀ | 2010–2018 🌈 | Chilean National Zoo |
+| [[lily-2010-07-10]] | Lily リリィ — [[laila-2010-07-10]] 🌈 雙胞胎姊妹；[[cara-2013-07-10]]・[[mel-2013-07-10]]・[[kelu-2015-12-25]] 之母（× [[kouta-2010-07-02]] 🌈） | ♀ | 2010–2018 🌈 | Chilean National Zoo |
 | [[laila-2010-07-10]] | Laila ライラ — [[lily-2010-07-10]] 🌈 雙胞胎姊妹；[[kirara-2014-06-06]] 之母（已收錄於 Mirai 家族） | ♀ | 2010–2021 🌈 | Adventure World |
 | [[kin-2012-07-20]] | Kin キン — [[gin-2012-07-20]] 🌈 雙胞胎；[[kokin-2017-06-28]] 🌈 之母（已收錄於 Kokin 家族） | ♀ | 2012–2017 🌈 | Kushiro City Zoo |
 | [[gin-2012-07-20]] | Gin ギン — [[kin-2012-07-20]] 🌈 雙胞胎；[[marumi-2016-06-15]] 之母（× [[eita-2010-07-03]]） | ♀ | 2012–2020 🌈 | Sapporo Maruyama Zoo |
@@ -798,7 +798,7 @@
 |------|------|------|------|--------|
 | [[cara-2013-07-10]] | Cara キャラ — [[kouta-2010-07-02]] 長女；[[mel-2013-07-10]] 🌈 雙胞胎；英文別名 Chara | ♀ | 2013–2023 🌈 | Fukuchiyama Zoo |
 | [[mel-2013-07-10]] | Mel メル — [[kouta-2010-07-02]] 長子；[[cara-2013-07-10]] 🌈 雙胞胎；暱稱 The Godfather | ♂ | 2013–2025 🌈 | Osaka Tennōji Zoo |
-| [[kel-2015-12-25]] | Kelú ケルー — [[kouta-2010-07-02]] 次子；智利出生 | ♂ | 2015–2023 🌈 | Chilean National Zoo |
+| [[kelu-2015-12-25]] | Kelú ケルー — [[kouta-2010-07-02]] 次子；智利出生 | ♂ | 2015–2023 🌈 | Chilean National Zoo |
 
 ---
 
@@ -1097,7 +1097,7 @@
 | 條目 | 說明 | 性別 | 生年 | 動物園 |
 |------|------|------|------|--------|
 | [[ashitaba-2016-06-22]] | Ashitaba アシタバ（明日葉）— Kojirou 長女；[[asunaro-2016-06-22]] 雙胞胎 | ♀ | 2016 | Itozu no Mori Zoological Park |
-| [[asunaro-2016-06-22]] | Asunaro アスナロ — Kojirou 次女；[[ashitaba-2016-06-22]] 雙胞胎；[[rra-2021-07-31]]・[[rimu-2021-07-31]] 之母 | ♀ | 2016 | Kushiro City Zoo |
+| [[asunaro-2016-06-22]] | Asunaro アスナロ — Kojirou 次女；[[ashitaba-2016-06-22]] 雙胞胎；[[rera-2021-07-31]]・[[rimu-2021-07-31]] 之母 | ♀ | 2016 | Kushiro City Zoo |
 | [[tsubaki-2017-07-11]] | Tsubaki ツバキ — Kojirou 三女；[[tsutsuji-2017-07-11]] 雙胞胎；暱稱 Camellia | ♀ | 2017 | Osaka Tennōji Zoo |
 | [[tsutsuji-2017-07-11]] | Tsutsuji ツツジ — Kojirou 四女；[[tsubaki-2017-07-11]] 雙胞胎；暱稱 Azalea；仍居出生地 | ♀ | 2017 | Tokyo Toritsu Oshima Park |
 | [[sakuyuri-2021-06-23]] | Sakuyuri サクユリ — Kojirou 五女（么女） | ♀ | 2021 | Edogawa City Natural Zoo |

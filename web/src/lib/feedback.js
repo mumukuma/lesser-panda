@@ -18,20 +18,23 @@
  */
 
 // ── 1) 資料更正／近況（個體頁按鈕；針對已存在的熊）─────────────────
+// 2026-06-22 起三語合併為單張三語表單（中／日／英並列），舊單語表單已退役刪除。
+// 三個語系皆指向同一張 ODr777。
 export const FEEDBACK_FORMS = {
-  'zh-TW': 'ODr777',   // 「回報資料更正」中文表單（https://tally.so/r/ODr777）
-  ja: 'MePRGE',        // 「データ修正のご報告」日文表單（https://tally.so/r/MePRGE）
-  en: 'RG2PlK',        // 「Report a correction」英文表單（https://tally.so/r/RG2PlK）
+  'zh-TW': 'ODr777',   // 「回報資料更正」三語表單（https://tally.so/r/ODr777）
+  ja: 'ODr777',        // 同上（合併後共用）
+  en: 'ODr777',        // 同上（合併後共用）
 };
 
 export const feedbackFormId = (locale) =>
   FEEDBACK_FORMS[locale] || FEEDBACK_FORMS['zh-TW'] || '';
 
 // ── 2) 報缺：圖鑑還沒有的熊或動物園（/feedback 萬用入口；不綁定某一隻）──
+// 2026-06-22 起三語合併為單張三語表單，舊單語表單已退役刪除。三語皆指向 2EVJlb。
 export const MISSING_FORMS = {
-  'zh-TW': '2EVJlb',   // 「回報圖鑑沒有的熊或動物園」中文表單（https://tally.so/r/2EVJlb）
-  ja: 'ODrJok',        // 「図鑑にいない子・動物園の報告」日文表單（https://tally.so/r/ODrJok）
-  en: 'RG2JVv',        // 「Report a missing panda or zoo」英文表單（https://tally.so/r/RG2JVv）
+  'zh-TW': '2EVJlb',   // 「回報缺少的熊或動物園」三語表單（https://tally.so/r/2EVJlb）
+  ja: '2EVJlb',        // 同上（合併後共用）
+  en: '2EVJlb',        // 同上（合併後共用）
 };
 
 export const missingFormId = (locale) =>
