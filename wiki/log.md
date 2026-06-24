@@ -1835,3 +1835,52 @@
 - `yaffa-2015-06-22.md` — 家族「雙胞胎弟弟：妙妙；『弟弟』」改為「雙胞胎：妙妙」
 
 **驗證**：build_db 369 個體；audit 0 問題；兩頁已無「哥哥／弟弟」作為名稱殘留。
+
+## [2026-06-24] fix | Yaffa／Yafia 中文正式名寫入 `chinese:` 欄位 + 重建衍生資料
+
+作者回報網站未顯示中文名。查核後發現：兩隻雙胞胎的中文正式名先前只寫在頁面標題與名稱表內文，未寫進驅動網站的 frontmatter `chinese:` 欄位——`yaffa` 完全沒有 `chinese:`、`yafia` 的「妙妙」被放在 `nicknames:`。同批兄弟姊妹（可忻／可玥／可頌／可樂果）皆用 `chinese:`，故此兩筆為遺漏。另：上批編輯後未重跑 build_db／export_json，衍生資料（DB、pandas.json）停留在舊版（連已移除的「弟弟」暱稱都還在）。
+
+**更新條目**：
+- `yaffa-2015-06-22.md` — frontmatter 新增 `chinese: 奇奇`（移居日期維持 2026-06-11，依台北動物園新聞稿抵達日，作者確認不改）
+- `yafia-2015-06-22.md` — 「妙妙」由 `nicknames:` 移至 `chinese:`；`nicknames` 清空
+- `index.md` — `yaffa` 現居由 Taipei Zoo 更正為 Singapore Zoo 🇸🇬
+
+**重建**：gen_residence → build_db → export_json 全跑；pandas.json 已含 `chinese`：奇奇／妙妙，英文別名 Kiki／Chichi／Chi-Chi、Miumiu／Miu-Miu 與日文名 ヤッファ／ヤフィア 皆在；殘留「弟弟」暱稱已清。
+
+**驗證**：build_db 369 個體；居住史 665；export 未匹配園名 0；pandas.json 確認 yaffa.chinese=奇奇、yafia.chinese=妙妙、nicknames 皆空、yaffa.current_zoo=新加坡。
+
+## [2026-06-24] fix | 台北「歡歡家族」名稱校訂：清誤植日文名／英文別名、補 chinese 欄位（作者校訂）
+
+作者逐筆校訂台北動物園歡歡家族。共通問題有二：(1) 部分個體的中文正式名只寫在標題／名稱表內文，未進 frontmatter `chinese:` 欄位，導致網站中文名顯示為羅馬拼音（如美可顯示 Meike）；(2) 多數個體掛著初期由 RPF「Other Names」帶入的誤植 `japanese:`（片假名）與 `english_variants:`。依資料主權原則，一律以作者校訂為準。
+
+**更新條目**：
+- `yaffa-2015-06-22.md` — 只有英文＋中文官方名（Yaffa／奇奇）；移除 japanese（ヤッファ）與 english_variants（Kiki/Chichi/Chi-Chi），刪 ⚠️ 同名提示
+- `yafia-2015-06-22.md` — 只有英文＋中文官方名（Yafia／妙妙）；移除 ヤフィア、Miumiu/Miu-Miu 與 ⚠️ 同名提示
+- `yammy-2018-06-24.md` — 只有英文官方名 Yammy；移除 japanese（ヤミー）與 english_variants（Yummy）
+- `crepe-2017-06-11.md` — 只有中文名 可麗餅 + 暱稱 阿花；移除 japanese（クレープ）與 english_variants（Kelibing），加 nicknames: [阿花]，名稱由來改以中文表述
+- `huanhuan-2007-07-03.md` — 只有中文名 歡歡；補 chinese: 歡歡，移除 japanese（ファンファン）與 english_variants（Huan-Huan）
+- `meike-2008-07-22.md` — 只有中文名 美可；補 chinese: 美可（先前僅在內文、未入欄位），移除 japanese（メエケ）與 english_variants（Meco）
+- `yaya-2010-06-26.md` — 官方名 丫丫 + Yaya；補 chinese: 丫丫，移除 japanese（ヤヤ），YY 改列 nicknames
+- `index.md` — yaffa／yafia 兩列移除「/ ヤッファ」「/ ヤフィア」與英文別名混淆提示
+
+**待作者確認**：同家族其餘 5 隻仍掛 RPF 誤植日文名／英文別名，待逐筆確認是否比照清理：`kexin`（ケシーン／Keshin）、`keyue`（ケユェ）、`ke-song`（カソン・クロワッサン／Croissant 等）、`keleguo`（ケレグオ）、`canele`（カヌレ／Canelé・Kelilu，暱稱 Lulu）。
+
+**註**：log 歷史記錄（含上一筆「日文名皆在」）為當時事實，依 append-only 原則不回改。其他個體的 Kiki／Chi-Chi／キキ／チィチィ（`kiki-2000-07-04`、`chi-chi-2003-06-16` 等）為不相干個體，未更動。
+
+**驗證**：build_db → export_json 重跑；pandas.json 確認 7 隻（歡歡/美可/丫丫/Yaffa/Yafia/Yammy/可麗餅）japanese 與 english_variants 皆已清、chinese 欄位正確；audit 0 問題。
+
+## [2026-06-24] fix | 歡歡家族其餘 5 隻：清誤植日文名／英文別名（作者確認「均無官方英文名」）
+
+承上批待確認事項。作者確認這 5 隻均無官方英文名，且為台灣中文命名個體，RPF 帶入的片假名／拼音別名為誤值。
+
+**更新條目**：
+- `kexin-2015-06-20.md` — 移除 japanese（ケシーン）、english_variants（Keshin）
+- `keyue-2015-06-20.md` — 移除 japanese（ケユェ）
+- `keleguo-2019-06-08.md` — 移除 japanese（ケレグオ）
+- `canele-2021-07-06.md` — 移除 japanese（カヌレ）、english_variants（Canelé/Kelilu/Lulu）；保留暱稱 Lulu；名稱由來改以中文表述
+- `ke-song-2017-06-11.md` — 移除 english_variants（Croissant/Dekesong/Kesung/Ke-Song/Kesong）與「英文正式名」列；**保留** japanese カソン／クロワッサン（クロワッサン 為其 2024–2025 旅居多摩動物公園期間之日文暱稱，有別於純 RPF 誤植，故予保留並於表內標註）
+- `index.md` — 上述 5 隻＋父母（美可/歡歡/丫丫）＋ crepe/yammy 各列移除誤植日文名與英文別名（保留 ke-song 的 クロワッサン、canele 的 Lulu）
+
+**待作者確認**：ke-song 的日文名／暱稱（カソン・クロワッサン）暫予保留，若作者認定亦不需保留可再移除。
+
+**驗證**：build_db → export_json 重跑；pandas.json 確認家族 12 筆名稱欄位正確（ke-song 保留日文，其餘日文／英文別名皆清，canele 留 Lulu、crepe 留 阿花、yaya 留 YY）；audit 0 問題；wiki 內無殘留誤植名（log 歷史不回改）。

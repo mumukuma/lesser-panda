@@ -1047,32 +1047,32 @@
 
 | 條目 | 說明 | 性別 | 生年 | 動物園 |
 |------|------|------|------|--------|
-| [[crepe-2017-06-11]] | Crepe 可麗餅 / クレープ — Ke Song 之雙胞胎妹妹 | ♀ | 2017 | Taipei Zoo 🇹🇼 |
+| [[crepe-2017-06-11]] | Crepe 可麗餅 — Ke Song 之雙胞胎妹妹 | ♀ | 2017 | Taipei Zoo 🇹🇼 |
 
 ### 父母
 
 | 條目 | 說明 | 性別 | 生卒 | 動物園 |
 |------|------|------|------|--------|
-| [[meike-2008-07-22]] | Meike 美可 / メエケ — Ke Song 之母 🌈 | ♀ | 2008–2024 🌈 | Taipei Zoo 🇹🇼 |
-| [[huanhuan-2007-07-03]] | Huanhuan 歡歡 / ファンファン — Ke Song 之父；現居 Taipei Zoo | ♂ | 2007– | Taipei Zoo 🇹🇼 |
-| [[yaya-2010-06-26]] | Yaya 丫丫 / ヤヤ — [[huanhuan-2007-07-03]] 之另一配偶；現居 Taipei Zoo | ♀ | 2010– | Taipei Zoo 🇹🇼 |
+| [[meike-2008-07-22]] | Meike 美可 — Ke Song 之母 🌈 | ♀ | 2008–2024 🌈 | Taipei Zoo 🇹🇼 |
+| [[huanhuan-2007-07-03]] | Huanhuan 歡歡 — Ke Song 之父；現居 Taipei Zoo | ♂ | 2007– | Taipei Zoo 🇹🇼 |
+| [[yaya-2010-06-26]] | Yaya 丫丫 — [[huanhuan-2007-07-03]] 之另一配偶；現居 Taipei Zoo | ♀ | 2010– | Taipei Zoo 🇹🇼 |
 
 ### 全血緣兄弟姊妹（[[meike-2008-07-22]] 🌈 × [[huanhuan-2007-07-03]]）
 
 | 條目 | 說明 | 性別 | 生卒 | 動物園 |
 |------|------|------|------|--------|
-| [[kexin-2015-06-20]] | Kexin 可忻 / ケシーン — Ke Song 之兄；[[keyue-2015-06-20]] 雙胞胎 | ♂ | 2015 | Taipei Zoo 🇹🇼 |
-| [[keyue-2015-06-20]] | Keyue 可玥 / ケユェ — Ke Song 之姊；[[kexin-2015-06-20]] 雙胞胎 | ♀ | 2015 | Taipei Zoo 🇹🇼 |
-| [[keleguo-2019-06-08]] | Keleguo 可樂果 / ケレグオ — Ke Song 之妹 | ♀ | 2019 | Taipei Zoo 🇹🇼 |
-| [[canele-2021-07-06]] | Canele 可麗露 / カヌレ — Ke Song 之弟 🌈；暱稱 Lulu | ♂ | 2021–2023 🌈 | Taipei Zoo 🇹🇼 |
+| [[kexin-2015-06-20]] | Kexin 可忻 — Ke Song 之兄；[[keyue-2015-06-20]] 雙胞胎 | ♂ | 2015 | Taipei Zoo 🇹🇼 |
+| [[keyue-2015-06-20]] | Keyue 可玥 — Ke Song 之姊；[[kexin-2015-06-20]] 雙胞胎 | ♀ | 2015 | Taipei Zoo 🇹🇼 |
+| [[keleguo-2019-06-08]] | Keleguo 可樂果 — Ke Song 之妹 | ♀ | 2019 | Taipei Zoo 🇹🇼 |
+| [[canele-2021-07-06]] | Canele 可麗露 — Ke Song 之弟 🌈；暱稱 Lulu | ♂ | 2021–2023 🌈 | Taipei Zoo 🇹🇼 |
 
 ### ½ 血緣兄弟姊妹（[[yaya-2010-06-26]] × [[huanhuan-2007-07-03]]）
 
 | 條目 | 說明 | 性別 | 生年 | 動物園 |
 |------|------|------|------|--------|
-| [[yaffa-2015-06-22]] | Yaffa 奇奇 / ヤッファ — Ke Song 之 ½ 兄；[[yafia-2015-06-22]] 雙胞胎（⚠️ 英文別名 Kiki/Chi-Chi 勿與 [[kiki-2000-07-04]] #45 或 [[chi-chi-2003-06-16]] 混淆） | ♂ | 2015 | Taipei Zoo 🇹🇼 |
-| [[yafia-2015-06-22]] | Yafia 妙妙 / ヤフィア — Ke Song 之 ½ 兄；[[yaffa-2015-06-22]] 雙胞胎（英文別名 Miu-Miu，勿與 [[miu-2010-07-19]] 混淆） | ♂ | 2015 | Taipei Zoo 🇹🇼 |
-| [[yammy-2018-06-24]] | Yammy ヤミー — Ke Song 之 ½ 弟；別名 Yummy | ♂ | 2018 | Taipei Zoo 🇹🇼 |
+| [[yaffa-2015-06-22]] | Yaffa 奇奇 — Ke Song 之 ½ 兄；[[yafia-2015-06-22]] 雙胞胎 | ♂ | 2015 | Singapore Zoo 🇸🇬 |
+| [[yafia-2015-06-22]] | Yafia 妙妙 — Ke Song 之 ½ 兄；[[yaffa-2015-06-22]] 雙胞胎 | ♂ | 2015 | Taipei Zoo 🇹🇼 |
+| [[yammy-2018-06-24]] | Yammy — Ke Song 之 ½ 弟 | ♂ | 2018 | Taipei Zoo 🇹🇼 |
 
 ---
 
