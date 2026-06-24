@@ -5009,5 +5009,22 @@
   "aliases": [
    "Nasu World Monkey Park"
   ]
+ },
+ {
+  "canonical": "新加坡動物園",
+  "lineage_id": null,
+  "en": "Singapore Zoo",
+  "zh": "新加坡動物園",
+  "country": "Singapore",
+  "location_ja": "新加坡",
+  "location_en": "Singapore",
+  "lat": 1.4043,
+  "lng": 103.793,
+  "map": null,
+  "website": "https://www.mandai.com/en/singapore-zoo.html",
+  "logo": null,
+  "aliases": [
+   "Singapore Zoo"
+  ]
  }
 ]
