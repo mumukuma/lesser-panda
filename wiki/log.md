@@ -1884,3 +1884,22 @@
 **待作者確認**：ke-song 的日文名／暱稱（カソン・クロワッサン）暫予保留，若作者認定亦不需保留可再移除。
 
 **驗證**：build_db → export_json 重跑；pandas.json 確認家族 12 筆名稱欄位正確（ke-song 保留日文，其餘日文／英文別名皆清，canele 留 Lulu、crepe 留 阿花、yaya 留 YY）；audit 0 問題；wiki 內無殘留誤植名（log 歷史不回改）。
+
+## [2026-06-24] update | Yaya（丫丫）過世 🌈
+
+**來源**：
+- https://www.zoo.gov.taipei/News_Content.aspx?n=BD065B2FA7782989&sms=72544237BBE4C5F6&s=A2AF1F5BA83F2EAE （臺北市立動物園新聞稿「再見了！小貓熊『YaYa』」）
+
+台北市立動物園小貓熊「YaYa（母，14 歲）」於 2024-07-12 在獸醫師及保育員陪伴下離世。例行健檢曾發現心臟及關節問題；2024-07-03 起精神變差、突發昏厥，7-12 MRI 檢查發現雙側大腦、左側腦幹多處水腫病變並延伸至頸部脊髓，病況嚴重而離世。繼同父異母姐姐「美可」於 2024-05-01 離世後過世。
+
+**更新條目**：
+- `yaya-2010-06-26.md` — 加 `died: 2024-07-12`；frontmatter `zoos:` 台北訖期改 2024-07-12；tags 加 `deceased`；sources 加動物園新聞稿；標題與引言加 🌈、改歿日／享年 14 歲；基本資料加忌日／享年列；補死因與家族註記
+- `crepe`、`keyue`、`kexin`、`yaffa`、`yafia`、`keleguo`、`yammy`、`ke-song`、`huanhuan` — 內文 `[[yaya-2010-06-26]]` 參照一律加 🌈
+- `index.md` — yaya 列改生卒 2010–2024 🌈、移除「現居」；½ 血緣標題加 🌈；最後更新改 2026-06-24
+
+## [2026-06-24] fix | Yaya（丫丫）無暱稱 YY（作者確認）
+
+作者確認 Yaya 並無「YY」暱稱（RPF 帶入之誤值）。
+
+**更新條目**：
+- `yaya-2010-06-26.md` — 移除 frontmatter `nicknames: [YY]` 與「名稱與別名」表的暱稱列
