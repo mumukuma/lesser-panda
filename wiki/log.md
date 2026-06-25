@@ -1960,7 +1960,7 @@
 
 **Cara #284 性別校正（作者裁示：改 ♂）**：
 - 原 wiki 將 `cara-2013-07-10` 標為 ♀「Kouta 長女」，但 RPF gender=male、標為 `rei-mei` 之父，且另一親 `shiratama` 為 ♀（兩母不可能）→ 作者確認應為 ♂。
-- 連帶修正：`cara-2013-07-10`（sex/tags/♂/「之女→之子」）、`index.md`（「Kouta 長女→之子」、♀→♂）、`kouta-2010-07-02`、`lily-2010-07-10`、`mel-2013-07-10` 中 Cara 列的性別符號；`rei-mei` 父連結確立為 [[cara-2013-07-10]]。Lily 等「之母」描述（指 Cara 的母）不受影響。
+- 連帶修正：`cara-2013-07-10`（sex/tags/♂/「之女→之子」）、`index.md`（「Kouta 長女→之子」、♀→♂）、`kouta-2010-07-02`、`lily-2010-07-10`、`mel-2013-07-10` 中 Cara 列的性別符號；`rei-mei` 父連結確立為 `cara-2013-07-10`。Lily 等「之母」描述（指 Cara 的母）不受影響。
 
 **仍待後續**：
 - 旁系成員（雙胞胎以外的手足、子女、祖父母如 Mitsu、Hide、Baby、Hiko、Kurumi、Franz、Ron-Ron、Ren 等）尚未建檔，仍為純文字。
@@ -1983,3 +1983,92 @@
 - **兩隻同名 Non 混淆**：`#87`（ノン，2009 生，長野茶臼山，Jaja #95 之母）= `non-2009-06-19`（正確）；`#193`（ノン，2003 生，台北動物園，Boo-Boo 之女，無子女，wiki 無條目）。`boo-boo-1997-07-13`、`marimo-2008-06-24`、`azuki-2010-06-14` 誤把 #193 連到 `non-2009-06-19`(#87)，並衍生錯誤的「Boo-Boo／Azuki 為 Jaja 外祖父／跨家族連結」敘述。
 - 修正：三處 #193 改為純文字 `Non（RPF #193）`＋標台北、非 Jaja 之母；boo-boo、azuki 的「跨家族連結」段改為訂正說明。其中 boo-boo 子女表那行原會讓 build_db 把 Boo-Boo 誤判為 `non-2009-06-19` 之父，已解除。
 - Jaja 家族側連 `non-2009-06-19`（#87）為正確，未動。
+
+## [2026-06-25] add | 補建上批旁系：Luna #155 一家 + Rei-Mei 之兄 Mitsu/Hide + Chal 幼逝雙胞胎 Baby
+
+**說明**：延續前一批「仍待後續」清單，依 RPF 查證補建上批主角的純文字旁系。先確認 candidate_missing 前 10 隻其實有 6 隻早已收錄（`jaja`/`yoichi`/`taichi`/`seita`/`sakura`/`fuumi`，因園名前綴與生日佔位導致 CSV 比對落空），實際新建 6 條。
+
+**來源**：
+- https://redpandafinder.com/#profile/155 (Luna)
+- https://redpandafinder.com/#profile/337 (You-You)
+- https://redpandafinder.com/#profile/336 (Buna)
+- https://redpandafinder.com/#profile/286 (Mitsu)
+- https://redpandafinder.com/#profile/184 (Hide)
+- https://redpandafinder.com/#profile/1368 (Baby)
+
+**新增條目**：
+- `luna-2006-07-10.md` — Luna ルナ（RPF #155，♀），生 2006-07-10、歿 2026-02-09 🌈；江戸川生→神戸→池田→富士サファリパーク
+- `you-you-2002-06-21.md` — You-You 遊遊（RPF #337，♀），生 2002-06-21、歿 2022-08-17 🌈；のいち→江戸川；`luna-2006-07-10`・`kotarou-2005-07-08` 之母
+- `buna-2000-07-17.md` — Buna ブナ／橅（RPF #336，♂），生 2000-07-17、歿 2023-10-27 🌈；安佐→江戸川；`luna-2006-07-10`・`kotarou-2005-07-08` 之父
+- `mitsu-2016-06-22.md` — Mitsu 光（RPF #286，♂），生 2016-06-22；福知山；`hide-2016-06-22` 雙胞胎、`rei-mei-2019-07-10` 之兄
+- `hide-2016-06-22.md` — Hide 秀（RPF #184，♂），生 2016-06-22、歿 2018-02-15 🌈；福知山；`mitsu-2016-06-22` 雙胞胎
+- `baby-luna-2022-06-17.md` — Baby 赤ちゃん（RPF #1368，性別待確認），生 2022-06-17、歿 2022-06-30 🌈（13 天）；徳山；`ruu-ruu-2022-06-17` 雙胞胎
+
+**更新條目**：
+- `rei-mei-2019-07-10.md` — 兄 Mitsu/Hide 純文字 → wikilink，清除「尚未建檔」備註
+- `chal-2018-07-18.md` — 弟 Baby 純文字 → wikilink，清除過時父母備註
+- `kotarou-2005-07-08.md` — 母 You-You #337／父 Buna #336／姊妹 Luna #155 純文字 → wikilink
+- `index.md` — 新增 6 條（新增「You-You #337 × Buna #336 家族」「Shiratama × Cara 家族」分節，Baby 入 Luna × Fu-Fu 家族）；條目總數 383 → 389
+
+**仍待後續**：
+- DB 待重跑 `gen_residence.py` → `build_db.py` → `export_json.py`
+- 其餘旁系（Hiko、Kurumi、Franz、Ron-Ron、Ren、You-You#337 父母 Fuu/You-You、Buna 11 手足等）仍為純文字
+
+## [2026-06-25] add | 候選查證第二批：補建 15 隻（含上海來日 Kinta、台北系外）
+
+**說明**：處理讀者提供的 29 個 RPF profile。先以 rpf_id 全表比對，發現 **14 個早已收錄**（含剛建的 You-You #337、Hide #184，以及 latte/kai/nonta/ribbon/fan-fan/hokuto/ron #82/shii/asahi/kitarou/tochi/seina），實際新建 **15 隻**。性別一律以 RPF 性別圖示（`images/male|female.svg`，文字擷取抓不到）為準確認。批內互連：Mā-Mā↔An-An（雙胞胎）、Miku↔Bau-Bau（父女）、Dale↔Kousei（手足）。
+
+**新增條目**：
+- `rin-rin-2001-06-19.md` — Rin-Rin 玲玲（RPF #349，♀），2001-06-19～2023-09-22 🌈；石川→羽村
+- `tashan-2002-07-01.md` — Tashan ターシャン／稲光（RPF #209，♂），～2022-10-06 🌈；東北サファリ；父 `ten-ten-1997-06-18`、同父手足 `shiryu-2007-06-26`
+- `ma-ma-2005-07-07.md` — Mā-Mā 麻麻（RPF #238，♀），～2022-06-29 🌈；大森山→日立→安佐
+- `an-an-2005-07-07.md` — An-An 杏杏（RPF #340，♀），～2017-11-28 🌈；大森山→上野；`ma-ma` 雙胞胎
+- `rai-rai-2008-07-01.md` — Rai-Rai ライライ（RPF #122，♂），～2022-02-13 🌈；西山→東武→富士；母 `cha-cha-1997-06-17`、父 `shun-shun-2001-06-28`
+- `ichi-2004-07-23.md` — Ichi イチ／市（RPF #156，♂），～2021-11-17 🌈；安佐→日立；父母 `banana-1996-08-09`×`ron-ron-1995-06-30`，`buna-2000-07-17` 同胞
+- `hiko-2014-07-07.md` — Hiko ヒコ（RPF #70，♂），～2021-07-23 🌈；徳山；母 `ribbon-2006-05-30`、父 `kotarou-2006-06-22`
+- `miku-1999-07-21.md` — Miku ミク（RPF #339，♀），～2021-01-22 🌈；秋吉台→大崎；父 `bau-bau-1994-07-11`
+- `bau-bau-1994-07-11.md` — Bau-Bau 宝宝（RPF #396，♂），～2018-01-02 🌈；池田→秋吉台；Miku 等 6 女之父
+- `dale-2001-06-19.md` — Dale デール（RPF #196，♀），～2019-08-02 🌈；ズーラシア；父母 `pam-1997-06-26`×`mii-mii-1994-06-26`
+- `kousei-2000-06-23.md` — Kousei コウセイ（RPF #361，♀），～2017-04-16 🌈；ズーラシア→ひらかた→みさき；`dale`・`gaia-2004-06-10` 手足
+- `kokoro-2007-09-06.md` — Kokoro ココロ（RPF #123，♀），～2019-07-29 🌈；東武；父母 `chihiro-2003-06-16`×`umi-2002-06-24`（⚠️ 勿與 `kokoro-2015-06-19` 混淆）
+- `kintarou-1997-07-17.md` — Kintarou 金太郎（RPF #152，♂），～2019-01-03 🌈；姫路→浜松
+- `kinta-2000-06-08.md` — Kinta キンタ（RPF #125，♀），上海動物園生→野毛山，～2018-06-11 🌈；長壽母個體
+- `gou-2000-06-19.md` — Gou 剛（RPF #348，♂），～2018-04-29 🌈；アドベン→釧路→羽村
+
+**更新條目**：
+- `index.md` — 新增「2026-06-25 第二批補漏」分節 15 條；條目總數 389 → 404
+
+**工具修復（解 gen_residence 卡關）**：
+- `/tmp/res_snapshot.json` 殘留 3 筆髒名「富士サファリパーク 公式サイト」（`fuuna`/`kota`/`shun-pei`），導致守門中止。因該 /tmp 檔 owner=nobody 不可改，改以乾淨副本 `/tmp/res_snapshot_fixed.json` 跑 gen_residence；已重生全 389→404 檔居住史表、更新 63 座園 location。**作者本機若仍用舊 /tmp 快照會再卡，建議重生快照或改存 repo。**
+- build_db 仍受沙盒 db 鎖限制，網站資料待作者本機重跑 `build_db.py → export_json.py`。
+
+**仍待後續**：
+- 大量旁系仍純文字：Run-Run/Yon-Yon/Tan-Tan、Yueshi/Tarrei、Nana/Jen-Jen、Matsu、Kaori/Riku #339 雙、Chip、Franz、Momiji、Shin-Shin/Kō-Kō/Momotarou、Gou 之母 Koto（早期同名）等
+
+## [2026-06-25] add | 候選查證第三批：補建 7 隻（多為跨家族節點）
+
+**說明**：處理 8 個 RPF profile，rpf_id 比對發現 #608 已收錄（`chatarou-2003-06-26`），新建 7 隻。性別一律以 RPF 性別圖示確認。多隻為既有家族的補完節點。
+
+**新增條目**：
+- `matsu-2004-07-23.md` — Matsu マツ（RPF #369，♂），～2016-11-27 🌈；安佐；`ichi-2004-07-23` 雙胞胎、`banana-1996-08-09`×`ron-ron-1995-06-30` 之子
+- `syurara-2007-06-23.md` — Syurara シュララ（RPF #358，♀），～2016-10-01 🌈；西山→八木山；`lala-2000-06-27`×`shun-shun-2001-06-28` 之女，全兄 `yan-yan-2010-06-24`/`shin-shin-2010-06-24`、半兄 `chao-2006-07-06`/`rai-rai-2008-07-01`
+- `a-ya-1998-07-03.md` — A-ya アーヤ（RPF #397，♀），～2016-09-21 🌈；秋吉台→日本平；`bau-bau-1994-07-11` 之女、`miku-1999-07-21` 姊妹
+- `porin-2002-06-15.md` — Porin ポリン（RPF #310，♀），～2016-08-24 🌈；ズーラシア→埼玉こども→アドベン；`pam-1997-06-26`×`mii-mii-1994-06-26` 之女；**`toro-2004-06-29`（Kiraly 之父）與 `coco-2006-06-24`（Kin 之母）之母**
+- `mei-mei-1999-06-27.md` — Mei-Mei 美美（RPF #466，♂），～2017-01-04 🌈；旭山→羽村→釧路
+- `yuuto-2014-07-22.md` — Yuuto 優砥（RPF #174，♂），～2017-01-09 🌈；とべ動物園（歿因：窒息死）
+- `ramy-2002-07-12.md` — Ramy ラミー（RPF #613，♂），～2016-11-01 🌈；富山→大崎→富山
+
+**更新條目**：
+- `toro-2004-06-29.md`、`coco-2006-06-24.md` — 母 `Porin` 純文字 → `[[porin-2002-06-15]]`（#310，本批新建其母條目）
+- `index.md` — 新增「2026-06-25 第三批補漏」分節 7 條；條目總數 404 → 411
+
+**仍待後續**：
+- 旁系純文字：Yuuka/Xianchi/Yuuki/Totomaru、Chao-Chao/Yan-Yan(舊)/Shuu-Shuu(1999)/Koto(1997)/Nyan-Nyan、Rara/Tomy、Kaori/A-nya、JJ/Franz/Chip/Ko-ai、Maguro #309（toro・coco 之父）、Porin 其餘 6 子女等
+- DB／網站資料待作者本機重跑 `build_db.py → export_json.py`
+
+## [2026-06-25] update | 移除 `kabosu` 的中文名 臭橙
+
+**說明**：作者校訂，`kabosu`（RPF #255）無中文名「臭橙」，移除 frontmatter `japanese`、標題與別名表中的該字串，保留日文 かぼす／こみかん。
+
+**更新條目**：
+- `kabosu-2018-06-28.md` — 移除 臭橙；`japanese: かぼす`
