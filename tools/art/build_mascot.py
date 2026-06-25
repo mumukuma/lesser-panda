@@ -12,7 +12,7 @@ build_mascot.py — 從 ASCII pixel map 生成「穩定的」像素風小熊貓 
 """
 import os
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT = os.path.join(ROOT, "web", "public", "mascot-lab.html")
 
 # ── 色票（與站台一致：rust / cream / amber / ink）────────────────────

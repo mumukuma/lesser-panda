@@ -6,10 +6,10 @@ gen_images.py — 用 OpenAI gpt-image-1 生成網站可愛風素材。
 零第三方相依（只用標準函式庫）。
 
 用法（在 repo 根目錄）：
-  python3 tools/gen_images.py mascot          # 跑單一 job
-  python3 tools/gen_images.py mascot bg-sky    # 跑多個
-  python3 tools/gen_images.py all              # 全部
-  python3 tools/gen_images.py --list           # 列出 job
+  python3 tools/art/gen_images.py mascot          # 跑單一 job
+  python3 tools/art/gen_images.py mascot bg-sky    # 跑多個
+  python3 tools/art/gen_images.py all              # 全部
+  python3 tools/art/gen_images.py --list           # 列出 job
 """
 import base64
 import json
@@ -18,7 +18,7 @@ import sys
 import urllib.request
 import urllib.error
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT_DIR = os.path.join(ROOT, "web", "public", "img")
 API_URL = "https://api.openai.com/v1/images/generations"
 

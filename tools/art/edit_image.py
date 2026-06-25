@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 edit_image.py — 用 OpenAI images/edits 以現有圖為底改一個動作（保持角色一致 + 透明）。
-用法：python3 tools/edit_image.py <來源png> <輸出名> "<edit prompt>"
+用法：python3 tools/art/edit_image.py <來源png> <輸出名> "<edit prompt>"
 """
 import json
 import os
@@ -9,7 +9,7 @@ import sys
 import urllib.request
 import urllib.error
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT_DIR = os.path.join(ROOT, "web", "public", "img")
 API_URL = "https://api.openai.com/v1/images/edits"
 

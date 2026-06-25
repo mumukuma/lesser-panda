@@ -9,8 +9,8 @@ build_walker.py — 產生「2 格側面走路」小熊貓 sprite，並輸出乾
 各自去邊、底部對齊(腳踩同一基線)、上半身水平對齊(身體不位移、只擺腿) → 併成緊密 2 格 sheet。
 
 用法：
-  python3 tools/build_walker.py            # 生圖 + 切格
-  python3 tools/build_walker.py --skip-gen # 用 art-src/walk-raw.png 重切
+  python3 tools/art/build_walker.py            # 生圖 + 切格
+  python3 tools/art/build_walker.py --skip-gen # 用 art-src/walk-raw.png 重切
 輸出：web/public/img/walk-sheet.webp（2 格）、art-src/walk-raw.png（原圖）、
       art-src/walk-contact.png（對齊檢視）
 """
@@ -23,7 +23,7 @@ import urllib.request
 import urllib.error
 from PIL import Image
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 ART = os.path.join(ROOT, "art-src")
 IMG = os.path.join(ROOT, "web", "public", "img")
 GEN_API = "https://api.openai.com/v1/images/generations"

@@ -4,8 +4,10 @@
 - 內文 `## 居住史` 表格改由本程式自動生成（園名/地點來自 data/zoos.json）。
 - 地點順手收進註冊表（location_ja），讓地點也單一來源。
 
-安全：寫入前以 /tmp/res_snapshot.json 當守門——每檔解析出的「園序列」必須與
-快照一致，否則中止不寫。
+安全：寫入前做「改寫前後」自我比對當守門——每檔在 frontmatter `zoos:`
+與既有 `## 居住史` 表格裡出現過的園，都必須仍出現在重生結果裡；若任何園
+被掉了（例如兩來源不一致、extract 取表格而漏掉 frontmatter 的園）就中止不寫。
+此守門完全在本次執行內完成，不依賴任何外部快照檔。
 用法：python3 tools/gen_residence.py            # 套用
       python3 tools/gen_residence.py --dry      # 僅檢查守門與統計
 """
@@ -15,7 +17,6 @@ from zoo_registry import ZooRegistry, REGISTRY_PATH
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WIKI = os.path.join(ROOT, "wiki")
-SNAP = "/tmp/res_snapshot.json"
 
 CFLAG = {'Japan':('日本','🇯🇵'),'Taiwan':('台灣','🇹🇼'),'USA':('美國','🇺🇸'),'China':('中國','🇨🇳'),
  'Chile':('智利','🇨🇱'),'Canada':('加拿大','🇨🇦'),'South Korea':('韓國','🇰🇷'),'Australia':('澳洲','🇦🇺'),
@@ -98,6 +99,26 @@ def clean_location(loc):
     return s
 
 
+def resolve_canon(name):
+    rec = reg.resolve(name)
+    return rec["canonical"] if rec else name
+
+
+def zoos_before(fmb, body):
+    """改寫前、檔案裡出現過的所有園（canonical）：frontmatter zoos: ∪ 既有居住史表格。
+    守門用——這些園在重生後都必須仍在，否則視為意外掉園。"""
+    names = set()
+    for entry in fm_zoos(fmb):
+        if entry:
+            names.add(resolve_canon(entry))
+    tab = parse_table(body)
+    if tab:
+        for _date, zoo, _loc in tab:
+            if zoo:
+                names.add(resolve_canon(zoo))
+    return names
+
+
 def extract(fmb, body):
     """回傳 residences: [{zoo(canonical), sd, sy, ed, ey, loc}]"""
     res = []
@@ -178,15 +199,14 @@ def build_fm_zoos(res, died):
 
 def main():
     dry = "--dry" in sys.argv
-    snap = json.load(open(SNAP, encoding="utf-8"))["res"]
     files = [f for f in glob.glob(os.path.join(WIKI, "*.md"))
              if os.path.basename(f) not in ("index.md", "log.md")]
 
-    # ── pass 1：解析 + 守門（園序列須與快照一致）+ harvest 地點 ──
+    # ── pass 1：解析 + 守門（改寫前後園集合不可減少）+ harvest 地點 ──
     parsed = {}
     harvest = collections.defaultdict(collections.Counter)
     violations = []
-    extras = []
+    changed = []
     for f in files:
         slug = os.path.basename(f)[:-3]
         text = open(f, encoding="utf-8").read()
@@ -196,27 +216,26 @@ def main():
         _, fmb, _, body = parts
         res = extract(fmb, body)
         parsed[slug] = (text, parts, res, fm_get(fmb, "born") or "", fm_get(fmb, "died"))
-        got = [r["zoo"] for r in res]
-        want = [x[0] for x in snap.get(slug, [])]
-        # 守門：快照的園須為解析結果的子序列（不可少；可多＝救回漏抓的列）
-        it = iter(got)
-        if not all(z in it for z in want):
-            violations.append((slug, want, got))
-        elif got != want:
-            extras.append((slug, want, got))
+        before = zoos_before(fmb, body)        # 改寫前：frontmatter ∪ 既有表格
+        after = {r["zoo"] for r in res}        # 改寫後：即將寫出的園
+        lost = before - after
+        if lost:
+            violations.append((slug, sorted(lost), sorted(after)))
+        elif before != after:
+            changed.append((slug, sorted(before), sorted(after)))
         for r in res:
             if r["loc"] and r["rec"]:
                 harvest[r["rec"]["canonical"]][r["loc"]] += 1
     if violations:
-        print(f"❌ 守門失敗：{len(violations)} 檔遺失了快照中的園，中止不寫：")
-        for slug, w, g in violations[:15]:
-            print(f"   {slug}: 快照={w} 解析={g}")
+        print(f"❌ 守門失敗：{len(violations)} 檔在重生後掉了園，中止不寫：")
+        for slug, lost, after in violations[:15]:
+            print(f"   {slug}: 掉了={lost} 重生後={after}")
         sys.exit(1)
-    print(f"✅ 守門通過：{len(parsed)} 檔無遺失")
-    if extras:
-        print(f"ℹ️  {len(extras)} 檔救回 build_db 原本漏抓的居住史列：")
-        for slug, w, g in extras:
-            print(f"   {slug}: {w} → {g}")
+    print(f"✅ 守門通過：{len(parsed)} 檔無遺失（改寫前後園集合無減少）")
+    if changed:
+        print(f"ℹ️  {len(changed)} 檔園集合有調整（前→後，多為救回表格漏列）：")
+        for slug, b, a in changed:
+            print(f"   {slug}: {b} → {a}")
 
     # ── 更新註冊表 location_ja（以 wiki harvest 為準，覆寫 used 園）──
     data = json.load(open(REGISTRY_PATH, encoding="utf-8"))

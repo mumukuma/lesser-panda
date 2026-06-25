@@ -34,7 +34,9 @@ red-panda-wiki/
 │   ├── query.py         ← 家系查詢 CLI / Python API
 │   ├── audit.py         ← 資料完整度檢查（與 redpanda-lineage 比對）
 │   ├── apply_lineage_fixes.py ← 依 lineage 保守補齊空白欄位
-│   └── schema.sql       ← SQLite schema
+│   ├── resolve_zoo.py   ← 簡稱／部分名 → 註冊表 canonical 的省核輔助 CLI（不改 wiki）
+│   ├── schema.sql       ← SQLite schema
+│   └── art/             ← 吉祥物／sprite 圖像生成腳本（與資料管線無關，不進 rebuild）
 ├── pipeline/
 │   ├── scripts/export_json.py ← redpanda.db → pipeline/data/*.json（網站資料）
 │   └── src/i18n/        ← 三語介面字串
@@ -46,7 +48,8 @@ red-panda-wiki/
 ```
 
 **真相來源是 `wiki/*.md`**；`redpanda.db`、`pipeline/data/*.json`、網站都是衍生資料。
-改完 wiki 後重建：`python3 tools/gen_residence.py`（依 `zoos:` 重生居住史表格）→ `python3 tools/build_db.py`（DB）→ `python3 pipeline/scripts/export_json.py`（網站資料）。
+改完 wiki 後重建：`python3 tools/gen_residence.py`（依 `zoos:` 重生居住史表格）→ `python3 tools/build_db.py`（DB）→ `python3 pipeline/scripts/export_json.py`（網站資料）。一鍵版：在 repo 根目錄執行 `bash rebuild.sh` 即依序跑完這三步。
+`gen_residence.py` 寫入前的守門已改為「改寫前後自我比對」——只在本次執行內比對每檔（frontmatter `zoos:` ∪ 既有居住史表格）的園集合，重生後若掉了任何園就中止；不再依賴 `/tmp` 快照檔。
 網站本身由 GitHub Actions 自動建置部署；本地預覽見 `web/README.md`。
 
 ---

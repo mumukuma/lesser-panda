@@ -14,7 +14,7 @@ import io
 import os
 from PIL import Image
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 ART = os.path.join(ROOT, "art-src")
 IMG = os.path.join(ROOT, "web", "public", "img")
 

@@ -12,8 +12,8 @@ export_json.py — 從 redpanda.db 匯出網站所需的 JSON
     zoos.json     — 動物園（含座標），及各園現居個體
     report.json   — 匯出統計與未匹配動物園名（除錯用）
 
-動物園主檔來源：/tmp/redpanda-lineage（若存在則重新解析並快取），
-否則使用既有快取 pipeline/data/zoos-master.json。
+動物園主檔來源：data/zoos.json（作者維護的唯一事實來源）。
+canonical 即對外主名；logo、中文名、座標皆取自此註冊表。
 """
 
 from __future__ import annotations  # 相容舊版 Python（str | None 等延後解析）

@@ -14,7 +14,7 @@ import io
 import os
 from PIL import Image
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 IMG = os.path.join(ROOT, "web", "public", "img")
 
 # ── 手動擺位參數（相對 .puppet 寬度）──────────────────────────

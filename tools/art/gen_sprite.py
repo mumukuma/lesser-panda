@@ -3,9 +3,9 @@
 gen_sprite.py — 用 OpenAI 生成「16 格揮手 sprite sheet」（一張圖內 4×4 格）。
 
 用法（repo 根目錄）：
-  python3 tools/gen_sprite.py                  # 預設 gpt-image-2
-  python3 tools/gen_sprite.py gpt-image-1 sheet1
-  python3 tools/gen_sprite.py gpt-image-2 sheet2
+  python3 tools/art/gen_sprite.py                  # 預設 gpt-image-2
+  python3 tools/art/gen_sprite.py gpt-image-1 sheet1
+  python3 tools/art/gen_sprite.py gpt-image-2 sheet2
 
 會先嘗試透明背景；若該 model 不支援（HTTP 400），自動改為不透明並回報。
 原圖存到 art-src/<out>.png（gitignore），以便檢視與後續切格。
@@ -17,7 +17,7 @@ import sys
 import urllib.request
 import urllib.error
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 ART = os.path.join(ROOT, "art-src")
 API = "https://api.openai.com/v1/images/generations"
 
