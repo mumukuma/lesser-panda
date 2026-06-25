@@ -3,6 +3,10 @@
 **/.DS_Store
 Untitled.canvas
 
+# FUSE 掛載暫存檔（程式開啟中被刪/覆寫時產生，非內容）
+.fuse_hidden*
+**/.fuse_hidden*
+
 # Python
 __pycache__/
 *.pyc

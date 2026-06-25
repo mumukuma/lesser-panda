@@ -1669,7 +1669,7 @@
 
 **搬遷範圍**：
 - 全部 369 個條目檔名變更（如 `yan-yan-franken.md` → `yan-yan-2014-06-22.md`）
-- 全 wiki `[[wikilink]]` 同步替換 5885 個（含 `index.md`）；複查 0 孤兒、0 殘留舊 slug
+- 全 wiki `「wikilink」` 同步替換 5885 個（含 `index.md`）；複查 0 孤兒、0 殘留舊 slug
 - `log.md` 歷史不動（其中既有的舊 slug 與 37 個違規 wikilink 留待另案清理）
 
 **特例（撞名／佔位名，用媽媽名消歧）**：
@@ -1766,7 +1766,7 @@
 
 ## [2026-06-23] fix | slug 去重音正規化（重音字母轉基本拉丁字母）
 
-修正 3 筆 slug：舊作法把重音字母整個刪掉，產生讀不出原名的 slug。改為「重音轉對應基本拉丁字母」並更名、修所有 `[[wikilink]]`。
+修正 3 筆 slug：舊作法把重音字母整個刪掉，產生讀不出原名的 slug。改為「重音轉對應基本拉丁字母」並更名、修所有 `「wikilink」`。
 
 **更名**：
 - `rra-2021-07-31` → `rera-2021-07-31`（`Réra` レラ，RPF #1309）
@@ -1789,7 +1789,7 @@
 
 - 39 處 → 2 處；其中多數原本已包在 backtick 內（graph 安全），但仍統一改為純 backtick 名稱（去掉方括號）。
 - 真正會污染 graph 的 bare wikilink（如 `[[seina]]`、`[[kelu]]`、`[[chao-kiki]]` 等）全數修掉。
-- 保留 2 處刻意的「meta」引用：行內 `` `[[wikilink]]` `` 是在描述「wikilink」這個概念/動作本身（非個體名），維持原樣。
+- 保留 2 處刻意的「meta」引用：行內 `` `「wikilink」` `` 是在描述「wikilink」這個概念/動作本身（非個體名），維持原樣。
 - 純歷史記錄，未動任何條目資料；build/audit 不受影響。
 
 ## [2026-06-24] fix | 社群回報：Fu-Fu、Yan-Yan 居住史補正（補出生園 多摩）
@@ -1903,3 +1903,83 @@
 
 **更新條目**：
 - `yaya-2010-06-26.md` — 移除 frontmatter `nicknames: [YY]` 與「名稱與別名」表的暱稱列
+
+## [2026-06-25] add | 補漏新增 13 隻個體（讀者「レッサーパンダ家系」試算表 gap 分析 → RPF 逐隻查證）
+
+**來源**：
+- https://redpandafinder.com/#profile/959 (Rei-Mei 令明)
+- https://redpandafinder.com/#profile/378 (Chal チャル)
+- https://redpandafinder.com/#profile/90 (Taichi タイチ)
+- https://redpandafinder.com/#profile/140 (Nonta のんた)
+- https://redpandafinder.com/#profile/376 (Nei ネイ)
+- https://redpandafinder.com/#profile/1291 (Hinata ヒナタ)
+- https://redpandafinder.com/#profile/301 (Riko リコ)
+- https://redpandafinder.com/#profile/1369 (Ruu-Ruu ルールー)
+- https://redpandafinder.com/#profile/1395 (Kaede かえで)
+- https://redpandafinder.com/#profile/1394 (Kaito カイト)
+- https://redpandafinder.com/#profile/78 (Hanabi ハナビ)
+- https://redpandafinder.com/#profile/153 (Café カフェ)
+- https://redpandafinder.com/#profile/347 (Latte ラテ)
+
+**新增條目**：
+- `rei-mei-2019-07-10.md` — Rei-Mei 令明（RPF #959），生 2019-07-10、歿 2026-03-26 🌈（腸閉塞），福知山市動物園
+- `chal-2018-07-18.md` — Chal チャル（RPF #378），生 2018-07-18、歿 2025-05-01 🌈（肝不全・腎不全），ネオパークオキナワ；`nei` 雙胞胎
+- `taichi-2005-07-01.md` — Taichi タイチ（RPF #90），生 2005-07-01、歿 2025-04-30 🌈（老衰），長野市茶臼山動物園
+- `nonta-2012-06-27.md` — Nonta のんた（RPF #140），生 2012-06-27、歿 2022-10-10 🌈，伊豆シャボテン動物公園
+- `nei-2018-07-18.md` — Nei ネイ（RPF #376），生 2018-07-18，横浜・八景島シーパラダイス；♂；`chal` 雙胞胎
+- `hinata-2021-06-21.md` — Hinata ヒナタ（RPF #1291），生 2021-06-21，いしかわ動物園（注意與 `hinata` #2018 同名）
+- `riko-2013-06-25.md` — Riko リコ（RPF #301），生 2013-06-25，宮崎市フェニックス自然動物園；`nonta` 之妹
+- `ruu-ruu-2022-06-17.md` — Ruu-Ruu ルールー（RPF #1369），生 2022-06-17，周南市徳山動物園
+- `kaede-2022-06-27.md` — Kaede かえで（RPF #1395），生 2022-06-27，いしかわ動物園；`kaito` 雙胞胎
+- `kaito-2022-06-27.md` — Kaito カイト（RPF #1394），生 2022-06-27，Batu Secret Zoo 🇮🇩；`kaede` 雙胞胎
+- `hanabi-2011-07-09.md` — Hanabi ハナビ（RPF #78），生 2011-07-09，埼玉県こども動物自然公園
+- `cafe-2013-06-11.md` — Café カフェ（RPF #153），生 2013-06-11，宮崎市フェニックス自然動物園；`latte` 雙胞胎
+- `latte-2013-06-11.md` — Latte ラテ（RPF #347），生 2013-06-11、歿 2023-08-29 🌈，羽村市動物公園；`cafe` 雙胞胎
+
+**更新條目**：
+- `index.md` — 新增「2026-06 補漏新增」區塊（依家族分組）；最後更新改 2026-06-25；條目總數 369 → 382
+
+**備注**：
+- 13 隻多數性別 RPF 未標示，frontmatter `sex` 暫留空、內文標「性別待確認」（僅 `nei` 確認 ♂）。
+- 非本批建立的家族成員（如 Luna、Fu-Fu、Kanoko、Light、Ribbon、Kotarou、Nuts、Min-Min 等）暫以純文字記錄；部分可能對應 wiki 既有同名條目，但未能以生日確認，待查證後再補 wikilink。
+- 另已於 `data/zoos.json` 新增 7 座中國園（北京／大連森林／石家莊／長沙生態／青島／長春／瀋陽），供本批 `kaito` 以外之未來條目參照；其中石家莊、青島座標約略待核，青島待確認為哪一座。
+- DB 未於沙盒重建（redpanda.db 無法刪除）；待作者環境重跑 `build_db.py` → `export_json.py`。
+
+## [2026-06-25] fix | 補齊上批 13 隻父母 wikilink + 性別校正（RPF gender 圖示為準）
+
+**說明**：RPF profile 的性別是以 `<img src="images/male|female.svg">` 呈現（文字擷取抓不到），改以該圖示 `alt` 為準，重新核對上批 13 隻＋14 位父母性別。13 隻性別全部確認正確（前批已填）。父母以 RPF id 精準比對 wiki，14 位中 13 位已有條目、Ribbon 需新建。
+
+**新增條目**：
+- `ribbon-2006-05-30.md` — Ribbon リボン（RPF #68，♀），生 2006-05-30、歿 2022-09-27 🌈，周南市徳山動物園；`nonta`・`riko`・Hiko 之母
+
+**更新條目**：
+- 13 隻（`rei-mei`/`chal`/`taichi`/`nonta`/`nei`/`hinata`/`riko`/`ruu-ruu`/`kaede`/`kaito`/`hanabi`/`cafe`/`latte`）— 父母改為 `[[wikilink]]`（用 rpf_id 對到正確同名個體，如 Luna=#73 `luna-2015-08-23`、Fu-Fu=#71 `fu-fu-2014-06-22`）；清除過時的「待補連結」備註
+- `fu-fu-2014-06-22.md`（#71）— 性別 ♀ → ♂（作者確認；RPF gender=male）；連帶修正 `index.md`、`azuki-2010-06-14`、`franken-2012-06-11`、`kanoko-2016-06-24`、`yan-yan-2014-06-22` 中的性別／「長女→之子」／「雙胞胎姊妹→兄弟」
+- `data/zoos.json` ＋ `fuuna`/`kota`/`shun-pei`/`cafe` — 園名 `富士サファリパーク 公式サイト` → `富士サファリパーク`（去除髒字尾，未補 alias）
+- `index.md` — 新增 Ribbon；條目總數 382 → 383
+
+**Cara #284 性別校正（作者裁示：改 ♂）**：
+- 原 wiki 將 `cara-2013-07-10` 標為 ♀「Kouta 長女」，但 RPF gender=male、標為 `rei-mei` 之父，且另一親 `shiratama` 為 ♀（兩母不可能）→ 作者確認應為 ♂。
+- 連帶修正：`cara-2013-07-10`（sex/tags/♂/「之女→之子」）、`index.md`（「Kouta 長女→之子」、♀→♂）、`kouta-2010-07-02`、`lily-2010-07-10`、`mel-2013-07-10` 中 Cara 列的性別符號；`rei-mei` 父連結確立為 [[cara-2013-07-10]]。Lily 等「之母」描述（指 Cara 的母）不受影響。
+
+**仍待後續**：
+- 旁系成員（雙胞胎以外的手足、子女、祖父母如 Mitsu、Hide、Baby、Hiko、Kurumi、Franz、Ron-Ron、Ren 等）尚未建檔，仍為純文字。
+
+## [2026-06-25] fix | Lemon 同名混淆：#114 親屬誤連到 #254
+
+`lemon-2014-07-13`（RPF #254，森きらら→神戸→日立，♂）的父母在網站上顯示錯誤（min-fa／chata）。根因為另一隻同名 `lemon-2013-07-07`（RPF #114，西山→Everland 韓國，ミルキー/Milky，♀ 🌈）的親屬，其 wikilink 誤指向 #254：
+
+**更新條目**：
+- `min-fa-2006-06-23.md`、`chata-2002-06-25.md` — 子女表 `[[lemon-2014-07-13]]` → `[[lemon-2013-07-07]]`（#114）。此為關鍵：build_db 由子女表反推父母，誤連導致 #254 被套上 min-fa／chata
+- `charmin-2011-07-17.md`（2 處全兄弟姊妹）、`jazz-2017-07-06.md`（手足表）— 同樣 #114 改連 `lemon-2013-07-07`
+- `lemon-2013-07-07`、`jazz` 等「⚠️ 勿與 lemon-2014-07-13 #254 混淆」的提示連結維持不變（正確）
+
+修正後 #254 父母回歸自身 frontmatter（`mikan-2011-07-18`／`ren-2007-06-14`）；0 斷鏈。需重跑 `build_db.py`→`export_json.py` 網站才會更新。
+
+## [2026-06-25] fix | 全 wiki 同名誤連掃描（家族資料行）
+
+掃描所有 `[[slug]]` 標註 #編號 與該 slug 實際 rpf_id 不符者，聚焦 build_db 會解析的「子女表 / 母：/父：」行。結果：絕大多數為誤報（行內 #N 屬於同行另一位親本或「勿與…混淆」提示，被連結個體本身正確）。唯一真實錯誤：
+
+- **兩隻同名 Non 混淆**：`#87`（ノン，2009 生，長野茶臼山，Jaja #95 之母）= `non-2009-06-19`（正確）；`#193`（ノン，2003 生，台北動物園，Boo-Boo 之女，無子女，wiki 無條目）。`boo-boo-1997-07-13`、`marimo-2008-06-24`、`azuki-2010-06-14` 誤把 #193 連到 `non-2009-06-19`(#87)，並衍生錯誤的「Boo-Boo／Azuki 為 Jaja 外祖父／跨家族連結」敘述。
+- 修正：三處 #193 改為純文字 `Non（RPF #193）`＋標台北、非 Jaja 之母；boo-boo、azuki 的「跨家族連結」段改為訂正說明。其中 boo-boo 子女表那行原會讓 build_db 把 Boo-Boo 誤判為 `non-2009-06-19` 之父，已解除。
+- Jaja 家族側連 `non-2009-06-19`（#87）為正確，未動。

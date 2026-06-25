@@ -20,7 +20,7 @@
   "en": "Batu Secret Zoo",
   "zh": "巴圖秘密動物園",
   "country": "Indonesia",
-  "location_ja": "東爪哇省Batu市",
+  "location_ja": "東爪哇",
   "location_en": "East Java, Indonesia",
   "lat": -7.8893819,
   "lng": 112.5282242,
@@ -704,7 +704,7 @@
   ]
  },
  {
-  "canonical": "富士サファリパーク 公式サイト",
+  "canonical": "富士サファリパーク",
   "lineage_id": 23,
   "en": "Fuji Safari Park",
   "zh": null,
@@ -5025,6 +5025,144 @@
   "logo": null,
   "aliases": [
    "Singapore Zoo"
+  ]
+ },
+ {
+  "canonical": "北京動物園",
+  "lineage_id": null,
+  "en": "Beijing Zoo",
+  "zh": "北京动物园",
+  "country": "China",
+  "location_ja": "北京市西城区",
+  "location_en": "Xicheng, Beijing, China",
+  "lat": 39.9398,
+  "lng": 116.3389,
+  "map": null,
+  "website": "http://www.bjzoo.com",
+  "logo": null,
+  "aliases": [
+   "Beijing Zoo",
+   "北京动物园",
+   "北京動物園"
+  ]
+ },
+ {
+  "canonical": "大連森林動物園",
+  "lineage_id": null,
+  "en": "Dalian Forest Zoo",
+  "zh": "大连森林动物园",
+  "country": "China",
+  "location_ja": "遼寧省大連市西崗区",
+  "location_en": "Xigang, Dalian, Liaoning, China",
+  "lat": 38.8816,
+  "lng": 121.6072,
+  "map": null,
+  "website": null,
+  "logo": null,
+  "aliases": [
+   "Dalian Forest Zoo",
+   "大连森林动物园",
+   "大連森林動物園",
+   "大連市動物園"
+  ]
+ },
+ {
+  "canonical": "石家莊市動物園",
+  "lineage_id": null,
+  "en": "Shijiazhuang Zoo",
+  "zh": "石家庄市动物园",
+  "country": "China",
+  "location_ja": "河北省石家荘市鹿泉区",
+  "location_en": "Luquan, Shijiazhuang, Hebei, China",
+  "lat": 38.085,
+  "lng": 114.3,
+  "map": null,
+  "website": "https://ylj.sjz.gov.cn/sjzszoo/",
+  "logo": null,
+  "aliases": [
+   "Shijiazhuang Zoo",
+   "石家庄市动物园",
+   "石家莊市動物園"
+  ]
+ },
+ {
+  "canonical": "長沙生態動物園",
+  "lineage_id": null,
+  "en": "Changsha Ecological Zoo",
+  "zh": "长沙生态动物园",
+  "country": "China",
+  "location_ja": "湖南省長沙市天心区暮雲",
+  "location_en": "Muyun, Changsha, Hunan, China",
+  "lat": 28.039034,
+  "lng": 113.010648,
+  "map": null,
+  "website": "http://www.cszoo.com.cn",
+  "logo": null,
+  "aliases": [
+   "Changsha Ecological Zoo",
+   "长沙生态动物园",
+   "長沙生態動物園",
+   "長沙市動物園"
+  ]
+ },
+ {
+  "canonical": "青島動物園",
+  "lineage_id": null,
+  "en": "Qingdao Zoo",
+  "zh": "青岛动物园",
+  "country": "China",
+  "location_ja": "山東省青島市市南区",
+  "location_en": "Shinan, Qingdao, Shandong, China",
+  "lat": 36.0625,
+  "lng": 120.349,
+  "map": null,
+  "website": null,
+  "logo": null,
+  "aliases": [
+   "Qingdao Zoo",
+   "青岛动物园",
+   "青島動物園",
+   "青島市動物園"
+  ]
+ },
+ {
+  "canonical": "長春動植物公園",
+  "lineage_id": null,
+  "en": "Changchun Zoological and Botanical Garden",
+  "zh": "长春动植物公园",
+  "country": "China",
+  "location_ja": "吉林省長春市南関区自由大路2121号",
+  "location_en": "Nanguan, Changchun, Jilin, China",
+  "lat": 43.8657,
+  "lng": 125.3456,
+  "map": null,
+  "website": null,
+  "logo": null,
+  "aliases": [
+   "Changchun Zoological and Botanical Garden",
+   "Changchun Zoo and Botanical Garden",
+   "长春动植物公园",
+   "長春動植物公園"
+  ]
+ },
+ {
+  "canonical": "瀋陽森林動物園",
+  "lineage_id": null,
+  "en": "Shenyang Forest Zoo",
+  "zh": "沈阳森林动物园",
+  "country": "China",
+  "location_ja": "遼寧省瀋陽市渾南区棋盤山",
+  "location_en": "Qipanshan, Hunnan, Shenyang, Liaoning, China",
+  "lat": 41.9286,
+  "lng": 123.6147,
+  "map": null,
+  "website": "http://www.syslzoo.com/",
+  "logo": null,
+  "aliases": [
+   "Shenyang Forest Zoo",
+   "Shenyang Forest Zoological Garden",
+   "沈阳森林动物园",
+   "瀋陽森林動物園"
   ]
  }
 ]
