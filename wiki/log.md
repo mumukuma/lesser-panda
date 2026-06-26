@@ -2072,3 +2072,17 @@
 
 **更新條目**：
 - `kabosu-2018-06-28.md` — 移除 臭橙；`japanese: かぼす`
+
+
+## [2026-06-26] update | 社群回報兩筆更正：`yuuka` #176 中文名、`kazunoko` 移園日期
+
+**說明**：依圖鑑回報收件匣（Tally → Google Sheet）2026-06-26 一筆回報處理兩項更正，均經查證採用。未跑 gen_residence/build_db（沙盒掛載限制），待作者本機重跑 `bash rebuild.sh`。
+
+**來源**：
+- 社群回報（回報者 Pan），2026-06-26
+- https://redpandafinder.com/#profile/176 (Yuuka #176)
+- https://redpandafinder.com/#profile/1305 (Kazunoko #1305)
+
+**更新條目**：
+- `yuuka-2016-07-14.md` — 移除誤植的 `優花`（該漢字實為 RPF #377 `yuuka-2010-06-20` 🌈 之正確名，易混淆）；`japanese: 優香, ゆうか`
+- `kazunoko-2021-08-04.md` — 補移園日期：日本平 (2021-08-04 – 2024-04-16)、桐生が岡 (2024-04-16 – 現在)；經 RPF #1305 查證確認
