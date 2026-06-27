@@ -48,6 +48,7 @@ const nav = [
   </script>
   <script is:inline src={`${base}js/lang.js`}></script>
   <script is:inline src={`${base}js/theme.js`}></script>
+  <script is:inline src={`${base}js/nav.js`}></script>
   <slot name="head" />
 </head>
 <body class:list={['font-sans', active === 'home' && 'home']}>
@@ -59,7 +60,7 @@ const nav = [
   <header class="site-header" id="site-header">
     <div class="max-w-4xl mx-auto px-4 py-2.5 sm:py-3 flex items-center gap-x-2 gap-y-1.5 flex-wrap sm:flex-nowrap">
       <a href={page} class="brand order-1 font-display font-semibold text-lg sm:text-xl no-underline flex items-center gap-2 tracking-wide">
-        <span class="anim-bob inline-block">🐾</span> {T.site_title}
+        <img src={`${base}icon.svg`} alt="" width="29" height="30" class="anim-bob inline-block" /> {T.site_title}
       </a>
       <div class="order-2 sm:order-3 ml-auto flex items-center gap-1">
         <button id="theme-toggle" type="button" aria-label="切換深色模式"
@@ -71,17 +72,21 @@ const nav = [
           style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237a6a5f' stroke-width='1.5' fill='none'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 11px center">
           {LOCALES.map((l) => <option value={l.code} selected={l.code === locale}>{l.label}</option>)}
         </select>
+        <button id="nav-toggle" type="button" aria-label={T.nav_menu ?? '選單'} aria-expanded="false" aria-controls="site-nav"
+          class="nav-link sm:hidden inline-flex items-center justify-center leading-none bg-transparent border-0 cursor-pointer p-2 rounded-full">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
       </div>
-      <nav class="order-3 sm:order-2 w-full sm:w-auto sm:ml-auto flex items-center justify-center gap-1">
+      <nav id="site-nav" class="order-3 sm:order-2 w-full sm:w-auto sm:ml-auto hidden sm:flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-1">
         {nav.map(([rp, label]) => (
           <a href={url(cur.dir, rp)}
-             class={`nav-link px-3.5 py-1.5 rounded-full text-[.92rem] whitespace-nowrap no-underline ${active === (rp || 'home') ? 'active' : ''}`}>{label}</a>
+             class={`nav-link px-3.5 py-1.5 rounded-full text-[.92rem] text-center sm:text-left whitespace-nowrap no-underline ${active === (rp || 'home') ? 'active' : ''}`}>{label}</a>
         ))}
       </nav>
     </div>
   </header>
 
-  <div class:list={['max-w-4xl mx-auto px-4 pb-16', active !== 'home' && 'pt-[120px] sm:pt-[68px]']}>
+  <div class:list={['max-w-4xl mx-auto px-4 pb-16', active !== 'home' && 'pt-[60px] sm:pt-[68px]']}>
     <slot />
     <footer class="mt-12 card-soft text-ink-soft text-[.84rem] px-4 py-3 text-center">
       <div class="flex flex-wrap justify-center items-center gap-x-3 gap-y-1">

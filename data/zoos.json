@@ -2818,17 +2818,32 @@
   "aliases": []
  },
  {
+  "canonical": "Chiang Mai Zoo",
+  "lineage_id": null,
+  "en": "Chiang Mai Zoo",
+  "zh": "清邁動物園",
+  "country": "Thailand",
+  "location_ja": null,
+  "location_en": "Mueang Chiang Mai, Chiang Mai, Thailand",
+  "lat": null,
+  "lng": null,
+  "map": null,
+  "website": "https://chiangmai.zoothailand.org/",
+  "logo": null,
+  "aliases": []
+ },
+ {
   "canonical": "Khao Kheow Open Zoo",
   "lineage_id": 100,
   "en": "Khao Kheow Open Zoo",
-  "zh": null,
+  "zh": "考奇歐開放動物園",
   "country": "Thailand",
   "location_ja": null,
   "location_en": "Si Racha, Chon Buri, Thailand",
   "lat": 13.2148627,
   "lng": 100.9866786,
   "map": "https://goo.gl/maps/QRi8XP3ynNU2",
-  "website": "http://www.khaokheow.zoothailand.org/",
+  "website": "https://khaokheow.zoothailand.org/",
   "logo": null,
   "aliases": []
  },
@@ -3926,6 +3941,24 @@
   "website": "https://nationalzoo.si.edu/conservation",
   "logo": null,
   "aliases": []
+ },
+ {
+  "canonical": "Sri Ayutthaya Lion Park",
+  "lineage_id": null,
+  "en": "Sri Ayutthaya Lion Park",
+  "zh": "大城獅子公園",
+  "country": "Thailand",
+  "location_ja": null,
+  "location_en": "Tha Ruea, Phra Nakhon Si Ayutthaya, Thailand",
+  "lat": null,
+  "lng": null,
+  "map": "https://maps.app.goo.gl/xEbDWA6yr9Ej33cg8",
+  "website": "https://www.sriayuthayalionpark.com/",
+  "logo": null,
+  "aliases": [
+   "Sriayuthaya Lion Park",
+   "ศรีอยุธยา ไลอ้อน พาร์ค"
+  ]
  },
  {
   "canonical": "Staten Island Zoo",

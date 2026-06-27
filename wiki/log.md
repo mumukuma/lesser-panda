@@ -2086,3 +2086,56 @@
 **更新條目**：
 - `yuuka-2016-07-14.md` — 移除誤植的 `優花`（該漢字實為 RPF #377 `yuuka-2010-06-20` 🌈 之正確名，易混淆）；`japanese: 優香, ゆうか`
 - `kazunoko-2021-08-04.md` — 補移園日期：日本平 (2021-08-04 – 2024-04-16)、桐生が岡 (2024-04-16 – 現在)；經 RPF #1305 查證確認
+
+---
+
+## [2026-06-27] add | 泰國動物園資料補充：Khao Kheow 走私救援雙熊 + 註冊兩座新園
+
+**來源**：
+- https://www.facebook.com/Bangkok.Pattaya/posts/-khao-kheow-open-zoo-welcomes-adorable-new-red-panda-pair-hachi-and-hana-khao-kh/1582598963129122/ (Hana & Hashi)
+- https://chiangmai.zoothailand.org/ (Chiang Mai Zoo)
+- https://www.sriayuthayalionpark.com/ (Sri Ayutthaya Lion Park)
+
+**新增條目**：
+- `hana.md` — Hana 雌，走私查獲後救起，現居 Khao Kheow Open Zoo；僅知名字與性別，餘待查證
+- `hashi.md` — Hashi（Hachi）雄，走私查獲後救起，現居 Khao Kheow Open Zoo；僅知名字與性別，餘待查證
+
+**更新條目**：
+- `data/zoos.json` — 新增 `Chiang Mai Zoo`（清邁動物園）、`Sri Ayutthaya Lion Park`（大城獅子公園）；補 `Khao Kheow Open Zoo` 中文名考奇歐開放動物園與別名
+- `tools/gen_residence.py` — CFLAG 補 Thailand → 泰國 🇹🇭
+- `index.md` — 新增「海外個體（泰國）」分類；條目總數更新為 413
+
+---
+
+## [2026-06-27] update | 泰國個體補充：Hana/Hashi 生年 + 新增 Chiang Mai 的 Tiger
+
+**來源**：
+- 作者提供（年齡／生年）：Hashi 約 4 歲（推估 2022 生）、Hana 約 3 歲（推估 2023 生）、Tiger 生於 2012
+- https://chiangmai.zoothailand.org/ (Chiang Mai Zoo 紅熊貓)
+
+**新增條目**：
+- `tiger-2012.md` — Tiger 雄，生於 2012，現居 Chiang Mai Zoo；入園時間與血緣待查證
+
+**更新條目**：
+- `hana.md` — 補生年 `born: 2023`（依 2026-06 約 3 歲回推；確切日期不詳）
+- `hashi.md` — 補生年 `born: 2022`（依 2026-06 約 4 歲回推；確切日期不詳）
+- `index.md` — 海外（泰國）區新增 `tiger-2012`、補 Hana/Hashi 生年；條目總數更新為 414
+
+**網站前端修正（須重新 build 生效）**：
+- `web/src/components/Panda.astro`、`web/src/pages/[...path].astro` — 修正家族／家系圖區塊 `hasTree` 短路渲染印出「0」的 bug；家系圖改為一律顯示（無親屬時僅顯示自己）；父母行缺資料時顯示「不詳／Unknown」
+- `pipeline/src/i18n/{zh-TW,ja,en}.json` — 新增 `rel_unknown`（不詳／不明／Unknown）
+
+---
+
+## [2026-06-27] add | 泰國個體補充：Sri Ayutthaya Lion Park 的 Punchang / Poddoung
+
+**來源**：
+- 作者提供（名字與所在園）
+- https://www.sriayuthayalionpark.com/ (Sri Ayutthaya Lion Park 大城獅子公園)
+
+**新增條目**：
+- `punchang.md` — Punchang（泰文 `น้องพันชั่ง`），現居 Sri Ayutthaya Lion Park；僅知名字與所在園，性別／生日／亞種／血緣待查證
+- `poddoung.md` — Poddoung（泰文 `น้องพดด้วง`），現居 Sri Ayutthaya Lion Park；僅知名字與所在園，性別／生日／亞種／血緣待查證
+
+**更新條目**：
+- `index.md` — 海外（泰國）區新增 `punchang`、`poddoung`；條目總數更新為 416

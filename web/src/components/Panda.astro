@@ -59,8 +59,11 @@ const link = (s) => pandas[s]
   ? `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, pandas[s].urlId)}">${displayName(pandas[s], locale)}${pandas[s].died ? ' 🌈' : ''}</a>` : s;
 const famRow = (label, slugs) => slugs && slugs.length
   ? `<li class="py-1"><span class="inline-block min-w-[9em] text-ink-soft text-[.88rem]">${label}</span>${slugs.map(link).join('、')}</li>` : '';
+// 父母行永遠顯示：缺資料時填「不詳 / Unknown」而非隱藏整行
+const parentRow = (label, slug) => slug
+  ? famRow(label, [slug])
+  : `<li class="py-1"><span class="inline-block min-w-[9em] text-ink-soft text-[.88rem]">${label}</span><span class="text-ink-soft">${T.rel_unknown}</span></li>`;
 
-const hasTree = p.mother || p.father || p.children.length || (p.twins || []).length;
 const H3 = 'font-display text-lg font-semibold mt-7 mb-2.5 border-l-4 border-amber pl-2.5';
 const CARD = 'card-soft p-[18px_20px]';
 const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem] border-0 cursor-pointer';
@@ -178,8 +181,8 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
 <h2 class={H3}>{T.sec_family}</h2>
 <div class={`${CARD} reveal`}>
   <ul class="list-none p-0 m-0" set:html={[
-    famRow(T.rel_mother, p.mother ? [p.mother] : null),
-    famRow(T.rel_father, p.father ? [p.father] : null),
+    parentRow(T.rel_mother, p.mother),
+    parentRow(T.rel_father, p.father),
     famRow(T.rel_twin, p.twins),
     famRow(T.rel_siblings, p.full_siblings),
     famRow(T.rel_half_siblings, p.half_siblings),
@@ -205,8 +208,7 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
   )}
 </div>
 
-{hasTree && (
-  <>
+<>
     <h2 class={H3}>{T.sec_tree}</h2>
     <div class={`${CARD} reveal`}>
       <div class="flex gap-2 items-center flex-wrap mb-2.5">
@@ -222,5 +224,4 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
       <div id="tree-box" data-slug={slug}></div>
       <p class="text-[.82rem] text-ink-soft mt-2">{T.tree_hint}</p>
     </div>
-  </>
-)}
+</>

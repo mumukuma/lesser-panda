@@ -197,6 +197,19 @@ body.home .forest-floor { display: block; }
 .nav-link:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }
 .nav-link.active { background: color-mix(in srgb, var(--rust) 16%, transparent); color: var(--rust-dark); font-weight: 600; }
 
+/* 手機版下拉選單：漢堡開啟後，nav 換行佔滿寬度，加分隔線與輕微下滑動畫 */
+@media (max-width: 639px) {
+  #site-nav:not(.hidden) {
+    margin-top: .375rem;
+    padding-top: .5rem;
+    border-top: 1px solid var(--line);
+    animation: nav-drop .18s ease;
+  }
+  #site-nav:not(.hidden) .nav-link { padding-top: .55rem; padding-bottom: .55rem; }
+}
+@keyframes nav-drop { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { #site-nav:not(.hidden) { animation: none; } }
+
 /* ── 全幅森林 Hero：融入背景與 header，底部遮罩漸層化入頁面（非 banner 卡片）── */
 .full-bleed { width: 100vw; margin-left: calc(50% - 50vw); }
 .hero-forest {

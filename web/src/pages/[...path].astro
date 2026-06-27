@@ -38,8 +38,7 @@ const titles = {
 const active = kind === 'home' ? 'home' : kind;
 
 const p = kind === 'panda' ? pandas[slug] : null;
-const hasTree = p && (p.mother || p.father || p.children.length || (p.twins || []).length);
-const graph = hasTree ? subGraph(slug) : null;
+const graph = p ? subGraph(slug) : null;
 ---
 <Layout locale={locale} relPath={relPath} active={active} title={titles[kind]}>
   {kind === 'zoos' && <link slot="head" rel="stylesheet" href={`${base}vendor/leaflet.css`} />}
@@ -76,7 +75,7 @@ const graph = hasTree ? subGraph(slug) : null;
       <script is:inline async src="https://tally.so/widgets/embed.js"></script>
     </Fragment>
   )}
-  {kind === 'panda' && hasTree && (
+  {kind === 'panda' && graph && (
     <Fragment slot="scripts">
       <script is:inline define:vars={{ data: graph }}>window.GRAPH_DATA = data;</script>
       <script is:inline src={`${base}js/tree.js`}></script>

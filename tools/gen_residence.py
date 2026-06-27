@@ -20,7 +20,7 @@ WIKI = os.path.join(ROOT, "wiki")
 
 CFLAG = {'Japan':('日本','🇯🇵'),'Taiwan':('台灣','🇹🇼'),'USA':('美國','🇺🇸'),'China':('中國','🇨🇳'),
  'Chile':('智利','🇨🇱'),'Canada':('加拿大','🇨🇦'),'South Korea':('韓國','🇰🇷'),'Australia':('澳洲','🇦🇺'),
- 'Netherlands':('荷蘭','🇳🇱'),'Indonesia':('印尼','🇮🇩')}
+ 'Netherlands':('荷蘭','🇳🇱'),'Indonesia':('印尼','🇮🇩'),'Thailand':('泰國','🇹🇭')}
 _COUNTRY_WORDS = ['日本','台灣','台湾','中國','中国','美國','美国','加拿大','韓國','韩国','大韓民國',
  '智利','澳洲','澳大利亞','荷蘭','印尼','英國','德國','法國','泰國','新加坡']
 _FLAG = re.compile(r"[\U0001F1E6-\U0001F1FF]")
