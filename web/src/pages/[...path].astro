@@ -13,7 +13,7 @@ export function getStaticPaths() {
   for (const l of LOCALES) {
     const path = (sub) => (l.dir + sub).replace(/\/$/, '');
     out.push({ params: { path: path('') || undefined }, props: { locale: l.code, kind: 'home', relPath: '' } });
-    out.push({ params: { path: path('search') }, props: { locale: l.code, kind: 'search', relPath: 'search' } });
+    out.push({ params: { path: path('pandas') }, props: { locale: l.code, kind: 'pandas', relPath: 'pandas' } });
     out.push({ params: { path: path('zoos') }, props: { locale: l.code, kind: 'zoos', relPath: 'zoos' } });
     out.push({ params: { path: path('feedback') }, props: { locale: l.code, kind: 'feedback', relPath: 'feedback' } });
     out.push({ params: { path: path('thanks') }, props: { locale: l.code, kind: 'thanks', relPath: 'thanks' } });
@@ -29,7 +29,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
 const titles = {
   home: undefined,
-  search: (await import('../lib/data.js')).i18n[locale].nav_search,
+  pandas: (await import('../lib/data.js')).i18n[locale].nav_search,
   zoos: (await import('../lib/data.js')).i18n[locale].nav_zoos,
   feedback: (await import('../lib/data.js')).i18n[locale].nav_feedback,
   thanks: (await import('../lib/data.js')).i18n[locale].thanks_title,
@@ -45,7 +45,7 @@ const graph = hasTree ? subGraph(slug) : null;
   {kind === 'zoos' && <link slot="head" rel="stylesheet" href={`${base}vendor/leaflet.css`} />}
 
   {kind === 'home' && <Home locale={locale} />}
-  {kind === 'search' && <Search locale={locale} />}
+  {kind === 'pandas' && <Search locale={locale} />}
   {kind === 'zoos' && <Zoos locale={locale} />}
   {kind === 'feedback' && <Feedback locale={locale} />}
   {kind === 'thanks' && <Thanks locale={locale} />}
@@ -57,7 +57,7 @@ const graph = hasTree ? subGraph(slug) : null;
       <script is:inline src={`${base}js/today.js`}></script>
     </Fragment>
   )}
-  {kind === 'search' && (
+  {kind === 'pandas' && (
     <Fragment slot="scripts">
       <script is:inline define:vars={{ data: searchDataFor(locale) }}>window.SEARCH_DATA = data;</script>
       <script is:inline src={`${base}js/search.js`}></script>
@@ -68,6 +68,7 @@ const graph = hasTree ? subGraph(slug) : null;
       <script is:inline define:vars={{ data: { zoos } }}>window.ZOOS_DATA = data;</script>
       <script is:inline src={`${base}vendor/leaflet.js`}></script>
       <script is:inline src={`${base}js/map.js`}></script>
+      <script is:inline src={`${base}js/zoos.js`}></script>
     </Fragment>
   )}
   {kind === 'feedback' && (

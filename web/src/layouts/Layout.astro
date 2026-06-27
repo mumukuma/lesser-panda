@@ -16,7 +16,7 @@ const page = url(cur.dir, '');                    // 當前語系根，給前端
 
 const nav = [
   ['', T.nav_home],
-  ['search', T.nav_search],
+  ['pandas', T.nav_search],
   ['zoos', T.nav_zoos],
 ];
 ---
@@ -63,7 +63,9 @@ const nav = [
       </a>
       <div class="order-2 sm:order-3 ml-auto flex items-center gap-1">
         <button id="theme-toggle" type="button" aria-label="切換深色模式"
-          class="nav-link text-[1.05rem] leading-none bg-transparent border-0 cursor-pointer px-2 py-1.5 rounded-full">🌙</button>
+          class="nav-link inline-flex items-center justify-center leading-none bg-transparent border-0 cursor-pointer p-2 rounded-full">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
         <select id="lang-select" aria-label="Language"
           class="nav-link text-[.92rem] bg-transparent border-0 rounded-full pl-3 pr-7 py-1.5 cursor-pointer appearance-none"
           style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237a6a5f' stroke-width='1.5' fill='none'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 11px center">

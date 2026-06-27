@@ -30,10 +30,15 @@
     );
     byId[z.id] = { marker: m, zoo: z };
   });
-  var all = Object.values(byId).map(function (x) { return x.marker; });
-  if (all.length) map.fitBounds(L.featureGroup(all).getBounds().pad(0.1)); else map.setView([36.2, 138.2], 5);
+  // 預設以日本群為主：框住日本境內的園（座標落在日本範圍框），不含台灣/海外
+  var jp = zoos.filter(function (z) { return z.lat >= 24 && z.lat <= 46 && z.lng >= 128 && z.lng <= 154; });
+  var jpBounds = jp.length ? L.latLngBounds(jp.map(function (z) { return [z.lat, z.lng]; })) : null;
+  var FIT = { padding: [24, 24], maxZoom: 7 };
+  // 框住日本群後再往內縮一級（畫面更聚焦，日本核心置中）
+  function fitJp() { map.fitBounds(jpBounds, FIT); map.setZoom(map.getZoom() + 1); }
+  if (jpBounds) fitJp(); else map.setView([36.5, 138], 5);
 
-  var refit = function () { map.invalidateSize(); if (all.length) map.fitBounds(L.featureGroup(all).getBounds().pad(0.1)); };
+  var refit = function () { map.invalidateSize(); if (jpBounds) fitJp(); };
   setTimeout(refit, 200);
   window.addEventListener('load', refit);
 

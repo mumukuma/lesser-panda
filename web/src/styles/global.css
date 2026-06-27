@@ -226,8 +226,8 @@ body.home .forest-floor { display: block; }
 :root[data-theme="dark"] .tree-link.half { stroke: #6b5b4a; }
 
 /* Leaflet 地圖容器 */
-#map { height: 420px; border-radius: var(--r-card); border: 1px solid var(--line); box-shadow: var(--shadow); z-index: 1; }
-@media (max-width: 560px) { #map { height: 300px; } #tree-box { height: 70vh; } }
+#map { height: 360px; border-radius: var(--r-card); border: 1px solid var(--line); box-shadow: var(--shadow); z-index: 1; }
+@media (max-width: 560px) { #map { height: 280px; } #tree-box { height: 70vh; } }
 
 /* 表格在窄螢幕可橫向捲動 */
 @media (max-width: 560px) { table.scroll-x { display: block; overflow-x: auto; white-space: nowrap; } }
