@@ -67,11 +67,20 @@ const nav = [
           class="nav-link inline-flex items-center justify-center leading-none bg-transparent border-0 cursor-pointer p-2 rounded-full">
           <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
-        <select id="lang-select" aria-label="Language"
-          class="nav-link text-[.92rem] bg-transparent border-0 rounded-full pl-3 pr-7 py-1.5 cursor-pointer appearance-none"
-          style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237a6a5f' stroke-width='1.5' fill='none'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 11px center">
-          {LOCALES.map((l) => <option value={l.code} selected={l.code === locale}>{l.label}</option>)}
-        </select>
+        <!-- 語言切換：只顯示地球 icon（隱藏文字），省空間避免手機版 header 換行。
+             icon 用 inline SVG + currentColor，跟夜間切換、漢堡選單同樣線條風格、會跟著深色模式變色 -->
+        <span class="nav-link relative inline-flex items-center justify-center rounded-full" style="width:38px;height:34px;">
+          <svg aria-hidden="true" class="pointer-events-none text-ink-soft" width="20" height="20" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/><path d="M3 12h18"/>
+            <path d="M12 3c2.7 2.9 2.7 15.1 0 18"/><path d="M12 3c-2.7 2.9-2.7 15.1 0 18"/>
+          </svg>
+          <select id="lang-select" aria-label="Language" title="Language"
+            class="absolute inset-0 w-full h-full bg-transparent border-0 cursor-pointer appearance-none"
+            style="color:transparent;opacity:0">
+            {LOCALES.map((l) => <option value={l.code} selected={l.code === locale} style="color:var(--ink)">{l.label}</option>)}
+          </select>
+        </span>
         <button id="nav-toggle" type="button" aria-label={T.nav_menu ?? '選單'} aria-expanded="false" aria-controls="site-nav"
           class="nav-link sm:hidden inline-flex items-center justify-center leading-none bg-transparent border-0 cursor-pointer p-2 rounded-full">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
