@@ -98,6 +98,16 @@ def first_wikilink(text: str) -> str | None:
     m = WIKILINK_RE.search(text)
     return m.group(1).strip().lower() if m else None
 
+# 消歧警語標記：父/母 行常見「（⚠️ 勿與 [[另一隻]] 混淆）」。這些警語裡的
+# wikilink 不是父母本身，必須在抽取父母前切掉，否則 first_wikilink 會誤抓警語連結。
+WARNING_RE = re.compile(r"⚠|勿與|請勿與|不要與|混淆|注意同名")
+
+def parent_link(text: str) -> str | None:
+    """從 父/母 行取真正的父母 slug：先切掉消歧警語子句再取第一個 wikilink。
+    若真正父母以純文字書寫（無條目），切掉警語後即無連結 → 回 None（不建錯邊）。"""
+    head = WARNING_RE.split(text, maxsplit=1)[0]
+    return first_wikilink(head)
+
 
 # ── 家族 section 解析 ─────────────────────────────────────────
 def parse_family(body: str) -> dict:
@@ -147,12 +157,12 @@ def parse_family(body: str) -> dict:
 
         # 母
         if re.match(r"^-\s*母[：:]", stripped):
-            result["mother"] = first_wikilink(stripped)
+            result["mother"] = parent_link(stripped)
             continue
 
         # 父
         if re.match(r"^-\s*父[：:]", stripped):
-            result["father"] = first_wikilink(stripped)
+            result["father"] = parent_link(stripped)
             continue
 
         # 雙胞胎（可能有多人，取所有 wikilinks）
