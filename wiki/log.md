@@ -2186,3 +2186,88 @@
 - `index.md` — 新增「海外個體（中國 → 台灣）」分類，含甜甜家族與繁繁；條目總數更新為 420
 
 **備注**：上海動物園、台北市立動物園皆已登記於 `data/zoos.json`，無須新增園。四隻皆非 RPF 收錄個體，故略過 `rpf_id`／`rpf_url`。
+
+---
+
+## [2026-06-28] add | 補建 Kurumi（クルミ #160）一脈缺漏條目
+
+**來源**：
+- https://redpandafinder.com/#profile/160 (Kurumi クルミ)
+- https://redpandafinder.com/#profile/298 (Kojirou コジロウ)
+
+**新增條目**：
+- `kurumi-2011-07-18.md` — Kurumi クルミ（RPF #160），♀，生於 2011-07-18 周南市徳山動物園，現居仙台市八木山動物公園；母 `tochi`🌈、父 `kotarou`🌈，`mikan` 雙胞胎；與 `tian` 育有 `sumomo`、`koume`、`konatsu`、`natsume`、`yuzu` 五子女（⚠️ 與 RPF #1377 之 `kurumi`／來海 同名異個體）
+- `kojirou-2010-07-14.md` — Kojirou コジロウ（RPF #298），♂🌈，生於 2010-07-14 周南市徳山動物園，2019-01-01 歿於市原ぞうの国；`tochi`🌈 × `kotarou`🌈 之子、`kurumi`#160／`mikan` 之兄（⚠️ 與 RPF #292 之 `kojirou` 同名異個體）
+
+**更新條目（純文字親屬改 wikilink 指向新條目）**：
+- `sumomo`、`koume`、`konatsu`、`natsume`、`yuzu` — 母「Kurumi」→ `kurumi-2011-07-18`
+- `mikan`、`tochi`、`kotarou`、`koto`、`hiko`、`nonta`、`riko`、`ron-ron`、`yuu-yuu` — 手足／子女欄之 Kurumi #160、Kojirou #298 改 wikilink
+- `kurumi-2022-07-09`（#1377）— 同名消歧註記補上 `kurumi-2011-07-18` 連結
+- `index.md` — 新增「Kurumi（#160）與其手足」區塊；條目總數 420 → 422
+
+**備注**：本次起因為作者列出的 4 筆缺漏中，RPF #1377（來海）、#1376（Tsugumi）、#165（Gaia）其實早已建檔且完整，僅 #160 Kurumi 真正缺漏；連帶補上其唯一缺漏手足 Kojirou #298。三座動物園（周南市徳山動物園、仙台市八木山動物公園、市原ぞうの国）皆已登記於 `data/zoos.json`。
+
+---
+
+## [2026-06-28] add | 新增世界最高齡小熊貓 楠（Kusu #759）及父、全血緣兄
+
+**來源**：
+- https://redpandafinder.com/#profile/759 (Kusu 楠)
+- https://ja.wikipedia.org/wiki/楠_(レッサーパンダ) (楠 — 日文維基)
+- https://redpandafinder.com/#profile/763 (Yuu-Yuu 父)
+- https://redpandafinder.com/#profile/770 (Sui-Sui 全血緣兄)
+- https://redpandafinder.com/#profile/776 (無名母)
+
+**新增條目**：
+- `kusu-1991-06-24.md` — 楠 Kusu（RPF #759），♂🌈，生於 1991-06-24 鯖江市西山動物園，2015-07-15 歿於到津の森公園；**死時 24 歲為當時世界最高齡小熊貓**；父 `yuu-yuu-1987-05-31`🌈、母無名 #776🌈，全血緣兄 `sui-sui-1989-06-29`🌈；終生無子女
+- `yuu-yuu-1987-05-31.md` — Yuu-Yuu ユーユー（RPF #763），♂🌈，生於 1987-05-31 長野市茶臼山動物園，2007-12-19 歿於鯖江市西山動物園；楠與 Sui-Sui 之父，共 9 子女（⚠️ 與 #999 之 `yuu-yuu-2011-05-28`、`yuu-yuu-2014-07-27` 同名異個體）
+- `sui-sui-1989-06-29.md` — Sui-Sui スイスイ（RPF #770），♂🌈，生於 1989-06-29 鯖江市西山動物園，1991-11-08 幼逝於仙台市八木山動物公園；楠之全血緣兄
+
+**更新條目**：
+- `index.md` — 新增「Kusu 家族（西山 → 廣島 → 到津の森）」分類；條目總數 422 → 425
+
+**備注**：RPF 將 #759 漢字另記為「笑」，惟到津の森公園與日文維基均以「楠」為正名，依作者指示從之。母（#776）無正式名，以純文字記於相關條目、未另建頁。8 隻手足中僅 Sui-Sui 為同母同父全血緣，餘為同父異母（½），依作者選定範圍未建。四座動物園（鯖江市西山動物園、広島市安佐動物公園、到津の森公園、長野市茶臼山動物園、仙台市八木山動物公園）皆已登記於 `data/zoos.json`。
+
+---
+
+## [2026-06-28] update | 修正 `rifa`（リーファ #240）居住史與別名
+
+**來源**：
+- https://redpandafinder.com/#profile/240 (Rifa リーファ)
+
+**更新條目**：
+- `rifa-2018-06-07.md` — 居住史由「秋吉台サファリランド (2018–現在)」更正為三段：多摩動物公園（2018-06-07 出生 – 2020-01-28）→ 豊橋総合動植物公園（2020-01-28 – 2026-03-15）→ 秋吉台自然動物公園サファリランド（2026-03-15 – 現在）；出生地 🐣 由秋吉台更正為多摩。一併移除非本體名稱的 `english_variants`（Li-Hua／Lihua／Ri-fa／Plum Flowers，作者確認 `rifa` 僅有 Rifa・リーファ・李花），並修正年齡 7→8 歲。
+
+**備注**：三座動物園皆已登記於 `data/zoos.json`。重建 `redpanda.db` 與 `pipeline/data/*.json`（未匹配園名 0 種）；`web/` 由 CI 自動部署。
+
+---
+
+## [2026-06-28] fix + add | Gaia 出生地修正、補建 Lala（#129）一脈
+
+**來源**：
+- https://redpandafinder.com/#profile/165 (Gaia ガイア)
+- https://redpandafinder.com/#profile/129 (Lala ララ)
+- https://redpandafinder.com/#profile/309 (Maguro マグロ)
+- https://redpandafinder.com/#profile/321 (Noko ノコ)
+- https://redpandafinder.com/#profile/313 (Yukiko ユキコ／タケ)
+- https://redpandafinder.com/#profile/322 (Tekka テッカ)
+- https://redpandafinder.com/#profile/314 (Maki マキ)
+- 日本網友回報（資料更正表單）
+
+**修正條目**：
+- `gaia-2004-06-10` — 出生地由「横浜市立金沢動物園」更正為「よこはま動物園ズーラシア」（RPF #165 🐣 確認；2004-06-10 – 2009-04-20）。原為金澤動物園與 Zoorasia 混淆所致
+- `data/zoos.json` — 移除「横浜市立金沢動物園」條目下錯誤別名「横浜市立金沢動物園 Zoorasia」（誤把兩座不同園混為一談）；location 補為金沢区
+
+**新增條目**：
+- `lala-2004-06-29.md` — Lala ララ（RPF #129），♀，生於 2004-06-29 埼玉県こども動物自然公園，現居よこはま動物園ズーラシア；母 `porin`🌈、父 `maguro`🌈，`toro`🌈 雙胞胎；本胎 8 手足唯一在世（⚠️ 與 #341／#476 等同名 Lala 區別）
+- `maguro-2002-07-02.md` — Maguro マグロ（RPF #309），♂🌈，2002-07-02 – 2007-08-05；`porin`🌈 之配偶、8 仔之父
+- `noko-2005-06-23.md` — Noko ノコ（RPF #321），♂🌈，2005–2010；`yukiko`🌈 雙胞胎
+- `yukiko-2005-06-23.md` — Yukiko ユキコ／タケ（RPF #313），♀🌈，2005–2021；赴美（Red River→Woodland Park），育有 11 仔
+- `tekka-2007-06-14.md` — Tekka テッカ（RPF #322），♂🌈，2007–2015；`maki`🌈 雙胞胎
+- `maki-2007-06-14.md` — Maki マキ（RPF #314），♀🌈，2007–2017；赴加拿大（Toronto→Safari Niagra）
+
+**更新條目（純文字親屬改 wikilink）**：
+- `toro-2004-06-29`、`porin-2002-06-15`、`nuts-2006-06-24`、`coco-2006-06-24` — 父 `maguro`、手足 `lala`/`noko`/`yukiko`/`tekka`/`maki` 改 wikilink
+- `index.md` — 新增「Maguro × Porin 一脈」區塊；條目總數更新為 431
+
+**備注**：Maki 經讀者回報確認為 ♀；Noko／Tekka 性別 RPF 未直接標示，依手足計數推斷為 ♂，已於各條目備注「待確認」。所有園名皆已登記於 `data/zoos.json`。
