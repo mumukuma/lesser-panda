@@ -2271,3 +2271,17 @@
 - `index.md` — 新增「Maguro × Porin 一脈」區塊；條目總數更新為 431
 
 **備注**：Maki 經讀者回報確認為 ♀；Noko／Tekka 性別 RPF 未直接標示，依手足計數推斷為 ♂，已於各條目備注「待確認」。所有園名皆已登記於 `data/zoos.json`。
+
+## [2026-06-29] fix | 更正 Tiara／Melody／Jazz 之父（誤植 Chata，正為 Gaia）
+
+**來源**：
+- https://redpandafinder.com/#profile/165 (Gaia 父)
+- https://redpandafinder.com/#profile/120 (Tiara)
+- https://redpandafinder.com/#profile/166 (Jazz)
+- https://redpandafinder.com/#profile/167 (Melody)
+- 作者回報（網站顯示父為 Chata）
+
+**修正條目**：
+- `chata-2002-06-25` — 移除誤植的「子女（與其他配偶所生）」表格（`tiara`／`melody`／`jazz`）及引言中「亦為…之父」一句。Chata 與 `min-fa` 僅育有 5 子（½ 手足：`min-min`／`fa-fa`／`charmin`／`sou-sou`／`lemon`）；`tiara`／`melody`／`jazz` 之父為 `gaia`（#165）、非 Chata（#168）。
+
+**說明**：三隻子女條目本身（frontmatter／家族）父欄一直正確為 `gaia`，但 `build_db` 會把每筆「子女」表格反向建成親子邊；Chata 表格誤列這三隻，導出時蓋過 `gaia`，故網站顯示錯誤的父。移除後親子邊 712→709，網站父欄恢復為 `gaia`。
