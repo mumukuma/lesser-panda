@@ -2150,3 +2150,39 @@
 **更新條目**：
 - `hana.md` — 居住史更正：Khao Kheow Open Zoo 入園時間 2026 → 2024（內文註明 2024 年 3 月）
 - `hashi.md` — 居住史更正：Khao Kheow Open Zoo 入園時間 2026 → 2024（內文註明 2024 年 3 月）
+
+---
+
+## [2026-06-28] update | 性別與名稱更正（讀者回報）
+
+**來源**：
+- 作者提供（讀者回報）
+
+**更新條目**：
+- `chen-chen-2022-07-05.md` — 性別更正 ♂ → ♀（雌）；同步更新 frontmatter `sex`/`tags`、引言、「之子」→「之女」
+- `jin-jin-2022-07-05.md`、`yuu-yuu-2011-05-28.md`、`puerh-2015-06-25.md`、`gao-gao-2015-06-27.md` — 親屬欄位 `chen-chen` 性別標記 ♂ → ♀
+- `poddoung.md` — 性別確認為 ♀（雌），更新 frontmatter `sex`/`tags`、引言與待查證註記
+- `punchang.md` — 性別確認為 ♂（雄），更新 frontmatter `sex`/`tags`、引言與待查證註記
+- `yan-yan-2014-06-22.md` — 名稱更正：日文名僅 `ヤンヤン`／`陽陽`（原誤作平假名 `やんやん`），同步修正 `azuki-2010-06-14`、`franken-2012-06-11` 之引用
+- `sumire-2004-06-17.md` — 名稱更正為僅 `小堇`／`スミレ`（移除英文名 Viola，新增 `chinese: 小堇`）；標記 2026 年過世（無確切日期）：加 `died: 2026`、`deceased` tag、🌈、居住史訖年 → 2026；同步為 `ryutarou-1999-07-27`、`ajisai-2006-06-22`、`sakura-2004-06-17`、`kotarou-2006-06-22`、`chatarou-2003-06-26`、`kitarou-2003-06-26`、`hana-2005-06-21`、`run-run-2007-06-28` 之引用補 🌈
+- `index.md` — 更新上述 `chen-chen`、`poddoung`、`punchang`、`yan-yan`、`sumire` 之性別／名稱／存歿欄位；最後更新 → 2026-06-28
+
+---
+
+## [2026-06-28] add | 新增上海動物園 → 台北 個體（甜甜、繁繁及雙親）
+
+**來源**：
+- 作者提供（上海動物園 → 台北市立動物園 2026-06-06 移送）
+- http://www.shanghaizoo.cn/ (上海動物園)
+- https://www.zoo.gov.taipei/ (台北市立動物園)
+
+**新增條目**：
+- `tian-tian-2024-06-23.md` — 甜甜 Tian-Tian（♀），生於 2024-06-23 上海動物園，2026-06-06 移居台北市立動物園；父 `zhuang-zhuang`、母 `niu-niu`
+- `fan-fan-2023.md` — 繁繁 Fan-Fan（♂），生於 2023 上海動物園，2026-06-06 移居台北市立動物園；與 `tian-tian` 無血緣、僅同批運送；父母待查證
+- `zhuang-zhuang.md` — 壯壯 Zhuang-Zhuang（♂），`tian-tian` 之父，現居上海動物園；生日待確認
+- `niu-niu.md` — 妞妞 Niu-Niu（♀），`tian-tian` 之母，現居上海動物園；生日待確認
+
+**更新條目**：
+- `index.md` — 新增「海外個體（中國 → 台灣）」分類，含甜甜家族與繁繁；條目總數更新為 420
+
+**備注**：上海動物園、台北市立動物園皆已登記於 `data/zoos.json`，無須新增園。四隻皆非 RPF 收錄個體，故略過 `rpf_id`／`rpf_url`。

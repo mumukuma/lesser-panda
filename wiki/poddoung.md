@@ -1,22 +1,23 @@
 ---
 name: Poddoung
+sex: female
 nicknames: [น้องพดด้วง]
 zoos:
   - Sri Ayutthaya Lion Park ( – 現在)
-tags: [thailand]
+tags: [thailand, female]
 sources:
   - https://www.sriayuthayalionpark.com/
 ---
 
 # Poddoung（พดด้วง）
 
-> **小熊貓**  
-> 性別：待確認  
+> **小熊貓** ♀  
+> 性別：雌  
 > 現居：Sri Ayutthaya Lion Park 大城獅子公園（泰國 大城府 Tha Ruea）
 
 泰國大城獅子公園飼養的小熊貓之一，與 [[punchang]] 同園。泰文名「น้องพดด้วง」（น้อง 為暱稱前綴）。
 
-> ⚠️ 資料極少：目前僅知名字與所在園。性別、出生日期、出生地、亞種、入園時間與血緣等皆**待查證**。
+> ⚠️ 資料極少：性別已知（雌），但出生日期、出生地、亞種、入園時間與血緣等皆**待查證**。
 
 ## 居住史
 

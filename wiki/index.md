@@ -1,6 +1,6 @@
 # Wiki 目錄 Index
 
-> 最後更新：2026-06-27 | 條目總數：416
+> 最後更新：2026-06-28 | 條目總數：420
 
 ---
 
@@ -97,7 +97,7 @@
 | 條目 | 說明 | 性別 | 生年 | 動物園 |
 |------|------|------|------|--------|
 | [[fu-fu-2014-06-22]] | Fu-Fu ふーふー — Franken 之子 | ♂ | 2014 | 徳山動物園 |
-| [[yan-yan-2014-06-22]] | Yan-Yan やんやん — Franken 長子；Fu-Fu 雙胞胎 | ♂ | 2014 | 八木山動物公園 フォレスタ |
+| [[yan-yan-2014-06-22]] | Yan-Yan ヤンヤン — Franken 長子；Fu-Fu 雙胞胎 | ♂ | 2014 | 八木山動物公園 フォレスタ |
 | [[kanoko-2016-06-24]] | Kanoko かのこ — Franken 次女 | ♀ | 2016 | 西山動物公園 |
 | [[mametaro-2016-06-24]] | Mametaro まめたろう — Franken 次子；Kanoko 雙胞胎 | ♂ | 2016 | ズーラシア |
 | [[zun-2018-07-13]] | Zun ずん — Franken 三子 | ♂ | 2018 | 東山動植物園 |
@@ -963,7 +963,7 @@
 | [[ren-ren-2020-06-29]] | Ren-Ren 蓮蓮 — Gao-Gao 之 ½ 姊；Rin-Rin 雙胞胎 | ♀ | 2020 | Asahiyama Zoo |
 | [[rin-rin-2020-06-29]] | Rin-Rin 桜桜 — Gao-Gao 之 ½ 兄；Ren-Ren 雙胞胎（⚠️ 勿與 [[rin-rin-1999-07-09]] #34 混淆） | ♂ | 2020 | Asahiyama Zoo |
 | [[jin-jin-2022-07-05]] | Jin-Jin 菫菫 — Gao-Gao 之 ½ 姊；Chen-Chen 雙胞胎 | ♀ | 2022 | Asahiyama Zoo |
-| [[chen-chen-2022-07-05]] | Chen-Chen 茜茜 — Gao-Gao 之 ½ 弟；Jin-Jin 雙胞胎 | ♂ | 2022 | Asahiyama Zoo |
+| [[chen-chen-2022-07-05]] | Chen-Chen 茜茜 — Gao-Gao 之 ½ 妹；Jin-Jin 雙胞胎 | ♀ | 2022 | Asahiyama Zoo |
 
 ---
 
@@ -1013,7 +1013,7 @@
 | [[fin-fin-2002-06-20]] | Fin-Fin フィンフィン — Fan-Fan × Ryutarou 長女（已收錄於 Nohana 家族） | ♀ | 2002 🌈 | — |
 | [[chatarou-2003-06-26]] | Chatarou 茶太郎 — Fan-Fan × Ryutarou 之子；[[kitarou-2003-06-26]] 雙胞胎 | ♂ | 2003–2016 🌈 | よこはま動物園ズーラシア |
 | [[kitarou-2003-06-26]] | Kitarou 黄太郎 — Fan-Fan × Ryutarou 之子；[[chatarou-2003-06-26]] 雙胞胎 | ♂ | 2003–2019 🌈 | 上野動物園 |
-| [[sumire-2004-06-17]] | Sumire スミレ — Fan-Fan × Ryutarou 之女（⚠️ 勿與 [[sumire-2011-07-12]] #144 混淆）；英文名 Viola | ♀ | 2004– | Taipei Zoo 🇹🇼 |
+| [[sumire-2004-06-17]] | Sumire 小堇 / スミレ — Fan-Fan × Ryutarou 之女 🌈（⚠️ 勿與 [[sumire-2011-07-12]] #144 混淆） | ♀ | 2004–2026 🌈 | Taipei Zoo 🇹🇼 |
 | [[sakura-2004-06-17]] | Sakura サクラ — Fan-Fan × Ryutarou 之女（⚠️ 勿與 [[sakura-2015-06-27]] 2015 混淆）；英文名 Cherry-Blossom | ♀ | 2004–2024 🌈 | 日立かみね動物園 |
 | [[hana-2005-06-21]] | Hana ハナ — Fan-Fan × Ryutarou 之女；別名 Himawari | ♀ | 2005–2023 🌈 | 富山市ファミリーパーク |
 | [[ajisai-2006-06-22]] | Ajisai アジサイ — Fan-Fan × Ryutarou 之女（已收錄於 Sayuri 家族） | ♀ | 2006– | 長野市茶臼山動物園 |
@@ -1491,7 +1491,7 @@
 | [[ren-ren-2020-06-29]] | Ren-Ren 蓮蓮 — Pu'erh 之女；Rin-Rin 雙胞胎 | ♀ | 2020 | 旭山動物公園 |
 | [[rin-rin-2020-06-29]] | Rin-Rin 桜桜 — Pu'erh 之子；Ren-Ren 雙胞胎 | ♂ | 2020 | 旭山動物公園 |
 | [[jin-jin-2022-07-05]] | Jin-Jin 菫菫 — Pu'erh 之女；Chen-Chen 雙胞胎 | ♀ | 2022 | 旭山動物公園 |
-| [[chen-chen-2022-07-05]] | Chen-Chen 茜茜 — Pu'erh 之子；Jin-Jin 雙胞胎 | ♂ | 2022 | 旭山動物公園 |
+| [[chen-chen-2022-07-05]] | Chen-Chen 茜茜 — Pu'erh 之女；Jin-Jin 雙胞胎 | ♀ | 2022 | 旭山動物公園 |
 
 ---
 
@@ -1694,8 +1694,28 @@
 | [[hana]] | Hana — 走私救援個體，與 [[hashi]] 成對 | ♀ | ~2023 | Khao Kheow Open Zoo 🇹🇭 |
 | [[hashi]] | Hashi（Hachi）— 走私救援個體，與 [[hana]] 成對 | ♂ | ~2022 | Khao Kheow Open Zoo 🇹🇭 |
 | [[tiger-2012]] | Tiger — 清邁動物園雄性 | ♂ | 2012 | Chiang Mai Zoo 🇹🇭 |
-| [[punchang]] | Punchang พันชั่ง — 與 [[poddoung]] 同園 | 待確認 | 待查證 | Sri Ayutthaya Lion Park 🇹🇭 |
-| [[poddoung]] | Poddoung พดด้วง — 與 [[punchang]] 同園 | 待確認 | 待查證 | Sri Ayutthaya Lion Park 🇹🇭 |
+| [[punchang]] | Punchang พันชั่ง — 與 [[poddoung]] 同園 | ♂ | 待查證 | Sri Ayutthaya Lion Park 🇹🇭 |
+| [[poddoung]] | Poddoung พดด้วง — 與 [[punchang]] 同園 | ♀ | 待查證 | Sri Ayutthaya Lion Park 🇹🇭 |
+
+---
+
+## 海外個體（中國 → 台灣）
+
+2026 年 6 月 6 日凌晨由上海動物園移送至台北市立動物園（木柵）的個體；兩隻無血緣關係，僅同批運送。
+
+### 甜甜（含上海雙親）
+
+| 條目 | 說明 | 性別 | 生年 | 動物園 |
+|------|------|------|------|--------|
+| [[tian-tian-2024-06-23]] | 甜甜 Tian-Tian — 2026.6 由上海移入台北 | ♀ | 2024 | Taipei Zoo 🇹🇼 |
+| [[zhuang-zhuang]] | 壯壯 Zhuang-Zhuang — 甜甜之父 | ♂ | 待查證 | 上海動物園 🇨🇳 |
+| [[niu-niu]] | 妞妞 Niu-Niu — 甜甜之母 | ♀ | 待查證 | 上海動物園 🇨🇳 |
+
+### 繁繁（獨立個體）
+
+| 條目 | 說明 | 性別 | 生年 | 動物園 |
+|------|------|------|------|--------|
+| [[fan-fan-2023]] | 繁繁 Fan-Fan — 2026.6 由上海移入台北；父母待查證 | ♂ | 2023 | Taipei Zoo 🇹🇼 |
 
 ---
 

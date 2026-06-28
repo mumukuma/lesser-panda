@@ -1,22 +1,23 @@
 ---
 name: Punchang
+sex: male
 nicknames: [น้องพันชั่ง]
 zoos:
   - Sri Ayutthaya Lion Park ( – 現在)
-tags: [thailand]
+tags: [thailand, male]
 sources:
   - https://www.sriayuthayalionpark.com/
 ---
 
 # Punchang（พันชั่ง）
 
-> **小熊貓**  
-> 性別：待確認  
+> **小熊貓** ♂  
+> 性別：雄  
 > 現居：Sri Ayutthaya Lion Park 大城獅子公園（泰國 大城府 Tha Ruea）
 
 泰國大城獅子公園飼養的小熊貓之一，與 [[poddoung]] 同園。泰文名「น้องพันชั่ง」（น้อง 為暱稱前綴）。
 
-> ⚠️ 資料極少：目前僅知名字與所在園。性別、出生日期、出生地、亞種、入園時間與血緣等皆**待查證**。
+> ⚠️ 資料極少：性別已知（雄），但出生日期、出生地、亞種、入園時間與血緣等皆**待查證**。
 
 ## 居住史
 
