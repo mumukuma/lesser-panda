@@ -59,7 +59,7 @@ const nav = [
 
   <header class="site-header" id="site-header">
     <div class="max-w-4xl mx-auto px-4 py-2.5 sm:py-3 flex items-center gap-x-2 gap-y-1.5 flex-wrap sm:flex-nowrap">
-      <a href={page} class="brand order-1 font-display font-semibold text-lg sm:text-xl no-underline flex items-center gap-2 tracking-wide">
+      <a href={page} class="brand order-1 font-display font-semibold text-base sm:text-xl no-underline flex items-center gap-2 tracking-wide min-w-0">
         <img src={`${base}icon.svg`} alt="" width="29" height="30" class="anim-bob inline-block" /> {T.site_title}
       </a>
       <div class="order-2 sm:order-3 ml-auto flex items-center gap-1">
@@ -95,7 +95,7 @@ const nav = [
     </div>
   </header>
 
-  <div class:list={['max-w-4xl mx-auto px-4 pb-16', active !== 'home' && 'pt-[60px] sm:pt-[68px]']}>
+  <div class:list={['max-w-4xl mx-auto px-4 pb-16', active !== 'home' && 'pt-[var(--header-h,64px)]']}>
     <slot />
     <footer class="mt-12 card-soft text-ink-soft text-[.84rem] px-4 py-3 text-center">
       <div class="flex flex-wrap justify-center items-center gap-x-3 gap-y-1">
@@ -111,6 +111,21 @@ const nav = [
     <div class="layer trees"></div>
     <div class="layer fore"></div>
   </div>
+  <!-- 量測浮動 header 實際高度 → 寫入 --header-h，內容 offset 永遠跟著它走，
+       不受語言／螢幕寬度／header 換行影響（解英文版手機 nav 跑版）-->
+  <script is:inline>
+    (function () {
+      var h = document.getElementById('site-header');
+      if (!h) return;
+      function setH() {
+        document.documentElement.style.setProperty('--header-h', (h.offsetHeight + 4) + 'px');
+      }
+      setH();
+      addEventListener('resize', setH);
+      addEventListener('load', setH);
+      if (window.ResizeObserver) new ResizeObserver(setH).observe(h);
+    })();
+  </script>
   <slot name="scripts" />
   <script is:inline src={`${base}js/reveal.js`}></script>
   <script is:inline src="https://unpkg.com/@cobo-screenshot/sdk@1"></script>

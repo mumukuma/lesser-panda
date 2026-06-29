@@ -35,8 +35,8 @@ sex: female | male
 born: YYYY-MM-DD
 died: YYYY-MM-DD   # 若健在則省略
 species: Ailurus fulgens styani | Ailurus fulgens fulgens
-zoos:                      # 居住史唯一來源；內文「## 居住史」表格由 tools/gen_residence.py 自動生成
-  - 動物園名稱 (起 – 訖)     # 園名須為 data/zoos.json 註冊表 canonical（未登記 build 報錯）；起訖可用 YYYY-MM-DD / YYYY / 現居留空
+zoos:                      # 居住史唯一來源（frontmatter 為準）；內文「## 居住史」表格純衍生，由 tools/gen_residence.py 自動生成、勿手改
+  - 動物園名稱 (起 – 訖)     # 園名須為 data/zoos.json 註冊表 canonical（未登記 build 報錯）；起訖可用 YYYY-MM-DD / YYYY / 現居留空。更正居住地只改這裡再重建；地點欄由 data/zoos.json 的 location_ja 自動帶入
 rpf_id: RedPandaFinder 的 profile ID
 rpf_url: https://redpandafinder.com/#profile/XXX
 tags: [標籤]

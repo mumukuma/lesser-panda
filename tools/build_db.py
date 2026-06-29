@@ -165,9 +165,11 @@ def parse_family(body: str) -> dict:
             result["father"] = parent_link(stripped)
             continue
 
-        # 雙胞胎（可能有多人，取所有 wikilinks）
-        # 也匹配「雙胞胎姊妹：」「雙胞胎兄弟：」「雙胞胎哥哥：」等變體
-        if re.match(r"^-\s*雙胞胎[^：:]{0,4}[：:]", stripped):
+        # 多胞胎（雙胞胎／三胞胎／四胞胎…，可能有多人，取所有 wikilinks）
+        # 也匹配「雙胞胎姊妹：」「三胞胎兄弟：」「三胞胎妹妹：」等變體
+        # 同一資料模型存為兩兩配對；網站再依同生群人數決定顯示「雙胞胎／三胞胎…」
+        # 數字開頭者（如「2013 雙胞胎：」）屬「子女」區描述其子女的同生群，不算本人的，故排除
+        if re.match(r"^-\s*[二兩雙三四五六]胞胎[^：:]{0,4}[：:]", stripped):
             result["twins"].extend(extract_wikilinks(stripped))
 
     return result
@@ -367,6 +369,29 @@ def build_db():
     """, parent_child_unique)
     conn.commit()
     print(f"  ✅ 插入 {len(parent_child_unique)} 筆親子關係")
+
+    # 多胞胎為「群」屬性：取連通分量的傳遞閉包，補上群內所有兩兩配對。
+    # （即使各條目未互相完整列出，例如三胞胎中 Chao 列了 Ren、Nana，
+    #   但 Ren／Nana 只列 Chao，仍能讓三隻彼此互為同生群。）
+    adj: dict[str, set[str]] = {}
+    for pair in twin_pairs:
+        a, b = tuple(pair)
+        adj.setdefault(a, set()).add(b)
+        adj.setdefault(b, set()).add(a)
+    seen: set[str] = set()
+    for node in list(adj):
+        if node in seen:
+            continue
+        comp, stack = [], [node]
+        while stack:
+            x = stack.pop()
+            if x in seen:
+                continue
+            seen.add(x); comp.append(x)
+            stack.extend(adj[x] - seen)
+        for i in range(len(comp)):
+            for j in range(i + 1, len(comp)):
+                twin_pairs.add(frozenset([comp[i], comp[j]]))
 
     # 雙胞胎
     twin_rows = []

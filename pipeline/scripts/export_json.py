@@ -71,7 +71,7 @@ def clean_japanese(japanese: str | None) -> str | None:
 def extract_kanji(japanese: str | None, rpf_id=None) -> str | None:
     """回傳可供中文顯示的漢字名；無漢字則 None（中文介面將退回英文名）。"""
     if japanese:
-        tokens = re.split(r"[\s/／（）()、,，｜|]+", japanese)
+        tokens = re.split(r"[\s/／（）()、,，｜|・･]+", japanese)
         pure = [t for t in tokens if t and _KANJI_RE.search(t) and not _KANA_RE.search(t)]
         if pure:
             return pure[0]

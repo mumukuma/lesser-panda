@@ -57,6 +57,8 @@
   "rel_father": "Father",
   "rel_unknown": "Unknown",
   "rel_twin": "Twin",
+  "rel_triplet": "Triplet",
+  "rel_quadruplet": "Quadruplet",
   "rel_siblings": "Full siblings",
   "rel_half_siblings": "½ Half siblings",
   "tree_show_half": "Show half-siblings",

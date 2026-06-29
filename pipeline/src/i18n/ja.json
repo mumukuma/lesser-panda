@@ -57,6 +57,8 @@
   "rel_father": "父",
   "rel_unknown": "不明",
   "rel_twin": "双子",
+  "rel_triplet": "三つ子",
+  "rel_quadruplet": "四つ子",
   "rel_siblings": "兄弟姉妹（全血）",
   "rel_half_siblings": "½ 兄弟姉妹（半血）",
   "tree_show_half": "半血の兄弟姉妹を表示",

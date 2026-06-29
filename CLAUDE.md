@@ -11,7 +11,8 @@
 - 兩者衝突時，**一律以 wiki（作者的校訂）為準**，不可用 RPF/lineage 覆蓋既有資料。
 - `tools/audit.py`、`tools/apply_lineage_fixes.py` 與 lineage 的比對僅供**參考與補空白**；`apply_lineage_fixes` 只填空欄位、不覆蓋；audit 列出的「與 lineage 不符」是提示作者**檢視**，不代表 wiki 錯。
 - 名稱（尤其中文名 `chinese`、暱稱、別名）以作者提供為準；RPF 的羅馬拼音僅作後備。
-- **動物園名以 `data/zoos.json`（註冊表）為唯一事實來源**：每座園的正式名（`canonical`，採完整正式名）、中文名、座標、官網、logo 只存這裡。wiki 條目（frontmatter `zoos:` 與內文居住史）一律寫 canonical 日文名；`build_db` 會精確比對，**寫了註冊表沒有的園名就報錯中止**（提示去登記或修正）。新增一座沒登記過的園 → 先在 `data/zoos.json` 加一筆，再寫條目。lineage 僅用來初次帶入座標，非權威。
+- **動物園名以 `data/zoos.json`（註冊表）為唯一事實來源**：每座園的正式名（`canonical`，採完整正式名）、中文名、座標、官網、logo、**地點（`location_ja`）** 只存這裡。wiki 條目（frontmatter `zoos:` 與內文居住史）一律寫 canonical 日文名；`build_db` 會精確比對，**寫了註冊表沒有的園名就報錯中止**（提示去登記或修正）。新增一座沒登記過的園 → 先在 `data/zoos.json` 加一筆，再寫條目。lineage 僅用來初次帶入座標，非權威。
+- **地點（`location_ja`）也以 `data/zoos.json` 為準**：`gen_residence.py` **只補空白、永不覆寫**既有校訂值（2026-06-29 起）。要改某園地點 → 直接編輯 `data/zoos.json` 的 `location_ja` 再重建；內文居住史的「地點」欄由註冊表自動帶入，勿手改。
 
 ---
 
@@ -49,7 +50,7 @@ red-panda-wiki/
 
 **真相來源是 `wiki/*.md`**；`redpanda.db`、`pipeline/data/*.json`、網站都是衍生資料。
 改完 wiki 後重建：`python3 tools/gen_residence.py`（依 `zoos:` 重生居住史表格）→ `python3 tools/build_db.py`（DB）→ `python3 pipeline/scripts/export_json.py`（網站資料）。一鍵版：在 repo 根目錄執行 `bash rebuild.sh` 即依序跑完這三步。
-`gen_residence.py` 寫入前的守門已改為「改寫前後自我比對」——只在本次執行內比對每檔（frontmatter `zoos:` ∪ 既有居住史表格）的園集合，重生後若掉了任何園就中止；不再依賴 `/tmp` 快照檔。
+`gen_residence.py` **以 frontmatter `zoos:` 為居住史唯一來源**（2026-06-29 起）：有 `zoos:` 就以它為準（解析完整日期），內文「## 居住史」表格純為衍生、自動重生。守門以 frontmatter 園集合為基準自我比對，重生後若掉了任何園（如解析失敗）就中止；故**更正／更換居住地只需改 `zoos:` 一處**再重建，不用動內文表格。（早期版本曾以內文表格為來源，已修正。）
 網站本身由 GitHub Actions 自動建置部署；本地預覽見 `web/README.md`。
 
 ---

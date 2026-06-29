@@ -105,12 +105,18 @@ def resolve_canon(name):
 
 
 def zoos_before(fmb, body):
-    """改寫前、檔案裡出現過的所有園（canonical）：frontmatter zoos: ∪ 既有居住史表格。
-    守門用——這些園在重生後都必須仍在，否則視為意外掉園。"""
+    """改寫前的權威園集合（canonical）。frontmatter `zoos:` 為唯一事實來源：
+    有 `zoos:` 時即以它為基準（刻意更換／更正動物園不應被誤判成掉園）；
+    僅當無 `zoos:` 時，才退回既有居住史表格。守門仍可擋下「frontmatter
+    解析失敗導致某園消失」的意外。"""
     names = set()
-    for entry in fm_zoos(fmb):
-        if entry:
-            names.add(resolve_canon(entry))
+    entries = fm_zoos(fmb)
+    if entries:
+        for entry in entries:
+            name, _ = split_fm_entry(entry)
+            if name:
+                names.add(resolve_canon(name))
+        return names
     tab = parse_table(body)
     if tab:
         for _date, zoo, _loc in tab:
@@ -119,20 +125,37 @@ def zoos_before(fmb, body):
     return names
 
 
+def split_fm_entry(entry):
+    """'園名 (起 – 訖)' → (園名, 日期區間字串)；無括號則 (園名, '')。
+    園名可含空白（如西方園名），日期區間一律在尾端括號內。"""
+    m = re.match(r"^(.*?)\s*[（(]\s*(.*?)\s*[）)]\s*$", entry)
+    if m:
+        return m.group(1).strip(), m.group(2).strip()
+    return entry.strip(), ""
+
+
 def extract(fmb, body):
-    """回傳 residences: [{zoo(canonical), sd, sy, ed, ey, loc}]"""
+    """回傳 residences: [{zoo(canonical), sd, sy, ed, ey, loc}]。
+    frontmatter `zoos:` 為唯一事實來源（含完整日期，用 dates_from 解析）；
+    僅當 frontmatter 無 `zoos:` 時，才退回解析既有居住史表格。
+    地點一律由註冊表（rec）在 render 時提供，故此處 loc 留空。"""
     res = []
-    tab = parse_table(body)
-    if tab:
-        for date, zoo, loc in tab:
-            rec = reg.resolve(zoo)
-            sd, sy, ed, ey = dates_from(date)
-            res.append(dict(zoo=rec["canonical"] if rec else zoo, sd=sd, sy=sy, ed=ed, ey=ey,
-                            loc=clean_location(loc), rec=rec))
+    entries = fm_zoos(fmb)
+    if entries:
+        for entry in entries:
+            name, drange = split_fm_entry(entry)
+            rec = reg.resolve(name)
+            sd, sy, ed, ey = dates_from(drange) if drange else (None, None, None, None)
+            res.append(dict(zoo=rec["canonical"] if rec else name, sd=sd, sy=sy, ed=ed, ey=ey,
+                            loc="", rec=rec))
     else:
-        for entry in fm_zoos(fmb):
-            rec = reg.resolve(entry); sy, ey = fm_years(entry)
-            res.append(dict(zoo=rec["canonical"] if rec else entry, sd=None, sy=sy, ed=None, ey=ey, loc="", rec=rec))
+        tab = parse_table(body)
+        if tab:
+            for date, zoo, loc in tab:
+                rec = reg.resolve(zoo)
+                sd, sy, ed, ey = dates_from(date)
+                res.append(dict(zoo=rec["canonical"] if rec else zoo, sd=sd, sy=sy, ed=ed, ey=ey,
+                                loc=clean_location(loc), rec=rec))
     return res
 
 
@@ -223,9 +246,13 @@ def main():
             violations.append((slug, sorted(lost), sorted(after)))
         elif before != after:
             changed.append((slug, sorted(before), sorted(after)))
-        for r in res:
-            if r["loc"] and r["rec"]:
-                harvest[r["rec"]["canonical"]][r["loc"]] += 1
+        # 地點 harvest：仍從既有居住史表格收（res 已不帶 loc，居住史來源改為 frontmatter）
+        _tab = parse_table(body)
+        if _tab:
+            for _date, _zoo, _loc in _tab:
+                _rec = reg.resolve(_zoo); _cl = clean_location(_loc)
+                if _rec and _cl:
+                    harvest[_rec["canonical"]][_cl] += 1
     if violations:
         print(f"❌ 守門失敗：{len(violations)} 檔在重生後掉了園，中止不寫：")
         for slug, lost, after in violations[:15]:
@@ -237,17 +264,18 @@ def main():
         for slug, b, a in changed:
             print(f"   {slug}: {b} → {a}")
 
-    # ── 更新註冊表 location_ja（以 wiki harvest 為準，覆寫 used 園）──
+    # ── 補齊註冊表 location_ja（data/zoos.json 為唯一事實來源：只填「空白」者，
+    #    永不覆寫既有人工校訂值，避免與 lineage 衍生值來回拉扯造成全庫地點抖動）──
     data = json.load(open(REGISTRY_PATH, encoding="utf-8"))
     bycanon = {r["canonical"]: r for r in data}
     filled = 0
     for canon, ctr in harvest.items():
         loc = ctr.most_common(1)[0][0]
-        if canon in bycanon and loc and bycanon[canon].get("location_ja") != loc:
+        if canon in bycanon and loc and not bycanon[canon].get("location_ja"):
             bycanon[canon]["location_ja"] = loc; filled += 1
     if not dry:
         json.dump(data, open(REGISTRY_PATH, "w"), ensure_ascii=False, indent=1)
-    print(f"✅ 註冊表 location_ja 更新 {filled} 座（來自 wiki）")
+    print(f"✅ 註冊表 location_ja 補齊 {filled} 座空白（既有校訂值不動）")
     reg.__init__(data)  # reload index with new locations
 
     if dry:

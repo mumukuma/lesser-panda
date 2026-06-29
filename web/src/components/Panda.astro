@@ -57,12 +57,12 @@ const facts = [
 
 const link = (s) => pandas[s]
   ? `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, pandas[s].urlId)}">${displayName(pandas[s], locale)}${pandas[s].died ? ' 🌈' : ''}</a>` : s;
-const famRow = (label, slugs) => slugs && slugs.length
-  ? `<li class="py-1"><span class="inline-block min-w-[9em] text-ink-soft text-[.88rem]">${label}</span>${slugs.map(link).join('、')}</li>` : '';
+const famRow = (label, slugs, showCount) => slugs && slugs.length
+  ? `<li class="py-1 flex gap-2"><span class="shrink-0 min-w-[9em] text-ink-soft text-[.88rem]">${label}${showCount ? `<span class="ml-1 text-[.82rem]">（${slugs.length}）</span>` : ''}</span><span class="min-w-0 flex-1">${slugs.map(link).join('、')}</span></li>` : '';
 // 父母行永遠顯示：缺資料時填「不詳 / Unknown」而非隱藏整行
 const parentRow = (label, slug) => slug
   ? famRow(label, [slug])
-  : `<li class="py-1"><span class="inline-block min-w-[9em] text-ink-soft text-[.88rem]">${label}</span><span class="text-ink-soft">${T.rel_unknown}</span></li>`;
+  : `<li class="py-1 flex gap-2"><span class="shrink-0 min-w-[9em] text-ink-soft text-[.88rem]">${label}</span><span class="min-w-0 flex-1 text-ink-soft">${T.rel_unknown}</span></li>`;
 
 const H3 = 'font-display text-lg font-semibold mt-7 mb-2.5 border-l-4 border-amber pl-2.5';
 const CARD = 'card-soft p-[18px_20px]';
@@ -183,9 +183,13 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
   <ul class="list-none p-0 m-0" set:html={[
     parentRow(T.rel_mother, p.mother),
     parentRow(T.rel_father, p.father),
-    famRow(T.rel_twin, p.twins),
-    famRow(T.rel_siblings, p.full_siblings),
-    famRow(T.rel_half_siblings, p.half_siblings),
+    famRow(
+      (p.twins || []).length === 2 ? (T.rel_triplet || T.rel_twin)
+      : (p.twins || []).length >= 3 ? (T.rel_quadruplet || T.rel_triplet || T.rel_twin)
+      : T.rel_twin,
+      p.twins),
+    famRow(T.rel_siblings, p.full_siblings, true),
+    famRow(T.rel_half_siblings, p.half_siblings, true),
   ].join('')} />
   {p.children.length > 0 && (
     <>

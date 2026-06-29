@@ -2303,3 +2303,88 @@
 - `fuu-1998-07-04` — 父為 Ron-Ron #724（無條目），原誤抓警語連結成 `ron-ron-2002-06-28`；經 build_db 強化後不再建錯邊（父留 None）。
 
 **結果**：父/母衝突掃描歸零；親子邊 712→705（移除誤植邊）。
+
+## [2026-06-29] add | 新增 Totomaru（とべ動物園，Xianchi × Yuuka #377 三子）
+
+**來源**：
+- https://redpandafinder.com/#profile/173 (Totomaru)
+
+**新增條目**：
+- `totomaru-2015-07-24.md` — Totomaru 砥々丸／ととまる（RPF #173），生於 2015-07-24，一生居愛媛県立とべ動物園；母 `yuuka`#377🌈、父 `xianchi`#172，兄 `yuuki`#175、`yuuto`#174🌈
+
+**更新條目**：
+- `index.md` — 於「秋吉台サファリランド家族」新增「Yuuki 的兄弟」小節，收錄 `totomaru`；條目總數 431→432，最後更新改 2026-06-29
+- `xianchi-2007-06-26.md`、`yuuka-2010-06-20.md`、`yuuki-2013-07-04.md`、`yuuto-2014-07-22.md` — 將純文字 Totomaru 改為 `[[totomaru-2015-07-24]]` wikilink（並順手補連其他既有手足/父母）
+
+## [2026-06-29] fix | 讀者回報：Non #87 母為 Seina／Non・Gigi・Sara 三胞胎（補修 index 殘留誤連）
+
+**來源**：
+- 社群回報（資料更正收件匣）：「茶臼山動物園のノンの情報の修正をお願いします。母はセイナです。ノン・ジジ・サラの三つ子です。」
+- https://redpandafinder.com/#profile/87 (Non)
+
+**查證結果**：回報內容（母為 `seina` #89、`non`／`gigi`／`sara` 為三胞胎）**早已正確收錄**於 `non-2009-06-19`、`gigi-2009-06-19`、`sara-2009-06-19` 及 `seina`・`kiki` 子女表；DB `parent_child` 亦確認三隻父母均為 `kiki`＋`seina`。先前 2026-06-25 兩隻同名 Non（#87 vs 台北 #193）混淆修正時，`index.md` 漏網一處。
+
+**更新條目**：
+- `index.md` — 父母區 Boo-Boo 那行原誤寫「`non-2009-06-19` 之父（`jaja` 外祖父）」，改為訂正說明：Boo-Boo 之女為 Non RPF #193（台北市立動物園），與 `non` #87 非同一隻、Boo-Boo 並非 Jaja 外祖父。條目總數不變（432）。
+
+## [2026-06-29] fix | 讀者回報修正：Mirai 漢字補登、Sumomo 父連結
+
+**來源**：
+- 作者校訂
+- https://redpandafinder.com/#profile/162 (Sumomo)
+
+**修正條目**：
+- `mirai-2019-07-05` — `japanese` 補上漢字寫法：`ミライ` → `ミライ（未来・未來）`
+- `sumomo-2014-07-06` — 家族區「父」由純文字 `Tian` 改為 `tian-2011` wikilink（內文引言原已連結，家族區漏網），父子邊得以建立
+
+## [2026-06-29] fix | 讀者回報查證：Chao #1243 中段居住園更正為上野動物園（非多摩）
+
+**來源**：
+- 社群回報（資料更正收件匣）：2006-12-15 ~ 2012-12-04 飼育園應為上野動物園，非多摩動物公園
+- https://gachon.exblog.jp/4678413 （レッサーパンダ三昧，2007-02-04：茶臼山出生的 Chao 移居上野展示，三胞胎兄弟描述吻合）
+- https://4travel.jp/travelogue/10735637 （4travel，2012-12-24：上野遊記，Chao 12/4 過世、享年 8、父 Kiki 母 Seina）
+- https://redpandafinder.com/#profile/1243 (Chao)
+
+**查證結果**：兩筆獨立來源均證實 Chao（#1243）自 2006 年底移居後直到 2012-12-04 過世皆在上野動物園展示，原 wiki 記為多摩動物公園係 lineage 誤帶。
+
+**修正條目**：
+- `chao-2004-06-17` — `zoos:` 第二段 `多摩動物公園` → `恩賜上野動物園`；`tags` `zoo:Tama Zoological Park` → `zoo:Ueno Zoological Gardens`；引言終居與內文「後移居」一併改為上野動物園
+
+## [2026-06-29] fix | 工具修正：居住史改以 frontmatter 為唯一來源 + 地點抖動修復 + 漢字抽取
+
+**問題**：
+1. `gen_residence.py` 的 `extract()` 在條目已有「## 居住史」表格時是以**表格**為來源，只有無表格才讀 frontmatter `zoos:`，與 SCHEMA／CLAUDE.md「唯一來源是 frontmatter」相反——更正居住地（如 Chao 多摩→上野）只改 frontmatter 會被守門擋下。
+2. 地點 harvest 每次 rebuild **覆寫** `data/zoos.json` 的 `location_ja`，與 lineage 衍生值來回拉扯，造成 66 座園、約 370 檔每跑一次就抖動（HEAD 即提交在抖動中：tables 為日式雜亂變體、`zoos.json` 為校訂繁體變體，兩者不一致）。
+3. `export_json.py` 的 `extract_kanji` 切詞未含 `・`，導致 `ミライ（未来・未來）` 抽不出純漢字，中文介面退回英文名顯示。
+
+**修正**（`tools/gen_residence.py`、`pipeline/scripts/export_json.py`）：
+- `extract()` 改 frontmatter-first，並用 `dates_from()` 解析 frontmatter 完整日期（新增 `split_fm_entry`）；表格僅當無 `zoos:` 時 fallback。地點一律由註冊表在 render 時提供。
+- 守門 `zoos_before` 改以 frontmatter 為基準（有 `zoos:` 時不再聯集衍生表格），讓「刻意更換動物園」不被誤判成掉園。
+- 地點 harvest 改為**只補空白**、永不覆寫既有校訂值（`data/zoos.json` 為地點唯一事實來源）→ 地點不再抖動（連跑兩次 rebuild 零變動）。
+- `extract_kanji` 切詞加入 `・･`。
+
+**影響**：
+- 居住史（期間＋園名）對全 432 檔重生前後**零變動**（已驗證），僅 Chao 依前述查證改為上野。
+- 一次性將約 370 檔的「地點」欄正規化為 `data/zoos.json` 校訂值（繁體、註冊表權威），消除 `JiulongpoQu,China`、`広島市広島県` 等 lineage 雜訊；之後穩定不再抖。
+- `mirai-2019-07-05` 的 `japanese` 改為 `ミライ / 未來 / 未来`，中文介面正常顯示漢字「未來」。
+
+**今後更正居住地流程**：改該條目 frontmatter `zoos:` 一處（新園先在 `data/zoos.json` 登記）→ `bash rebuild.sh` → 完成（內文表格自動重生，不需手動碰）。
+
+## [2026-06-29] fix | 讀者回報：Non #87 應顯示「三胞胎」+ 全站多胞胎標籤改為依人數動態（中英日）
+
+**來源**：
+- 社群回報（資料更正收件匣）：「茶臼山動物園のノンの情報の修正をお願いします。母はセイナです。ノン・ジジ・サラの三つ子です。」
+- https://redpandafinder.com/#profile/87 (Non)
+
+**問題**：
+- `build_db.py` 的多胞胎解析正則只認 `雙胞胎` 開頭，**所有 `三胞胎` 行被丟棄**（含 Non・Gigi・Sara、Chao・Ren・Nana 等），網站完全顯示不出三胞胎關係。
+- 網站關係標籤硬寫「雙胞胎／Twin／双子」，三胞胎也只會顯示成雙胞胎。
+- 多胞胎為「群」屬性但存成兩兩配對，若各條目未互相完整列出（如 Chao 列了 Ren、Nana，但 Ren／Nana 只列 Chao），群內成員會缺邊。
+
+**修正**：
+- `tools/build_db.py`：多胞胎正則改為 `^-\s*[二兩雙三四五六]胞胎…`（認三/四胞胎，且排除「子女」區的「2013 雙胞胎：」這類數字開頭、描述其子女同生群的行）；並對 twin 配對取**連通分量傳遞閉包**，補齊群內所有兩兩配對。
+- `pipeline/src/i18n/{zh-TW,en,ja}.json`：新增 `rel_triplet`（三胞胎／Triplet／三つ子）、`rel_quadruplet`（四胞胎／Quadruplet／四つ子）。
+- `web/src/components/Panda.astro`：關係列標籤改為依同生群人數動態選字（2 隻→雙胞胎、3 隻→三胞胎、4 隻→四胞胎）。
+- `non-2009-06-19`：將「三胞胎」行的 `Gigi`／`Sara` 純文字改為 `gigi-2009-06-19`／`sara-2009-06-19` wikilink（Gigi／Sara 條目原已互連）。
+
+**結果**：Non・Gigi・Sara、Chao・Ren・Nana 等 8 組三胞胎（共 24 隻）每隻都正確互列其餘兩隻、網站顯示「三胞胎」；母 Seina、父 Kiki 親子邊正常。雙胞胎關係 110→133 組。

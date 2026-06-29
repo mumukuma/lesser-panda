@@ -126,14 +126,27 @@ body.home .forest-floor { display: block; }
 }
 
 /* ── 動態：漂浮、微擺、捲動淡入（全部 reduced-motion 降級）─────────── */
-@keyframes bob { 0%, 100% { transform: translateY(0) rotate(-1.2deg); } 50% { transform: translateY(-8px) rotate(1.2deg); } }
+@keyframes bob {
+  0%   { transform: rotate(0deg); }
+  9%   { transform: rotate(-12deg); }
+  18%  { transform: rotate(7deg); }
+  25%  { transform: rotate(-4deg); }
+  34%  { transform: rotate(11deg); }
+  44%  { transform: rotate(-9deg); }
+  52%  { transform: rotate(3deg); }
+  63%  { transform: rotate(-6deg); }
+  72%  { transform: rotate(8deg); }
+  84%  { transform: rotate(-2deg); }
+  92%  { transform: rotate(4deg); }
+  100% { transform: rotate(0deg); }
+}
 @keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 @keyframes leaf-drift {
   0%   { transform: translateY(-8%) translateX(0) rotate(0deg); opacity: 0; }
   10%  { opacity: .9; }
   100% { transform: translateY(112vh) translateX(40px) rotate(220deg); opacity: 0; }
 }
-.anim-bob { animation: bob 4.5s ease-in-out infinite; transform-origin: 60% 90%; }
+.anim-bob { animation: bob 2.6s ease-in-out infinite; transform-origin: 50% 100%; }
 .anim-float { animation: floaty 6s ease-in-out infinite; }
 
 /* 走路小熊貓：主運動是 CSS 橫移（translateX，零抖），只有兩條腿在 2 格 sprite 間交替。

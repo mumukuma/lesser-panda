@@ -57,6 +57,8 @@
   "rel_father": "父",
   "rel_unknown": "不詳",
   "rel_twin": "雙胞胎",
+  "rel_triplet": "三胞胎",
+  "rel_quadruplet": "四胞胎",
   "rel_siblings": "全血緣兄弟姊妹",
   "rel_half_siblings": "½ 半血緣兄弟姊妹",
   "tree_show_half": "顯示半血手足",
