@@ -89,6 +89,9 @@ def load_lineage() -> dict:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("-o", "--out", help="輸出 Markdown 報告到檔案")
+    ap.add_argument("--strict", action="store_true",
+                    help="僅當有 wiki 內部整合性錯誤（如 rpf_id 重複）時以 exit 1 結束；"
+                         "與 lineage 比對的『不符』屬提示、永不影響 exit code")
     args = ap.parse_args()
 
     files = sorted(WIKI.glob("*.md"))
@@ -182,6 +185,15 @@ def main():
     n_err = sum(1 for s, _, _ in R if s == "error")
     print(f"\n摘要：🔴 {n_err}　🟡 {sum(1 for s,_,_ in R if s=='warn')}　"
           f"⚪ {sum(1 for s,_,_ in R if s=='info')}")
+
+    # --strict：只把「wiki 內部整合性錯誤」當作擋關依據（排除與 lineage 的比對，
+    # 因 lineage 非權威，依 CLAUDE.md「不符」僅提示作者檢視、不代表 wiki 錯）。
+    if args.strict:
+        n_internal = sum(1 for s, c, _ in R if s == "error" and "lineage" not in c)
+        if n_internal:
+            print(f"\n🔴 wiki 內部整合性錯誤 {n_internal} 筆（--strict 擋下）。"
+                  "lineage 不符不計入。")
+            sys.exit(1)
 
 
 if __name__ == "__main__":
