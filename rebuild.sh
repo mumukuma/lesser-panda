@@ -5,6 +5,7 @@
 #   1. gen_residence  依 frontmatter zoos: 重生各條目「## 居住史」表格
 #   2. build_db       wiki/*.md → redpanda.db（會驗證園名，未登記即報錯）
 #   3. export_json    redpanda.db → pipeline/data/*.json（網站資料）
+#   4. check_twins    多胞胎資料稽核（同生群同父母、生日 ±1 天、群大小、字面 vs 人數）
 #
 # 用法：在 repo 根目錄執行  bash rebuild.sh
 # 之後 git commit / push，GitHub Actions 會自動建置部署網站。
@@ -20,7 +21,12 @@ python3 tools/gen_residence.py
 echo "==> [2/3] build_db（建 SQLite，驗證園名）"
 python3 tools/build_db.py
 
-echo "==> [3/3] export_json（匯出網站 JSON）"
+echo "==> [3/4] export_json（匯出網站 JSON）"
 python3 pipeline/scripts/export_json.py
+
+echo "==> [4/4] check_twins（多胞胎資料稽核）"
+# 只讀稽核：有 E 級錯誤（連錯隻／生日差>1天／群過大）會 exit 1 擋下；
+# 僅警告（缺父母、群內缺連）不阻擋建置。
+python3 tools/check_twins.py
 
 echo "==> 完成。記得 git commit / push 讓網站更新。"

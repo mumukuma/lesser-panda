@@ -58,11 +58,11 @@ const facts = [
 const link = (s) => pandas[s]
   ? `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, pandas[s].urlId)}">${displayName(pandas[s], locale)}${pandas[s].died ? ' 🌈' : ''}</a>` : s;
 const famRow = (label, slugs, showCount) => slugs && slugs.length
-  ? `<li class="py-1 flex gap-2"><span class="shrink-0 min-w-[9em] text-ink-soft text-[.88rem]">${label}${showCount ? `<span class="ml-1 text-[.82rem]">（${slugs.length}）</span>` : ''}</span><span class="min-w-0 flex-1">${slugs.map(link).join('、')}</span></li>` : '';
+  ? `<li class="py-1 flex flex-col sm:flex-row sm:gap-2"><span class="sm:shrink-0 sm:min-w-[9em] text-ink-soft text-[.88rem]">${label}${showCount ? `<span class="ml-1 text-[.82rem]">（${slugs.length}）</span>` : ''}</span><span class="min-w-0 flex-1">${slugs.map(link).join('、')}</span></li>` : '';
 // 父母行永遠顯示：缺資料時填「不詳 / Unknown」而非隱藏整行
 const parentRow = (label, slug) => slug
   ? famRow(label, [slug])
-  : `<li class="py-1 flex gap-2"><span class="shrink-0 min-w-[9em] text-ink-soft text-[.88rem]">${label}</span><span class="min-w-0 flex-1 text-ink-soft">${T.rel_unknown}</span></li>`;
+  : `<li class="py-1 flex flex-col sm:flex-row sm:gap-2"><span class="sm:shrink-0 sm:min-w-[9em] text-ink-soft text-[.88rem]">${label}</span><span class="min-w-0 flex-1 text-ink-soft">${T.rel_unknown}</span></li>`;
 
 const H3 = 'font-display text-lg font-semibold mt-7 mb-2.5 border-l-4 border-amber pl-2.5';
 const CARD = 'card-soft p-[18px_20px]';

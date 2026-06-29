@@ -170,7 +170,11 @@ def parse_family(body: str) -> dict:
         # 同一資料模型存為兩兩配對；網站再依同生群人數決定顯示「雙胞胎／三胞胎…」
         # 數字開頭者（如「2013 雙胞胎：」）屬「子女」區描述其子女的同生群，不算本人的，故排除
         if re.match(r"^-\s*[二兩雙三四五六]胞胎[^：:]{0,4}[：:]", stripped):
-            result["twins"].extend(extract_wikilinks(stripped))
+            # 先去除消歧義／警語註記裡的 wikilink（如「⚠️ 非 [[X]] 亦非 [[Y]]」），
+            # 那是在說明「不是這幾隻」，不可當成同生群成員
+            cleaned = re.sub(r"[（(][^（）()]*[非⚠][^（）()]*[）)]", "", stripped)
+            cleaned = re.sub(r"(?:亦)?非\s*\[\[[^\]]+\]\]", "", cleaned)
+            result["twins"].extend(extract_wikilinks(cleaned))
 
     return result
 
