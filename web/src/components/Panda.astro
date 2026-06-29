@@ -167,7 +167,7 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
     <div class={`${CARD} reveal`}>
       <table class="w-full text-[.93rem] scroll-x">
         <tr class="text-left text-ink-soft text-[.84rem]"><th class="p-2">{T.th_period}</th><th class="p-2">{T.th_zoo}</th></tr>
-        {p.residences.map((r) => (
+        {[...p.residences].reverse().map((r) => (
           <tr class="border-t border-line">
             <td class="p-2 whitespace-nowrap">{r.start || '?'} ~ {r.end || T.present}</td>
             <td class="p-2" set:html={r.zoo_id ? `<a class="text-rust hover:underline" href="${zoosHref}#zoo-${r.zoo_id}">${zooName(r.zoo_id, r.zoo_raw, locale)}</a>` : (r.zoo_raw || '')} />
