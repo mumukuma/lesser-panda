@@ -46,6 +46,8 @@
   "photos_note": "照片由同好的公開 Instagram 貼文嵌入，著作權屬原作者；點擊可前往原貼文。",
   "photos_more": "顯示更多照片",
   "photos_loading": "照片載入中…",
+  "photos_cta": "想幫 {name} 補照片嗎？歡迎投稿你拍的、或同好公開的 Instagram 貼文連結。",
+  "photos_cta_btn": "投稿照片",
   "sec_tree": "互動家系圖",
   "sec_children": "子女",
   "th_period": "期間",

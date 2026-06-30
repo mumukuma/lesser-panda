@@ -46,6 +46,8 @@
   "photos_note": "Photos are embedded from fans' public Instagram posts; copyright belongs to each author. Tap to open the original post.",
   "photos_more": "Show more photos",
   "photos_loading": "Loading photo…",
+  "photos_cta": "Want to add photos of {name}? Submit links to your own or fans' public Instagram posts.",
+  "photos_cta_btn": "Submit a photo",
   "sec_tree": "Interactive family tree",
   "sec_children": "Children",
   "th_period": "Period",

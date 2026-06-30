@@ -39,3 +39,17 @@ export const MISSING_FORMS = {
 
 export const missingFormId = (locale) =>
   MISSING_FORMS[locale] || MISSING_FORMS['zh-TW'] || '';
+
+// ── 3) 照片投稿（個體頁圖片集 CTA；針對已存在的熊）──────────────────
+// 三語單張表單，靠 hidden fields（panda/slug/url）帶入身分，同 ODr777 模式。
+// 由「回報資料更正」複製後改造：標題/說明換成投稿、保留 hidden fields、
+// 把問題改成「IG 連結（一行一個，最多 10 個）」＋「你的暱稱（致謝用）」。
+// 表單 ID 留空時 CTA 自動隱藏（同 reportEmbedSrc 為 null 不渲染）。
+export const PHOTO_FORMS = {
+  'zh-TW': 'lb5zVv',   // 「幫忙補照片」三語投稿表單（https://tally.so/r/lb5zVv）
+  ja: 'lb5zVv',        // 同上（合併後共用）
+  en: 'lb5zVv',        // 同上（合併後共用）
+};
+
+export const photoFormId = (locale) =>
+  PHOTO_FORMS[locale] || PHOTO_FORMS['zh-TW'] || '';
