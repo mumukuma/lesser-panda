@@ -9,7 +9,7 @@ zoos:
   - 台北市立動物園 (2026-06-06 – 現在)
 tags: [styani, male, zoo:Taipei Zoo]
 instagram:
-  - https://www.instagram.com/p/DWfqrgfkSGp/
+  - https://www.instagram.com/washimumu/p/DWfqrgfkSGp/
 sources:
   - http://www.shanghaizoo.cn/
   - https://www.zoo.gov.taipei/

@@ -25,7 +25,14 @@ const aka = [...(p.nicknames || []), ...(p.english_variants || [])];
 const igPosts = (p.instagram || []).map((s) => {
   const parts = String(s).trim().split(/\s+/);
   const date = parts[1] && /^\d{4}-\d{2}-\d{2}$/.test(parts[1]) ? parts[1] : '';
-  return { url: parts[0], date };
+  const url = parts[0];
+  // 含帳號的完整形式 instagram.com/帳號/p/XXX/ 可解析出發文帳號作署名；僅 /p/XXX/ 則無
+  const am = url.match(/instagram\.com\/([^/?#]+)\/(?:p|reel|tv)\//i);
+  const account = am ? am[1] : '';
+  // embed.js 只認標準 /p|reel|tv/SHORTCODE/，含帳號的形式會載不出來 → 餵 embed 用正規化的 permalink
+  const sm = url.match(/instagram\.com\/(?:[^/?#]+\/)?(p|reel|tv)\/([^/?#]+)/i);
+  const embedUrl = sm ? `https://www.instagram.com/${sm[1]}/${sm[2]}/` : url;
+  return { url, date, account, embedUrl };
 }).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 const IG_PAGE = 6;
 const igRest = igPosts.slice(IG_PAGE);
@@ -202,18 +209,20 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
     {/* 方案 C：facade ＋ lazy-load。開頁只有零 iframe 的骨架卡（脈動載入動畫），捲進視窗附近才換成真 IG embed；embed 載好後骨架才移除。 */}
     <div id="ig-grid" class="grid gap-4 [grid-template-columns:repeat(auto-fill,minmax(300px,1fr))] justify-items-center">
       {igPosts.map((p2, i) => (
-        <div class="ig-slot relative w-full max-w-[540px] min-h-[320px]" data-permalink={p2.url} hidden={i >= IG_PAGE}>
-          <a href={p2.url} target="_blank" rel="noopener"
-             class="ig-skeleton card-soft no-underline absolute inset-0 z-10 animate-pulse flex flex-col items-center justify-center gap-2 text-ink-soft">
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" class="opacity-50">
-              <rect x="3" y="3" width="18" height="18" rx="3" />
-              <circle cx="8.5" cy="8.5" r="1.6" />
-              <path d="M21 15l-5-5L5 21" />
-            </svg>
-            <span class="text-[.9rem] font-medium">Instagram</span>
-            {p2.date && <span class="text-[.75rem] opacity-70">{p2.date}</span>}
-            <span class="text-[.72rem] opacity-60">{T.photos_loading}</span>
-          </a>
+        <div class="ig-item w-full max-w-[540px]" hidden={i >= IG_PAGE}>
+          <div class="ig-slot relative w-full min-h-[320px]" data-permalink={p2.embedUrl}>
+            <a href={p2.url} target="_blank" rel="noopener"
+               class="ig-skeleton card-soft no-underline absolute inset-0 z-10 animate-pulse flex flex-col items-center justify-center gap-2 text-ink-soft">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" class="opacity-50">
+                <rect x="3" y="3" width="18" height="18" rx="3" />
+                <circle cx="8.5" cy="8.5" r="1.6" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span class="text-[.9rem] font-medium">{p2.account ? '@' + p2.account : 'Instagram'}</span>
+              {p2.date && <span class="text-[.75rem] opacity-70">{p2.date}</span>}
+              <span class="text-[.72rem] opacity-60">{T.photos_loading}</span>
+            </a>
+          </div>
         </div>
       ))}
     </div>
@@ -289,14 +298,15 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
           else load(slot); // 無 IntersectionObserver 的舊瀏覽器：直接載入
         }
 
-        grid.querySelectorAll('.ig-slot:not([hidden])').forEach(observe);
+        grid.querySelectorAll('.ig-item:not([hidden]) .ig-slot').forEach(observe);
 
         var moreBtn = document.getElementById('ig-more');
         if (moreBtn) {
           moreBtn.addEventListener('click', function () {
-            grid.querySelectorAll('.ig-slot[hidden]').forEach(function (slot) {
-              slot.removeAttribute('hidden');
-              observe(slot); // 顯示更多只是亮出骨架卡，載入仍交給 lazy-load
+            grid.querySelectorAll('.ig-item[hidden]').forEach(function (item) {
+              item.removeAttribute('hidden');
+              var slot = item.querySelector('.ig-slot');
+              if (slot) observe(slot); // 顯示更多只是亮出骨架卡，載入仍交給 lazy-load
             });
             this.remove();
           });

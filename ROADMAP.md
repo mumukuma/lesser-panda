@@ -34,25 +34,25 @@
 - **IG 照片內嵌**（#6，curate 版）：wiki frontmatter 加 `instagram:` 連結 → 網站用 **Instagram 官方 embed** 顯示（自動署名、連回原貼文）
   - 用同好的公開貼文豐富個體檔案，正確標註出處；不複製圖片檔
   - 維護方式：你挑選並把 IG 連結填進對應個體
-  - **現況**：整條 pipeline 已打通（`SCHEMA.md` 規範 → frontmatter `instagram:` → `build_db.py` → `export_json.py` → `Panda.astro` 官方 embed，超過 6 篇「顯示更多」、三語版權署名）。yaffa、甜甜頁已在用。
+  - **現況**：整條 pipeline 已打通（`SCHEMA.md` 規範 → frontmatter `instagram:` → `build_db.py` → `export_json.py` → `Panda.astro` 官方 embed，超過 6 篇「顯示更多」、三語版權署名）。方案 C（facade + lazy-load）與帳號署名已實作（見下）。yaffa、甜甜頁已在用。
 
-  #### 圖片集（gallery）渲染計劃 — 方案 C（規劃中 2026-06-30）
+  #### 圖片集（gallery）渲染計劃 — 方案 C（✅ 已實作 2026-06-30）
 
   - **目標**：每隻都能有一個圖片集；先只支援 IG（X 之後再說，因 embed 機制與 IG 完全不同、且 X 近年常被登入牆擋）。
   - **核心做法（C）**：facade ＋ lazy-load（IntersectionObserver）＋「顯示更多」分批。開頁時所有照片只是輕量佔位卡（零 iframe），捲進視窗附近才換成真 embed → 直接對準效能瓶頸（iframe 數量），對「多數只有幾張」的個體零負擔、對「少數幾十張」也不爆。
   - **為何不用分頁 / 隨機重載**：兩者只是套在「每個 embed = 一個 iframe」這個昂貴核心上的外殼。分頁對多數少照片個體多餘；「隨機＋按鈕重載」每按一次拆/建 iframe，整個 session 比一次載完更耗、且內容不確定（回訪／分享看到的不一樣）。若想保留隨機探索感 → 只洗佔位卡順序（便宜），載入仍交給 lazy-load，**不要重建 iframe**。
   - **失效連結（IG 刪文／轉私密）兩層處理**：
     - 讀者層：embed 載入後以短 timeout 檢查是否填入內容，沒成功就**保守隱藏**該卡（寧可偶爾漏藏，不要誤藏好照片），讀者不會看到破版空白。
-    - 作者層：靜態站伺服器端不知連結死活；之後加一支**半自動** `tools` 腳本列出/盡力檢查所有 `instagram:` 連結、標「疑似失效」供人工複查清理（IG oEmbed 需 token、HEAD 常被擋，不追求完美偵測）。
+    - 作者層：靜態站伺服器端不知連結死活；用 `tools/ig_audit.py`（✅ 2026-06-30）列出/盡力檢查所有 `instagram:` 連結、標「疑似失效」與「未含帳號形式」供人工複查清理（IG oEmbed 需 token、HEAD 常被擋，不追求完美偵測；預設只列表+格式檢查，`--check` 才連網）。
   - **已知缺點與取捨**：
-    - 圖說的「攝影者帳號」無法從 URL 自動取得（URL 不含帳號／日期，需 embed 載入後才有）→ **先放棄帳號圖說**，只用既有的手動日期後綴（有填才顯示），不扛長期手動 curation。
+    - ~~圖說的「攝影者帳號」無法從 URL 自動取得~~（✅ 2026-06-30 修正）：標準 `/p/SHORTCODE/` 短連結確實不含帳號，但 IG **也支援** `/帳號/p/SHORTCODE/` 完整形式。改約定存完整形式（見 `SCHEMA.md`）後，`Panda.astro` 直接從 URL 解析發文帳號，在照片**載入前的 facade 佔位卡**顯示 `@帳號`（embed 載好後由 embed 自身頂部帳號接手，不重複）。注意：embed.js 只吃 `/p/SHORTCODE/`，故 `Panda.astro` 餵 embed 時會把含帳號的 URL 正規化掉，資料與「點照片開原貼文」仍用完整形式。
     - facade 佔位卡無法顯示真實縮圖（載入前拿不到圖）→ 用通用樣式（吉祥物＋「IG 貼文」）。
     - 自動隱藏是啟發式、跨網域讀不到 iframe 內容：慢但正常的貼文可能誤藏、IG 的「post unavailable」錯誤卡可能漏藏 → 只能「大致體驗不破」，不可靠的部分丟給作者層 audit。
     - 真 embed 載入時高度會變 → 仍有部分 layout shift，只能減輕。
     - facade 只是延後成本，使用者一互動 IG 的 cookie／追蹤／效能就回來；整個 gallery 仍 100% 依賴 IG embed.js 與其政策。
     - embed 是 client 端 iframe → 對 SEO／社群預覽（OG）零貢獻、需要 JS、alt/無障礙不可控。這些是「選 IG embed 的必然代價」，本輪接受。
   - **資料模型**：維持 `instagram:`（含選填日期後綴）不動；未來支援 X 時再加平台標記、renderer 依平台選 embed，本輪不寫。
-  - **本輪實作範圍**：只動 `Panda.astro` 前端（純前端、最獨立、零資料風險）。失效連結 audit 腳本可之後再補。
+  - **本輪實作範圍**：前端 `Panda.astro`（facade + lazy-load + 帳號署名 + embed permalink 正規化）、`SCHEMA.md` 格式約定、`tools/ig_audit.py` 失效連結稽核腳本，皆已完成。
 
   #### 回報／投稿與審核（規劃中 2026-06-30）
 

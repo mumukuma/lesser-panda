@@ -41,13 +41,15 @@ rpf_id: RedPandaFinder 的 profile ID
 rpf_url: https://redpandafinder.com/#profile/XXX
 tags: [標籤]
 instagram:                # 選填：同好的公開 IG 貼文連結，網站以官方 embed 展示（自動署名、連回原貼文）
-  - https://www.instagram.com/p/XXXXXXXXX/ 2025-06-01   # 可在連結後加貼文日期，網站依日期新到舊排序；超過 6 篇自動「顯示更多」
+  - https://www.instagram.com/帳號/p/XXXXXXXXX/ 2025-06-01   # 建議用含「帳號」的完整形式；可在連結後加貼文日期，網站依日期新到舊排序；超過 6 篇自動「顯示更多」
 sources:
   - https://redpandafinder.com/#profile/XXX
 ---
 ```
 
 > `instagram` 為選填。只放**公開**貼文連結；網站用 Instagram 官方 embed 顯示，會自動標註原作者並連回原貼文（不複製圖片檔）。新增後重跑 `build_db.py` → `export_json.py` 即生效。
+>
+> **連結請盡量用含帳號的完整形式** `https://www.instagram.com/帳號/p/XXXXXXXXX/`（而非僅 `/p/XXXXXXXXX/`）。網站會從 URL 解析出發文帳號，在照片卡片上額外顯示「📷 @帳號」並連回該 IG profile（embed 兩種形式都吃，含帳號不影響顯示）。沒帶帳號的連結仍可正常 embed，只是不會多顯示這行攝影者署名。IG 的「複製連結」常給不含帳號的短形式，curate 時請改存完整形式。
 
 ---
 
