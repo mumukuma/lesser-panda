@@ -28,9 +28,7 @@ const igPosts = (p.instagram || []).map((s) => {
   return { url: parts[0], date };
 }).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 const IG_PAGE = 6;
-const igFirst = igPosts.slice(0, IG_PAGE);
 const igRest = igPosts.slice(IG_PAGE);
-const igBlock = (url) => `<blockquote class="instagram-media" data-instgrm-permalink="${url}" data-instgrm-version="14" style="margin:0;max-width:540px;width:100%"></blockquote>`;
 const sexTxt = p.sex === 'female' ? T.sex_f : p.sex === 'male' ? T.sex_m : T.sex_unknown;
 
 const ageStr = (() => {
@@ -129,38 +127,6 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
   </script>
 )}
 
-{igPosts.length > 0 && (
-  <>
-    <h2 class={H3}>{T.sec_photos}</h2>
-    <div class="grid gap-4 [grid-template-columns:repeat(auto-fill,minmax(300px,1fr))] justify-items-center">
-      <Fragment set:html={igFirst.map((p2) => igBlock(p2.url)).join('')} />
-      <div id="ig-rest" class="contents"></div>
-    </div>
-    {igRest.length > 0 && (
-      <button id="ig-more" class="pop mt-3 bg-cream text-rust rounded-full px-4 py-2 text-[.9rem] border-0 cursor-pointer">{T.photos_more}（+{igRest.length}）</button>
-    )}
-    <p class="text-ink-soft text-[.82rem] mt-2">{T.photos_note}</p>
-    <script is:inline async src="https://www.instagram.com/embed.js"></script>
-    {igRest.length > 0 && (
-      <script is:inline define:vars={{ rest: igRest.map((p2) => p2.url) }}>
-        document.getElementById('ig-more').addEventListener('click', function () {
-          var box = document.getElementById('ig-rest');
-          rest.forEach(function (u) {
-            var bq = document.createElement('blockquote');
-            bq.className = 'instagram-media';
-            bq.setAttribute('data-instgrm-permalink', u);
-            bq.setAttribute('data-instgrm-version', '14');
-            bq.style.cssText = 'margin:0;max-width:540px;width:100%';
-            box.appendChild(bq);
-          });
-          this.remove();
-          if (window.instgrm) window.instgrm.Embeds.process();
-        });
-      </script>
-    )}
-  </>
-)}
-
 {p.residences.length > 0 && (
   <>
     <h2 class={H3}>{T.sec_residences}</h2>
@@ -229,3 +195,113 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
       <p class="text-[.82rem] text-ink-soft mt-2">{T.tree_hint}</p>
     </div>
 </>
+
+{igPosts.length > 0 && (
+  <>
+    <h2 class={H3}>{T.sec_photos}<span class="ml-1.5 text-ink-soft text-[.8rem] font-normal align-middle">（{igPosts.length}）</span></h2>
+    {/* 方案 C：facade ＋ lazy-load。開頁只有零 iframe 的骨架卡（脈動載入動畫），捲進視窗附近才換成真 IG embed；embed 載好後骨架才移除。 */}
+    <div id="ig-grid" class="grid gap-4 [grid-template-columns:repeat(auto-fill,minmax(300px,1fr))] justify-items-center">
+      {igPosts.map((p2, i) => (
+        <div class="ig-slot relative w-full max-w-[540px] min-h-[320px]" data-permalink={p2.url} hidden={i >= IG_PAGE}>
+          <a href={p2.url} target="_blank" rel="noopener"
+             class="ig-skeleton card-soft no-underline absolute inset-0 z-10 animate-pulse flex flex-col items-center justify-center gap-2 text-ink-soft">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" class="opacity-50">
+              <rect x="3" y="3" width="18" height="18" rx="3" />
+              <circle cx="8.5" cy="8.5" r="1.6" />
+              <path d="M21 15l-5-5L5 21" />
+            </svg>
+            <span class="text-[.9rem] font-medium">Instagram</span>
+            {p2.date && <span class="text-[.75rem] opacity-70">{p2.date}</span>}
+            <span class="text-[.72rem] opacity-60">{T.photos_loading}</span>
+          </a>
+        </div>
+      ))}
+    </div>
+    {igRest.length > 0 && (
+      <button id="ig-more" class="pop mt-3 bg-cream text-rust rounded-full px-4 py-2 text-[.9rem] border-0 cursor-pointer">{T.photos_more}（+{igRest.length}）</button>
+    )}
+    <p class="text-ink-soft text-[.82rem] mt-2">{T.photos_note}</p>
+    <script is:inline>
+      (function () {
+        var grid = document.getElementById('ig-grid');
+        if (!grid) return;
+
+        // embed.js 延後到第一張卡要載入時才注入（開頁零成本）
+        var scriptState = 0; // 0=未載 1=載入中 2=就緒
+        var pending = [];
+        function ensureScript(cb) {
+          if (scriptState === 2) return cb();
+          pending.push(cb);
+          if (scriptState === 1) return;
+          scriptState = 1;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.instagram.com/embed.js';
+          s.onload = function () {
+            scriptState = 2;
+            pending.forEach(function (f) { f(); });
+            pending = [];
+          };
+          document.body.appendChild(s);
+        }
+
+        function load(slot) {
+          if (slot.dataset.loaded) return;
+          slot.dataset.loaded = '1';
+          var url = slot.getAttribute('data-permalink');
+          var bq = document.createElement('blockquote');
+          bq.className = 'instagram-media';
+          bq.setAttribute('data-instgrm-permalink', url);
+          bq.setAttribute('data-instgrm-version', '14');
+          bq.style.cssText = 'margin:0;max-width:540px;width:100%';
+          slot.appendChild(bq); // 骨架卡（absolute 覆蓋）留著當載入動畫，embed 在底下載入
+          ensureScript(function () {
+            if (window.instgrm) window.instgrm.Embeds.process();
+            // embed 成功後 IG 會在 blockquote 內塞 iframe → 移除骨架、露出照片。
+            // 讀者層失效處理：等不到 iframe 就保守隱藏整個 slot，避免破版空白。
+            // （已刪/轉私密的貼文 IG 仍會給一張錯誤 iframe，此啟發式抓不到，交由作者層 audit 處理）
+            var waited = 0;
+            var timer = setInterval(function () {
+              waited += 400;
+              if (slot.querySelector('iframe')) {
+                clearInterval(timer);
+                var sk = slot.querySelector('.ig-skeleton');
+                if (sk) sk.remove();
+                slot.style.minHeight = '0';
+              } else if (waited >= 8000) {
+                clearInterval(timer);
+                slot.style.display = 'none';
+              }
+            }, 400);
+          });
+        }
+
+        var io = 'IntersectionObserver' in window
+          ? new IntersectionObserver(function (entries, obs) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) { obs.unobserve(e.target); load(e.target); }
+              });
+            }, { rootMargin: '400px 0px' })
+          : null;
+
+        function observe(slot) {
+          if (io) io.observe(slot);
+          else load(slot); // 無 IntersectionObserver 的舊瀏覽器：直接載入
+        }
+
+        grid.querySelectorAll('.ig-slot:not([hidden])').forEach(observe);
+
+        var moreBtn = document.getElementById('ig-more');
+        if (moreBtn) {
+          moreBtn.addEventListener('click', function () {
+            grid.querySelectorAll('.ig-slot[hidden]').forEach(function (slot) {
+              slot.removeAttribute('hidden');
+              observe(slot); // 顯示更多只是亮出骨架卡，載入仍交給 lazy-load
+            });
+            this.remove();
+          });
+        }
+      })();
+    </script>
+  </>
+)}
