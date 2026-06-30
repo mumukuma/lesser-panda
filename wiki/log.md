@@ -2431,3 +2431,205 @@
 
 **更新條目**：
 - `index.md` — 新增「海外個體（中國・上海動物園）」分類含 `san-san`；條目總數更新為 433。
+
+---
+
+## [2026-06-29] add | 新增 暢暢 Non-Non（#374）與 阿暢 Non（#193）兩隻台北個體
+
+**來源**：
+- https://redpandafinder.com/#profile/374 (Non-Non 暢暢)
+- https://redpandafinder.com/#profile/193 (Non 阿暢)
+- https://redpandafinder.com/#profile/338 (Liuxing 流星)
+- https://redpandafinder.com/#profile/657 (Yuu-Yuu 勇勇)
+- https://udn.com/news/story/7470/8092011 (台北動物園小貓熊報導，佐證阿暢來歷與性別)
+
+**新增條目**：
+- `non-non-2003-06-16.md` — 暢暢 Non-Non（RPF #374），♂，生於 2003-06-16、歿於 2021-04-01，長野市茶臼山 → 多摩 → 台北市立動物園
+- `non-2003-07-25.md` — 阿暢 Non（RPF #193），♂，生於 2003-07-25，多摩 → 羽村 → 多摩 → 台北市立動物園；已歿、歿日待作者查證補入
+- `liuxing-1997-06-16.md` — 流星 Liuxing（RPF #338），♀，1997–2007，暢暢之母
+- `yuu-yuu-1990-06-25.md` — 勇勇 Yuu-Yuu（RPF #657），♂，1990–2005，暢暢之父（第 4 隻同名 Yuu-Yuu）
+
+**更新條目**：
+- `chihiro-2003-06-16.md`、`chi-chi-2003-06-16.md` — 三胞胎手足與父母改為 wikilink（連 `non-non`、`liuxing`、`yuu-yuu`）
+- `nene-1993-07-11.md` — 子女 `Non` 由「無條目」改為 wikilink `non-2003-07-25`，標註阿暢、♂
+- `boo-boo-1997-07-13.md` — 將 Non #193 由 ♀ 訂正為 ♂、改為 wikilink，「其女」更正為「其子」
+- `index.md` — 新增「暢暢家族」「阿暢家族」兩區塊；Boo-Boo 行「其女」改「其子」；條目總數 433 → 437
+
+**備注**：
+- 性別一律改採 RPF 個體頁名稱前的 gender 圖示（`<img alt="male/female">`）為準，不再以子女反推。據此 Non #193（阿暢）確認為 ♂，訂正既有 wiki 之 ♀ 誤標。
+- 阿暢據作者告知已離世，惟確切歿日待補；補入後需同步填 `non-2003-07-25.md` 的 `died` 欄、居住史台北段結束日、tags 加 `deceased`，並更新 index 生卒欄。
+
+---
+
+## [2026-06-29] add | 補建暢暢／阿暢祖父母 + 補歿年（阿暢2025、小菫2026）
+
+**來源**：
+- https://redpandafinder.com/#profile/456 (Anri アンリ)
+- https://redpandafinder.com/#profile/455 (Kuku クク)
+- https://redpandafinder.com/#profile/747 (Sei-Sei 誠誠)
+- https://redpandafinder.com/#profile/746 (Shin-Shin 真真)
+- https://redpandafinder.com/#profile/709 (Rin-Rin リンリン)
+- https://redpandafinder.com/#profile/708 (Taisyu 太守)
+- https://redpandafinder.com/#profile/192 (Sumire 小菫)
+
+**新增條目**（祖父母，性別均依 RPF 名前 gender 圖示）：
+- `anri-1994-06-19.md` — Anri アンリ（RPF #456），♀，1994–2007，流星之母（暢暢外祖母）
+- `kuku-1993.md` — Kuku クク（RPF #455），♂，約1993–2012，流星之父；中國野生捕獲、生年不詳（以抵日年近似）
+- `sei-sei-1986.md` — Sei-Sei 誠誠（RPF #747），♀，約1986–2000，勇勇之母；野生捕獲、生年不詳
+- `shin-shin-1986.md` — Shin-Shin 真真（RPF #746），♂，約1986–1994，勇勇之父；野生捕獲、生年不詳
+- `rin-rin-1989.md` — Rin-Rin リンリン（RPF #709），♀，約1989–2008，寧々之母（阿暢外祖母）；野生捕獲、生年不詳
+- `taisyu-1989.md` — Taisyu 太守（RPF #708），♂，約1989–2001，寧々之父（阿暢外祖父）；野生捕獲、生年不詳
+
+**更新條目**：
+- `non-2003-07-25.md` — 補 `died: 2025`（月日待補）、台北段結束 2025、tags 加 deceased、標題 🌈
+- `sumire-2004-06-17.md`（RPF #192）— 補 `chinese: 小菫`、`died: 2026`、台北段結束 2026、tags 加 deceased、標題 🌈（原條目漏標已歿，與 index 對齊）
+- `liuxing-1997-06-16.md`、`yuu-yuu-1990-06-25.md`、`nene-1993-07-11.md` — 父母欄改 wikilink 連新建祖父母
+- `index.md` — 暢暢／阿暢家族各加「祖父母」區塊；阿暢生卒 2003–2025 🌈；Sumire 小堇→小菫；條目總數 437 → 443
+
+**備注**：
+- 野生捕獲始祖（Kuku/Sei-Sei/Shin-Shin/Rin-Rin#709/Taisyu#708）RPF 生日為 unknown，依作者裁示以「最早記錄年份（抵日年）」為近似生年，slug 用該年；內文標明「生年不詳・野生捕獲」。
+- 阿暢父方祖父母 `rin-rin-1992-06-21`、`chin-chin-1991-07-14`（Boo-Boo 父母）原已存在，未重建。
+- 阿暢、小菫僅知歿年（2025／2026），確切月日待作者補入 `died` 與居住史結束日。
+
+---
+
+## [2026-06-29] add | 新增 晨星 Chenxing（資料待查證）+ 補阿暢/小菫 IG
+
+**來源**：
+- 作者提供（讀者回報）：晨星，2002-06-22 生、雄性、由東北サファリパーク轉入台北市立動物園
+- RPF／redpanda-lineage 查證：查無 2002-06-22 之個體、亦無「晨星／Chenxing」名（Taipei Zoo 與全庫皆無）
+
+**新增條目**：
+- `chenxing-2002-06-22.md` — 晨星 Chenxing，♂，2002-06-22 生，東北サファリパーク → 台北市立動物園；RPF 查無、無 rpf_id，家系／遷徙日期／在世與否均待查證
+
+**更新條目**：
+- `non-2003-07-25.md`（阿暢）— 補 `instagram`：https://www.instagram.com/p/BWaIod6lF_L/
+- `sumire-2004-06-17.md`（小菫）— 補 `instagram`：https://www.instagram.com/p/B51w5uYHfPa/
+- `index.md` — 新增「其他台北個體（資料待查證）」區塊含 `chenxing`；條目總數 443 → 444
+
+**備注**：晨星羅馬拼音 Chenxing 為暫定；出生地推測為東北サファリパーク（待查證）。IG 連結由原 /rdpnzoo/p/ 等格式正規化為官方 embed 用的 /p/<code>/。
+
+---
+
+## [2026-06-29] change | 居住史表格改倒敘（最新在最上）
+
+**修改**：
+- `tools/gen_residence.py`：`render_section` 改為先以時間順序（舊→新）建列、輸出時 `reversed()`，使「## 居住史」表格倒敘呈現（最新居所在最上、出生地在最下）。🐣（出生地）與 🏡／「現在」（現居）標記仍依時間序判定，故位置正確；frontmatter `zoos:` 維持時間正序（資料來源不動）。
+- 重生全部 444 檔的居住史表格。已驗證二次執行 idempotent（不會再反轉），且全 444 條目皆有 frontmatter `zoos:`（無「無 zoos 退回讀表→重複反轉」風險）。
+
+**備注**：本變更僅影響 wiki markdown 表格顯示；網站（pipeline/data → Astro）之居住史排序由 export/前端決定、未隨此變更，如需一併倒敘可再處理。
+
+---
+
+## [2026-06-29] change | 網站居住史也改倒敘（對齊 wiki）
+
+**修改**：
+- `web/src/components/Panda.astro`：居住史表格由 `p.residences.map(...)` 改為 `[...p.residences].reverse().map(...)`，顯示為倒敘（最新在最上），與 wiki markdown 一致。JSON 資料（pipeline/data）維持時間正序，僅顯示層反轉複本，不影響 current_zoo 等邏輯。
+
+**備注**：dev server（localhost:4321）應 HMR 自動套用；若未更新請重啟。沙盒無法跑 Astro build（Vite cache unlink EPERM），未在此驗證畫面。
+
+---
+
+## [2026-06-30] update | 社群回報「資料更正」批次（轉園 5 筆＋家族／名字 3 筆）
+
+**來源**（Tally → Google Sheet「回報資料更正」，2026-06-29 收件）：
+- 東山動植物園官網：https://www.higashiyama.city.nagoya.jp/news/2020/11/1126.html （ずん／令／まるこ 來園）、https://www.higashiyama.city.nagoya.jp/news/2021/05/post-575.html （れいか 來園）
+- 東京動物園協會：https://www.tokyo-zoo.net/topics/news/tama/3344_24708_2018-02-16.html （まめたろう）、https://www.tokyo-zoo.net/topics/news/tama/3752_24060_2017-04-13.html （タオファ）
+- 台北市立動物園 https://www.zoo.gov.taipei/ （小堇）；mamepandaworld blog（Tashan 母）；X 貼文（Nei 子女）
+
+**更新條目**：
+- `zun-2018-07-13.md` — 居住史更正：出生地實為多摩動物公園，2020-12-08 借殖移東山動植物園（原誤記為東山出生）
+- `rei-2019-07-01.md` — 居住史更正：出生地實為富山市ファミリーパーク，2020-12-07 借殖移東山（原誤記為東山出生）
+- `mametaro-2016-06-24.md` — 居住史更正：出生地實為多摩動物公園，2018-02-20 借殖移よこはま動物園ズーラシア（原誤記為ズーラシア出生）
+- `reika-2019-06-02.md` — 轉園日精確化：日本平 → 東山 之異動日補為 2021-05-31
+- `taofa-2015-06-14.md` — 轉園日精確化：東北サファリ → 多摩 補為 2017-03-27（歿日 2025-10-05 為多摩居住迄日）
+- `sumire-2004-06-17.md` — 中文名更正 小菫 → `小堇`（台北市立動物園官方用字）
+- `tashan-2002-07-01.md` — 補母 Yueshi（ユエシー）生卒 1999-07-08 – 2014-08-27
+- `nei-2018-07-18.md` — 子女 Kurumi（くるみ）／Tsugumi（つぐみ）補生日 2022-07-09
+
+**備注**：5 筆轉園皆經官方園方新聞查證屬實；其中 `zun`／`rei`／`mametaro` 原出生地有誤，已更正。
+
+---
+
+## [2026-06-30] add | 社群回報「圖鑑缺漏」批次新增 3 隻＋登記 1 園
+
+**來源**（Tally → Google Sheet「圖鑑缺漏」，2026-06-29 收件）：
+- https://www.guinnessworldrecords.com/news/2020/3/worlds-oldest-red-panda-is-21-years-old-and-lives-at-zoomontana-611467 （Taylor）
+- https://www.macaotourism.gov.mo/en/sightseeing/gardens/seac-pai-van-park 、http://www.gcs.gov.mo/news/detail/zh-hant/N16KPhBKiN （烙烙／澳門）
+- http://tohoku-safaripark.co.jp/ 、https://mihorinh.exblog.jp/239981202/ （来来 ライライ RPF #185）
+
+**新增條目**：
+- `rai-rai-2014-07-05.md` — 来来 ライライ（RPF #185），♂，2014-07-05 多摩生 → 2015-12-08 東北サファリパーク；`rii-rii` 之配偶、`ran-fa`／`mulan` 之父。⚠️ 父母性別／角色待查證（回報列父 ルンルン #105、母 ララ #104，惟現有 `run-run` #105 記為雌性且列為本個體之母）
+- `loklok-2013-07-02.md` — 烙烙 Loklok，♂，2013-07-02 成都生，2016 贈澳，現居澳門石排灣郊野公園；女友燑燑 Tongtong 已於 2021-09-08 歿（非 RPF 既有，無 rpf_id）
+- `taylor-1998.md` — Taylor，♂，~1998 生、2020-03 歿，Zoo Montana；金氏世界紀錄在世最長壽圈養小熊貓（非 RPF，生日／歿日／亞種待查證）
+
+**更新條目**：
+- `data/zoos.json` — 新增註冊 `澳門石排灣郊野公園`（Seac Pai Van Park, Macau）；Zoo Montana、成都基地原已登記
+- `run-run-2007-06-28.md`／`rii-rii-2013-06-20.md`／`ran-fa-2018-06-02.md` — 原純文字 Rai-Rai #185 改為 `[[rai-rai-2014-07-05]]` wikilink
+- `index.md` — 外甥女區加 `rai-rai-2014-07-05`；新增「海外個體（澳門）」含 `loklok`、「海外個體（美國）」含 `taylor`；條目總數 444 → 447
+
+**未採用**：「指定動物園篩選時查不到已逝個體」為網站功能建議，非 wiki 資料，另列待辦。
+
+---
+
+## [2026-06-30] update | Run-Run #105 性別更正（作者確認）→ 釐清 Rai-Rai #185 父母
+
+作者確認回報屬實：`rai-rai-2014-07-05`（来来 #185）之父為 ルンルン（`run-run` #105）、母為 ララ（`lala` #104）。原 `run-run` #105 誤記為雌性（並列為本個體之母，疑為早期由子女反推性別所致）。
+
+**更新條目**：
+- `run-run-2007-06-28.md` — sex 雌 → 雄（♀→♂）、tags female→male；改述為 `lala` #104 之配偶、`rai-rai-2014-07-05` 之父
+- `lala-2008-06-16.md` — 補列子女 `rai-rai-2014-07-05`（父 `run-run` #105）
+- `rai-rai-2014-07-05.md` — 移除待查證標記，父母確立為 `run-run` #105（父）× `lala` #104（母）
+- `index.md` — Run-Run 改 ♂、之子、Rai-Rai #185 之父；Rai-Rai 行移除待查證；區塊標題「之女」→「之子女」
+
+---
+
+## [2026-06-30] update | 晨星 Chenxing 查證（= RPF #478 シンシン Shin-Shin），更名修生日
+
+作者提供 RPF #478：晨星即日本園方的シンシン（Shin-Shin）。據此修正生日並補家系。生日由暫定 2002-06-22 改為 2000-06-30，故 slug 一併更名。
+
+**重新命名**：
+- `chenxing-2002-06-22.md` → `chenxing-2000-06-30.md`（生日校訂 2002-06-22 → 2000-06-30）
+
+**更新內容**：
+- 補 `rpf_id` 478、日文名 シンシン、英文 Shin-Shin/Shinshin；父母 Daura／Kuku、姊妹 7 隻（含 `rishi`、Yueshi）
+- 居住史：東北サファリパーク（2000-06-30 – 2002-06-20）→ 台北市立動物園（2002-06-20 – 2002）；轉出日 2002-06-20 採東北園方資料（RPF 標 2002-06-26）
+- 歿年：作者訂 2002（日不詳）。⚠️ RPF #478 記為 2021-01-01、台北居住至 2021，與作者校訂不符，待釐清——本 wiki 從作者
+- `index.md` — slug 由 `chenxing-2002-06-22` 改為 `chenxing-2000-06-30`，更新生卒與說明（條目總數不變，仍 447）
+
+---
+
+## [2026-06-30] update | Nei 子女補 wikilink（雙向）
+
+`nei` #376 的子女 `kurumi`／`tsugumi`（皆已有條目）原以純文字記錄，補成 `[[wikilink]]` 並雙向連結。
+
+**更新條目**：
+- `nei-2018-07-18.md` — 子女改 `[[kurumi-2022-07-09]]`／`[[tsugumi-2022-07-09]]`、加配偶 `[[kokin-2017-06-28]]`、補子女表
+- `kurumi-2022-07-09.md`／`tsugumi-2022-07-09.md` — 父 `Nei` 改為 `[[nei-2018-07-18]]`
+- `kokin-2017-06-28.md` — 子女區「父：Nei」改為 `[[nei-2018-07-18]]`
+
+---
+
+## [2026-06-30] update | 晨星條目 slug 改用日文原名拼音
+
+依作者偏好，route name 改用其日本語原名シンシン的拼音（與 `shin-fa`／`fu-fu` 等風格一致）。`name` 欄改為 Shin-Shin，中文名晨星保留為 `chinese`，Chenxing 移入 `english_variants`。
+
+**重新命名**：
+- `chenxing-2000-06-30.md` → `shin-shin-2000-06-30.md`（內容不變，僅 `name`／slug 改用日文拼音）
+- `index.md` — 連結改 `[[shin-shin-2000-06-30]]`，顯示名改シンシン Shin-Shin（中文名晨星）
+- 加 ⚠️ 同名注意：另有一隻シンシン（2010-06-24 生，尚無條目）
+
+---
+
+## [2026-06-30] add | 建立 Tashan 之母 Yueshi 條目（RPF #210）
+
+承前「資料更正」批次，Tashan 母親 Yueshi 之前僅在 Tashan 內文補了生卒、未建獨立條目。依 RPF #210 補建。
+
+**新增條目**：
+- `yueshi-1999-07-08.md` — Yueshi（月食／ユエシー，RPF #210），♀，1999-07-08 – 2014-08-27，東北サファリパーク；母 Anri、父 Kuku；與 `rishi`（日食）為雙胞胎；子女 `tashan` 等 5 隻
+
+**更新條目**：
+- `tashan-2002-07-01.md` — 母 Yueshi 改為 `[[yueshi-1999-07-08]]`（內文＋家族）
+- `rishi-1999-07-08.md` — 補雙胞胎 `[[yueshi-1999-07-08]]`（日食／月食）
+- `shin-shin-2000-06-30.md` — 姊妹 Yueshi 改為 `[[yueshi-1999-07-08]]`
+- `index.md` — 新增 `yueshi-1999-07-08`、Tashan 行補母連結；條目總數 447 → 448

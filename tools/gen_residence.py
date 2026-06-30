@@ -183,6 +183,7 @@ def render_section(res, born, died):
              "<!-- 此表由 tools/gen_residence.py 自動生成；請勿手改。來源：frontmatter zoos: 與 data/zoos.json -->",
              "", "| 期間 | 動物園 | 地點 |", "|------|--------|------|"]
     n = len(res)
+    rows = []  # 依時間順序（舊→新）建列，最後反轉輸出成倒敘（最新在最上）
     for i, r in enumerate(res):
         start = r["sd"] or (str(r["sy"]) if r["sy"] else "?")
         if r["ed"]:
@@ -207,7 +208,8 @@ def render_section(res, born, died):
             loc = " ".join(p for p in [cl[0], locja] if p)
             if cl[1]:
                 loc = (loc + " " + cl[1]).strip()
-        lines.append(f"| {period} | {r['zoo']}{flags} | {loc} |")
+        rows.append(f"| {period} | {r['zoo']}{flags} | {loc} |")
+    lines.extend(reversed(rows))  # 倒敘：最新居所在最上
     return "\n".join(lines)
 
 

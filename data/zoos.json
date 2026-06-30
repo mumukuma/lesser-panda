@@ -1998,7 +1998,7 @@
   "en": "Chengdu Research Base of Giant Panda Breeding",
   "zh": null,
   "country": "China",
-  "location_ja": null,
+  "location_ja": "四川成都",
   "location_en": "Chengdu, Sichuan, China",
   "lat": 30.7329687,
   "lng": 104.1370553,
@@ -2006,6 +2006,26 @@
   "website": "http://www.panda.org.cn/",
   "logo": null,
   "aliases": []
+ },
+ {
+  "canonical": "澳門石排灣郊野公園",
+  "lineage_id": null,
+  "en": "Seac Pai Van Park",
+  "zh": "澳門石排灣郊野公園",
+  "country": "Macau",
+  "location_ja": "澳門路環",
+  "location_en": "Coloane, Macau",
+  "lat": 22.1286997,
+  "lng": 113.5617924,
+  "map": "https://maps.app.goo.gl/2bTs8m1n8m9bq9hM7",
+  "website": "https://www.macaotourism.gov.mo/en/sightseeing/gardens/seac-pai-van-park",
+  "logo": null,
+  "aliases": [
+   "Seac Pai Van Park",
+   "Macao Giant Panda Pavilion",
+   "Macau Seac Pai Van Park",
+   "石排灣郊野公園"
+  ]
  },
  {
   "canonical": "Chester Zoo",
@@ -4641,7 +4661,7 @@
   "en": "Zoo Montana",
   "zh": null,
   "country": "USA",
-  "location_ja": null,
+  "location_ja": "蒙大拿州比靈斯",
   "location_en": "Billings, Montana, USA",
   "lat": 45.7322514,
   "lng": -108.6298244,
