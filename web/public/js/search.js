@@ -28,6 +28,7 @@
     if (mode === 'name') arr.sort(function (a, b) { return nameOf(a).localeCompare(nameOf(b), loc); });
     else if (mode === 'born_new') arr.sort(function (a, b) { return (b.born || '').localeCompare(a.born || ''); });
     else if (mode === 'born_old') arr.sort(function (a, b) { return (a.born || '').localeCompare(b.born || ''); });
+    else if (mode === 'photos') arr.sort(function (a, b) { return (b.ph || 0) - (a.ph || 0) || randKey(seed, a.slug) - randKey(seed, b.slug); });
     else arr.sort(function (a, b) { return randKey(seed, a.slug) - randKey(seed, b.slug); });
     return arr;
   }
@@ -76,16 +77,16 @@
 
   function apply(resetPage) {
     if (resetPage !== false) page = 1;
-    var q = norm($('#f-q').value), zoo = zooSel.value, sex = $('#f-sex').value, aliveOnly = $('#f-alive').checked;
+    var q = norm($('#f-q').value), zoo = zooSel.value, sex = $('#f-sex').value, aliveOnly = $('#f-alive').checked, photosOnly = $('#f-photos').checked;
     var filtered = pandas.filter(function (p) {
-      return (!q || p._hay.indexOf(q) >= 0) && (!zoo || p.zoo === zoo) && (!sex || p.sex === sex) && (!aliveOnly || !p.died);
+      return (!q || p._hay.indexOf(q) >= 0) && (!zoo || p.zoo === zoo) && (!sex || p.sex === sex) && (!aliveOnly || !p.died) && (!photosOnly || p.ph > 0);
     });
     _sorted = sortList(filtered);
     $('#result-count').textContent = T.result_count.replace('{n}', _sorted.length);
     draw();
   }
 
-  ['#f-q', '#f-zoo', '#f-sex', '#f-alive', '#f-sort'].forEach(function (s) { $(s).addEventListener('input', function () { apply(true); }); });
+  ['#f-q', '#f-zoo', '#f-sex', '#f-alive', '#f-photos', '#f-sort'].forEach(function (s) { $(s).addEventListener('input', function () { apply(true); }); });
   $('#f-shuffle').addEventListener('click', function () {
     seed = (Math.random() * 1e9) | 0; $('#f-sort').value = 'random'; apply(true);
   });
@@ -94,5 +95,6 @@
   if (params.get('q')) $('#f-q').value = params.get('q');
   if (params.get('zoo')) zooSel.value = params.get('zoo');
   if (params.get('alive')) $('#f-alive').checked = true;
+  if (params.get('photos')) $('#f-photos').checked = true;
   apply(true);
 })();

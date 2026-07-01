@@ -16,12 +16,14 @@ const arrowStyle = "background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http
     <option value="male">{T.filter_male}</option>
   </select>
   <label class="text-[.9rem] text-ink-soft flex gap-1.5 items-center"><input type="checkbox" id="f-alive" />{T.filter_alive_only}</label>
+  <label class="text-[.9rem] text-ink-soft flex gap-1.5 items-center"><input type="checkbox" id="f-photos" />{T.filter_has_photos}</label>
   <div class="flex gap-2 items-center w-full sm:w-auto">
     <select id="f-sort" aria-label={T.sort_by} class={`flex-1 sm:flex-none ${selectCls}`} style={arrowStyle}>
       <option value="random">{T.sort_by}：{T.sort_random}</option>
       <option value="name">{T.sort_by}：{T.sort_name}</option>
       <option value="born_new">{T.sort_born_new}</option>
       <option value="born_old">{T.sort_born_old}</option>
+      <option value="photos">{T.sort_photos}</option>
     </select>
     <button type="button" id="f-shuffle" aria-label={T.shuffle} title={T.shuffle}
       class="nav-link inline-flex items-center justify-center leading-none bg-card border border-line rounded-input cursor-pointer p-2.5">

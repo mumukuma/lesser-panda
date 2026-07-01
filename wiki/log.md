@@ -2799,3 +2799,53 @@
 - `huanhuan-2007-07-03.md` — `instagram:` 加入 washimumu 該則
 - `ke-song-2017-06-11.md` — `instagram:` 加入 kinusayaffa 該則
 - `mirai-2019-07-05.md` — 新增 `instagram:` 欄（原無），加入 kinusayaffa 該 reel
+
+---
+
+## [2026-07-01] add | 新增 Ikura 家族 3 條目 + 更正 Tan-Tan 子女母親
+
+**來源**：
+- https://redpandafinder.com/#profile/656 (Ikura)
+- https://redpandafinder.com/#profile/375 (Konta)
+- https://redpandafinder.com/#profile/731 (Cha)
+
+**新增條目**：
+- `ikura-1996-07-09.md` — Ikura イクラ（RPF #656），生於 1996-07-09、歿 2006-02-12，釧路市動物園 → 多摩動物公園 → 福岡市動植物園；`tan-tan` 之配偶，`maguro`／`katsuo`／`konta` 之母。性別依作者告知（♀，日文名イクラ）
+- `konta-2004-07-10.md` — Konta コンタ（RPF #375），生於 2004-07-10、歿 2014-08-05，福岡市動植物園 → 仙台市八木山動物公園；`ikura` × `tan-tan` 之三子
+- `cha-1997-07-27.md` — Cha チャ（RPF #731），生於 1997-07-27、歿 2016-03-27，釧路市動物園 → 浜松市動物園；`ikura` 之妹（注意與既有 `cha-cha-1997-06-17` #223 非同一隻）
+
+**更新條目**：
+- `maguro-2002-07-02.md`、`katsuo-2002-07-02.md` — 母由純文字「Ikura（無條目）」改為 `[[ikura-1996-07-09]]` wikilink；maguro 兄弟欄 Konta 改為 wikilink
+- `tan-tan-1998-06-29.md` — **更正**：子女表原將 Maguro（2002）／Katsuo（2002）／Konta（2004）之母記為 `fan-fan-1999-07-09`，據 RPF #656・#375 及 maguro／katsuo 條目、且 `fan-fan` 本身條目未列此三隻，更正為母 = `ikura-1996-07-09`；Run-Run／Mei-Mei（2007）之母仍為 `fan-fan`
+- `index.md` — 新增「Ikura × Tan-Tan 一脈」小節（Ikura／Konta／Cha）；條目總數 459 → 462
+
+---
+
+## [2026-07-01] update | 官方來源確認 Ikura 親子關係（多摩命名公告）
+
+**來源**：
+- https://www.tokyo-zoo.net/topics/news/tama/8767_222_2002-10-25.html （多摩動物公園官方 2002-10-25 命名公告）
+
+官方公告明載 2002 年 6〜7 月三對親代所生 5 仔的命名：「母イクラ × 父淡々」→ 雄性雙胞胎「カツオ」「マグロ」（魚介類名）；「母花々 × 父緑太郎」→ 女兒「タンポポ」；「母寧々 × 父ブーブー」→「ノノ」（♂）「ナミ」（♀）。此為 `maguro`／`katsuo` 之母為 `ikura`（非 `fan-fan`）的一手官方佐證，前一筆更正確立無誤。
+
+**更新條目**：
+- `ikura-1996-07-09.md` — `sources:` 加入官方連結；內文加註官方命名確認
+- `maguro-2002-07-02.md`、`katsuo-2002-07-02.md` — `sources:` 加入官方連結
+
+**備注（已結案，2026-07-01）**：作者裁示以官方公告為準。查證 `fin-fin-2002-06-20` 條目本已記錄別名タンポポ（`japanese: フィンフィン, タンポポ`／`english_variants: [Finfin, Tanpopo]`），且母 Fan-Fan × 父 Ryutarou、2002-06-20 多摩生、2003 遷池田動物園，與公告完全吻合——確認 Tampopo 與 Fin-Fin 為同一隻（出生官方名タンポポ，後名 Fin-Fin）。已將官方公告補入 `fin-fin-2002-06-20.md` 的 `sources:` 並於內文加註官方確認。主名維持 Fin-Fin（RPF／池田通用名、既有 wikilink 穩定）；如需改以タンポポ為主名再另行更名。
+
+---
+
+## [2026-07-01] remove | 下架非本人投稿照片（讀者投稿收件匣）
+
+依作者指示，將投稿收件匣中標記「非本人投稿（同好的公開貼文）」的 6 筆，其 IG 連結自對應條目 `instagram:` frontmatter 移除（**僅移除該筆非本人連結，保留同一隻的本人投稿連結**）；並同步移除 Google Sheet 收件匣對應 6 列。
+
+**更新條目**：
+- `sora-2014-06-12.md` — 移除 10 筆非本人 IG 連結，保留本人投稿 2 筆
+- `rifa-2018-06-07.md` — 移除 7 筆，保留本人投稿 5 筆
+- `maruko-2018-07-11.md` — 移除 10 筆，保留本人投稿 5 筆
+- `futa-2003-07-05.md` — 移除 1 筆（唯一連結，皆非本人），`instagram` 欄整個移除
+- `tiara-2015-07-06.md` — 移除 6 筆（皆非本人），`instagram` 欄整個移除
+- `mochi-2015-06-24.md` — 移除 7 筆（皆非本人），`instagram` 欄整個移除
+
+重建：`build_db` + `export_json`（沙盒 /tmp shim）已更新 `pipeline/data/*.json`（沙盒無法跑 `web/` Astro build，網站由 CI 部署）。
