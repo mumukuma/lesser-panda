@@ -2849,3 +2849,26 @@
 - `mochi-2015-06-24.md` — 移除 7 筆（皆非本人），`instagram` 欄整個移除
 
 重建：`build_db` + `export_json`（沙盒 /tmp shim）已更新 `pipeline/data/*.json`（沙盒無法跑 `web/` Astro build，網站由 CI 部署）。
+
+---
+
+## [2026-07-01] add | 新增 Ryuu 及其手足（Hanabi × Sou-Sou 子女）
+
+**來源**：
+- https://redpandafinder.com/#profile/957 (Ryuu)
+- https://redpandafinder.com/#profile/958 (Sei)
+- https://redpandafinder.com/#profile/80 (Miyabi)
+- https://redpandafinder.com/#profile/242 (Rin)
+
+**新增條目**：
+- `ryuu-2019-07-02.md` — Ryuu リュウ（RPF #957），生於 2019-07-02，`sei` 之雙胞胎；暱稱歌舞伎（Kabuki）；埼玉こども→東北サファリパーク
+- `sei-2019-07-02.md` — Sei セイ／세이（RPF #958），生於 2019-07-02，`ryuu` 之雙胞胎；埼玉こども→ソウル大公園動物園 🇰🇷
+- `miyabi-2017-06-25.md` — Miyabi ミヤビ／雅（RPF #80），生於 2017-06-25、歿於 2022-10-02🌈；埼玉こども→Chilean National Zoo 🇨🇱
+- `rin-2018-06-24.md` — Rin リン／Lynn（RPF #242），生於 2018-06-24，現居埼玉県こども動物自然公園
+
+**更新條目**：
+- `hanabi-2011-07-09.md` — 母；4 名子女純文字改為 wikilink
+- `sou-sou-2012-07-08.md` — 父🌈；子女表改為 wikilink，`sei` 註記現居韓國
+- `index.md` — 新增「Hanabi × Sou-Sou 子女」小節；條目總數更新為 466
+
+**備注**：性別依四隻手足頁的 sibling 敘述交叉推定——Miyabi、Rin 為 ♀，Sei、Ryuu 為 ♂。父母條目本已存在，故僅補雙向 wikilink。
