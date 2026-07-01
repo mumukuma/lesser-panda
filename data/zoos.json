@@ -5217,5 +5217,26 @@
    "沈阳森林动物园",
    "瀋陽森林動物園"
   ]
+ },
+ {
+  "canonical": "チャプルテペック動物園",
+  "lineage_id": null,
+  "en": "Chapultepec Zoo",
+  "zh": "查普爾特佩克動物園",
+  "country": "Mexico",
+  "location_ja": "メキシコ・メキシコシティ",
+  "location_en": "Mexico City, Mexico",
+  "lat": 19.4206,
+  "lng": -99.2075,
+  "map": null,
+  "website": "https://mexicocity.cdmx.gob.mx/venues/chapultepec-zoo/",
+  "logo": null,
+  "aliases": [
+   "Chapultepec Zoo",
+   "Zoológico de Chapultepec",
+   "Zoológico de Chapultepec Alfonso L. Herrera",
+   "查普爾特佩克動物園",
+   "チャプルテペック動物園"
+  ]
  }
 ]

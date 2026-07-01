@@ -103,6 +103,7 @@ export const searchDataFor = (locale) => ({
     slug: p.slug, u: p.urlId, n: p.name, j: p.japanese, k: p.chinese || p.kanji,
     en: [...(p.english_variants || []), ...(p.nicknames || [])].join('|') || null,
     sex: p.sex, born: p.born, died: p.died,
+    ph: (p.instagram || []).length || null,
     zoo: !p.died ? zooName(p.current_zoo, p.current_zoo_raw, locale) || null : null,
   })),
 });

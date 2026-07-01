@@ -39,8 +39,10 @@
     var life = p.died ? ((p.born || '?').slice(0, 4) + '-' + p.died.slice(0, 4) + ' 🌈')
       : ((p.born || '?').slice(0, 4) + '-' + (age !== null ? '（' + age + '）' : ''));
     var alt = altOf(p);
-    return '<a class="block pop bg-card border border-line rounded-card shadow-card p-[13px_16px] no-underline text-ink hover:border-amber" href="' + PAGE + 'p/' + (p.u || p.slug) + '/">' +
-      '<div class="font-bold">' + nameOf(p) + (alt ? '<span class="font-normal text-ink-soft text-[.9em] ml-1.5">' + alt + '</span>' : '') + '</div>' +
+    var photoBadge = p.ph ? '<span class="absolute top-2 right-2 inline-flex items-center gap-0.5 bg-cream text-rust rounded-full px-1.5 py-0.5 text-[.7rem] font-medium leading-none" aria-label="' + p.ph + ' ' + (T.sec_photos || '') + '">' +
+      '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3.2"/></svg>' + p.ph + '</span>' : '';
+    return '<a class="relative block pop bg-card border border-line rounded-card shadow-card p-[13px_16px] no-underline text-ink hover:border-amber" href="' + PAGE + 'p/' + (p.u || p.slug) + '/">' + photoBadge +
+      '<div class="font-bold pr-9">' + nameOf(p) + (alt ? '<span class="font-normal text-ink-soft text-[.9em] ml-1.5">' + alt + '</span>' : '') + '</div>' +
       '<div class="text-[.84rem] text-ink-soft mt-0.5"><span class="inline-block text-[.76rem] px-2 py-px rounded-full mr-1.5 ' + sexCls + '">' + sexTxt + '</span>' + life + '</div>' +
       '<div class="text-[.84rem] text-ink-soft">' + (p.zoo || '') + '</div></a>';
   }

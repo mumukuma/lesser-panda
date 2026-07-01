@@ -89,6 +89,13 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
     {altNames.length > 0 && <span class="text-ink-soft text-[1.1rem]">{altNames.join(' · ')}</span>}
   </div>
   {aka.length > 0 && <p class="text-ink-soft text-[.95rem] mt-1 relative">{aka.join('、')}</p>}
+  {igPosts.length > 0 && (
+    <a href="#photos" class="pop no-underline inline-flex items-center gap-1.5 bg-cream text-rust rounded-full px-3 py-1 text-[.82rem] font-medium mt-2.5 relative"
+       aria-label={`${igPosts.length} ${T.sec_photos}`}>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3.2"/></svg>
+      {igPosts.length}<span class="font-normal">{T.sec_photos}</span>
+    </a>
+  )}
   <dl class="grid grid-cols-[auto_1fr] gap-x-[18px] gap-y-1.5 m-0 mt-3 relative">
     {facts.map(([k, v]) => (<><dt class="text-ink-soft text-[.88rem] whitespace-nowrap">{k}</dt><dd class="m-0"><Fragment set:html={v} /></dd></>))}
   </dl>
@@ -210,11 +217,12 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
 
 {igPosts.length > 0 && (
   <>
-    <h2 class={H3}>{T.sec_photos}<span class="ml-1.5 text-ink-soft text-[.8rem] font-normal align-middle">（{igPosts.length}）</span></h2>
+    <h2 id="photos" class={`${H3} scroll-mt-20`}>{T.sec_photos}<span class="ml-1.5 text-ink-soft text-[.8rem] font-normal align-middle">（{igPosts.length}）</span></h2>
     {/* 方案 C：facade ＋ lazy-load。開頁只有零 iframe 的骨架卡（脈動載入動畫），捲進視窗附近才換成真 IG embed；embed 載好後骨架才移除。 */}
-    <div id="ig-grid" class="grid gap-4 [grid-template-columns:repeat(auto-fill,minmax(300px,1fr))] justify-items-center">
+    {/* 瀑布流：CSS columns 讓不同高度的卡片往上補、不留整列空白（桌機依寬度自動 2+ 欄、手機 1 欄）。 */}
+    <div id="ig-grid" class="columns-[340px] [column-gap:1rem]">
       {igPosts.map((p2, i) => (
-        <div class="ig-item w-full max-w-[540px]" hidden={i >= IG_PAGE}>
+        <div class="ig-item mb-4 break-inside-avoid" hidden={i >= IG_PAGE}>
           <div class="ig-slot relative w-full min-h-[320px]" data-permalink={p2.embedUrl}>
             <a href={p2.url} target="_blank" rel="noopener"
                class="ig-skeleton card-soft no-underline absolute inset-0 z-10 animate-pulse flex flex-col items-center justify-center gap-2 text-ink-soft">
@@ -259,6 +267,24 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
           grid.style.visibility = '';
         })();
 
+        // IG embed 修正：IG 在 embed 載入時用「當下寬度」把 iframe 高度寫死，之後只在 window resize 才重算。
+        // 兩欄 grid + lazy-load 下，定高時的寬度可能與最終卡片寬度對不上 → 圖片被壓扁。
+        // 對策：embed 載好、顯示更多、或 grid 寬度變動時，觸發一次 resize 讓 IG 依現寬重新 fit。
+        var refitTimer;
+        function refit() {
+          clearTimeout(refitTimer);
+          refitTimer = setTimeout(function () {
+            try { window.dispatchEvent(new Event('resize')); } catch (e) {}
+          }, 150);
+        }
+        var lastW = grid.clientWidth;
+        if ('ResizeObserver' in window) {
+          new ResizeObserver(function () {
+            var w = grid.clientWidth;
+            if (w !== lastW) { lastW = w; refit(); } // 只在寬度變動時 refit（高度變動不理，避免迴圈）
+          }).observe(grid);
+        }
+
         // embed.js 延後到第一張卡要載入時才注入（開頁零成本）
         var scriptState = 0; // 0=未載 1=載入中 2=就緒
         var pending = [];
@@ -301,6 +327,7 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
                 var sk = slot.querySelector('.ig-skeleton');
                 if (sk) sk.remove();
                 slot.style.minHeight = '0';
+                refit(); // embed 剛出現，逼 IG 依卡片現寬重算高度，避免比例被壓扁
               } else if (waited >= 8000) {
                 clearInterval(timer);
                 slot.style.display = 'none';
@@ -332,6 +359,7 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
               var slot = item.querySelector('.ig-slot');
               if (slot) observe(slot); // 顯示更多只是亮出骨架卡，載入仍交給 lazy-load
             });
+            refit(); // 新卡展開後版面寬度可能變（如出現捲軸），讓已載入的 embed 重新 fit
             this.remove();
           });
         }
