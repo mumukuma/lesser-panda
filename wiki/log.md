@@ -2770,3 +2770,32 @@
 - **`data/zoos.json`** — 新增 **チャプルテペック動物園**（Zoológico de Chapultepec，墨西哥メキシコシティ，lat/lng 約略、aliases 含西/英/中/日名）；動物園總數 98 → 99
 - **`hana-2001-07-13.md`** — 居住史補上 多摩(2001-07-13–2003 約略)→チャプルテペック動物園(2003–)；轉出年待查
 - **`CLAUDE.md`** — 新增「官方來源可直接採用」政策小節：回報者若附官網／新聞稿／園報／園方名單等官方或官方轉載來源，Claude 可直接採用更新 wiki、與既有校訂衝突時以園方為準，不需逐筆等作者確認；非官方來源（RPF／lineage／部落格／社群／無來源）仍標待查證
+
+---
+
+## [2026-07-01] update | 修正錯誤投稿：兩則 IG 照片由 `keyue` 移至 `crepe`
+
+兩則 IG 貼文原被錯歸於 `keyue`（可玥），實為 `crepe`（可麗餅）的照片，予以更正：
+
+- `https://www.instagram.com/p/C4omQ03B_dT/`
+- `https://www.instagram.com/p/C1irAyBPVP-/`
+
+**更新條目**：
+- `keyue-2015-06-20.md` — `instagram:` 移除上述兩則
+- `crepe-2017-06-11.md` — `instagram:` 加入上述兩則
+
+---
+
+## [2026-07-01] update | 讀者投稿 IG 照片補進 3 隻條目
+
+照片投稿收件匣（幫忙補照片 Google Sheet）新增 3 筆本人投稿，查證發文帳號後以含帳號完整形式補進對應條目的 `instagram:`：
+
+**來源**：
+- https://www.instagram.com/washimumu/p/DWIaNc0EWWW/ (`huanhuan`，帳號 washimumu)
+- https://www.instagram.com/kinusayaffa/p/DaPGjQSEqCE/ (`ke-song`，帳號 kinusayaffa)
+- https://www.instagram.com/kinusayaffa/reel/DaG-qfbvqxy/ (`mirai`，帳號 kinusayaffa)
+
+**更新條目**：
+- `huanhuan-2007-07-03.md` — `instagram:` 加入 washimumu 該則
+- `ke-song-2017-06-11.md` — `instagram:` 加入 kinusayaffa 該則
+- `mirai-2019-07-05.md` — 新增 `instagram:` 欄（原無），加入 kinusayaffa 該 reel
