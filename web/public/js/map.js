@@ -5,7 +5,7 @@
   var data = window.ZOOS_DATA;
   if (!data) return;
   var zoos = data.zoos.filter(function (z) { return z.lat && z.lng; });
-  if (typeof L === 'undefined') { mapEl.innerHTML = '<p style="padding:20px">⚠️ 地圖元件載入失敗</p>'; return; }
+  if (typeof L === 'undefined') { mapEl.innerHTML = '<p style="padding:20px">⚠️ ' + ((window.T && window.T.map_load_failed) || '地圖元件載入失敗') + '</p>'; return; }
 
   mapEl.innerHTML = '';
   var map = L.map('map', { scrollWheelZoom: false });

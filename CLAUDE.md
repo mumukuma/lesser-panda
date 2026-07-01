@@ -42,7 +42,7 @@ red-panda-wiki/
 │   └── art/             ← 吉祥物／sprite 圖像生成腳本（與資料管線無關，不進 rebuild）
 ├── pipeline/
 │   ├── scripts/export_json.py ← redpanda.db → pipeline/data/*.json（網站資料）
-│   └── src/i18n/        ← 三語介面字串
+│   └── src/i18n/        ← 四語介面字串（zh-TW／ja／en／ko）
 ├── web/                 ← Astro + Tailwind 網站前端（見 web/README.md）
 └── wiki/
     ├── index.md         ← 目錄（依家族分類），含條目總數
@@ -54,6 +54,8 @@ red-panda-wiki/
 改完 wiki 後重建：`python3 tools/gen_residence.py`（依 `zoos:` 重生居住史表格）→ `python3 tools/build_db.py`（DB）→ `python3 pipeline/scripts/export_json.py`（網站資料）。一鍵版：在 repo 根目錄執行 `bash rebuild.sh` 即依序跑完這三步。
 `gen_residence.py` **以 frontmatter `zoos:` 為居住史唯一來源**（2026-06-29 起）：有 `zoos:` 就以它為準（解析完整日期），內文「## 居住史」表格純為衍生、自動重生。守門以 frontmatter 園集合為基準自我比對，重生後若掉了任何園（如解析失敗）就中止；故**更正／更換居住地只需改 `zoos:` 一處**再重建，不用動內文表格。（早期版本曾以內文表格為來源，已修正。）
 網站本身由 GitHub Actions 自動建置部署；本地預覽見 `web/README.md`。
+
+**網站語系（2026-07-01 起四語）**：介面支援 `zh-TW`／`ja`／`en`／`ko`（韓語）。語系定義集中在 `web/src/lib/data.js` 的 `LOCALES` 與 `i18n`；每語一份 `pipeline/src/i18n/<code>.json`，四份 key 必須一致（新增字串要四份都補）。加語系＝新增一份 json＋在 `data.js` 註冊＋`web/public/js/lang.js` 加瀏覽器偵測。因網站為資料驅動、個體頁無敘述文，加語系只翻 UI 字串、不必翻 360+ 條目。韓語的設計取捨：**動物園名暫用英文**（`data/zoos.json` 已預留 `ko_name` 欄，補了即自動生效）、**個體名走羅馬拼音**、**回報表單維持三語**（下方表單章節；ko 自動 fallback 到三語表單）。
 
 **push 前驗證（單一關卡，2026-06-29 起）**：`bash tools/verify.sh` 會依序跑「更新 redpanda-lineage → `audit.py --strict` → `check_twins.py`」。已掛 `.git/hooks/pre-push`，**push 前自動跑、未通過即中止 push**。擋關原則符合資料來源原則：只有「真正的 wiki 整合性錯誤」會擋（`audit` 的 `rpf_id` 重複、`check_twins` 的 E 級——連錯隻／同生群生日差>±1天／群過大）；與 lineage 的「不符」、缺欄位、單邊缺父母等只列提示、**永不擋**。離線時自動略過 lineage 比對，wiki 自身檢查照跑。緊急要略過：`git push --no-verify`。注意 hook 在 `.git/hooks/` 內、**不進版控**，換機器需重裝（`verify.sh` 本身有進版控）。
 

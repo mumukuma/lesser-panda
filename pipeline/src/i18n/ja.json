@@ -101,5 +101,6 @@
   "sort_residents": "在園数",
   "sort_region": "地域",
   "show_more": "すべて表示",
-  "show_less": "折りたたむ"
+  "show_less": "折りたたむ",
+  "map_load_failed": "地図コンポーネントの読み込みに失敗しました"
 }

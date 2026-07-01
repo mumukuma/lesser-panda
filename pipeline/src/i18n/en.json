@@ -101,5 +101,6 @@
   "sort_residents": "Residents",
   "sort_region": "Region",
   "show_more": "Show all",
-  "show_less": "Show less"
+  "show_less": "Show less",
+  "map_load_failed": "Failed to load the map component"
 }

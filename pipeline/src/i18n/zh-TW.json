@@ -101,5 +101,6 @@
   "sort_residents": "居住數",
   "sort_region": "地區",
   "show_more": "顯示全部",
-  "show_less": "收合"
+  "show_less": "收合",
+  "map_load_failed": "地圖元件載入失敗"
 }

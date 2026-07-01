@@ -7,6 +7,7 @@
       var n = String(navs[i]).toLowerCase();
       if (n.indexOf('ja') === 0) return 'ja';
       if (n.indexOf('zh') === 0) return 'zh-TW';
+      if (n.indexOf('ko') === 0) return 'ko';
       if (n.indexOf('en') === 0) return 'en';
     }
     return null;

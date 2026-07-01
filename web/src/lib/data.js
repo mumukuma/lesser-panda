@@ -18,21 +18,25 @@ export const i18n = {
   'zh-TW': read('pipeline/src/i18n/zh-TW.json'),
   ja: read('pipeline/src/i18n/ja.json'),
   en: read('pipeline/src/i18n/en.json'),
+  ko: read('pipeline/src/i18n/ko.json'),
 };
 
 export const LOCALES = [
   { code: 'zh-TW', htmlLang: 'zh-Hant', dir: '', label: '中文' },
   { code: 'ja', htmlLang: 'ja', dir: 'ja/', label: '日本語' },
   { code: 'en', htmlLang: 'en', dir: 'en/', label: 'EN' },
+  { code: 'ko', htmlLang: 'ko', dir: 'ko/', label: '한국어' },
 ];
 
 const zooById = Object.fromEntries(zoos.map((z) => [z.id, z]));
-// 動物園名依語系：zh＝中文名→日文漢字→英文；ja＝日文→英文；en＝英文→日文
+// 動物園名依語系：zh＝中文名→日文漢字→英文；ja＝日文→英文；en＝英文→日文；
+// ko＝（暫無韓文名）英文→日文（多為日本園，日文名對韓語讀者亦易辨識）
 export const zooName = (id, raw, locale = 'zh-TW') => {
   const z = id && zooById[id] ? zooById[id] : null;
   if (!z) return raw || '';
   if (locale === 'ja') return z.ja_name || z.en_name || raw || '';
   if (locale === 'en') return z.en_name || z.ja_name || raw || '';
+  if (locale === 'ko') return z.ko_name || z.en_name || z.ja_name || raw || '';
   return z.name_zh || z.ja_name || z.en_name || raw || '';
 };
 
