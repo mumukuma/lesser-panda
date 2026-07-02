@@ -20,9 +20,10 @@ WIKI = os.path.join(ROOT, "wiki")
 
 CFLAG = {'Japan':('日本','🇯🇵'),'Taiwan':('台灣','🇹🇼'),'USA':('美國','🇺🇸'),'China':('中國','🇨🇳'),
  'Chile':('智利','🇨🇱'),'Canada':('加拿大','🇨🇦'),'South Korea':('韓國','🇰🇷'),'Australia':('澳洲','🇦🇺'),
- 'Netherlands':('荷蘭','🇳🇱'),'Indonesia':('印尼','🇮🇩'),'Thailand':('泰國','🇹🇭')}
+ 'Netherlands':('荷蘭','🇳🇱'),'Indonesia':('印尼','🇮🇩'),'Thailand':('泰國','🇹🇭'),
+ 'Argentina':('阿根廷','🇦🇷'),'Hong Kong':('香港','🇭🇰')}
 _COUNTRY_WORDS = ['日本','台灣','台湾','中國','中国','美國','美国','加拿大','韓國','韩国','大韓民國',
- '智利','澳洲','澳大利亞','荷蘭','印尼','英國','德國','法國','泰國','新加坡']
+ '智利','澳洲','澳大利亞','荷蘭','印尼','英國','德國','法國','泰國','新加坡','阿根廷','香港']
 _FLAG = re.compile(r"[\U0001F1E6-\U0001F1FF]")
 DATE_RANGE_RE = re.compile(
     r"(\d{4})(?:[/\-](\d{2})[/\-](\d{2}))?\s*[–—~〜-]+\s*"
@@ -205,7 +206,10 @@ def render_section(res, born, died):
         if rec:
             cl = CFLAG.get(rec.get("country"), ("", ""))
             locja = rec.get("location_ja") or ""
-            loc = " ".join(p for p in [cl[0], locja] if p)
+            if cl[0] and locja.startswith(cl[0]):
+                loc = locja  # location_ja 已含國名（如「香港南区黄竹坑」），不重複前綴
+            else:
+                loc = " ".join(p for p in [cl[0], locja] if p)
             if cl[1]:
                 loc = (loc + " " + cl[1]).strip()
         rows.append(f"| {period} | {r['zoo']}{flags} | {loc} |")

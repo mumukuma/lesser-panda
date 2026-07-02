@@ -5,6 +5,8 @@ born: 2012
 zoos:
   - Chiang Mai Zoo ( – 現在)
 tags: [male, thailand]
+instagram:
+  - https://www.instagram.com/p/DTh6Q0ziW9H/
 sources:
   - https://chiangmai.zoothailand.org/
 ---

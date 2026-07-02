@@ -2292,7 +2292,7 @@
 - https://redpandafinder.com/#profile/87 (Non，確認母為 Seina #89)
 - 系統性掃描（父/母 行 wikilink vs 子女表反向邊衝突偵測）
 
-**根因**：`build_db` 從兩處建親子邊——條目自身的 `父/母` 行，以及每筆「子女」表格的反向邊——兩者衝突時導出可能挑到錯的。另發現 `父/母` 行的「⚠️ 勿與 [[另一隻]] 混淆」消歧警語裡的 wikilink，會被 `first_wikilink` 誤抓成父母。
+**根因**：`build_db` 從兩處建親子邊——條目自身的 `父/母` 行，以及每筆「子女」表格的反向邊——兩者衝突時導出可能挑到錯的。另發現 `父/母` 行的「⚠️ 勿與 `[[另一隻]]` 混淆」消歧警語裡的 wikilink，會被 `first_wikilink` 誤抓成父母。
 
 **工具修正**：
 - `tools/build_db.py` — 新增 `parent_link()`，解析 `父/母` 行時先切掉「勿與／混淆／⚠️／注意同名」警語子句再取 wikilink；真正父母若為純文字（無條目）則回 None，不建錯邊。
@@ -2396,7 +2396,7 @@
 `build_db` 把括號內「非…」的 wikilink 當成同生群成員，誤建 fan-fan↔兩隻同名 Rin-Rin 的邊，傳遞閉包又把 `rin-rin-1992` 與 `rin-rin-1999`（不相干、相差 7 年）連在一起。
 
 **修正**：
-- `tools/build_db.py`：解析多胞胎行前，先去除含「非／⚠️」的括號註記與「(亦)非 [[X]]」片語裡的 wikilink，避免消歧義被當成成員。雙胞胎關係 133→130 組，fan-fan／rin-rin 誤連已清除。
+- `tools/build_db.py`：解析多胞胎行前，先去除含「非／⚠️」的括號註記與「(亦)非 `[[X]]`」片語裡的 wikilink，避免消歧義被當成成員。雙胞胎關係 133→130 組，fan-fan／rin-rin 誤連已清除。
 - 新增 `tools/check_twins.py`：直接讀 `wiki/*.md`（與 build_db 同一套解析）做只讀稽核——E1 同生群生日須一致（容差 ±1 天）、E2 同父同母、E3 群大小 2–4；W1 單邊缺父母、W2a 連到不存在條目、W2b 字面人數>群內已建檔人數。有 E 級錯誤回傳 1，僅警告回傳 0。
 - `rebuild.sh`：新增第 4 步跑 `check_twins`（警告不阻擋、錯誤才中止）。
 
@@ -2872,3 +2872,154 @@
 - `index.md` — 新增「Hanabi × Sou-Sou 子女」小節；條目總數更新為 466
 
 **備注**：性別依四隻手足頁的 sibling 敘述交叉推定——Miyabi、Rin 為 ♀，Sei、Ryuu 為 ♂。父母條目本已存在，故僅補雙向 wikilink。
+
+## [2026-07-02] fix | 讀者回報資料更正（居住史／轉園日；官方來源直採）
+
+依「回報資料更正」收件匣 4 筆有效回報（1 筆為重複），經官方來源查證後更正居住史與轉園日。均為官方一手來源，依 2026-07-01 授權直接採用。
+
+**來源**：
+- https://www.soumu.metro.tokyo.lg.jp/documents/d/soumu/2026ressapandaairi_pdf-1- （大島公園動物園 アイリ死亡公告，載明来園日 2009-03-27）
+- https://www.tokyo-zoo.net/topics/news/tama/8705_314_2003-04-18.html （東京ズーネット：ナナ 2003-04-23 往秋田大森山）
+- https://www.tokyo-zoo.net/topics/news/tama/8758_237_2002-11-29.html （ハナ 2002-11-29 往上野）
+- https://www.tokyo-zoo.net/topics/news/ueno/8737_269_2003-01-31.html （ハナ 2003-01-27 隨リンリン往墨西哥チャプルテペック）
+
+**更新條目**：
+- `airi-2006-06-20.md` — 大島公園動物園来園日由 2007-07-18 更正為 **2009-03-27**（官方死亡公告）；茶臼山居住期間隨之延至 2009-03-27
+- `nana-2001-07-13.md` — 多摩→秋田大森山轉園日由約略 2003 精確為 **2003-04-23**；生日 2001-07-13 亦經官方新聞確認，移除 🚧 待查證與 `unverified` 標籤
+- `hana-2001-07-13.md` — 補入中繼居住 **恩賜上野動物園**（2002-11-29 – 2003-01-27）；多摩→上野→チャプルテペック轉園日精確化；チャプルテペック抵達後現況仍不明、維持不標歿
+
+**未異動（僅確認、無需修改）**：
+- `nyan-nyan-2001-07-09.md` — 回報稱母朝朝、父陽陽，與現有 frontmatter 完全一致，無需更動（回報者所附來源為西山動物園家系圖，與本個體居住園（旭山／市川）不符，僅記備注）
+
+**重建**：`gen_residence` + `build_db` + `export_json`
+
+## [2026-07-02] add | 補建娘娘（Nyan-Nyan）雙親條目（讀者回報 BEDVNK4）
+
+讀者回報 `nyan-nyan-2001-07-09` 之母為朝朝（チャオチャオ）、父為陽陽（ヤンヤン），來源為西山動物園家系圖。經 RPF 交叉確認：兩隻皆生於鯖江市西山動物園、1993-04-22 移居旭川市旭山動物園並在該園繁殖娘娘一脈。原條目雖已於內文列出父母姓名，但因無對應條目、非 wikilink，網站顯示「父母不詳」；此次補建雙親條目並雙向連結，網站家系即可顯示父母。
+
+**來源**：
+- https://redpandafinder.com/#profile/598 (Chao-Chao 朝朝)
+- https://redpandafinder.com/#profile/822 (Yan-Yan 陽陽)
+- 西山動物園家系圖（讀者回報 BEDVNK4）
+
+**新增條目**：
+- `chao-chao-1991-06-18.md` — Chao-Chao 朝朝（RPF #598），♀，1991-06-18 生於鯖江市西山動物園、2013-07-30 歿🌈；娘娘之母
+- `yan-yan-1992-06-19.md` — Yan-Yan 陽陽（RPF #822），♂，1992-06-19 生於鯖江市西山動物園、2010-07-04 歿🌈；娘娘之父（⚠️ 同名多隻）
+
+**更新條目**：
+- `nyan-nyan-2001-07-09.md` — 父母純文字改為 `[[chao-chao-1991-06-18]]`／`[[yan-yan-1992-06-19]]` wikilink
+- `index.md` — 新增「曾祖父母（Nyan-Nyan 娘娘 的父母）」小節；條目總數更新為 468
+
+**重建**：`gen_residence` + `build_db` + `export_json`
+
+## [2026-07-02] hide | 暫時隱藏 5 筆幼逝（未滿一歲）條目
+
+依作者指示，將 5 筆「出生後未滿一歲即夭折」的條目**暫時隱藏、非刪除**：移入 `wiki/_hidden/` 子資料夾。因 `build_db.py`／`gen_residence.py` 均以 `wiki/*.md`（非遞迴）掃描，子資料夾內檔案自動排除於 DB、`pipeline/data/*.json` 與網站之外；原始 `.md` 完整保留於 repo，日後移回即復原。
+
+**隱藏條目（移入 `wiki/_hidden/`）**：
+- `baby-luna-2022-06-17.md` — Baby 赤ちゃん，存活 13 天（周南市徳山動物園）
+- `baby-kiku-2021-06-10.md` — Baby 赤ちゃん，存活 48 天（よこはま動物園ズーラシア）
+- `wu-tan-2018-06-21.md` — Wu-Tan ウータン，存活 38 天（京都市動物園）
+- `takeru-2015-07-29.md` — Takeru タケル，存活 141 天（静岡市立日本平動物園）
+- `tsubasa-2017-07-08.md` — Tsubasa つばさ，存活 208 天（熱川バナナワニ園）
+
+**連動更新**：
+- 30 個相關條目：將指向上述 5 隻的 `[[wikilink]]` 改為純文字（避免 Obsidian 斷連、網站家系少列該子女）
+- `index.md` — 移除該 5 列；條目總數 468 → 463（`_hidden/` 不計入）
+
+**備注**：`_hidden/` 內檔案若要一併從 Obsidian 檔案總管／搜尋隱藏，可於 Obsidian 設定 → 檔案與連結 → 排除的檔案 加入 `_hidden/`（未代改 `.obsidian/`）。重建：`build_db` + `export_json`（未跑 gen_residence，因無居住史異動）。
+
+## [2026-07-02] update | kodama/kagayaki 補註三胞胎第三隻已隱藏
+
+在 `kodama-2017-07-08.md`、`kagayaki-2017-07-08.md` 的「三胞胎」欄補一句說明：第三隻 Tsubasa 幼逝、條目暫存 `wiki/_hidden/`，故 check_twins 的「W2b：3 胞胎僅 2 隻」屬刻意隱藏、非漏連。純文字註記、不影響 DB/網站；check_twins 仍為 0 錯誤 2 警告（不阻擋）。
+
+## [2026-07-02] add | 新增香港海洋公園個體 Tai-Shan（泰山）
+
+依讀者提供的 RPF #930 建立條目。Tai-Shan（泰山）♂、styani、2008-06-14 生於成都大熊貓繁育研究基地，2009-03-22 移居香港海洋公園至今。RPF 家族頁標記 🚧、未收錄父母／雙胞胎／子女，故本次僅建主角一筆、無親屬補建。香港海洋公園原已登記於 `data/zoos.json`（本次順手補齊其 `zh`＝香港海洋公園、`location_ja`＝香港南区黄竹坑）。
+
+**來源**：
+- https://redpandafinder.com/#profile/930 (Tai-Shan 泰山)
+
+**新增條目**：
+- `tai-shan-2008-06-14.md` — Tai-Shan 泰山（RPF #930），♂，生於 2008-06-14（成都大熊貓繁育研究基地），現居香港海洋公園
+
+**更新條目**：
+- `data/zoos.json` — 補齊 Ocean Park Hong Kong 的 `zh`／`location_ja`／`location_en`
+- `index.md` — 新增「海外個體（香港）」小節；條目總數更新為 464
+
+**重建**：`gen_residence` + `build_db` + `export_json`
+
+## [2026-07-02] add | 新增心心（シンシン #801）及其母遊優、三胞胎優貴、½ 兄トクトク
+
+讀者提供多摩動物公園官方新聞稿（2008 交換、2009 移出）與 4travel 旅行記（官方轉載性質之目擊記錄），官方來源可直接採用；並與 redpanda-lineage 比對一致。`hei` 條目原「子女（母不詳）」三隻（#202/#452/#801）之母確認為遊優（#373）。
+
+**來源**：
+- https://redpandafinder.com/#profile/801 (Shin-Shin 心心)
+- https://redpandafinder.com/#profile/373 (You-You 遊優)
+- https://redpandafinder.com/#profile/452 (Yuuki 優貴)
+- https://redpandafinder.com/#profile/596 (Toku-Toku)
+- https://www.tokyo-zoo.net/topics/news/tama/7509_9215_2008-05-23.html （官方：徳山⇔多摩交換，載明母遊優、父平）
+- https://www.tokyo-zoo.net/topics/news/tama/6913_12692_2009-10-10.html （官方：2009-10-20 移ひらかたパーク）
+- https://4travel.jp/travelogue/10738421 （2012-12-11 ひらかた→宮崎、與スイカ對調）
+- https://4travel.jp/travelogue/10781265 （2013-04-07 歿）
+
+**新增條目**：
+- `shin-shin-2003-07-15.md` — Shin-Shin 心心 シンシン（RPF #801），♂🌈，生於 2003-07-15 徳山動物園，2008-05-28 移多摩（與コタロウ交換）、2009-10-20 移ひらかたパーク、2012-12-11 移宮崎市フェニックス自然動物園，2013-04-07 歿（9 歲）
+- `you-you-1994-07-04.md` — You-You 遊優 ユウユウ（RPF #373），♀🌈，生於 1994-07-04 ひらかたパーク，2000-02-14 移徳山，2011-07-12 歿；五子之母
+- `yuuki-2003-07-15.md` — Yuuki 優貴 ユーキ（RPF #452），♂🌈，`shin-shin` `kou-kou` 三胞胎，2005-07-08 移阿根廷 Buenos Aires Eco-Park，2019-07-01 歿
+- `toku-toku-2001-07-21.md` — Toku-Toku トクトク（RPF #596），♂🌈，`shuu-shuu` 雙胞胎（母遊優 × 父 Chou-Chou #886），2004-05-20 移池田動物園，2008-02-04 歿；Shun-Shun #597 之父
+
+**更新條目**：
+- `hei-1995-07-18.md` — 「子女（母不詳）」改為「與遊優所生三胞胎」並補 wikilink
+- `kou-kou-2003-07-15.md` — 母／父／三胞胎／`toku-toku` 補 wikilink
+- `shuu-shuu-2001-07-21.md` — 母／雙胞胎補 wikilink、補 ½ 弟三胞胎
+- `you-you-1997-06-20.md`、`you-you-2002-06-21.md` — 同名注意補 #373
+- `shin-shin-1986.md`、`shin-shin-2000-06-30.md`、`shin-shin-2010-06-24.md` — 同名注意補齊四隻互列
+- `yuuki-2013-07-04.md` — 新增同名注意（#452）
+- `index.md` — 新增「Shin-Shin 心心家族」段；條目總數更新為 468
+- `data/zoos.json` — Buenos Aires Eco-Park 補 `location_ja`＝布宜諾斯艾利斯（原為空白）
+- `tools/gen_residence.py` — CFLAG 補 Argentina 🇦🇷／Hong Kong 🇭🇰；`location_ja` 已含國名時不重複前綴（修 `tai-shan` 居住史「香港 香港南区黄竹坑」重複）
+
+**重建**：`gen_residence` + `build_db`（/tmp shim）+ `export_json`；`audit --strict`＝0 錯誤、`check_twins`＝0 錯誤 2 既知警告
+
+## [2026-07-02] add | 新增暢暢（Chuihowa 菊花 #206）及其 6 隻手足
+
+讀者提供 RPF profile 連結，建立 `yueshi-1999-07-08` × `ten-ten-1997-06-18` 之女 Chuihowa（菊花），並依 skill 補齊尚無條目的 6 隻手足。父母（遊優之外的月食 Yueshi、Ten-Ten）與 3 隻手足（Tashan、Xianchi、Shiryu）原已存在。父方半血緣手足之母為 Rishi（日食，Yueshi 雙胞胎）。多為移居海外之個體。
+
+**來源**：
+- https://redpandafinder.com/#profile/206 (Chuihowa 菊花)
+- https://redpandafinder.com/#profile/858 (Shaoen 小燕)
+- https://redpandafinder.com/#profile/353 (Rouge)
+- https://redpandafinder.com/#profile/354 (Tarrei 稲妻)
+- https://redpandafinder.com/#profile/356 (Shi-Ren 詩人)
+- https://redpandafinder.com/#profile/355 (Foa-Foa)
+- https://redpandafinder.com/#profile/405 (Shan-Tou)
+
+**新增條目**：
+- `chuihowa-2010-07-10.md` — Chuihowa 菊花 チュイホワ（RPF #206），♀，生於 2010-07-10，現居東北サファリパーク
+- `shaoen-2002-06-20.md` — Shaoen 小燕 シャオエン（RPF #858），♂🌈，2002-06-20 – 2008-12-31，`rouge` 雙胞胎；2008 移ソウル大公園動物園歿
+- `rouge-2002-06-20.md` — Rouge ルージュ／チャーファ（RPF #353），♀🌈，2002-06-20 – 2019-12-30，`shaoen` 雙胞胎；2004 移加拿大 Assiniboine Park Zoo
+- `tarrei-2002-07-01.md` — Tarrei 稲妻 ターレイ（RPF #354），♂🌈，2002-07-01 – 2021-12-20，`tashan` 雙胞胎；歷辛辛那提／Lincoln Park／Henry Vilas Zoo
+- `shi-ren-2004-06-29.md` — Shi-Ren 詩人 シーレン（RPF #356），♂，生於 2004-06-29，`foa-foa` 雙胞胎；現居那須ワールドモンキーパーク
+- `foa-foa-2004-06-29.md` — Foa-Foa ファーファ（RPF #355），♀🌈，2004-06-29 – 2022-07-29，`shi-ren` 雙胞胎；2008 移ソウル大公園動物園歿
+- `shan-tou-2005-05-10.md` — Shan-Tou シャントゥ／リーファ（RPF #405），♀🌈，2005-05-10 – 2015-11-12；2007 移 Red River Zoo（別名 Rifa，勿與 `rifa` 混淆）
+
+**更新條目**：
+- `yueshi-1999-07-08.md` — 子女表補 `tarrei`／`shi-ren`／`foa-foa`／`chuihowa` wikilink、父欄補 Ten-Ten
+- `rishi-1999-07-08.md` — 補子女 `shaoen`／`rouge`／`shan-tou` wikilink
+- `tashan-2002-07-01.md` — 雙胞胎 `tarrei` 及同父母／半血緣手足補 wikilink
+- `index.md` — 新增 7 筆；條目總數更新為 475
+
+**重建**：`gen_residence` + `build_db` + `export_json`
+
+## [2026-07-02] fix | 結構稽核修正：slug 消歧、log wikilink 清除
+
+專案結構稽核後修正三處明顯問題（不涉資料內容變更，僅命名／格式規範）。
+
+**更新條目**：
+- `hana.md` → `hana-2023.md` — 依「名字-生日」規則改名（born 2023）；補 `species: Ailurus fulgens`；內文與 `index.md` 的 `[[hana]]`／`[[hashi]]` 參照改為 `[[hana-2023]]`／`[[hashi-2022]]`；加「⚠️ 注意同名」提示（另有 `hana-2001-07-13`／`hana-2005-06-21`）
+- `hashi.md` → `hashi-2022.md` — 同上改名（born 2022）、補 `species`、修參照
+- `index.md` — 更新 `hana`／`hashi` 兩列 wikilink 為新 slug
+- `log.md` — 清除 3 處未包 backtick 的示意／記錄用 `[[...]]`（行 2295／2399／2987），避免污染 Obsidian graph
+
+**備註**：`shan-tou-2005-05-10` 原為 dangling link，本次稽核時該條目已存在（作者先前補齊 Chuihowa 家族批次），dangling 現為 0。
