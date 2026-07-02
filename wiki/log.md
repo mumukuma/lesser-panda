@@ -3023,3 +3023,50 @@
 - `log.md` — 清除 3 處未包 backtick 的示意／記錄用 `[[...]]`（行 2295／2399／2987），避免污染 Obsidian graph
 
 **備註**：`shan-tou-2005-05-10` 原為 dangling link，本次稽核時該條目已存在（作者先前補齊 Chuihowa 家族批次），dangling 現為 0。
+
+## [2026-07-02] update | 讀者回報：蘭々／光々歿日補入（RPF 佐證，待官方確認）
+
+Tally 資料更正表單 2 筆回報（回報者 `A`，2026-07-02），皆為過世回報、來源 Red Panda Finder。與 redpanda-lineage 核對一致，屬「補空白」（原歿日皆待查證），依保守原則補入並保留 🚧 待官方來源確認註記。
+
+**來源**：
+- Tally 回報 RWYqALJ／jeW8jkY（小熊貓資料回報收件匣）
+- https://redpandafinder.com/#profile/551 (Ran-Ran)
+- https://redpandafinder.com/#profile/549 (Kou-Kou)
+
+**更新條目**：
+- `ran-ran-1998-06-29.md` — 補 `died: 1999-07-20`（歿於多摩動物公園，得年 1 歲）；zoos 訖日、deceased tag、標題加 🌈；未見於多摩官方名單之待查證註記保留
+- `kou-kou-1997-06-20.md` — 補 `died: 2000-01-28`；居住史補 1999-12-03 移居釧路市動物園（lineage location.2），歿於釧路
+- `fu-fu-1997-06-20.md`／`nene-1993-07-11.md`／`ryu-ryu-1990.md`／`tan-tan-1998-06-29.md`／`index.md` — `ran-ran` 參照加 🌈；index 年份改 1998–1999
+
+**重建**：`gen_residence` + `build_db` + `export_json`
+
+## [2026-07-02] add | 圖鑑缺漏回報：Drusillas Park 一家（英國）＋搜尋別名補強
+
+處理「圖鑑缺漏」收件匣 5 筆回報。缺園回報 drusillas park（園已在註冊表，缺的是個體條目）：據 RPF 與 Drusillas 園方官網新聞稿建立 5 條目（官方來源可直採）。另 2 筆搜尋別名建議直接補入 frontmatter；1 筆網站功能建議記入 ROADMAP；佑佑（銀基動物王國）標保留待確認。
+
+**來源**：
+- https://redpandafinder.com/#profile/1169 (Mulan)
+- https://redpandafinder.com/#profile/1170 (Maja)
+- https://www.drusillas.co.uk/news/panda-pair-arrive-at-zoo-in-sussex （Tibao/Mulan 抵園）
+- https://www.drusillas.co.uk/news/new-year-brings-new-red-panda-to-the-zoo （Tibao 來歷）
+- https://www.drusillas.co.uk/news/red-pandas-babies-are-named-at-drusillas （Mya/Anmar 命名、父母）
+- https://www.drusillas.co.uk/red-panda-joins-pack （Maja 抵園）
+
+**新增條目**：
+- `mulan-2012-07-09.md` — Mulan ムーラン（RPF #1169），♀，生於 2012-07-09 Paignton Zoo，2013-03 移居 Drusillas Park；⚠️ 與 `mulan-2019-06-07`（東北サファリ）同名互註
+- `maja.md` — Maja マージャ（RPF #1170），♂，生日不詳，約 2020 自匈牙利抵 Drusillas Park（🚧 抵園年依 RPF 收錄時間推定）
+- `tibao-2011.md` — Tibao，♂，約 2011 生（依園方報導 18 個月大推算），2012-07 自法國 Asson Zoo 抵 Drusillas；Mya/Anmar 之父；後續去向待查證（zoos 暫留空）
+- `mya-2014-06-16.md` — Mya，♀，2014-06-16 生於 Drusillas（該園首胎），`mulan`×`tibao` 之女；去向待查證
+- `anmar-2014-06-16.md` — Anmar，♂，`mya` 雙胞胎；去向待查證
+
+**更新條目**：
+- `tian-2011.md` — japanese 補「ティエン」（讀者回報：八木山の天希望能以ティエン搜尋）
+- `himawari-2017-07-13.md` — japanese 補片假名「ヒマワリ」（讀者回報：多摩ヒマワリ原僅平假名可搜）
+- `mulan-2019-06-07.md` — 加 ⚠️ 注意同名（新增英國 Mulan）
+- `index.md` — 新增「海外個體（英國・Drusillas Park）」段落；條目總數更新為 480
+- `ROADMAP.md` — 願望池新增「動物園篩選納入曾居／已逝個體」（讀者回報，Aoi Ajisai）
+
+**保留待確認**：
+- 佑佑（銀基動物王國，河南鄭州）— 回報來源為 YouTube short（非官方）；媒體報導可佐證該園有小熊貓（佑佑、貝貝等 6 隻），但無生日／個體資料、園未登記註冊表，暫不建檔，待作者定奪
+
+**重建**：`gen_residence` + `build_db` + `export_json`

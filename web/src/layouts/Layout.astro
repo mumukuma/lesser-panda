@@ -19,6 +19,14 @@ const nav = [
   ['pandas', T.nav_search],
   ['zoos', T.nav_zoos],
 ];
+
+// Social sharing（OG / Twitter card）：圖與網址必須是絕對 URL（用 astro.config 的 site）
+const site = Astro.site?.href.replace(/\/$/, '') ?? 'https://ressapanda.com';
+const pageTitle = title ? `${title} | ${T.site_title}` : T.site_title;
+const canonicalUrl = site + url(cur.dir, relPath);
+const ogImage = `${site}${base}img/og.png`;
+// og:locale 要 ll_CC 格式（htmlLang 的 zh-Hant 不符）
+const ogLocale = { 'zh-TW': 'zh_TW', ja: 'ja_JP', en: 'en_US', ko: 'ko_KR' };
 ---
 <!doctype html>
 <html lang={cur.htmlLang}>
@@ -37,7 +45,25 @@ const nav = [
     </>
   )}
   <script is:inline>document.documentElement.classList.add('js');</script>
-  <title>{title ? `${title} | ${T.site_title}` : T.site_title}</title>
+  <title>{pageTitle}</title>
+  <meta name="description" content={T.site_subtitle} />
+  <link rel="canonical" href={canonicalUrl} />
+  <meta property="og:site_name" content={T.site_title} />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={T.site_subtitle} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content={ogLocale[locale] ?? cur.htmlLang.replace('-', '_')} />
+  {LOCALES.filter((l) => l.code !== locale).map((l) => (
+    <meta property="og:locale:alternate" content={ogLocale[l.code] ?? l.htmlLang.replace('-', '_')} />
+  ))}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={T.site_subtitle} />
+  <meta name="twitter:image" content={ogImage} />
   <meta name="theme-color" content="#b5552d" />
   <link rel="icon" href={`${base}icon.svg`} type="image/svg+xml" />
   <link rel="preload" as="font" type="font/woff2" href={`${base}fonts/fredoka-latin.woff2`} crossorigin />
