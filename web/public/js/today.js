@@ -20,7 +20,8 @@
   var rainbow = data.pandas.filter(function (p) { return md(p.died) === today; }).sort(byBorn);
 
   var bHtml = bdays.length ? bdays.map(function (p) {
-    var info = !p.died ? fill(T.today_turns, yr - (+p.born.slice(0, 4))) : p.born.slice(0, 4);
+    // 存疑個體（uv）不寫「滿 n 歲」（那等於宣稱在世），只列出生年
+    var info = !p.died && !p.uv ? fill(T.today_turns, yr - (+p.born.slice(0, 4))) : p.born.slice(0, 4);
     return chip(p, info);
   }).join('') : '<p class="text-ink-soft text-[.9rem] m-0">' + T.today_none_birthday + '</p>';
 

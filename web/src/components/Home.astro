@@ -5,12 +5,13 @@ import { pandaUrl, pageUrl } from '../lib/links.js';
 const { locale } = Astro.props;
 const T = i18n[locale];
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
-const alive = Object.values(pandas).filter((p) => !p.died).length;
+// 現存數排除存疑個體（unverified：死活/資料未經查證，不當作在世聲明）
+const alive = Object.values(pandas).filter((p) => !p.died && !p.unverified).length;
 const stats = [
   ['stat-individuals', Object.keys(pandas).length, T.stat_pandas, pageUrl(base, locale, 'pandas')],
   ['stat-alive', alive, T.stat_alive, pageUrl(base, locale, 'pandas') + '?alive=1'],
   ['stat-zoo', zoos.length, T.stat_zoos, pageUrl(base, locale, 'zoos')],
-  ['stat-family', family.parent_child.length, T.stat_edges, pageUrl(base, locale, 'pandas')],
+  ['stat-family', family.parent_child.length, T.stat_edges, pageUrl(base, locale, 'stats')],
 ];
 const featured = ['taofa', 'shiryu', 'franken', 'shin-fa', 'ako'].filter((s) => pandas[s]);
 const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';

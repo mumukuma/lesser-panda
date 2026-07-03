@@ -3162,3 +3162,14 @@ Tally 資料更正表單 2 筆回報（回報者 `A`，2026-07-02），皆為過
 **備注**：8 座相關美國動物園（Zoo Knoxville／Mill Mountain／Denver／Lincoln Children's／Franklin Park／Zoo Montana／Toledo／Charles Paddock／Chattanooga）皆已在 `data/zoos.json` 註冊，未新增園。10 隻半血緣手足暫未建檔。
 
 **重建**：`gen_residence` + `build_db` + `export_json`
+
+## [2026-07-03] update | 照片投稿：`chen-chen-2022-07-05` 補 1 筆 IG 連結
+
+作者直接提供（網友 `r.star.bao` 投稿），寫入 frontmatter `instagram:`，採含帳號完整形式（佔位卡可顯示 @署名）。
+
+**來源**：
+- https://www.instagram.com/r.star.bao/p/DaSqFy8AckC/
+
+**更新條目**：
+- `chen-chen-2022-07-05.md` — 茜茜（RPF #1370）`instagram:` +1（共 2 筆）
+- 重建 `redpanda.db` 與 `pipeline/data/*.json`

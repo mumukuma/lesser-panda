@@ -47,12 +47,13 @@ const sexTxt = p.sex === 'female' ? T.sex_f : p.sex === 'male' ? T.sex_m : T.sex
 // 於瀏覽器端依「當下日期」即時計算（見頁尾），避免靜態站的年齡凍結在最後一次部署日。
 // ageStr 仍算出建置期值當作無 JS 的 fallback，客戶端載入後會覆寫。
 const ageStr = (() => {
+  if (p.unverified && !p.died) return ''; // 存疑個體：推算年齡＝宣稱在世，不顯示
   if (!p.born || p.born.length < 10) return '';
   const end = p.died ? new Date(p.died) : new Date();
   const a = Math.floor((end - new Date(p.born)) / 31557600000);
   return a >= 0 ? `（${T.age_years.replace('{n}', a)}）` : '';
 })();
-const livingAge = !!p.born && p.born.length >= 10 && !p.died; // 在世且有完整生日才需即時
+const livingAge = !!p.born && p.born.length >= 10 && !p.died && !p.unverified; // 在世且有完整生日才需即時
 const bornCell = !p.born
   ? '-'
   : livingAge
@@ -83,6 +84,53 @@ const parentRow = (label, slug) => slug
   ? famRow(label, [slug])
   : `<li class="py-1 flex flex-col sm:flex-row sm:gap-2"><span class="sm:shrink-0 sm:min-w-[9em] text-ink-soft text-[.88rem]">${label}</span><span class="min-w-0 flex-1 text-ink-soft">${T.rel_unknown}</span></li>`;
 
+// ── 生涯時間軸（#16）：由 residences + 生卒組成比例段，建置期計算、零 JS。
+//    日期缺漏（start/end 為 null 或只有年份）盡力補：只有年份取年中、只有年月取月中；
+//    段落起訖缺值用前後段補；仍補不齊或順序矛盾就整條不畫（表格照舊，優雅退場）。
+const tlDate = (s) => {
+  if (!s) return null;
+  const v = /^\d{4}$/.test(s) ? s + '-07-01' : /^\d{4}-\d{2}$/.test(s) ? s + '-15' : s;
+  const d = new Date(v);
+  return isNaN(d) ? null : d;
+};
+const TL_COLORS = ['var(--rust)', 'var(--amber)', 'var(--leaf)', 'var(--male)', 'var(--rust-dark)', 'var(--leaf-deep)', 'var(--female)'];
+const tlDur = (ms) => {
+  const days = ms / 86400000;
+  const y = Math.floor(days / 365.25);
+  if (y >= 1) return T.tl_years.replace('{n}', y);
+  return T.tl_months.replace('{n}', Math.max(1, Math.round(days / 30.44)));
+};
+const tl = (() => {
+  const res = p.residences || [];
+  if (!res.length) return null;
+  const startD = tlDate(p.born) || tlDate(res[0].start);
+  const endD = p.died ? tlDate(p.died) : new Date();
+  if (!startD || !endD || endD - startD <= 0) return null;
+  // 同園同色（搬回舊居仍認得出）
+  const colorByZoo = {}; let ci = 0;
+  const colorOf = (r) => {
+    const key = r.zoo_id ?? r.zoo_raw ?? '?';
+    if (!(key in colorByZoo)) colorByZoo[key] = TL_COLORS[ci++ % TL_COLORS.length];
+    return colorByZoo[key];
+  };
+  const segs = [];
+  let cursor = startD;
+  for (let i = 0; i < res.length; i++) {
+    const r = res[i];
+    const s = tlDate(r.start) || cursor;
+    const e = tlDate(r.end) || (i === res.length - 1 ? endD : tlDate(res[i + 1].start));
+    if (!s || !e || e - s < 0) return null;
+    // 與上一段之間的空窗（>90 天才畫，避免日期取中造成的假縫隙）
+    if (s - cursor > 90 * 86400000) segs.push({ gap: true, ms: s - cursor });
+    segs.push({ r, ms: Math.max(e - s, 0), color: colorOf(r), dur: tlDur(e - s) });
+    cursor = e;
+  }
+  if (!segs.some((x) => !x.gap && x.ms > 0)) return null;
+  // 表格列（新→舊）要對回自己的顏色/時長：依 residence 物件對照
+  const byRes = new Map(segs.filter((x) => !x.gap).map((x) => [x.r, x]));
+  return { segs, byRes, endLabel: p.died ? `${p.died} ${T.deceased_mark}` : T.present };
+})();
+
 const H3 = 'font-display text-lg font-semibold mt-7 mb-2.5 border-l-4 border-amber pl-2.5';
 const CARD = 'card-soft p-[18px_20px]';
 const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem] border-0 cursor-pointer';
@@ -96,6 +144,10 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
   <div class="flex gap-3 items-baseline flex-wrap relative">
     <h1 class="font-display text-3xl font-semibold my-0.5">{primary}{p.died ? ' 🌈' : ''}</h1>
     {altNames.length > 0 && <span class="text-ink-soft text-[1.1rem]">{altNames.join(' · ')}</span>}
+    {p.unverified && (
+      <span class="inline-block text-[.78rem] px-2.5 py-0.5 rounded-full border-2 border-amber text-rust-dark font-medium self-center"
+        style="background: color-mix(in srgb, var(--amber) 15%, transparent);">🚧 {T.unverified_badge}</span>
+    )}
   </div>
   {aka.length > 0 && <p class="text-ink-soft text-[.95rem] mt-1 relative">{aka.join('、')}</p>}
   {igPosts.length > 0 && (
@@ -175,14 +227,35 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
   <>
     <h2 class={H3}>{T.sec_residences}</h2>
     <div class={`${CARD} reveal`}>
+      {tl && (
+        <div class="mb-4">
+          {/* 生涯比例條：每段寬度 ∝ 居住時長（flex-grow），小段保底 6px 仍看得見；同園同色 */}
+          <div class="flex items-baseline justify-between gap-2 text-[.78rem] text-ink-soft mb-1.5">
+            <span class="whitespace-nowrap">🐣 {p.born || (p.residences[0].start || '')}</span>
+            <span class="whitespace-nowrap">{tl.endLabel}</span>
+          </div>
+          <div class="flex w-full h-4 rounded-full overflow-hidden border border-line" role="img" aria-label={T.sec_residences}>
+            {tl.segs.map((seg) => seg.gap
+              ? <span style={`flex-grow:${seg.ms}`} class="opacity-0"></span>
+              : <span style={`flex-grow:${seg.ms};background:${seg.color};min-width:6px`}
+                      title={`${zooName(seg.r.zoo_id, seg.r.zoo_raw, locale)}（${seg.dur}）`}></span>)}
+          </div>
+        </div>
+      )}
       <table class="w-full text-[.93rem] scroll-x">
         <tr class="text-left text-ink-soft text-[.84rem]"><th class="p-2">{T.th_period}</th><th class="p-2">{T.th_zoo}</th></tr>
-        {[...p.residences].reverse().map((r) => (
-          <tr class="border-t border-line">
-            <td class="p-2 whitespace-nowrap">{r.start || '?'} ~ {r.end || T.present}</td>
-            <td class="p-2" set:html={r.zoo_id ? `<a class="text-rust hover:underline" href="${zoosHref}#zoo-${r.zoo_id}">${zooName(r.zoo_id, r.zoo_raw, locale)}</a>` : (r.zoo_raw || '')} />
-          </tr>
-        ))}
+        {[...p.residences].reverse().map((r) => {
+          const seg = tl?.byRes.get(r);
+          return (
+            <tr class="border-t border-line">
+              <td class="p-2 whitespace-nowrap">{r.start || '?'} ~ {r.end || T.present}{seg && <span class="text-ink-soft text-[.84rem]">（{seg.dur}）</span>}</td>
+              <td class="p-2">
+                {seg && <span class="inline-block w-2.5 h-2.5 rounded-full mr-1.5 align-middle" style={`background:${seg.color}`} aria-hidden="true"></span>}
+                <Fragment set:html={r.zoo_id ? `<a class="text-rust hover:underline" href="${zoosHref}#zoo-${r.zoo_id}">${zooName(r.zoo_id, r.zoo_raw, locale)}</a>` : (r.zoo_raw || '')} />
+              </td>
+            </tr>
+          );
+        })}
       </table>
     </div>
   </>

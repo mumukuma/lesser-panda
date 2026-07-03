@@ -38,7 +38,9 @@
     var sexCls = p.sex === 'female' ? 'bg-[#f7e3df] text-female' : p.sex === 'male' ? 'bg-[#dfeef2] text-male' : 'bg-cream text-rust-dark';
     var sexTxt = p.sex === 'female' ? '♀' : p.sex === 'male' ? '♂' : '?';
     var age = ageOf(p);
+    // 存疑個體不顯示推算年齡（等同宣稱在世），改標 🚧
     var life = p.died ? ((p.born || '?').slice(0, 4) + '-' + p.died.slice(0, 4) + ' 🌈')
+      : p.uv ? ((p.born || '?').slice(0, 4) + '- 🚧')
       : ((p.born || '?').slice(0, 4) + '-' + (age !== null ? '（' + age + '）' : ''));
     var alt = altOf(p);
     var photoBadge = p.ph ? '<span class="absolute top-2 right-2 inline-flex items-center gap-0.5 bg-cream text-rust rounded-full px-1.5 py-0.5 text-[.7rem] font-medium leading-none" aria-label="' + p.ph + ' ' + (T.sec_photos || '') + '">' +
@@ -80,7 +82,7 @@
     if (resetPage !== false) page = 1;
     var q = norm($('#f-q').value), zoo = zooSel.value, sex = $('#f-sex').value, aliveOnly = $('#f-alive').checked, photosOnly = $('#f-photos').checked;
     var filtered = pandas.filter(function (p) {
-      return (!q || p._hay.indexOf(q) >= 0) && (!zoo || p.zoo === zoo) && (!sex || p.sex === sex) && (!aliveOnly || !p.died) && (!photosOnly || p.ph > 0);
+      return (!q || p._hay.indexOf(q) >= 0) && (!zoo || p.zoo === zoo) && (!sex || p.sex === sex) && (!aliveOnly || (!p.died && !p.uv)) && (!photosOnly || p.ph > 0);
     });
     _sorted = sortList(filtered);
     $('#result-count').textContent = T.result_count.replace('{n}', _sorted.length);

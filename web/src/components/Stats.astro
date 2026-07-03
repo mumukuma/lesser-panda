@@ -1,0 +1,340 @@
+---
+/* 統計儀表板（#17）：全部由 pipeline/data 於建置期計算，純 HTML/CSS 長條圖、零 JS 零圖表庫。
+   顏色一律走主題 CSS 變數 → 深色模式自動成立。僅統計日期已知的個體（見頁尾註）。 */
+import { pandas, i18n, displayName, zooName } from '../lib/data.js';
+import { pandaUrl, pageUrl } from '../lib/links.js';
+
+const { locale } = Astro.props;
+const T = i18n[locale];
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+
+// 存疑個體（unverified）整頁不列入：資料未經查證，不當作在世或出生聲明
+const all = Object.values(pandas).filter((p) => !p.unverified);
+const living = all.filter((p) => !p.died);
+const now = new Date();
+
+// 日期工具：只有年份取年中、年月取月中（與個體頁時間軸同一套近似）
+const toDate = (s) => {
+  if (!s) return null;
+  const v = /^\d{4}$/.test(s) ? s + '-07-01' : /^\d{4}-\d{2}$/.test(s) ? s + '-15' : s;
+  const d = new Date(v);
+  return isNaN(d) ? null : d;
+};
+const yearsBetween = (a, b) => (b - a) / 31557600000;
+
+// ── 每年出生數 ─────────────────────────────────────────
+const byYear = {};
+for (const p of all) if (p.born) byYear[+p.born.slice(0, 4)] = (byYear[+p.born.slice(0, 4)] || 0) + 1;
+const yrs = Object.keys(byYear).map(Number);
+const yearSeries = [];
+for (let y = Math.min(...yrs); y <= Math.max(...yrs); y++) yearSeries.push([y, byYear[y] || 0]);
+const yearMax = Math.max(...yearSeries.map(([, n]) => n), 1);
+
+// ── 出生寶寶數最多的動物園（前 15 名）─────────────────────
+// 出生地＝第一段居住史的園（gen_residence 的 🐣 同一定義）
+const birthCount = new Map();
+for (const p of all) {
+  const r0 = (p.residences || [])[0];
+  if (!r0) continue;
+  const key = r0.zoo_id ?? (r0.zoo_raw || null);
+  if (key !== null) birthCount.set(key, (birthCount.get(key) || 0) + 1);
+}
+const birthRank = [...birthCount.entries()].sort((a, b) => b[1] - a[1]);
+const topBirth = birthRank.slice(0, 15);
+const restBirth = birthRank.slice(15).reduce((s, [, n]) => s + n, 0);
+const birthMax = Math.max(...topBirth.map(([, n]) => n), 1);
+
+// ── 各動物園現居頭數（前 15 名＋其他）───────────────────
+const zooCount = new Map();
+for (const p of living) {
+  const key = p.current_zoo ?? (p.current_zoo_raw || null);
+  if (key !== null) zooCount.set(key, (zooCount.get(key) || 0) + 1);
+}
+const zooRank = [...zooCount.entries()].sort((a, b) => b[1] - a[1]);
+const ZTOP = 15;
+const topZoos = zooRank.slice(0, ZTOP);
+const restZoos = zooRank.slice(ZTOP).reduce((s, [, n]) => s + n, 0);
+const zooMax = Math.max(...topZoos.map(([, n]) => n), 1);
+const zoosHref = pageUrl(base, locale, 'zoos');
+
+// ── 年齡分布（現存、性別已知；年齡以生日估算）──────────────
+const ageOf = (p) => {
+  const b = toDate(p.born);
+  return b ? Math.max(0, Math.floor(yearsBetween(b, now))) : null;
+};
+const BAND = 2;
+const bands = []; // [label, f, m]
+for (const p of living) {
+  if (p.sex !== 'female' && p.sex !== 'male') continue;
+  const a = ageOf(p);
+  if (a === null) continue;
+  const bi = Math.min(Math.floor(a / BAND), 10); // 20+ 併一格
+  while (bands.length <= bi) {
+    const lo = bands.length * BAND;
+    bands.push([bands.length >= 10 ? '20+' : `${lo}–${lo + BAND - 1}`, 0, 0]);
+  }
+  bands[bi][p.sex === 'female' ? 1 : 2]++;
+}
+const bandMax = Math.max(...bands.map(([, f, m]) => Math.max(f, m)), 1);
+
+// ── 長壽排行（年紀顯示到「N 歲 M 個月」）─────────────────
+const link = (p) =>
+  `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, p.urlId)}">${displayName(p, locale)}${p.died ? ' 🌈' : ''}</a>`;
+const ymStr = (a, b) => {
+  let y = b.getFullYear() - a.getFullYear();
+  let m = b.getMonth() - a.getMonth();
+  if (b.getDate() < a.getDate()) m--;
+  if (m < 0) { y--; m += 12; }
+  return T.age_ym.replace('{n}', y).replace('{m}', m);
+};
+const oldestLiving = living
+  .filter((p) => toDate(p.born))
+  .map((p) => [p, ymStr(toDate(p.born), now), now - toDate(p.born)])
+  .sort((a, b) => b[2] - a[2]).slice(0, 10);
+const longestLived = all
+  .filter((p) => p.died && toDate(p.born) && toDate(p.died))
+  .map((p) => [p, ymStr(toDate(p.born), toDate(p.died)), toDate(p.died) - toDate(p.born)])
+  .sort((a, b) => b[2] - a[2]).slice(0, 10);
+
+// ── 子女數排行（♀／♂ 各前 10；子女數含所有已收錄子女）──────
+const topParents = (sex) => all
+  .filter((p) => p.sex === sex && (p.children || []).length > 0)
+  .sort((a, b) => b.children.length - a.children.length)
+  .slice(0, 10);
+const topMothers = topParents('female');
+const topFathers = topParents('male');
+
+// ── 配對排行（同一對父母的子女數；父母任一方存疑則不列）────
+const pairCount = new Map();
+for (const p of all) {
+  if (!p.mother || !p.father) continue;
+  const m = pandas[p.mother], f = pandas[p.father];
+  if (!m || !f || m.unverified || f.unverified) continue;
+  const key = p.mother + '|' + p.father;
+  pairCount.set(key, (pairCount.get(key) || 0) + 1);
+}
+const topPairs = [...pairCount.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10)
+  .map(([k, n]) => { const [m, f] = k.split('|'); return { m: pandas[m], f: pandas[f], n }; });
+
+// ── 子孫王（只算 3 代以內：子女→孫→曾孫；存疑個體不計入數字）──
+//    不設上限的話永遠是資料庫最老的始祖奪冠，排行沒有鑑別度。
+const DESC_DEPTH = 3;
+const countDesc = (slug) => {
+  const seen = new Set();
+  const stack = (pandas[slug].children || []).map((s) => [s, 1]);
+  while (stack.length) {
+    const [s, d] = stack.pop();
+    if (seen.has(s)) continue;
+    seen.add(s);
+    if (d < DESC_DEPTH) stack.push(...(pandas[s].children || []).map((c) => [c, d + 1]));
+  }
+  let n = 0;
+  seen.forEach((s) => { if (!pandas[s].unverified) n++; });
+  return n;
+};
+const topDesc = all.map((p) => [p, countDesc(p.slug)]).filter(([, n]) => n > 0)
+  .sort((a, b) => b[1] - a[1]).slice(0, 10);
+
+// ── 摘要 ──────────────────────────────────────────────
+const livingAges = living.map(ageOf).filter((a) => a !== null);
+const avgAge = livingAges.length ? (livingAges.reduce((s, a) => s + a, 0) / livingAges.length).toFixed(1) : '-';
+const fCount = living.filter((p) => p.sex === 'female').length;
+const mCount = living.filter((p) => p.sex === 'male').length;
+const summary = [
+  [T.stat_pandas, all.length],
+  [T.stat_alive, living.length],
+  [T.stats_avg_age, avgAge],
+  ['♀ / ♂', `${fCount} / ${mCount}`],
+];
+
+const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';
+const CARD = 'card-soft p-[18px_20px]';
+const ageUnit = T.stats_age_unit;
+---
+<h1 class="font-display text-3xl font-semibold mt-6 mb-1">{T.nav_stats}</h1>
+<p class="text-ink-soft text-[.95rem] mb-5">{T.stats_intro}</p>
+
+<!-- 摘要徽章：沿用首頁 stat-card 風格 -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-5">
+  {summary.map(([l, n]) => (
+    <div class="stat-card py-4 px-2">
+      <div class="text-2xl sm:text-3xl font-display font-semibold text-rust leading-none">{n}</div>
+      <div class="text-[.82rem] text-ink-soft mt-1.5">{l}</div>
+    </div>
+  ))}
+</div>
+
+<!-- 出生寶寶數最多的動物園 -->
+<section class="reveal">
+  <h2 class={H2}>{T.stats_sec_birth_zoos} 🐣</h2>
+  <div class={CARD}>
+    {topBirth.map(([id, n], i) => (
+      <div class="flex items-center gap-2.5 py-1">
+        <span class="w-5 text-right text-ink-soft text-[.8rem] tabular-nums shrink-0">{i + 1}</span>
+        {typeof id === 'number'
+          ? <a class="w-[36%] sm:w-56 shrink-0 truncate text-[.88rem] text-rust no-underline hover:underline" href={`${zoosHref}#zoo-${id}`}>{zooName(id, null, locale)}</a>
+          : <span class="w-[36%] sm:w-56 shrink-0 truncate text-[.88rem]">{id}</span>}
+        <div class="flex-1 h-3.5 rounded-full bg-cream overflow-hidden">
+          <div class="h-full rounded-full" style={`width:${Math.max((n / birthMax) * 100, 3)}%;background:var(--rust)`}></div>
+        </div>
+        <span class="w-7 text-right text-[.85rem] tabular-nums">{n}</span>
+      </div>
+    ))}
+    {restBirth > 0 && (
+      <div class="flex items-center gap-2.5 py-1 text-ink-soft">
+        <span class="w-5 shrink-0"></span>
+        <span class="w-[36%] sm:w-56 shrink-0 truncate text-[.88rem]">{T.stats_zoos_other}（{birthRank.length - 15}）</span>
+        <div class="flex-1"></div>
+        <span class="w-7 text-right text-[.85rem] tabular-nums">{restBirth}</span>
+      </div>
+    )}
+  </div>
+</section>
+
+<!-- 各動物園現居頭數 -->
+<section class="reveal">
+  <h2 class={H2}>{T.stats_sec_zoos}</h2>
+  <div class={CARD}>
+    {topZoos.map(([id, n]) => (
+      <div class="flex items-center gap-2.5 py-1">
+        {typeof id === 'number'
+          ? <a class="w-[38%] sm:w-56 shrink-0 truncate text-[.88rem] text-rust no-underline hover:underline" href={`${zoosHref}#zoo-${id}`}>{zooName(id, null, locale)}</a>
+          : <span class="w-[38%] sm:w-56 shrink-0 truncate text-[.88rem]">{id}</span>}
+        <div class="flex-1 h-3.5 rounded-full bg-cream overflow-hidden">
+          <div class="h-full rounded-full bg-leaf" style={`width:${Math.max((n / zooMax) * 100, 3)}%;background:var(--leaf)`}></div>
+        </div>
+        <span class="w-7 text-right text-[.85rem] tabular-nums">{n}</span>
+      </div>
+    ))}
+    {restZoos > 0 && (
+      <div class="flex items-center gap-2.5 py-1 text-ink-soft">
+        <span class="w-[38%] sm:w-56 shrink-0 truncate text-[.88rem]">{T.stats_zoos_other}（{zooRank.length - ZTOP}）</span>
+        <div class="flex-1"></div>
+        <span class="w-7 text-right text-[.85rem] tabular-nums">{restZoos}</span>
+      </div>
+    )}
+  </div>
+</section>
+
+<!-- 每年出生數 -->
+<section class="reveal">
+  <h2 class={H2}>{T.stats_sec_years}</h2>
+  <div class={CARD}>
+    <div class="overflow-x-auto pb-1">
+      <div class="flex items-end gap-[3px]" style={`min-width:${yearSeries.length * 16}px`}>
+        {yearSeries.map(([y, n]) => (
+          <div class="flex-1 flex flex-col items-center" title={`${y}: ${n}`}>
+            <div class="w-full max-w-[13px] rounded-t bg-amber" style={`height:${Math.max(Math.round((n / yearMax) * 110), n ? 3 : 0)}px`}></div>
+            <span class="text-[.62rem] text-ink-soft mt-1 h-9" style="writing-mode:vertical-rl">{y % 5 === 0 ? y : ''}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 年齡分布（現存）：♀ 左 ♂ 右的金字塔 -->
+<section class="reveal">
+  <h2 class={H2}>{T.stats_sec_ages}</h2>
+  <div class={CARD}>
+    <div class="flex justify-between text-[.8rem] mb-1.5">
+      <span class="text-female font-medium">{T.sex_f}（{fCount}）</span>
+      <span class="text-male font-medium">{T.sex_m}（{mCount}）</span>
+    </div>
+    {[...bands].reverse().map(([label, f, m]) => (
+      <div class="flex items-center gap-1.5 py-[3px] text-[.78rem]">
+        <span class="w-6 text-right text-ink-soft tabular-nums">{f || ''}</span>
+        <div class="flex-1 flex justify-end">
+          <div class="h-3.5 rounded-l-full" style={`width:${(f / bandMax) * 100}%;background:var(--female);min-width:${f ? 3 : 0}px`}></div>
+        </div>
+        <span class="w-14 text-center text-ink-soft whitespace-nowrap shrink-0">{label} {ageUnit}</span>
+        <div class="flex-1">
+          <div class="h-3.5 rounded-r-full" style={`width:${(m / bandMax) * 100}%;background:var(--male);min-width:${m ? 3 : 0}px`}></div>
+        </div>
+        <span class="w-6 text-ink-soft tabular-nums">{m || ''}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- 長壽排行 -->
+<section class="reveal">
+  <h2 class={H2}>{T.stats_sec_longevity}</h2>
+  <div class="grid sm:grid-cols-2 gap-3">
+    {[[T.stats_oldest_living, oldestLiving], [T.stats_longest_lived, longestLived]].map(([title, list]) => (
+      <div class={CARD}>
+        <h3 class="font-display text-base mt-0 mb-2 font-semibold text-rust-dark">{title}</h3>
+        <ol class="list-none p-0 m-0">
+          {list.map(([p, a], i) => (
+            <li class="py-1 flex items-baseline gap-2 border-t border-line first:border-t-0 text-[.92rem]">
+              <span class="w-5 text-right text-ink-soft text-[.82rem] tabular-nums shrink-0">{i + 1}</span>
+              <span class="min-w-0 flex-1 truncate" set:html={link(p)} />
+              <span class="text-ink-soft text-[.85rem] whitespace-nowrap">{a}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- 子女數排行 -->
+<section class="reveal">
+  <h2 class={H2}>{T.stats_sec_children}</h2>
+  <div class="grid sm:grid-cols-2 gap-3">
+    {[[T.stats_top_mothers, topMothers, 'text-female'], [T.stats_top_fathers, topFathers, 'text-male']].map(([title, list, cls]) => (
+      <div class={CARD}>
+        <h3 class={`font-display text-base mt-0 mb-2 font-semibold ${cls}`}>{title}</h3>
+        <ol class="list-none p-0 m-0">
+          {list.map((p, i) => (
+            <li class="py-1 flex items-baseline gap-2 border-t border-line first:border-t-0 text-[.92rem]">
+              <span class="w-5 text-right text-ink-soft text-[.82rem] tabular-nums shrink-0">{i + 1}</span>
+              <span class="min-w-0 flex-1 truncate" set:html={link(p)} />
+              <span class="text-ink-soft text-[.85rem] whitespace-nowrap">{T.stats_kids_n.replace('{n}', p.children.length)}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- 配對排行 -->
+<section class="reveal">
+  <h2 class={H2}>{T.stats_sec_pairs}</h2>
+  <div class={CARD}>
+    <ol class="list-none p-0 m-0">
+      {topPairs.map(({ m, f, n }, i) => (
+        <li class="py-1 flex items-baseline gap-2 border-t border-line first:border-t-0 text-[.92rem]">
+          <span class="w-5 text-right text-ink-soft text-[.82rem] tabular-nums shrink-0">{i + 1}</span>
+          <span class="min-w-0 flex-1 truncate">
+            <span class="text-female">♀</span> <Fragment set:html={link(m)} />
+            <span class="text-ink-soft mx-1">×</span>
+            <span class="text-male">♂</span> <Fragment set:html={link(f)} />
+          </span>
+          <span class="text-ink-soft text-[.85rem] whitespace-nowrap">{T.stats_kids_n.replace('{n}', n)}</span>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- 子孫王排行 -->
+<section class="reveal">
+  <h2 class={H2}>{T.stats_sec_descendants}</h2>
+  <div class={CARD}>
+    <ol class="list-none p-0 m-0">
+      {topDesc.map(([p, n], i) => (
+        <li class="py-1 flex items-baseline gap-2 border-t border-line first:border-t-0 text-[.92rem]">
+          <span class="w-5 text-right text-ink-soft text-[.82rem] tabular-nums shrink-0">{i + 1}</span>
+          <span class={`shrink-0 ${p.sex === 'female' ? 'text-female' : p.sex === 'male' ? 'text-male' : 'text-ink-soft'}`}>{p.sex === 'female' ? '♀' : p.sex === 'male' ? '♂' : '?'}</span>
+          <span class="min-w-0 flex-1 truncate" set:html={link(p)} />
+          <span class="text-ink-soft text-[.85rem] whitespace-nowrap">{T.stats_desc_n.replace('{n}', n)}</span>
+        </li>
+      ))}
+    </ol>
+    <p class="text-ink-soft text-[.8rem] mt-2 mb-0">{T.stats_desc_note}</p>
+  </div>
+</section>
+
+<p class="text-ink-soft text-[.82rem] mt-6">{T.stats_note}</p>

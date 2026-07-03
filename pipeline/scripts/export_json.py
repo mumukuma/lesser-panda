@@ -199,6 +199,7 @@ def main():
 
     pandas = {}
     for r in conn.execute("SELECT * FROM pandas"):
+        tags = json.loads(r["tags"] or "[]")
         pandas[r["slug"]] = {
             "slug": r["slug"],
             "name": r["name"],
@@ -210,6 +211,8 @@ def main():
             "sex": r["sex"],
             "born": r["born"],
             "died": r["died"],
+            # 存疑個體（tags 含 unverified）：網站據此排除統計、現存篩選並顯示待查證標記
+            "unverified": "unverified" in tags,
             "species": r["species"],
             "rpf_id": r["rpf_id"],
             "rpf_url": r["rpf_url"],
