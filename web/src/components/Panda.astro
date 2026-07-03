@@ -24,7 +24,7 @@ const photoEmbedSrc = pfid
   ? `https://tally.so/embed/${pfid}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&panda=${encodeURIComponent(p.name)}&slug=${encodeURIComponent(p.slug)}&url=${encodeURIComponent(pageHref)}`
   : null;
 const altNames = [...new Set([p.name, p.japanese].filter(Boolean).filter((n) => n !== primary))];
-const aka = [...(p.nicknames || []), ...(p.english_variants || [])];
+const aka = [...new Set([...(p.nicknames || []), ...(p.english_variants || [])])].filter((n) => n !== primary && !altNames.includes(n));
 
 // IG 貼文：frontmatter 可寫「URL YYYY-MM-DD」，依貼文日期新到舊排序（無日期者排後）
 const igPosts = (p.instagram || []).map((s) => {
@@ -43,12 +43,21 @@ const IG_PAGE = 6;
 const igRest = igPosts.slice(IG_PAGE);
 const sexTxt = p.sex === 'female' ? T.sex_f : p.sex === 'male' ? T.sex_m : T.sex_unknown;
 
+// 年齡：已故者歲數固定，建置期算即可；在世者以 born 存進 data-attr，交由下方 inline script
+// 於瀏覽器端依「當下日期」即時計算（見頁尾），避免靜態站的年齡凍結在最後一次部署日。
+// ageStr 仍算出建置期值當作無 JS 的 fallback，客戶端載入後會覆寫。
 const ageStr = (() => {
   if (!p.born || p.born.length < 10) return '';
   const end = p.died ? new Date(p.died) : new Date();
   const a = Math.floor((end - new Date(p.born)) / 31557600000);
   return a >= 0 ? `（${T.age_years.replace('{n}', a)}）` : '';
 })();
+const livingAge = !!p.born && p.born.length >= 10 && !p.died; // 在世且有完整生日才需即時
+const bornCell = !p.born
+  ? '-'
+  : livingAge
+    ? `${p.born} <span class="age-live" data-born="${p.born}">${ageStr}</span>`
+    : `${p.born} ${ageStr}`;
 
 const zoosHref = pageUrl(base, locale, 'zoos');
 const curZoo = !p.died && (p.current_zoo || p.current_zoo_raw)
@@ -59,7 +68,7 @@ const curZoo = !p.died && (p.current_zoo || p.current_zoo_raw)
 
 const facts = [
   [T.field_sex, `<span class="inline-block text-[.76rem] px-2 py-px rounded-full ${p.sex === 'female' ? 'bg-[#f7e3df] text-female' : p.sex === 'male' ? 'bg-[#dfeef2] text-male' : 'bg-cream text-rust-dark'}">${sexTxt}</span>`],
-  [T.field_born, p.born ? `${p.born} ${ageStr}` : '-'],
+  [T.field_born, bornCell],
   p.died ? [T.field_died, `${p.died} ${T.deceased_mark}`] : null,
   [T.field_species, `<i>${p.species ? 'Ailurus fulgens ' + p.species : '-'}</i>`],
   curZoo ? [T.field_zoo, curZoo] : null,
@@ -109,6 +118,22 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
     </div>
   )}
 </div>
+{livingAge && (
+  <script is:inline define:vars={{ tmpl: T.age_years }}>
+    (function () {
+      var now = new Date();
+      document.querySelectorAll('.age-live[data-born]').forEach(function (el) {
+        var born = new Date(el.getAttribute('data-born'));
+        if (isNaN(born)) return;
+        // 完整歲數：以生日月/日是否已過來 -1，不用固定天數避免閏年誤差
+        var a = now.getFullYear() - born.getFullYear();
+        var m = now.getMonth() - born.getMonth();
+        if (m < 0 || (m === 0 && now.getDate() < born.getDate())) a--;
+        el.textContent = a >= 0 ? '（' + tmpl.replace('{n}', a) + '）' : '';
+      });
+    })();
+  </script>
+)}
 {reportEmbedSrc && (
   <script is:inline define:vars={{ src: reportEmbedSrc, title: T.report_error }}>
     (function () {
@@ -374,6 +399,8 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
     {igPosts.length === 0 && <h2 class={H3}>{T.sec_photos}</h2>}
     <div class="card-soft p-4 mt-3 text-center reveal">
       <p class="m-0 text-[.95rem] text-ink-soft" set:html={T.photos_cta.replace('{name}', `<span class="text-rust font-medium">${primary}</span>`)} />
+      <p class="mt-3 mb-0 mx-auto max-w-md text-[.82rem] font-semibold text-rust-dark rounded-input px-3 py-2 border-2 border-amber"
+        style="background: color-mix(in srgb, var(--amber) 15%, transparent);">{T.photos_consent}</p>
       <button type="button" id="photo-toggle" aria-expanded="false" aria-controls="photo-panel"
         class="pop mt-2.5 bg-rust text-white rounded-full px-4 py-2 text-[.9rem] border-0 cursor-pointer">📷 {T.photos_cta_btn}</button>
       <div id="photo-panel" hidden class="mt-3 text-left"></div>

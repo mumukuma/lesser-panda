@@ -9,9 +9,18 @@
   const PAGE = window.PAGE || window.BASE;
   const LOC = window.LOCALE;
   // d = [name, japanese, sex, bornYr, diedYr, kanji]
-  const nameByLoc = (d) => LOC === 'ja' ? (d[1] || d[0]) : LOC === 'zh-TW' ? (d[5] || d[0]) : d[0];
+  // japanese 可能是逗號並列的多個讀音（如「シャントゥ, リーファ」）；節點只顯示第一個，完整版進 <title>
+  // 分隔符：逗號／斜線／全形括號（讀音並列或注記），取第一段
+  const firstReading = (s) => s ? String(s).split(/[,、，/／（(]/)[0].trim() : s;
+  const jaShort = (d) => firstReading(d[1]);
+  const nameByLoc = (d) => LOC === 'ja' ? (jaShort(d) || d[0]) : LOC === 'zh-TW' ? (d[5] || d[0]) : d[0];
 
-  const NODE_W = 104, NODE_H = 40, GAP_X = 11, ROW_H = 86;
+  const NODE_W = 80, NODE_H = 52, GAP_X = 11, ROW_H = 84;
+  const INNER_W = NODE_W - 12;  // 文字可用寬度（左右各留 6px）
+  // 粗估字串像素寬：CJK／假名／emoji（codepoint > 0x2000）約一個字高，拉丁字約 0.58
+  const estTextW = (s, fs) => { let w = 0; for (const ch of String(s)) w += (ch.codePointAt(0) > 0x2000 ? fs : fs * 0.58); return w; };
+  // 只有量到超寬時才套 textLength，避免短名被拉開變形
+  const clampAttr = (s, fs) => estTextW(s, fs) > INNER_W ? ` textLength="${INNER_W}" lengthAdjust="spacingAndGlyphs"` : '';
   const unitW = NODE_W + GAP_X;
   let upDepth = 2, downDepth = 2, showHalf = false;
 
@@ -220,17 +229,28 @@
     const linkPath = (l) => l.twin
       ? `M${l.x1},${l.y1} L${l.x2},${l.y2}`
       : `M${l.x1},${l.y1} C${l.x1},${(l.y1 + l.y2) / 2} ${l.x2},${(l.y1 + l.y2) / 2} ${l.x2},${l.y2}`;
+    // 名字靠上對齊（跨卡基線一致）；單行時置中
+    const yByN = { 1: [30], 2: [19, 34], 3: [19, 33, 46] };
     const nodeSvg = (n) => {
       const d = G.nodes[n.slug];
       const cls = `tree-node ${d[2] === 'f' ? 'f' : d[2] === 'm' ? 'm' : ''} ${n.slug === CENTER ? 'center' : ''}`;
       const primary = nameByLoc(d);
-      const label = primary + (d[4] ? ' 🌈' : '');
-      const alt = [d[0], d[1]].find(x => x && x !== primary) || '';
-      const sub = (alt ? alt + ' ' : '') + (d[3] ? d[3] : '');
+      const alt = [d[0], jaShort(d)].find(x => x && x !== primary) || '';
+      const dead = d[4] ? ' 🌈' : '';
+      const yr = d[3] || '';
+      // 三行：名字／讀音／年份（🌈 放年份行；無年份時併回名字行）
+      const lines = [{ t: primary + (yr ? '' : dead), fs: 12, cls: '' }];
+      if (alt) lines.push({ t: alt, fs: 10, cls: 'sub' });
+      if (yr) lines.push({ t: yr + dead, fs: 9, cls: 'yr' });
+      const ys = yByN[lines.length];
+      // hover 顯示完整資訊（含被截掉的其餘讀音）
+      const full = [d[5], d[1], d[0]].filter(Boolean).filter((v, i, a) => a.indexOf(v) === i).join(' / ')
+        + (yr ? ' · ' + yr : '') + dead;
       return `<g class="${cls}" data-slug="${esc(n.slug)}" transform="translate(${n.x - NODE_W / 2},${n.y - NODE_H / 2})">
-        <rect width="${NODE_W}" height="${NODE_H}" rx="9"></rect>
-        <text x="${NODE_W / 2}" y="16" text-anchor="middle">${esc(label)}</text>
-        <text class="sub" x="${NODE_W / 2}" y="31" text-anchor="middle">${esc(sub)}</text></g>`;
+        <title>${esc(full)}</title>
+        <rect width="${NODE_W}" height="${NODE_H}" rx="10"></rect>` +
+        lines.map((ln, i) => `<text ${ln.cls ? `class="${ln.cls}" ` : ''}x="${NODE_W / 2}" y="${ys[i]}" text-anchor="middle"${clampAttr(ln.t, ln.fs)}>${esc(ln.t)}</text>`).join('') +
+        `</g>`;
     };
 
     worldW = width; worldH = height; focalX = centerX; focalY = centerY;

@@ -48,15 +48,16 @@
   "photos_more": "顯示更多照片",
   "photos_loading": "照片載入中…",
   "photos_cta": "想幫 {name} 補照片嗎？歡迎投稿你拍的、或同好公開的 Instagram 貼文連結。",
+  "photos_consent": "⚠️ 投稿非你本人拍攝的照片，請務必先取得原作者同意。",
   "photos_cta_btn": "投稿照片",
   "sec_tree": "互動家系圖",
   "sec_children": "子女",
   "th_period": "期間",
   "present": "現在",
   "th_zoo": "動物園",
-  "th_name": "姓名",
+  "th_name": "名字",
   "th_born_year": "出生年",
-  "th_other_parent": "另一方親本",
+  "th_other_parent": "另一方親代",
   "rel_mother": "母",
   "rel_father": "父",
   "rel_unknown": "不詳",
@@ -104,5 +105,6 @@
   "sort_region": "地區",
   "show_more": "顯示全部",
   "show_less": "收合",
-  "map_load_failed": "地圖元件載入失敗"
+  "map_load_failed": "地圖元件載入失敗",
+  "sort_kids": "子女數（多→少）"
 }

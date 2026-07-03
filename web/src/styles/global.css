@@ -245,6 +245,7 @@ body.home .forest-floor { display: block; }
 .tree-node.center rect { fill: var(--cream); stroke: var(--rust); stroke-width: 2; }
 .tree-node text { font-size: 12px; fill: var(--ink); }
 .tree-node .sub { font-size: 10px; fill: var(--ink-soft); }
+.tree-node .yr { font-size: 9px; fill: var(--ink-soft); opacity: .72; letter-spacing: .03em; }
 .tree-link { fill: none; stroke: #d7c5b0; stroke-width: 1.4; }
 :root[data-theme="dark"] .tree-link { stroke: #5a4a3c; }
 .tree-link.twin { stroke: var(--amber); stroke-dasharray: 4 3; }

@@ -2189,6 +2189,39 @@
 
 ---
 
+## [2026-07-03] update | 處理「回報資料更正」收件匣＋補繁繁生日
+
+**來源**：
+- https://www.tokyo-zoo.net/topics/news/tama/739_28260_2023-11-01.html （多摩動物公園官方公告，`sei` 移動）
+- https://www.zoo.gov.taipei/News_Content.aspx?n=BD065B2FA7782989&sms=72544237BBE4C5F6&s=E0159F1BC3487BED （臺北市立動物園新聞稿，`chen-chen` 抵臺）
+
+**更新條目**：
+- `sei-2019-07-02.md` — 依多摩官方公告修正轉園：Seoul 移居日 2023-11-23 → **2023-11-27**，並補上經多摩動物公園檢疫轉運（2023-11-22 – 11-27）之中繼；居住史由兩園改三園（埼玉こども → 多摩 → ソウル大公園）；`sources` 補官方連結
+- `chen-chen-2022-07-05.md` — 依臺北動物園新聞稿，抵臺日由年份 `2026` 精確為 **2026-03-16**（旭山 → 台北）；`sources` 補官方連結
+- `fan-fan-2023.md` → **改名 `fan-fan-2023-05-02.md`** — 作者提供繁繁生日 2023-05-02，`born`／`zoos` 起日／內文一併更新；`index.md`、`tian-tian-2024-06-23.md` 之 wikilink 同步改指新 slug
+- `shiryu-2007-06-26.md` — 補中文名「石榴」（`chinese: 石榴`、標題與名稱表）；回報來源雖為個人部落格，但中文名命名以作者為準，**經作者確認後採用**
+
+**備注**：多摩動物公園已登記於 `data/zoos.json`。繁繁生日、shiryu 中文名皆由作者直接確認，屬權威來源。
+
+---
+
+## [2026-07-03] fix | 清理別名重複＋修 build_db 空清單解析
+
+**問題**：個體頁「別名」欄（= `nicknames` + `english_variants`）出現重複，例如 `ran-fa-2018-06-02` 的 Ranfa／Ranhowa 同時列於兩欄。
+
+**更新條目（去除重複別名）**：
+- 跨欄重複：`ran-fa-2018-06-02`（Ranfa、Ranhowa 併入 `english_variants`，清空 `nicknames`）、`lemon-2013-07-07`／`mulan-2019-06-07`（暱稱 Milky／Princess Moomoo 保留於 `nicknames`，自 `english_variants` 移除）
+- 欄內重複：`nohana-2017-07-31`（`english_variants` Norin×2 → ×1）
+- 別名與本名／日文／漢字重複：`akatsuki`／`akebono`／`asahi`（移除暱稱 暁／曙／旭）、`ashitaba`／`monaka`（移除與本名相同的變體）、`ron-2005-06-23`（移除與日文漢字相同的 龍）
+
+**工具修正**：
+- `tools/build_db.py` `_parse_simple_yaml` — 空 inline 清單 `[]` 原被解析為 `[""]`（`"".split(",")` 之故），會在別名產生一個幽靈頓號；已修正為正確空清單，連帶清掉 `ron-ron-2002-06-28`、`shin-fa-2019-06-19`、`shiryu` 的空字串別名
+- `web/src/components/Panda.astro` — 別名渲染加上 `new Set` 去重並濾除與主名／別名相同者，防止日後再現
+
+**備注**：各條目內文「## 別名」表格原本即已分欄清楚、無重複，未更動。
+
+---
+
 ## [2026-06-28] add | 補建 Kurumi（クルミ #160）一脈缺漏條目
 
 **來源**：
@@ -3068,5 +3101,64 @@ Tally 資料更正表單 2 筆回報（回報者 `A`，2026-07-02），皆為過
 
 **保留待確認**：
 - 佑佑（銀基動物王國，河南鄭州）— 回報來源為 YouTube short（非官方）；媒體報導可佐證該園有小熊貓（佑佑、貝貝等 6 隻），但無生日／個體資料、園未登記註冊表，暫不建檔，待作者定奪
+
+**重建**：`gen_residence` + `build_db` + `export_json`
+
+---
+
+## [2026-07-03] add | 讀者回報補建 `kaguya`（多摩・上海生，官方來源查證）
+
+**來源**：
+- https://www.tokyo-zoo.net/topics/news/tama/5349_21451_2013-03-21.html （多摩動物公園官方訃報：性別・生日・上海生・野毛山來園・心不全歿）
+- https://www.hama-midorinokyokai.or.jp/zoo/nogeyama/details/post-1577.php （野毛山動物園官方部落格：2001 年上海一對「きんた・かぐや」來園）
+- 讀者回報（圖鑑缺漏收件匣，回報者：楊桃）
+
+**新增條目**：
+- `kaguya-2000-06-29.md` — Kaguya カグヤ／かぐや，♀🌈，生於 2000-06-29 上海動物園，2001 與 `kinta` 同批來日野毛山，2004-04-12 移多摩動物公園，2013-03-21 心不全歿（享年 12 歲 8 個月）；父母不詳、無 RPF
+
+**更新條目**：
+- `kinta-2000-06-08.md` — 家族欄補「同批來日」`kaguya` 交叉連結（2001 年一同自上海來野毛山）
+- `index.md` — 於 `kinta` 後新增 `kaguya` 一列；條目總數更新為 481
+
+**備注**：官方來源（多摩・野毛山）可直接採用；`kaguya` 與 `kinta` 為同批送來、外觀酷似，但親緣關係官方未載，暫不視為手足。
+
+**重建**：`gen_residence` + `build_db` + `export_json`
+
+---
+
+## [2026-07-03] add | 新增 `carson`（森林公園動物園，RPF #311）
+
+**來源**：
+- https://redpandafinder.com/#profile/311 (Carson)
+
+**新增條目**：
+- `carson-2014-07-01.md` — Carson カーソン（RPF #311），♂，Ailurus fulgens fulgens，生於 2014-07-01 Lincoln Children's Zoo，2016-02-17 起現居森林公園動物園（Woodland Park Zoo，西雅圖）；母 `sophia`🌈（#528）、父 `duli`（#526）、雙胞胎 `willa`🌈（#527）；另有 10 半血緣手足（僅內文列出，未建條目）；IG @carsontheredpanda
+
+**更新條目**：
+- `index.md` — 「海外個體（美國）」新增 `carson` 一列；條目總數更新為 482
+
+**備注**：依使用者要求僅補 Carson 本人。父母、雙胞胎與半手足多為北美個體、涉及數座尚未登記於 `data/zoos.json` 的美國動物園（如 Zoo Montana 已在、但 Denver／Mill Mountain／Zoo Knoxville／Franklin Park／Toledo／Charles Paddock／Chattanooga 等未登記），故暫以內文文字記錄，待需要時再建檔並登記園名。
+
+**重建**：`gen_residence` + `build_db` + `export_json`
+
+---
+
+## [2026-07-03] add | 補建 `carson` 的父母與雙胞胎（Lincoln Children's Zoo 一脈，RPF #526/#527/#528）
+
+**來源**：
+- https://redpandafinder.com/#profile/528 (Sophia，母)
+- https://redpandafinder.com/#profile/526 (Duli，父)
+- https://redpandafinder.com/#profile/527 (Willa，雙胞胎)
+
+**新增條目**：
+- `sophia-2002-06-20.md` — Sophia ソフィア（RPF #528），♀🌈，fulgens，2002-06-20 生於 Zoo Knoxville、2019-10-01 歿於 Lincoln Children's Zoo；`carson`・`willa` 之母、`duli` 配偶（Zoo Knoxville→Mill Mountain→Denver→Lincoln）
+- `duli-2011-07-05.md` — Duli ドゥリ（RPF #526），♂，fulgens，2011-07-05 生於 Franklin Park Zoo，現居 Zoo Montana；`carson`・`willa` 之父、`sophia` 配偶（Franklin Park→Lincoln→Zoo Montana）
+- `willa-2014-07-01.md` — Willa ウィラ（RPF #527），♀🌈，fulgens，2014-07-01 生於 Lincoln、2025-06-18 歿於 Chattanooga Zoo；`carson` 之雙胞胎姊妹（Lincoln→Toledo→Charles Paddock→Chattanooga）
+
+**更新條目**：
+- `carson-2014-07-01.md` — 父母・雙胞胎由純文字改為 `sophia`／`duli`／`willa` wiki 連結；備注更新（父母＋雙胞胎已建檔，10 半手足仍未建）
+- `index.md` — 「海外個體（美國）」新增「Carson 一家（Lincoln Children's Zoo 一脈）」子區塊（4 筆）；條目總數更新為 485
+
+**備注**：8 座相關美國動物園（Zoo Knoxville／Mill Mountain／Denver／Lincoln Children's／Franklin Park／Zoo Montana／Toledo／Charles Paddock／Chattanooga）皆已在 `data/zoos.json` 註冊，未新增園。10 隻半血緣手足暫未建檔。
 
 **重建**：`gen_residence` + `build_db` + `export_json`

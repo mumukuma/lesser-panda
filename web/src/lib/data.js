@@ -108,6 +108,7 @@ export const searchDataFor = (locale) => ({
     en: [...(p.english_variants || []), ...(p.nicknames || [])].join('|') || null,
     sex: p.sex, born: p.born, died: p.died,
     ph: (p.instagram || []).length || null,
+    kids: (p.children || []).length || null,
     zoo: !p.died ? zooName(p.current_zoo, p.current_zoo_raw, locale) || null : null,
   })),
 });

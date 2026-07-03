@@ -48,6 +48,7 @@
   "photos_more": "사진 더 보기",
   "photos_loading": "사진 불러오는 중…",
   "photos_cta": "{name}의 사진을 추가하고 싶으신가요? 본인 또는 팬들의 공개 Instagram 게시물 링크를 제출해 주세요.",
+  "photos_consent": "⚠️ 본인이 촬영하지 않은 사진을 제출할 경우, 반드시 원작자의 동의를 받아 주세요.",
   "photos_cta_btn": "사진 제출",
   "sec_tree": "인터랙티브 가계도",
   "sec_children": "자녀",
@@ -104,5 +105,6 @@
   "sort_region": "지역",
   "show_more": "전체 보기",
   "show_less": "접기",
-  "map_load_failed": "지도 컴포넌트를 불러오지 못했습니다"
+  "map_load_failed": "지도 컴포넌트를 불러오지 못했습니다",
+  "sort_kids": "자녀 많은 순"
 }

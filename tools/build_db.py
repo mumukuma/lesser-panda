@@ -61,10 +61,10 @@ def _parse_simple_yaml(yaml_text: str) -> dict:
         key = key.strip()
         rest = rest.strip()
 
-        # inline list: [a, b, c]
+        # inline list: [a, b, c]（空清單 [] 要解析為 []，不可變成 [""]）
         if rest.startswith("[") and rest.endswith("]"):
-            inner = rest[1:-1]
-            items = [s.strip().strip('"').strip("'") for s in inner.split(",")]
+            inner = rest[1:-1].strip()
+            items = [s.strip().strip('"').strip("'") for s in inner.split(",")] if inner else []
             result[key] = items
             i += 1
             continue

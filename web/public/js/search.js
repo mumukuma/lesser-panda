@@ -29,6 +29,7 @@
     else if (mode === 'born_new') arr.sort(function (a, b) { return (b.born || '').localeCompare(a.born || ''); });
     else if (mode === 'born_old') arr.sort(function (a, b) { return (a.born || '').localeCompare(b.born || ''); });
     else if (mode === 'photos') arr.sort(function (a, b) { return (b.ph || 0) - (a.ph || 0) || randKey(seed, a.slug) - randKey(seed, b.slug); });
+    else if (mode === 'kids') arr.sort(function (a, b) { return (b.kids || 0) - (a.kids || 0) || randKey(seed, a.slug) - randKey(seed, b.slug); });
     else arr.sort(function (a, b) { return randKey(seed, a.slug) - randKey(seed, b.slug); });
     return arr;
   }
