@@ -96,11 +96,29 @@ const longestLived = all
   .map((p) => [p, ymStr(toDate(p.born), toDate(p.died)), toDate(p.died) - toDate(p.born)])
   .sort((a, b) => b[2] - a[2]).slice(0, 10);
 
-// ── 子女數排行（♀／♂ 各前 10；子女數含所有已收錄子女）──────
-const topParents = (sex) => all
-  .filter((p) => p.sex === sex && (p.children || []).length > 0)
-  .sort((a, b) => b.children.length - a.children.length)
-  .slice(0, 10);
+// ── 排行截斷：取前 N 名，與第 N 名同數者一併列入（不讓並列被任意切掉），
+//    並給競賽式名次（同數同名次）。回傳 [item, rank] 陣列。
+const rankCut = (arr, n, val) => {
+  let cut = arr;
+  if (arr.length > n) {
+    const t = val(arr[n - 1]);
+    let i = n;
+    while (i < arr.length && val(arr[i]) === t) i++;
+    cut = arr.slice(0, i);
+  }
+  let prev, rank = 0;
+  return cut.map((x, i) => {
+    const v = val(x);
+    if (v !== prev) { rank = i + 1; prev = v; }
+    return [x, rank];
+  });
+};
+
+// ── 子女數排行（♀／♂ 各前 10 含並列；子女數含所有已收錄子女）──
+const topParents = (sex) => rankCut(
+  all.filter((p) => p.sex === sex && (p.children || []).length > 0)
+    .sort((a, b) => b.children.length - a.children.length || (a.born || '').localeCompare(b.born || '')),
+  10, (p) => p.children.length);
 const topMothers = topParents('female');
 const topFathers = topParents('male');
 
@@ -113,8 +131,11 @@ for (const p of all) {
   const key = p.mother + '|' + p.father;
   pairCount.set(key, (pairCount.get(key) || 0) + 1);
 }
-const topPairs = [...pairCount.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10)
-  .map(([k, n]) => { const [m, f] = k.split('|'); return { m: pandas[m], f: pandas[f], n }; });
+const topPairs = rankCut(
+  [...pairCount.entries()]
+    .map(([k, n]) => { const [m, f] = k.split('|'); return { m: pandas[m], f: pandas[f], n }; })
+    .sort((a, b) => b.n - a.n || (a.m.born || '').localeCompare(b.m.born || '')),
+  10, (x) => x.n);
 
 // ── 子孫王（只算 3 代以內：子女→孫→曾孫；存疑個體不計入數字）──
 //    不設上限的話永遠是資料庫最老的始祖奪冠，排行沒有鑑別度。
@@ -132,8 +153,10 @@ const countDesc = (slug) => {
   seen.forEach((s) => { if (!pandas[s].unverified) n++; });
   return n;
 };
-const topDesc = all.map((p) => [p, countDesc(p.slug)]).filter(([, n]) => n > 0)
-  .sort((a, b) => b[1] - a[1]).slice(0, 10);
+const topDesc = rankCut(
+  all.map((p) => [p, countDesc(p.slug)]).filter(([, n]) => n > 0)
+    .sort((a, b) => b[1] - a[1] || (a[0].born || '').localeCompare(b[0].born || '')),
+  10, ([, n]) => n);
 
 // ── 摘要 ──────────────────────────────────────────────
 const livingAges = living.map(ageOf).filter((a) => a !== null);
@@ -286,9 +309,9 @@ const ageUnit = T.stats_age_unit;
       <div class={CARD}>
         <h3 class={`font-display text-base mt-0 mb-2 font-semibold ${cls}`}>{title}</h3>
         <ol class="list-none p-0 m-0">
-          {list.map((p, i) => (
+          {list.map(([p, r]) => (
             <li class="py-1 flex items-baseline gap-2 border-t border-line first:border-t-0 text-[.92rem]">
-              <span class="w-5 text-right text-ink-soft text-[.82rem] tabular-nums shrink-0">{i + 1}</span>
+              <span class="w-5 text-right text-ink-soft text-[.82rem] tabular-nums shrink-0">{r}</span>
               <span class="min-w-0 flex-1 truncate" set:html={link(p)} />
               <span class="text-ink-soft text-[.85rem] whitespace-nowrap">{T.stats_kids_n.replace('{n}', p.children.length)}</span>
             </li>
@@ -304,9 +327,9 @@ const ageUnit = T.stats_age_unit;
   <h2 class={H2}>{T.stats_sec_pairs}</h2>
   <div class={CARD}>
     <ol class="list-none p-0 m-0">
-      {topPairs.map(({ m, f, n }, i) => (
+      {topPairs.map(([{ m, f, n }, r]) => (
         <li class="py-1 flex items-baseline gap-2 border-t border-line first:border-t-0 text-[.92rem]">
-          <span class="w-5 text-right text-ink-soft text-[.82rem] tabular-nums shrink-0">{i + 1}</span>
+          <span class="w-5 text-right text-ink-soft text-[.82rem] tabular-nums shrink-0">{r}</span>
           <span class="min-w-0 flex-1 truncate">
             <span class="text-female">♀</span> <Fragment set:html={link(m)} />
             <span class="text-ink-soft mx-1">×</span>
@@ -324,9 +347,9 @@ const ageUnit = T.stats_age_unit;
   <h2 class={H2}>{T.stats_sec_descendants}</h2>
   <div class={CARD}>
     <ol class="list-none p-0 m-0">
-      {topDesc.map(([p, n], i) => (
+      {topDesc.map(([[p, n], r]) => (
         <li class="py-1 flex items-baseline gap-2 border-t border-line first:border-t-0 text-[.92rem]">
-          <span class="w-5 text-right text-ink-soft text-[.82rem] tabular-nums shrink-0">{i + 1}</span>
+          <span class="w-5 text-right text-ink-soft text-[.82rem] tabular-nums shrink-0">{r}</span>
           <span class={`shrink-0 ${p.sex === 'female' ? 'text-female' : p.sex === 'male' ? 'text-male' : 'text-ink-soft'}`}>{p.sex === 'female' ? '♀' : p.sex === 'male' ? '♂' : '?'}</span>
           <span class="min-w-0 flex-1 truncate" set:html={link(p)} />
           <span class="text-ink-soft text-[.85rem] whitespace-nowrap">{T.stats_desc_n.replace('{n}', n)}</span>
