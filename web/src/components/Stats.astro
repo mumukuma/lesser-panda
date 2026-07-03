@@ -30,7 +30,25 @@ const yearSeries = [];
 for (let y = Math.min(...yrs); y <= Math.max(...yrs); y++) yearSeries.push([y, byYear[y] || 0]);
 const yearMax = Math.max(...yearSeries.map(([, n]) => n), 1);
 
-// ── 出生寶寶數最多的動物園（前 15 名）─────────────────────
+// ── 排行截斷：取前 N 名，與第 N 名同數者一併列入（不讓並列被任意切掉），
+//    並給競賽式名次（同數同名次）。回傳 [item, rank] 陣列。
+const rankCut = (arr, n, val) => {
+  let cut = arr;
+  if (arr.length > n) {
+    const t = val(arr[n - 1]);
+    let i = n;
+    while (i < arr.length && val(arr[i]) === t) i++;
+    cut = arr.slice(0, i);
+  }
+  let prev, rank = 0;
+  return cut.map((x, i) => {
+    const v = val(x);
+    if (v !== prev) { rank = i + 1; prev = v; }
+    return [x, rank];
+  });
+};
+
+// ── 出生寶寶數最多的動物園（前 15 名，同數並列一併列入）──────
 // 出生地＝第一段居住史的園（gen_residence 的 🐣 同一定義）
 const birthCount = new Map();
 for (const p of all) {
@@ -40,21 +58,20 @@ for (const p of all) {
   if (key !== null) birthCount.set(key, (birthCount.get(key) || 0) + 1);
 }
 const birthRank = [...birthCount.entries()].sort((a, b) => b[1] - a[1]);
-const topBirth = birthRank.slice(0, 15);
-const restBirth = birthRank.slice(15).reduce((s, [, n]) => s + n, 0);
-const birthMax = Math.max(...topBirth.map(([, n]) => n), 1);
+const topBirth = rankCut(birthRank, 15, ([, n]) => n);
+const restBirth = birthRank.slice(topBirth.length).reduce((s, [, n]) => s + n, 0);
+const birthMax = Math.max(...topBirth.map(([[, n]]) => n), 1);
 
-// ── 各動物園現居頭數（前 15 名＋其他）───────────────────
+// ── 各動物園現居頭數（前 15 名＋其他，同數並列一併列入）────
 const zooCount = new Map();
 for (const p of living) {
   const key = p.current_zoo ?? (p.current_zoo_raw || null);
   if (key !== null) zooCount.set(key, (zooCount.get(key) || 0) + 1);
 }
 const zooRank = [...zooCount.entries()].sort((a, b) => b[1] - a[1]);
-const ZTOP = 15;
-const topZoos = zooRank.slice(0, ZTOP);
-const restZoos = zooRank.slice(ZTOP).reduce((s, [, n]) => s + n, 0);
-const zooMax = Math.max(...topZoos.map(([, n]) => n), 1);
+const topZoos = rankCut(zooRank, 15, ([, n]) => n);
+const restZoos = zooRank.slice(topZoos.length).reduce((s, [, n]) => s + n, 0);
+const zooMax = Math.max(...topZoos.map(([[, n]]) => n), 1);
 const zoosHref = pageUrl(base, locale, 'zoos');
 
 // ── 年齡分布（現存、性別已知；年齡以生日估算）──────────────
@@ -95,24 +112,6 @@ const longestLived = all
   .filter((p) => p.died && toDate(p.born) && toDate(p.died))
   .map((p) => [p, ymStr(toDate(p.born), toDate(p.died)), toDate(p.died) - toDate(p.born)])
   .sort((a, b) => b[2] - a[2]).slice(0, 10);
-
-// ── 排行截斷：取前 N 名，與第 N 名同數者一併列入（不讓並列被任意切掉），
-//    並給競賽式名次（同數同名次）。回傳 [item, rank] 陣列。
-const rankCut = (arr, n, val) => {
-  let cut = arr;
-  if (arr.length > n) {
-    const t = val(arr[n - 1]);
-    let i = n;
-    while (i < arr.length && val(arr[i]) === t) i++;
-    cut = arr.slice(0, i);
-  }
-  let prev, rank = 0;
-  return cut.map((x, i) => {
-    const v = val(x);
-    if (v !== prev) { rank = i + 1; prev = v; }
-    return [x, rank];
-  });
-};
 
 // ── 子女數排行（♀／♂ 各前 10 含並列；子女數含所有已收錄子女）──
 const topParents = (sex) => rankCut(
@@ -191,9 +190,9 @@ const ageUnit = T.stats_age_unit;
 <section class="reveal">
   <h2 class={H2}>{T.stats_sec_birth_zoos} 🐣</h2>
   <div class={CARD}>
-    {topBirth.map(([id, n], i) => (
+    {topBirth.map(([[id, n], r]) => (
       <div class="flex items-center gap-2.5 py-1">
-        <span class="w-5 text-right text-ink-soft text-[.8rem] tabular-nums shrink-0">{i + 1}</span>
+        <span class="w-5 text-right text-ink-soft text-[.8rem] tabular-nums shrink-0">{r}</span>
         {typeof id === 'number'
           ? <a class="w-[36%] sm:w-56 shrink-0 truncate text-[.88rem] text-rust no-underline hover:underline" href={`${zoosHref}#zoo-${id}`}>{zooName(id, null, locale)}</a>
           : <span class="w-[36%] sm:w-56 shrink-0 truncate text-[.88rem]">{id}</span>}
@@ -206,7 +205,7 @@ const ageUnit = T.stats_age_unit;
     {restBirth > 0 && (
       <div class="flex items-center gap-2.5 py-1 text-ink-soft">
         <span class="w-5 shrink-0"></span>
-        <span class="w-[36%] sm:w-56 shrink-0 truncate text-[.88rem]">{T.stats_zoos_other}（{birthRank.length - 15}）</span>
+        <span class="w-[36%] sm:w-56 shrink-0 truncate text-[.88rem]">{T.stats_zoos_other}（{birthRank.length - topBirth.length}）</span>
         <div class="flex-1"></div>
         <span class="w-7 text-right text-[.85rem] tabular-nums">{restBirth}</span>
       </div>
@@ -218,7 +217,7 @@ const ageUnit = T.stats_age_unit;
 <section class="reveal">
   <h2 class={H2}>{T.stats_sec_zoos}</h2>
   <div class={CARD}>
-    {topZoos.map(([id, n]) => (
+    {topZoos.map(([[id, n]]) => (
       <div class="flex items-center gap-2.5 py-1">
         {typeof id === 'number'
           ? <a class="w-[38%] sm:w-56 shrink-0 truncate text-[.88rem] text-rust no-underline hover:underline" href={`${zoosHref}#zoo-${id}`}>{zooName(id, null, locale)}</a>
@@ -231,7 +230,7 @@ const ageUnit = T.stats_age_unit;
     ))}
     {restZoos > 0 && (
       <div class="flex items-center gap-2.5 py-1 text-ink-soft">
-        <span class="w-[38%] sm:w-56 shrink-0 truncate text-[.88rem]">{T.stats_zoos_other}（{zooRank.length - ZTOP}）</span>
+        <span class="w-[38%] sm:w-56 shrink-0 truncate text-[.88rem]">{T.stats_zoos_other}（{zooRank.length - topZoos.length}）</span>
         <div class="flex-1"></div>
         <span class="w-7 text-right text-[.85rem] tabular-nums">{restZoos}</span>
       </div>
