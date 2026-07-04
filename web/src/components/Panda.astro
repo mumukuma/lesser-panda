@@ -1,6 +1,6 @@
 ---
-import { pandas, i18n, displayName, zooName } from '../lib/data.js';
-import { pandaUrl, pageUrl } from '../lib/links.js';
+import { pandas, i18n, displayName, zooName, zooSlugById } from '../lib/data.js';
+import { pandaUrl, pageUrl, zooUrl } from '../lib/links.js';
 import { feedbackFormId, photoFormId } from '../lib/feedback.js';
 
 const { locale, slug } = Astro.props;
@@ -60,10 +60,9 @@ const bornCell = !p.born
     ? `${p.born} <span class="age-live" data-born="${p.born}">${ageStr}</span>`
     : `${p.born} ${ageStr}`;
 
-const zoosHref = pageUrl(base, locale, 'zoos');
 const curZoo = !p.died && (p.current_zoo || p.current_zoo_raw)
   ? (p.current_zoo
-      ? `<a class="text-rust hover:underline" href="${zoosHref}#zoo-${p.current_zoo}">${zooName(p.current_zoo, p.current_zoo_raw, locale)}</a>`
+      ? `<a class="text-rust hover:underline" href="${zooUrl(base, locale, zooSlugById[p.current_zoo])}">${zooName(p.current_zoo, p.current_zoo_raw, locale)}</a>`
       : p.current_zoo_raw)
   : null;
 
@@ -246,12 +245,15 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
         <tr class="text-left text-ink-soft text-[.84rem]"><th class="p-2">{T.th_period}</th><th class="p-2">{T.th_zoo}</th></tr>
         {[...p.residences].reverse().map((r) => {
           const seg = tl?.byRes.get(r);
+          {/* 訖日缺值：只有「最後一段居所且個體在世」才顯示現在，中途段（如轉園日不明）顯示 ? */}
+          const isLast = r === p.residences[p.residences.length - 1];
+          const endLabel = r.end || (isLast && !p.died ? T.present : '?');
           return (
             <tr class="border-t border-line">
-              <td class="p-2 whitespace-nowrap">{r.start || '?'} ~ {r.end || T.present}{seg && <span class="text-ink-soft text-[.84rem]">（{seg.dur}）</span>}</td>
+              <td class="p-2 whitespace-nowrap">{r.start || '?'} ~ {endLabel}{seg && <span class="text-ink-soft text-[.84rem]">（{seg.dur}）</span>}</td>
               <td class="p-2">
                 {seg && <span class="inline-block w-2.5 h-2.5 rounded-full mr-1.5 align-middle" style={`background:${seg.color}`} aria-hidden="true"></span>}
-                <Fragment set:html={r.zoo_id ? `<a class="text-rust hover:underline" href="${zoosHref}#zoo-${r.zoo_id}">${zooName(r.zoo_id, r.zoo_raw, locale)}</a>` : (r.zoo_raw || '')} />
+                <Fragment set:html={r.zoo_id ? `<a class="text-rust hover:underline" href="${zooUrl(base, locale, zooSlugById[r.zoo_id])}">${zooName(r.zoo_id, r.zoo_raw, locale)}</a>` : (r.zoo_raw || '')} />
               </td>
             </tr>
           );

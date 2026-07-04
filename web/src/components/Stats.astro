@@ -1,8 +1,8 @@
 ---
 /* 統計儀表板（#17）：全部由 pipeline/data 於建置期計算，純 HTML/CSS 長條圖、零 JS 零圖表庫。
    顏色一律走主題 CSS 變數 → 深色模式自動成立。僅統計日期已知的個體（見頁尾註）。 */
-import { pandas, i18n, displayName, zooName } from '../lib/data.js';
-import { pandaUrl, pageUrl } from '../lib/links.js';
+import { pandas, i18n, displayName, zooName, zooSlugById } from '../lib/data.js';
+import { pandaUrl, pageUrl, zooUrl } from '../lib/links.js';
 
 const { locale } = Astro.props;
 const T = i18n[locale];
@@ -194,7 +194,7 @@ const ageUnit = T.stats_age_unit;
       <div class="flex items-center gap-2.5 py-1">
         <span class="w-5 text-right text-ink-soft text-[.8rem] tabular-nums shrink-0">{r}</span>
         {typeof id === 'number'
-          ? <a class="w-[36%] sm:w-56 shrink-0 truncate text-[.88rem] text-rust no-underline hover:underline" href={`${zoosHref}#zoo-${id}`}>{zooName(id, null, locale)}</a>
+          ? <a class="w-[36%] sm:w-56 shrink-0 truncate text-[.88rem] text-rust no-underline hover:underline" href={zooUrl(base, locale, zooSlugById[id])}>{zooName(id, null, locale)}</a>
           : <span class="w-[36%] sm:w-56 shrink-0 truncate text-[.88rem]">{id}</span>}
         <div class="flex-1 h-3.5 rounded-full bg-cream overflow-hidden">
           <div class="h-full rounded-full" style={`width:${Math.max((n / birthMax) * 100, 3)}%;background:var(--rust)`}></div>
@@ -220,7 +220,7 @@ const ageUnit = T.stats_age_unit;
     {topZoos.map(([[id, n]]) => (
       <div class="flex items-center gap-2.5 py-1">
         {typeof id === 'number'
-          ? <a class="w-[38%] sm:w-56 shrink-0 truncate text-[.88rem] text-rust no-underline hover:underline" href={`${zoosHref}#zoo-${id}`}>{zooName(id, null, locale)}</a>
+          ? <a class="w-[38%] sm:w-56 shrink-0 truncate text-[.88rem] text-rust no-underline hover:underline" href={zooUrl(base, locale, zooSlugById[id])}>{zooName(id, null, locale)}</a>
           : <span class="w-[38%] sm:w-56 shrink-0 truncate text-[.88rem]">{id}</span>}
         <div class="flex-1 h-3.5 rounded-full bg-cream overflow-hidden">
           <div class="h-full rounded-full bg-leaf" style={`width:${Math.max((n / zooMax) * 100, 3)}%;background:var(--leaf)`}></div>

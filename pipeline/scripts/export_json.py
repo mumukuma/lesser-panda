@@ -228,7 +228,8 @@ def main():
 
     # 居住史 + 現居
     unmatched = {}
-    for r in conn.execute("SELECT * FROM residences ORDER BY slug, start_year, id"):
+    # 起年不明（start_year NULL，如「? – 2003-04-07」）以訖年代排，避免 NULL 被排到最前
+    for r in conn.execute("SELECT * FROM residences ORDER BY slug, COALESCE(start_year, end_year), id"):
         p = pandas.get(r["slug"])
         if not p:
             continue

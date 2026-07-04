@@ -25,7 +25,8 @@
     var m = L.marker([z.lat, z.lng]).addTo(map);
     m.bindPopup(
       (z.logo ? '<img src="' + z.logo + '" alt="" style="height:18px;vertical-align:-4px;margin-right:5px" onerror="this.style.display=\'none\'">' : '') +
-      '<strong>' + name + '</strong><br>' + window.T.zoo_residents + '：' + z.residents.length + '<br>' +
+      // 園名連到動物園個別頁（#18）：本頁固定在 <base><locale>/zoos/，相對路徑 ../z/<slug>/ 即可
+      '<strong><a href="../z/' + z.slug + '/">' + name + '</a></strong><br>' + window.T.zoo_residents + '：' + z.residents.length + '<br>' +
       '<a href="#zoo-' + z.id + '">↓</a> ・ <a href="https://www.google.com/maps/dir/?api=1&destination=' + z.lat + ',' + z.lng + '" target="_blank" rel="noopener">' + window.T.zoo_directions + '</a>'
     );
     byId[z.id] = { marker: m, zoo: z };

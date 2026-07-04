@@ -2,3 +2,4 @@
 export const localeDir = (locale) => (locale === 'zh-TW' ? '' : locale + '/');
 export const pageUrl = (base, locale, rp) => `${base}${localeDir(locale)}${rp ? rp + '/' : ''}`;
 export const pandaUrl = (base, locale, slug) => `${base}${localeDir(locale)}p/${slug}/`;
+export const zooUrl = (base, locale, slug) => `${base}${localeDir(locale)}z/${slug}/`;

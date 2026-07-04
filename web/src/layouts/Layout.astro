@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import { LOCALES, i18n } from '../lib/data.js';
 
-const { locale, relPath = '', active = '', title } = Astro.props;
+const { locale, relPath = '', active = '', title, ogImg } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');   // 確保結尾有 /
 // Google Analytics 4：建好資源後把下面換成你的 Measurement ID（G- 開頭）。
 // 只在 production build（pnpm build）載入，本機 dev 不送資料。
@@ -25,7 +25,8 @@ const nav = [
 const site = Astro.site?.href.replace(/\/$/, '') ?? 'https://ressapanda.com';
 const pageTitle = title ? `${title} | ${T.site_title}` : T.site_title;
 const canonicalUrl = site + url(cur.dir, relPath);
-const ogImage = `${site}${base}img/og.png`;
+// 個體頁可傳 ogImg（相對 base 的路徑，如 og/p/<slug>.png，#22 建置期生成）覆蓋全站共用卡
+const ogImage = `${site}${base}${ogImg || 'img/og.png'}`;
 // og:locale 要 ll_CC 格式（htmlLang 的 zh-Hant 不符）
 const ogLocale = { 'zh-TW': 'zh_TW', ja: 'ja_JP', en: 'en_US', ko: 'ko_KR' };
 ---

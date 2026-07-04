@@ -29,6 +29,16 @@ export const LOCALES = [
 ];
 
 const zooById = Object.fromEntries(zoos.map((z) => [z.id, z]));
+
+// ── 動物園頁 slug：en_name（缺則 ja_name，如 Safari Niagara）slugify；
+//    2026-07-04 驗證 112 園全數唯一。改英文名會變網址，屬已知取捨。──
+const zooSlugify = (s) => s.normalize('NFKD').replace(/[̀-ͯ]/g, '')
+  .toLowerCase().replace(/['().]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+for (const z of zoos) {
+  z.slug = zooSlugify(z.en_name || z.ja_name || '') || `zoo-${z.id}`;
+}
+export const zooBySlug = Object.fromEntries(zoos.map((z) => [z.slug, z]));
+export const zooSlugById = Object.fromEntries(zoos.map((z) => [z.id, z.slug]));
 // 動物園名依語系：zh＝中文名→日文漢字→英文；ja＝日文→英文；en＝英文→日文；
 // ko＝（暫無韓文名）英文→日文（多為日本園，日文名對韓語讀者亦易辨識）
 export const zooName = (id, raw, locale = 'zh-TW') => {

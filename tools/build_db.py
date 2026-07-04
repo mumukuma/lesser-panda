@@ -100,7 +100,7 @@ def first_wikilink(text: str) -> str | None:
 
 # 消歧警語標記：父/母 行常見「（⚠️ 勿與 [[另一隻]] 混淆）」。這些警語裡的
 # wikilink 不是父母本身，必須在抽取父母前切掉，否則 first_wikilink 會誤抓警語連結。
-WARNING_RE = re.compile(r"⚠|勿與|請勿與|不要與|混淆|注意同名")
+WARNING_RE = re.compile(r"⚠|勿與|請勿與|不要與|混淆|注意同名|不同個體")
 
 def parent_link(text: str) -> str | None:
     """從 父/母 行取真正的父母 slug：先切掉消歧警語子句再取第一個 wikilink。

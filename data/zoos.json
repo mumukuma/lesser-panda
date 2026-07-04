@@ -2493,19 +2493,23 @@
   "aliases": []
  },
  {
-  "canonical": "Guangzhou Zoo",
+  "canonical": "廣州動物園",
   "lineage_id": 297,
   "en": "Guangzhou Zoo",
-  "zh": null,
+  "zh": "广州动物园",
   "country": "China",
-  "location_ja": "Guangzhou, Guangdong, China",
-  "location_en": "Guangzhou, Guangdong, China",
+  "location_ja": "広東省広州市越秀区",
+  "location_en": "Yuexiu, Guangzhou, Guangdong, China",
   "lat": 23.1389748,
   "lng": 113.3008411,
   "map": "https://goo.gl/maps/b2Uh3e25cz1iz1eZ8",
-  "website": "https://www.gzzoo.com/service.aspx",
+  "website": "https://www.gzzoo.com/",
   "logo": null,
-  "aliases": []
+  "aliases": [
+   "Guangzhou Zoo",
+   "广州动物园",
+   "廣州動物園"
+  ]
  },
  {
   "canonical": "Görlitz Zoo",
@@ -2688,19 +2692,27 @@
   "aliases": []
  },
  {
-  "canonical": "Hongshan Forest Zoo",
+  "canonical": "南京市紅山森林動物園",
   "lineage_id": 302,
-  "en": "Hongshan Forest Zoo",
-  "zh": null,
+  "en": "Nanjing Hongshan Forest Zoo",
+  "zh": "南京市红山森林动物园",
   "country": "China",
-  "location_ja": "Xuanwu, Nanjing, China",
-  "location_en": "Xuanwu, Nanjing, China",
+  "location_ja": "江蘇省南京市玄武区",
+  "location_en": "Xuanwu, Nanjing, Jiangsu, China",
   "lat": 32.091625,
   "lng": 118.7998383,
   "map": "https://goo.gl/maps/WeoipsC5itJNqJQe7",
-  "website": "unknown",
+  "website": "https://www.njhszoo.com/",
   "logo": null,
-  "aliases": []
+  "aliases": [
+   "Hongshan Forest Zoo",
+   "Nanjing Hongshan Forest Zoo",
+   "南京市红山森林动物园",
+   "南京红山森林动物园",
+   "红山森林动物园",
+   "紅山森林動物園",
+   "南京紅山森林動物園"
+  ]
  },
  {
   "canonical": "Houston Zoo",
@@ -4491,19 +4503,26 @@
   "aliases": []
  },
  {
-  "canonical": "Zhongshan ZiMaLing Zoo",
+  "canonical": "中山市紫馬嶺動物園",
   "lineage_id": 300,
-  "en": "Zhongshan ZiMaLing Zoo",
-  "zh": null,
+  "en": "Zhongshan Zimaling Zoo",
+  "zh": "中山市紫马岭动物园",
   "country": "China",
-  "location_ja": "Zhongshan, Guangdong, China",
+  "location_ja": "広東省中山市東区",
   "location_en": "Zhongshan, Guangdong, China",
   "lat": 22.511414,
   "lng": 113.2659403,
   "map": "https://goo.gl/maps/N9RFTcYVp3tZp1R69",
-  "website": "unknown",
+  "website": null,
+  "wechat": "中山市紫马岭动物园",
   "logo": null,
-  "aliases": []
+  "aliases": [
+   "Zhongshan ZiMaLing Zoo",
+   "Zimaling Zoo",
+   "紫馬嶺動物園",
+   "紫马岭动物园",
+   "中山市紫马岭动物园"
+  ]
  },
  {
   "canonical": "Zlin Zoo",
@@ -4962,6 +4981,25 @@
   ]
  },
  {
+  "canonical": "上海野生動物園",
+  "lineage_id": null,
+  "en": "Shanghai Wild Animal Park",
+  "zh": "上海野生动物园",
+  "country": "China",
+  "location_ja": "上海市浦東新区",
+  "location_en": "Pudong, Shanghai, China",
+  "lat": 31.052,
+  "lng": 121.722,
+  "map": null,
+  "website": "https://www.swap-shendi.com/",
+  "logo": null,
+  "aliases": [
+   "Shanghai Wild Animal Park",
+   "上海野生动物园",
+   "上海野生動物園"
+  ]
+ },
+ {
   "canonical": "五月山動物園",
   "lineage_id": 171,
   "en": "Satsukiyama Zoo",
@@ -5237,6 +5275,25 @@
    "Zoológico de Chapultepec Alfonso L. Herrera",
    "查普爾特佩克動物園",
    "チャプルテペック動物園"
+  ]
+ },
+ {
+  "canonical": "宝塚ファミリーランド",
+  "lineage_id": null,
+  "en": "Takarazuka Familyland",
+  "zh": "寶塚家庭樂園",
+  "country": "Japan",
+  "location_ja": "兵庫県宝塚市",
+  "location_en": "Takarazuka, Hyogo Prefecture, Japan",
+  "lat": 34.8065,
+  "lng": 135.3415,
+  "map": null,
+  "website": null,
+  "logo": null,
+  "aliases": [
+   "Takarazuka Familyland",
+   "宝塚植物園",
+   "宝塚ファミリーランド動物園"
   ]
  }
 ]

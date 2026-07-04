@@ -73,6 +73,12 @@ def parse_table(body):
 
 
 def dates_from(datecell):
+    s = (datecell or "").strip()
+    # 「起不明、訖已知」：區間以破折號開頭（如「– 2003-04-07」「– 2001」），只解析訖端
+    m = re.match(r"^[–—~〜-]+\s*(\d{4})(?:[/\-](\d{2})[/\-](\d{2}))?\s*$", s)
+    if m:
+        ed = f"{m.group(1)}-{m.group(2)}-{m.group(3)}" if m.group(2) and m.group(3) else None
+        return (None, None, ed, int(m.group(1)))
     dm = DATE_RANGE_RE.search(datecell or "")
     if not dm:
         # 無範圍破折號：嘗試單一年份（如「2019」）
