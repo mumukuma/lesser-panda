@@ -163,11 +163,13 @@ body.home .forest-floor { display: block; }
   animation: walk-legs .42s steps(1, end) infinite;
 }
 /* 橫移＋面向「合併」成同一條動畫，避免兩條獨立動畫相位飄移造成倒退走。
-   sprite 預設朝右(scaleX 1)：去程(左→右)維持朝右，回程(右→左)翻成朝左(scaleX -1)，端點原地瞬間轉身。 */
+   sprite 預設朝右(scaleX 1)：去程(左→右)維持朝右，回程(右→左)翻成朝左(scaleX -1)，端點原地瞬間轉身。
+   右端點用 calc(97% - 54px) 而非 93%：窄螢幕（手機）下 93% + 身寬會超出 100vw，
+   造成 visual viewport 被瞬間縮放（整頁跳一下）；扣掉身位後任何寬度都不出界。 */
 @keyframes walk-track {
   0%    { left: 3%;  transform: scaleX(1); }
-  49.3% { left: 93%; transform: scaleX(1); }
-  50%   { left: 93%; transform: scaleX(-1); }
+  49.3% { left: calc(97% - 54px); transform: scaleX(1); }
+  50%   { left: calc(97% - 54px); transform: scaleX(-1); }
   99.3% { left: 3%;  transform: scaleX(-1); }
   100%  { left: 3%;  transform: scaleX(1); }
 }

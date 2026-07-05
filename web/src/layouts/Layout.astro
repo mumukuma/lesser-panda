@@ -28,7 +28,7 @@ const canonicalUrl = site + url(cur.dir, relPath);
 // 個體頁可傳 ogImg（相對 base 的路徑，如 og/p/<slug>.png，#22 建置期生成）覆蓋全站共用卡
 const ogImage = `${site}${base}${ogImg || 'img/og.png'}`;
 // og:locale 要 ll_CC 格式（htmlLang 的 zh-Hant 不符）
-const ogLocale = { 'zh-TW': 'zh_TW', ja: 'ja_JP', en: 'en_US', ko: 'ko_KR' };
+const ogLocale = { 'zh-TW': 'zh_TW', 'zh-CN': 'zh_CN', ja: 'ja_JP', en: 'en_US', ko: 'ko_KR' };
 ---
 <!doctype html>
 <html lang={cur.htmlLang}>

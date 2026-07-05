@@ -13,7 +13,8 @@
   // 分隔符：逗號／斜線／全形括號（讀音並列或注記），取第一段
   const firstReading = (s) => s ? String(s).split(/[,、，/／（(]/)[0].trim() : s;
   const jaShort = (d) => firstReading(d[1]);
-  const nameByLoc = (d) => LOC === 'ja' ? (jaShort(d) || d[0]) : LOC === 'zh-TW' ? (d[5] || d[0]) : d[0];
+  // 中文（繁／簡）都用 d[5]：zh-CN 的簡體已在建置時轉好（subGraph(slug, locale)）
+  const nameByLoc = (d) => LOC === 'ja' ? (jaShort(d) || d[0]) : LOC.indexOf('zh') === 0 ? (d[5] || d[0]) : d[0];
 
   const NODE_W = 80, NODE_H = 52, GAP_X = 11, ROW_H = 84;
   const INNER_W = NODE_W - 12;  // 文字可用寬度（左右各留 6px）

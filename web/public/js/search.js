@@ -4,7 +4,8 @@
   var data = window.SEARCH_DATA;
   if (!data) return;
   var pandas = data.pandas, PAGE = window.PAGE || window.BASE || '', loc = window.LOCALE, T = window.T;
-  var nameOf = function (p) { return loc === 'ja' ? (p.j || p.n) : loc === 'zh-TW' ? (p.k || p.n) : p.n; };
+  /* 中文（繁／簡）都用 p.k：zh-CN 的簡體已在建置時轉好（searchDataFor(locale)） */
+  var nameOf = function (p) { return loc === 'ja' ? (p.j || p.n) : loc.indexOf('zh') === 0 ? (p.k || p.n) : p.n; };
   // 顯示一個乾淨的副名：主名非英文時顯示英文，否則顯示日文名
   var altOf = function (p) { var pr = nameOf(p); return pr !== p.n ? p.n : (p.j || ''); };
 

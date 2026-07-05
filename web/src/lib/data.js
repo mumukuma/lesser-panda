@@ -2,6 +2,11 @@
    （與舊 build.mjs 邏輯一致，資料管線完全沿用） */
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import * as OpenCC from 'opencc-js';
+
+// 繁→簡轉換（zh-CN 語系用）：資料正本一律存繁體，簡體僅為建置時的顯示轉換。
+// 繁→簡幾乎一對一，方向安全；名字裡的日文假名／拉丁字母不受影響。
+const toHans = OpenCC.Converter({ from: 't', to: 'cn' });
 
 // 路徑相對於 astro build 的 cwd（web/）。CI 與本機皆從 web/ 執行，
 // ../pipeline/... 即 repo 的 pipeline 資料夾（Python 管線的輸出）。
@@ -16,6 +21,7 @@ export const contributors = read('data/contributors.json').contributors || [];
 
 export const i18n = {
   'zh-TW': read('pipeline/src/i18n/zh-TW.json'),
+  'zh-CN': read('pipeline/src/i18n/zh-CN.json'),
   ja: read('pipeline/src/i18n/ja.json'),
   en: read('pipeline/src/i18n/en.json'),
   ko: read('pipeline/src/i18n/ko.json'),
@@ -23,6 +29,7 @@ export const i18n = {
 
 export const LOCALES = [
   { code: 'zh-TW', htmlLang: 'zh-Hant', dir: '', label: '中文' },
+  { code: 'zh-CN', htmlLang: 'zh-Hans', dir: 'zh-CN/', label: '简体' },
   { code: 'ja', htmlLang: 'ja', dir: 'ja/', label: '日本語' },
   { code: 'en', htmlLang: 'en', dir: 'en/', label: 'EN' },
   { code: 'ko', htmlLang: 'ko', dir: 'ko/', label: '한국어' },
@@ -39,20 +46,29 @@ for (const z of zoos) {
 }
 export const zooBySlug = Object.fromEntries(zoos.map((z) => [z.slug, z]));
 export const zooSlugById = Object.fromEntries(zoos.map((z) => [z.id, z.slug]));
-// 動物園名依語系：zh＝中文名→日文漢字→英文；ja＝日文→英文；en＝英文→日文；
-// ko＝（暫無韓文名）英文→日文（多為日本園，日文名對韓語讀者亦易辨識）
+// 供前端內嵌資料（ZOOS_DATA）使用的簡體園名：建置時預轉，客戶端不用帶 OpenCC
+for (const z of zoos) {
+  const zh = z.name_zh || z.ja_name || z.en_name || '';
+  const hans = toHans(zh);
+  if (hans && hans !== zh) z.name_zh_hans = hans;
+}
+
+// 動物園名依語系：zh-TW＝中文名→日文漢字→英文；zh-CN＝同 zh-TW 再繁→簡；
+// ja＝日文→英文；en＝英文→日文；ko＝（暫無韓文名）英文→日文（多為日本園，日文名對韓語讀者亦易辨識）
 export const zooName = (id, raw, locale = 'zh-TW') => {
   const z = id && zooById[id] ? zooById[id] : null;
   if (!z) return raw || '';
   if (locale === 'ja') return z.ja_name || z.en_name || raw || '';
   if (locale === 'en') return z.en_name || z.ja_name || raw || '';
   if (locale === 'ko') return z.ko_name || z.en_name || z.ja_name || raw || '';
-  return z.name_zh || z.ja_name || z.en_name || raw || '';
+  const zh = z.name_zh || z.ja_name || z.en_name || raw || '';
+  return locale === 'zh-CN' ? toHans(zh) : zh;
 };
 
 export const displayName = (p, locale) =>
   locale === 'ja' ? p.japanese || p.name
     : locale === 'zh-TW' ? p.chinese || p.kanji || p.name
+    : locale === 'zh-CN' ? toHans(p.chinese || p.kanji || p.name)
     : p.name;
 
 // ── URL id：自 2026-06-18 起 slug 本身已是「名字-生日」(撞名再加媽媽名)，
@@ -91,7 +107,7 @@ const GRAPH = (() => {
   return { nodes, up, down, twins: family.twins };
 })();
 
-export function subGraph(slug) {
+export function subGraph(slug, locale = 'zh-TW') {
   const set = new Set([slug]);
   (function anc(s) { (GRAPH.up[s] || []).forEach((x) => { if (x && !set.has(x)) { set.add(x); anc(x); } }); })(slug);
   (function desc(s) { (GRAPH.down[s] || []).forEach((x) => { if (!set.has(x)) { set.add(x); desc(x); } }); })(slug);
@@ -105,7 +121,10 @@ export function subGraph(slug) {
   });
   const nodes = {}, up = {}, down = {};
   for (const s of set) {
-    nodes[s] = GRAPH.nodes[s];
+    // zh-CN：中文名（index 5）建置時轉簡體，其餘語系直接共用 GRAPH 節點
+    nodes[s] = locale === 'zh-CN' && GRAPH.nodes[s][5]
+      ? GRAPH.nodes[s].map((v, i) => (i === 5 ? toHans(v) : v))
+      : GRAPH.nodes[s];
     if (GRAPH.up[s]) up[s] = GRAPH.up[s].map((x) => (set.has(x) ? x : null));
     if (GRAPH.down[s]) down[s] = GRAPH.down[s].filter((x) => set.has(x));
   }
@@ -114,7 +133,8 @@ export function subGraph(slug) {
 
 export const searchDataFor = (locale) => ({
   pandas: Object.values(pandas).map((p) => ({
-    slug: p.slug, u: p.urlId, n: p.name, j: p.japanese, k: p.chinese || p.kanji,
+    slug: p.slug, u: p.urlId, n: p.name, j: p.japanese,
+    k: locale === 'zh-CN' ? toHans(p.chinese || p.kanji || '') || null : p.chinese || p.kanji,
     en: [...(p.english_variants || []), ...(p.nicknames || [])].join('|') || null,
     sex: p.sex, born: p.born, died: p.died,
     uv: p.unverified ? 1 : null,

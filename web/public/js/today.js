@@ -7,7 +7,8 @@
   var today = String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
   var yr = now.getFullYear();
   var md = function (s) { return s && s.length >= 10 ? s.slice(5, 10) : null; };
-  var nameOf = function (p) { return loc === 'ja' ? (p.j || p.n) : loc === 'zh-TW' ? (p.k || p.n) : p.n; };
+  /* 中文（繁／簡）都用 p.k：zh-CN 的簡體已在建置時轉好（searchDataFor(locale)） */
+  var nameOf = function (p) { return loc === 'ja' ? (p.j || p.n) : loc.indexOf('zh') === 0 ? (p.k || p.n) : p.n; };
   var esc = function (s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
   var fill = function (t, n) { return t.replace('{n}', n); };
   var chip = function (p, info) {

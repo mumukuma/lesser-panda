@@ -1,5 +1,5 @@
 /* 語言優先序：手動選擇（localStorage）> IP 國家（geo API，快取 7 天）> 瀏覽器語言。
-   國家對應：JP→ja、TW/HK/MO→zh-TW、KR→ko、其他→en；geo 查詢失敗才 fallback 瀏覽器語言。
+   國家對應：JP→ja、TW/HK/MO→zh-TW、CN→zh-CN、KR→ko、其他→en；geo 查詢失敗才 fallback 瀏覽器語言。
    URL 由頁面注入的 LANG_URLS 提供。 */
 (function () {
   var cur = window.LOCALE, urls = window.LANG_URLS || {};
@@ -9,6 +9,7 @@
     c = String(c || '').toUpperCase();
     if (c === 'JP') return 'ja';
     if (c === 'TW' || c === 'HK' || c === 'MO') return 'zh-TW';
+    if (c === 'CN') return 'zh-CN'; /* SG/MY 多語，仍走「其他→en」；瀏覽器語言 zh-sg/zh-my 才給 zh-CN */
     if (c === 'KR') return 'ko';
     return c ? 'en' : null;
   }
@@ -17,7 +18,10 @@
     for (var i = 0; i < navs.length; i++) {
       var n = String(navs[i]).toLowerCase();
       if (n.indexOf('ja') === 0) return 'ja';
-      if (n.indexOf('zh') === 0) return 'zh-TW';
+      /* 簡體地區碼／zh-Hans → zh-CN，其餘 zh 一律 zh-TW */
+      if (n.indexOf('zh') === 0) {
+        return (n === 'zh-cn' || n === 'zh-sg' || n === 'zh-my' || n.indexOf('zh-hans') === 0) ? 'zh-CN' : 'zh-TW';
+      }
       if (n.indexOf('ko') === 0) return 'ko';
       if (n.indexOf('en') === 0) return 'en';
     }

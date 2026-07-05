@@ -18,6 +18,8 @@
   var zname = function (z) {
     if (loc === 'ja') return z.ja_name || z.en_name;
     if (loc === 'en') return z.en_name || z.ja_name;
+    if (loc === 'ko') return z.ko_name || z.en_name || z.ja_name; /* 對齊 data.js zooName 的 ko 規則 */
+    if (loc === 'zh-CN') return z.name_zh_hans || z.name_zh || z.ja_name || z.en_name; /* 簡體已於建置時預轉 */
     return z.name_zh || z.ja_name || z.en_name;
   };
   zoos.forEach(function (z) {
