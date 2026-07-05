@@ -5295,5 +5295,25 @@
    "宝塚植物園",
    "宝塚ファミリーランド動物園"
   ]
+ },
+ {
+  "canonical": "柳州市動物園",
+  "lineage_id": null,
+  "en": "Liuzhou Zoo",
+  "zh": "柳州市动物园",
+  "country": "China",
+  "location_ja": "広西チワン族自治区柳州市柳南区",
+  "location_en": "Liunan, Liuzhou, Guangxi, China",
+  "lat": 24.26456,
+  "lng": 109.39997,
+  "map": "https://maps.app.goo.gl/eWdTCj59vftWdJfz9",
+  "website": null,
+  "logo": null,
+  "aliases": [
+   "Liuzhou Zoo",
+   "柳州动物园",
+   "柳州動物園",
+   "柳州市动物园"
+  ]
  }
 ]
