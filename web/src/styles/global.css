@@ -212,15 +212,20 @@ body.home .forest-floor { display: block; }
 .nav-link:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }
 .nav-link.active { background: color-mix(in srgb, var(--rust) 16%, transparent); color: var(--rust-dark); font-weight: 600; }
 
-/* 手機版下拉選單：漢堡開啟後，nav 換行佔滿寬度，加分隔線與輕微下滑動畫 */
+/* 手機版下拉選單：漢堡開啟後，nav 換行佔滿寬度、直向堆疊成清單列，
+   加分隔線與輕微下滑動畫。display:flex 必須在這裡明確給——
+   nav.js 只移除 .hidden，Tailwind 的 sm:flex 在手機不生效，
+   少了這條連結會水平流動，長標籤語系（en「Zoo Map」／zh「動物園地圖」）就跑版 */
 @media (max-width: 639px) {
   #site-nav:not(.hidden) {
+    display: flex;
+    flex-direction: column;
     margin-top: .375rem;
     padding-top: .5rem;
     border-top: 1px solid var(--line);
     animation: nav-drop .18s ease;
   }
-  #site-nav:not(.hidden) .nav-link { padding-top: .55rem; padding-bottom: .55rem; }
+  #site-nav:not(.hidden) .nav-link { padding-top: .625rem; padding-bottom: .625rem; }
 }
 @keyframes nav-drop { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { #site-nav:not(.hidden) { animation: none; } }

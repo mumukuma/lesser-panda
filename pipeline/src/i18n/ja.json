@@ -130,7 +130,7 @@
   "stats_sec_pairs": "ペアランキング",
   "stats_sec_descendants": "子孫の多さランキング",
   "stats_desc_n": "子孫{n}頭",
-  "stats_desc_note": "3世代以内（子・孫・ひ孫）の収録済み個体のみを数えています。",
+  "stats_desc_note": "2世代以内（子・孫）の収録済み個体のみを数えています。",
   "unverified_badge": "情報未確認",
   "tl_years": "{n} 年",
   "tl_months": "{n}ヶ月"

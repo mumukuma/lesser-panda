@@ -130,7 +130,7 @@
   "stats_sec_pairs": "配对排行",
   "stats_sec_descendants": "子孙王排行",
   "stats_desc_n": "{n} 只后代",
-  "stats_desc_note": "只计 3 代以内（子女、孙、曾孙）的已收录个体。",
+  "stats_desc_note": "只计 2 代以内（子女、孙）的已收录个体。",
   "unverified_badge": "存疑・待核实",
   "tl_years": "{n} 年",
   "tl_months": "{n} 个月"

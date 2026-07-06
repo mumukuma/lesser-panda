@@ -1964,14 +1964,12 @@
 | [[sophia-2002-06-20]] | Sophia ソフィア — Carson・Willa 之母 🌈（RPF #528）| ♀ | 2002–2019 🌈 | Lincoln Children's Zoo 🇺🇸 |
 | [[duli-2011-07-05]] | Duli ドゥリ — Carson・Willa 之父（RPF #526）| ♂ | 2011– | Zoo Montana 🇺🇸 |
 
-### Katara 一家（Roger Williams Park Zoo）
+### Zan × Kendji 一家（Roger Williams Park Zoo）
 
-[[zan-2020-05-25]] × [[kendji-2015-06-22]] 於羅德島 Roger Williams Park Zoo 育有雙胞胎 [[katara-2025-07-04]] 與 [[sokka-2025-07-04]]（2025-07-04 生，命名取自《降世神通》）。
+[[zan-2020-05-25]] × [[kendji-2015-06-22]] 於羅德島 Roger Williams Park Zoo 育有雙胞胎 Katara 與 Sokka（2025-07-04 生，命名取自《降世神通》；兩隻資料未經核實，暫隱藏）。
 
 | 條目 | 說明 | 性別 | 生卒 | 動物園 |
 |------|------|------|------|--------|
-| [[katara-2025-07-04]] | Katara — 2026 春依 SSP 移居新園（地點待官方公布）🚧 | ♀ | 2025– | 待公布 🇺🇸 |
-| [[sokka-2025-07-04]] | Sokka — Katara 雙胞胎；預定 2026 秋移居 🚧 | ？ | 2025– | Roger Williams Park Zoo 🇺🇸 |
 | [[zan-2020-05-25]] | Zan — Katara・Sokka 之母（RPF #1171） | ♀ | 2020– | Roger Williams Park Zoo 🇺🇸 |
 | [[kendji-2015-06-22]] | Kendji — Katara・Sokka 之父（RPF #433） | ♂ | 2015– | Roger Williams Park Zoo 🇺🇸 |
 

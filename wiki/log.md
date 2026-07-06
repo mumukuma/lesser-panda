@@ -3657,3 +3657,37 @@ photo-inbox-audit 比對收件匣 11 筆新投稿：9 筆 wiki 已有（僅待�
 - `zhong-xia-2025-07-17.md`、`meng-xia-2025-07-17.md`、`xia-wa.md` — 補來源與 📝 佐證說明
 
 **重建**：`build_db`（/tmp shim）+ `export_json`；audit --strict、check_twins
+
+## [2026-07-06] update | 致謝名單補 Ariel、nn；處理流程加「補致謝」固定步驟
+
+本批已採用回報中留名者：楊桃、Aoi Ajisai、Mikeson（已在名單）；新增 Ariel（希希更正＋二寶/囡囡/聰聰）、nn（紅山仲夏/孟夏）至 `data/contributors.json`。`CLAUDE.md` 回報處理流程末尾新增固定最後一步：採用回報後檢查留名者是否已列致謝名單。
+
+**更新條目**：
+- `data/contributors.json` — +2（Ariel、nn）
+- `CLAUDE.md` — 處理流程補「最後一步：補致謝名單」
+
+## [2026-07-06] update | 囡囡補性別（雌）
+
+依作者指正，`nan-nan-2024-07-02`（囡囡）為雌性。frontmatter `sex: female`、tags 加 `female`、引言標 ♀，並自 🚧 待查證移除「性別」（父母、正式名仍待查證）。
+
+**更新條目**：
+- `nan-nan-2024-07-02.md` — 補 sex: female
+
+**重建**：`build_db`（/tmp shim）+ `export_json`
+
+## [2026-07-06] hide | 隱藏 Katara（Roger Williams Park Zoo）
+
+依作者指示，`katara-2025-07-04`（Katara，Roger Williams Park Zoo 雙胞胎之一）資料未經核實，先隱藏（非刪除）：移至 `wiki/_hidden/`，退出 DB／`pipeline/data`／網站；原檔保留於 repo，需要時移回即復原。移居 Toledo Zoo 一說僅來自 2026-07-05 讀者回報、無官方公布，原本即標 🚧 未寫入居住史，未經查證。雙胞胎 `sokka-2025-07-04` 與父母 `zan`／`kendji` 保留。
+
+**更新條目**：
+- 移至 `_hidden/`：`katara-2025-07-04.md`
+- 去除指向 katara 的 `[[wikilink]]`（改純文字 Katara）：`zan-2020-05-25.md`、`sokka-2025-07-04.md`、`kendji-2015-06-22.md`、`index.md`
+- `index.md` — 移除 Katara 列，區塊改名「Sokka 一家」
+
+**重建**：`build_db` + `export_json`（已驗證 pandas.json／family.json 不含 katara）
+
+## [2026-07-06] hide | 隱藏 Sokka（Roger Williams Park Zoo）
+
+依作者指示，一併隱藏雙胞胎另一隻 `sokka-2025-07-04`（同批未經核實資料）。移至 `wiki/_hidden/`，退出 DB／`pipeline/data`／網站；原檔保留。去除指向 sokka 的 `[[wikilink]]`（改純文字 Sokka）：`zan-2020-05-25.md`、`kendji-2015-06-22.md`、`index.md`。index 區塊改名「Zan × Kendji 一家」、移除 Sokka 列並註明兩隻雙胞胎資料未核實暫隱藏。父母 `zan`／`kendji` 保留。
+
+**重建**：`build_db` + `export_json`（已驗證 pandas.json／family.json 不含 katara／sokka；條目數 → 531）

@@ -87,10 +87,12 @@ const ogLocale = { 'zh-TW': 'zh_TW', 'zh-CN': 'zh_CN', ja: 'ja_JP', en: 'en_US',
 
   <header class="site-header" id="site-header">
     <div class="max-w-4xl mx-auto px-4 py-2.5 sm:py-3 flex items-center gap-x-2 gap-y-1.5 flex-wrap sm:flex-nowrap">
-      <a href={page} class="brand order-1 font-display font-semibold text-base sm:text-xl no-underline flex items-center gap-2 tracking-wide min-w-0">
-        <img src={`${base}icon.svg`} alt="" width="29" height="30" class="anim-bob inline-block" /> {T.site_title}
+      <!-- brand 給 flex-1 + min-w-0：標題過長（如英文 Red Panda Encyclopedia）時
+           在自己的格子內縮小換行，不會把右側按鈕擠到第二行（解多語系手機版跑版） -->
+      <a href={page} class="brand order-1 flex-1 font-display font-semibold text-base sm:text-xl no-underline flex items-center gap-2 tracking-wide min-w-0 leading-tight">
+        <img src={`${base}icon.svg`} alt="" width="29" height="30" class="anim-bob inline-block shrink-0" /> <span class="min-w-0">{T.site_title}</span>
       </a>
-      <div class="order-2 sm:order-3 ml-auto flex items-center gap-1">
+      <div class="order-2 sm:order-3 ml-auto shrink-0 flex items-center gap-1">
         <button id="theme-toggle" type="button" aria-label="切換深色模式"
           class="nav-link inline-flex items-center justify-center leading-none bg-transparent border-0 cursor-pointer p-2 rounded-full">
           <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>

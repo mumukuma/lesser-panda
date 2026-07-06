@@ -130,7 +130,7 @@
   "stats_sec_pairs": "짝 랭킹",
   "stats_sec_descendants": "후손 수 랭킹",
   "stats_desc_n": "후손 {n}마리",
-  "stats_desc_note": "3대 이내(자녀·손주·증손주)의 수록된 개체만 셉니다.",
+  "stats_desc_note": "2대 이내(자녀·손주)의 수록된 개체만 셉니다.",
   "unverified_badge": "미확인 정보",
   "tl_years": "{n}년",
   "tl_months": "{n}개월"

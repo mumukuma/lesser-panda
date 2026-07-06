@@ -130,7 +130,7 @@
   "stats_sec_pairs": "Top pairings",
   "stats_sec_descendants": "Most descendants",
   "stats_desc_n": "{n} descendants",
-  "stats_desc_note": "Counts recorded descendants within 3 generations (children, grandchildren, great-grandchildren).",
+  "stats_desc_note": "Counts recorded descendants within 2 generations (children, grandchildren).",
   "unverified_badge": "Unverified",
   "tl_years": "{n} yr(s)",
   "tl_months": "{n} mo(s)"

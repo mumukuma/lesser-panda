@@ -130,7 +130,7 @@
   "stats_sec_pairs": "配對排行",
   "stats_sec_descendants": "子孫王排行",
   "stats_desc_n": "{n} 隻後代",
-  "stats_desc_note": "只計 3 代以內（子女、孫、曾孫）的已收錄個體。",
+  "stats_desc_note": "只計 2 代以內（子女、孫）的已收錄個體。",
   "unverified_badge": "存疑・待查證",
   "tl_years": "{n} 年",
   "tl_months": "{n} 個月"

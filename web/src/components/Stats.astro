@@ -136,9 +136,9 @@ const topPairs = rankCut(
     .sort((a, b) => b.n - a.n || (a.m.born || '').localeCompare(b.m.born || '')),
   10, (x) => x.n);
 
-// ── 子孫王（只算 3 代以內：子女→孫→曾孫；存疑個體不計入數字）──
+// ── 子孫王（只算 2 代以內：子女→孫；存疑個體不計入數字）──
 //    不設上限的話永遠是資料庫最老的始祖奪冠，排行沒有鑑別度。
-const DESC_DEPTH = 3;
+const DESC_DEPTH = 2;
 const countDesc = (slug) => {
   const seen = new Set();
   const stack = (pandas[slug].children || []).map((s) => [s, 1]);
