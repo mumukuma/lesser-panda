@@ -48,3 +48,6 @@ web/public/img/*.png
 # session tooling artifacts
 .agents/
 skills-lock.json
+
+# 本地工作檔（資料徵集表，不進版控）
+小熊猫资料征集表.xlsx

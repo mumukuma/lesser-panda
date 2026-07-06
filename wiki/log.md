@@ -3594,3 +3594,66 @@ photo-inbox-audit 比對收件匣 11 筆新投稿：9 筆 wiki 已有（僅待�
 - `index.md` — wikilink 與生年欄同步更新
 
 **重建**：`build_db`（/tmp shim）+ `export_json`
+
+## [2026-07-06] update | 讀者回報更正 3 筆：Nanako 生日、Teru 來園日、希希性別
+
+處理「回報資料更正」收件匣 6 筆：`cha-cha-1992-07-17`、`kaguya-2000-06-29`、`katsuo-2002-07-02` 三筆先前已依同來源處理過，無需變動；其餘 3 筆均附官方來源，直接採用。
+
+**來源**：
+- https://www.nhdzoo.jp/sp/event/naka.php?id=615 （日本平動物園：ななこ成長記「令和8年7月7日で1才」）
+- https://www.city.ichikawa.lg.jp/site/zoo/2822.html （市川市動植物園個體頁：テル 2018年2月1日来園）
+- https://www.swap-shendi.com/index.do?newsDetail&id=4594 （上海野生動物園官網：希希為展区年紀最小雌性、園內出生半人工育幼）
+
+**更新條目**：
+- `nanako-2025-07-14.md` → `nanako-2025-07-07.md` — 生日依園方由 2025-07-14 更正為 2025-07-07（RPF #1451 原值有誤），slug 更名；同步修正 `nico-2017-06-23.md`、`kazu-2019-07-02.md`、`emi-2023-07-09.md`、`kazunoko-2021-08-04.md`、`index.md` 之 wikilink 與生日欄（回報：Aoi Ajisai）
+- `teru-2010-07-10.md` — 市川來園日由 2018-02-27（RPF）更正為 2018-02-01（園方個體頁＋広報いちかわ年表）；補來源（回報：楊桃）
+- `xi-xi-2023-07-01.md` — 性別確認 ♀、出生園確認為上海野生動物園（半人工育幼），居住史起日補 2023-07-01；補官方來源；`index.md` 說明同步更新（回報：Ariel）
+
+## [2026-07-06] add | 圖鑑缺漏回報 15 筆處理：新增 14 條目、2 動物園
+
+處理「圖鑑缺漏回報」收件匣：已存在者（`ai-1991` 上野アイ、`xi-xi-2023-07-01` 希希、Drusillas Park 個體）免建；官方可核者直接採用；來源開不了或非官方者建條目標 🚧 或列待查證。`data/zoos.json` 新增 銀基動物王國、寧波野生動物園（座標待補）。
+
+**來源**：
+- https://www.city.ichikawa.lg.jp/site/zoo/2822.html ＋ 広報いちかわ 22158.pdf ＋ 官方 X（市川三胞胎）
+- https://hkcd.com/content_p/2025-01/06/content_182122.html （銀基六隻小熊貓亮相報導）
+- https://shwzoo.com/index.do?id=4517&newsDetail= （上海野生動物園官網：二宝、二帅）
+- https://turnto10.com/news/local/red-panda-kits-at-roger-williams-moving-to-different-zoos ＋ WPRI／Boston Globe（RWP 雙胞胎）
+- https://redpandafinder.com/#profile/2 #6 #7 #932 #1171 #433（lineage 比對）
+- 讀者回報（2026-07-01～07-05：Mikeson、nn、Ariel、楊桃 等）
+
+**新增條目**：
+- `meito-2013-06-20.md` — 明登 メイト ♂（RPF #2），市川三胞胎，人工哺育；`rifa-2013-06-20.md` — 梨花 リーファ ♀（RPF #7）；既有 `yuufa-2013-06-20.md` 補三胞胎 wikilink 與官方來源。同步把 `mei-fa-2006-06-23`、`raichi-2005-06-25`、`ichimaru-2009-07-04` 的純文字改 wikilink；`rifa-2018-06-07.md` 加同名注意
+- `cong-cong-2008-06-11.md` — 聰聰 ♂（RPF #932），2008 成都生、2009 與泰山同批赴香港海洋公園；`tai-shan-2008-06-14.md` 補 wikilink
+- `katara-2025-07-04.md`、`sokka-2025-07-04.md`、`zan-2020-05-25.md`、`kendji-2015-06-22.md` — Roger Williams Park Zoo 一家；Katara 2026 春依 SSP 移居新園（讀者稱 Toledo，官方未公布 → 待查證，暫不寫入居住史）
+- `er-bao-2015.md` — 二寶 ♀，2015 上海野生動物園生（官網文章）
+- `you-you.md`、`bei-bei.md` — 佑佑、貝貝，銀基動物王國 2025-01 亮相（香港商報）🚧 性別生日待查；佑佑加同名注意（日本 ユウユウ ×3）
+- `zhong-xia-2025-07-17.md`、`meng-xia-2025-07-17.md`、`xia-wa.md` — 紅山 仲夏 ♂・孟夏 ♀（2025-07-17 雙胞胎）與母夏娃 🚧 微信官方文開不了、暫依回報
+- `nan-nan-2024-07-02.md` — 囡囡，寧波野生動物園人工育幼第三隻 🚧
+
+**更新條目**：
+- `index.md` — 新增 銀基、寧波 兩區塊；上海野生／紅山／香港／美國／Milk 家族各補列；條目總數 519 → 533
+
+**待查證（未建條目，留作者裁定）**：
+- 天津動物園＋图图（♂父）/小宝（♀母）/团团（♀ 2023-06-06 生）— 回報未附任何來源
+- 都江堰小熊貓森林公園 — 無官網（僅小紅書/YouTube），園資料不足
+- 上野 アイ回報未附來源，但 `ai-1991` 已存在，視為已收錄
+
+## [2026-07-06] update | 照片投稿回填 2 筆（chen-chen、arata）
+
+比對照片投稿收件匣 13 筆新投稿：11 筆 wiki 已有（僅待 Sheet I 欄補標），2 筆待補已回填 instagram frontmatter。
+
+**更新條目**：
+- `chen-chen-2022-07-05.md` — instagram +1（DaagK3ij2kM）
+- `arata-2019-07-05.md` — 新增 instagram 欄位 +1（DaZWk96EaOm）
+
+## [2026-07-06] update | 紅山三條目補官方佐證（荔枝新聞）；圖鑑缺漏批次重建
+
+為 `zhong-xia-2025-07-17`、`meng-xia-2025-07-17`、`xia-wa` 補上荔枝新聞（2026-01-04，轉自 @南京市紅山森林動物園）佐證：雙胞胎、2025 年 7 月生、母 `xia-wa` 第二胎、`zhong-xia` 為兄（♂）且 3 月齡時肺炎康復、高黎貢展區。原「微信文開不了、暫依回報」的 🚧 範圍縮小為：精確生日 2025-07-17、孟夏性別 ♀、父不詳。另補記：天津動物園回報（图图/小宝/团团）經網路查證仍無官方來源，維持待查證。
+
+**來源**：
+- https://finance.sina.com.cn/jjxw/2026-01-04/doc-inhfeeek7361107.shtml （荔枝新聞轉載）
+
+**更新條目**：
+- `zhong-xia-2025-07-17.md`、`meng-xia-2025-07-17.md`、`xia-wa.md` — 補來源與 📝 佐證說明
+
+**重建**：`build_db`（/tmp shim）+ `export_json`；audit --strict、check_twins

@@ -3680,7 +3680,7 @@
   "en": "Roger Williams Park Zoo",
   "zh": null,
   "country": "USA",
-  "location_ja": null,
+  "location_ja": "羅德島州普洛威頓斯",
   "location_en": "Providence, Rhode Island, USA",
   "lat": 41.7903783,
   "lng": -71.4235683,
@@ -5314,6 +5314,47 @@
    "柳州动物园",
    "柳州動物園",
    "柳州市动物园"
+  ]
+ },
+ {
+  "canonical": "銀基動物王國",
+  "lineage_id": null,
+  "en": "Yinji Kingdom of Animals",
+  "zh": "银基动物王国",
+  "country": "China",
+  "location_ja": "河南省鄭州市新鄭市龍湖鎮",
+  "location_en": "Longhu, Xinzheng, Zhengzhou, Henan, China",
+  "lat": null,
+  "lng": null,
+  "map": null,
+  "website": "https://www.enjoyland.cn/AnimalKingdom.html",
+  "logo": null,
+  "aliases": [
+   "Yinji Animal Kingdom",
+   "银基动物王国",
+   "銀基動物王國",
+   "郑州银基动物王国"
+  ]
+ },
+ {
+  "canonical": "寧波野生動物園",
+  "lineage_id": null,
+  "en": "Ningbo Wildlife Park",
+  "zh": "宁波野生动物园",
+  "country": "China",
+  "location_ja": "浙江省寧波市鄞州区東銭湖",
+  "location_en": "Dongqianhu, Yinzhou, Ningbo, Zhejiang, China",
+  "lat": null,
+  "lng": null,
+  "map": null,
+  "website": "http://www.nbzoo.com/",
+  "logo": null,
+  "aliases": [
+   "Ningbo Youngor Zoo",
+   "宁波野生动物园",
+   "寧波野生動物園",
+   "宁波雅戈尔动物园",
+   "寧波雅戈爾動物園"
   ]
  }
 ]
