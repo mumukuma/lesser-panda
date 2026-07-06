@@ -6,6 +6,9 @@ species: Ailurus fulgens styani
 zoos:
   - 廣州動物園 ( – 現在)
 tags: [styani, male, zoo:廣州動物園]
+instagram:
+  - https://www.instagram.com/p/DQZffSGCZNE/
+  - https://www.instagram.com/p/DPye9jlibq_/
 sources:
   - 作者提供（2026-07-05：♂、逸逸之父）
 ---

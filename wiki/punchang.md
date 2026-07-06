@@ -5,6 +5,8 @@ nicknames: [น้องพันชั่ง]
 zoos:
   - Sri Ayutthaya Lion Park ( – 現在)
 tags: [thailand, male]
+instagram:
+  - https://www.instagram.com/p/DKRIsEwhWuo/
 sources:
   - https://www.sriayuthayalionpark.com/
 ---
