@@ -133,5 +133,7 @@
   "stats_desc_note": "2世代以内（子・孫）の収録済み個体のみを数えています。",
   "unverified_badge": "情報未確認",
   "tl_years": "{n} 年",
-  "tl_months": "{n}ヶ月"
+  "tl_months": "{n}ヶ月",
+  "sec_sources": "出典",
+  "sources_note": "動物園公式サイト・自治体発表・園報・公式WeChatなど公式／一次情報のみを掲載。クリックで元のページへ。"
 }

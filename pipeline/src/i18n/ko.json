@@ -133,5 +133,7 @@
   "stats_desc_note": "2대 이내(자녀·손주)의 수록된 개체만 셉니다.",
   "unverified_badge": "미확인 정보",
   "tl_years": "{n}년",
-  "tl_months": "{n}개월"
+  "tl_months": "{n}개월",
+  "sec_sources": "출처",
+  "sources_note": "동물원 공식 사이트·정부 발표·원보·공식 WeChat 등 공식/1차 출처만 표시합니다. 클릭하면 원본 페이지로 이동합니다."
 }

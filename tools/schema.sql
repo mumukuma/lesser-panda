@@ -29,7 +29,8 @@ CREATE TABLE IF NOT EXISTS pandas (
     rpf_url     TEXT,
     tags        TEXT,               -- JSON array，原始 tags
     instagram   TEXT,               -- JSON array，公開 IG 貼文連結（curate，官方 embed 展示）
-    is_alive    INTEGER  -- 0=已歿, 1=現存（由 build_db.py 填入）
+    is_alive    INTEGER,  -- 0=已歿, 1=現存（由 build_db.py 填入）
+    sources     TEXT                -- JSON array，僅官方來源（園方/政府/園報/官方微信）；個體頁「來源」區塊用
 );
 
 -- ── 2. 親子關係 ─────────────────────────────────────────────

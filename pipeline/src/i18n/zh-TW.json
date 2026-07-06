@@ -133,5 +133,7 @@
   "stats_desc_note": "只計 2 代以內（子女、孫）的已收錄個體。",
   "unverified_badge": "存疑・待查證",
   "tl_years": "{n} 年",
-  "tl_months": "{n} 個月"
+  "tl_months": "{n} 個月",
+  "sec_sources": "來源",
+  "sources_note": "僅列園方官網、政府公告、園報或官方微信等官方／一手來源；點擊前往原始頁面。"
 }

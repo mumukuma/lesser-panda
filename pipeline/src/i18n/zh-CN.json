@@ -133,5 +133,7 @@
   "stats_desc_note": "只计 2 代以内（子女、孙）的已收录个体。",
   "unverified_badge": "存疑・待核实",
   "tl_years": "{n} 年",
-  "tl_months": "{n} 个月"
+  "tl_months": "{n} 个月",
+  "sec_sources": "来源",
+  "sources_note": "仅列园方官网、政府公告、园报或官方微信等官方／一手来源；点击前往原始页面。"
 }

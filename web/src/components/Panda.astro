@@ -41,6 +41,11 @@ const igPosts = (p.instagram || []).map((s) => {
 }).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 const IG_PAGE = 6;
 const igRest = igPosts.slice(IG_PAGE);
+
+// 官方來源：僅園方官網／政府公告／園報／官方微信（分類於 build_db.official_sources）；
+// 顯示以網域為連結文字。非官方（RPF、部落格、新聞、社群）不進此清單。
+const sources = p.sources || [];
+const srcHost = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return u; } };
 const sexTxt = p.sex === 'female' ? T.sex_f : p.sex === 'male' ? T.sex_m : T.sex_unknown;
 
 // 年齡：已故者歲數固定，建置期算即可；在世者以 born 存進 data-attr，交由下方 inline script
@@ -465,6 +470,23 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
         }
       })();
     </script>
+  </>
+)}
+
+{sources.length > 0 && (
+  <>
+    <h2 class={H3}>{T.sec_sources}</h2>
+    <div class={`${CARD} reveal`}>
+      <ul class="m-0 p-0 list-none space-y-1.5">
+        {sources.map((u) => (
+          <li class="flex gap-2 items-baseline min-w-0">
+            <span aria-hidden="true" class="shrink-0 text-rust">🔗</span>
+            <a href={u} target="_blank" rel="noopener" class="text-rust hover:underline break-all min-w-0">{srcHost(u)}</a>
+          </li>
+        ))}
+      </ul>
+      <p class="text-ink-soft text-[.82rem] mt-2">{T.sources_note}</p>
+    </div>
   </>
 )}
 

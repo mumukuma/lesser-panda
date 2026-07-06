@@ -217,6 +217,8 @@ def main():
             "rpf_id": r["rpf_id"],
             "rpf_url": r["rpf_url"],
             "instagram": json.loads(r["instagram"] or "[]"),
+            # 僅官方來源（園方/政府/園報/官方微信）；分類於 build_db.official_sources
+            "sources": json.loads(r["sources"] or "[]"),
             "residences": [],
             "current_zoo": None,   # zoo master id
             "current_zoo_raw": None,

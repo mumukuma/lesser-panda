@@ -3691,3 +3691,66 @@ photo-inbox-audit 比對收件匣 11 筆新投稿：9 筆 wiki 已有（僅待�
 依作者指示，一併隱藏雙胞胎另一隻 `sokka-2025-07-04`（同批未經核實資料）。移至 `wiki/_hidden/`，退出 DB／`pipeline/data`／網站；原檔保留。去除指向 sokka 的 `[[wikilink]]`（改純文字 Sokka）：`zan-2020-05-25.md`、`kendji-2015-06-22.md`、`index.md`。index 區塊改名「Zan × Kendji 一家」、移除 Sokka 列並註明兩隻雙胞胎資料未核實暫隱藏。父母 `zan`／`kendji` 保留。
 
 **重建**：`build_db` + `export_json`（已驗證 pandas.json／family.json 不含 katara／sokka；條目數 → 531）
+
+## [2026-07-06] remove | 移除「保種優先」（/breeding）功能與頁面
+
+依作者指示，移除網站的保種優先繁殖重點功能與整個 `/breeding` 分頁。
+
+**刪除檔案**：
+- `web/src/components/Breeding.astro`（頁面元件）
+- `tools/build_priority_page.py`、`tools/lineage_risk.py`、`tools/kinship.py`（保種遺傳指標／排名腳本）
+- `珍貴血緣繁殖重點.html`、`珍貴血緣繁殖重點.md`（舊產物報告）
+- `PLAN-endangerment.md`（規劃筆記）
+
+**更新檔案**：
+- `web/src/lib/data.js` — 移除 `SHOW_BREEDING` guard 與 `breedingPriority()` 演算法
+- `web/src/pages/[...path].astro` — 移除 breeding 路由、import、標題、渲染
+- `web/src/layouts/Layout.astro` — 移除導覽列 breeding 連結
+- `web/src/components/Stats.astro` — 移除指向 breeding 的互導連結
+- `pipeline/src/i18n/*.json ×5` — 移除 `nav_breeding` 與所有 `breeding_*` 鍵（各 165 → 135，五語一致）
+
+**驗證**：全新安裝＋`astro build` 通過（3292 頁、無錯誤）；dist 無 `/breeding` 路由、五語 stats 頁與其餘頁面正常。
+
+## [2026-07-07] update | 查證讀者回報資料更正（回報資料更正 Sheet）：採用 6 筆官方來源、3 筆待查證、1 筆待作者裁定
+
+依「官方來源可直接採用」原則處理本批 10 筆回報。
+
+**已採用（官方來源）**：
+- `ai-1991.md` → 更名 `ai-1991-06-20.md`：生日 1991 → **1991-06-20**、歿日 2009 → **2009-07-13**（享年 18）、補原名 **愛愛２／アイアイツー**、安佐→上野移動日 **2001-02-20**。依安佐動物公園平成 22 年年報（`asazoo.jp` 官方 PDF：愛愛２ ♀ 1991/06/20，2001/02/20 貸出上野）與上野動物園 2009 慰霊祭官方公告（死亡 2009/07/13、18 歲、飼育 8 年 5 個月、原名愛愛２）。同步更名並修正 `[[wikilink]]`（`index.md`、`cha-cha-1992-07-17.md`）。出生地池田動物園一說官方來源未載，維持既有校訂並標 🚧。回報者：`楊桃`（已在致謝名單）。
+- `jin-jin-2022-07-05.md`（菫菫 ジンジン）：性別 雌 → **雄**。依旭山動物園令和4年官方紀錄「菫菫（ジンジン）♂」。
+- `rin-rin-2020-06-29.md`（桜桜 リンリン）：性別 雄 → **雌**。依旭山令和2年官方紀錄與園報だより271（メス：桜桜）。
+- `ren-ren-2020-06-29.md`（蓮蓮 レンレン）：性別 雌 → **雄**。同上（オス：蓮蓮）。※ 上兩隻原資料性別對調，已一併修正父母條目 `yuu-yuu`、`puerh` 之子女表與雙胞胎互指。
+- `rii-rii-2018-07-11.md`（梨梨）：旭山→羽村移居日 2021-02-03 → **2022-02-03**。依旭山令和4年（2022）官方紀錄「梨梨（リーリー）移動（2月3日）」。
+- `shou-shou-2017-07-15.md`（守守）：旭山→豊橋移居日補精確 2020 → **2020-01-29**。依旭山令和2年官方紀錄。
+
+**待查證（來源非官方，暫不採用）**：
+- `shin-fa-2002-06-29`：回報稱 2003-05-11 移市川市動植物園。來源為個人部落格（`mamepandaworld.blog.fc2.com`），非官方 → 🚧 待查證。
+- `tian-2011`：回報稱生日 2011-06-13、2012-12-22 移仙台八木山。同一部落格來源，非官方 → 🚧 待查證。
+- `charmin-2011-07-17`：回報稱 2014-02-03 移旭山。來源為旭山官方網域但 Sheet 內連結被截斷、無法核對確切頁面 → 🚧 待查證（僅為現有 2014 年份補日精度、風險低）。
+
+**待作者裁定（官方來源互相衝突）**：
+- `ryuunosuke-1999-07-27`（緑之介）：回報稱歿於 2019-03-13。查愛媛県立とべ動物園（實際終老／死亡園）官方死亡公告載「2019 年 3 月 12 日老衰死亡」（公告日 3/13）。此與 wiki 現值 **2018-03-12**（作者依多摩動物公園個體名單裁定、曾明確否決 2019 說）衝突。屬官方來源互相打架，依原則留待作者裁定；提請作者參酌：とべ動物園為死亡地之一手來源，歿日應為 2019-03-12。
+
+**更新條目**：
+- `index.md` — Ai 連結改為 `ai-1991-06-20`、說明補原名愛愛２
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+## [2026-07-07] update | 緑之介歿日依とべ動物園官方公告更正 2018-03-12 → 2019-03-12
+
+承前一則「待作者裁定」，作者裁定採官方。`ryuunosuke-1999-07-27` 歿日由 **2018-03-12** 改為 **2019-03-12**（老衰、時年 19 歲；公告日 2019-03-13），依愛媛県立とべ動物園（死亡地）官方死亡報告。居住史迄日同步更新；`sources` 補入 とべ動物園官方連結（保留原多摩名單 4travel 轉載連結供對照）。原值係遊客轉載之多摩個體名單，年份較可能為筆誤。
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+## [2026-07-07] feat | 個體頁新增「來源／出典／Sources」區塊（只顯示官方來源）
+
+讀者回報常附官方連結；個體頁新增來源區塊呈現，政策（作者裁定，最嚴）＝**只顯示園方官網／政府（自治體）公告／園報／中國園官方微信**；RPF、redpanda-lineage、個人部落格、新聞媒體、社群、wiki、web.archive 一律不顯示（仍保留於 frontmatter `sources` 供校訂稽核）。
+
+**管線／前端改動**：
+- `tools/build_db.py` — 新增 `OFFICIAL_HOSTS` 白名單＋政府網域 pattern＋`is_official_source()`／`official_sources()`；Pass 1 讀 `sources` 並過濾為官方後存入 pandas。**日後新增園方官網 → 補進 `OFFICIAL_HOSTS` 即自動顯示。**
+- `tools/schema.sql` — pandas 表加 `sources TEXT`（JSON array，官方過濾後）
+- `pipeline/scripts/export_json.py` — 輸出 `sources` 到 pandas.json
+- `web/src/components/Panda.astro` — 新增來源區塊（mobile-first，連結文字用網域；`sources` 為空則不渲染）
+- `pipeline/src/i18n/*.json ×5` — 新增 `sec_sources`／`sources_note`（五語一致）
+
+**驗證**：全站 63/531 個體有官方來源、0 筆非官方殘留；全新安裝＋`astro build` 通過（3292 頁）；抽查 ryuunosuke（僅とべ官方）、ai（tokyo-zoo＋asazoo）、shin-fa（僅 RPF→正確無來源區塊）、五語標籤（來源／出典／Sources）皆正常。

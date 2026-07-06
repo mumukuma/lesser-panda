@@ -87,6 +87,65 @@ def _parse_simple_yaml(yaml_text: str) -> dict:
     return result
 
 
+# ── 官方來源分類器（個體頁只顯示官方連結）──────────────────────
+# 政策（作者裁定 2026-07-07，最嚴）：個體頁的「來源」區塊只顯示園方官網／政府
+# （自治體）公告／園報／中國園官方微信公眾號。RPF、redpanda-lineage、個人部落格、
+# 新聞媒體、社群貼文、wiki、web.archive 等一律不顯示（仍保留在 frontmatter sources
+# 供校訂與稽核，只是不對外呈現）。
+#
+# 判定＝白名單 host（精確比對，去掉開頭 www.）＋政府網域 pattern。名單外一律非官方。
+# ⚠️ 日後新增園方官網時，把 host 補進 OFFICIAL_HOSTS 即會自動顯示。
+OFFICIAL_HOSTS = {
+    # 日本園方官網／營運協會
+    "tokyo-zoo.net", "nhdzoo.jp", "tohoku-safaripark.co.jp", "tobezoo.com",
+    "asazoo.jp", "omutacityzoo.org", "hama-midorinokyokai.or.jp",
+    # 日本自治體（園區隸屬市府）
+    "city.ichikawa.lg.jp", "city.asahikawa.hokkaido.jp", "city.kawasaki.jp",
+    "soumu.metro.tokyo.lg.jp",
+    # 台灣／港澳
+    "zoo.gov.taipei", "gov.taipei", "macaotourism.gov.mo", "gcs.gov.mo",
+    # 中國園方官網／官方微信公眾號（無官網者以微信文章為官方，見 CLAUDE.md）
+    "shanghaizoo.cn", "nbzoo.com", "shwzoo.com", "enjoyland.cn",
+    "swap-shendi.com", "lyhylj.liuzhou.gov.cn", "mp.weixin.qq.com",
+    # 其他國家園方官網
+    "drusillas.co.uk", "chiangmai.zoothailand.org", "sriayuthayalionpark.com",
+}
+
+def _host(url: str) -> str:
+    from urllib.parse import urlparse
+    return urlparse(url).netloc.lower().split("@")[-1].split(":")[0].lstrip("www.") \
+        if "//" in url else ""
+
+def is_official_source(url: str) -> bool:
+    """僅園方官網／政府公告／園報／官方微信視為官方。名單外＋非 gov pattern＝False。"""
+    if not isinstance(url, str) or not url.startswith("http"):
+        return False
+    host = _host(url)
+    if not host:
+        return False
+    if host in OFFICIAL_HOSTS:
+        return True
+    # 政府網域 pattern（未來新自治體/政府站自動涵蓋）
+    if host.endswith((".lg.jp", ".go.jp", ".gov", ".gov.tw", ".gov.cn",
+                      ".gov.mo", ".gov.taipei")):
+        return True
+    if ".gov." in host:
+        return True
+    return False
+
+def official_sources(sources_raw) -> list[str]:
+    if not sources_raw:
+        return []
+    if isinstance(sources_raw, str):
+        sources_raw = [sources_raw]
+    seen, out = set(), []
+    for u in sources_raw:
+        u = (u or "").strip()
+        if u and is_official_source(u) and u not in seen:
+            seen.add(u); out.append(u)
+    return out
+
+
 # ── Wikilink 抽取 ─────────────────────────────────────────────
 WIKILINK_RE = re.compile(r"\[\[([^\]|#]+?)(?:\|[^\]]*)?\]\]")
 
@@ -310,6 +369,7 @@ def build_db():
             "tags":             json.dumps(tags_raw, ensure_ascii=False),
             "instagram":        json.dumps(instagram, ensure_ascii=False) if instagram else None,
             "is_alive":         0 if fm.get("died") else 1,
+            "sources":          json.dumps(official_sources(fm.get("sources")), ensure_ascii=False),
         }
         panda_rows.append((slug, body, row))
         all_slugs.add(slug)
@@ -317,10 +377,10 @@ def build_db():
     cur.executemany("""
         INSERT OR REPLACE INTO pandas
           (slug, name, japanese, chinese, nicknames, english_variants,
-           sex, born, died, species, rpf_id, rpf_url, tags, instagram, is_alive)
+           sex, born, died, species, rpf_id, rpf_url, tags, instagram, is_alive, sources)
         VALUES
           (:slug,:name,:japanese,:chinese,:nicknames,:english_variants,
-           :sex,:born,:died,:species,:rpf_id,:rpf_url,:tags,:instagram,:is_alive)
+           :sex,:born,:died,:species,:rpf_id,:rpf_url,:tags,:instagram,:is_alive,:sources)
     """, [r for _, _, r in panda_rows])
     conn.commit()
     print(f"  ✅ 插入 {len(panda_rows)} 筆個體資料")
