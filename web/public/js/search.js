@@ -16,7 +16,20 @@
     var o = document.createElement('option'); o.value = e[0]; o.textContent = e[0] + '（' + e[1] + '）'; zooSel.appendChild(o);
   });
 
-  var norm = function (s) { return (s || '').toLowerCase().normalize('NFKC').replace(/[\s\-_]/g, ''); };
+  // 羅馬拼音折疊：把 Hepburn↔訓令式的常見差異、以及 L/R 混用折成同一骨架，
+  // 讓「Shin-Fa」用 shinfa／sinfa／sin-fa 都搜得到（查詢與索引都套同一折疊，只增命中不漏）。
+  var romajiFold = function (s) {
+    return s
+      .replace(/ー/g, '')          // 日文長音符
+      .replace(/sh/g, 's').replace(/sy/g, 's')   // shi/sha ↔ si/sya
+      .replace(/ch/g, 't').replace(/ty/g, 't')   // chi/cha ↔ ti/tya
+      .replace(/ts/g, 't')                        // tsu ↔ tu
+      .replace(/j/g, 'z').replace(/dy/g, 'z')     // ji/ja ↔ zi/zya
+      .replace(/f/g, 'h')                          // fu/fa ↔ hu/ha
+      .replace(/l/g, 'r').replace(/v/g, 'b')       // L/R、V/B 混用
+      .replace(/([aeiou])\1+/g, '$1');            // 疊母音（長音）壓縮 shii→si
+  };
+  var norm = function (s) { return romajiFold((s || '').toLowerCase().normalize('NFKC').replace(/[\s\-_]/g, '')); };
   pandas.forEach(function (p) { p._hay = norm([p.n, p.j, p.k, p.en, p.slug].filter(Boolean).join('|')); });
   var ageOf = function (p) { if (!p.born) return null; var end = p.died ? new Date(p.died) : new Date(); return Math.floor((end - new Date(p.born)) / 31557600000); };
 

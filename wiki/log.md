@@ -3754,3 +3754,19 @@ photo-inbox-audit 比對收件匣 11 筆新投稿：9 筆 wiki 已有（僅待�
 - `pipeline/src/i18n/*.json ×5` — 新增 `sec_sources`／`sources_note`（五語一致）
 
 **驗證**：全站 63/531 個體有官方來源、0 筆非官方殘留；全新安裝＋`astro build` 通過（3292 頁）；抽查 ryuunosuke（僅とべ官方）、ai（tokyo-zoo＋asazoo）、shin-fa（僅 RPF→正確無來源區塊）、五語標籤（來源／出典／Sources）皆正常。
+
+## [2026-07-07] update | Shin-Fa（杏花）補轉園日 2003-05-11（市川市動植物園）
+
+回報 RWJYvLP 附市川市動植物園**園內紙本家系圖**（園方一手確認），採用轉園日：`shin-fa-2002-06-29` 居住史 東北サファリパーク→市川市動植物園 之異動日補為 **2003-05-11**（市川迄日一併補其歿日 2008-10-05）。依作者指示，回報所附之 blog 連結僅為佐證出處、**不列入 frontmatter `sources`**（紙本家系圖無線上官方連結，故頁面來源區塊不變）。
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+## [2026-07-07] update+fix | Shin-Fa 日文名官方更正、Tian 補生日/轉園（改 slug）、搜尋支援羅馬拼音折疊
+
+**Shin-Fa（杏花）**：`shin-fa-2002-06-29` 日文名依官方由 `シンファ` 改為 **`シーンファ`**（漢字 杏花 不變）。
+
+**Tian（天）採用回報 yXEvGl8**：來源同 Shin-Fa（市川園紙本家系圖等園方一手確認，blog 僅佐證出處、不入 `sources`）。生日 2011 → **2011-06-13**、東北サファリパーク→仙台市八木山動物公園異動日補為 **2012-12-22**。因生日補齊為完整日期，slug 依規則改名 `tian-2011` → **`tian-2011-06-13`**，並修正 14 個條目內的 `[[tian-2011]]` wikilink。
+
+**搜尋修復（web/public/js/search.js）**：中文介面（及各語系）以 `sinfa`／`sin-fa` 搜不到 Shin-Fa。主因：搜尋正規化只做小寫＋去空白/連字號，`shin-fa`→`shinfa` 可中，但使用者以訓令式拼音（無 h）輸入不中；英文名本就跨語系索引，非語系問題。加入 `romajiFold`（Hepburn↔訓令式：sh/si、ch/ti、tsu/tu、fu/hu、ji/zi，及 L/R、V/B、長音壓縮），查詢與索引套同一折疊、只增命中不漏。實測 `shinfa`／`sinfa`／`sin-fa`／`shin-fa`／`杏花` 皆命中。
+
+**驗證**：`gen_residence`＋`build_db`＋`export_json` 重建；audit --strict、check_twins exit 0；全新安裝＋`astro build` 通過（3292 頁），新 slug 頁面生成、舊 slug 移除、search.js 折疊進 dist。
