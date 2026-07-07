@@ -3770,3 +3770,21 @@ photo-inbox-audit 比對收件匣 11 筆新投稿：9 筆 wiki 已有（僅待�
 **搜尋修復（web/public/js/search.js）**：中文介面（及各語系）以 `sinfa`／`sin-fa` 搜不到 Shin-Fa。主因：搜尋正規化只做小寫＋去空白/連字號，`shin-fa`→`shinfa` 可中，但使用者以訓令式拼音（無 h）輸入不中；英文名本就跨語系索引，非語系問題。加入 `romajiFold`（Hepburn↔訓令式：sh/si、ch/ti、tsu/tu、fu/hu、ji/zi，及 L/R、V/B、長音壓縮），查詢與索引套同一折疊、只增命中不漏。實測 `shinfa`／`sinfa`／`sin-fa`／`shin-fa`／`杏花` 皆命中。
 
 **驗證**：`gen_residence`＋`build_db`＋`export_json` 重建；audit --strict、check_twins exit 0；全新安裝＋`astro build` 通過（3292 頁），新 slug 頁面生成、舊 slug 移除、search.js 折疊進 dist。
+
+## [2026-07-07] fix | 繁繁／甜甜 台北來源改為官方新聞稿（原僅園首頁）
+
+`fan-fan-2023-05-02`、`tian-tian-2024-06-23` 的 `sources` 原只填台北市立動物園首頁 `https://www.zoo.gov.taipei/`（泛用首頁、非個體資訊，視同無效來源）。依作者提供之園方新聞稿改為實際文章 `News_Content.aspx?...s=41319415ED5BFF7D`（〈上海動物園小貓熊報到〉，2026-06-06 發布），該稿即記述此對小貓熊由上海動物園移入台北，為兩隻共用之官方一手來源。上海動物園首頁保留為原園參照。
+
+**重建**：`build_db` + `export_json`；頁面來源區塊改顯示該新聞稿。
+
+## [2026-07-07] update | 美可（Meike）補官方歿訊來源
+
+`meike-2008-07-22` 歿日 2024-05-01（享年 15）原已記錄、但 `sources` 僅有 RPF。補上台北市立動物園官方新聞稿〈老齡小貓熊「美可」不幸離世〉（`News_Content.aspx?...s=5DE1638C6A059102`，2024-05-08 發布，證實 5/1 因心臟衰竭離世）。yaya（丫丫）歿訊 2024-07-12 之官方新聞稿先前已在 `sources`，無需變動。
+
+**重建**：`build_db` + `export_json`。
+
+## [2026-07-07] update | Yaffa（奇奇）搬家來源改為園方官方新聞稿
+
+`yaffa-2015-06-22` 移居新加坡動物園（2026-06-11）居住史已正確。來源原為市府彙整版 `www.gov.taipei/...s=7AF1E4A8EA022440`，改為台北市立動物園自家新聞稿〈小貓熊「Yaffa奇奇」前往新加坡動物園〉`www.zoo.gov.taipei/...s=7AF1E4A8EA022440`（2026-06-11 發布，同一篇之園方正本）。
+
+**重建**：`build_db` + `export_json`。
