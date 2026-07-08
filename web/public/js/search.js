@@ -31,7 +31,16 @@
   };
   var norm = function (s) { return romajiFold((s || '').toLowerCase().normalize('NFKC').replace(/[\s\-_]/g, '')); };
   pandas.forEach(function (p) { p._hay = norm([p.n, p.j, p.k, p.en, p.slug].filter(Boolean).join('|')); });
-  var ageOf = function (p) { if (!p.born) return null; var end = p.died ? new Date(p.died) : new Date(); return Math.floor((end - new Date(p.born)) / 31557600000); };
+  // 曆法歲數（比對月/日，生日當天即滿歲）：不用固定天數除法，避免閏年與時區造成生日當天差 1 歲（同 Panda.astro 作法）
+  var ageOf = function (p) {
+    if (!p.born) return null;
+    var b = p.born.split('-').map(Number);
+    var now = new Date();
+    var e = p.died ? p.died.split('-').map(Number) : [now.getFullYear(), now.getMonth() + 1, now.getDate()];
+    var a = e[0] - b[0];
+    if ((e[1] || 1) < (b[1] || 1) || ((e[1] || 1) === (b[1] || 1) && (e[2] || 1) < (b[2] || 1))) a--;
+    return a >= 0 ? a : null;
+  };
 
   // 隨機排序：以「種子 + slug」算出穩定亂序鍵，過濾子集合時順序不變；按洗牌鈕換種子。
   var PER = 60, page = 1, seed = (Math.random() * 1e9) | 0;
