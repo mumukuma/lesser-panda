@@ -3801,3 +3801,72 @@ photo-inbox-audit 比對收件匣 11 筆新投稿：9 筆 wiki 已有（僅待�
 - https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/news-blog/osirase/d073787.html (レッサーパンダ「チャーミン」の訃報)
 
 **重建**：`gen_residence` + `build_db` + `export_json`。
+
+## [2026-07-08] add | 圖鑑缺漏回報 7/7 新進 6 筆處理：新增 13 條目（含直系親屬）
+
+處理「圖鑑缺漏回報」收件匣 07-07 新進 6 筆（皆附來源）。逐筆開連結查證：官方來源可核者直接採用；官方頁生日疑佔位、或親屬線索無官方佐證者標 🚧。親屬資料以 RPF／lineage 為初期基礎參考補齊（非權威）。
+
+**來源（官方）**：
+- https://www.kobe-ojizoo.jp/info/detail/?id=25 （王子動物園訃報：天天，回報 0VJ0vGN，楊桃）
+- http://ojizoo.jp/html/oj-07-166.htm （王子動物園追悼頁：洋洋，回報 RWJejad，楊桃）
+- https://www.zooknoxville.org/animals/red-panda/ （Zoo Knoxville 動物頁：Lincoln，回報 PRX40V5）
+- https://www.witheverland.com/427712 （Everland 官方部落格：레아 七歲生日，回報 Arq08G0）
+- https://grandpark.seoul.go.kr/story/view/ko/S001006001003.do?bbs_no=120&pageIndex=2 （首爾大公園官方頁：라비 2023-11 抵園，回報 J1Jx8zX）
+- https://gvzoo.com/news/greater-vancouver-zoo-celebrates-global-conservation-success-with-the-birth-of-red-panda-twins 、 https://gvzoo.com/news/red-panda-cubs-1st-birthday （GVZoo 官方新聞：Arun 一家，回報 e57pgBq）
+
+**新增條目（13）**：
+- `ten-ten-1991-06-29.md` — 天天 てんてん，♂ styani 🌈，1991-06-29 安佐生，1992-04-24 移王子，2012-07-20 歿（21 歲、國內第三長壽）；官方訃報完全吻合回報
+- `yan-yan-1985-05-31.md` — 洋洋 ヤンヤン，♀ styani 🌈，1985-05-31 京都市動物園生，1986-03-10 移王子，2007-10-25 歿（22 歲、當時國內最高齡）；官方頁另載 1987-07-07 產一女（名字不詳，未建檔）
+- `lincoln-2013-07-26.md` — Lincoln（RPF #529），♂ fulgens，Lincoln Children's Zoo 生，2014-01-24 移 Zoo Knoxville；生日採 RPF 2013-07-26，🚧 官方頁列 2013-01-01（與 Willow 同為 1/1、疑佔位）
+- `leah-2019-05-17.md` — Leah 레아，♀，現居 Everland；生日 2019-05-17 依官方部落格七歲生日反推；🚧 出生園／亞種／父母待查證（RPF 無檔）
+- `ravi-2022-06-14.md` — Ravi ラビ／라비（RPF #1397），♂ styani，Calgary 生，2023-11-20 移首爾大公園；🚧 回報稱生日 2022-06-11（無官方佐證，採 RPF 6/14）；與 `sei`、`leanne` 同批抵韓
+- `sundari-2022-06-14.md` — Sundari（RPF #1396），♀，Ravi 雙胞胎，現居 Calgary；舊名 Sunsari
+- `linus-2018-06-23.md` — Linus（RPF #1000），♂，Ravi/Sundari 之父，Cincinnati 生、2019 移 Calgary
+- `udaya-2019-06-20.md` — Udaya（RPF #1081），♀，Ravi/Sundari 之母、`sakura`（#445）之女；舊名 Aduya
+- `arun-2014-06-28.md` — Arun（RPF #432），♂ styani，Assiniboine 生，2015-05-28 移 GVZoo（官方新聞證實；回報誤植 5/28 為出生）；🚧 回報稱 2025-11-17 移回 Assiniboine，僅 IG 來源，暫不寫入居住史
+- `rakesh-2014-06-28.md` — Rakesh（RPF #449），♂ 🌈，Arun 雙胞胎，2015-08-17 歿（1 歲）
+- `sakura-2013-07-01.md` — Sakura（RPF #445），♀ 🌈，Granby 生→Calgary→GVZoo→Toronto，2024-08-22 歿；Udaya/Maple/Mei-Mei 之母；🚧 GVZoo/Toronto 移動日與歿日精確度依 lineage 標記不確定；lineage 另載 2024 多倫多双子 Baby🌈/Poppy，出生地資料矛盾（載為廣島安佐、顯誤），未建檔待查證
+- `maple-2022-06-14.md` — Maple 松楓（RPF #1405），♂，BC 省首胎雙胞胎之一，2024-01-29 移 Granby（🚧 日期精確度）；別名 Moose
+- `mei-mei-2022-06-14.md` — Mei-Mei（RPF #1404），♀，BC 省首胎雙胞胎之一，現居 GVZoo
+
+**更新條目**：
+- `ten-ten-1998-07-07.md`、`yan-yan-1992-06-19.md`、`mei-mei-2023-06-24.md` — 同名注意補列新條目
+- `index.md` — 新增「王子動物園 早期個體（神戸）」「海外個體（加拿大・Arun × Sakura 一家）」「海外個體（加拿大 → 韓國・Ravi 一家）」「海外個體（韓國・Everland）」四區塊；美國區塊補 Lincoln；條目總數更新為 **544**（註：以 `ls wiki/*.md` 實數為準；前值 533 與實數 531 差 2，本次一併校正）
+
+**收件匣其他筆數**：
+- 已處理過免動作：Drusillas Park（07-02 批）、銀基動物王國・アイ（07-06 批）
+- 維持 🚧 待查證：都江堰小熊貓森林公園（無官網）、天津動物園 图图/小宝/团团（無來源）
+- ⚠️ Katara（回報 OQJ70va）：回報稱「目前 11 歲、今年 5 月移 Toledo」，與已隱藏之 `katara-2025-07-04`（1 歲）年齡矛盾——回報者所指可能為另一隻約 2014–15 年生的 Katara，留待作者定奪
+
+**致謝**：楊桃（已在 contributors 名單，不重複列）
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+## [2026-07-08] unhide+update | Katara（Roger Williams）解隱藏：回報 OQJ70va 經查證為本隻
+
+追查 07-05 缺漏回報「Katara，11 歲，5 月初移 Toledo」：RPF／lineage／全網查無任何 11 歲（2014–15 年生）Katara；而 Roger Williams Park Zoo 於 2026-06-04 官方宣布 `katara-2025-07-04` 依 SSP「已移居新園、地點待新園就緒後公布」（NBC 10 WJAR／WPRI 轉述園方聲明），Toledo Zoo 官方 FB 亦有 Katara 內容，時間點與回報完全吻合。判定回報之「11 歲」為「11 個月」之誤，所指即本隻。經作者確認後：
+
+- `katara-2025-07-04.md` — 自 `wiki/_hidden/` 移回 `wiki/`；離園（2026 春）依園方聲明記錄，居住史訖寫 2026；**去向 Toledo 仍標 🚧**（兩園官網均未正式公布），待官方來源確認後補
+- `zan-2020-05-25.md`、`kendji-2015-06-22.md` — Katara 恢復 `[[wikilink]]`、子女表補移居備注
+- `index.md` — Zan × Kendji 區塊補 Katara 列與說明；條目總數 544 → **545**（_hidden 剩 6 筆，Sokka 續藏）
+
+**來源**：
+- https://turnto10.com/news/local/red-panda-kits-at-roger-williams-moving-to-different-zoos （NBC 10，2026-06-04，轉述園方聲明）
+- https://www.wpri.com/news/local-news/providence/twin-red-pandas-leaving-roger-williams-park-zoo/ （WPRI，同）
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+## [2026-07-08] update | 照片投稿回填 6 筆（本人投稿）
+
+照片收件匣新進 6 筆（同一投稿者，均為本人貼文），比對無重複、無疑慮，全數回填 `instagram:` frontmatter（6 檔原無此欄位，一併新增）：
+
+- `kabosu-2018-06-28` — DaH-uuwTmta
+- `ron-ron-2013-07-19` — DSHu6mKEoQG
+- `a-li-2020-06-27` — DWgkQZ1FNYY（原投稿缺尾斜線，已正規化）
+- `takenoko-2024-06-14` — DLpLyTzBHjv
+- `hama-2025-06-25` — DaAcWfLzr9z
+- `daifuku-2020-07-18` — DSHD2ZikaGt
+
+Sheet I 欄「已補進」標記待作者手動處理。
+
+**重建**：`build_db` + `export_json`
