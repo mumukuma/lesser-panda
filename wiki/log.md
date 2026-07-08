@@ -3788,3 +3788,16 @@ photo-inbox-audit 比對收件匣 11 筆新投稿：9 筆 wiki 已有（僅待�
 `yaffa-2015-06-22` 移居新加坡動物園（2026-06-11）居住史已正確。來源原為市府彙整版 `www.gov.taipei/...s=7AF1E4A8EA022440`，改為台北市立動物園自家新聞稿〈小貓熊「Yaffa奇奇」前往新加坡動物園〉`www.zoo.gov.taipei/...s=7AF1E4A8EA022440`（2026-06-11 發布，同一篇之園方正本）。
 
 **重建**：`build_db` + `export_json`。
+
+## [2026-07-08] update | 接受 IG 投稿：Nanako（ななこ）
+
+讀者直接投稿（未經 Sheet）：`nanako-2025-07-07` frontmatter 新增 `instagram:`，補入 https://www.instagram.com/p/DafVsR5j3Ld/（正規化、去 query）。全 wiki 無重複。
+
+## [2026-07-08] update | Charmin（チャーミン）轉園日補為 2014-02-03（官方訃報）
+
+回報附旭山動物園官方訃報頁（園方一手來源，直接採用）：來歷載明「2014年2月3日 鯖江市西山動物園から来園」。`charmin-2011-07-17` 居住史 鯖江市西山動物園→旭川市旭山動物園 異動日由僅年份 2014 補為 **2014-02-03**；官方訃報 URL 補入 `sources`。
+
+**來源**：
+- https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/news-blog/osirase/d073787.html (レッサーパンダ「チャーミン」の訃報)
+
+**重建**：`gen_residence` + `build_db` + `export_json`。
