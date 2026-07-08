@@ -1,6 +1,6 @@
 # Wiki 目錄 Index
 
-> 最後更新：2026-07-08 | 條目總數：545（另有 6 筆條目暫存 wiki/_hidden/，不計入、不上站）
+> 最後更新：2026-07-08 | 條目總數：551（另有 6 筆條目暫存 wiki/_hidden/，不計入、不上站）
 
 ---
 
@@ -344,7 +344,7 @@
 |------|------|------|------|--------|
 | [[subaru-2010-06-26]] | Subaru スバル — Jaja 之兄 🌈 | ♂ | 2010–2025 🌈 | 平川動物公園 |
 | [[shingen-2011-06-18]] | Shingen シンゲン — Jaja 之兄 | ♂ | 2011 | 釧路市動物園 |
-| [[sachi-2012-06-18]] | Sachi サチ — Jaja 之姊；Kenshin 雙胞胎 🌈 | ♀ | 2012–2025 🌈 | Assiniboine Park Zoo 🇨🇦 |
+| [[sachi-2012-06-18]] | Sachi サチ — Jaja 之姊；Kenshin 雙胞胎；[[tanvi-2017-06-13]] 之母、[[leah-2019-05-17]] 外祖母 🌈 | ♀ | 2012–2025 🌈 | Assiniboine Park Zoo 🇨🇦 |
 | [[kenshin-2012-06-18]] | Kenshin ケンシン — Jaja 之兄；Sachi 雙胞胎 | ♂ | 2012 | 秋田市大森山動物園 |
 | [[anzu-2013-06-21]] | Anzu アンズ — Jaja 之姊；Taiyo 雙胞胎 | ♀ | 2013 | 長野市茶臼山動物園 |
 | [[taiyo-2013-06-21]] | Taiyo タイヨウ — Jaja 之兄；Anzu 雙胞胎 | ♂ | 2013 | 千葉市動物公園 |
@@ -1996,9 +1996,24 @@
 |------|------|------|------|--------|
 | [[arun-2014-06-28]] | Arun アルン — Assiniboine 生（RPF #432；🚧 讀者稱 2025-11 移回 Assiniboine，僅 IG 來源） | ♂ | 2014– | Greater Vancouver Zoo 🇨🇦 |
 | [[rakesh-2014-06-28]] | Rakesh ラケシ — Arun 雙胞胎兄弟 🌈（RPF #449） | ♂ | 2014–2015 🌈 | Greater Vancouver Zoo 🇨🇦 |
-| [[sakura-2013-07-01]] | Sakura サクラ — Granby 生；Udaya・Maple・Mei-Mei 之母 🌈（RPF #445；⚠️ 另有兩隻同名） | ♀ | 2013–2024 🌈 | Toronto Zoo 🇨🇦 |
+| [[sakura-2013-07-01]] | Sakura サクラ — Granby 生；[[kayah-2007-06-11]] × [[koko-2000-06-25]] 之女、[[zorro-2013-07-01]] 三胞胎；Udaya・Maple・Mei-Mei 之母 🌈（RPF #445；⚠️ 另有兩隻同名） | ♀ | 2013–2024 🌈 | Toronto Zoo 🇨🇦 |
 | [[maple-2022-06-14]] | Maple 松楓 — BC 首胎雙胞胎之一；2024 移居 Granby（RPF #1405） | ♂ | 2022– | Granby Zoo 🇨🇦 |
 | [[mei-mei-2022-06-14]] | Mei-Mei メイメイ — BC 首胎雙胞胎之一（RPF #1404；⚠️ 另有三隻同名） | ♀ | 2022– | Greater Vancouver Zoo 🇨🇦 |
+
+---
+
+## 海外個體（加拿大・Zorro × Tanvi 一家 → 韓國 Leah）
+
+[[zorro-2013-07-01]]（[[kayah-2007-06-11]] × [[koko-2000-06-25]] 🌈 之子）× [[tanvi-2017-06-13]]（[[tango-2015-07-30]] × [[sachi-2012-06-18]] 🌈 之女）於 Assiniboine Park Zoo 育有雙胞胎 [[poppy-2019-05-17]] 與 [[leah-2019-05-17]]（RPF 名 Rose，2022 移居韓國 Everland）。祖父 Koko（虎虎）與外祖母 Sachi 均為長野市茶臼山動物園出身的旅加個體。
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[zorro-2013-07-01]] | Zorro ゾロ — Granby 生；[[sakura-2013-07-01]] 🌈・Xia 三胞胎；Leah・Poppy 之父（RPF #431） | ♂ | 2013– | Assiniboine Park Zoo 🇨🇦 |
+| [[tanvi-2017-06-13]] | Tanvi タンヴィ — Sachi × Tango 之女；Leah・Poppy 之母（RPF #438） | ♀ | 2017– | Assiniboine Park Zoo 🇨🇦 |
+| [[poppy-2019-05-17]] | Poppy ポッピー — Leah 雙胞胎（RPF #1253） | ♀ | 2019– | Assiniboine Park Zoo 🇨🇦 |
+| [[tango-2015-07-30]] | Tango タンゴ — Tanvi 之父；[[rina-2012-08-02]] 🌈 之子（RPF #435） | ♂ | 2015– | Edmonton Valley Zoo 🇨🇦 |
+| [[kayah-2007-06-11]] | Kayah カヤ — Zorro 之母；[[malikha-2004-06-08]] 🌈 之女、[[franken-2012-06-11]] ½ 姊（RPF #446） | ♀ | 2007– | Granby Zoo 🇨🇦 |
+| [[koko-2000-06-25]] | Koko 虎虎／ココ — Zorro 之父；茶臼山生、[[seina-2000-06-25]] 雙胞胎 🌈（RPF #440；🚧 RPF 生日 6/23 與雙胞胎不符，暫從 Seina 6/25） | ♂ | 2000–2017 🌈 | Granby Zoo 🇨🇦 |
 
 ---
 
@@ -2019,7 +2034,7 @@
 
 | 條目 | 說明 | 性別 | 生年 | 動物園 |
 |------|------|------|------|--------|
-| [[leah-2019-05-17]] | Leah 레아 — 官方部落格 2026-05-17 七歲生日確認生日；出生園待查證 🚧 | ♀ | 2019– | Everland 🇰🇷 |
+| [[leah-2019-05-17]] | Leah 레아 — RPF 名 Rose（#1252）；Assiniboine 生、2022 赴韓；[[zorro-2013-07-01]] × [[tanvi-2017-06-13]] 之女、[[poppy-2019-05-17]] 雙胞胎 | ♀ | 2019– | Everland 🇰🇷 |
 
 ---
 

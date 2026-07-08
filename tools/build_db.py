@@ -108,12 +108,12 @@ OFFICIAL_HOSTS = {
     "shanghaizoo.cn", "nbzoo.com", "shwzoo.com", "enjoyland.cn",
     "swap-shendi.com", "lyhylj.liuzhou.gov.cn", "mp.weixin.qq.com",
     # 其他國家園方官網
-    "drusillas.co.uk", "chiangmai.zoothailand.org", "sriayuthayalionpark.com",
+    "drusillas.co.uk", "witheverland.com", "chiangmai.zoothailand.org", "sriayuthayalionpark.com",
 }
 
 def _host(url: str) -> str:
     from urllib.parse import urlparse
-    return urlparse(url).netloc.lower().split("@")[-1].split(":")[0].lstrip("www.") \
+    return urlparse(url).netloc.lower().split("@")[-1].split(":")[0].removeprefix("www.") \
         if "//" in url else ""
 
 def is_official_source(url: str) -> bool:

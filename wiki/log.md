@@ -3870,3 +3870,33 @@ photo-inbox-audit 比對收件匣 11 筆新投稿：9 筆 wiki 已有（僅待�
 Sheet I 欄「已補進」標記待作者手動處理。
 
 **重建**：`build_db` + `export_json`
+
+## [2026-07-08] add+update | Leah＝RPF #1252（Rose）確認，補齊加拿大家系 6 條目
+
+作者確認 RPF #1252（主名 Rose）即 Everland 的 `leah-2019-05-17`，解掉原「出生園待查證 🚧」：Assiniboine Park Zoo 生（2019-05-17）、2022-12-01 移居 Everland。依新增成員流程自動補齊直系親屬（父、母、雙胞胎、祖父母；外祖母 `sachi-2012-06-18` 已存在）。
+
+**來源**：
+- https://redpandafinder.com/#profile/1252 (Rose/Leah)
+- https://redpandafinder.com/#profile/438 (Tanvi)、#431 (Zorro)、#1253 (Poppy)、#435 (Tango)、#446 (Kayah)、#440 (Koko)、#433 (Kendji)、#89 (Seina)
+
+**新增條目**：
+- `tanvi-2017-06-13.md` — Tanvi タンヴィ（RPF #438），生於 2017-06-13，現居 Assiniboine Park Zoo；Leah・Poppy 之母
+- `zorro-2013-07-01.md` — Zorro ゾロ（RPF #431），生於 2013-07-01（Granby），現居 Assiniboine Park Zoo；Leah・Poppy 之父
+- `poppy-2019-05-17.md` — Poppy ポッピー（RPF #1253），生於 2019-05-17，現居 Assiniboine Park Zoo；Leah 雙胞胎
+- `tango-2015-07-30.md` — Tango タンゴ（RPF #435），生於 2015-07-30，現居 Edmonton Valley Zoo；Tanvi 之父
+- `kayah-2007-06-11.md` — Kayah カヤ（RPF #446），生於 2007-06-11，現居 Granby Zoo；Zorro 之母、`franken` 的 ½ 姊
+- `koko-2000-06-25.md` — Koko 虎虎／ココ（RPF #440），茶臼山生、歿於 Granby（2017-07-05）；Zorro 之父、`seina` 雙胞胎。⚠️ RPF 記生日 2000-06-23，與雙胞胎 `seina-2000-06-25`（wiki 校訂）差兩天，暫從 Seina 的 6/25、條目內留 🚧 備注待作者裁定
+
+**更新條目**：
+- `leah-2019-05-17.md` — 補 rpf_id 1252、species styani、出生園與居住史、日文名 ローズ、英名 Rose/Lea、家族全補；去除 unverified
+- `kendji-2015-06-22.md` — 解掉 🚧：出生園 Granby（2015-06-22）、經 Cincinnati（2016-10-27 – 2023-10-26）抵 Roger Williams（2023-10-26）；父母 Kayah × Koko、雙胞胎 Madeline（#444）；Micu 補 🌈
+- `sakura-2013-07-01.md` — 母/父「不詳」補為 Kayah × Koko；補三胞胎 Zorro・Xia
+- `sachi-2012-06-18.md` — 子女表 Tanvi 改 wikilink、註明配偶 Tango；引言補 Leah 外祖母
+- `seina-2000-06-25.md` — 雙胞胎 Koko、父母 Liuxing・Yuu-Yuu 改 wikilink
+- `liuxing-1997-06-16.md`、`yuu-yuu-1990-06-25.md` — 子女表 Koko 改 wikilink、性別 ♂ 補上
+- `rina-2012-08-02.md` — 子女 Tango 改 wikilink（RPF #435 補上）
+- `malikha-2004-06-08.md`、`franken-2012-06-11.md` — Kayah 改 wikilink
+- `index.md` — 新增「海外個體（加拿大・Zorro × Tanvi 一家 → 韓國 Leah）」區塊（6 條目）；Leah・Sachi・Sakura 列更新；條目總數 545 → **551**
+- `tools/build_db.py` — OFFICIAL_HOSTS 補 `witheverland.com`（Everland 官方部落格，Leah 來源上站）；並修 `_host()` 用 `lstrip("www.")`（按字元剝除）的 latent bug——`www.witheverland.com` 被剝成 `itheverland.com`，改用 `removeprefix("www.")`
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
