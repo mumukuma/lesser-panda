@@ -3900,3 +3900,15 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - `tools/build_db.py` — OFFICIAL_HOSTS 補 `witheverland.com`（Everland 官方部落格，Leah 來源上站）；並修 `_host()` 用 `lstrip("www.")`（按字元剝除）的 latent bug——`www.witheverland.com` 被剝成 `itheverland.com`，改用 `removeprefix("www.")`
 
 **重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+---
+
+## [2026-07-09] update | 補 `kotarou-2005-07-08` 中文名 琥太郎
+
+**來源**：
+- 作者提供
+
+**更新條目**：
+- `kotarou-2005-07-08.md` — frontmatter 補 `chinese: 琥太郎`；標題改為 `# Kotarou（琥太郎）`
+
+**重建**：`gen_residence` + `build_db` + `export_json`
