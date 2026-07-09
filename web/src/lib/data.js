@@ -143,3 +143,96 @@ export const searchDataFor = (locale) => ({
     zoo: !p.died ? zooName(p.current_zoo, p.current_zoo_raw, locale) || null : null,
   })),
 });
+
+// ── 日本家系圖（整合頁 #jptree）：建置期算「日本主網」+ 世代分層佈局 ──────
+// 「日本個體」＝一生曾住過 country==='Japan' 的園。整個日本其實是一張互相通婚的
+// 大家族網，故取最大連通元件呈現（父子＋雙胞胎為邊）。佈局：世代為橫列（y），
+// 列內用 barycenter 掃描排序以降低交叉；座標與間距在此固定，前端純平移縮放閱讀。
+const _zooCountry = Object.fromEntries(zoos.map((z) => [z.id, z.country]));
+const _jpZooIds = (p) => {
+  const ids = [];
+  for (const r of p.residences || []) {
+    if (r.zoo_id != null && _zooCountry[r.zoo_id] === 'Japan' && !ids.includes(r.zoo_id)) ids.push(r.zoo_id);
+  }
+  return ids;
+};
+
+export function japanTreeData(locale = 'zh-TW') {
+  const isJP = {};
+  for (const p of Object.values(pandas)) isJP[p.slug] = _jpZooIds(p).length > 0;
+  const adj = {}, parents = {}, children = {};
+  const link = (a, b) => { (adj[a] = adj[a] || new Set()).add(b); (adj[b] = adj[b] || new Set()).add(a); };
+  for (const p of Object.values(pandas)) {
+    if (!isJP[p.slug]) continue;
+    for (const m of [p.mother, p.father]) {
+      if (m && isJP[m] && pandas[m]) {
+        link(p.slug, m);
+        (parents[p.slug] = parents[p.slug] || []).push(m);
+        (children[m] = children[m] || []).push(p.slug);
+      }
+    }
+  }
+  for (const [a, b] of family.twins) if (isJP[a] && isJP[b]) link(a, b);
+  // 最大連通元件
+  const seen = new Set(); let best = [];
+  for (const s of Object.keys(isJP)) {
+    if (!isJP[s] || seen.has(s)) continue;
+    const stack = [s], comp = [];
+    while (stack.length) {
+      const x = stack.pop(); if (seen.has(x)) continue; seen.add(x); comp.push(x);
+      if (adj[x]) for (const y of adj[x]) if (!seen.has(y)) stack.push(y);
+    }
+    if (comp.length > best.length) best = comp;
+  }
+  const inSet = new Set(best);
+  // 世代（元件內最長祖先路徑）
+  const memo = {};
+  const gen = (s) => {
+    if (s in memo) return memo[s];
+    memo[s] = 0;
+    const ps = (parents[s] || []).filter((x) => inSet.has(x));
+    memo[s] = ps.length ? 1 + Math.max(...ps.map(gen)) : 0;
+    return memo[s];
+  };
+  const G = {}; for (const s of best) G[s] = gen(s);
+  const maxg = Math.max(...best.map((s) => G[s]));
+  const rows = {}; for (const s of best) (rows[G[s]] = rows[G[s]] || []).push(s);
+  const gnums = Object.keys(rows).map(Number).sort((a, b) => a - b);
+  const order = {};
+  const born = (s) => pandas[s].born || '';
+  for (const g of gnums) {
+    rows[g].sort((a, b) => (born(a) < born(b) ? -1 : born(a) > born(b) ? 1 : 0));
+    rows[g].forEach((s, i) => (order[s] = i));
+  }
+  for (let sweep = 0; sweep < 8; sweep++) {
+    for (const g of gnums) {
+      if (g === 0) continue;
+      const k = (s) => { const ps = (parents[s] || []).filter((x) => inSet.has(x)); return ps.length ? ps.reduce((a, x) => a + order[x], 0) / ps.length : order[s]; };
+      rows[g].sort((a, b) => k(a) - k(b)); rows[g].forEach((s, i) => (order[s] = i));
+    }
+    for (const g of [...gnums].reverse()) {
+      const k = (s) => { const ks = (children[s] || []).filter((x) => inSet.has(x)); return ks.length ? ks.reduce((a, x) => a + order[x], 0) / ks.length : order[s]; };
+      rows[g].sort((a, b) => k(a) - k(b)); rows[g].forEach((s, i) => (order[s] = i));
+    }
+  }
+  const COLW = 150, ROWH = 170;
+  const idx = {}; best.forEach((s, i) => (idx[s] = i));
+  const nodes = best.map((s) => {
+    const p = pandas[s];
+    const rowW = rows[G[s]].length * COLW;
+    const x = Math.round((order[s] * COLW - rowW / 2) * 10) / 10;
+    return [p.urlId, displayName(p, locale),
+      p.sex === 'female' ? 'f' : p.sex === 'male' ? 'm' : 'u',
+      p.born ? p.born.slice(0, 4) : '', p.died ? p.died.slice(0, 4) : '',
+      G[s], x, G[s] * ROWH, _jpZooIds(p)];
+  });
+  const edges = [];
+  for (const s of best) for (const m of parents[s] || []) if (inSet.has(m)) edges.push([idx[s], idx[m]]);
+  const twins = [];
+  for (const [a, b] of family.twins) if (inSet.has(a) && inSet.has(b)) twins.push([idx[a], idx[b]]);
+  const zc = {};
+  for (const s of best) for (const z of _jpZooIds(pandas[s])) zc[z] = (zc[z] || 0) + 1;
+  const zooList = Object.keys(zc).map(Number).sort((a, b) => zc[b] - zc[a])
+    .map((z) => [z, zooName(z, null, locale), zc[z]]);
+  return { nodes, edges, twins, maxg, zoos: zooList };
+}

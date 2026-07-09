@@ -1,0 +1,91 @@
+---
+import { i18n } from '../lib/data.js';
+const { locale } = Astro.props;
+const T = i18n[locale];
+---
+<h1 class="font-display text-2xl font-semibold mt-7 mb-1.5">{T.nav_family}</h1>
+<p class="text-ink-soft text-[.9rem] leading-relaxed mb-3 max-w-2xl">{T.ft_intro}</p>
+
+<div class="ft-tools">
+  <input id="ft-search" type="text" list="ft-names" autocomplete="off" placeholder={T.ft_search} />
+  <datalist id="ft-names"></datalist>
+  <select id="ft-zoo" aria-label={T.ft_zoo_filter} title={T.ft_zoo_filter}>
+    <option value="">{T.ft_zoo_all}</option>
+  </select>
+  <button id="ft-reset" type="button">{T.ft_reset}</button>
+  <span id="ft-stat" class="ft-stat"></span>
+</div>
+
+<div class="ft-stage">
+  <svg id="ft-svg" role="img" aria-label={T.nav_family} xmlns="http://www.w3.org/2000/svg"></svg>
+  <div id="ft-info"></div>
+  <div class="ft-legend">
+    <span><i class="sw alive"></i>{T.ft_alive}</span>
+    <span><i class="sw dead"></i>{T.ft_dead}</span>
+    <span class="hint">{T.ft_hint}</span>
+  </div>
+</div>
+
+<style is:global>
+  .ft-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 6px 0 10px; }
+  .ft-tools input, .ft-tools select, .ft-tools button {
+    font: inherit; font-size: .88rem; padding: 7px 10px; border: 1px solid var(--line);
+    border-radius: 9px; background: var(--bg-card); color: var(--ink); }
+  .ft-tools input { width: 170px; }
+  .ft-tools button { cursor: pointer; color: var(--ink-soft); }
+  .ft-tools button:hover { color: var(--rust-dark); }
+  .ft-stat { font-size: .8rem; color: var(--ink-soft); margin-left: auto; }
+
+  /* 畫布做滿版（full-bleed）：標題／工具列仍在文字欄，只有這塊吃滿螢幕寬。
+     依賴全站 html{overflow-x:clip}，100vw 不會產生橫向捲動。 */
+  .ft-stage { position: relative; height: 82vh; min-height: 440px; overflow: hidden;
+    touch-action: none; user-select: none; background: #fffdf9;
+    width: 100vw; margin-left: calc(50% - 50vw);
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    --ft-alive: #5f8f22; --ft-alive-bg: color-mix(in srgb, #5f8f22 14%, var(--bg-card)); }
+  :root[data-theme="dark"] .ft-stage { background: #1c1511;
+    --ft-alive: #9ccb5a; --ft-alive-bg: color-mix(in srgb, #9ccb5a 18%, var(--bg-card)); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ft-stage {
+    background: #1c1511; --ft-alive: #9ccb5a; --ft-alive-bg: color-mix(in srgb, #9ccb5a 18%, var(--bg-card)); } }
+  @media (max-width: 560px) { .ft-stage { height: 72vh; } .ft-tools input { width: 130px; } }
+
+  #ft-svg { display: block; width: 100%; height: 100%; cursor: grab; }
+  #ft-svg.grab { cursor: grabbing; }
+
+  .ft-edge { stroke: #d7c5b0; stroke-width: 1.2; fill: none; }
+  :root[data-theme="dark"] .ft-edge { stroke: #5a4a3c; }
+  .ft-edge.on { stroke: var(--rust); stroke-width: 2; opacity: 1; }
+  .ft-edge.faded { opacity: .07; }
+
+  .ft-node { cursor: pointer; }
+  .ft-node rect { stroke-width: 1.2; }
+  .ft-node.alive rect { fill: var(--ft-alive-bg); stroke: var(--ft-alive); }
+  .ft-node.dead rect { fill: var(--bg-card); stroke: var(--ink-soft); }
+  .ft-node .ft-nm { font-size: 12px; fill: var(--ink); pointer-events: none; }
+  .ft-node.dead .ft-nm { fill: var(--ink-soft); }
+  .ft-node .ft-sub { font-size: 9px; fill: var(--ink-soft); pointer-events: none; }
+  .ft-node.faded { opacity: .12; }
+  .ft-node.hl rect { stroke: var(--rust); stroke-width: 2.4; }
+  .ft-genlbl { font-size: 22px; font-weight: 700; fill: var(--rust); opacity: .5; pointer-events: none; }
+
+  #ft-info { position: absolute; top: 12px; right: 12px; width: 210px; display: none;
+    background: var(--bg-card); border: 1px solid var(--line); border-radius: 11px;
+    padding: 11px 13px; font-size: .82rem; box-shadow: var(--shadow); }
+  #ft-info h2 { margin: 0 0 6px; font-size: 1rem; }
+  #ft-info .row { display: flex; justify-content: space-between; gap: 8px; padding: 2px 0; color: var(--ink-soft); }
+  #ft-info .row b { color: var(--ink); font-weight: 600; }
+  #ft-info .ft-open { display: inline-block; margin-top: 8px; color: var(--rust); text-decoration: none; font-weight: 600; }
+  #ft-info .ft-open:hover { text-decoration: underline; }
+  #ft-info button { margin-top: 8px; margin-left: 10px; border: 1px solid var(--line);
+    background: var(--bg); color: var(--ink-soft); border-radius: 7px; padding: 4px 9px; font-size: .78rem; cursor: pointer; }
+
+  .ft-legend { position: absolute; left: 12px; bottom: 12px; display: flex; flex-wrap: wrap;
+    align-items: center; gap: 4px 12px; max-width: calc(100% - 24px);
+    background: color-mix(in srgb, var(--bg-card) 88%, transparent); border: 1px solid var(--line);
+    border-radius: 10px; padding: 7px 11px; font-size: .76rem; color: var(--ink-soft); }
+  .ft-legend .sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -1px; margin-right: 5px; }
+  .ft-legend .sw.alive { background: var(--ft-alive-bg); border: 1px solid var(--ft-alive); }
+  .ft-legend .sw.dead { background: var(--bg-card); border: 1px solid var(--ink-soft); }
+  .ft-legend .hint { opacity: .8; }
+  @media (max-width: 560px) { .ft-legend .hint { display: none; } #ft-info { width: 170px; } }
+</style>

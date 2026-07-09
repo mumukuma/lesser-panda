@@ -5119,6 +5119,25 @@
   ]
  },
  {
+  "canonical": "河川生態園",
+  "lineage_id": null,
+  "en": "River Wonders",
+  "zh": "河川生態園",
+  "country": "Singapore",
+  "location_ja": "新加坡",
+  "location_en": "Singapore",
+  "lat": 1.4045,
+  "lng": 103.7905,
+  "map": null,
+  "website": "https://www.mandai.com/en/river-wonders.html",
+  "logo": null,
+  "aliases": [
+   "River Wonders",
+   "River Safari",
+   "Mandai Wildlife Reserve"
+  ]
+ },
+ {
   "canonical": "北京動物園",
   "lineage_id": null,
   "en": "Beijing Zoo",

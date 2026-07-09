@@ -4068,3 +4068,41 @@ Sheet I 欄「已補進」標記待作者手動處理。
 > 北京始祖血系自此接到頂（慶慶×秀秀、慶慶×胖胖兩系）；始祖生年皆為暫定、待園方 studbook／官方家系精確化，屆時只需改 slug 年份並修 wikilink。
 
 **重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+---
+
+## [2026-07-09] update | 補讀者投稿 IG 貼文一則（Fan-Fan 繁繁）
+
+**背景**：讀者透過三語表單投稿照片，勾選「本人拍攝／本人貼文」，視同同意刊登。投稿未留暱稱，致謝名單不動。
+
+**更新條目**：
+- `fan-fan-2023-05-02.md` — instagram frontmatter 新增 `https://www.instagram.com/p/DajytwrkT-t/`（去除 `?igsh=` 追蹤參數、正規化為 `/p/<shortcode>/`；未含帳號，日後可用 `ig_audit.py --no-account` 補齊）
+
+**重建**：`build_db` + `export_json`
+
+---
+
+## [2026-07-09] add | 圖鑑缺漏回報三筆：Karma（新加坡）＋ Fred・George（加拿大 Edmonton 雙胞胎）
+
+**背景**：讀者透過三語表單回報三隻缺漏個體。Karma 附官方來源（Mandai 官網 Stars of Mandai）→ 直接採用。`Fred`／`George` 回報僅附 IG 貼文（非官方），但經 CBC News 與該園募款夥伴 Valley Zoo Development Society 佐證，且 `tango-2015-07-30` 條目原已列此二子（母欄記「另一母」）→ 補為正式條目並補齊母名。
+
+**來源**：
+- https://www.mandai.com/en/discover-mandai/events/stars-of-mandai/karma.html (Karma)
+- https://www.cbc.ca/news/canada/edmonton/edmonton-valley-zoo-debuts-endangered-red-panda-cubs-fred-and-george-1.7385267 (Fred, George)
+- https://www.buildingourzoo.com/red-pandas/ (Fred, George)
+
+**新增動物園註冊表**：
+- `data/zoos.json` — 新增 `河川生態園`（River Wonders，新加坡萬禮野生動物世界；canonical 河川生態園、en River Wonders）
+
+**新增條目**：
+- `karma-2013.md` — Karma（♂，喜馬拉雅亞種 fulgens），生於 2013-12，現居河川生態園；家系待查證
+- `fred-2024-07-07.md` — Fred（♂，styani），生於 2024-07-07，Edmonton Valley Zoo；父 `tango`、母 `Kiki`、`george` 雙胞胎
+- `george-2024-07-07.md` — George（♂，styani），生於 2024-07-07，Edmonton Valley Zoo；父 `tango`、母 `Kiki`、`fred` 雙胞胎
+
+**更新條目**：
+- `tango-2015-07-30.md` — 子女表 `George`／`Fred` 改為 wikilink、母欄由「另一母」補為 `Kiki`；引言補 2024 雙胞胎
+- `index.md` — 新增「海外個體（新加坡・河川生態園）」分類收 `karma`；Edmonton 家族表補 `fred`／`george`；條目總數 580 → **583**
+
+> ⚠️ Edmonton 母 `Kiki` 與日本個體 `kiki-2000-07-04`（♂）為同名不同隻，條目內已加注意同名。`Kiki` 目前無生日等資料，暫以純文字記錄、未建條目；祖父 `Kalden`（RPF #480）同。Karma 的 RPF id 未知，`rpf_id` 留空。
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
