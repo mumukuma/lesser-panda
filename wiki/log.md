@@ -3912,3 +3912,159 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - `kotarou-2005-07-08.md` — frontmatter 補 `chinese: 琥太郎`；標題改為 `# Kotarou（琥太郎）`
 
 **重建**：`gen_residence` + `build_db` + `export_json`
+
+---
+
+## [2026-07-09] add | 補西山早期母獸 `ran-ran-1987-07-26`（蘭蘭），接上既有子女
+
+**來源**：
+- https://redpandafinder.com/#profile/774 (Ran-Ran)
+- redpanda-lineage（#774：生 1987-07-26、歿 2009-06-03、♀、出生及終居西山；子女 #769/#772/#495/#598/#732/#733；配偶 #763 Yuu-Yuu）
+- 社群整理「西山まとめ」(gid=1439000613) 指其為 `chao-chao-1991` 之母，經 lineage 核對屬實
+
+**新增條目**：
+- `ran-ran-1987-07-26.md` — Ran-Ran 蘭蘭（RPF #774），生於 1987-07-26，一生居鯖江市西山動物園，2009-06-03 老衰歿
+
+**更新條目**：
+- `chao-chao-1991-06-18.md` — 家族欄 母改 `[[ran-ran-1987-07-26]]`、父改 `[[yuu-yuu-1987-05-31]]`（原純文字）
+- `yuu-yuu-1987-05-31.md` — 子女表 6 筆（Ten-Ten、Hana、Chao-Chao、Kaori、Chun-Chun、無名）母欄補 `[[ran-ran-1987-07-26]] #774`；Chao-Chao 改 wikilink
+- `index.md` — Nyan-Nyan 家系新增 `ran-ran-1987-07-26`；條目總數 551 → **552**
+
+**待查證**：蘭蘭雙親（西山まとめ 記為北京始祖 慶慶 × 秀秀）lineage 無記錄，暫未建父母條目。
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+---
+
+## [2026-07-09] add | 補蘭蘭 × Yuu-Yuu 的 5 名子女（lineage 核對後建檔）
+
+**來源**：
+- redpanda-lineage 逐隻核對生日／居住史／血緣：`ten-ten`#769、`hana`#772、`kaori`#495、`sabatarou`#732（lineage 無名，名稱採「西山まとめ」）、`chun-chun`#733；皆為 #774 Ran-Ran × #763 Yuu-Yuu 之子女
+
+**新增條目**：
+- `ten-ten-1989-06-26.md` — 天天（RPF #769），西山→徳山，1989–2004
+- `hana-1990-06-29.md` — 花（RPF #772），西山→大森山，1990–2005
+- `kaori-1991-06-18.md` — 香（RPF #495），Chao-Chao 雙胞胎，西山→秋吉台，1991–2003
+- `sabatarou-1992-06-22.md` — サバタロウ（RPF #732，lineage 無名），春春雙胞胎，西山→釧路，1992–2000
+- `chun-chun-1992-06-22.md` — 春春（RPF #733），西山→池田，1992–2010
+
+**更新條目**：
+- `ran-ran-1987-07-26.md`、`yuu-yuu-1987-05-31.md` — 子女表 5 筆改 wikilink
+- `chao-chao-1991-06-18.md` — 雙胞胎 Kaori 改 `[[kaori-1991-06-18]]`
+- `index.md` — 新增 5 條目；條目總數 552 → **557**
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+---
+
+## [2026-07-09] add | 補平平血系 4 隻（lineage 核對後建檔），接上既有 Yan-Yan・Lala・Chata
+
+**來源**：
+- redpanda-lineage 逐隻核對：`pin-pin`#887（徳山→西山）、`takashi`#839、`hisashi`#773、`kou-kou`#1346（あやめ池→安佐→西山）
+- 親子邊：#887→#822(Yan-Yan)/#839(Takashi)…；#839→#341(Lala)/#168(Chata)（母 #223 Cha-Cha）
+
+**新增條目**：
+- `pin-pin-1989-06-28.md` — 平平（RPF #887），西山種公，Yan-Yan(1992)・Takashi 之父，1989–2008
+- `takashi-1993-07-19.md` — たかし（RPF #839），Pin-Pin 之子，與 Cha-Cha 育 Lala/Chata，1993–2012
+- `hisashi-1993-06-30.md` — ヒサシ（RPF #773），西山，1993–2011
+- `kou-kou-1988-06-22.md` — 好好（RPF #1346），あやめ池→安佐→西山，1988–2008
+
+**更新條目**：
+- `yan-yan-1992-06-19.md` — 父 `Pin-Pin` 改 `[[pin-pin-1989-06-28]]`
+- `lala-2000-06-27.md`、`chata-2002-06-25.md` — 父 `Takashi #839` 改 `[[takashi-1993-07-19]]`；chata 全兄弟 Lala 改 wikilink
+- `index.md` — 新增 4 條目；條目總數 557 → **561**
+
+**待查證**：平平／たかし之母獸別、ヒサシ之母（鈴鈴 #777，lineage 無名）等尚待查證，暫以純文字記。
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+---
+
+## [2026-07-09] add | 補西山血系 10 隻（lineage 核對後建檔），血系連結大致補齊
+
+**來源**：redpanda-lineage 逐隻核對生日／居住史／血緣。
+
+**新增條目**：
+- `you-you-1987-07-26.md` — 陽陽（RPF #775），Ran-Ran 同胎手足，西山→茶臼山種公，1987–2007
+- `rin-rin-1986-07-05.md` — 鈴鈴（RPF #777，lineage 無名），Hisashi 之母、Lili 同日出生，1986–2006
+- `kozue-1991-07-04.md` 梢#891、`sai-sai-1992-06-19.md` 西西#885、`ryou-1992-07-13.md` 涼#892、`kouhei-1992-07-13.md` 康平#893（lineage 記♀）、`shimajirou-1993-07-19.md` しまじろう#840、`tomy-1995-06-24.md` トミー#894 — 皆 Pin-Pin 之子女
+- `kousei-2000-06-27.md` コウセイ#128 — Takashi × Cha-Cha 之子、Lala 雙胞胎
+- `kirara-2002-06-29.md` キララ#333 — Hisashi 之女
+
+**更新條目**：
+- `pin-pin-1989-06-28.md` — 子女表 6 筆改 wikilink
+- `takashi-1993-07-19.md` — 子女 Kousei 改 wikilink
+- `hisashi-1993-06-30.md` — 母改 `[[rin-rin-1986-07-05]]`、子女 Kirara 改 wikilink
+- `ran-ran-1987-07-26.md` — 補同胎手足 `[[you-you-1987-07-26]]`
+- `index.md` — 新增 10 條目；條目總數 561 → **571**
+
+**未建（無法查證）**：北京始祖 秀秀／慶慶／胖胖，及誕誕・遊遊・愛愛・美美・吉吉・マリモ 等（lineage 無對應生日）；2026 韓國 レモン(ミルキー) lineage 尚無。
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+---
+
+## [2026-07-09] fix+add | 更正：試算表有「生日」欄，先前誤讀成歿日
+
+**背景**：作者指出「西山まとめ」有獨立的**生年月日欄（col2）**與**死亡日欄（col3）**；先前擷取誤取 col3 當生日，導致把有生日的個體誤列「無法查證」。經以生日欄＋redpanda-lineage 重新核對後補建。
+
+**新增條目**：
+- `chii-chii-1989-06-30.md` — 吉吉（RPF #771，lineage 名 Chii-Chii），Yuu-Yuu × Rin-Rin 之子，西山→甲府遊亀，1989–1995
+- `marimo-1995-07-04.md` — マリモ（RPF #729，lineage 無名），Sabatarou 之女、Kou-Kou 之配偶，釧路→西山→姫路，1995–2008
+- `aiai-1988-06-25.md` — 愛愛（生日依西山まとめ、lineage 無、RPF/父母待查），Pin-Pin 之配偶、平平血系 6 子之母，1988–2006
+
+**更新條目**：
+- `yuu-yuu-1987-05-31.md` — Chii-Chii 改 `[[chii-chii-1989-06-30]]`
+- `rin-rin-1986-07-05.md` — 子女 チイチイ 改 wikilink
+- `sabatarou-1992-06-22.md` — 補子女 `[[marimo-1995-07-04]]`
+- `kou-kou-1988-06-22.md` — 補配偶 `[[marimo-1995-07-04]]`
+- `pin-pin-1989-06-28.md` — 補配偶 `[[aiai-1988-06-25]]`
+- `kozue`/`ryou`/`kouhei`/`shimajirou`/`tomy`/`takashi` 6 隻 — 母欄補 `[[aiai-1988-06-25]]`
+- `index.md` — 新增 3 條目；條目總數 571 → **574**
+
+**修正前述紀錄**：上一批日誌誤稱「レモン lineage 尚無」——實際 `lemon-2013-07-07`（旧名ミルキー）早在 wiki 且正確。
+
+**仍未建**：北京始祖 秀秀／慶慶／胖胖（無生日）、メイメイ美美（生日欄空、lineage 無）；誕誕・遊遊（生日欄為 1986-07-05 疑共用值，待決定 slug）。
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+---
+
+## [2026-07-09] add | 補 遊遊・誕誕（生日欄 1986-07-05，雙胞胎佐證）
+
+**新增條目**：
+- `yuyu-1986-07-05.md` — 遊遊（♀，慶慶×胖胖之女、Rin-Rin 雙胞胎妹、Ai-Ai 之姉），西山→神戸市立王子動物園，1986–2005；生日依西山まとめ、與 `rin-rin-1986-07-05`(lineage #777 確認同日)一致；lineage 無獨立記錄、RPF/父母待查；slug 採 `yuyu-` 以別於 you-you(陽陽)／yuu-yuu(友友)
+- `tan-tan-1986-07-05.md` — 誕誕（性別待確認，慶慶×秀秀之子女、Lili 同日手足），幼逝於西山 1986–1987；生日依西山まとめ、lineage 無、RPF/父母待查
+
+**更新條目**：
+- `rin-rin-1986-07-05.md` — 補雙胞胎 `[[yuyu-1986-07-05]]`
+- `ran-ran-1987-07-26.md`、`you-you-1987-07-26.md` — 補兄 `[[tan-tan-1986-07-05]]`
+- `lili-1986-07-05.md` — 補同日手足 `[[tan-tan-1986-07-05]]`
+- `index.md` — 新增 2 條目；條目總數 574 → **576**
+
+**仍未建（無生日）**：北京始祖 秀秀／慶慶／胖胖、メイメイ美美。
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+---
+
+## [2026-07-09] add | 補北京始祖三頭＋メイメイ（作者提供暫定生年），血系接到頂
+
+**背景**：作者裁示——暫定生日＋待查證是本 wiki 既有作法（`YYYY` slug 合規），可先建再確認；並提供生年與性別。
+
+**新增條目**：
+- `shuu-shuu-1981.md` — 秀秀（♀，始祖母；生年 1981 作者暫定），北京動物園→西山，1981–1988
+- `kei-kei-1982.md` — 慶慶（♂，始祖父；生年 1982 暫定、歿日不詳），北京動物園→西山
+- `pan-pan-1983.md` — 胖胖（♀，始祖母；生年 1983 **推定**暫定），北京動物園→西山，1983–1990
+- `mei-mei-1989-06-19.md` — 美美（♀；生日 1989-06-19 暫定、另說 1988），八木山→西山→江戸川，1989–2007
+
+**更新條目**：
+- `tan-tan-1986-07-05.md` — 性別補 ♂（作者提供）；父母接 `[[kei-kei-1982]]`／`[[shuu-shuu-1981]]`
+- `lili-1986-07-05`、`ran-ran-1987-07-26`、`you-you-1987-07-26` — 補父母（慶慶×秀秀）
+- `yuyu-1986-07-05`、`rin-rin-1986-07-05`、`aiai-1988-06-25` — 補父母（慶慶×胖胖）
+- `sai-sai-1992-06-19.md` — 母補 `[[mei-mei-1989-06-19]]`
+- `index.md` — 新增 4 條目；條目總數 576 → **580**
+
+> 北京始祖血系自此接到頂（慶慶×秀秀、慶慶×胖胖兩系）；始祖生年皆為暫定、待園方 studbook／官方家系精確化，屆時只需改 slug 年份並修 wikilink。
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
