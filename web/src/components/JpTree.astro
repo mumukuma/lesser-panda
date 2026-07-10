@@ -22,6 +22,8 @@ const T = i18n[locale];
   <div class="ft-legend">
     <span><i class="sw alive"></i>{T.ft_alive}</span>
     <span><i class="sw dead"></i>{T.ft_dead}</span>
+    <span><i class="ln mother"></i>♀</span>
+    <span><i class="ln father"></i>♂</span>
     <span class="hint">{T.ft_hint}</span>
   </div>
 </div>
@@ -52,10 +54,15 @@ const T = i18n[locale];
   #ft-svg { display: block; width: 100%; height: 100%; cursor: grab; }
   #ft-svg.grab { cursor: grabbing; }
 
-  .ft-edge { stroke: #d7c5b0; stroke-width: 1.2; fill: none; }
+  .ft-edge { stroke: #d7c5b0; stroke-width: 1.2; fill: none; opacity: .6; }
   :root[data-theme="dark"] .ft-edge { stroke: #5a4a3c; }
+  /* 依父/母性別上色：母系暖鏽、父系鼠尾草綠（貼近全站奶油／鏽紅色調） */
+  .ft-edge.from-f { stroke: #c67849; }
+  .ft-edge.from-m { stroke: #7f9b63; }
+  :root[data-theme="dark"] .ft-edge.from-f { stroke: #c67849; }
+  :root[data-theme="dark"] .ft-edge.from-m { stroke: #8faa6d; }
   .ft-edge.on { stroke: var(--rust); stroke-width: 2; opacity: 1; }
-  .ft-edge.faded { opacity: .07; }
+  .ft-edge.faded { opacity: .06; }
 
   .ft-node { cursor: pointer; }
   .ft-node rect { stroke-width: 1.2; }
@@ -67,6 +74,17 @@ const T = i18n[locale];
   .ft-node.faded { opacity: .12; }
   .ft-node.hl rect { stroke: var(--rust); stroke-width: 2.4; }
   .ft-genlbl { font-size: 22px; font-weight: 700; fill: var(--rust); opacity: .5; pointer-events: none; }
+
+  /* 遠景圓點：預設隱藏，僅遠景層級顯示 */
+  .ft-dot { display: none; }
+  .ft-node.alive .ft-dot { fill: var(--ft-alive); }
+  .ft-node.dead .ft-dot { fill: var(--ink-soft); }
+  .ft-node.hl .ft-dot { fill: var(--rust); }
+  /* 細節層級（level-of-detail）：由縮放決定畫布 class */
+  #ft-svg.lod-far .ft-node rect,
+  #ft-svg.lod-far .ft-node text { display: none; }
+  #ft-svg.lod-far .ft-node .ft-dot { display: block; }
+  #ft-svg.lod-mid .ft-node .ft-sub { display: none; }
 
   #ft-info { position: absolute; top: 12px; right: 12px; width: 210px; display: none;
     background: var(--bg-card); border: 1px solid var(--line); border-radius: 11px;
@@ -86,6 +104,9 @@ const T = i18n[locale];
   .ft-legend .sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -1px; margin-right: 5px; }
   .ft-legend .sw.alive { background: var(--ft-alive-bg); border: 1px solid var(--ft-alive); }
   .ft-legend .sw.dead { background: var(--bg-card); border: 1px solid var(--ink-soft); }
+  .ft-legend .ln { display: inline-block; width: 14px; height: 0; border-top: 2px solid; vertical-align: 3px; margin-right: 4px; }
+  .ft-legend .ln.mother { color: #c67849; }
+  .ft-legend .ln.father { color: #7f9b63; }
   .ft-legend .hint { opacity: .8; }
   @media (max-width: 560px) { .ft-legend .hint { display: none; } #ft-info { width: 170px; } }
 </style>

@@ -43,13 +43,14 @@
     gBands.appendChild(t);
   }
 
-  // ── edges ──
+  // ── edges（曲線 path + 依父/母性別上色：母系暖鏽、父系鼠尾草綠）──
   const edgeEls = E.map(([c, p]) => {
-    const l = document.createElementNS(NS, 'line');
-    l.setAttribute('class', 'ft-edge');
-    l.setAttribute('x1', N[p][6]); l.setAttribute('y1', N[p][7] + NH / 2);
-    l.setAttribute('x2', N[c][6]); l.setAttribute('y2', N[c][7] - NH / 2);
-    gEdges.appendChild(l); return l;
+    const x1 = N[p][6], y1 = N[p][7] + NH / 2, x2 = N[c][6], y2 = N[c][7] - NH / 2, my = (y1 + y2) / 2;
+    const el = document.createElementNS(NS, 'path');
+    const sx = N[p][2] === 'f' ? ' from-f' : N[p][2] === 'm' ? ' from-m' : '';
+    el.setAttribute('class', 'ft-edge' + sx);
+    el.setAttribute('d', `M${x1} ${y1} C ${x1} ${my} ${x2} ${my} ${x2} ${y2}`);
+    gEdges.appendChild(el); return el;
   });
   // ── nodes ──
   const nodeEls = N.map((n, i) => {
@@ -57,6 +58,9 @@
     g.setAttribute('class', 'ft-node ' + (n[4] ? 'dead' : 'alive'));
     g.setAttribute('transform', `translate(${n[6]} ${n[7]})`);
     g.dataset.i = i;
+    // 遠景 LOD：畫成小圓點（縮到很小時只顯示點、隱藏方塊與文字）
+    const dot = document.createElementNS(NS, 'circle');
+    dot.setAttribute('class', 'ft-dot'); dot.setAttribute('r', 17);
     const r = document.createElementNS(NS, 'rect');
     r.setAttribute('x', -NW / 2); r.setAttribute('y', -NH / 2);
     r.setAttribute('width', NW); r.setAttribute('height', NH); r.setAttribute('rx', 10);
@@ -66,14 +70,20 @@
     const t2 = document.createElementNS(NS, 'text');
     t2.setAttribute('text-anchor', 'middle'); t2.setAttribute('y', 14); t2.setAttribute('class', 'ft-sub');
     t2.textContent = n[3] + (n[4] ? '–' + n[4] : '');
-    g.appendChild(r); g.appendChild(t1); g.appendChild(t2);
+    g.appendChild(dot); g.appendChild(r); g.appendChild(t1); g.appendChild(t2);
     gNodes.appendChild(g); return g;
   });
 
   // ── viewport (viewBox pan/zoom) ──
   let vb = { x: 0, y: 0, w: 1, h: 1 };
-  const applyVB = () => svg.setAttribute('viewBox', `${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
+  const applyVB = () => { svg.setAttribute('viewBox', `${vb.x} ${vb.y} ${vb.w} ${vb.h}`); lod(); };
   const pxw = () => { const r = svg.getBoundingClientRect(); return [r.width || 1, r.height || 1, r]; };
+  // 依縮放程度切換細節層級：遠→只圓點、中→只名字、近→名字＋生卒
+  function lod() {
+    const [pw] = pxw(); const npx = NW * pw / vb.w;
+    const cls = npx < 24 ? 'lod-far' : npx < 52 ? 'lod-mid' : 'lod-near';
+    if (svg._lod !== cls) { svg.classList.remove('lod-far', 'lod-mid', 'lod-near'); svg.classList.add(cls); svg._lod = cls; }
+  }
   function fit() {
     const pad = 90, top = -NH / 2 - 24, bot = D.maxg * ROWH + NH / 2 + 20;
     const [pw, ph] = pxw(); const asp = pw / ph;
