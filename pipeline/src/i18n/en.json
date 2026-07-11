@@ -137,7 +137,7 @@
   "sec_sources": "Sources",
   "sources_note": "Only official / primary sources (zoo websites, government notices, zoo reports, official WeChat) are listed. Click to open the original page.",
   "nav_family": "Family Tree",
-  "ft_intro": "Every red panda in Japan is really one big family — all 448 of them across nine generations. Drag to pan, zoom to read, tap any panda to trace its bloodline, or use the dropdown to highlight a zoo’s members.",
+  "ft_intro": "Every red panda in Japan is really one big family — all {n} of them across {g} generations. Drag to pan, zoom to read, tap any panda to trace its bloodline, or use the dropdown to highlight a zoo’s members.",
   "ft_search": "Search a name…",
   "ft_zoo_all": "All zoos",
   "ft_zoo_filter": "Highlight by zoo",
@@ -153,5 +153,7 @@
   "ft_open": "Open profile →",
   "ft_clear": "Clear",
   "ft_stat": "{n} pandas · {g} generations · {a} living",
-  "ft_hint": "Drag to pan · scroll / pinch to zoom · tap for bloodline"
+  "ft_hint": "Drag to pan · scroll / pinch to zoom · tap for bloodline",
+  "ft_showall": "Whole tree",
+  "ft_focus_tip": "Tap any panda to see just its bloodline on its own — usually a couple dozen, easy to read."
 }

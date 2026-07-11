@@ -1,10 +1,14 @@
 ---
-import { i18n } from '../lib/data.js';
+import { i18n, japanTreeData } from '../lib/data.js';
 const { locale } = Astro.props;
 const T = i18n[locale];
+// 介紹文的隻數／世代數建置期自動帶入（與右上角統計同一資料來源），
+// 新增日本家系成員重建後即自動更新，毋須手改 ft_intro。
+const _D = japanTreeData(locale);
+const intro = (T.ft_intro || '').replace('{n}', _D.nodes.length).replace('{g}', _D.maxg + 1);
 ---
 <h1 class="font-display text-2xl font-semibold mt-7 mb-1.5">{T.nav_family}</h1>
-<p class="text-ink-soft text-[.9rem] leading-relaxed mb-3 max-w-2xl">{T.ft_intro}</p>
+<p class="text-ink-soft text-[.9rem] leading-relaxed mb-3 max-w-2xl">{intro}</p>
 
 <div class="ft-tools">
   <input id="ft-search" type="text" list="ft-names" autocomplete="off" placeholder={T.ft_search} />
@@ -18,12 +22,13 @@ const T = i18n[locale];
 
 <div class="ft-stage">
   <svg id="ft-svg" role="img" aria-label={T.nav_family} xmlns="http://www.w3.org/2000/svg"></svg>
+  <div id="ft-coach"><span>{T.ft_focus_tip}</span><button id="ft-coach-x" type="button" aria-label="×">×</button></div>
   <div id="ft-info"></div>
   <div class="ft-legend">
-    <span><i class="sw alive"></i>{T.ft_alive}</span>
-    <span><i class="sw dead"></i>{T.ft_dead}</span>
-    <span><i class="ln mother"></i>♀</span>
-    <span><i class="ln father"></i>♂</span>
+    <span><i class="sw female"></i>♀</span>
+    <span><i class="sw male"></i>♂</span>
+    <span><i class="sw living"></i>{T.ft_alive}</span>
+    <span><i class="sw gone"></i>{T.ft_dead}</span>
     <span class="hint">{T.ft_hint}</span>
   </div>
 </div>
@@ -43,48 +48,65 @@ const T = i18n[locale];
   .ft-stage { position: relative; height: 82vh; min-height: 440px; overflow: hidden;
     touch-action: none; user-select: none; background: #fffdf9;
     width: 100vw; margin-left: calc(50% - 50vw);
-    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-    --ft-alive: #5f8f22; --ft-alive-bg: color-mix(in srgb, #5f8f22 14%, var(--bg-card)); }
-  :root[data-theme="dark"] .ft-stage { background: #1c1511;
-    --ft-alive: #9ccb5a; --ft-alive-bg: color-mix(in srgb, #9ccb5a 18%, var(--bg-card)); }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ft-stage {
-    background: #1c1511; --ft-alive: #9ccb5a; --ft-alive-bg: color-mix(in srgb, #9ccb5a 18%, var(--bg-card)); } }
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  :root[data-theme="dark"] .ft-stage { background: #1c1511; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ft-stage { background: #1c1511; } }
   @media (max-width: 560px) { .ft-stage { height: 72vh; } .ft-tools input { width: 130px; } }
 
   #ft-svg { display: block; width: 100%; height: 100%; cursor: grab; }
   #ft-svg.grab { cursor: grabbing; }
 
-  .ft-edge { stroke: #d7c5b0; stroke-width: 1.2; fill: none; opacity: .6; }
+  /* 連線：中性暖褐（比照個體頁家系圖 .tree-link），高亮才轉鏽紅 */
+  .ft-edge { stroke: #d7c5b0; stroke-width: 1.3; fill: none; opacity: .75; }
   :root[data-theme="dark"] .ft-edge { stroke: #5a4a3c; }
-  /* 依父/母性別上色：母系暖鏽、父系鼠尾草綠（貼近全站奶油／鏽紅色調） */
-  .ft-edge.from-f { stroke: #c67849; }
-  .ft-edge.from-m { stroke: #7f9b63; }
-  :root[data-theme="dark"] .ft-edge.from-f { stroke: #c67849; }
-  :root[data-theme="dark"] .ft-edge.from-m { stroke: #8faa6d; }
   .ft-edge.on { stroke: var(--rust); stroke-width: 2; opacity: 1; }
   .ft-edge.faded { opacity: .06; }
 
+  /* 節點：奶油底、邊框依性別上色（沿用全站 --female／--male，與個體頁一致）；
+     已歿＝虛線邊框＋略淡，不再用綠色區分 */
   .ft-node { cursor: pointer; }
-  .ft-node rect { stroke-width: 1.2; }
-  .ft-node.alive rect { fill: var(--ft-alive-bg); stroke: var(--ft-alive); }
-  .ft-node.dead rect { fill: var(--bg-card); stroke: var(--ink-soft); }
+  .ft-node rect { fill: var(--bg-card); stroke: var(--line); stroke-width: 1.3; }
+  .ft-node.f rect { stroke: var(--female); }
+  .ft-node.m rect { stroke: var(--male); }
+  .ft-node.dead { opacity: .8; }
+  .ft-node.dead rect { stroke-dasharray: 3 2.5; }
   .ft-node .ft-nm { font-size: 12px; fill: var(--ink); pointer-events: none; }
-  .ft-node.dead .ft-nm { fill: var(--ink-soft); }
   .ft-node .ft-sub { font-size: 9px; fill: var(--ink-soft); pointer-events: none; }
   .ft-node.faded { opacity: .12; }
-  .ft-node.hl rect { stroke: var(--rust); stroke-width: 2.4; }
+  /* 聚焦本熊：琥珀底＋光暈（比照個體頁中心節點），性別框色保留 */
+  .ft-node.hl rect { fill: color-mix(in srgb, var(--amber) 24%, var(--bg-card)); stroke-width: 2.6;
+    filter: drop-shadow(0 0 4px color-mix(in srgb, var(--amber) 60%, transparent)); }
+  .ft-node.hl:not(.f):not(.m) rect { stroke: var(--amber); }
   .ft-genlbl { font-size: 22px; font-weight: 700; fill: var(--rust); opacity: .5; pointer-events: none; }
 
-  /* 遠景圓點：預設隱藏，僅遠景層級顯示 */
-  .ft-dot { display: none; }
-  .ft-node.alive .ft-dot { fill: var(--ft-alive); }
-  .ft-node.dead .ft-dot { fill: var(--ink-soft); }
-  .ft-node.hl .ft-dot { fill: var(--rust); }
+  /* 遠景圓點：依性別上色，已歿較淡 */
+  .ft-dot { display: none; fill: var(--ink-soft); }
+  .ft-node.f .ft-dot { fill: var(--female); }
+  .ft-node.m .ft-dot { fill: var(--male); }
+  .ft-node.dead .ft-dot { opacity: .55; }
   /* 細節層級（level-of-detail）：由縮放決定畫布 class */
   #ft-svg.lod-far .ft-node rect,
   #ft-svg.lod-far .ft-node text { display: none; }
   #ft-svg.lod-far .ft-node .ft-dot { display: block; }
   #ft-svg.lod-mid .ft-node .ft-sub { display: none; }
+  /* 血脈聚焦模式：隱藏非血脈節點/連線與世代色帶，只留一棵乾淨小樹 */
+  .ft-hidden { display: none; }
+  #ft-svg.focus .ft-bands { display: none; }
+  /* 聚焦時節點少，一律顯示完整標籤（覆寫 LOD） */
+  #ft-svg.focus.lod-far .ft-node rect,
+  #ft-svg.focus.lod-far .ft-node text,
+  #ft-svg.focus.lod-mid .ft-node .ft-sub { display: block; }
+  #ft-svg.focus .ft-node .ft-dot { display: none; }
+
+  /* 落地引導提示條 */
+  #ft-coach { position: absolute; top: 12px; left: 12px; right: 12px; display: flex; align-items: center;
+    gap: 10px; max-width: 460px; margin: 0 auto; background: color-mix(in srgb, var(--bg-card) 94%, transparent);
+    border: 1px solid var(--line); border-radius: 11px; padding: 9px 12px; font-size: .82rem;
+    color: var(--ink-soft); box-shadow: var(--shadow); z-index: 3; }
+  #ft-coach span { flex: 1; line-height: 1.45; }
+  #ft-coach button { flex: none; border: none; background: none; color: var(--ink-soft); cursor: pointer;
+    font-size: 1.1rem; line-height: 1; padding: 0 2px; }
+  #ft-coach button:hover { color: var(--rust-dark); }
 
   #ft-info { position: absolute; top: 12px; right: 12px; width: 210px; display: none;
     background: var(--bg-card); border: 1px solid var(--line); border-radius: 11px;
@@ -102,11 +124,10 @@ const T = i18n[locale];
     background: color-mix(in srgb, var(--bg-card) 88%, transparent); border: 1px solid var(--line);
     border-radius: 10px; padding: 7px 11px; font-size: .76rem; color: var(--ink-soft); }
   .ft-legend .sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -1px; margin-right: 5px; }
-  .ft-legend .sw.alive { background: var(--ft-alive-bg); border: 1px solid var(--ft-alive); }
-  .ft-legend .sw.dead { background: var(--bg-card); border: 1px solid var(--ink-soft); }
-  .ft-legend .ln { display: inline-block; width: 14px; height: 0; border-top: 2px solid; vertical-align: 3px; margin-right: 4px; }
-  .ft-legend .ln.mother { color: #c67849; }
-  .ft-legend .ln.father { color: #7f9b63; }
+  .ft-legend .sw.female { background: color-mix(in srgb, var(--female) 16%, var(--bg-card)); border: 1px solid var(--female); }
+  .ft-legend .sw.male { background: color-mix(in srgb, var(--male) 16%, var(--bg-card)); border: 1px solid var(--male); }
+  .ft-legend .sw.living { background: var(--bg-card); border: 1px solid var(--ink-soft); }
+  .ft-legend .sw.gone { background: var(--bg-card); border: 1px dashed var(--ink-soft); }
   .ft-legend .hint { opacity: .8; }
   @media (max-width: 560px) { .ft-legend .hint { display: none; } #ft-info { width: 170px; } }
 </style>

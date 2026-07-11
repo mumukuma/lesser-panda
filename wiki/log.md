@@ -4106,3 +4106,77 @@ Sheet I 欄「已補進」標記待作者手動處理。
 > ⚠️ Edmonton 母 `Kiki` 與日本個體 `kiki-2000-07-04`（♂）為同名不同隻，條目內已加注意同名。`Kiki` 目前無生日等資料，暫以純文字記錄、未建條目；祖父 `Kalden`（RPF #480）同。Karma 的 RPF id 未知，`rpf_id` 留空。
 
 **重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+## [2026-07-11] update | 資料更正回報：Riku 歿日 2014-10-08 → 2015-11-08
+
+**背景**：讀者（`楊桃`）透過三語表單回報 `riku-2004-07-13` 歿日有誤，附秋田市大森山動物園官方園報〈大森山コミュニケーション vol.105・特集レッサーパンダ〉。原歿日 2014-10-08 僅來源於 RPF（非權威）；官方園報為一手來源，依「官方來源可直接採用」原則採納並更正。
+
+**來源**：
+- https://www.city.akita.lg.jp/_res/projects/default_project/_page_/001/037/648/105p6.pdf (秋田市大森山動物園 官方園報 vol.105)
+
+**更新條目**：
+- `riku-2004-07-13.md` — `died` 2014-10-08 → `2015-11-08`；`zoos:` 居住訖日同步；引言歿日與享年（10→11 歲）、內文離世年（2014→2015）更新；`sources:` 新增官方園報 PDF
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+## [2026-07-11] add | 圖鑑缺漏回報：新增 4 隻（官方來源）
+
+**背景**：讀者透過三語「圖鑑缺漏」表單回報多筆缺少個體。經比對後，`Fred`／`George`／`Karma` 已在圖鑑（重複，不新增）；`アイ`（上野，無來源）與動物園「都江堰小熊貓森林公園」「天津动物园」（非官方／未附來源）標待查證。本批採納 4 筆**附官方一手來源**者，依「官方來源可直接採用」原則建立條目。回報者 `楊桃` 已在致謝名單，不重複列。
+
+**來源**：
+- https://www.city.kushiro.lg.jp/zoo/shoukai/1001527/1001528/1001554.html (釧路市動物園 官方個體介紹；コーアイ)
+- https://www.city.akita.lg.jp/_res/projects/default_project/_page_/001/037/648/105p6.pdf (秋田市大森山動物園 官方園報 vol.105；飲飲・風)
+- https://www.facebook.com/zounokuni/posts/686909551385606/ (市原ぞうの国 官方 Facebook；一郎)
+
+**新增條目**：
+- `koai-2004-06-10.md` — Koai コーアイ（♀，styani，RPF #25），生於 2004-06-10 よこはま動物園ズーラシア，2006-06-07 移居釧路市動物園現居；母 `pam`、父 `mii-mii`（美美 #359）、`gaia` 雙胞胎
+- `in-in-2005-07-07.md` — In-In 飲飲（♀，styani），2005-07-07 生～2009-07-09 歿於秋田市大森山動物園ミルヴェ；母 `nana`、父 `Jen-Jen`（官方名單作「健健」，待作者確認）、與 `an-an`／`ma-ma` 同胎
+- `kaze-2004-07-13.md` — Kaze 風（♂，styani），2004-07-13 生～2006-11-06 歿於秋田市大森山動物園ミルヴェ；母 `nana`、父同上、`riku` 雙胞胎
+- `ichiro-2014-07-06.md` — Ichiro 一郎（♂，styani），2014-07-06 生於市原ぞうの国現居；父母待查證
+
+**更新條目**：
+- `gaia-2004-06-10.md`、`mii-mii-1994-06-26.md`、`pam-1997-06-26.md` — 子女／雙胞胎欄的 `Ko-ai` 純文字改為 `koai-2004-06-10` wikilink
+- `riku-2004-07-13.md` — 雙胞胎 `Kaze` 純文字改為 `kaze-2004-07-13` wikilink
+- `an-an-2005-07-07.md`、`ma-ma-2005-07-07.md` — 同胎補列 `in-in-2005-07-07`（原記為雙胞胎，實為同胎三手足）
+- `index.md` — Sayuri 家族補 `kaze`；補漏新增段補 `in-in`／`koai`；新增「市原ぞうの国（一郎）」段收 `ichiro`；條目總數 583 → **587**；最後更新 2026-07-11
+
+**待查證（未採用，非官方／資訊不足）**：
+- `アイ`（恩賜上野動物園）— 無來源、無生日，且已有 `ai-1991-06-20`（上野のアイ），疑重複或資訊不足
+- 動物園「都江堰小熊貓森林公園」— 僅小紅書／YouTube，無官網
+- 動物園「天津动物园」— 未附來源連結（提及 `圖圖`／`小宝`／`团团`）
+- `Katara`（→ Toledo Zoo）— 官方 FB 證實 2026/6 有三隻母個體進駐，但回報僅「11 歲」無確切生日，且與現有 `katara-2025-07-04`（另一隻幼獸）撞名，待補生日再建
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+## [2026-07-11] update | 一郎 補家系（RPF #300 參考）
+
+**背景**：作者提供 https://redpandafinder.com/#profile/300 供參考。RPF 為非權威來源，僅用於補空白家系；名稱仍從園方官方之「一郎」（RPF 誤記日文名為「一路」，不採）。
+
+**更新條目**：
+- `ichiro-2014-07-06.md` — 補 `rpf_id` 300、`rpf_url`、RPF 來源；家族補父 `kojirou-2010-07-14`（wikilink）、母 `Tomato`（無條目）、雙胞胎 `Ichiko`（無條目）；japanese 補 `イチロウ`；移除「父母待查證」，改標 RPF 參考待查證
+- `kojirou-2010-07-14.md` — 子女表 `Ichiro` 由「RPF；無條目」改為 `ichiro-2014-07-06` wikilink
+- `index.md` — 一郎行補父 `kojirou-2010-07-14` × `Tomato`、`Ichiko` 雙胞胎（RPF #300）
+
+**重建**：`build_db` + `export_json`；audit --strict、check_twins
+
+## [2026-07-11] add | 一郎家系補建：Tomato（母）、Ichiko（雙胞胎）
+
+**背景**：接續一郎補家系，依作者指示建立其母與雙胞胎條目。資料來源為 Red Panda Finder（非權威，僅補空白、待官方佐證）。
+
+**來源**：
+- https://redpandafinder.com/#query/Tomato
+- https://redpandafinder.com/#query/Ichiko
+
+**新增條目**：
+- `tomato-2007-07-21.md` — Tomato トマト（♀，styani），2007-07-21 生～2018-01-01 歿，市原ぞうの国；母 Choco-Choco、父 Min-Min（RPF 待查證）、與 `kojirou-2010-07-14` 育有 `ichiro`／`ichiko`；½ 手足連結既有 `ann`／`cafe`／`hanabi`／`latte`
+- `ichiko-2014-07-06.md` — Ichiko イチコ（♀，styani），2014-07-06 生～2014-07-11 夭折，市原ぞうの国；父 `kojirou-2010-07-14`、母 `tomato-2007-07-21`、`ichiro` 雙胞胎
+
+**更新條目**：
+- `ichiro-2014-07-06.md` — 母 Tomato、雙胞胎 Ichiko 由純文字改為 `tomato-2007-07-21`／`ichiko-2014-07-06` wikilink
+- `kojirou-2010-07-14.md` — 子女表 Ichiko 改 wikilink，補母 Tomato 連結
+- `ann-2010-06-15.md`、`cafe-2013-06-11.md`、`hanabi-2011-07-09.md`、`latte-2013-06-11.md` — ½ 手足 `Tomato` 純文字改為 `tomato-2007-07-21` wikilink
+- `index.md` — 「市原ぞうの国（一郎 一家）」段補 `ichiko`／`tomato`；條目總數 587 → **589**
+
+> ⚠️ Tomato 出生園未明（RPF 僅載市原）；母 Choco-Choco、父 Min-Min、同胎 Banana（2007，非 `banana-1996-08-09`）、胞弟 Potato 及其餘子女 Miruku／Kurumi／Nako／Nana 皆待查證、暫無條目。
+
+**重建**：`build_db` + `export_json`；audit --strict、check_twins

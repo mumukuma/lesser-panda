@@ -23,6 +23,7 @@
   const worldL = minX - NW, worldR = maxX + NW, worldW = worldR - worldL;
 
   const gBands = document.createElementNS(NS, 'g');
+  gBands.setAttribute('class', 'ft-bands');
   const gEdges = document.createElementNS(NS, 'g');
   const gNodes = document.createElementNS(NS, 'g');
   svg.appendChild(gBands); svg.appendChild(gEdges); svg.appendChild(gNodes);
@@ -43,19 +44,18 @@
     gBands.appendChild(t);
   }
 
-  // ── edges（曲線 path + 依父/母性別上色：母系暖鏽、父系鼠尾草綠）──
+  // ── edges（曲線 path，中性色；性別以節點邊框表達，比照個體頁家系圖）──
   const edgeEls = E.map(([c, p]) => {
     const x1 = N[p][6], y1 = N[p][7] + NH / 2, x2 = N[c][6], y2 = N[c][7] - NH / 2, my = (y1 + y2) / 2;
     const el = document.createElementNS(NS, 'path');
-    const sx = N[p][2] === 'f' ? ' from-f' : N[p][2] === 'm' ? ' from-m' : '';
-    el.setAttribute('class', 'ft-edge' + sx);
+    el.setAttribute('class', 'ft-edge');
     el.setAttribute('d', `M${x1} ${y1} C ${x1} ${my} ${x2} ${my} ${x2} ${y2}`);
     gEdges.appendChild(el); return el;
   });
   // ── nodes ──
   const nodeEls = N.map((n, i) => {
     const g = document.createElementNS(NS, 'g');
-    g.setAttribute('class', 'ft-node ' + (n[4] ? 'dead' : 'alive'));
+    g.setAttribute('class', 'ft-node ' + (n[4] ? 'dead' : 'alive') + (n[2] === 'f' ? ' f' : n[2] === 'm' ? ' m' : ''));
     g.setAttribute('transform', `translate(${n[6]} ${n[7]})`);
     g.dataset.i = i;
     // 遠景 LOD：畫成小圓點（縮到很小時只顯示點、隱藏方塊與文字）
@@ -85,12 +85,13 @@
     if (svg._lod !== cls) { svg.classList.remove('lod-far', 'lod-mid', 'lod-near'); svg.classList.add(cls); svg._lod = cls; }
   }
   function fit() {
-    const pad = 90, top = -NH / 2 - 24, bot = D.maxg * ROWH + NH / 2 + 20;
+    // 全圖很寬（世代少、每代多）：與其塞下全寬留一大片上下空白，
+    // 改成「以高度填滿、水平置中」，其餘用平移瀏覽。
+    const pad = 40, top = -NH / 2 - 24, bot = D.maxg * ROWH + NH / 2 + 20;
     const [pw, ph] = pxw(); const asp = pw / ph;
-    let W = worldW + pad * 2, H = (bot - top) + pad * 2, x = worldL - pad, y = top - pad;
-    if (W / H < asp) { const nw = H * asp; x -= (nw - W) / 2; W = nw; }
-    else { const nh = W / asp; y -= (nh - H) / 2; H = nh; }
-    vb = { x, y, w: W, h: H }; applyVB();
+    const H = (bot - top) + pad * 2, W = H * asp;
+    const cx = (worldL + worldR) / 2;
+    vb = { x: cx - W / 2, y: top - pad, w: W, h: H }; applyVB();
   }
   function zoomAt(sx, sy, f) {
     const [pw, ph, r] = pxw();
@@ -98,10 +99,6 @@
     const nw = Math.max(300, Math.min(worldW * 3, vb.w * f)), ratio = vb.h / vb.w;
     vb.w = nw; vb.h = nw * ratio;
     vb.x = wx - (sx - r.left) / pw * vb.w; vb.y = wy - (sy - r.top) / ph * vb.h; applyVB();
-  }
-  function center(i) {
-    const n = N[i], cw = Math.min(vb.w, 1500), ratio = vb.h / vb.w;
-    vb = { x: n[6] - cw / 2, y: n[7] - cw * ratio / 2, w: cw, h: cw * ratio }; applyVB();
   }
   svg.addEventListener('wheel', (e) => { e.preventDefault(); zoomAt(e.clientX, e.clientY, e.deltaY > 0 ? 1.12 : 0.89); }, { passive: false });
   const pts = new Map(); let last = null, moved = 0, down = null, pinch = 0;
@@ -122,67 +119,111 @@
   });
   const up = (e) => {
     pts.delete(e.pointerId); if (pts.size < 2) pinch = 0;
-    if (pts.size === 0) { svg.classList.remove('grab'); if (moved < 6 && down) selectNode(+down.dataset.i); else if (moved < 6 && !down) clearSel(); }
+    if (pts.size === 0) { svg.classList.remove('grab'); if (moved < 6 && down) enterFocus(+down.dataset.i); else if (moved < 6 && !down) { const z = document.getElementById('ft-zoo'); if (mode === 'all' && z && z.value) showAll(); } }
   };
   svg.addEventListener('pointerup', up); svg.addEventListener('pointercancel', up);
 
-  // ── selection / highlight ──
+  // ── selection / focus（血脈聚焦：抽出祖先＋後代，就地重排成乾淨小樹）──
   const info = document.getElementById('ft-info');
-  let sel = null;
+  const coach = document.getElementById('ft-coach');
+  const COLW = 150;
+  let mode = 'all', focusI = null;
   const walk = (i, list, set) => { const st = [i]; while (st.length) { const x = st.pop(); list[x].forEach((y) => { if (!set.has(y)) { set.add(y); st.push(y); } }); } };
-  function applyHi(keep, focus) {
-    nodeEls.forEach((g, j) => { g.classList.toggle('faded', !keep.has(j)); g.classList.toggle('hl', j === focus); });
-    edgeEls.forEach((l, k) => { const [c, p] = E[k]; const on = keep.has(c) && keep.has(p); l.classList.toggle('faded', !on); l.classList.toggle('on', on && focus != null); });
+  const bloodSet = (i) => { const s = new Set([i]); walk(i, parents, s); walk(i, children, s); return s; };
+  const edgePath = (c, p, X, Y) => { const x1 = X(p), y1 = Y(p) + NH / 2, x2 = X(c), y2 = Y(c) - NH / 2, my = (y1 + y2) / 2; return `M${x1} ${y1} C ${x1} ${my} ${x2} ${my} ${x2} ${y2}`; };
+  const hideCoach = () => { if (coach) coach.style.display = 'none'; };
+
+  // 只對血脈子集做世代分層 + barycenter 掃描排序，回傳 {i:[x,y]}
+  function layoutFocus(set) {
+    const rows = {};
+    set.forEach((i) => { (rows[N[i][5]] = rows[N[i][5]] || []).push(i); });
+    const gs = Object.keys(rows).map(Number).sort((a, b) => a - b), ming = gs[0], order = {};
+    gs.forEach((g) => { rows[g].sort((a, b) => N[a][6] - N[b][6]); rows[g].forEach((i, k) => (order[i] = k)); });
+    const pin = (i) => parents[i].filter((x) => set.has(x)), cin = (i) => children[i].filter((x) => set.has(x));
+    for (let s = 0; s < 6; s++) {
+      gs.forEach((g) => { if (g === ming) return; const key = (i) => { const ps = pin(i); return ps.length ? ps.reduce((a, x) => a + order[x], 0) / ps.length : order[i]; }; rows[g].sort((a, b) => key(a) - key(b)); rows[g].forEach((i, k) => (order[i] = k)); });
+      [...gs].reverse().forEach((g) => { const key = (i) => { const ks = cin(i); return ks.length ? ks.reduce((a, x) => a + order[x], 0) / ks.length : order[i]; }; rows[g].sort((a, b) => key(a) - key(b)); rows[g].forEach((i, k) => (order[i] = k)); });
+    }
+    const pos = {};
+    gs.forEach((g) => { const w = rows[g].length; rows[g].forEach((i, k) => (pos[i] = [(k - (w - 1) / 2) * COLW, (g - ming) * ROWH])); });
+    return pos;
   }
-  function selectNode(i) {
-    sel = i; const keep = new Set([i]); walk(i, parents, keep); walk(i, children, keep);
-    applyHi(keep, i); const n = N[i];
-    const href = PAGE + 'p/' + encodeURIComponent(n[0]) + '/';
+  function fitBox(minx, maxx, miny, maxy) {
+    const pad = 80; const [pw, ph] = pxw(); const asp = pw / ph;
+    let W = (maxx - minx) + pad * 2, H = (maxy - miny) + pad * 2, x = minx - pad, y = miny - pad;
+    if (W / H < asp) { const nw = H * asp; x -= (nw - W) / 2; W = nw; }
+    else { const nh = W / asp; y -= (nh - H) / 2; H = nh; }
+    vb = { x, y, w: W, h: H }; applyVB();
+  }
+  function enterFocus(i) {
+    mode = 'focus'; focusI = i; hideCoach();
+    const set = bloodSet(i), pos = layoutFocus(set);
+    const X = (j) => (pos[j] ? pos[j][0] : 0), Y = (j) => (pos[j] ? pos[j][1] : 0);
+    let minx = 1e9, maxx = -1e9, miny = 1e9, maxy = -1e9;
+    nodeEls.forEach((g, j) => {
+      if (set.has(j)) {
+        g.classList.remove('ft-hidden', 'faded'); g.classList.toggle('hl', j === i);
+        g.setAttribute('transform', `translate(${X(j)} ${Y(j)})`);
+        minx = Math.min(minx, X(j)); maxx = Math.max(maxx, X(j)); miny = Math.min(miny, Y(j)); maxy = Math.max(maxy, Y(j));
+      } else g.classList.add('ft-hidden');
+    });
+    edgeEls.forEach((l, k) => { const [c, p] = E[k]; if (set.has(c) && set.has(p)) { l.classList.remove('ft-hidden', 'faded', 'on'); l.setAttribute('d', edgePath(c, p, X, Y)); } else l.classList.add('ft-hidden'); });
+    svg.classList.add('focus');
+    fitBox(minx - NW / 2, maxx + NW / 2, miny - NH / 2, maxy + NH / 2);
+    showCard(i, set.size);
+    const z = document.getElementById('ft-zoo'); if (z) z.value = '';
+  }
+  function showCard(i, blood) {
+    const n = N[i], href = PAGE + 'p/' + encodeURIComponent(n[0]) + '/';
     info.style.display = 'block';
     info.innerHTML =
       `<h2>${n[1]}${n[2] === 'm' ? ' ♂' : n[2] === 'f' ? ' ♀' : ''}</h2>` +
       `<div class="row"><span>${T.ft_born_died || '生 / 歿'}</span><b>${n[3] || '?'}${n[4] ? ' – ' + n[4] : ''}</b></div>` +
       `<div class="row"><span>${T.ft_generation || '世代'}</span><b>${tt(T.ft_gen || '第 {n} 代', { n: n[5] })}</b></div>` +
       `<div class="row"><span>${T.ft_relatives || '父母 / 子女'}</span><b>${parents[i].length} / ${children[i].length}</b></div>` +
-      `<div class="row"><span>${T.ft_bloodline || '高亮血脈'}</span><b>${keep.size}</b></div>` +
+      `<div class="row"><span>${T.ft_bloodline || '血脈'}</span><b>${blood}</b></div>` +
       `<a class="ft-open" href="${href}">${T.ft_open || '前往個體頁 →'}</a>` +
-      `<button id="ft-clr">${T.ft_clear || '清除'}</button>`;
-    document.getElementById('ft-clr').onclick = clearSel;
-    if (document.getElementById('ft-zoo')) document.getElementById('ft-zoo').value = '';
-    center(i);
+      `<button id="ft-all">${T.ft_showall || '看全圖'}</button>`;
+    document.getElementById('ft-all').onclick = showAll;
+  }
+  // 把節點／連線還原到全圖世界座標並顯示全部（不動視角）
+  function restoreAll() {
+    mode = 'all'; focusI = null; svg.classList.remove('focus');
+    nodeEls.forEach((g, j) => { g.classList.remove('ft-hidden', 'hl', 'faded'); g.setAttribute('transform', `translate(${N[j][6]} ${N[j][7]})`); });
+    edgeEls.forEach((l, k) => { const [c, p] = E[k]; l.classList.remove('ft-hidden', 'on', 'faded'); l.setAttribute('d', edgePath(c, p, (i) => N[i][6], (i) => N[i][7])); });
+  }
+  function showAll() { restoreAll(); info.style.display = 'none'; const z = document.getElementById('ft-zoo'); if (z) z.value = ''; fit(); }
+  function applyFade(keep) {
+    nodeEls.forEach((g, j) => g.classList.toggle('faded', !keep.has(j)));
+    edgeEls.forEach((l, k) => { const [c, p] = E[k]; l.classList.toggle('faded', !(keep.has(c) && keep.has(p))); });
   }
   function highlightZoo(zid) {
-    if (!zid) { clearSel(); return; }
-    sel = null; info.style.display = 'none';
-    const keep = new Set();
-    N.forEach((n, j) => { if ((n[8] || []).indexOf(+zid) >= 0) keep.add(j); });
-    applyHi(keep, null);
-  }
-  function clearSel() {
-    sel = null; info.style.display = 'none';
-    nodeEls.forEach((g) => g.classList.remove('faded', 'hl'));
-    edgeEls.forEach((l) => l.classList.remove('faded', 'on'));
-    const z = document.getElementById('ft-zoo'); if (z) z.value = '';
+    if (!zid) { showAll(); return; }
+    restoreAll(); info.style.display = 'none'; hideCoach();
+    const keep = new Set(); N.forEach((n, j) => { if ((n[8] || []).indexOf(+zid) >= 0) keep.add(j); });
+    applyFade(keep); fit();
   }
 
   // ── controls ──
   const reset = document.getElementById('ft-reset');
-  if (reset) reset.onclick = () => { clearSel(); fit(); };
+  if (reset) reset.onclick = showAll;
   const search = document.getElementById('ft-search'), dl = document.getElementById('ft-names');
   if (dl) N.forEach((n) => { const o = document.createElement('option'); o.value = n[1] + (n[3] ? ' (' + n[3] + ')' : ''); dl.appendChild(o); });
   if (search) search.addEventListener('change', (e) => {
     const v = e.target.value.split(' (')[0].trim().toLowerCase();
-    const i = N.findIndex((n) => n[1].toLowerCase() === v); if (i >= 0) selectNode(i);
+    const i = N.findIndex((n) => n[1].toLowerCase() === v); if (i >= 0) enterFocus(i);
   });
   const zoo = document.getElementById('ft-zoo');
   if (zoo) {
     D.zoos.forEach(([id, name, cnt]) => { const o = document.createElement('option'); o.value = id; o.textContent = `${name} (${cnt})`; zoo.appendChild(o); });
     zoo.addEventListener('change', (e) => highlightZoo(e.target.value));
   }
+  const coachX = document.getElementById('ft-coach-x');
+  if (coachX) coachX.onclick = hideCoach;
   const stat = document.getElementById('ft-stat');
   if (stat) stat.textContent = tt(T.ft_stat || '{n} 隻 · {g} 世代 · 在世 {a}',
     { n: N.length, g: D.maxg + 1, a: N.filter((n) => !n[4]).length });
 
   requestAnimationFrame(fit);
-  window.addEventListener('resize', () => { sel !== null ? center(sel) : fit(); });
+  window.addEventListener('resize', () => { mode === 'focus' && focusI != null ? enterFocus(focusI) : fit(); });
 })();
