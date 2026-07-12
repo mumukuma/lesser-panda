@@ -5134,7 +5134,9 @@
   "aliases": [
    "River Wonders",
    "River Safari",
-   "Mandai Wildlife Reserve"
+   "Mandai Wildlife Reserve",
+   "萬態野生動物世界",
+   "萬禮野生動物保護區"
   ]
  },
  {
@@ -5374,6 +5376,24 @@
    "寧波野生動物園",
    "宁波雅戈尔动物园",
    "寧波雅戈爾動物園"
+  ]
+ },
+ {
+  "canonical": "天津動物園",
+  "lineage_id": null,
+  "en": "Tianjin Zoo",
+  "zh": "天津动物园",
+  "country": "China",
+  "location_ja": "天津市南開区",
+  "location_en": "Nankai, Tianjin, China",
+  "lat": 39.0855,
+  "lng": 117.1683,
+  "map": null,
+  "website": null,
+  "logo": null,
+  "aliases": [
+   "天津动物园",
+   "Tianjin Zoo"
   ]
  }
 ]

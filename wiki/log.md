@@ -4180,3 +4180,90 @@ Sheet I 欄「已補進」標記待作者手動處理。
 > ⚠️ Tomato 出生園未明（RPF 僅載市原）；母 Choco-Choco、父 Min-Min、同胎 Banana（2007，非 `banana-1996-08-09`）、胞弟 Potato 及其餘子女 Miruku／Kurumi／Nako／Nana 皆待查證、暫無條目。
 
 **重建**：`build_db` + `export_json`；audit --strict、check_twins
+
+## [2026-07-12] add | 紫馬嶺新生龍鳳胎：飯糰、鬆餅
+
+**背景**：作者提供——中山市紫馬嶺動物園 2026-06-05 誕生龍鳳胎，父 `wo-wo-tou`（窩窩頭）、母 `mian-bao`（麵包）。
+
+**來源**：
+- 作者提供（2026-07-12）
+
+**新增條目**：
+- `fan-tuan-2026-06-05.md` — 飯糰 Fan Tuan（♂，styani），生於 2026-06-05 中山市紫馬嶺動物園現居；與 `song-bing` 龍鳳胎；½ 姊 `bagel`（同父）、`mi-gao`（同母）
+- `song-bing-2026-06-05.md` — 鬆餅 Song Bing（♀，styani），生於 2026-06-05 中山市紫馬嶺動物園現居；與 `fan-tuan` 龍鳳胎；½ 姊 `bagel`（同父）、`mi-gao`（同母）
+
+**更新條目**：
+- `wo-wo-tou.md` — 引言與子女表補 `fan-tuan`、`song-bing`（另一方親本 麵包）
+- `mian-bao.md` — 引言與子女表補 `fan-tuan`、`song-bing`（另一方親本 窩窩頭）
+- `index.md` — 紫馬嶺段補兩筆、園內隻數 5 → 7、父母說明更新；條目總數 589 → **591**；最後更新 2026-07-12
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+## [2026-07-12] update | 讀者回報：貝果之母為米糕（作者確認採用）
+
+**背景**：「圖鑑缺漏」收件匣 2026-07-11 其他建議回報「貝果的媽媽是米糕」（未附來源、未留名）。經作者確認後直接採用。
+
+**更新條目**：
+- `bagel-2024-07-12.md` — 母由「待確認」改為 `mi-gao-2021-06-05`（米糕）wikilink，補祖母（母方）`mian-bao`；sources 補作者確認（2026-07-12）
+- `mi-gao-2021-06-05.md` — 引言與家族補子女 `bagel-2024-07-12`（貝果，父 `wo-wo-tou`）；sources 補作者確認
+- `wo-wo-tou.md` — 子女表 貝果 另一方親本「不詳」改 `mi-gao-2021-06-05` wikilink；待查證移除「貝果之母」
+- `index.md` — 米糕列補「貝果之母」；貝果列改「窩窩頭×米糕之女」、移除「母待查證」
+
+**重建**：`build_db` + `export_json`；audit --strict、check_twins
+
+## [2026-07-12] update | 資料更正回報兩筆：Asunaro 轉園日、飲飲讀音更名 Yum-Yum
+
+**背景**：處理「資料更正」收件匣兩筆未處理回報（另兩筆 Ai、Riku 已於先前處理）。(1) `asunaro-2016-06-22` 釧路來園日，釧路市動物園官方個體頁證實為 2019-06-04（原記 2019-06-05），官方來源直接採用。(2) `in-in-2005-07-07` 名字回報：漢字名「飲飲」園方讀音為ヤムヤム（大森山官方園報），作者確認拼音不採中式 In-In，改為 Yum-Yum 並依規則更名 slug。回報者 `楊桃` 已在致謝名單，不重複列。
+
+**來源**：
+- https://www.city.kushiro.lg.jp/zoo/shoukai/1001527/1001528/1001554.html (釧路市動物園 官方個體介紹；アスナロ来園日 2019-06-04)
+- https://www.city.akita.lg.jp/_res/projects/default_project/_page_/001/037/648/105p6.pdf (秋田市大森山動物園 官方園報 vol.105；ヤムヤム)
+
+**更新條目**：
+- `asunaro-2016-06-22.md` — `zoos:` 大島訖／釧路起 2019-06-05 → **2019-06-04**；`sources:` 補釧路官方頁；居住史表重生
+- `in-in-2005-07-07.md` → 更名 **`yum-yum-2005-07-07.md`**：`name` In-In → **Yum-Yum**、`japanese` 補 **ヤムヤム**、舊拼音移入 `english_variants`；標題與引言同步；同步修正 wikilink（`an-an-2005-07-07.md`、`ma-ma-2005-07-07.md`、`index.md`）
+- `index.md` — 該行改 `yum-yum-2005-07-07`、顯示名 Yum-Yum 飲飲（ヤムヤム）
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+## [2026-07-12] add | 天津動物園：圖圖、小寶、團團（原待查證回報，作者提供資料採用）
+
+**背景**：作者提供——天津動物園三隻：`tu-tu`（圖圖，♂，團團之父）、`xiao-bao`（小寶，♀，生於天津動物園，團團之母）、`tuan-tuan`（團團，♀，2023-06-06 生於天津動物園）。此前 2026-07-11 讀者「圖鑑缺漏」回報同三隻但未附來源、標待查證；本次由作者直接提供資料，據以建檔並解除待查證。天津動物園未登記，先於 `data/zoos.json` 新增（canonical `天津動物園`、天津市南開区、座標據 Wikipedia 39.0811/117.16、無官網）。
+
+**來源**：
+- 作者提供（2026-07-12）
+- https://zh.wikipedia.org/zh-hans/天津动物园 （動物園座標／位置）
+
+**新增條目**：
+- `tu-tu.md` — 圖圖 Tu Tu（♂，styani），生年不詳，現居天津動物園；`tuan-tuan` 之父。查得生年後 slug 應更名 `tu-tu-YYYY`
+- `xiao-bao.md` — 小寶 Xiao Bao（♀，styani），生年不詳，生於天津動物園現居；`tuan-tuan` 之母。查得生年後 slug 應更名 `xiao-bao-YYYY`
+- `tuan-tuan-2023-06-06.md` — 團團 Tuan Tuan（♀，styani），2023-06-06 生於天津動物園現居；父 `tu-tu`、母 `xiao-bao`
+
+**更新條目**：
+- `data/zoos.json` — 新增 `天津動物園`（Tianjin Zoo，天津市南開区）
+- `index.md` — 新增「海外個體（中國・天津動物園）」段收三筆；條目總數 591 → **594**
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+## [2026-07-12] update | Karma 出生地更正（作者指出動物園有誤）＋補建 Hamilton 一家 4 條目
+
+**背景**：作者指出 `karma-2013` 的動物園弄錯、要求重新驗證。查證結果：Karma 並非生於河川生態園——Hamilton Zoo（紐西蘭）公開命名活動與 Red Panda Network 記載其為 2012 年 Hamilton Zoo 三胞胎（Nima・Karma・Dawa，母 Tayla）之一；Mandai 2018-08-30 官方新聞稿記 Karma 該年 12 月滿 6 歲（→ 2012 年 12 月生）；RPF #970 記 2012-12-20 生於 Hamilton Zoo、2014-11-10 移居 River Wonders。Stars of Mandai 頁「2013 年生、出生起即居 River Wonders」為行銷頁錯誤（官方來源衝突，採出生園方＋新聞稿說）。現居 River Wonders 不變。另依作者：Mandai Wildlife Reserve 官方中文名為「萬態野生動物世界」（舊稱萬禮野生動物保護區），註冊表補別名。
+
+**來源**：
+- https://www.mandai.com/en/about-mandai/media-centre/feisty-red-panda-moves-into-river-safaris-giant-panda-forest.html (Mandai 官方新聞稿 2018-08-30)
+- https://redpandanetwork.org/post/red-panda-cubs-at-hamilton-zoo-have-new-namesi (Hamilton Zoo 三胞胎命名)
+- https://redpandafinder.com/#profile/970 (Karma；RPF 非權威、補精確日期)
+
+**更新條目**：
+- `karma-2013.md` → 更名 **`karma-2012-12-20.md`**：生日 2013-12 → **2012-12-20**、補出生園 **Hamilton Zoo**（2014-11-10 移居河川生態園）、`rpf_id` 970、japanese カルマ；家族補母 `tayla`、父 `chito`、三胞胎 `nima`・`dawa`；條目內注記 Mandai 官方頁矛盾、精確日期標 🚧
+- `data/zoos.json` — 河川生態園 aliases 補「萬態野生動物世界」「萬禮野生動物保護區」（Hamilton Zoo／Auckland Zoo／National Zoo & Aquarium 原已在註冊表）
+
+**新增條目**：
+- `tayla-2007-12-08.md` — Tayla テイラ（♀，fulgens，RPF #964），生於坎培拉 National Zoo & Aquarium，2010 移居 Hamilton Zoo；Karma 三胞胎之母
+- `chito-2002-12-18.md` — Chito（♂，fulgens，RPF #967），生於 Auckland Zoo，2006 移居 Hamilton Zoo；三胞胎之父（高齡，現況 🚧 待查證）
+- `nima-2012-12-20.md` — Nima ニマ（♂，fulgens，RPF #968），Hamilton 三胞胎，2015-03-13 移居 National Zoo & Aquarium
+- `dawa-2012-12-20.md` — Dawa ダワ（♂，fulgens，RPF #969），同上
+- 其餘手足（RPF #954・#965・#966・#971・#972）待查證、暫無條目
+- `index.md` — Karma 行改寫、新增「海外個體（紐西蘭・澳洲：Karma 一家）」段；條目總數 591 → **595**（加計作者同日新增之天津動物園 3 筆為 **598**）
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
