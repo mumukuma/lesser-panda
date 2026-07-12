@@ -4267,3 +4267,32 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - `index.md` — Karma 行改寫、新增「海外個體（紐西蘭・澳洲：Karma 一家）」段；條目總數 591 → **595**（加計作者同日新增之天津動物園 3 筆為 **598**）
 
 **重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+## [2026-07-13] update | 讀者回報批次：大森山官方名單補漢字／讀音更正＋Anko・Roppo 轉園史＋IG 投稿回填 4 筆
+
+**背景**：資料更正收件匣 6 筆（大森山 4 筆同源官方 PDF；Anko、Roppo 轉園 2 筆），作者確認官方來源直接採用。照片投稿收件匣 4 筆全數乾淨回填。
+
+**來源**：
+- https://www.city.akita.lg.jp/_res/projects/default_project/_page_/001/037/648/105all.pdf (秋田市大森山動物園官方名單)
+- https://mainichi.jp/articles/20161105/k00/00e/040/193000c (毎日新聞：Anko 轉園)
+- https://zoo.city.kyoto.lg.jp/zoo/news/20160616-20083.html (京都市動物園官方公告：Roppo 轉園)
+
+**更新條目**：
+- `riku-2004-07-13.md` — japanese 補漢字 **陸**（リク）
+- `kaze-2004-07-13.md` → 更名 **`fuu-2004-07-13.md`**：官方名單讀音為**フウ**（風），name Kaze → **Fuu**、舊拼音 Kaze 留 english_variants；加與 `fuu-1998-07-04` 互相「注意同名」提示；`riku`、`index.md` 之 wikilink 同步改
+- `an-an-2005-07-07.md` / `ma-ma-2005-07-07.md` — 母 Nana 純文字改 `nana-2001-07-13` wikilink；與 `yum-yum-2005-07-07` 標明**同日三胞胎**；父注記官方名單作「健健」待確認；sources 補官方 PDF
+- `yum-yum-2005-07-07.md` — 手足標示改「三胞胎」
+- `nana-2001-07-13.md` — 補「子女」表（riku・fuu 雙胞胎＋an-an・ma-ma・yum-yum 三胞胎）
+- `anko-2013-06-22.md` — 補出生園**東京都立大島公園動物園**（2013-06-22 – 2016-11-02），2016-11-02 移居富山市ファミリーパーク（毎日新聞）；sources 補報導
+- `roppo-2015-06-25.md` — 補出生園**京都市動物園**（2015-06-25 – 2016-06-22），2016-06-22 移居富山市ファミリーパーク（京都市動物園官方公告）；sources 補公告
+- `index.md` — Riku 補漢字、卒年 2004–2014 更正為 2004–2015；Kaze 行改 Fuu；最後更新 2026-07-13（條目總數 598 不變）
+
+**IG 投稿回填（照片收件匣 4 筆，Sheet I 欄待作者手動標記）**：
+- `rei-fa-2019-07-12.md` — +1（DarD4IbD1j2，本人投稿）
+- `fuumi-2007-07-11.md` — +1（DapulNTExjc，非本人、已取得原作者同意；原無 instagram 欄位，新增）
+- `himawari-2017-07-13.md` — +1（DasR8RGk49u，本人投稿）
+- `zun-2018-07-13.md` — +1（Das8PAeEzxA，本人投稿）
+
+**致謝**：楊桃（Anko・Roppo 轉園回報）已在 contributors.json，不重複列；其餘回報者未留名。
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
