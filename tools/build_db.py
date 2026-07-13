@@ -30,61 +30,10 @@ SCHEMA_FILE = SCRIPT_DIR / "schema.sql"
 DB_PATH     = SCRIPT_DIR.parent / "redpanda.db"
 DB_FALLBACK = Path("/tmp/redpanda.db")
 
-# ── YAML frontmatter parser（不依賴 PyYAML）────────────────────
-def parse_frontmatter(text: str) -> tuple[dict, str]:
-    """返回 (frontmatter_dict, body)。無 frontmatter 則回傳 ({}, text)。"""
-    if not text.startswith("---"):
-        return {}, text
-    end = text.find("\n---", 3)
-    if end == -1:
-        return {}, text
-    yaml_block = text[3:end].strip()
-    body = text[end + 4:].lstrip("\n")
-    return _parse_simple_yaml(yaml_block), body
-
-
-def _parse_simple_yaml(yaml_text: str) -> dict:
-    """最小化 YAML parser，支援：scalar、quoted scalar、inline list、block list。"""
-    result: dict = {}
-    lines = yaml_text.splitlines()
-    i = 0
-    while i < len(lines):
-        line = lines[i]
-        # 跳過空行與純縮排
-        if not line.strip() or line.startswith("  "):
-            i += 1
-            continue
-        if ":" not in line:
-            i += 1
-            continue
-        key, _, rest = line.partition(":")
-        key = key.strip()
-        rest = rest.strip()
-
-        # inline list: [a, b, c]（空清單 [] 要解析為 []，不可變成 [""]）
-        if rest.startswith("[") and rest.endswith("]"):
-            inner = rest[1:-1].strip()
-            items = [s.strip().strip('"').strip("'") for s in inner.split(",")] if inner else []
-            result[key] = items
-            i += 1
-            continue
-
-        # block list：接下來行以 "  - " 開頭
-        if rest == "":
-            block_items = []
-            j = i + 1
-            while j < len(lines) and lines[j].startswith("  - "):
-                block_items.append(lines[j][4:].strip())
-                j += 1
-            if block_items:
-                result[key] = block_items
-                i = j
-                continue
-
-        # scalar
-        result[key] = rest.strip('"').strip("'")
-        i += 1
-    return result
+# ── YAML frontmatter parser：共用實作在 tools/wiki_io.py ────────
+# （re-export 供 check_twins.py 等既有 `from build_db import parse_frontmatter` 使用）
+sys.path.insert(0, str(SCRIPT_DIR))
+from wiki_io import parse_frontmatter  # noqa: E402
 
 
 # ── 官方來源分類器（個體頁只顯示官方連結）──────────────────────
@@ -462,6 +411,7 @@ def build_db():
     for pair in twin_pairs:
         a, b = sorted(pair)
         twin_rows.append((a, b))
+    twin_rows.sort()  # set 迭代順序不定；排序讓 DB 內容可重現、利於 dump 比對
     cur.executemany("INSERT OR IGNORE INTO twins (slug_a, slug_b) VALUES (?,?)", twin_rows)
     conn.commit()
     print(f"  ✅ 插入 {len(twin_rows)} 組雙胞胎關係")
@@ -477,7 +427,6 @@ def build_db():
             zoo_rows.append({"slug": slug, **z})
 
     # 園名解析為註冊表 canonical（唯一事實來源）；未登記 → 報錯中止
-    sys.path.insert(0, str(SCRIPT_DIR))
     from zoo_registry import ZooRegistry
     reg = ZooRegistry.load()
     errors = []
@@ -503,63 +452,6 @@ def build_db():
 
     conn.close()
     print(f"\n✅ 完成！資料庫儲存於: {actual_db}")
-
-
-# ── 居住史表格解析（精確日期）──────────────────────────────────
-DATE_RANGE_RE = re.compile(
-    r"(\d{4})(?:[/\-](\d{2})[/\-](\d{2}))?"            # start：年，月日選填
-    r"\s*[–—-]+\s*"
-    r"(?:(\d{4})(?:[/\-](\d{2})[/\-](\d{2}))?|現在|今)?"  # end：年(月日選填) / 現在 / 開放
-)
-ZOO_CELL_CLEAN_RE = re.compile(r"[🐣🌈🏡]|\（[^）]*）|\([^)]*\)")
-
-def parse_residence_table(body: str, slug: str) -> list[dict]:
-    """從 markdown 居住史 table 解析精確日期。"""
-    # 找到 ## 居住史 section
-    m = re.search(r"^##\s+居住", body, re.MULTILINE)
-    if not m:
-        return []
-    section = body[m.start():]
-    next_sec = re.search(r"\n##\s+", section[3:])
-    if next_sec:
-        section = section[: next_sec.start() + 3]
-
-    results = []
-    for line in section.splitlines():
-        stripped = line.strip()
-        if not stripped.startswith("|") or stripped.startswith("| 期間") or set(stripped) <= set("|-: "):
-            continue
-        cells = [c.strip() for c in stripped.split("|") if c.strip()]
-        if len(cells) < 2:
-            continue
-        date_cell = cells[0]
-        zoo_cell  = cells[1] if len(cells) > 1 else ""
-
-        dm = DATE_RANGE_RE.search(date_cell)
-        if not dm:
-            continue
-
-        start_date = f"{dm.group(1)}-{dm.group(2)}-{dm.group(3)}" if dm.group(2) and dm.group(3) else None
-        if dm.group(4) and dm.group(5) and dm.group(6):
-            end_date = f"{dm.group(4)}-{dm.group(5)}-{dm.group(6)}"
-        else:
-            end_date = None
-
-        # 清理動物園名稱：去掉 emoji、括號補充
-        zoo_clean = ZOO_CELL_CLEAN_RE.sub("", zoo_cell).strip()
-        zoo_clean = re.sub(r"\s+", " ", zoo_clean).strip()
-        if not zoo_clean:
-            zoo_clean = zoo_cell
-
-        results.append({
-            "slug":       slug,
-            "zoo_name":   zoo_clean,
-            "start_year": int(dm.group(1)),
-            "end_year":   int(dm.group(4)) if dm.group(4) else None,
-            "start_date": start_date,
-            "end_date":   end_date,
-        })
-    return results
 
 
 if __name__ == "__main__":

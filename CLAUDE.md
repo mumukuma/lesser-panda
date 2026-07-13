@@ -2,7 +2,7 @@
 
 本資料夾是一個依 [llm-wiki 模式](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)運作的 Obsidian wiki：**LLM 負責撰寫與維護所有頁面，使用者負責提供資料來源與問問題**。
 
-主題：小熊貓（red panda）個體檔案，目前 360+ 條目，多為日本（及部分海外）動物園個體。
+主題：小熊貓（red panda）個體檔案，目前 600+ 條目（精確數以 `wiki/index.md` 頁首為準），多為日本（及部分海外）動物園個體。
 
 ## ⚠️ 資料來源原則（重要）
 
@@ -11,6 +11,7 @@
 - 兩者衝突時，**一律以 wiki（作者的校訂）為準**，不可用 RPF/lineage 覆蓋既有資料。
 - `tools/audit.py`、`tools/apply_lineage_fixes.py` 與 lineage 的比對僅供**參考與補空白**；`apply_lineage_fixes` 只填空欄位、不覆蓋；audit 列出的「與 lineage 不符」是提示作者**檢視**，不代表 wiki 錯。
 - 名稱（尤其中文名 `chinese`、暱稱、別名）以作者提供為準；RPF 的羅馬拼音僅作後備。
+- **lineage/RPF 的 `ja.name` 是機械轉寫、每隻個體都有（不論來源地），僅「有日本居住史」的個體才採用為 `japanese`**（2026-07-13 起）：歐美等非日本個體一律不抄——其 `ja.name` 若含漢字，多半實為中文名（例：Hui Hu 的「火狐」），應由作者確認後放 `chinese`，而非 `japanese`。工具已內建此規則：`audit.py` 的「lineage 有漢字名、wiki 未收」提示與 `apply_lineage_fixes.py` 的補漢字，都只對 frontmatter `zoos:` 解析出含日本園（`data/zoos.json` 的 `country == "Japan"`）的個體生效；`zoos:` 空白無法確認國別時保守不補。
 - **動物園名以 `data/zoos.json`（註冊表）為唯一事實來源**：每座園的正式名（`canonical`，採完整正式名）、中文名、座標、官網、logo、**地點（`location_ja`）** 只存這裡。wiki 條目（frontmatter `zoos:` 與內文居住史）一律寫 canonical 日文名；`build_db` 會精確比對，**寫了註冊表沒有的園名就報錯中止**（提示去登記或修正）。新增一座沒登記過的園 → 先在 `data/zoos.json` 加一筆，再寫條目。lineage 僅用來初次帶入座標，非權威。
 - **地點（`location_ja`）也以 `data/zoos.json` 為準**：`gen_residence.py` **只補空白、永不覆寫**既有校訂值（2026-06-29 起）。要改某園地點 → 直接編輯 `data/zoos.json` 的 `location_ja` 再重建；內文居住史的「地點」欄由註冊表自動帶入，勿手改。
 
@@ -24,17 +25,23 @@ red-panda-wiki/
 ├── SCHEMA.md            ← 頁面格式與標籤規範（權威來源）
 ├── README.md            ← 專案總覽（對外）
 ├── ROADMAP.md           ← 願望池與路線規劃
+├── CHANGELOG.md         ← 專案層級變更（工具／流程；wiki 內容變更記 wiki/log.md）
 ├── rpf-wiki-SKILL.md    ← RPF 抓取資料 → 建立條目的詳細 skill
+├── report-intake-SKILL.md ← 社群回報（Tally→Sheet）處理 skill
 ├── redpanda.db          ← 由 wiki/*.md 產生的 SQLite（衍生品，可重建）
 ├── data/
 │   └── zoos.json        ← 動物園註冊表（唯一事實來源，作者維護；園名/中文/座標/官網/別名）
+├── docs/                ← 作業文件（回報處理 SOP、表單藍圖、計劃等）
+├── sources/             ← 官方一手資料的本地留存（如園報、家系名單）
 ├── tools/
+│   ├── wiki_io.py       ← 共用讀取層：frontmatter 解析＋日期正規化（唯讀解析一律用這裡，勿自造 parser）
 │   ├── build_db.py      ← wiki/*.md → redpanda.db（建檔時把園名解析為註冊表 canonical，未登記報錯）
 │   ├── zoo_registry.py  ← 載入 data/zoos.json 並提供園名比對 resolver
 │   ├── gen_residence.py ← 由 frontmatter zoos: 自動生成內文「## 居住史」表格（勿手改該表）
 │   ├── query.py         ← 家系查詢 CLI / Python API
 │   ├── audit.py         ← 資料完整度檢查（與 redpanda-lineage 比對）；--strict 時僅內部錯誤（如 rpf_id 重複）回傳非零
 │   ├── check_twins.py   ← 多胞胎稽核（同生群同父母／生日±1天／群大小）；E 級錯誤回傳 1
+│   ├── ig_audit.py      ← 盤點 instagram: 連結（格式／活性提示，只報不改，exit 恆 0）
 │   ├── verify.sh        ← 驗證單一關卡：lineage 更新 + audit --strict + check_twins（只讀；已掛 pre-push）
 │   ├── apply_lineage_fixes.py ← 依 lineage 保守補齊空白欄位
 │   ├── resolve_zoo.py   ← 簡稱／部分名 → 註冊表 canonical 的省核輔助 CLI（不改 wiki）
@@ -42,11 +49,12 @@ red-panda-wiki/
 │   └── art/             ← 吉祥物／sprite 圖像生成腳本（與資料管線無關，不進 rebuild）
 ├── pipeline/
 │   ├── scripts/export_json.py ← redpanda.db → pipeline/data/*.json（網站資料）
-│   └── src/i18n/        ← 四語介面字串（zh-TW／ja／en／ko）
+│   └── src/i18n/        ← 五語介面字串（zh-TW／zh-CN／ja／en／ko）
 ├── web/                 ← Astro + Tailwind 網站前端（見 web/README.md）
 └── wiki/
     ├── index.md         ← 目錄（依家族分類），含條目總數
     ├── log.md           ← append-only 變更日誌
+    ├── _hidden/         ← 暫時下架的條目（不計數、不上站；glob 非遞迴自動排除）
     └── [slug].md        ← 個體條目（每隻一頁）
 ```
 
@@ -55,7 +63,7 @@ red-panda-wiki/
 `gen_residence.py` **以 frontmatter `zoos:` 為居住史唯一來源**（2026-06-29 起）：有 `zoos:` 就以它為準（解析完整日期），內文「## 居住史」表格純為衍生、自動重生。守門以 frontmatter 園集合為基準自我比對，重生後若掉了任何園（如解析失敗）就中止；故**更正／更換居住地只需改 `zoos:` 一處**再重建，不用動內文表格。（早期版本曾以內文表格為來源，已修正。）
 網站本身由 GitHub Actions 自動建置部署；本地預覽見 `web/README.md`。
 
-**網站語系（2026-07-05 起五語）**：介面支援 `zh-TW`／`zh-CN`（簡體）／`ja`／`en`／`ko`（韓語）。語系定義集中在 `web/src/lib/data.js` 的 `LOCALES` 與 `i18n`；每語一份 `pipeline/src/i18n/<code>.json`，五份 key 必須一致（新增字串要五份都補）。加語系＝新增一份 json＋在 `data.js` 註冊＋`web/public/js/lang.js` 加瀏覽器偵測。因網站為資料驅動、個體頁無敘述文，加語系只翻 UI 字串、不必翻 360+ 條目。韓語的設計取捨：**動物園名暫用英文**（`data/zoos.json` 已預留 `ko_name` 欄，補了即自動生效）、**個體名走羅馬拼音**、**回報表單維持三語**（下方表單章節；ko 自動 fallback 到三語表單）。簡體的設計取捨（2026-07-05）：**純顯示層轉換、資料正本一律維持繁體**——個體中文名、園中文名於建置時用 `opencc-js`（繁→簡，`data.js` 的 `toHans`）轉換，前端內嵌資料（SEARCH_DATA 的 `k`、GRAPH_DATA 的 `d[5]`、ZOOS_DATA 的 `name_zh_hans`）也在建置時預轉，客戶端不帶 OpenCC；UI 字串為手工翻譯的 `zh-CN.json`（用語照大陸慣例：搜索／链接／帖子…）；**回報表單 fallback 到三語表單**；語言偵測 IP=CN→zh-CN、瀏覽器 zh-cn/zh-sg/zh-my/zh-hans→zh-CN、其餘 zh→zh-TW。
+**網站語系（2026-07-05 起五語）**：介面支援 `zh-TW`／`zh-CN`（簡體）／`ja`／`en`／`ko`（韓語）。語系定義集中在 `web/src/lib/data.js` 的 `LOCALES` 與 `i18n`；每語一份 `pipeline/src/i18n/<code>.json`，五份 key 必須一致（新增字串要五份都補）。加語系＝新增一份 json＋在 `data.js` 註冊＋`web/public/js/lang.js` 加瀏覽器偵測。因網站為資料驅動、個體頁無敘述文，加語系只翻 UI 字串、不必翻 600+ 條目。韓語的設計取捨：**動物園名暫用英文**（`data/zoos.json` 已預留 `ko_name` 欄，補了即自動生效）、**個體名走羅馬拼音**、**回報表單維持三語**（下方表單章節；ko 自動 fallback 到三語表單）。簡體的設計取捨（2026-07-05）：**純顯示層轉換、資料正本一律維持繁體**——個體中文名、園中文名於建置時用 `opencc-js`（繁→簡，`data.js` 的 `toHans`）轉換，前端內嵌資料（SEARCH_DATA 的 `k`、GRAPH_DATA 的 `d[5]`、ZOOS_DATA 的 `name_zh_hans`）也在建置時預轉，客戶端不帶 OpenCC；UI 字串為手工翻譯的 `zh-CN.json`（用語照大陸慣例：搜索／链接／帖子…）；**回報表單 fallback 到三語表單**；語言偵測 IP=CN→zh-CN、瀏覽器 zh-cn/zh-sg/zh-my/zh-hans→zh-CN、其餘 zh→zh-TW。
 
 **push 前驗證（單一關卡，2026-06-29 起）**：`bash tools/verify.sh` 會依序跑「更新 redpanda-lineage → `audit.py --strict` → `check_twins.py`」。已掛 `.git/hooks/pre-push`，**push 前自動跑、未通過即中止 push**。擋關原則符合資料來源原則：只有「真正的 wiki 整合性錯誤」會擋（`audit` 的 `rpf_id` 重複、`check_twins` 的 E 級——連錯隻／同生群生日差>±1天／群過大）；與 lineage 的「不符」、缺欄位、單邊缺父母等只列提示、**永不擋**。離線時自動略過 lineage 比對，wiki 自身檢查照跑。緊急要略過：`git push --no-verify`。注意 hook 在 `.git/hooks/` 內、**不進版控**，換機器需重裝（`verify.sh` 本身有進版控）。
 
@@ -192,7 +200,7 @@ DB 寫入若失敗（沙盒掛載不支援 SQLite lock），build_db.py 會自�
 ## 注意事項
 
 - 日期一律 ISO（YYYY-MM-DD）；只知年份就只寫年份
-- RPF 的 Other Names 記得填入 `japanese` / `english_variants`
+- RPF 的 Other Names 記得填入 `japanese`（**僅日本個體**，見資料來源原則）/ `english_variants`
 - 性別推斷不確定時留空並備注「待確認」
 - 不要動 `.obsidian/`；`test.db`、`Untitled.canvas` 為雜物，可忽略
 - 條目總數以 `ls wiki/*.md | wc -l` 減去 `index.md`、`log.md` 驗證，別只憑 index 頁首數字

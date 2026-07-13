@@ -17,7 +17,7 @@ wiki，一律經作者核可後才動。**
 
 ---
 
-## 最高原則（呼應 CLAUDE.md 與 DATA-CORRECTION-PLAN.md，不可違反）
+## 最高原則（呼應 CLAUDE.md 與 docs/DATA-CORRECTION-PLAN.md，不可違反）
 
 1. **收件匣 = 提案，不是事實。** wiki 與回報衝突時，一律以 wiki（作者校訂）為準，除非回報
    附的來源明確更可靠。

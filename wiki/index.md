@@ -1,6 +1,6 @@
 # Wiki 目錄 Index
 
-> 最後更新：2026-07-13 | 條目總數：598（另有 6 筆條目暫存 wiki/_hidden/，不計入、不上站）
+> 最後更新：2026-07-13 | 條目總數：602（另有 6 筆條目暫存 wiki/_hidden/，不計入、不上站）
 
 ---
 
@@ -2137,6 +2137,19 @@
 | [[tibao-2011]] | Tibao — 自法國 Asson Zoo 抵園（2012），Mya/Anmar 之父；後續去向待查證 | ♂ | 2011– | Drusillas Park（曾居）🇬🇧 |
 | [[mya-2014-06-16]] | Mya — Drusillas 首胎雙胞胎之一；後續去向待查證 | ♀ | 2014– | Drusillas Park（出生）🇬🇧 |
 | [[anmar-2014-06-16]] | Anmar — Drusillas 首胎雙胞胎之一；後續去向待查證 | ♂ | 2014– | Drusillas Park（出生）🇬🇧 |
+
+---
+
+## 海外個體（比利時・Pairi Daiza）
+
+比利時 Pairi Daiza 的小熊貓家族（三代同堂）。2026-06-25 Loha × Mohan 產下雙胞胎幼崽（尚未命名）。
+
+| 條目 | 說明 | 性別 | 生年 | 動物園 |
+|------|------|------|------|--------|
+| [[mohan-2021-06-20]] | Mohan — Pairi Daiza 生，[[hui-hu-2019-06-22]] × [[himiko-2019-06-10]] 之子；Loha 之配偶 | ♂ | 2021– | Pairi Daiza 🇧🇪 |
+| [[loha-2020-06-06]] | Loha — 柏林生、2021 移居 Pairi Daiza；Mohan 之配偶 | ♀ | 2020– | Pairi Daiza 🇧🇪 |
+| [[hui-hu-2019-06-22]] | Hui Hu — Chester Zoo 生、2020 移居；Mohan 之父（別名 Firefox）| ♂ | 2019– | Pairi Daiza 🇧🇪 |
+| [[himiko-2019-06-10]] | Himiko — Pairi Daiza 生；Mohan 之母 | ♀ | 2019– | Pairi Daiza 🇧🇪 |
 
 ---
 

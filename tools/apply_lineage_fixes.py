@@ -48,16 +48,17 @@ def load_zoo_names():
     return names
 
 
-def iso(s):
-    if not s:
-        return None
-    p = str(s).replace("/", "-").split("-")
-    return f"{int(p[0]):04d}-{int(p[1]):02d}-{int(p[2]):02d}" if len(p) == 3 else s
+# 日期正規化與 frontmatter 解析共用 tools/wiki_io.py（surgical patch 邏輯仍留在本檔）
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from wiki_io import norm_date as iso, parse_frontmatter  # noqa: E402
+from zoo_registry import ZooRegistry  # noqa: E402
 
 
 def lineage_kanji(d):
     cand = " ".join([d.get("ja.name", ""), d.get("ja.othernames", "")])
-    toks = [w for w in re.split(r"[ ,，、/]+", cand) if KANJI_RE.search(w) and not KANA_RE.search(w)]
+    toks = [w for w in re.split(r"[ ,，、/]+", cand)
+            if KANJI_RE.search(w) and not KANA_RE.search(w)
+            and "無名" not in w and not re.search(r"[（()）]", w)]  # 排除 lineage 佔位值「(無名)」等
     return toks[0] if toks else None
 
 
@@ -132,6 +133,7 @@ def main():
 
     pandas = load_lineage_pandas()
     zoo_names = load_zoo_names()
+    reg = ZooRegistry.load()
     changed = 0
 
     for f in sorted(WIKI.glob("*.md")):
@@ -158,19 +160,27 @@ def main():
 
         changes, notes = {}, []
 
-        # 漢字：有假名無漢字 → 尾端補；完全無 → 設為漢字
-        lk = lineage_kanji(d)
+        # 漢字：有假名無漢字 → 尾端補；完全無 → 設為漢字。
+        # ⚠️ 僅補「有日本居住史」的個體：lineage/RPF 對每隻個體（含歐美）都機械附
+        # ja.name 轉寫，非日本個體一律不抄（其漢字多半實為中文名，屬 chinese 欄、
+        # 由作者確認）。zoos 空白無法確認國別時也保守不補。
+        has_japan = "Japan" in reg.countries(parse_frontmatter(text)[0].get("zoos"))
+        lk = lineage_kanji(d) if has_japan else None
         if lk and (not ja_val or not KANJI_RE.search(ja_val)):
             new_ja = f"{ja_val} / {lk}" if (ja_val and KANA_RE.search(ja_val)) else lk
             changes["japanese"] = ("scalar", new_ja); notes.append(f"japanese→{new_ja}")
 
-        # 已歿
+        # 已歿（同 born：僅接受 YYYY 或 YYYY-MM-DD，排除 "unknown" 等佔位值）
         if d.get("death") and not died_present:
-            changes["died"] = ("scalar", iso(d["death"])); notes.append(f"died→{iso(d['death'])}")
+            dd = iso(d["death"])
+            if dd and re.fullmatch(r"\d{4}(-\d{2}-\d{2})?", dd):
+                changes["died"] = ("scalar", dd); notes.append(f"died→{dd}")
 
-        # 生日
+        # 生日（lineage 可能填 "unknown" 等佔位值，僅接受 YYYY 或 YYYY-MM-DD）
         if not born and d.get("birthday"):
-            changes["born"] = ("scalar", iso(d["birthday"])); notes.append(f"born→{iso(d['birthday'])}")
+            b = iso(d["birthday"])
+            if b and re.fullmatch(r"\d{4}(-\d{2}-\d{2})?", b):
+                changes["born"] = ("scalar", b); notes.append(f"born→{b}")
 
         # 居住地
         if not zoos_present:

@@ -30,43 +30,11 @@ LINEAGE = Path("/tmp/redpanda-lineage")
 KANJI_RE = re.compile(r"[一-鿿々]")
 KANA_RE = re.compile(r"[぀-ヿ]")
 
-
-# ── 極簡 frontmatter 解析（只取需要的欄位）─────────────────────
-def read_frontmatter(path: Path) -> dict:
-    text = path.read_text(encoding="utf-8")
-    if not text.startswith("---"):
-        return {}
-    end = text.find("\n---", 3)
-    block = text[3:end] if end != -1 else text[3:]
-    fm, key = {}, None
-    for line in block.splitlines():
-        if not line.strip():
-            continue
-        m = re.match(r"^(\w+):\s*(.*)$", line)
-        if m:
-            key, val = m.group(1), m.group(2).strip()
-            if val.startswith("["):
-                fm[key] = [x.strip() for x in val.strip("[]").split(",") if x.strip()]
-            elif val in ("", "~", "null"):
-                fm[key] = None
-            else:
-                fm[key] = val
-        elif line.lstrip().startswith("- ") and key:
-            fm.setdefault(key, [] if not isinstance(fm.get(key), list) else fm[key])
-            if not isinstance(fm[key], list):
-                fm[key] = []
-            fm[key].append(line.lstrip()[2:].strip())
-    return fm
-
-
-def norm_date(s):
-    if not s:
-        return None
-    s = str(s).replace("/", "-")
-    parts = s.split("-")
-    if len(parts) == 3:
-        return f"{int(parts[0]):04d}-{int(parts[1]):02d}-{int(parts[2]):02d}"
-    return s  # 只有年份
+# frontmatter 解析與日期正規化：與 build_db 共用同一套（tools/wiki_io.py），
+# 確保稽核看到的資料 = 建檔看到的資料
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from wiki_io import read_frontmatter, norm_date  # noqa: E402
+from zoo_registry import ZooRegistry  # noqa: E402
 
 
 # ── lineage 載入 ──────────────────────────────────────────────
@@ -102,6 +70,7 @@ def main():
         entries[f.name] = read_frontmatter(f)
 
     lineage = load_lineage()
+    reg = ZooRegistry.load()
     R = []  # (嚴重度, 類別, 訊息)
 
     # 1) wiki 自身缺漏
@@ -143,12 +112,16 @@ def main():
             wb, lb = norm_date(fm.get("born")), norm_date(d.get("birthday"))
             if wb and lb and len(wb) == 10 and wb != lb:
                 R.append(("error", "生日與 lineage 不符", f"{name}: wiki={wb} lineage={lb}"))
-            # 日文/漢字：lineage 有漢字但 wiki japanese 無漢字
+            # 日文/漢字：lineage 有漢字但 wiki japanese 無漢字。
+            # ⚠️ 僅對「有日本居住史」的個體提示：lineage/RPF 對每隻個體（含歐美）都
+            # 機械附 ja.name 轉寫，非日本個體不採（其漢字多半實為中文名，屬 chinese 欄）。
             ja = fm.get("japanese") or ""
             lin_ja = " ".join([d.get("ja.name", ""), d.get("ja.othernames", "")])
             lin_kanji = [w for w in re.split(r"[ ,，、/]+", lin_ja)
-                         if KANJI_RE.search(w) and not KANA_RE.search(w)]
-            if lin_kanji and not KANJI_RE.search(ja):
+                         if KANJI_RE.search(w) and not KANA_RE.search(w)
+                         and "無名" not in w and not re.search(r"[（()）]", w)]  # 排除「(無名)」佔位值
+            if lin_kanji and not KANJI_RE.search(ja) \
+                    and "Japan" in reg.countries(fm.get("zoos")):
                 R.append(("warn", "lineage 有漢字名、wiki 未收", f"{name}: {lin_kanji[0]}"))
             # 生卒狀態
             wiki_dead = bool(fm.get("died"))

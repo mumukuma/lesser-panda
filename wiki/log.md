@@ -4296,3 +4296,32 @@ Sheet I 欄「已補進」標記待作者手動處理。
 **致謝**：楊桃（Anko・Roppo 轉園回報）已在 contributors.json，不重複列；其餘回報者未留名。
 
 **重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+---
+
+## [2026-07-13] add | Pairi Daiza（比利時）Mohan 一家：圖鑑缺漏回報查證後新增
+
+**來源**：
+- https://www.pairidaiza.eu/en/news/animals-conservation/two-rare-red-pandas-born-at-pairi-daiza/ （園方新聞稿 2026-07-03，官方一手來源）
+- https://redpandafinder.com/#profile/1312 (Mohan) / #1298 (Loha) / #1247 (Hui Hu) / #1058 (Himiko)（血系/生日/移居等空白補齊，非權威）
+
+**背景**：圖鑑缺漏回報（Tally 2EVJlb）回報 Mohan（♂，2021-06-20，Pairi Daiza），附園方官網新聞稿。查證：新聞稿確認 Loha × Mohan 於 2026-06-25 產下雙胞胎幼崽，Mohan 為 Hui Hu × Himiko 之子，三代同堂。官方來源，直接採用。
+
+**新增條目**：
+- `mohan-2021-06-20.md` — Mohan（RPF #1312），生於 2021-06-20，現居 Pairi Daiza（生日以園方新聞稿為準；lineage 記 2021-07-22 存查）
+- `loha-2020-06-06.md` — Loha（RPF #1298），生於 2020-06-06 柏林、2021 移居 Pairi Daiza（出生園：新聞稿泛稱 Berlin Zoo，lineage 記 Tierpark Berlin，採後者存查）
+- `hui-hu-2019-06-22.md` — Hui Hu（RPF #1247），生於 2019-06-22 Chester Zoo、2020 移居 Pairi Daiza，別名 Firefox
+- `himiko-2019-06-10.md` — Himiko（RPF #1058），生於 2019-06-10 Pairi Daiza
+
+**修正**：初版誤將 lineage 帶的片假名轉寫填入 `japanese:`（Mohan モハン等），但四隻均為歐洲個體、與日本無關，已全數移除（含 Hui Hu 的 `japanese: 火狐`；火狐/Firefox 保留於內文別名）。
+
+**未建條目（僅 lineage、非官方，暫列內文純文字待補）**：Mohan 雙胞胎 Minju 🌈（#1313）、Hui Hu 之父母 Nima/Koda 與雙胞胎 Tiang Tang、Himiko 之父母 Yin 🌈/Mojo 🌈、Loha × Mohan 之 2026 幼崽（尚未命名）。
+
+**更新**：
+- `data/zoos.json` — 補 location_ja 空白：Pairi Daiza 布呂熱萊特、Tierpark Berlin 柏林、Chester Zoo 柴郡
+- `tools/gen_residence.py` — CFLAG 新增 Belgium 🇧🇪 / Germany 🇩🇪 / UK 🇬🇧
+- `index.md` — 新增「海外個體（比利時・Pairi Daiza）」分類 4 筆；條目總數 598 → 602
+
+**致謝**：回報者（Tally 回報 kdrJPdM）未於暱稱欄留名，不列入 contributors。
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins

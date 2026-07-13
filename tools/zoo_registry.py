@@ -76,6 +76,21 @@ class ZooRegistry:
         rec = self.resolve(raw)
         return rec["canonical"] if rec else None
 
+    def countries(self, zoos_entries) -> set[str]:
+        """frontmatter `zoos:` 清單（原始字串，可含日期括號）→ 出現過的國別集合。
+
+        用途：判斷個體有無某國居住史。例：lineage/RPF 對每隻個體都機械附日文轉寫
+        `ja.name`（不論來源地），僅 "Japan" in countries(...) 的個體才採用為 japanese。
+        """
+        out: set[str] = set()
+        if isinstance(zoos_entries, str):
+            zoos_entries = [zoos_entries]
+        for e in zoos_entries or []:
+            rec = self.resolve(e)
+            if rec and rec.get("country"):
+                out.add(rec["country"])
+        return out
+
 
 if __name__ == "__main__":
     reg = ZooRegistry.load()

@@ -34,6 +34,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 WIKI = ROOT / "wiki"
 
+# frontmatter 解析共用 tools/wiki_io.py（與 build_db / audit 同一套）
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from wiki_io import read_frontmatter  # noqa: E402
+
 # 解析 instagram URL：發文帳號（選填）、類型（p/reel/tv）、shortcode
 IG_RE = re.compile(
     r"instagram\.com/(?:([^/?#]+)/)?(p|reel|tv)/([^/?#]+)", re.IGNORECASE
@@ -45,27 +49,10 @@ RESERVED = {"p", "reel", "tv", "explore", "stories", "tv"}
 
 def collect_instagram(path: Path) -> list[str]:
     """從單一 .md 的 frontmatter 取出 instagram 清單（每項為原始字串，可能含日期後綴）。"""
-    text = path.read_text(encoding="utf-8")
-    if not text.startswith("---"):
+    raw = read_frontmatter(path).get("instagram")
+    if not raw:
         return []
-    end = text.find("\n---", 3)
-    block = text[3:end] if end != -1 else text[3:]
-    out: list[str] = []
-    in_ig = False
-    for line in block.splitlines():
-        stripped = line.strip()
-        m = re.match(r"^(\w+):\s*(.*)$", line)
-        if m:
-            key, val = m.group(1), m.group(2).strip()
-            in_ig = key == "instagram"
-            # 單行形式 instagram: <url>
-            if in_ig and val and not val.startswith("["):
-                out.append(val)
-                in_ig = False
-            continue
-        if in_ig and stripped.startswith("- "):
-            out.append(stripped[2:].strip())
-    return out
+    return [raw] if isinstance(raw, str) else list(raw)
 
 
 def parse_entry(raw: str) -> dict:
