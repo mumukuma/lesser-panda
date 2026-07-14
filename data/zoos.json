@@ -3751,33 +3751,20 @@
  },
  {
   "canonical": "Safari Niagara",
-  "lineage_id": null,
-  "en": null,
-  "zh": null,
-  "country": null,
-  "location_ja": null,
-  "location_en": null,
-  "lat": null,
-  "lng": null,
-  "map": null,
-  "website": null,
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Safari Niagra",
   "lineage_id": 68,
-  "en": "Safari Niagra",
+  "en": "Safari Niagara",
   "zh": "尼加拉野生動物園",
   "country": "Canada",
   "location_ja": "安大略省FortErie",
   "location_en": "Fort Erie, Ontario, Canada",
   "lat": 42.9523118,
   "lng": -79.057585,
-  "map": "https://goo.gl/maps/PkYjqGk5rX22",
+  "map": "https://goo.gl/maps/tarQmaigJpsyb8iW7",
   "website": "https://safariniagara.com/",
   "logo": null,
-  "aliases": []
+  "aliases": [
+   "Safari Niagra"
+  ]
  },
  {
   "canonical": "Saint Louis Zoo",

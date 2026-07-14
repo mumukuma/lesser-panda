@@ -4325,3 +4325,188 @@ Sheet I 欄「已補進」標記待作者手動處理。
 **致謝**：回報者（Tally 回報 kdrJPdM）未於暱稱欄留名，不列入 contributors。
 
 **重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+---
+
+## [2026-07-14] update | 資料更正回報（Tally ODr777）：Nara 生日、Fuuka／Kazu／Shou-Shou／Gao-Gao 居住史
+
+**來源**（回報者查證所附，均為官方一手來源，直接採用）：
+- https://www.nhdzoo.jp/red-panda/kakeizu/index.html （静岡市立日本平動物園 家系圖）
+- https://www.asahi.com/articles/ASV6121PGV61TZNB001M.html （朝日新聞：「徳山動物園には08年6月に来園。」）
+- https://www.nhdzoo.jp/sp/news/naka.php?p=98 ・ https://x.com/nhdzoo/status/1744656071640379567 （日本平動物園 令和6年1月9日 Shou-Shou／Gao-Gao 對調公告）
+
+**更新條目**：
+- `nara-2000-07-13.md`（原 `nara-2000-07-17`）— 生日依日本平家系圖由 2000-07-17 更正為 **2000-07-13**；slug 隨之更名，安佐入園日與內文引言同步；相關 13 條目與 `index.md` 的 `[[wikilink]]` 一併改指新 slug（log 歷史條目保留原名不改）
+- `fuuka-2006-06-02.md` — 徳山動物園入園日由 2006-06-30 更正為 **2008-06-30**（朝日新聞：08年6月来園；千葉市動物公園在園期間延長至 2008-06-30）；補 nhdzoo 家系圖與朝日來源
+- `kazu-2019-07-02.md` — 補出生園 **富山市ファミリーパーク**（2019-07-02 – 2020-12-25），2020-12-25 移居日本平；🐣 出生地由日本平改為富山，內文引言同步；補 nhdzoo 家系圖來源
+- `shou-shou-2017-07-15.md` — 日本平入園日由 2023-01-09 更正為 **2024-01-09**（令和6年）；內文與備注年份同步；補 nhdzoo 公告與 X 來源
+- `gao-gao-2015-06-27.md` — 豊橋（Non Hoi Park）入園日由 2023-01-09 更正為 **2024-01-09**（與 Shou-Shou 同日對調）；內文年份同步；補 nhdzoo 公告與 X 來源
+- `buna-2000-07-13.md`（原 `buna-2000-07-17`）— 連動更正：Buna（RPF #336）為 Nara 雙胞胎，生日隨之由 2000-07-17 更正為 **2000-07-13**（作者確認雙胞胎同生日）；slug 更名，安佐入園日與內文引言同步，相關 5 條目與 `index.md` 的 wikilink 改指新 slug；補 nhdzoo 家系圖來源
+- `index.md` — 更新最後更新日；Nara／Buna wikilink 改指新 slug
+
+**致謝**：楊桃（本批 5 筆更正回報）已在 `contributors.json`，不重複列。
+
+**重建**：`gen_residence`（重生 602 檔居住史表格）+ `build_db` + `export_json`；audit --strict（🔴 0）、check_twins（0 錯誤）均通過
+
+---
+
+## [2026-07-14] add | Calgary Zoo 2023 窩雙胞胎 Anshu、Aahana（附命名由來）
+
+**來源**（Calgary Zoo 官方 Facebook，官方一手來源）：
+- https://www.facebook.com/thecalgaryzoo/posts/726496149521692 （命名公布貼文，2023-11-08）
+- https://www.facebook.com/thecalgaryzoo/posts/1433323718838928 （Anshu 三歲生日貼文，2026-06-18）
+
+**新增條目**：
+- `anshu-2023-06-18.md` — Anshu ♂，生於 2023-06-18，現居 Calgary Zoo；母 `udaya`、父 `linus`，`ravi`／`sundari` 之弟。命名尼泊爾語「ray of sun」（讀音 UN-shoe）
+- `aahana-2023-06-18.md` — Aahana ♀，Anshu 雙胞胎姊妹；命名尼泊爾語「first rays of the sun」（讀音 a-HAW-na）。兩名經公眾票選、延續家族「太陽」主題（母 Udaya=dawn、兄 Ravi=sun）
+
+**更新條目**：
+- `udaya-2019-06-20.md`、`linus-2018-06-23.md` — 子女表與引言補 2023 窩
+- `ravi-2022-06-14.md`、`sundari-2022-06-14.md` — 家族補同父母弟妹
+- `index.md` — 海外個體（加拿大）新增 2 筆；條目總數 602 → 604
+
+**備注**：兩隻尚未收錄於 Red Panda Finder／redpanda-lineage，故無 rpf_id；父 `linus` 依同窩配對與官方稱 Ravi 為其「brother」推定。
+
+**重建**：`gen_residence` + `build_db` + `export_json`；audit --strict、check_twins
+
+---
+
+## [2026-07-14] add | Jen-Jen 健健（大森山 5 子女之父，RPF #475）
+
+**來源**：
+- https://redpandafinder.com/#profile/475 (Jen-Jen)
+- https://www.city.akita.lg.jp/_res/projects/default_project/_page_/001/037/648/105p6.pdf （秋田市大森山動物園官方名單）
+
+**新增條目**：
+- `jen-jen-1995-07-06.md` — Jen-Jen ジェンジェン／健健（RPF #475）♂，生於 1995-07-06 周南市徳山動物園，1997-04-08 移居秋田市大森山動物園ミルヴェ，歿 2005-12-25；`mii-mii-1992-08-07` 之子，與 `nana-2001-07-13` 育有 `riku`／`fuu`（2004 雙胞胎）與 `an-an`／`ma-ma`／`yum-yum`（2005 三胞胎）。生日不確定，暫依 RPF 建立
+
+**更新條目**：
+- `riku-2004-07-13.md`、`fuu-2004-07-13.md`、`an-an-2005-07-07.md`、`ma-ma-2005-07-07.md`、`yum-yum-2005-07-07.md` — 父由純文字「Jen-Jen（待確認）」改為 `jen-jen-1995-07-06` wikilink，移除「待作者確認是否為同一隻」提示（作者確認 健健＝ジェンジェン＝RPF #475）
+- `mii-mii-1992-08-07.md` — 子女表 Jen-Jen 改 wikilink
+- `ken-ken-2006-07-18.md` — 半血緣手足 Jen-Jen 改 wikilink
+- `index.md` — 新增 Jen-Jen；條目總數更新為 605
+
+## [2026-07-14] unhide | 恢復 `takeru` 上站（作者裁定，附官方家系圖佐證）
+
+作者提供日本平動物園官方家系圖，確認 `takeru`（タケル，RPF #896）資料無誤，裁定恢復上站——反轉 2026-07-02「未滿一歲夭折暫時隱藏」對此隻的處置（其餘 4 筆維持隱藏）。條目內容本就完整正確（♂🌈、styani、2015-07-29 生於静岡市立日本平動物園、雙胞胎 `yamato`、父 `taku`🌈 母 `sea`🌈、2015-12-17 幼逝，存活 141 天），本次僅移出 `_hidden/`、還原連結、補官方來源。
+
+**來源**：
+- https://redpandafinder.com/#profile/896 (Takeru タケル)
+- https://www.nhdzoo.jp/red-panda/kakeizu/index.html (日本平動物園 官方家系圖)
+
+**恢復條目（移出 `wiki/_hidden/` → `wiki/`）**：
+- `takeru-2015-07-29.md` — Takeru タケル（RPF #896），♂🌈，`sea`🌈 × `taku`🌈 之子，`yamato` 雙胞胎，2015-07-29 生、2015-12-17 幼逝，終居静岡市立日本平動物園
+
+**更新條目**：
+- 還原指向 `takeru` 的 `[[wikilink]]`（先前隱藏時改為純文字）：`yamato-2015-07-29.md`、`taku-2010-06-15.md`、`sea-2010-07-19.md`、`miho-2013-07-09.md`、`matsuba-2014-07-17.md`、`maruko-2018-07-11.md`、`maruo-2018-07-11.md`、`nico-2017-06-23.md`
+- `takeru-2015-07-29.md` — sources 補官方家系圖連結
+- `index.md` — 全血緣兄弟姊妹小節新增 Takeru 列、還原 Yamato 列描述連結；條目總數 605 → 606；`_hidden/` 6 → 5
+
+**重建**：`gen_residence` + `build_db` + `export_json`
+
+## [2026-07-14] rule+unhide | 修訂幼逝收錄原則；恢復 `tsubasa`、`wu-tan` 上站
+
+**規則變更（作者指示）**：夭折（未滿一歲）個體只要**有正式命名**即照常收錄上站；僅「從未取名、以佔位名 `Baby`／`赤ちゃん` 登錄」者才續藏 `wiki/_hidden/`。取代 2026-07-02「未滿一歲一律暫藏」。已寫入 `CLAUDE.md`「注意事項」。回題適用：恢復兩隻已命名幼逝個體上站；未命名的 `baby-kiku`／`baby-luna` 續藏；`sokka`（資料未核實，非本規則範圍）續藏。
+
+**來源**：
+- https://redpandafinder.com/#profile/278 (Tsubasa つばさ)
+- https://redpandafinder.com/#profile/241 (Wu-Tan ウータン)
+
+**恢復條目（移出 `wiki/_hidden/` → `wiki/`）**：
+- `tsubasa-2017-07-08.md` — Tsubasa つばさ（RPF #278），♂🌈，fulgens，`cinnamon`×`olivia`🌈 之長子，與 `kodama`／`kagayaki` 三胞胎，2017-07-08 生、2018-02-01 幼逝，熱川バナナワニ園（⚠️ 同名，另有 `tsubasa-2006-06-20`）
+- `wu-tan-2018-06-21.md` — Wu-Tan ウータン（RPF #241），♂🌈，styani，`oolong`×`jasmine`🌈 之子，2018-06-21 生、2018-07-29 幼逝（38 天），京都市動物園
+
+**更新條目**：
+- 還原指向兩隻的 `[[wikilink]]`（隱藏時改純文字）：Tsubasa → `cinnamon-2009-07-12`、`olivia-2011-08-10`、`kodama-2017-07-08`、`kagayaki-2017-07-08`、`yotsuba-2016-06-25`、`mitsuba-2016-06-25`、`akatsuki-2018-07-25`、`akebono-2018-07-25`、`asahi-2018-07-25`；Wu-Tan → `oolong-2011-06-05`、`jasmine-2010-07-14`、`mutan-2014-06-19`、`puerh-2015-06-25`、`roppo-2015-06-25`、`mugi-2015-07-13`
+- `kodama-2017-07-08.md`／`kagayaki-2017-07-08.md` — 移除「三胞胎第三隻 Tsubasa 幼逝、暫存 `_hidden/`」的過時註記（Tsubasa 已復原，三胞胎齊全）
+- `index.md` — Cinnamon 家族新增 Tsubasa 列、Oolong×Jasmine 兄弟新增 Wu-Tan 列；條目總數 606 → 608；`_hidden/` 5 → 3
+- `CLAUDE.md` — 「注意事項」新增幼逝收錄原則
+
+**重建**：`gen_residence` + `build_db` + `export_json`
+
+## [2026-07-14] add | 蘋果籽制度首批：熊本 Shin-Fa 第二子＋西山 Kanoko 雙胞胎（3 筆佔位條目）
+
+**說明**：依本日新訂「當季寶寶佔位條目：蘋果籽」制度建檔（父母確認＋生日確認＋在世＋未命名，直接上站）。三筆均為園方官方公告（X 官方帳號），依「官方來源可直接採用」原則逕行建檔；RPF 均尚未建檔，`rpf_id` 待補。
+
+**來源**：
+- https://x.com/kumamotocityzoo/status/2062708738474344721 (熊本市動植物園官方：シンファ 5/27 產子，父かぼす)
+- https://kumanichi.com/articles/1999252 (熊本日日新聞：6/4 體重 286g、秋季公開預定)
+- https://x.com/nishiyama_zoo/status/2076501885012549978 (鯖江市西山動物園官方：かのこ 6/26 產雙胞胎，父ライト，其一人工哺育)
+
+**新增條目**：
+- `apple-seed-shin-fa-2026-05-27.md` — 蘋果籽（未命名、性別待確認），`shin-fa-2019-06-19` × `kabosu-2018-06-28` 之第二子（`ako` 全血緣弟妹），生於 2026-05-27，現居熊本市動植物園
+- `apple-seed-1-kanoko-2026-06-26.md` — 蘋果籽1號（未命名、性別待確認），`kanoko-2016-06-24` × `light-2013-07-18` 之子，生於 2026-06-26，かのこ親自育兒，現居鯖江市西山動物園
+- `apple-seed-2-kanoko-2026-06-26.md` — 蘋果籽2號（未命名、性別待確認），同上之雙胞胎，出生後不久改人工哺育
+
+**更新條目**：
+- `shin-fa-2019-06-19.md`／`kabosu-2018-06-28.md` — 家族關係補第二子（蘋果籽）
+- `ako-2023-06-01.md` — 補全血緣弟妹（蘋果籽）
+- `kanoko-2016-06-24.md` — 子女表 3→5 隻；`kaede`／`kaito` 純文字改 wikilink；補父別註記（Piisuke 父 `taiyo`、其餘父 `light`）
+- `light-2013-07-18.md` — 子女表改「母：kanoko」並 wikilink 化 `kaede`／`kaito`，補 2026 雙胞胎
+- `index.md` — Taofa 第三代補蘋果籽、Kanoko × Light 家族補蘋果籽1號2號、Kabosu 說明更新；條目總數 608 → 611
+
+**重建**：`gen_residence` + `build_db` + `export_json`
+
+## [2026-07-14] add | Pairi Daiza：Loha × Mohan 雙胞胎蘋果籽（2 筆佔位條目）
+
+**說明**：讀者回報 Pairi Daiza 誕生雙胞胎，附園方官方新聞稿（2026-07-03），依「官方來源可直接採用」原則逕行建檔。回報父名寫作 "Moken"，經核對園方新聞稿為 **Mohan**（生日 2021-06-20 與既有條目 `mohan-2021-06-20` 一致，同一隻）。兩隻寶寶未命名、性別未公布，依蘋果籽制度建佔位條目；序號 1／2 為暫定（園方未區分個體）。RPF 均尚未建檔，`rpf_id` 待補。
+
+**來源**：
+- https://www.pairidaiza.eu/en/news/animals-conservation/two-rare-red-pandas-born-at-pairi-daiza/ (Pairi Daiza 官方新聞稿：Loha 6/25 晚間產下雙胞胎)
+
+**新增條目**：
+- `apple-seed-1-loha-2026-06-25.md` — 蘋果籽1號（未命名、性別待確認），`loha-2020-06-06` × `mohan-2021-06-20` 之子，生於 2026-06-25，現居 Pairi Daiza
+- `apple-seed-2-loha-2026-06-25.md` — 蘋果籽2號（未命名、性別待確認），同上之雙胞胎
+
+**更新條目**：
+- `loha-2020-06-06.md`／`mohan-2021-06-20.md` — 子女表「（尚未命名，雙胞胎）」改為兩筆蘋果籽 wikilink
+- `index.md` — Pairi Daiza 家族補蘋果籽1號、2號；條目總數 611 → 613
+
+**重建**：`gen_residence` + `build_db` + `export_json`
+
+## [2026-07-14] add | Xia（RPF #430）與 Kayah × Koko 家其他成員（12 筆）
+
+**說明**：依使用者提供的 RPF #430 建立 `xia`，並依「直系親屬自動補齊」建立其三胞胎兒子、兄弟姊妹與外祖父。資料來源僅 RPF（線索性質）：Akito／Pip 的出生園、Kachin 的居住園 RPF 無記錄，依親屬居住史推定並標 🚧；Koko × Lala 為 Edmonton 五女之父母係依 RPF 補空（原 Koko 記「另一母」、Lala 記「父不詳」），標 🚧 待官方佐證。Stellar 的 lineage 漢字名「恒星」依非日本個體規則未入 `japanese`，疑中文名待作者確認。所有新條目均非日本個體，RPF 假名轉寫一律未採用。
+
+**來源**：
+- https://redpandafinder.com/#profile/430 (Xia)
+- https://redpandafinder.com/#profile/429 (Akito)、#428 (Itsuki)、#427 (Xing)
+- https://redpandafinder.com/#profile/442 (Cassie)、#312 (Stellar)、#443 (Pip)、#383 (Tai)、#441 (Sha-Lei)
+- https://redpandafinder.com/#profile/418 (Dash)、#444 (Madeline)、#848 (Kachin)
+
+**新增條目**：
+- `xia-2013-07-01.md` — Xia（RPF #430），`kayah` × `koko` 三胞胎之一，生於 2013-07-01 Granby，現居 Greater Vancouver Zoo（🚧 2021-10 移居日期 lineage 標不確定）
+- `akito-2015-06-22.md` — Akito（RPF #429），`xia` × Rufus 三胞胎之一，2015–2017 🌈（🚧 居住史推定 Assiniboine）
+- `itsuki-2015-06-22.md` — Itsuki（RPF #428），同上三胞胎，2017 移居 Memphis Zoo
+- `xing-2015-06-22.md` — Xing（RPF #427），同上三胞胎，2015–2020 🌈，歿於 Memphis
+- `cassie-2007-06-26.md` — Cassie（RPF #442），`koko` × `lala` 之女、`stellar` 雙胞胎，現居 Safari Niagara
+- `stellar-2007-06-26.md` — Stellar（RPF #312），`cassie` 雙胞胎，2007–2017 🌈，終居森林公園動物園
+- `pip-2008-05-26.md` — Pip（RPF #443），`tai` 雙胞胎，2008–2020 🌈（🚧 居住史推定 Edmonton）
+- `tai-2008-05-26.md` — Tai（RPF #383），`pip` 雙胞胎，2008–2022 🌈，終居 Henry Vilas Zoo
+- `sha-lei-2009-06-13.md` — Sha-Lei（RPF #441），2009–2022 🌈，終居 Roger Williams Park Zoo
+- `dash-2012-06-06.md` — Dash（RPF #418），`kayah` × Dusk（#447）之子，現居 Milwaukee County Zoo
+- `madeline-2015-06-22.md` — Madeline（RPF #444），`kendji` 雙胞胎，現居 Greensboro Science Center
+- `kachin-1995-05-31.md` — Kachin（RPF #848），`kayah` 之父，1995–2011 🌈（🚧 居住園不詳）
+
+**更新條目**：
+- `kayah-2007-06-11.md` — 父 `kachin` wikilink 化；子女表 Dash／Xia／Madeline 改 wikilink、Dash 父補 Dusk（#447）
+- `koko-2000-06-25.md` — 子女表 10 隻全 wikilink 化；Edmonton 五女之母補 `lala`（依 RPF 🚧）
+- `lala-2000-07-04.md` — 子女表「父不詳」改父 `koko`（依 RPF 🚧）、五女 wikilink 化
+- `zorro-2013-07-01.md`／`sakura-2013-07-01.md` — 三胞胎 Xia、兄弟姊妹 Madeline 等改 wikilink
+- `kendji-2015-06-22.md` — 雙胞胎 `madeline` 與 ½ 兄弟姊妹六隻改 wikilink
+- `malikha-2004-06-08.md` — 子女表 Kayah row 父 `kachin` wikilink 化
+- `index.md` — 新增「海外個體（加拿大・Xia 與 Kayah × Koko 家其他成員）」一節（12 筆）；Zorro row 的 Xia 改 wikilink；條目總數 613 → 625
+
+**重建**：`gen_residence` + `build_db` + `export_json`
+
+## [2026-07-14] fix | 動物園註冊表：合併重複的 Safari Niagara／Safari Niagra
+
+**說明**：`data/zoos.json` 有兩筆同一座園——「Safari Niagra」（lineage 拼法，#68，帶完整資料，`maki` 在用）與「Safari Niagara」（正確拼法，空殼，`malikha`／`cassie` 在用）。經作者確認合併：正確拼法 **Safari Niagara** 為 canonical，承接 lineage_id 68、中文名、座標、官網等全部資料；`map` 更新為作者提供的地址連結（2821 Stevensville Rd, Stevensville, ON；https://goo.gl/maps/tarQmaigJpsyb8iW7）；舊拼法「Safari Niagra」降為 alias 後刪除該筆。註冊表 341 → 340 座。
+
+**更新條目**：
+- `data/zoos.json` — 兩筆合併為一筆（Safari Niagara，alias: Safari Niagra）
+- `maki-2007-06-14.md` — frontmatter zoos／tag／內文 Safari Niagra → Safari Niagara
+- `index.md` — Maki row 園名改拼法
+- `malikha-2004-06-08.md`／`cassie-2007-06-26.md` — 居住史表格「地點」由合併後註冊表自動帶入（原空白）
+
+**重建**：`gen_residence` + `build_db` + `export_json`（未匹配園名 0 種；audit --strict、check_twins 均通過）

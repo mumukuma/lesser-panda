@@ -2,8 +2,12 @@
 """
 apply_lineage_fixes.py — 依 audit 結果，把可從 redpanda-lineage 補回的欄位寫入 wiki
 
+⚠️ 2026-07-14 起：lineage 降為「線索」（雜訊多、非權威，wiki 可信度已高於它）。
+本工具**僅在作者明確要求時**才執行——Claude 不得主動建議或順手跑；
+補入的值屬未查證線索，重要欄位仍應以官方來源覆核。
+
 保守原則：只填空白欄位；japanese 僅在「有假名無漢字」時於尾端補漢字；
-絕不覆蓋既有非空值。需要 /tmp/redpanda-lineage。
+絕不覆蓋既有非空值。需要 /tmp/redpanda-lineage（audit 加 --lineage 同款快照）。
 
 用法：
     python tools/apply_lineage_fixes.py --dry-run   # 預覽要改什麼（不寫檔）

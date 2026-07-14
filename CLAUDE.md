@@ -7,9 +7,9 @@
 ## ⚠️ 資料來源原則（重要）
 
 - **`wiki/*.md` 是唯一正本與權威來源**，由作者校訂。
-- [Red Panda Finder](https://redpandafinder.com)（RPF）與 [redpanda-lineage](https://github.com/wwoast/redpanda-lineage) 只是**初期建立資料的基礎參考**，**非權威**。
-- 兩者衝突時，**一律以 wiki（作者的校訂）為準**，不可用 RPF/lineage 覆蓋既有資料。
-- `tools/audit.py`、`tools/apply_lineage_fixes.py` 與 lineage 的比對僅供**參考與補空白**；`apply_lineage_fixes` 只填空欄位、不覆蓋；audit 列出的「與 lineage 不符」是提示作者**檢視**，不代表 wiki 錯。
+- **RPF/lineage 降為「線索」（2026-07-14 起）**：[Red Panda Finder](https://redpandafinder.com)（RPF）與 [redpanda-lineage](https://github.com/wwoast/redpanda-lineage) 雜訊多，wiki 經作者大量校訂後可信度已**高於**兩者。它們不再是「基礎參考」，僅在**無官方來源時**當線索用；由 RPF/lineage 帶入而未經官方佐證的關鍵資料標 `🚧 待查證`。新條目 `sources` 以園方公告等官方來源優先，RPF 為輔。
+- 兩者衝突時，**一律以 wiki（作者的校訂）為準**，不可用 RPF/lineage 覆蓋既有資料；與 lineage 的「不符」不代表 wiki 錯、不需逐筆處理。
+- 工具配套（2026-07-14 起）：`audit.py` **預設不跑 lineage 比對**（加 `--lineage` 才比對）；`verify.sh`（pre-push）不再抓取 lineage、只跑 wiki 自身檢查；`apply_lineage_fixes.py` **僅作者明確要求時才執行**（只填空欄位、不覆蓋，補入值視同線索）。
 - 名稱（尤其中文名 `chinese`、暱稱、別名）以作者提供為準；RPF 的羅馬拼音僅作後備。
 - **lineage/RPF 的 `ja.name` 是機械轉寫、每隻個體都有（不論來源地），僅「有日本居住史」的個體才採用為 `japanese`**（2026-07-13 起）：歐美等非日本個體一律不抄——其 `ja.name` 若含漢字，多半實為中文名（例：Hui Hu 的「火狐」），應由作者確認後放 `chinese`，而非 `japanese`。工具已內建此規則：`audit.py` 的「lineage 有漢字名、wiki 未收」提示與 `apply_lineage_fixes.py` 的補漢字，都只對 frontmatter `zoos:` 解析出含日本園（`data/zoos.json` 的 `country == "Japan"`）的個體生效；`zoos:` 空白無法確認國別時保守不補。
 - **動物園名以 `data/zoos.json`（註冊表）為唯一事實來源**：每座園的正式名（`canonical`，採完整正式名）、中文名、座標、官網、logo、**地點（`location_ja`）** 只存這裡。wiki 條目（frontmatter `zoos:` 與內文居住史）一律寫 canonical 日文名；`build_db` 會精確比對，**寫了註冊表沒有的園名就報錯中止**（提示去登記或修正）。新增一座沒登記過的園 → 先在 `data/zoos.json` 加一筆，再寫條目。lineage 僅用來初次帶入座標，非權威。
@@ -39,10 +39,10 @@ red-panda-wiki/
 │   ├── zoo_registry.py  ← 載入 data/zoos.json 並提供園名比對 resolver
 │   ├── gen_residence.py ← 由 frontmatter zoos: 自動生成內文「## 居住史」表格（勿手改該表）
 │   ├── query.py         ← 家系查詢 CLI / Python API
-│   ├── audit.py         ← 資料完整度檢查（與 redpanda-lineage 比對）；--strict 時僅內部錯誤（如 rpf_id 重複）回傳非零
+│   ├── audit.py         ← 資料完整度檢查；--strict 時僅內部錯誤（如 rpf_id 重複）回傳非零；--lineage 才比對 lineage（預設不跑）
 │   ├── check_twins.py   ← 多胞胎稽核（同生群同父母／生日±1天／群大小）；E 級錯誤回傳 1
 │   ├── ig_audit.py      ← 盤點 instagram: 連結（格式／活性提示，只報不改，exit 恆 0）
-│   ├── verify.sh        ← 驗證單一關卡：lineage 更新 + audit --strict + check_twins（只讀；已掛 pre-push）
+│   ├── verify.sh        ← 驗證單一關卡：audit --strict + check_twins（只讀；已掛 pre-push；不再抓 lineage）
 │   ├── apply_lineage_fixes.py ← 依 lineage 保守補齊空白欄位
 │   ├── resolve_zoo.py   ← 簡稱／部分名 → 註冊表 canonical 的省核輔助 CLI（不改 wiki）
 │   ├── schema.sql       ← SQLite schema
@@ -65,7 +65,7 @@ red-panda-wiki/
 
 **網站語系（2026-07-05 起五語）**：介面支援 `zh-TW`／`zh-CN`（簡體）／`ja`／`en`／`ko`（韓語）。語系定義集中在 `web/src/lib/data.js` 的 `LOCALES` 與 `i18n`；每語一份 `pipeline/src/i18n/<code>.json`，五份 key 必須一致（新增字串要五份都補）。加語系＝新增一份 json＋在 `data.js` 註冊＋`web/public/js/lang.js` 加瀏覽器偵測。因網站為資料驅動、個體頁無敘述文，加語系只翻 UI 字串、不必翻 600+ 條目。韓語的設計取捨：**動物園名暫用英文**（`data/zoos.json` 已預留 `ko_name` 欄，補了即自動生效）、**個體名走羅馬拼音**、**回報表單維持三語**（下方表單章節；ko 自動 fallback 到三語表單）。簡體的設計取捨（2026-07-05）：**純顯示層轉換、資料正本一律維持繁體**——個體中文名、園中文名於建置時用 `opencc-js`（繁→簡，`data.js` 的 `toHans`）轉換，前端內嵌資料（SEARCH_DATA 的 `k`、GRAPH_DATA 的 `d[5]`、ZOOS_DATA 的 `name_zh_hans`）也在建置時預轉，客戶端不帶 OpenCC；UI 字串為手工翻譯的 `zh-CN.json`（用語照大陸慣例：搜索／链接／帖子…）；**回報表單 fallback 到三語表單**；語言偵測 IP=CN→zh-CN、瀏覽器 zh-cn/zh-sg/zh-my/zh-hans→zh-CN、其餘 zh→zh-TW。
 
-**push 前驗證（單一關卡，2026-06-29 起）**：`bash tools/verify.sh` 會依序跑「更新 redpanda-lineage → `audit.py --strict` → `check_twins.py`」。已掛 `.git/hooks/pre-push`，**push 前自動跑、未通過即中止 push**。擋關原則符合資料來源原則：只有「真正的 wiki 整合性錯誤」會擋（`audit` 的 `rpf_id` 重複、`check_twins` 的 E 級——連錯隻／同生群生日差>±1天／群過大）；與 lineage 的「不符」、缺欄位、單邊缺父母等只列提示、**永不擋**。離線時自動略過 lineage 比對，wiki 自身檢查照跑。緊急要略過：`git push --no-verify`。注意 hook 在 `.git/hooks/` 內、**不進版控**，換機器需重裝（`verify.sh` 本身有進版控）。
+**push 前驗證（單一關卡，2026-06-29 起；2026-07-14 簡化）**：`bash tools/verify.sh` 依序跑「`audit.py --strict` → `check_twins.py`」（不再抓取／比對 lineage；要比對請手動 `python3 tools/audit.py --lineage`）。已掛 `.git/hooks/pre-push`，**push 前自動跑、未通過即中止 push**。擋關原則符合資料來源原則：只有「真正的 wiki 整合性錯誤」會擋（`audit` 的 `rpf_id` 重複、`check_twins` 的 E 級——連錯隻／同生群生日差>±1天／群過大）；缺欄位、單邊缺父母等只列提示、**永不擋**。緊急要略過：`git push --no-verify`。注意 hook 在 `.git/hooks/` 內、**不進版控**，換機器需重裝（`verify.sh` 本身有進版控）。
 
 ---
 
@@ -98,22 +98,62 @@ red-panda-wiki/
 - slugify：全小寫、空白/底線換連字號、去除 `'`、`()`、`.`；**重音字母轉為對應基本拉丁字母（不可整個刪掉）**，作法為 NFKD 正規化後去掉組合附加符號（é→e、ó→o、ú→u、ñ→n…）。例：`Ke Song`→`ke-song`、`Pu'erh`→`puerh`、`Réra`→`rera`、`Miró`→`miro`、`Kelú`→`kelu`。
 - **撞名（同名又同生日）才加第三層消歧 = 媽媽的名字**（slug），**不用父名**。
   - 例：兩隻 Sora 都生於 2008-06-16 → `sora-seina-2008-06-16`（母 seina）、`sora-nami-2008-06-16`（母 nami）
-- 佔位名字（如未正式命名的 `Baby`）同樣用「名字-媽媽名-生日」，待正式命名後再改 slug。
+- 佔位名字**一律**用「名字-媽媽名-生日」，待正式命名後再改 slug。當季新生寶寶的佔位用「蘋果籽」制度（見下節）；早期少數條目用 `Baby`（如 `_hidden/` 內幼逝者），沿用不改。
 - 同名並存時，條目內仍加 `⚠️ 注意同名` 提示。
 - slug 可由 `name`+`born` 機械重建；日後若校訂某隻生日，需一併更名並修正所有 `[[wikilink]]`。
+
+### 當季寶寶佔位條目：蘋果籽（2026-07-14 起）
+
+每年夏天是北半球小熊貓寶寶出生季，園方多半公布出生後隔一陣子才命名。命名前可先建「**蘋果籽**」佔位條目，**直接上站**，讓訪客看得到當季新寶寶。
+
+**建檔資格（四項全符合才建）**：
+
+1. **父母皆已確認**（母、父都對得上既有條目，或可依新增成員流程一併建檔）
+2. **生日已確認**（完整 `YYYY-MM-DD`，以園方公告或 RPF 為據）
+3. **尚在世**（公告時已夭折者不建蘋果籽；佔位期間夭折 → 照 2026-07-02 慣例補 `died`＋`deceased` 後移入 `wiki/_hidden/`）
+4. **尚未正式命名**（已有正式名就直接用正式名建檔，不經蘋果籽）
+
+**命名與 slug**：
+
+- `name: Apple Seed`、`chinese: 蘋果籽`；`japanese` **留空**（園方的「赤ちゃん」是泛稱、非名字，正式命名後才填）
+- slug **一律含媽媽名**：`apple-seed-媽媽slug-生日`（所有蘋果籽同名，直接套佔位名消歧規則）。例：`apple-seed-kiku-2026-06-20`
+- **同胎多隻**同時佔位才編號：`chinese` 寫 `蘋果籽1號`、`蘋果籽2號`…、`name: Apple Seed 1`…，slug 為 `apple-seed-1-媽媽slug-生日`。序號依園方公布順序；未公布則依 RPF ID 由小到大。單胎不編號。
+
+**frontmatter 其他欄位**：
+
+- `sex:` 留空、tags 不加性別，內文備注「性別待確認」；之後園方公布性別即回補（`sex`＋性別 tag）
+- `zoos:` 出生園 `(生日 – )`（現居，訖留空）
+- `rpf_id`／`rpf_url`：RPF 已建檔就填；還沒有就先缺（audit 只提示不擋），之後補上
+- `tags:` **必含 `apple-seed`**（佔位追蹤用，轉正時移除）
+- `sources:` 園方公告優先（官方來源可直接採用），RPF 為輔
+
+**內文**：標題 `# 蘋果籽（Apple Seed）— [[媽媽]] × [[爸爸]] 之寶寶`，引言區塊前加：
+
+> ⚠️ 佔位條目：寶寶尚未正式命名、性別待確認，暫以「蘋果籽」稱之，園方公布正式名後改名。
+
+其餘照一般條目結構；index、log、親屬雙向 wikilink、rebuild 均照「新增成員流程」。
+
+**轉正流程（園方公布正式名後）**：
+
+1. 依正式名重命名 slug 為 `名字-生日`（撞名才留媽媽名），全 wiki `[[wikilink]]` 同步更換
+2. frontmatter 更新 `name`／`japanese`（日本個體）／`chinese` 等，**移除 `apple-seed` tag**；性別已公布則一併補 `sex` 與性別 tag
+3. 內文移除佔位提示、改寫標題與引言；更新 `index.md`；`log.md` 記一筆 `rename`（舊 slug 用 backtick，禁 wikilink）
+4. `bash rebuild.sh`
+
+**季末盤點**：每年 10 月起以 `grep -l "apple-seed" wiki/*.md` 盤點尚未轉正的蘋果籽，逐隻查園方是否已公布名字；跨年仍未命名者留佔位、不強改。
 
 ---
 
 ## 新增成員流程
 
-1. 從 RPF 抓資料（用 Claude in Chrome，詳見 `rpf-wiki-SKILL.md` 第二步；RPF 不標性別，需從 Mother/Father/daughters/sons 推斷）
+1. 從 RPF 抓資料（用 Claude in Chrome，詳見 `rpf-wiki-SKILL.md` 第二步；RPF 不標性別，需從 Mother/Father/daughters/sons 推斷）。RPF 僅為線索：有官方來源的欄位以官方為準，`sources` 官方優先
 2. 建立 `wiki/[slug].md`
 3. **自動補齊直系親屬**：父、母、雙胞胎、子女、兄弟姊妹、祖父母，若無條目一律建立（順序：主角→父→母→雙胞胎→子女）
 4. 回頭把相關既有條目的純文字親屬改成 `[[wikilink]]`
 5. 更新 `wiki/index.md`：加入適當分類、更新頁首「最後更新」與「條目總數」
 6. 在 `wiki/log.md` 末端 append 一筆記錄
 7. 重跑 `python3 tools/build_db.py`
-8. 跑 `python tools/audit.py` 檢查資料完整度（缺欄位、與 lineage 不符等）；網站資料則重跑 `python3 pipeline/scripts/export_json.py`
+8. 跑 `python tools/audit.py` 檢查資料完整度（缺欄位等；lineage 比對預設不跑，需要時加 `--lineage`）；網站資料則重跑 `python3 pipeline/scripts/export_json.py`
 
 ### ⚠️ log.md 絕對禁止 `[[wikilink]]`
 
@@ -204,3 +244,4 @@ DB 寫入若失敗（沙盒掛載不支援 SQLite lock），build_db.py 會自�
 - 性別推斷不確定時留空並備注「待確認」
 - 不要動 `.obsidian/`；`test.db`、`Untitled.canvas` 為雜物，可忽略
 - 條目總數以 `ls wiki/*.md | wc -l` 減去 `index.md`、`log.md` 驗證，別只憑 index 頁首數字
+- **幼逝寶寶收錄原則（2026-07-14 起）**：出生後未滿一歲即夭折的個體，**只要有正式命名就照常收錄、上站**（如 `takeru`、`tsubasa`、`wu-tan`）；唯有從未取名、僅以佔位名（如 `Baby`／`赤ちゃん`）登錄者，才移入 `wiki/_hidden/` 暫藏。此規則**取代** 2026-07-02「未滿一歲一律暫藏」的舊做法。（注意：因其他原因暫藏者不受此規則影響，如資料未經核實的 `sokka`。）

@@ -60,6 +60,15 @@ OFFICIAL_HOSTS = {
     "drusillas.co.uk", "witheverland.com", "chiangmai.zoothailand.org", "sriayuthayalionpark.com",
 }
 
+# Facebook 是共用網域，不能整域列白名單（旅遊/粉絲轉載粉專也在同域）。
+# 僅認「園方/機構官方專頁」——比對 URL 路徑第一段（vanity 或數字 page id）。
+# 新增官方園方 FB 專頁時，把其 vanity（小寫）補進這裡即會自動顯示。
+OFFICIAL_FB_PAGES = {
+    "thecalgaryzoo",   # The Calgary Zoo 官方專頁（page id 100064839398464）
+    "zounokuni",       # ぞうの国 官方專頁
+}
+_FB_HOSTS = {"facebook.com", "m.facebook.com", "web.facebook.com", "fb.com"}
+
 def _host(url: str) -> str:
     from urllib.parse import urlparse
     return urlparse(url).netloc.lower().split("@")[-1].split(":")[0].removeprefix("www.") \
@@ -74,6 +83,11 @@ def is_official_source(url: str) -> bool:
         return False
     if host in OFFICIAL_HOSTS:
         return True
+    # Facebook：僅特定園方/機構官方專頁（比對路徑第一段 vanity / page id）
+    if host in _FB_HOSTS:
+        from urllib.parse import urlparse
+        seg = urlparse(url).path.strip("/").split("/")[0].lower()
+        return seg in OFFICIAL_FB_PAGES
     # 政府網域 pattern（未來新自治體/政府站自動涵蓋）
     if host.endswith((".lg.jp", ".go.jp", ".gov", ".gov.tw", ".gov.cn",
                       ".gov.mo", ".gov.taipei")):

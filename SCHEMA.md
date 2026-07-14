@@ -17,6 +17,8 @@ red-panda-wiki/
 ```
 
 > **命名規則（2026-06-18 起）**：slug 一律為 `slugify(name)-生日`（生日用 `YYYY-MM-DD`，只知年份用 `YYYY`）。撞名（同名同生日）才加第三層消歧 = **媽媽的名字**（不用父名）。詳見 `CLAUDE.md`「檔名與消歧」。
+>
+> **當季未命名寶寶（2026-07-14 起）**：以「蘋果籽」佔位建檔——`name: Apple Seed`、`chinese: 蘋果籽`、slug **一律含媽媽名** `apple-seed-媽媽slug-生日`（同胎多隻加序號 `apple-seed-1-…`＝蘋果籽1號）、tags 必含 `apple-seed`。資格與轉正流程詳見 `CLAUDE.md`「當季寶寶佔位條目：蘋果籽」。
 
 ---
 
@@ -97,6 +99,7 @@ sources:
 | `fulgens` | 喜馬拉雅小熊貓亞種 |
 | `female` / `male` | 性別 |
 | `deceased` | 已過世 |
+| `apple-seed` | 當季未命名寶寶的佔位條目（正式命名轉正時移除） |
 | `zoo:多摩動物公園` | 所在動物園 |
 | `taofa-family` | Taofa 直系家族成員 |
 

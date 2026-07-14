@@ -1,6 +1,6 @@
 ---
 name: Taisyu
-japanese: 太守, たいしゅ
+japanese: 太守, 大州, たいしゅ
 english_variants: [Tai-Syu]
 sex: male
 born: 1989
@@ -15,7 +15,7 @@ sources:
   - https://redpandafinder.com/#profile/708
 ---
 
-# Taisyu 🌈（太守 / たいしゅ）
+# Taisyu 🌈（太守 / 大州 / たいしゅ）
 
 > **小熊貓** ♂ | Ailurus fulgens styani  
 > 生年：約 1989 年（生年不詳・野生捕獲，以抵日年份為近似）　歿日：2001 年 11 月 16 日  

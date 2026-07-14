@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
 """
-audit.py — wiki 資料完整度檢查 + 與 redpanda-lineage 比對
+audit.py — wiki 資料完整度檢查（+ 可選的 redpanda-lineage 比對）
+
+⚠️ 2026-07-14 起 lineage 比對改為 opt-in：wiki 經作者大量校訂後可信度已高於
+RPF/lineage（雜訊多、僅為「線索」，見 CLAUDE.md 資料來源原則），預設只跑
+wiki 自身檢查，加 --lineage 才做比對。
 
 設計理念：不重爬 RPF（JS 動態網站、慢且脆弱）。改用 redpanda-lineage
 （RPF 的底層開源資料庫）的整包文字檔做本地比對，一次 clone、秒跑、可重複。
 
 用法（在 wiki 根目錄）：
-    # 取得/更新 lineage 主檔（第一次或想刷新時才需要）
-    git clone --depth 1 https://github.com/wwoast/redpanda-lineage /tmp/redpanda-lineage
-
-    python tools/audit.py                 # 印報告
+    python tools/audit.py                 # 印報告（僅 wiki 自身檢查）
+    python tools/audit.py --lineage       # 加跑 lineage 比對（線索用，先 clone：
+                                          #   git clone --depth 1 https://github.com/wwoast/redpanda-lineage /tmp/redpanda-lineage）
     python tools/audit.py -o audit.md     # 同時輸出 Markdown 報告
-
-無 lineage 時仍可跑「wiki 自身」那幾項檢查。
 """
 
 from __future__ import annotations  # 相容舊版 Python
@@ -60,6 +61,9 @@ def main():
     ap.add_argument("--strict", action="store_true",
                     help="僅當有 wiki 內部整合性錯誤（如 rpf_id 重複）時以 exit 1 結束；"
                          "與 lineage 比對的『不符』屬提示、永不影響 exit code")
+    ap.add_argument("--lineage", action="store_true",
+                    help="啟用與 redpanda-lineage 的比對（2026-07-14 起預設不跑；"
+                         "lineage 僅為線索、非權威）")
     args = ap.parse_args()
 
     files = sorted(WIKI.glob("*.md"))
@@ -69,7 +73,7 @@ def main():
             continue
         entries[f.name] = read_frontmatter(f)
 
-    lineage = load_lineage()
+    lineage = load_lineage() if args.lineage else {}
     reg = ZooRegistry.load()
     R = []  # (嚴重度, 類別, 訊息)
 
@@ -136,7 +140,9 @@ def main():
 
     lines = [f"# Wiki 資料完整度報告", ""]
     lines.append(f"條目數：{len(entries)}　|　lineage 比對："
-                 + (f"{cross} 筆" if lineage else "未啟用（無 /tmp/redpanda-lineage）"))
+                 + (f"{cross} 筆" if lineage else
+                    ("未啟用（無 /tmp/redpanda-lineage）" if args.lineage
+                     else "未啟用（預設略過，加 --lineage 啟用；lineage 僅為線索）")))
     lines.append("")
     cats = {}
     for sev, cat, msg in R:
