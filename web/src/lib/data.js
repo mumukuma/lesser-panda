@@ -65,8 +65,18 @@ export const zooName = (id, raw, locale = 'zh-TW') => {
   return locale === 'zh-CN' ? toHans(zh) : zh;
 };
 
+// 佔位個體（蘋果籽）的 ja/ko 顯示名：資料正本 japanese 依規則留空（「赤ちゃん」非正式名）、
+// ko 無個體名欄位，故於顯示層由 i18n 直譯（りんごのタネ／사과씨）；多胞胎編號用 placeholder_name_n 模板。
+export const placeholderName = (p, locale) => {
+  const t = i18n[locale] || {};
+  const n = ((p.name || '').match(/(\d+)\s*$/) || [])[1];
+  return n && t.placeholder_name_n ? t.placeholder_name_n.replace('{n}', n)
+    : t.placeholder_name || p.name;
+};
+
 export const displayName = (p, locale) =>
-  locale === 'ja' ? p.japanese || p.name
+  p.placeholder && (locale === 'ja' || locale === 'ko') ? placeholderName(p, locale)
+    : locale === 'ja' ? p.japanese || p.name
     : locale === 'zh-TW' ? p.chinese || p.kanji || p.name
     : locale === 'zh-CN' ? toHans(p.chinese || p.kanji || p.name)
     : p.name;
@@ -121,10 +131,15 @@ export function subGraph(slug, locale = 'zh-TW') {
   });
   const nodes = {}, up = {}, down = {};
   for (const s of set) {
-    // zh-CN：中文名（index 5）建置時轉簡體，其餘語系直接共用 GRAPH 節點
-    nodes[s] = locale === 'zh-CN' && GRAPH.nodes[s][5]
-      ? GRAPH.nodes[s].map((v, i) => (i === 5 ? toHans(v) : v))
-      : GRAPH.nodes[s];
+    // zh-CN：中文名（index 5）建置時轉簡體；佔位個體 ja（index 1）／ko（index 0）換直譯佔位名；
+    // 其餘語系直接共用 GRAPH 節點
+    let node = GRAPH.nodes[s];
+    if (locale === 'zh-CN' && node[5]) node = node.map((v, i) => (i === 5 ? toHans(v) : v));
+    if (pandas[s]?.placeholder) {
+      if (locale === 'ja') node = node.map((v, i) => (i === 1 ? placeholderName(pandas[s], 'ja') : v));
+      else if (locale === 'ko') node = node.map((v, i) => (i === 0 ? placeholderName(pandas[s], 'ko') : v));
+    }
+    nodes[s] = node;
     if (GRAPH.up[s]) up[s] = GRAPH.up[s].map((x) => (set.has(x) ? x : null));
     if (GRAPH.down[s]) down[s] = GRAPH.down[s].filter((x) => set.has(x));
   }
@@ -133,11 +148,17 @@ export function subGraph(slug, locale = 'zh-TW') {
 
 export const searchDataFor = (locale) => ({
   pandas: Object.values(pandas).map((p) => ({
-    slug: p.slug, u: p.urlId, n: p.name, j: p.japanese,
+    slug: p.slug, u: p.urlId,
+    // 佔位個體：ko 主名（n）、ja 日文名（j）用直譯佔位名；原英文名移入 en 保持可搜尋
+    n: p.placeholder && locale === 'ko' ? placeholderName(p, 'ko') : p.name,
+    j: p.placeholder && locale === 'ja' ? placeholderName(p, 'ja') : p.japanese,
+    en: [...(p.english_variants || []), ...(p.nicknames || []),
+      ...(p.placeholder && locale === 'ko' ? [p.name] : [])].join('|') || null,
     k: locale === 'zh-CN' ? toHans(p.chinese || p.kanji || '') || null : p.chinese || p.kanji,
-    en: [...(p.english_variants || []), ...(p.nicknames || [])].join('|') || null,
     sex: p.sex, born: p.born, died: p.died,
     uv: p.unverified ? 1 : null,
+    ap: p.placeholder ? 1 : null, // 蘋果籽佔位（尚未命名的寶寶）
+
     ph: (p.instagram || []).length || null,
     kids: (p.children || []).length || null,
     zoo: !p.died ? zooName(p.current_zoo, p.current_zoo_raw, locale) || null : null,
@@ -224,7 +245,7 @@ export function japanTreeData(locale = 'zh-TW') {
     return [p.urlId, displayName(p, locale),
       p.sex === 'female' ? 'f' : p.sex === 'male' ? 'm' : 'u',
       p.born ? p.born.slice(0, 4) : '', p.died ? p.died.slice(0, 4) : '',
-      G[s], x, G[s] * ROWH, _jpZooIds(p)];
+      G[s], x, G[s] * ROWH, _jpZooIds(p), p.placeholder ? 1 : 0];
   });
   const edges = [];
   for (const s of best) for (const m of parents[s] || []) if (inSet.has(m)) edges.push([idx[s], idx[m]]);

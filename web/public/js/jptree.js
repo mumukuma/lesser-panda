@@ -12,7 +12,7 @@
   const tt = (s, m) => (s || '').replace(/\{(\w+)\}/g, (_, k) => (k in m ? m[k] : '{' + k + '}'));
   // 節點只顯示第一個讀音（如「愛愛, アイアイ」→「愛愛」），與個體頁家系圖一致
   const shortName = (s) => s ? String(s).split(/[,、，/／（(]/)[0].trim() : s;
-  // node: [urlId,name,sex,born,died,gen,x,y,zooIds]
+  // node: [urlId,name,sex,born,died,gen,x,y,zooIds,placeholder]（placeholder=1：蘋果籽佔位，尚未命名的寶寶）
   const N = D.nodes, E = D.edges, ROWH = 170, NW = 80, NH = 48;
   const parents = N.map(() => []), children = N.map(() => []);
   E.forEach(([c, p]) => { parents[c].push(p); children[p].push(c); });
@@ -71,6 +71,17 @@
     t2.setAttribute('text-anchor', 'middle'); t2.setAttribute('y', 14); t2.setAttribute('class', 'ft-sub');
     t2.textContent = n[3] + (n[4] ? '–' + n[4] : '');
     g.appendChild(dot); g.appendChild(r); g.appendChild(t1); g.appendChild(t2);
+    // 蘋果籽佔位：節點右上角掛 apple seed icon（尚未命名的寶寶）
+    if (n[9]) {
+      const seed = document.createElementNS(NS, 'image');
+      seed.setAttribute('href', BASE + 'img/apple-seed.svg');
+      seed.setAttribute('x', NW / 2 - 9); seed.setAttribute('y', -NH / 2 - 7);
+      seed.setAttribute('width', 15); seed.setAttribute('height', 15);
+      const tip = document.createElementNS(NS, 'title');
+      tip.textContent = T.placeholder_badge || '';
+      seed.appendChild(tip);
+      g.appendChild(seed);
+    }
     gNodes.appendChild(g); return g;
   });
 
@@ -178,6 +189,7 @@
     info.style.display = 'block';
     info.innerHTML =
       `<h2>${n[1]}${n[2] === 'm' ? ' ♂' : n[2] === 'f' ? ' ♀' : ''}</h2>` +
+      (n[9] ? `<div class="row"><span><img src="${BASE}img/apple-seed.svg" alt="" style="width:12px;height:12px;vertical-align:-1px"> ${T.placeholder_badge || ''}</span></div>` : '') +
       `<div class="row"><span>${T.ft_born_died || '生 / 歿'}</span><b>${n[3] || '?'}${n[4] ? ' – ' + n[4] : ''}</b></div>` +
       `<div class="row"><span>${T.ft_generation || '世代'}</span><b>${tt(T.ft_gen || '第 {n} 代', { n: n[5] })}</b></div>` +
       `<div class="row"><span>${T.ft_relatives || '父母 / 子女'}</span><b>${parents[i].length} / ${children[i].length}</b></div>` +

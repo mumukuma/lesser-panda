@@ -10,8 +10,10 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const z = zooBySlug[slug];
 const name = zooName(z.id, z.en_name, locale);
 
+// 蘋果籽佔位（尚未命名的寶寶）icon，掛在名字後
+const seedIcon = ' <img src="' + base + 'img/apple-seed.svg" alt="' + T.placeholder_badge + '" title="' + T.placeholder_badge + '" class="inline w-[1em] h-[1em] align-[-.12em]" />';
 const link = (p) =>
-  `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, p.urlId)}">${displayName(p, locale)}${p.died ? ' 🌈' : ''}${p.unverified ? ' 🚧' : ''}</a>`;
+  `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, p.urlId)}">${displayName(p, locale)}${p.died ? ' 🌈' : ''}${p.unverified ? ' 🚧' : ''}${p.placeholder ? seedIcon : ''}</a>`;
 
 // 現居：pipeline 已依 zoos.json residents 排序好
 const residents = z.residents.map((s) => pandas[s]).filter(Boolean);

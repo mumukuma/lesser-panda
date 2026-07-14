@@ -79,8 +79,10 @@ const facts = [
   curZoo ? [T.field_zoo, curZoo] : null,
 ].filter(Boolean);
 
+// 蘋果籽佔位（尚未命名的寶寶）icon，掛在名字後
+const seedIcon = ' <img src="' + base + 'img/apple-seed.svg" alt="' + T.placeholder_badge + '" title="' + T.placeholder_badge + '" class="inline w-[1em] h-[1em] align-[-.12em]" />';
 const link = (s) => pandas[s]
-  ? `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, pandas[s].urlId)}">${displayName(pandas[s], locale)}${pandas[s].died ? ' 🌈' : ''}</a>` : s;
+  ? `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, pandas[s].urlId)}">${displayName(pandas[s], locale)}${pandas[s].died ? ' 🌈' : ''}${pandas[s].placeholder ? seedIcon : ''}</a>` : s;
 const famRow = (label, slugs, showCount) => slugs && slugs.length
   ? `<li class="py-1 flex flex-col sm:flex-row sm:gap-2"><span class="sm:shrink-0 sm:min-w-[9em] text-ink-soft text-[.88rem]">${label}${showCount ? `<span class="ml-1 text-[.82rem]">（${slugs.length}）</span>` : ''}</span><span class="min-w-0 flex-1">${slugs.map(link).join('、')}</span></li>` : '';
 // 父母行永遠顯示：缺資料時填「不詳 / Unknown」而非隱藏整行
@@ -151,6 +153,11 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
     {p.unverified && (
       <span class="inline-block text-[.78rem] px-2.5 py-0.5 rounded-full border-2 border-amber text-rust-dark font-medium self-center"
         style="background: color-mix(in srgb, var(--amber) 15%, transparent);">🚧 {T.unverified_badge}</span>
+    )}
+    {p.placeholder && (
+      <span class="inline-flex items-center gap-1.5 text-[.78rem] px-2.5 py-0.5 rounded-full border-2 border-rust text-rust-dark font-medium self-center"
+        style="background: color-mix(in srgb, var(--rust) 10%, transparent);">
+        <img src={`${base}img/apple-seed.svg`} alt="" aria-hidden="true" class="w-[1em] h-[1em]" />{T.placeholder_badge}</span>
     )}
   </div>
   {aka.length > 0 && <p class="text-ink-soft text-[.95rem] mt-1 relative">{aka.join('、')}</p>}

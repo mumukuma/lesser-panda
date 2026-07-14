@@ -213,6 +213,8 @@ def main():
             "died": r["died"],
             # 存疑個體（tags 含 unverified）：網站據此排除統計、現存篩選並顯示待查證標記
             "unverified": "unverified" in tags,
+            # 蘋果籽佔位條目（tags 含 apple-seed）：網站顯示「尚未命名的寶寶」icon 標記
+            "placeholder": "apple-seed" in tags,
             "species": r["species"],
             "rpf_id": r["rpf_id"],
             "rpf_url": r["rpf_url"],

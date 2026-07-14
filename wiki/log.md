@@ -4510,3 +4510,34 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - `malikha-2004-06-08.md`／`cassie-2007-06-26.md` — 居住史表格「地點」由合併後註冊表自動帶入（原空白）
 
 **重建**：`gen_residence` + `build_db` + `export_json`（未匹配園名 0 種；audit --strict、check_twins 均通過）
+
+## [2026-07-14] add | 羽村：梨梨 × アル 2026-06-28 寶寶（蘋果籽佔位）
+
+**來源**：
+- https://hamurazoo.jp/news/detail.html?CN=430019（園方 2026-07-08 公告，官方來源）
+
+**新增條目**：
+- `apple-seed-rii-rii-2026-06-28.md` — 蘋果籽（佔位，未命名），`rii-rii`（#236）× `aru`（#195）第二子，生於 2026-06-28 羽村市動物公園；性別待確認、展示待續報；RPF 未建檔，rpf_id 待補
+
+**更新條目**：
+- `rii-rii-2018-07-11.md` — 引言改育有二子；子女表加蘋果籽
+- `aru-2013-08-15.md` — 引言改育有三子；子女表加蘋果籽
+- `takenoko-2024-06-14.md` — 補全血緣弟妹連結
+- `luka-2016-06-15.md` — 補 ½ 弟妹連結
+- `index.md` — Aru 家族子女表加蘋果籽；條目總數 625 → 626
+
+## [2026-07-14] add | 泡泡：甜甜的雙胞胎兄弟（上海動物園）
+
+**來源**：
+- http://www.shanghaizoo.cn/ （沿用 `tian-tian` 之來源；官方個體佐證待補）
+
+**新增條目**：
+- `pao-pao-2024-06-23.md` — 泡泡 Pao Pao（♂），生於 2024-06-23 上海動物園，`zhuang-zhuang`（壯壯）× `niu-niu`（妞妞）之子，與 `tian-tian`（甜甜）為雙胞胎；甜甜 2026-06 移居台北，泡泡留上海
+
+**更新條目**：
+- `tian-tian-2024-06-23.md` — 引言與家族補雙胞胎 `pao-pao`
+- `fu-fu-2023-06-24.md`／`mei-mei-2023-06-24.md` — 兄弟姊妹加 `pao-pao`
+- `niu-niu.md`／`zhuang-zhuang.md` — 子女表加 `pao-pao`
+- `index.md` — 上海動物園區加泡泡；條目總數 626 → 627
+
+**重建**：`gen_residence` + `build_db` + `export_json`
