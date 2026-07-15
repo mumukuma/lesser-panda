@@ -1,5 +1,10 @@
 /* 首頁「今天的小熊貓」：依使用者當下日期列出今日生日與今日前往小熊星球 */
 (function () {
+  /* 「新鮮的寶寶」展示區間：每年 6/1 – 11/30 揭示（依訪客當下日期，與最後一次建置無關）。
+     區間外整段隱藏；區間內是否有寶寶由建置期內容決定（無則顯示佔位字）。 */
+  var sec = document.getElementById('newborns-season');
+  if (sec) { var mo = new Date().getMonth() + 1; if (mo >= 6 && mo <= 11) sec.hidden = false; }
+
   var data = window.TODAY_DATA;
   if (!data) return;
   var T = window.T, loc = window.LOCALE, PAGE = window.PAGE || window.BASE || '';

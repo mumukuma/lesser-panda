@@ -14,6 +14,22 @@ const stats = [
   ['stat-family', family.parent_child.length, T.stat_edges, pageUrl(base, locale, 'stats')],
 ];
 const featured = ['taofa', 'shiryu', 'franken', 'shin-fa', 'ako'].filter((s) => pandas[s]);
+// 今年出生的新寶寶（含蘋果籽佔位）：建置期算，新到舊排序。
+// 展示區間（6/1–11/30）由 client 端依訪客當下日期判斷（見 today.js），此處只準備資料。
+const thisYear = new Date().getFullYear();
+const newborns = Object.values(pandas)
+  .filter((p) => p.born && +p.born.slice(0, 4) === thisYear)
+  .sort((a, b) => (a.born < b.born ? 1 : a.born > b.born ? -1 : 0));
+// 蘋果籽 chip 顯示「{媽媽}的蘋果籽（多胞胎保留號碼）」；非佔位（已命名）沿用正式名
+const newbornLabel = (p) => {
+  if (!p.placeholder) return displayName(p, locale);
+  const m = p.mother && pandas[p.mother] ? displayName(pandas[p.mother], locale) : null;
+  if (!m) return displayName(p, locale); // 無母資料時退回原佔位名
+  const n = ((p.name || '').match(/(\d+)\s*$/) || [])[1];
+  return n && T.placeholder_of_mother_n
+    ? T.placeholder_of_mother_n.replace('{m}', m).replace('{n}', n)
+    : (T.placeholder_of_mother || '{m}').replace('{m}', m);
+};
 const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';
 // hero 飄落葉子（裝飾，reduced-motion 下隱藏）
 const leaves = [
@@ -70,6 +86,29 @@ const leaves = [
     </a>
   ))}
 </div>
+
+<!-- ── 新鮮的寶寶（展示區間 6/1–11/30 由 today.js 依當下日期揭示；預設 hidden） ── -->
+<section id="newborns-season" hidden>
+  <h2 class={H2}>{T.home_newborns}</h2>
+  <div class="card-soft p-5">
+    {newborns.length > 0 ? (
+      <Fragment>
+        <p class="flex flex-wrap gap-2 mb-3.5">
+          {newborns.map((p) => (
+            <a href={pandaUrl(base, locale, p.urlId)}
+               class="pop inline-flex items-baseline gap-1.5 bg-cream border border-line rounded-full px-4 py-2 text-[.94rem] no-underline hover:border-amber">
+              <span class="font-display font-semibold">{p.placeholder ? '🍎 ' : ''}{newbornLabel(p)}{p.died ? ' 🌈' : ''}</span>
+              <span class="text-[.8rem] text-ink-soft">{p.born.slice(5).replace('-', '/')}</span>
+            </a>
+          ))}
+        </p>
+        <p class="text-ink-soft text-[.85rem] m-0 leading-relaxed">{T.home_newborns_note}</p>
+      </Fragment>
+    ) : (
+      <p class="text-ink-soft text-[.95rem] m-0">🍎 {T.home_newborns_empty}</p>
+    )}
+  </div>
+</section>
 
 <!-- ── 今天 ─────────────────────────────────────────────────── -->
 <section class="reveal">

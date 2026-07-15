@@ -4541,3 +4541,74 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - `index.md` — 上海動物園區加泡泡；條目總數 626 → 627
 
 **重建**：`gen_residence` + `build_db` + `export_json`
+
+## [2026-07-15] add | Kiki（Edmonton Valley Zoo）— Fred・George 之母
+
+**來源**：
+- https://www.instagram.com/edmontonvalleyzoo/p/DAJTP_9PnmN/ （Edmonton Valley Zoo 官方 IG，介紹「Kiki, the mom」；官方來源）
+- https://redpandafinder.com/#profile/998 (Kiki)
+
+**新增條目**：
+- `kiki-2019-06-07.md` — Kiki（RPF #998，♀），生於 2019-06-07 Milwaukee County Zoo，2021-11-03 依 SSP 移居 Edmonton Valley Zoo 與 `tango` 配對；2024-07-07 產下雙胞胎 `fred`／`george`。父 `dash`（#418，已在 wiki）；母 Dr. Erin Curry（RPF #392，RPF 佔位名，未建條目）
+
+**更新條目**：
+- `george-2024-07-07.md`／`fred-2024-07-07.md` — 母 `kiki` 由純文字改 wikilink（引言、同名提示、家族欄）
+- `tango-2015-07-30.md` — 引言與子女表的 `kiki` 改 wikilink
+- `dash-2012-06-06.md` — 新增子女表，列 `kiki`（wikilink）、Dr. Lily（#419）、Cinder（#1379，後二者未建條目）
+- `index.md` — 加拿大 Zorro × Tanvi 一家一節新增 Kiki row；Fred/George row 的 Kiki 改 wikilink；條目總數 627 → 628
+
+**備注**：依作者指示只補 Kiki 本人並接上既有連結；其母系（Dr. Erin Curry #392）、外祖父母（Lin #390🌈、Rover #590🌈）與全血緣手足（Dr. Lily #419、Cinder #1379）皆為 RPF 佔位/玩笑名、無官方佐證，暫不建檔。
+
+## [2026-07-15] update | Sayuri 補假名
+
+**更新條目**：
+- `sayuri-2016-07-13.md` — `japanese` 由「小百合」補為「小百合（さゆり）」（漢字＋假名）
+
+---
+
+## [2026-07-15] add | 新增 Mebo 一家（Memphis → 美國各地）
+
+**來源**：
+- https://redpandafinder.com/#profile/1419 (Mebo)
+- https://redpandafinder.com/#profile/323 (Hazel)
+- https://redpandafinder.com/#profile/1418 (Enoki)
+
+**新增條目**：
+- `mebo-2023-06-13.md` — Mebo（RPF #1419），♀，生於 2023-06-13，Memphis Zoo 出生、2024 移居 San Francisco Zoo；曾用名 Doza／Marsala
+- `hazel-2016-06-14.md` — Hazel（RPF #323），♀，生於 2016-06-14，Cincinnati 生 → 森林公園動物園 → 現居 Memphis Zoo；`itsuki` 之配偶、Mebo／Enoki 之母
+- `enoki-2023-06-13.md` — Enoki（RPF #1418），♂，生於 2023-06-13，`mebo` 之雙胞胎，2024 移居森林公園動物園（西雅圖）；曾用名 Debree
+
+**更新條目**：
+- `itsuki-2015-06-22.md` — 補配偶 `hazel` 與子女 `mebo`／`enoki`
+- `zan-2020-05-25.md` — 補 🚧 待查證註記：RPF 記其母為 `hazel`，若屬實則與 `mebo`／`enoki` 為半血緣手足（父系存疑）
+- `index.md` — 海外個體區新增 Hazel／Mebo／Enoki；條目總數更新為 631
+
+**備注**：Mebo 一家為美國個體、無日本居住史，故不採 RPF 的 `ja.name`（メボ等機械轉寫）為 `japanese`。Hazel 較早期產仔（Zeya #325、Ila #324🌈、Tián #1172、`zan` #1171）RPF 記父為 Yukiko #313，惟該 ID 對應 `yukiko-2005-06-23` 記為 ♀、與父系角色矛盾，暫標待查證未建檔。
+
+## [2026-07-15] add | 新增柔柔、栗子（香港海洋公園，皆已歿）
+
+**來源**：
+- https://corporate.oceanpark.com.hk/tc/media-partnerships/press-release/ocean-park-s-beloved-red-panda-rou-rou-bids-farewell-to-visitors (柔柔歿訊，園方公告)
+- https://redpandafinder.com/#profile/931 (柔柔)
+- https://www.facebook.com/photo?fbid=10151628367866390 (栗子，讀者所附)
+- https://redpandafinder.com/#profile/933 (栗子)
+
+**新增條目**：
+- `rou-rou-2008-07-09.md` — 柔柔 Rou-Rou（RPF #931），♀，生於 2008-07-09，2009-03-22 由成都移居香港海洋公園，歿於 2026-03-17（享年 17，園方公告）
+- `li-zi-2008-06-15.md` — 栗子 Li-Zi／Chestnut（RPF #933），♀，生於 2008-06-15 🚧，2009 移居香港海洋公園，歿於 2013-06-15；生日與居住史僅見非官方來源，標待查證
+
+**更新條目**：
+- `tai-shan-2008-06-14.md` — 柔柔純文字改 `[[rou-rou-2008-07-09]]` wikilink
+- `cong-cong-2008-06-11.md` — 柔柔改 wikilink；歿日依園方公告由 2026-03-16 更正為 2026-03-17
+- `index.md` — 香港區新增柔柔、栗子；條目總數更新為 633
+- `data/contributors.json` — 新增致謝 Gaia（回報柔柔、栗子）
+
+**備注**：兩者皆為成都出生、無日本居住史，故不採 RPF 的 `ja.name`（ロウロウ／リジ 機械轉寫）為 `japanese`；ja.othernames 的漢字實為中文名，放 `chinese`。柔柔歿日以園方公告 2026-03-17 為準（RPF 記 2026-03-16）。
+
+## [2026-07-15] update | 蘋果籽（rii-rii × aru 之二子）補性別
+
+**更新條目**：
+- `apple-seed-rii-rii-2026-06-28.md` — 依作者確認補性別：`sex` 空白→male、tags 加 `male`、引言加 ♂、移除「性別待確認」字樣（仍為未命名佔位條目）
+- `index.md` — 該蘋果籽性別欄 ？→♂
+
+**追記（同日）**：性別依園方官方 IG @hamurazoo.official（2026-07-14 貼文 https://www.instagram.com/p/DaywLHLSJcZ/ ，「雌雄を確認…オスでしたぁ」）確認為雄性，屬園方官方公告；已加入 `instagram:` 展示與 `sources:`。

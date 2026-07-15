@@ -1,25 +1,28 @@
 ---
 name: Apple Seed
 chinese: 蘋果籽
-sex:
+sex: male
 born: 2026-06-28
 species: Ailurus fulgens styani
 zoos:
   - 羽村市動物公園 (2026-06-28 – 現在)
-tags: [styani, apple-seed, zoo:Hamura Zoo]
+tags: [styani, male, apple-seed, zoo:Hamura Zoo]
+instagram:
+  - https://www.instagram.com/hamurazoo.official/p/DaywLHLSJcZ/ 2026-07-14
 sources:
   - https://hamurazoo.jp/news/detail.html?CN=430019
+  - https://www.instagram.com/hamurazoo.official/p/DaywLHLSJcZ/
 ---
 
 # 蘋果籽（Apple Seed）— [[rii-rii-2018-07-11]] × [[aru-2013-08-15]] 之寶寶
 
-> ⚠️ 佔位條目：寶寶尚未正式命名、性別待確認，暫以「蘋果籽」稱之，園方公布正式名後改名。
+> ⚠️ 佔位條目：寶寶尚未正式命名，暫以「蘋果籽」稱之，園方公布正式名後改名。
 
-> **小熊貓** | Ailurus fulgens styani
+> **小熊貓** ♂ | Ailurus fulgens styani
 > 生日：2026 年 6 月 28 日
 > 現居：羽村市動物公園（Hamura Zoo，東京都）🇯🇵
 
-[[rii-rii-2018-07-11]]（梨梨，母）與 [[aru-2013-08-15]]（アル，父）之第二子，[[takenoko-2024-06-14]] 之全血緣弟妹。園方於 2026 年 7 月 8 日公告 6 月 28 日誕生，性別尚未確認；展示開始時間待園方續報。RPF 尚未建檔，`rpf_id` 待補。
+[[rii-rii-2018-07-11]]（梨梨，母）與 [[aru-2013-08-15]]（アル，父）之第二子，[[takenoko-2024-06-14]] 之全血緣弟妹。園方於 2026 年 7 月 8 日公告 6 月 28 日誕生，並於 7 月 14 日在官方 IG（@hamurazoo.official）公布雌雄確認為雄性（♂）；展示開始時間待園方續報。RPF 尚未建檔，`rpf_id` 待補。
 
 ---
 

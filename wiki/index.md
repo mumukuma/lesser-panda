@@ -1,6 +1,6 @@
 # Wiki 目錄 Index
 
-> 最後更新：2026-07-14 | 條目總數：627（另有 3 筆條目暫存 wiki/_hidden/，不計入、不上站）
+> 最後更新：2026-07-15 | 條目總數：633（另有 3 筆條目暫存 wiki/_hidden/，不計入、不上站）
 
 ---
 
@@ -1508,7 +1508,7 @@
 |------|------|------|------|--------|
 | [[luka-2016-06-15]] | Luka ルカ — Aru 長女（母：[[karin-2012-07-28]]） | ♀ | 2016 | 上野動物園 🇯🇵 |
 | [[takenoko-2024-06-14]] | Takenoko たけのこ — Aru 長子（母：[[rii-rii-2018-07-11]]） | ♂ | 2024 | 羽村市動物公園 🇯🇵 |
-| [[apple-seed-rii-rii-2026-06-28]] | 蘋果籽 Apple Seed — Aru × [[rii-rii-2018-07-11]] 第二子（佔位，未命名） | ？ | 2026 | 羽村市動物公園 🇯🇵 |
+| [[apple-seed-rii-rii-2026-06-28]] | 蘋果籽 Apple Seed — Aru × [[rii-rii-2018-07-11]] 第二子（佔位，未命名） | ♂ | 2026 | 羽村市動物公園 🇯🇵 |
 
 ### 全血緣兄弟姊妹（父：[[kou-kou-2003-07-15]] 🌈 × 母：[[luna-2004-06-28]] 🌈，新規條目）
 
@@ -2096,8 +2096,9 @@
 | [[tanvi-2017-06-13]] | Tanvi タンヴィ — Sachi × Tango 之女；Leah・Poppy 之母（RPF #438） | ♀ | 2017– | Assiniboine Park Zoo 🇨🇦 |
 | [[poppy-2019-05-17]] | Poppy ポッピー — Leah 雙胞胎（RPF #1253） | ♀ | 2019– | Assiniboine Park Zoo 🇨🇦 |
 | [[tango-2015-07-30]] | Tango タンゴ — Tanvi 之父；[[rina-2012-08-02]] 🌈 之子（RPF #435） | ♂ | 2015– | Edmonton Valley Zoo 🇨🇦 |
-| [[fred-2024-07-07]] | Fred — Tango × Kiki 之子；[[george-2024-07-07]] 雙胞胎（哈利波特衛斯理雙胞胎命名） | ♂ | 2024– | Edmonton Valley Zoo 🇨🇦 |
-| [[george-2024-07-07]] | George — Tango × Kiki 之子；[[fred-2024-07-07]] 雙胞胎 | ♂ | 2024– | Edmonton Valley Zoo 🇨🇦 |
+| [[kiki-2019-06-07]] | Kiki — Fred・George 之母；[[dash-2012-06-06]] 之女、[[tango-2015-07-30]] 之配偶（Milwaukee 生，2021 移居 Edmonton；RPF #998） | ♀ | 2019– | Edmonton Valley Zoo 🇨🇦 |
+| [[fred-2024-07-07]] | Fred — Tango × [[kiki-2019-06-07]] 之子；[[george-2024-07-07]] 雙胞胎（哈利波特衛斯理雙胞胎命名） | ♂ | 2024– | Edmonton Valley Zoo 🇨🇦 |
+| [[george-2024-07-07]] | George — Tango × [[kiki-2019-06-07]] 之子；[[fred-2024-07-07]] 雙胞胎 | ♂ | 2024– | Edmonton Valley Zoo 🇨🇦 |
 | [[kayah-2007-06-11]] | Kayah カヤ — Zorro 之母；[[malikha-2004-06-08]] 🌈 之女、[[franken-2012-06-11]] ½ 姊（RPF #446） | ♀ | 2007– | Granby Zoo 🇨🇦 |
 | [[koko-2000-06-25]] | Koko 虎虎／ココ — Zorro 之父；茶臼山生、[[seina-2000-06-25]] 雙胞胎 🌈（RPF #440；🚧 RPF 生日 6/23 與雙胞胎不符，暫從 Seina 6/25） | ♂ | 2000–2017 🌈 | Granby Zoo 🇨🇦 |
 
@@ -2113,6 +2114,9 @@
 | [[akito-2015-06-22]] | Akito — Xia × Rufus 三胞胎之一 🌈（RPF #429；🚧 居住史 RPF 無記錄，出生園推定） | ♂ | 2015–2017 🌈 | Assiniboine Park Zoo 🇨🇦 |
 | [[itsuki-2015-06-22]] | Itsuki — Xia × Rufus 三胞胎之一；2017 移居 Memphis（RPF #428） | ♂ | 2015– | Memphis Zoo 🇺🇸 |
 | [[xing-2015-06-22]] | Xing — Xia × Rufus 三胞胎之一 🌈（RPF #427） | ♂ | 2015–2020 🌈 | Memphis Zoo 🇺🇸 |
+| [[hazel-2016-06-14]] | Hazel — [[itsuki-2015-06-22]] 之配偶；Mebo・Enoki 之母（RPF #323） | ♀ | 2016– | Memphis Zoo 🇺🇸 |
+| [[mebo-2023-06-13]] | Mebo — [[hazel-2016-06-14]] × [[itsuki-2015-06-22]]；[[enoki-2023-06-13]] 雙胞胎；2024 移居舊金山（RPF #1419） | ♀ | 2023– | San Francisco Zoo 🇺🇸 |
+| [[enoki-2023-06-13]] | Enoki — [[hazel-2016-06-14]] × [[itsuki-2015-06-22]]；[[mebo-2023-06-13]] 雙胞胎；2024 移居西雅圖（RPF #1418） | ♂ | 2023– | 森林公園動物園 🇺🇸 |
 | [[madeline-2015-06-22]] | Madeline — [[kendji-2015-06-22]] 雙胞胎；2024 移居 Greensboro（RPF #444） | ♀ | 2015– | Greensboro Science Center 🇺🇸 |
 | [[dash-2012-06-06]] | Dash — [[kayah-2007-06-11]] × Dusk（RPF #447）之子、Xia ½ 兄（RPF #418） | ♂ | 2012– | Milwaukee County Zoo 🇺🇸 |
 | [[cassie-2007-06-26]] | Cassie — Koko × Lala 之女、[[stellar-2007-06-26]] 雙胞胎（RPF #442） | ♀ | 2007– | Safari Niagara 🇨🇦 |
@@ -2149,12 +2153,14 @@
 
 ## 海外個體（香港）
 
-成都大熊貓繁育研究基地繁育、現居香港海洋公園的個體。
+成都大熊貓繁育研究基地繁育、現居／曾居香港海洋公園的個體。
 
 | 條目 | 說明 | 性別 | 生年 | 動物園 |
 |------|------|------|------|--------|
 | [[tai-shan-2008-06-14]] | 泰山 Tai-Shan — 2008 成都生，2009 移居香港 | ♂ | 2008 | 香港海洋公園 🇭🇰 |
 | [[cong-cong-2008-06-11]] | 聰聰 Cong-Cong — 2008 成都生，2009 與泰山・柔柔 🌈 同批移居香港 | ♂ | 2008 | 香港海洋公園 🇭🇰 |
+| [[rou-rou-2008-07-09]] | 柔柔 Rou-Rou — 2008 成都生，2009 與泰山・聰聰同批移居香港 | ♀ | 2008–2026 🌈 | 香港海洋公園 🇭🇰 |
+| [[li-zi-2008-06-15]] | 栗子 Li-Zi — 2008 成都生，2009 移居香港，2013 過世 | ♀ | 2008–2013 🌈 | 香港海洋公園 🇭🇰 |
 
 ---
 
