@@ -149,9 +149,12 @@
     const [cm, cf] = parentsOf(CENTER);
     // 手足：父母的其他子女（扣掉自己與雙胞胎）
     const isFullSib = (s) => { const u = G.up[s] || []; return cm && cf && u.indexOf(cm) >= 0 && u.indexOf(cf) >= 0; };
+    // 近親迴圈防呆：自己的直系子女／父母永不列為手足
+    const centerKids = childrenOf(CENTER);
+    const notSib = (s) => s === CENTER || s === cm || s === cf || centerTwins.indexOf(s) >= 0 || centerKids.indexOf(s) >= 0;
     const centerSibs = [];
     [cm, cf].filter(Boolean).forEach(par => childrenOf(par).forEach(s => {
-      if (s !== CENTER && centerTwins.indexOf(s) < 0 && centerSibs.indexOf(s) < 0) centerSibs.push(s);
+      if (!notSib(s) && centerSibs.indexOf(s) < 0) centerSibs.push(s);
     }));
     centerSibs.sort((a, b) => (isFullSib(b) ? 1 : 0) - (isFullSib(a) ? 1 : 0));  // 全血在前
     const hasHalf = centerSibs.some(s => !isFullSib(s));
@@ -165,19 +168,30 @@
     const height = (upRows + downRows + 1) * ROW_H + 30;
     const centerY = upRows * ROW_H + 15;
 
-    const addNode = (slug, x, y) => { nodes.push({ slug, x, y }); return { x, y }; };
+    // 每個 slug 只放置一次（去重）；重複請求回傳既有位置，不再畫第二個框
+    const placedPos = {};
+    const addNode = (slug, x, y) => {
+      if (placedPos[slug]) return placedPos[slug];
+      const p = { x, y };
+      nodes.push({ slug, x, y });
+      placedPos[slug] = p;
+      return p;
+    };
+    // 近親迴圈：目標已在別處畫過時，只補一條連線指向既有節點（不重複畫框）
+    const loopLink = (fromPos, toPos) =>
+      links.push({ x1: fromPos.x, y1: fromPos.y + NODE_H / 2, x2: toPos.x, y2: toPos.y - NODE_H / 2, loop: true });
 
-    function placeAnc(slug, level, slot, childPos) {
+    // 祖先：逐層放置（同層先放滿再往上），確保直系父母落在父母列；
+    // 已放過者（近親迴圈，如既是父又是外祖父）改以 loop 連線指向既有節點
+    function ancNode(slug, level, slot, childPos) {
       if (!slug || level > upRows) return null;
+      if (placedPos[slug]) { loopLink(placedPos[slug], childPos); return null; }
       const span = width / Math.pow(2, level);
       const x = span * (slot + 0.5);
       const y = centerY - level * ROW_H;
       const pos = addNode(slug, x, y);
       links.push({ x1: x, y1: y + NODE_H / 2, x2: childPos.x, y2: childPos.y - NODE_H / 2 });
-      const [m, f] = parentsOf(slug);
-      placeAnc(m, level + 1, slot * 2, pos);
-      placeAnc(f, level + 1, slot * 2 + 1, pos);
-      return pos;
+      return { slug, level, slot, pos };
     }
 
     const centerX = width / 2 + (leftN - rightN) * unitW / 2;
@@ -190,7 +204,21 @@
     });
 
     let mPos = null, fPos = null;
-    if (upRows > 0) { mPos = placeAnc(cm, 1, 0, centerPos); fPos = placeAnc(cf, 1, 1, centerPos); }
+    if (upRows > 0) {
+      const a = ancNode(cm, 1, 0, centerPos);
+      const b = ancNode(cf, 1, 1, centerPos);
+      mPos = a ? a.pos : (placedPos[cm] || null);
+      fPos = b ? b.pos : (placedPos[cf] || null);
+      const frontier = [a, b].filter(Boolean);
+      while (frontier.length) {
+        const cur = frontier.shift();
+        const [m, f] = parentsOf(cur.slug);
+        const am = ancNode(m, cur.level + 1, cur.slot * 2, cur.pos);
+        const af = ancNode(f, cur.level + 1, cur.slot * 2 + 1, cur.pos);
+        if (am) frontier.push(am);
+        if (af) frontier.push(af);
+      }
+    }
 
     // 手足放中心列左側，連到共享的父或母
     visSibs.forEach((s, i) => {
@@ -201,6 +229,8 @@
     });
 
     function placeDesc(slug, depth, left, unitsAvail, parentPos) {
+      // 已放過者（近親迴圈，如既是子女又是孫）只補 loop 連線，不重複畫框、不再展開
+      if (depth > 0 && placedPos[slug]) { loopLink(parentPos, placedPos[slug]); return; }
       const x = left + (unitsAvail * unitW) / 2;
       const y = centerY + depth * ROW_H;
       const pos = depth === 0 ? parentPos : addNode(slug, x, y);
@@ -257,7 +287,7 @@
     worldW = width; worldH = height; focalX = centerX; focalY = centerY;
     box.innerHTML =
       `<svg preserveAspectRatio="xMidYMid meet" role="img" aria-label="family tree">` +
-      links.map(l => `<path class="tree-link ${l.twin ? 'twin' : ''}${l.half ? ' half' : ''}" d="${linkPath(l)}"></path>`).join('') +
+      links.map(l => `<path class="tree-link ${l.twin ? 'twin' : ''}${l.half ? ' half' : ''}${l.loop ? ' loop' : ''}" d="${linkPath(l)}"></path>`).join('') +
       nodes.map(nodeSvg).join('') + '</svg>';
 
     const svg = box.querySelector('svg');

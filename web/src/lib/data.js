@@ -94,6 +94,9 @@ for (const p of Object.values(pandas)) {
   [p.mother, p.father].filter(Boolean).forEach((par) => {
     (pandas[par]?.children || []).forEach((c) => { if (c !== p.slug) sibs.add(c); });
   });
+  // 近親迴圈防呆：自己的直系子女／父母永不列為手足（父女配對時，子女會與親代共用一位親本而被誤判）
+  (p.children || []).forEach((c) => sibs.delete(c));
+  [p.mother, p.father].filter(Boolean).forEach((par) => sibs.delete(par));
   p.full_siblings = []; p.half_siblings = [];
   for (const s of sibs) {
     const q = pandas[s];

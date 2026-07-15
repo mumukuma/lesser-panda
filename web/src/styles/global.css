@@ -267,6 +267,9 @@ body.home .forest-floor { display: block; }
 .tree-link.twin { stroke: var(--amber); stroke-dasharray: 4 3; }
 .tree-link.half { stroke: #b9a78f; stroke-dasharray: 2 3; opacity: .8; }
 :root[data-theme="dark"] .tree-link.half { stroke: #6b5b4a; }
+/* 近親迴圈連線：同一隻既是此路徑親屬、又經另一路徑相連（如既是父又是外祖父） */
+.tree-link.loop { stroke: #c0698f; stroke-dasharray: 5 3; stroke-width: 1.6; opacity: .85; }
+:root[data-theme="dark"] .tree-link.loop { stroke: #cf7fa1; }
 
 /* Leaflet 地圖容器 */
 #map { height: 360px; border-radius: var(--r-card); border: 1px solid var(--line); box-shadow: var(--shadow); z-index: 1; }

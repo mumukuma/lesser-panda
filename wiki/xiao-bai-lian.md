@@ -2,7 +2,7 @@
 name: Xiao Bai Lian
 chinese: 小白脸
 japanese: シャオバイラン
-nicknames: [小白, 董事长, 白女士, 咪咪]
+nicknames: [小白, 董事长, 白女士, 咪咪, 白面]
 sex: female
 species: Ailurus fulgens styani
 zoos:
@@ -10,6 +10,10 @@ zoos:
 rpf_id: 1322
 rpf_url: https://redpandafinder.com/#profile/1322
 tags: [styani, female, zoo:廣州動物園]
+instagram:
+  - https://www.instagram.com/p/DVY3zFCiTdb/
+  - https://www.instagram.com/p/DUMsfXkiaia/
+  - https://www.instagram.com/p/DUMs0Mwib7S/
 sources:
   - https://redpandafinder.com/#profile/1322
 ---
@@ -20,7 +24,7 @@ sources:
 > 生日：不詳  
 > 現居：廣州動物園（広東省広州市越秀区）🇨🇳
 
-**廣州動物園**個體，[[xi-xi-2020-06-23]] 🌈（晞晞）之母，[[yi-yi-2023-06-28]]（逸逸）與 [[yao-yao-2023-06-28]]（遙遙）之外祖母。出生年、出身與父母均不詳（依 RPF #1322）。暱稱小白、董事长、白女士、咪咪。
+**廣州動物園**個體，[[xi-xi-2020-06-23]] 🌈（晞晞）之母，[[yi-yi-2023-06-28]]（逸逸）與 [[yao-yao-2023-06-28]]（遙遙）之外祖母。出生年、出身與父母均不詳（依 RPF #1322）。暱稱小白、董事长、白女士、咪咪、白面。
 
 > ⚠️ 注意同名：柳州市動物園的 [[xiao-bai]]（小白，白桃之母）為不同個體。
 
