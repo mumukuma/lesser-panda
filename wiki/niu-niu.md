@@ -37,7 +37,5 @@ sources:
 
 | 姓名 | 出生年 | 另一方親本 |
 |------|--------|-----------|
-| [[fu-fu-2023-06-24]] | 2023 | [[zhuang-zhuang]] |
-| [[mei-mei-2023-06-24]] | 2023 | [[zhuang-zhuang]] |
 | [[tian-tian-2024-06-23]] | 2024 | [[zhuang-zhuang]] |
 | [[pao-pao-2024-06-23]] | 2024 | [[zhuang-zhuang]] |
