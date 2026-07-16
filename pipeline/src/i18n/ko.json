@@ -77,6 +77,7 @@
   "tree_more_descendants": "후손 더 보기",
   "tree_hint": "드래그로 이동, 핀치 또는 스크롤로 확대·축소하세요. 노드를 누르면 해당 개체 페이지가 열립니다.",
   "zoos_intro": "모든 마커는 공개 좌표를 사용합니다. 마커나 카드를 클릭하면 현재 거주 개체를 볼 수 있습니다.",
+  "zoos_filter": "동물원 검색 (이름/지역)…",
   "zoo_residents": "현재 거주 개체",
   "zoo_no_residents": "현재 기록된 거주 개체가 없습니다",
   "zoo_directions": "🧭 길찾기",

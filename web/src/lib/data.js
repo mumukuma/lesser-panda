@@ -164,7 +164,12 @@ export const searchDataFor = (locale) => ({
 
     ph: (p.instagram || []).length || null,
     kids: (p.children || []).length || null,
-    zoo: !p.died ? zooName(p.current_zoo, p.current_zoo_raw, locale) || null : null,
+    // 在世＝現居園；已故＝最後居住園（否則 zoo 篩選永遠濾不出已故個體，「現存」checkbox 形同虛設）
+    zoo: (() => {
+      if (!p.died) return zooName(p.current_zoo, p.current_zoo_raw, locale) || null;
+      const last = (p.residences || [])[p.residences.length - 1];
+      return last ? zooName(last.zoo_id, last.zoo_raw, locale) || null : null;
+    })(),
   })),
 });
 

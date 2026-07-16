@@ -77,6 +77,7 @@
   "tree_more_descendants": "显示更多后代",
   "tree_hint": "拖拽可平移、双指或滚轮可缩放；点击节点跳转至该个体页面",
   "zoos_intro": "标记均来自公开坐标。点击地图标记或卡片可查看现居个体。",
+  "zoos_filter": "搜索动物园（名称／地区）…",
   "zoo_residents": "现居个体",
   "zoo_no_residents": "目前没有已收录的现居个体",
   "zoo_directions": "🧭 路线导航",

@@ -77,6 +77,7 @@
   "tree_more_descendants": "More descendants",
   "tree_hint": "Drag to pan, pinch or scroll to zoom; tap a node to open that panda",
   "zoos_intro": "All markers use public coordinates. Click a marker or card to see current residents.",
+  "zoos_filter": "Search zoos (name / region)…",
   "zoo_residents": "Current residents",
   "zoo_no_residents": "No recorded residents at present",
   "zoo_directions": "🧭 Directions",

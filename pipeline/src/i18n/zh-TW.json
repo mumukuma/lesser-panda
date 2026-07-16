@@ -77,6 +77,7 @@
   "tree_more_descendants": "顯示更多後代",
   "tree_hint": "拖曳可平移、雙指或滾輪可縮放；點節點跳轉至該個體頁面",
   "zoos_intro": "標記皆來自公開座標。點選地圖標記或卡片可查看現居個體。",
+  "zoos_filter": "搜尋動物園（名稱／地區）…",
   "zoo_residents": "現居個體",
   "zoo_no_residents": "目前無已收錄的現居個體",
   "zoo_directions": "🧭 路線導航",
