@@ -6,6 +6,10 @@ species: Ailurus fulgens styani
 zoos:
   - 上海野生動物園 ( – 現在)
 tags: [styani, female, zoo:上海野生動物園]
+instagram:
+  - https://www.instagram.com/p/DQMIy4pEqTd/
+  - https://www.instagram.com/p/DQROnQQEvq7/
+  - https://www.instagram.com/p/DTfUhRBkuHG/
 sources:
   - 作者提供（2026-07-04；官方來源待補）
 ---

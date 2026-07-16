@@ -1,6 +1,6 @@
 # Wiki 目錄 Index
 
-> 最後更新：2026-07-16 | 條目總數：656（另有 3 筆條目暫存 wiki/_hidden/，不計入、不上站）
+> 最後更新：2026-07-16 | 條目總數：659（另有 3 筆條目暫存 wiki/_hidden/，不計入、不上站）
 
 ---
 
@@ -509,7 +509,7 @@
 | 條目 | 說明 | 性別 | 備注 |
 |------|------|------|------|
 | [[pam-1997-06-26]] | Pam — Gaia 之母（RPF #360） | ♀ | 🌈 已歿 |
-| [[mii-mii-1994-06-26]] | Mii-Mii — Gaia 之父（RPF #359） | ♂ | 🌈 已歿 |
+| [[mii-mii-1994-06-26]] | Mii-Mii ミーミー — Gaia 之父（RPF #359） | ♂ | 🌈 已歿 |
 
 ---
 
@@ -2162,7 +2162,7 @@
 
 ## 海外個體（加拿大 → 韓國・Ravi 一家）
 
-[[linus-2018-06-23]] × [[udaya-2019-06-20]]（[[sakura-2013-07-01]] 🌈 之女）於 Calgary Zoo 育有兩窩雙胞胎：2022 年 Ravi 與 Sundari、2023 年 Anshu 與 Aahana；Ravi 於 2023-11-20 移居首爾大公園動物園，與 [[sei-2019-07-02]]（세이）、[[leanne-2020-07-20]]（리안）並稱三劍客。2023 年這窩由園方公眾票選、以尼泊爾語命名，延續家族「太陽」主題。
+[[linus-2018-06-23]] × [[udaya-2019-06-20]]（[[sakura-2013-07-01]] 🌈 之女）於 Calgary Zoo 育有兩窩雙胞胎：2022 年 Ravi 與 Sundari、2023 年 Anshu 與 Aahana，2026-06-08 再迎三胞胎（未命名，蘋果籽佔位）；Ravi 於 2023-11-20 移居首爾大公園動物園，與 [[sei-2019-07-02]]（세이）、[[leanne-2020-07-20]]（리안）並稱三劍客。2023 年這窩由園方公眾票選、以尼泊爾語命名，延續家族「太陽」主題。
 
 | 條目 | 說明 | 性別 | 生卒 | 動物園 |
 |------|------|------|------|--------|
@@ -2170,8 +2170,11 @@
 | [[sundari-2022-06-14]] | Sundari サンダリ — Ravi 雙胞胎姊妹；舊名 Sunsari（RPF #1396） | ♀ | 2022– | Calgary Zoo 🇨🇦 |
 | [[anshu-2023-06-18]] | Anshu — 尼泊爾語「ray of sun」；Ravi・Sundari 之弟 | ♂ | 2023– | Calgary Zoo 🇨🇦 |
 | [[aahana-2023-06-18]] | Aahana — 尼泊爾語「first rays of the sun」；Anshu 雙胞胎姊妹 | ♀ | 2023– | Calgary Zoo 🇨🇦 |
-| [[linus-2018-06-23]] | Linus ライナス — Ravi・Sundari 之父；Cincinnati 生（RPF #1000） | ♂ | 2018– | Calgary Zoo 🇨🇦 |
-| [[udaya-2019-06-20]] | Udaya ウダヤ — Ravi・Sundari 之母；Sakura 之女；舊名 Aduya（RPF #1081） | ♀ | 2019– | Calgary Zoo 🇨🇦 |
+| [[linus-2018-06-23]] | Linus — Ravi・Sundari 之父；Cincinnati 生（RPF #1000） | ♂ | 2018– | Calgary Zoo 🇨🇦 |
+| [[udaya-2019-06-20]] | Udaya — Ravi・Sundari 之母；Sakura 之女；舊名 Aduya（RPF #1081） | ♀ | 2019– | Calgary Zoo 🇨🇦 |
+| [[apple-seed-1-udaya-2026-06-08]] | 蘋果籽1號 — Udaya × Linus 2026 三胞胎之一（未命名佔位） | – | 2026– | Calgary Zoo 🇨🇦 |
+| [[apple-seed-2-udaya-2026-06-08]] | 蘋果籽2號 — Udaya × Linus 2026 三胞胎之一（未命名佔位） | – | 2026– | Calgary Zoo 🇨🇦 |
+| [[apple-seed-3-udaya-2026-06-08]] | 蘋果籽3號 — Udaya × Linus 2026 三胞胎之一（未命名佔位） | – | 2026– | Calgary Zoo 🇨🇦 |
 
 ---
 
