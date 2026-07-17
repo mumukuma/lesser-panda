@@ -4944,3 +4944,28 @@ Sheet I 欄「已補進」標記待作者手動處理。
 **更新條目**：
 - `matsuba-2014-07-17.md` — 新增 `chinese: 松葉`；移除 `nicknames`（Battle Princess / Mochi-slayer / Mochi-sweetie）及內文暱稱句；標題改為 Matsuba（松葉・まつば）
 - `index.md` — 該列說明同步更新
+
+## [2026-07-17] update | Matsuba 新增 IG 貼文連結
+
+**來源**：
+- https://www.instagram.com/kinusayaffa/p/Da38ZYpjxsp/ (@kinusayaffa，まつば 12 歲生日貼文)
+
+**更新條目**：
+- `matsuba-2014-07-17.md` — frontmatter 新增 `instagram:`（含帳號完整形式）
+
+## [2026-07-17] add | 円山動物園蘋果籽出生：`hinagiku` × `puerh` 第一胎（2026-07-16）
+
+**來源**：
+- https://www.instagram.com/p/Da4GzmzGaea/ (@maruyamazoo_official，2026-07-16 出産公告，母子平安、已確認授乳)
+- https://www.city.sapporo.jp/zoo/03doubutsu/05asiazone/redpanda/r8/redpanda_pregnant.html (札幌市官網：ヒナギク × プーアル 2026-03-25～04-05 配對交尾、6月確認懷孕)
+
+**說明**：讀者回報。官方來源齊備（園方 IG＋市官網），依 2026-07-01 授權直接採用。蘋果籽四資格全符合；胎數官方尚未明示（懷孕公告載「胎子頭數確認中」），暫以單胎建檔、不編號，若後續公告多胞胎再補條目並編號。
+
+**新增條目**：
+- `apple-seed-hinagiku-2026-07-16.md` — 蘋果籽 Apple Seed（未命名，性別待確認），生於 2026-07-16，現居 札幌市円山動物園
+
+**更新條目**：
+- `hinagiku-2022-07-01.md` — 引言與家族補子女
+- `puerh-2015-06-25.md` — 引言補 2026 配對與新子；新增「子女（母 `hinagiku`）」表；**更正**子女之母誤連 `yuu-yuu-2014-07-27`（友友，2018 起居広島）→ `yuu-yuu-2011-05-28`（渝渝，旭山，據子女條目及居住史比對）
+- `ren-ren-2020-06-29.md`、`rin-rin-2020-06-29.md`、`jin-jin-2022-07-05.md`、`chen-chen-2022-07-05.md` — 父「Pu'erh（無條目）」改為 wikilink（條目其實已存在）；補父方半血緣妹弟（蘋果籽）
+- `index.md` — Pu'erh 家族新增子女（母 `hinagiku`）段落；兩處 `yuu-yuu-2014-07-27` 誤連同步更正為 `yuu-yuu-2011-05-28`；Hinagiku 列說明更新；條目總數更新為 662
