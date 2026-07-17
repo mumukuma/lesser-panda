@@ -211,6 +211,8 @@ def main():
             "sex": r["sex"],
             "born": r["born"],
             "died": r["died"],
+            # 檔案卡：最後確認在世／在園日期（動向不明個體；網站可顯示「最後確認」）
+            "last_seen": r["last_seen"],
             # 存疑個體（tags 含 unverified）：網站據此排除統計、現存篩選並顯示待查證標記
             "unverified": "unverified" in tags,
             # 蘋果籽佔位條目（tags 含 apple-seed）：網站顯示「尚未命名的寶寶」icon 標記
@@ -221,6 +223,8 @@ def main():
             "instagram": json.loads(r["instagram"] or "[]"),
             # 僅官方來源（園方/政府/園報/官方微信）；分類於 build_db.official_sources
             "sources": json.loads(r["sources"] or "[]"),
+            # 其他補充資料（展牌實拍等一手非官方鏈結佐證；網站另區塊顯示，待實作）
+            "extra_sources": json.loads(r["extra_sources"] or "[]"),
             "residences": [],
             "current_zoo": None,   # zoo master id
             "current_zoo_raw": None,

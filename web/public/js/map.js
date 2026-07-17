@@ -45,6 +45,28 @@
   setTimeout(refit, 200);
   window.addEventListener('load', refit);
 
+  // 過濾連動（zoos.js 的 zoo-filter 事件）：命中的園框進視野、其餘 marker 調暗。
+  // debounce 250ms 且結果集沒變就不動，避免打字時地圖亂跳；清空回日本預設視野；
+  // 0 命中只調暗不縮放；不捲動頁面（輸入框在地圖下方，捲走會打斷輸入）。
+  var lastKey = null, filterTimer = null;
+  function applyFilter(d) {
+    var key = d.q ? d.ids.join(',') : '';
+    if (key === lastKey) return;
+    lastKey = key;
+    var hit = {};
+    d.ids.forEach(function (id) { hit[id] = 1; });
+    Object.keys(byId).forEach(function (id) { byId[id].marker.setOpacity(!d.q || hit[id] ? 1 : 0.25); });
+    if (!d.q) { if (jpBounds) fitJp(); return; }
+    var pts = d.ids.filter(function (id) { return byId[id]; }).map(function (id) { return [byId[id].zoo.lat, byId[id].zoo.lng]; });
+    if (pts.length) map.fitBounds(L.latLngBounds(pts), { padding: [32, 32], maxZoom: 10 });
+  }
+  document.addEventListener('zoo-filter', function (e) {
+    clearTimeout(filterTimer);
+    filterTimer = setTimeout(function () { applyFilter(e.detail); }, 250);
+  });
+  // map 初始化前若已有過濾（如 dev 熱重載、快速輸入），補套一次
+  if (window.__ZOO_FILTER && window.__ZOO_FILTER.q) applyFilter(window.__ZOO_FILTER);
+
   document.querySelectorAll('[data-zoo-focus]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var hit = byId[+btn.dataset.zooFocus]; if (!hit) return;

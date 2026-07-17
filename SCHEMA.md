@@ -19,6 +19,8 @@ red-panda-wiki/
 > **命名規則（2026-06-18 起）**：slug 一律為 `slugify(name)-生日`（生日用 `YYYY-MM-DD`，只知年份用 `YYYY`）。撞名（同名同生日）才加第三層消歧 = **媽媽的名字**（不用父名）。詳見 `CLAUDE.md`「檔名與消歧」。
 >
 > **當季未命名寶寶（2026-07-14 起）**：以「蘋果籽」佔位建檔——`name: Apple Seed`、`chinese: 蘋果籽`、slug **一律含媽媽名** `apple-seed-媽媽slug-生日`（同胎多隻加序號 `apple-seed-1-…`＝蘋果籽1號）、tags 必含 `apple-seed`。資格與轉正流程詳見 `CLAUDE.md`「當季寶寶佔位條目：蘋果籽」。
+>
+> **資料有限個體＝檔案卡（2026-07-17 起，主要用於中國個體）**：有官方來源確認存在、但生日等基本資料不明者，可建「檔案卡級」條目——`born` 只填有據的粒度（`YYYY` 或留空）、tags 必含 `limited-profile`、以 `last_seen` 記最後確認日期。**完全無生日時 slug fallback = `slugify(name)-園簡稱`**（首次確認所在園的英文簡稱，慣例用城市名，如 `xiao-bai-shanghai`）；日後查到生日即照 rename 流程改回標準 `名字-生日` slug。詳見 `CLAUDE.md`「資料有限個體：檔案卡」。
 
 ---
 
@@ -36,6 +38,7 @@ english_variants: [變體拼法1, 變體拼法2]
 sex: female | male
 born: YYYY-MM-DD
 died: YYYY-MM-DD   # 若健在則省略
+last_seen: YYYY-MM-DD  # 選填（檔案卡用）：最後一次由來源「確認在世／在園」的日期，粒度隨來源（YYYY-MM-DD／YYYY-MM／YYYY）。動向不明個體以此誠實記錄，不猜 died
 species: Ailurus fulgens styani | Ailurus fulgens fulgens
 zoos:                      # 居住史唯一來源（frontmatter 為準）；內文「## 居住史」表格純衍生，由 tools/gen_residence.py 自動生成、勿手改
   - 動物園名稱 (起 – 訖)     # 園名須為 data/zoos.json 註冊表 canonical（未登記 build 報錯）；起訖可用 YYYY-MM-DD / YYYY / 現居留空。更正居住地只改這裡再重建；地點欄由 data/zoos.json 的 location_ja 自動帶入
@@ -46,6 +49,8 @@ instagram:                # 選填：同好的公開 IG 貼文連結，網站以
   - https://www.instagram.com/帳號/p/XXXXXXXXX/ 2025-06-01   # 建議用含「帳號」的完整形式；可在連結後加貼文日期，網站依日期新到舊排序；超過 6 篇自動「顯示更多」
 sources:
   - https://redpandafinder.com/#profile/XXX
+extra_sources:           # 選填：其他補充資料——非官方鏈結、無法線上核對的一手佐證（如讀者實拍的園方展牌、實體園報掃描），與官方 sources 分開管理；網站規劃另闢區塊顯示（待實作）
+  - 園方展牌（讀者 YYYY-MM 實拍，回報附件）
 ---
 ```
 
@@ -100,6 +105,8 @@ sources:
 | `female` / `male` | 性別 |
 | `deceased` | 已過世 |
 | `apple-seed` | 當季未命名寶寶的佔位條目（正式命名轉正時移除） |
+| `limited-profile` | 檔案卡：資料有限個體（缺生日／家系不明等），詳見 `CLAUDE.md` |
+| `unverified` | 存疑／動向不明：網站據此排除統計與現存篩選、顯示待查證標記 |
 | `zoo:多摩動物公園` | 所在動物園 |
 | `taofa-family` | Taofa 直系家族成員 |
 

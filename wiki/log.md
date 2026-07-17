@@ -4912,3 +4912,35 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - `linus-2018-06-23.md` — 移除 `japanese:`；標題去片假名
 - `udaya-2019-06-20.md`、`ravi-2022-06-14.md`、`sundari-2022-06-14.md`、`anshu-2023-06-18.md`、`aahana-2023-06-18.md` — 親屬欄去（ライナス）
 - `index.md` — Linus 列去 ライナス
+
+## [2026-07-16] hide | `tang-yuan` 暫存 _hidden/（作者要求下架）
+
+**說明**：作者要求隱藏 `tang-yuan`（湯圓／汤圆，上海動物園；性別、生年、出身、父母均待查證，僅「作者提供」為來源）。依隱藏慣例移入 `wiki/_hidden/`，不計數、不上站；非刪除。index 該列一併移除。
+
+**更新條目**：
+- `tang-yuan.md` — 移入 `wiki/_hidden/`
+- `index.md` — 移除該列；條目總數更新為 658（_hidden 暫存 4 筆）
+
+## [2026-07-17] add | 大連森林動物園三隻檔案卡（首批 limited-profile 條目）
+
+**來源**：
+- 圖鑑缺漏回報：讀者 2025-04 實地參觀所攝園方展牌（回報附件；官網 https://www.dlzoo.com/home 及新聞動態 73 篇（2023–2026）、微信均查無個體資訊）
+
+**說明**：套用本日新制「資料有限個體：檔案卡」（見 CHANGELOG 2026-07-17）。生日不詳 → slug 用 `名字-園簡稱`；`last_seen: 2025-04`；展牌實拍依作者裁定記入新欄位 `extra_sources`（與官方 sources 分開）。名字與性別依展牌。
+
+**新增條目**：
+- `nuo-mi-dalian.md` — 糯米 Nuo Mi ♀，生年不詳，現居 大連森林動物園
+- `xi-ning-dalian.md` — 希檸（希柠）Xi Ning ♀，生年不詳，現居 大連森林動物園
+- `mi-duo-dalian.md` — 米朵 Mi Duo ♂，生年不詳，現居 大連森林動物園
+
+**更新條目**：
+- `index.md` — 新增「海外個體（中國・大連森林動物園）」段落；條目總數更新為 661
+
+## [2026-07-17] update | Matsuba 名字整理：加中文名 松葉、移除暱稱
+
+**來源**：
+- 作者提供（名稱以作者為準）
+
+**更新條目**：
+- `matsuba-2014-07-17.md` — 新增 `chinese: 松葉`；移除 `nicknames`（Battle Princess / Mochi-slayer / Mochi-sweetie）及內文暱稱句；標題改為 Matsuba（松葉・まつば）
+- `index.md` — 該列說明同步更新

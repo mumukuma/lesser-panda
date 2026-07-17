@@ -33,13 +33,17 @@
     if (mode === 'name') arr.sort(byName);
     else if (mode === 'region') arr.sort(function (a, b) { return region(a).localeCompare(region(b), loc) || (count(b) - count(a)); });
     else arr.sort(function (a, b) { return (count(b) - count(a)) || byName(a, b); });
-    var shown = 0;
+    var shown = 0, hitIds = [];
     arr.forEach(function (c) {
       grid.appendChild(c);
       var hit = !q || c._hay.indexOf(q) >= 0;
       c.style.display = (hit && (expanded || shown < LIMIT)) ? '' : 'none';
-      if (hit) shown++;
+      if (hit) { shown++; hitIds.push(c.id.replace('zoo-', '')); }
     });
+    // 通知地圖跟著 focus（map.js 監聽；也存全域，防 map 較晚初始化時漏接）
+    var detail = { q: !!q, ids: hitIds };
+    window.__ZOO_FILTER = detail;
+    document.dispatchEvent(new CustomEvent('zoo-filter', { detail: detail }));
     if (countEl) {
       countEl.hidden = !q;
       if (q) countEl.textContent = (T.result_count || '{n}').replace('{n}', shown);

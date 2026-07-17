@@ -80,16 +80,23 @@ def main():
     # 1) wiki 自身缺漏
     seen_rpf = {}
     for name, fm in entries.items():
+        tags = fm.get("tags", [])
+        if isinstance(tags, str):
+            tags = [tags]
+        # 檔案卡（limited-profile）：缺生日/rpf_id 屬預期狀態，降為 info 免噪音
+        limited = "limited-profile" in tags
         rpf = fm.get("rpf_id")
         url = fm.get("rpf_url") or ""
         if not rpf:
-            R.append(("warn", "缺 rpf_id", name))
+            R.append(("info" if limited else "warn", "缺 rpf_id", name))
         else:
             seen_rpf.setdefault(int(rpf) if str(rpf).isdigit() else rpf, []).append(name)
         if "#query/" in url:
             R.append(("warn", "用 #query 連結（未爬 profile）", name))
         if not fm.get("born"):
-            R.append(("warn", "缺生日", name))
+            R.append(("info" if limited else "warn", "缺生日", name))
+        if limited and not fm.get("last_seen"):
+            R.append(("warn", "檔案卡缺 last_seen（必填）", name))
         if not fm.get("sources"):
             R.append(("info", "缺 sources", name))
         if not fm.get("zoos"):

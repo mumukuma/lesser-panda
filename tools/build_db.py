@@ -316,6 +316,10 @@ def build_db():
         if isinstance(instagram, str):
             instagram = [instagram]
 
+        extra_sources = fm.get("extra_sources", [])
+        if isinstance(extra_sources, str):
+            extra_sources = [extra_sources]
+
         row = {
             "slug":             slug,
             "name":             fm.get("name", ""),
@@ -326,6 +330,7 @@ def build_db():
             "sex":              sex,
             "born":             fm.get("born"),
             "died":             fm.get("died"),
+            "last_seen":        fm.get("last_seen"),
             "species":          species_short(fm.get("species")),
             "rpf_id":           int(fm["rpf_id"]) if fm.get("rpf_id") else None,
             "rpf_url":          fm.get("rpf_url"),
@@ -333,6 +338,7 @@ def build_db():
             "instagram":        json.dumps(instagram, ensure_ascii=False) if instagram else None,
             "is_alive":         0 if fm.get("died") else 1,
             "sources":          json.dumps(official_sources(fm.get("sources")), ensure_ascii=False),
+            "extra_sources":    json.dumps(extra_sources, ensure_ascii=False) if extra_sources else None,
         }
         panda_rows.append((slug, body, row))
         all_slugs.add(slug)
@@ -340,10 +346,10 @@ def build_db():
     cur.executemany("""
         INSERT OR REPLACE INTO pandas
           (slug, name, japanese, chinese, nicknames, english_variants,
-           sex, born, died, species, rpf_id, rpf_url, tags, instagram, is_alive, sources)
+           sex, born, died, last_seen, species, rpf_id, rpf_url, tags, instagram, is_alive, sources, extra_sources)
         VALUES
           (:slug,:name,:japanese,:chinese,:nicknames,:english_variants,
-           :sex,:born,:died,:species,:rpf_id,:rpf_url,:tags,:instagram,:is_alive,:sources)
+           :sex,:born,:died,:last_seen,:species,:rpf_id,:rpf_url,:tags,:instagram,:is_alive,:sources,:extra_sources)
     """, [r for _, _, r in panda_rows])
     conn.commit()
     print(f"  ✅ 插入 {len(panda_rows)} 筆個體資料")

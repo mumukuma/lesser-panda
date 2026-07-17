@@ -24,13 +24,15 @@ CREATE TABLE IF NOT EXISTS pandas (
     sex         TEXT CHECK(sex IN ('male','female','unknown')),
     born        TEXT,               -- ISO date YYYY-MM-DD（或只有 YYYY）
     died        TEXT,               -- NULL = 現存
+    last_seen   TEXT,               -- 檔案卡：最後確認在世／在園日期（YYYY[-MM[-DD]]；動向不明個體用）
     species     TEXT,               -- "styani" | "fulgens"
     rpf_id      INTEGER,            -- Red Panda Finder profile ID
     rpf_url     TEXT,
     tags        TEXT,               -- JSON array，原始 tags
     instagram   TEXT,               -- JSON array，公開 IG 貼文連結（curate，官方 embed 展示）
     is_alive    INTEGER,  -- 0=已歿, 1=現存（由 build_db.py 填入）
-    sources     TEXT                -- JSON array，僅官方來源（園方/政府/園報/官方微信）；個體頁「來源」區塊用
+    sources     TEXT,               -- JSON array，僅官方來源（園方/政府/園報/官方微信）；個體頁「來源」區塊用
+    extra_sources TEXT              -- JSON array，其他補充資料（展牌實拍等一手但非官方鏈結的佐證；網站另區塊顯示，待實作）
 );
 
 -- ── 2. 親子關係 ─────────────────────────────────────────────
