@@ -4992,3 +4992,112 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - `hou-hou.md` → `hou-hou-1988.md` — 補 `born: 1988`、`died: 1999`；tags 改 deceased（移除 unverified）；標題與引言補 🌈 與生卒
 - `ryu-ryu-1990.md`、`naka-naka.md`、`hana-hana.md` — wikilink 同步改 `hou-hou-1988` 並補 🌈
 - `index.md` — 姑母列補生卒 1988–1999 🌈、wikilink 同步
+
+## [2026-07-18] update | 清除 RPF 遺毒英文別名：`gao-gao-2015-06-27` 移除 Stripes、Shaggy
+
+**來源**：
+- 作者裁定（RPF 帶入的翻譯型別名，非正式名稱；清理清單見 docs/english-variants-audit.md）
+
+**更新條目**：
+- `gao-gao-2015-06-27.md` — frontmatter 移除 `english_variants: [Stripes, Shaggy]`；引言移除「別名：Stripes、Shaggy」列
+
+## [2026-07-18] update | 來源勘誤：日本平家系圖頁僅列現役個體，錯引批次更正
+
+作者指出 `hou-hou-1988`（紅紅）、`ryu-ryu-1990`（綠綠）引用的日本平家系圖連結中查無其人。實際核對家系圖圖片（sec01-img01.png，2320×3000）：最上代僅自 シュウシュウ／楢／風々 起、共 27 隻現役相關個體，且頁尾註明「一部の情報は省略しています」——與 2026-07-01 log 已註記的「僅列現役個體」一致，但當時未同步清理各條目 sources。本批將「不在圖中卻引用該頁」的 11 個條目改引真正佐證來源：多摩官方個體名單（4travel 轉載，官方轉載可直採）有載者換該連結；未載者移除、改記實際來源。並依名單補採 中中／華華 之「出自不明・死亡」。
+
+**來源**：
+- https://www.nhdzoo.jp/red-panda/kakeizu/imgs/sec01-img01.png （日本平家系圖原圖，核對用）
+- https://4travel.jp/travelogue/11691476 （多摩官方個體名單轉載：中中、華華、緑々、光々、ハナ、ナナ、ノア 有載；紅々、希々、蘭々 未載）
+
+**更新條目**：
+- `ryu-ryu-1990.md` — sources 家系圖改 4travel 名單；註記名單原文「緑々（♂／1990年生まれ）中中×花花　1999年に死亡」及「花花」應為華華筆誤；父母欄改「官方名單確認」＋🌈
+- `naka-naka.md`／`hana-hana.md` — sources 家系圖改 4travel 名單；依名單「出自不明・死亡」補 `deceased`／🌈（歿日不詳）、移除 `unverified`；居住園（多摩）年份不詳故 `zoos:` 暫不登錄；`hana-hana` 原「同母異父半手足 ハナ」註為誤植（兩者無血緣），改為單純勿混淆提示
+- `hou-hou-1988.md` — sources 改「作者提供（2026-07-18）」；註記未見於多摩官方名單、日本平家系圖亦無；父母補 🌈
+- `ki-ki-1996.md` — sources 改「圖鑑缺漏回報收件匣（submission aOEzG62）」；註記未見於多摩官方名單
+- `kou-kou-1997-06-20.md`／`nana-2001-07-13.md`／`noa-2004.md`／`hana-2001-07-13.md` — sources 家系圖改 4travel 名單（四者皆有載）
+- `ran-ran-1998-06-29.md`／`buna-2000-07-13.md` — 移除家系圖連結（蘭々未見於名單、ブナ非多摩個體且不在圖中），餘 RPF
+- `index.md` — 中々／華々 列補 🌈（生卒不詳）、多摩動物公園（年份不詳）；紅紅列補「作者提供、未見於多摩官方名單」
+
+**保留引用**（確實在家系圖中）：`fu-fu-1997-06-20`、`fuuka-2006-06-02`、`kazu-2019-07-02`、`nara-2000-07-13`、`takeru-2015-07-29`
+
+## [2026-07-18] update | 批次清除 RPF 遺毒英文別名（審核清單 D 類）
+
+**來源**：
+- 作者裁定（docs/english-variants-audit.md D 類「翻譯型／無關／可疑」全刪；9 筆有非 RPF 來源或作者先前裁定者保留，詳清單 ⏸ 標記）
+
+**更新條目**（59 檔、移除 95 個 english_variants 字串；內文「別名／英文名」殘句一併清除）：
+- `anri-1994-06-19.md` — 移除 Annapulina、Anna Pulina、Annapuluna
+- `aru-2013-08-15.md` — 移除 Love、Al
+- `buna-2000-07-13.md` — 移除 Beech
+- `chuihowa-2010-07-10.md` — 移除 Chuy-Fa、Ju-Hua、Juhua
+- `cocoa-2018-06-28.md` — 移除 Kuro、Kufa、Ku-Fa
+- `cong-cong-2008-06-11.md` — 移除 Chung Chung
+- `fin-fin-2002-06-20.md` — 移除 Tanpopo
+- `foa-foa-2004-06-29.md` — 移除 Angdu
+- `fuu-1998-07-04.md` — 移除 Huu-Huu
+- `fuumi-2007-07-11.md` — 移除 Kazumi、Kazami
+- `hana-2005-06-21.md` — 移除 Himawari
+- `hui-hu-2019-06-22.md` — 移除 Firefox
+- `kaori-1991-06-18.md` — 移除 Kou
+- `ken-ken-2006-07-18.md` — 移除 Freckle-kun
+- `kiku-2015-06-26.md` — 移除 Chrysantheum
+- `kinta-2000-06-08.md` — 移除 Spaceman、Quintana-Roo、Ageless Beauty
+- `kou-2011-06-14.md` — 移除 Kisaki
+- `kusu-1991-06-24.md` — 移除 Cous
+- `kusukusu-2015-07-21.md` — 移除 Couscous、Cous-Cous
+- `leanne-2020-07-20.md` — 移除 Rian、Rians
+- `lemon-2013-07-07.md` — 移除 Meruki、Miruki、Miruki-
+- `lessy-2014-08-18.md` — 移除 Tōya、Toya、Touya
+- `li-zi-2008-06-15.md` — 移除 Chestnut
+- `light-2013-07-18.md` — 移除 Raito
+- `liuxing-1997-06-16.md` — 移除 Ryuusi、Ryuusii、Ryuusin
+- `luna-2015-08-23.md` — 移除 Moon
+- `maple-2022-06-14.md` — 移除 Moose
+- `maruo-2018-07-11.md` — 移除 Mihota
+- `maruru-2014-06-06.md` — 移除 Musuko
+- `mei-mei-2007-06-28.md` — 移除 May-May、Maymay、MayMay
+- `meixiang-2017-06-29.md` — 移除 Meisyan、Mei-Shan、Meishan、Mei Shan
+- `mii-2013-06-23.md` — 移除 Mie
+- `mitsuba-2016-06-25.md` — 移除 Clover
+- `mulan-2019-06-07.md` — 移除 Mokuren
+- `nohana-2017-07-31.md` — 移除 Norin
+- `piisuke-2020-06-27.md` — 移除 Peaceke、Peace Ke
+- `raichi-2005-06-25.md` — 移除 Lychee
+- `rei-mei-2019-07-10.md` — 移除 Raymay、Ray-May
+- `rei-rei-2016-06-28.md` — 移除 Thunder-Lightning
+- `reika-2019-06-02.md` — 移除 Wasabi
+- `rimu-2021-07-31.md` — 移除 Rheem
+- `rou-rou-2008-07-09.md` — 移除 Rouge、Yauyau
+- `rouge-2002-06-20.md` — 移除 Chya-Fa、Chafa
+- `sakura-2004-06-17.md` — 移除 Cherry-Blossom
+- `shan-tou-2005-05-10.md` — 移除 Li-hua、Ri-fa、Riifa
+- `shin-fa-2019-06-19.md` — 移除 Xinghua
+- `shin-shin-2000-06-30.md` — 移除 Chenxing
+- `tai-shan-2008-06-14.md` — 移除 Taixiang
+- `tashan-2002-07-01.md` — 移除 Ta-Xiang、Taxiang、Taixiang、Daoguang
+- `tiara-2015-07-06.md` — 移除 Minko
+- `xianchi-2007-06-26.md` — 移除 Shanzhi
+- `yao-2017-07-14.md` — 移除 Yō、Yo
+- `you-you-2002-06-21.md` — 移除 Flying
+- `yueshi-1999-07-08.md` — 移除 Yeosy
+- `yukiko-2005-06-23.md` — 移除 Take、Také
+- `yum-yum-2005-07-07.md` — 移除 Yin-Yin、Inin
+- `yun-yun-2016-06-28.md` — 移除 Cloud
+- `yuu-yuu-2014-07-27.md` — 移除 Yao-Yao、Yaoyao
+- `yuuki-2013-07-04.md` — 移除 Snow
+- `ren-2004-06-17.md` — english_variants 的「レン」實為讀音，移至 japanese 欄（恋, レン）
+
+## [2026-07-18] update | 清除英文別名：作者複核後，原保留之 9 筆一併刪除
+
+**來源**：
+- 作者裁定（docs/english-variants-audit.md D 類清理之補充；原因保留欄位見清單）
+
+**更新條目**：
+- `fuu-2004-07-13.md` — 移除 Kaze（撤銷 2026-07-06「留作檢索別名」；內文改「舊拼音 Kaze 廢止」）
+- `yum-yum-2005-07-07.md` — 移除 In-In（同上）
+- `leah-2019-05-17.md` — 移除 Rose（內文 RPF 主名敘述保留）
+- `enoki-2023-06-13.md` — 移除 Debree；內文曾用名句刪除
+- `mebo-2023-06-13.md` — 移除 Doza、Marsala；內文曾用名句刪除
+- `rou-rou-2008-07-09.md` — 移除 Yau-Yau；內文粵語讀音句刪除
+- `sumire-2004-06-17.md` — 移除 Viola；內文改「到台後取中文名」
+- `shan-tou-2005-05-10.md` — 移除 Rifa（同名消歧警告保留）

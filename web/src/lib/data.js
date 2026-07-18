@@ -81,6 +81,19 @@ export const displayName = (p, locale) =>
     : locale === 'zh-CN' ? toHans(p.chinese || p.kanji || p.name)
     : p.name;
 
+// 蘋果籽佔位的「{媽媽}的蘋果籽」顯示名（多胞胎保留號碼）；非佔位＝displayName、
+// 無母資料時退回原佔位名。首頁新生 chip 與蘋果籽個體頁標題共用。
+export const placeholderMotherName = (p, locale) => {
+  if (!p.placeholder) return displayName(p, locale);
+  const t = i18n[locale] || {};
+  const m = p.mother && pandas[p.mother] ? displayName(pandas[p.mother], locale) : null;
+  if (!m) return displayName(p, locale);
+  const n = ((p.name || '').match(/(\d+)\s*$/) || [])[1];
+  return n && t.placeholder_of_mother_n
+    ? t.placeholder_of_mother_n.replace('{m}', m).replace('{n}', n)
+    : (t.placeholder_of_mother || '{m}').replace('{m}', m);
+};
+
 // ── URL id：自 2026-06-18 起 slug 本身已是「名字-生日」(撞名再加媽媽名)，
 //    全域唯一且已含生日，故 urlId 直接等於 slug。
 //    （舊版在此再接一次 -born，會產生 /p/<name>-<born>-<born>/ 的重複生日失效連結。）──

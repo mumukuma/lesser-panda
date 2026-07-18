@@ -9,7 +9,7 @@ import Thanks from '../components/Thanks.astro';
 import Stats from '../components/Stats.astro';
 import Zoo from '../components/Zoo.astro';
 import JpTree from '../components/JpTree.astro';
-import { pandas, zoos, LOCALES, searchDataFor, subGraph, displayName, zooName, japanTreeData } from '../lib/data.js';
+import { pandas, zoos, LOCALES, searchDataFor, subGraph, placeholderMotherName, zooName, japanTreeData } from '../lib/data.js';
 
 export function getStaticPaths() {
   const out = [];
@@ -43,7 +43,7 @@ const titles = {
   jptree: (await import('../lib/data.js')).i18n[locale].nav_family,
   feedback: (await import('../lib/data.js')).i18n[locale].nav_feedback,
   thanks: (await import('../lib/data.js')).i18n[locale].thanks_title,
-  panda: kind === 'panda' ? displayName(pandas[slug], locale) : undefined,
+  panda: kind === 'panda' ? placeholderMotherName(pandas[slug], locale) : undefined,
   zoo: kind === 'zoo' ? zooName(zoos.find((z) => z.slug === slug)?.id, null, locale) : undefined,
 };
 const active = kind === 'home' ? 'home' : kind === 'zoo' ? 'zoos' : kind;

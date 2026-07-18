@@ -66,8 +66,8 @@
       : p.uv ? ((p.born || '?').slice(0, 4) + '- 🚧')
       : ((p.born || '?').slice(0, 4) + '-' + (age !== null ? '（' + age + '）' : ''));
     var alt = altOf(p);
-    // 蘋果籽佔位（尚未命名的寶寶）：名字旁加 apple seed icon
-    var seed = p.ap ? ' <img src="' + (window.BASE || '/') + 'img/apple-seed.svg" alt="' + (T.placeholder_badge || '') + '" title="' + (T.placeholder_badge || '') + '" class="inline w-[1em] h-[1em] align-[-.12em]" />' : '';
+    // 蘋果籽佔位（尚未命名的寶寶）：名字旁加 🍎
+    var seed = p.ap ? ' <span title="' + (T.placeholder_badge || '') + '">🍎</span>' : '';
     var photoBadge = p.ph ? '<span class="absolute top-2 right-2 inline-flex items-center gap-0.5 bg-cream text-rust rounded-full px-1.5 py-0.5 text-[.7rem] font-medium leading-none" aria-label="' + p.ph + ' ' + (T.sec_photos || '') + '">' +
       '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3.2"/></svg>' + p.ph + '</span>' : '';
     return '<a class="relative block pop bg-card border border-line rounded-card shadow-card p-[13px_16px] no-underline text-ink hover:border-amber" href="' + PAGE + 'p/' + (p.u || p.slug) + '/">' + photoBadge +

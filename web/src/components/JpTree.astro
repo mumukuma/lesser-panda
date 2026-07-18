@@ -91,8 +91,7 @@ const intro = (T.ft_intro || '').replace('{n}', _D.nodes.length).replace('{g}', 
   .ft-node.dead .ft-dot { opacity: .55; }
   /* 細節層級（level-of-detail）：由縮放決定畫布 class */
   #ft-svg.lod-far .ft-node rect,
-  #ft-svg.lod-far .ft-node text,
-  #ft-svg.lod-far .ft-node image { display: none; }
+  #ft-svg.lod-far .ft-node text { display: none; }
   #ft-svg.lod-far .ft-node .ft-dot { display: block; }
   #ft-svg.lod-mid .ft-node .ft-sub { display: none; }
   /* 血脈聚焦模式：隱藏非血脈節點/連線與世代色帶，只留一棵乾淨小樹 */
@@ -101,7 +100,6 @@ const intro = (T.ft_intro || '').replace('{n}', _D.nodes.length).replace('{g}', 
   /* 聚焦時節點少，一律顯示完整標籤（覆寫 LOD） */
   #ft-svg.focus.lod-far .ft-node rect,
   #ft-svg.focus.lod-far .ft-node text,
-  #ft-svg.focus.lod-far .ft-node image,
   #ft-svg.focus.lod-mid .ft-node .ft-sub { display: block; }
   #ft-svg.focus .ft-node .ft-dot { display: none; }
 

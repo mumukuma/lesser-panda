@@ -118,6 +118,7 @@ def load_zoo_master() -> list[dict]:
         zoos.append({
             "id": zid,
             "ja_name": r["canonical"],          # canonical 為對外顯示主名
+            "ja_kana": r.get("ja_kana"),        # 假名讀音（日本園；供日文使用者搜尋）
             "en_name": r.get("en"),
             "location_ja": r.get("location_ja"),
             "location_en": r.get("location_en"),

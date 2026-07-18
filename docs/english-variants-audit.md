@@ -1,0 +1,479 @@
+# english_variants 清理審核清單
+
+> 2026-07-18 產出。全 wiki 238 條目、454 個 english_variants 字串，依「刪除後對搜尋的影響」自動分類。
+> **用法**：勾選（`[x]`）＝ 要刪；A、B 類建議整批刪（對搜尋零損失），C、D 類逐筆裁定。
+> 圈選完丟回給 Claude 即可批次執行；命名以作者為權威，未圈選者一律不動。
+
+## A. 純格式變體（117 筆）
+
+大小寫／連字號／空白差異。**搜尋的正規化本來就忽略這些**（norm 會去連字號、轉小寫），刪除對搜尋零損失。建議整批刪。
+
+- [ ] `a-ya-1998-07-03` A-ya（アーヤ）：**Aya**
+- [ ] `aiai-1988-06-25` Ai-Ai（愛愛, アイアイ）：**Aiai**
+- [ ] `an-an-2005-07-07` An-An（杏杏, アンアン）：**An-an**
+- [ ] `an-an-2005-07-07` An-An（杏杏, アンアン）：**Anan**
+- [ ] `boo-boo-1997-07-13` Boo-Boo（ブーブー）：**Booboo**
+- [ ] `cafe-2013-06-11` Café（カフェ）：**Cafe**
+- [ ] `cha-cha-1997-06-17` Cha-Cha（チャチャ）：**Chacha**
+- [ ] `chao-chao-1991-06-18` Chao-Chao（朝朝, チャオチャオ）：**Chaochao**
+- [ ] `chi-chi-2003-06-16` Chi-Chi（チィチィ）：**Chichi**
+- [ ] `chii-chii-1989-06-30` Chii-Chii（吉吉, チイチイ）：**Chiichii**
+- [ ] `chin-chin-1991-07-14` Chin-Chin（陳々 / ちんちん）：**Chinchin**
+- [ ] `chun-chun-1992-06-22` Chun-Chun（春春, チュンチュン）：**Chunchun**
+- [ ] `cong-cong-2008-06-11` Cong-Cong：**Congcong**
+- [ ] `fa-fa-2010-06-28` Fa-Fa（ファファ）：**Fafa**
+- [ ] `fan-fan-1999-07-09` Fan-Fan（ファンファン / 花花）：**Fanfan**
+- [ ] `fin-fin-2002-06-20` Fin-Fin（フィンフィン, タンポポ）：**Finfin**
+- [ ] `foa-foa-2004-06-29` Foa-Foa（ファーファ）：**Foafoa**
+- [ ] `hana-1990-06-29` Hana（花, はな）：**Hana**
+- [ ] `hisashi-1993-06-30` Hisashi（ヒサシ）：**Hisashi**
+- [ ] `hui-hu-2019-06-22` Hui Hu：**Hui-Hu**
+- [ ] `jaja-2014-07-01` Jaja（ジャジャ, 佳佳）：**Ja-Ja**
+- [ ] `jen-jen-1995-07-06` Jen-Jen（ジェンジェン, 健健）：**Jenjen**
+- [ ] `ka-ka-2019-06-29` Ka-Ka（カカ）：**Kaka**
+- [ ] `kei-kei-1982` Kei-Kei（慶慶, ケイケイ）：**Keikei**
+- [ ] `kelu-2015-12-25` Kelú（ケルー, ケル）：**Kelu**
+- [ ] `ken-ken-2006-07-18` Ken-Ken（ケンケン, 賢健）：**Kenken**
+- [ ] `kirara-2002-06-29` Kirara（キララ）：**Kirara**
+- [ ] `koai-2004-06-10` Koai（コーアイ）：**Ko-Ai**
+- [ ] `koai-2004-06-10` Koai（コーアイ）：**Koai**
+- [ ] `koko-2000-06-25` Koko（虎虎, ココ）：**Ko-Ko**
+- [ ] `koko-2000-06-25` Koko（虎虎, ココ）：**Kō-Kō**
+- [ ] `kou-kou-1988-06-22` Kou-Kou（好好, コウコウ）：**Koukou**
+- [ ] `kou-kou-1997-06-20` Kou-Kou（光々, 光光, コウコウ）：**Koukou**
+- [ ] `kou-kou-2003-07-15` Kou-Kou（航航, コウコウ）：**Koukou**
+- [ ] `kousei-2000-06-27` Kousei（コウセイ）：**Kousei**
+- [ ] `kozue-1991-07-04` Kozue（梢, コズエ）：**Kozue**
+- [ ] `kusukusu-2015-07-21` Kusukusu（クスクス, 笑笑, くすくす）：**Kusu-Kusu**
+- [ ] `li-zi-2008-06-15` Li-Zi：**Lizi**
+- [ ] `ma-ma-2005-07-07` Mā-Mā（麻麻, マーマー）：**Ma-Ma**
+- [ ] `marimo-1995-07-04` Marimo（マリモ）：**Marimo**
+- [ ] `mei-fa-2006-06-23` Mei-Fa（メイファ）：**Meifa**
+- [ ] `mei-fa-2019-06-19` Mei-Fa（メイファ / 梅花）：**Meifa**
+- [ ] `mei-mei-1989-06-19` Mei-Mei（美美, メイメイ）：**Meimei**
+- [ ] `mei-mei-1999-06-27` Mei-Mei（美美, メイメイ）：**Meimei**
+- [ ] `mei-mei-2007-06-28` Mei-Mei（メイメイ）：**Meimei**
+- [ ] `meixiang-2017-06-29` Meixiang（めいしゃん, 梅香）：**Mei-xiang**
+- [ ] `mii-mii-1992-08-07` Mii-Mii（美美）：**Miimii**
+- [ ] `min-fa-2006-06-23` Min-Fa（ミンファ）：**Minfa**
+- [ ] `min-min-2002-07-17` Min-Min（ミンミン）：**Minmin**
+- [ ] `miro-2025-08-04` Miró（ミロ）：**Miro**
+- [ ] `momo-2011-06-24` Momo（モモ）：**Mo-Mo**
+- [ ] `mulan-2019-06-07` Mulan（木蓮, ムーラン）：**Mu-Lan**
+- [ ] `nyan-nyan-2001-07-09` Nyan-Nyan（娘娘, ニャンニャン）：**Nyannyan**
+- [ ] `pan-pan-1983` Pan-Pan（胖胖, パンパン）：**Panpan**
+- [ ] `pin-pin-1989-06-28` Pin-Pin（平平, ピンピン）：**Pinpin**
+- [ ] `pu-pu-2019-06-29` Pu-Pu（ププ）：**Pupu**
+- [ ] `puru-puru-2024-06-24` Puru-Puru（プルプル）：**Purupuru**
+- [ ] `rai-rai-2008-07-01` Rai-Rai（ライライ）：**Rairai**
+- [ ] `rai-rai-2014-07-05` Rai-Rai（ライライ）：**Rairai**
+- [ ] `ran-fa-2018-06-02` Ran-Fa（蘭花, ランファ）：**Ranfa**
+- [ ] `ran-ran-1987-07-26` Ran-Ran（蘭蘭, ランラン）：**Ranran**
+- [ ] `rei-fa-2019-07-12` Rei-Fa（令花, レイファ）：**Reifa**
+- [ ] `rei-mei-2019-07-10` Rei-Mei（令明, れいめい）：**Reimei**
+- [ ] `rera-2021-07-31` Réra（レラ）：**Rera**
+- [ ] `rii-rii-2013-06-20` Rii-Rii（リーリー（日暦））：**Riirii**
+- [ ] `rin-rin-1986-07-05` Rin-Rin（鈴鈴, リンリン）：**Rinrin**
+- [ ] `rin-rin-1989-06-21` Rin-Rin（怜怜, リンリン）：**Rinrin**
+- [ ] `rin-rin-1989` Rin-Rin（リンリン）：**Rinrin**
+- [ ] `rin-rin-2001-06-19` Rin-Rin（玲玲, リンリン）：**Rinrin**
+- [ ] `rin-rin-2007-06-21` Rin-Rin（凌凌, りんりん, リンリン）：**Rinrin**
+- [ ] `ron-ron-1995-06-30` Ron-Ron（ロンロン）：**Ronron**
+- [ ] `ron-ron-2002-06-28` Ron-Ron（ロンロン）：**Ron Ron**
+- [ ] `ron-ron-2002-06-28` Ron-Ron（ロンロン）：**Ronron**
+- [ ] `ron-ron-2013-07-19` Ron-Ron（栄栄, ロンロン）：**Ronron**
+- [ ] `rou-rou-2008-07-09` Rou-Rou：**Rourou**
+- [ ] `run-run-2007-06-28` Run-Run（ルンルン）：**Runrun**
+- [ ] `ruu-ruu-2022-06-17` Ruu-Ruu（ルールー）：**Ruuruu**
+- [ ] `sai-sai-1992-06-19` Sai-Sai（西西, サイサイ）：**Saisai**
+- [ ] `sei-sei-1986` Sei-Sei（誠誠, セイセイ）：**Seisei**
+- [ ] `sha-lei-2009-06-13` Sha-Lei：**Shalei**
+- [ ] `shan-tou-2005-05-10` Shan-Tou（シャントゥ, リーファ）：**Shantou**
+- [ ] `shan-tou-2005-05-10` Shan-Tou（シャントゥ, リーファ）：**Shan Tou**
+- [ ] `shi-ren-2004-06-29` Shi-Ren（シーレン, 詩人）：**Shiren**
+- [ ] `shi-ren-2004-06-29` Shi-Ren（シーレン, 詩人）：**Shi-ren**
+- [ ] `shin-fa-2019-06-19` Shin-Fa（シンファ / 杏花）：**Shinfa**
+- [ ] `shin-shin-1986` Shin-Shin（真真, シンシン）：**Shinshin**
+- [ ] `shin-shin-2000-06-30` Shin-Shin（シンシン）：**Shinshin**
+- [ ] `shin-shin-2003-07-15` Shin-Shin（心心, シンシン）：**Shinshin**
+- [ ] `shin-shin-2010-06-24` Shin-Shin（シンシン）：**Shinshin**
+- [ ] `shun-pei-2011-07-04` Shun-Pei（瞬平, シュンペイ）：**Shunpei**
+- [ ] `shun-shun-2001-06-28` Shun-Shun（純純, シュンシュン）：**Shunshun**
+- [ ] `shuu-shuu-1981` Shuu-Shuu（秀秀, シュウシュウ）：**Shuushuu**
+- [ ] `shuu-shuu-2001-07-21` Shuu-Shuu（シュウシュウ）：**Shuushuu**
+- [ ] `sou-sou-2012-07-08` Sou-Sou（ソウソウ）：**Sousou**
+- [ ] `sui-sui-1989-06-29` Sui-Sui（スイスイ）：**Suisui**
+- [ ] `tai-shan-2008-06-14` Tai-Shan（泰山, タイシャン）：**Taishan**
+- [ ] `taisyu-1989` Taisyu（太守, 大州, たいしゅ）：**Tai-Syu**
+- [ ] `taiyo-2013-06-21` Taiyo（タイヨウ）：**Taiyō**
+- [ ] `takashi-1993-07-19` Takashi（たかし, タカシ）：**Takashi**
+- [ ] `tan-tan-1986-07-05` Tan-Tan（誕誕, タンタン）：**Tantan**
+- [ ] `tan-tan-1992-07-17` Tan-Tan（タンタン）：**Tantan**
+- [ ] `tan-tan-1998-06-29` Tan-Tan（淡淡 / たんたん）：**Tantan**
+- [ ] `taofa-2015-06-14` Taofa（タオファ、桃花）：**Tao-fa**
+- [ ] `taofa-2015-06-14` Taofa（タオファ、桃花）：**Tao-Fa**
+- [ ] `ten-ten-1989-06-26` Ten-Ten（天天, てんてん）：**Tenten**
+- [ ] `ten-ten-1997-07-03` Ten-Ten（天天, テンテン）：**Tenten**
+- [ ] `toku-toku-2001-07-21` Toku-Toku（トクトク）：**Tokutoku**
+- [ ] `wu-tan-2018-06-21` Wu-Tan（ウータン）：**Wutan**
+- [ ] `yan-yan-1992-06-19` Yan-Yan（陽陽, ヤンヤン）：**Yanyan**
+- [ ] `yan-yan-2010-06-24` Yan-Yan（ヤンヤン）：**Yanyan**
+- [ ] `you-you-1987-07-26` You-You（陽陽, ようよう）：**Youyou**
+- [ ] `you-you-1997-06-20` You-You（葉葉 / ユウユウ）：**Youyou**
+- [ ] `you-you-2002-06-21` You-You（遊遊, ユウユウ）：**Youyou**
+- [ ] `yuu-yuu-1987-05-31` Yuu-Yuu（ユーユー）：**Yuuyuu**
+- [ ] `yuu-yuu-2014-07-27` Yuu-Yuu（友友, ユーユー）：**Yuuyuu**
+- [ ] `yuyu-1986-07-05` Yuyu（遊遊, ゆうゆ）：**Yu-Yu**
+- [ ] `yuyu-1986-07-05` Yuyu（遊遊, ゆうゆ）：**Yuyu**
+
+## B. 拼音變體（搜尋折疊已涵蓋）（85 筆）
+
+Hepburn↔訓令式等差異（Tyao↔Chao）。**search.js 的 romajiFold 已把這些折成同一骨架**，用 Tyao 本來就搜得到 Chao，刪除對搜尋零損失。建議整批刪。
+
+- [ ] `chal-2018-07-18` Chal（チャル）：**Char**
+- [ ] `chao-2004-06-17` Chao（チャオ）：**Tyao**
+- [ ] `chao-2006-07-06` Chao（チャオ）：**Tyao**
+- [ ] `chatarou-2003-06-26` Chatarou（茶太郎, チャタロウ）：**Tyatarou**
+- [ ] `chi-chi-2003-06-16` Chi-Chi（チィチィ）：**Chii-Chii**
+- [ ] `chi-chi-2003-06-16` Chi-Chi（チィチィ）：**Chiichii**
+- [ ] `chi-chi-2003-06-16` Chi-Chi（チィチィ）：**Tyi-Tyi**
+- [ ] `chi-chi-2003-06-16` Chi-Chi（チィチィ）：**Tyityi**
+- [ ] `chihiro-2003-06-16` Chihiro（チヒロ）：**Tihiro**
+- [ ] `chii-chii-1989-06-30` Chii-Chii（吉吉, チイチイ）：**Chichi**
+- [ ] `chiita-2008-06-27` Chiita（チイタ）：**Chita**
+- [ ] `furin-2007-07-11` Furin（風鈴, フウリン）：**Fuurin**
+- [ ] `futa-2003-07-05` Futa（風太, フータ）：**Fuuta**
+- [ ] `fuuka-2006-06-02` Fuuka（風花, フウカ）：**Fuka**
+- [ ] `fuuka-2006-06-02` Fuuka（風花, フウカ）：**Fūka**
+- [ ] `fuuka-2011-06-23` Fuuka（風香, フウカ）：**Fuka**
+- [ ] `fuuna-2012-07-03` Fuuna（風菜, フウナ）：**Fūna**
+- [ ] `laila-2010-07-10` Laila（ライラ）：**Raira**
+- [ ] `lala-2000-06-27` Lala（ララ）：**Rara**
+- [ ] `lala-2000-06-27` Lala（ララ）：**Lara**
+- [ ] `lala-2004-06-29` Lala（ララ）：**Rara**
+- [ ] `lala-2008-06-16` Lala（ララ）：**Rara**
+- [ ] `leanne-2020-07-20` Leanne（リアン）：**Lee-Anne**
+- [ ] `leanne-2020-07-20` Leanne（リアン）：**Leeanne**
+- [ ] `lemon-2014-07-13` Lemon（レモン）：**Remon**
+- [ ] `lessy-2014-08-18` Lessy（とうや）：**Ressy**
+- [ ] `light-2013-07-18` Light（ライト）：**Right**
+- [ ] `luka-2016-06-15` Luka（ルカ）：**Ruka**
+- [ ] `luna-2006-07-10` Luna（ルナ）：**Runa**
+- [ ] `luna-2010-06-26` Luna（ルナ）：**Runa**
+- [ ] `luna-2015-08-23` Luna（ルナ）：**Runa**
+- [ ] `ma-ma-2005-07-07` Mā-Mā（麻麻, マーマー）：**Maa-Maa**
+- [ ] `maruru-2014-06-06` Maruru（マルル）：**Malulu**
+- [ ] `miro-2025-08-04` Miró（ミロ）：**Milo**
+- [ ] `mulan-2019-06-07` Mulan（木蓮, ムーラン）：**Muran**
+- [ ] `mulan-2019-06-07` Mulan（木蓮, ムーラン）：**Mu-Ran**
+- [ ] `mutan-2014-06-19` Mutan（ムータン / 牡丹）：**Muutan**
+- [ ] `piisuke-2020-06-27` Piisuke（ピースケ）：**Pisuke**
+- [ ] `piisuke-2020-06-27` Piisuke（ピースケ）：**Pi-suke**
+- [ ] `piisuke-2020-06-27` Piisuke（ピースケ）：**Pi-Suke**
+- [ ] `piisuke-2020-06-27` Piisuke（ピースケ）：**Pīsuke**
+- [ ] `rai-rai-2008-07-01` Rai-Rai（ライライ）：**Lai-Lai**
+- [ ] `rai-rai-2008-07-01` Rai-Rai（ライライ）：**Lailai**
+- [ ] `rai-rai-2014-07-05` Rai-Rai（ライライ）：**Lai-Lai**
+- [ ] `rai-rai-2014-07-05` Rai-Rai（ライライ）：**Lailai**
+- [ ] `rera-2021-07-31` Réra（レラ）：**Rela**
+- [ ] `rera-2021-07-31` Réra（レラ）：**Léra**
+- [ ] `rera-2021-07-31` Réra（レラ）：**Lera**
+- [ ] `rii-rii-2013-06-20` Rii-Rii（リーリー（日暦））：**Rili**
+- [ ] `ruru-2008-06-21` Ruru（ルル）：**Lulu**
+- [ ] `ruu-ruu-2022-06-17` Ruu-Ruu（ルールー）：**Luu-Luu**
+- [ ] `ruu-ruu-2022-06-17` Ruu-Ruu（ルールー）：**Luuluu**
+- [ ] `ruu-ruu-2022-06-17` Ruu-Ruu（ルールー）：**Ruru**
+- [ ] `ruu-ruu-2022-06-17` Ruu-Ruu（ルールー）：**Lulu**
+- [ ] `ruu-ruu-2022-06-17` Ruu-Ruu（ルールー）：**Lu-Lu**
+- [ ] `ruu-ruu-2022-06-17` Ruu-Ruu（ルールー）：**Ru-Ru**
+- [ ] `shun-pei-2011-07-04` Shun-Pei（瞬平, シュンペイ）：**Syunpei**
+- [ ] `shun-pei-2011-07-04` Shun-Pei（瞬平, シュンペイ）：**Syun-Pei**
+- [ ] `shuu-shuu-2001-07-21` Shuu-Shuu（シュウシュウ）：**Shyu-Shyu**
+- [ ] `shuu-shuu-2001-07-21` Shuu-Shuu（シュウシュウ）：**Shyushyu**
+- [ ] `shuuna-2006-07-04` Shuuna（シュウナ）：**Syuna**
+- [ ] `shuuna-2006-07-04` Shuuna（シュウナ）：**Shuna**
+- [ ] `tashan-2002-07-01` Tashan（ターシャン, 稲光）：**Tasyan**
+- [ ] `torori-2011-06-27` Torori（トロリ）：**Toroli**
+- [ ] `tsubasa-2006-06-20` Tsubasa（ツバサ）：**Tubasa**
+- [ ] `yuu-2015-06-28` Yuu（ゆう）：**Yū**
+- [ ] `yuu-yuu-1987-05-31` Yuu-Yuu（ユーユー）：**Yū-Yū**
+- [ ] `yuu-yuu-1987-05-31` Yuu-Yuu（ユーユー）：**Yu-Yu**
+- [ ] `yuu-yuu-1987-05-31` Yuu-Yuu（ユーユー）：**Yuyu**
+- [ ] `yuu-yuu-1990-06-25` Yuu-Yuu（勇勇, ユーユー）：**Yū-Yū**
+- [ ] `yuu-yuu-1990-06-25` Yuu-Yuu（勇勇, ユーユー）：**Yu-Yu**
+- [ ] `yuu-yuu-1990-06-25` Yuu-Yuu（勇勇, ユーユー）：**Yuyu**
+- [ ] `yuu-yuu-2014-07-27` Yuu-Yuu（友友, ユーユー）：**Yū-Yū**
+- [ ] `yuu-yuu-2014-07-27` Yuu-Yuu（友友, ユーユー）：**Yu-Yu**
+- [ ] `yuu-yuu-2014-07-27` Yuu-Yuu（友友, ユーユー）：**Yuyu**
+- [ ] `yuufa-2013-06-20` Yuufa（優花, ユーファ）：**Yu-fa**
+- [ ] `yuufa-2013-06-20` Yuufa（優花, ユーファ）：**Yufa**
+- [ ] `yuuka-2010-06-20` Yuuka（優花, ユウカ）：**Yuka**
+- [ ] `yuuka-2010-06-20` Yuuka（優花, ユウカ）：**Yūka**
+- [ ] `yuuka-2016-07-14` Yuuka（優香, ゆうか）：**Yūka**
+- [ ] `yuuka-2016-07-14` Yuuka（優香, ゆうか）：**Yuka**
+- [ ] `yuuki-2013-07-04` Yuuki（優希, ゆうき）：**Yuki**
+- [ ] `yuuki-2013-07-04` Yuuki（優希, ゆうき）：**Yūki**
+- [ ] `yuuki-2013-07-04` Yuuki（優希, ゆうき）：**Yu-ki**
+- [ ] `yuuki-2013-07-04` Yuuki（優希, ゆうき）：**Yu-Ki**
+
+## C. 發音近似變體（有搜尋價值）（145 筆）
+
+折疊後仍與主名不同（Akua/Aqua、Bao-Bao/Bau-Bau），刪了這個寫法就搜不到。若要清，逐筆圈選。
+
+- [ ] `aqua-2010-07-06` Aqua（アクア）：**Akua**
+- [ ] `bau-bau-1994-07-11` Bau-Bau（宝宝, バウバウ）：**Bao-Bao**
+- [ ] `boo-boo-1997-07-13` Boo-Boo（ブーブー）：**Bubu**
+- [ ] `boo-boo-1997-07-13` Boo-Boo（ブーブー）：**Buu-Buu**
+- [ ] `boo-boo-1997-07-13` Boo-Boo（ブーブー）：**Bu-Bu**
+- [ ] `cara-2013-07-10` Cara（キャラ）：**Chara**
+- [ ] `cassie-2007-06-26` Cassie：**Cassi**
+- [ ] `chal-2018-07-18` Chal（チャル）：**Charu**
+- [ ] `chao-2004-06-17` Chao（チャオ）：**Ciao**
+- [ ] `chao-2006-07-06` Chao（チャオ）：**Ciao**
+- [ ] `chao-2006-07-06` Chao（チャオ）：**Cyao**
+- [ ] `chata-2002-06-25` Chata（チャタ）：**Cyata**
+- [ ] `chatarou-2003-06-26` Chatarou（茶太郎, チャタロウ）：**Chataro**
+- [ ] `chatarou-2003-06-26` Chatarou（茶太郎, チャタロウ）：**Tyatorou**
+- [ ] `chiita-2008-06-27` Chiita（チイタ）：**Cheeta**
+- [ ] `chuihowa-2010-07-10` Chuihowa（チュイホワ, 菊花）：**Chuy-How**
+- [ ] `chuihowa-2010-07-10` Chuihowa（チュイホワ, 菊花）：**Chuihiwa**
+- [ ] `chuihowa-2010-07-10` Chuihowa（チュイホワ, 菊花）：**Chuyhowa**
+- [ ] `chuihowa-2010-07-10` Chuihowa（チュイホワ, 菊花）：**Chuy-Howa**
+- [ ] `chuihowa-2010-07-10` Chuihowa（チュイホワ, 菊花）：**Chuifa**
+- [ ] `chuihowa-2010-07-10` Chuihowa（チュイホワ, 菊花）：**Cheihowa**
+- [ ] `cinnamon-2009-07-12` Cinnamon（シナモン）：**Sinamon**
+- [ ] `coco-2006-06-24` Coco（ココ）：**Koko**
+- [ ] `dale-2001-06-19` Dale（デール）：**Deal**
+- [ ] `foa-foa-2004-06-29` Foa-Foa（ファーファ）：**Fa-Fa**
+- [ ] `gigi-2009-06-19` Gigi（ジジ）：**Jiji**
+- [ ] `harumaki-2016-07-16` Harumaki（ハルマキ）：**Halmaki**
+- [ ] `hashi-2022` Hashi：**Hachi**
+- [ ] `holly-2016-06-02` Holly（ホーリー）：**Holy**
+- [ ] `holly-2016-06-02` Holly（ホーリー）：**Hory**
+- [ ] `hui-hu-2019-06-22` Hui Hu：**Huo-Hu**
+- [ ] `hui-hu-2019-06-22` Hui Hu：**Huo Hu**
+- [ ] `ichimaru-2009-07-04` Ichimaru（イチ丸）：**Ighimaru**
+- [ ] `ichiro-2014-07-06` Ichiro（一郎, イチロウ）：**Ichirou**
+- [ ] `itsuki-2015-06-22` Itsuki：**Isuki**
+- [ ] `jaja-2014-07-01` Jaja（ジャジャ, 佳佳）：**Jia-Jia**
+- [ ] `jaja-2014-07-01` Jaja（ジャジャ, 佳佳）：**Zsazsa**
+- [ ] `jaja-2014-07-01` Jaja（ジャジャ, 佳佳）：**Zsa-Zsa**
+- [ ] `jirou-1990-07-06` Jirou（次郎, ジロウ）：**Jiro**
+- [ ] `kaito-2022-06-27` Kaito（カイト）：**Kite**
+- [ ] `kelu-2015-12-25` Kelú（ケルー, ケル）：**Kel**
+- [ ] `kintarou-1997-07-17` Kintarou（キンタロウ, 金太郎）：**Kintaro**
+- [ ] `kiraly-2011-06-27` Kiraly（キラリ）：**Kirari**
+- [ ] `kitarou-2003-06-26` Kitarou（黄太郎, キタロウ, キタロー）：**Kitaro**
+- [ ] `kojirou-2010-07-14` Kojirou（コジロウ）：**Kojiro**
+- [ ] `kojirou-2012-06-18` Kojirou（コジロウ）：**Kojiro**
+- [ ] `koko-2000-06-25` Koko（虎虎, ココ）：**Kou-Kou**
+- [ ] `kotarou-2005-07-08` Kotarou（コタロウ）：**Kotaro**
+- [ ] `kotarou-2006-06-22` Kotarou（コタロウ）：**Kotaro**
+- [ ] `kou-kou-1997-06-20` Kou-Kou（光々, 光光, コウコウ）：**Kō-Kō**
+- [ ] `kou-kou-1997-06-20` Kou-Kou（光々, 光光, コウコウ）：**Koko**
+- [ ] `kou-kou-2003-07-15` Kou-Kou（航航, コウコウ）：**Kō-Kō**
+- [ ] `kou-kou-2003-07-15` Kou-Kou（航航, コウコウ）：**Ko-Ko**
+- [ ] `kou-kou-2003-07-15` Kou-Kou（航航, コウコウ）：**Koko**
+- [ ] `kouhei-1992-07-13` Kouhei（康平, こうへい）：**Kohei**
+- [ ] `kouta-2010-07-02` Kouta（コウタ）：**Kōta**
+- [ ] `kuuta-2008-06-27` Kuuta（クウタ）：**Qoota**
+- [ ] `laila-2010-07-10` Laila（ライラ）：**Lila**
+- [ ] `laila-2010-07-10` Laila（ライラ）：**Lyra**
+- [ ] `laila-2010-07-10` Laila（ライラ）：**Lyla**
+- [ ] `laila-2010-07-10` Laila（ライラ）：**Rira**
+- [ ] `leah-2019-05-17` Leah（ローズ）：**Lea**
+- [ ] `leanne-2020-07-20` Leanne（リアン）：**Leeane**
+- [ ] `leanne-2020-07-20` Leanne（リアン）：**Leane**
+- [ ] `lessy-2014-08-18` Lessy（とうや）：**Lessie**
+- [ ] `lessy-2014-08-18` Lessy（とうや）：**Lessi**
+- [ ] `lessy-2014-08-18` Lessy（とうや）：**Resey**
+- [ ] `luka-2016-06-15` Luka（ルカ）：**Luca**
+- [ ] `ma-ma-2005-07-07` Mā-Mā（麻麻, マーマー）：**Mah-Mah**
+- [ ] `marine-2014-07-11` Marine（マリン）：**Marin**
+- [ ] `maruko-2018-07-11` Maruko（まるこ, まつ子）：**Matsuko**
+- [ ] `mei-fa-2006-06-23` Mei-Fa（メイファ）：**Mayfa**
+- [ ] `mei-fa-2019-06-19` Mei-Fa（メイファ / 梅花）：**Mayfa**
+- [ ] `mei-fa-2019-06-19` Mei-Fa（メイファ / 梅花）：**Meihua**
+- [ ] `mei-fa-2019-06-19` Mei-Fa（メイファ / 梅花）：**Mei-howa**
+- [ ] `mei-fa-2019-06-19` Mei-Fa（メイファ / 梅花）：**Meihowa**
+- [ ] `meita-2014-06-28` Meita（メイタ）：**Mayta**
+- [ ] `meixiang-2017-06-29` Meixiang（めいしゃん, 梅香）：**Mei-Xhang**
+- [ ] `meixiang-2017-06-29` Meixiang（めいしゃん, 梅香）：**Meixhang**
+- [ ] `mii-mii-1992-08-07` Mii-Mii（美美）：**Mei-Mei**
+- [ ] `mii-mii-1992-08-07` Mii-Mii（美美）：**Meimei**
+- [ ] `milk-2018-06-28` Milk（ミルク, シロ, 米花, ミーファ）：**Shiro**
+- [ ] `milk-2018-06-28` Milk（ミルク, シロ, 米花, ミーファ）：**Mifa**
+- [ ] `milk-2018-06-28` Milk（ミルク, シロ, 米花, ミーファ）：**Mi-Fa**
+- [ ] `mochi-2015-06-24` Mochi（モッチー）：**Moochie**
+- [ ] `mochi-2015-06-24` Mochi（モッチー）：**Mocchii**
+- [ ] `momotaro-1997-07-17` Momotaro（桃太郎, モモタロウ）：**Momotarou**
+- [ ] `mulan-2019-06-07` Mulan（木蓮, ムーラン）：**Mouren**
+- [ ] `nei-2018-07-18` Nei（ネイ）：**Ney**
+- [ ] `niiko-2019-07-12` Niiko（ニーコ）：**Nieco**
+- [ ] `nuts-2006-06-24` Nuts（ナツ）：**Natsu**
+- [ ] `nuts-2006-06-24` Nuts（ナツ）：**Natu**
+- [ ] `nuts-2010-06-26` Nuts（ナッツ）：**Natsu**
+- [ ] `nuts-2010-06-26` Nuts（ナッツ）：**Natu**
+- [ ] `oolong-2011-06-05` Oolong（ウーロン）：**Oolomg**
+- [ ] `pam-1997-06-26` Pam（パム）：**Pamu**
+- [ ] `pan-pan-1983` Pan-Pan（胖胖, パンパン）：**Pang-Pang**
+- [ ] `piisuke-2020-06-27` Piisuke（ピースケ）：**Peasuke**
+- [ ] `puerh-2015-06-25` Pu'erh（プーアル / 普洱）：**Puerh**
+- [ ] `puerh-2015-06-25` Pu'erh（プーアル / 普洱）：**Pu-erh**
+- [ ] `puerh-2015-06-25` Pu'erh（プーアル / 普洱）：**Puer**
+- [ ] `ran-fa-2018-06-02` Ran-Fa（蘭花, ランファ）：**Ranhowa**
+- [ ] `ran-fa-2018-06-02` Ran-Fa（蘭花, ランファ）：**Lanhua**
+- [ ] `ran-fa-2018-06-02` Ran-Fa（蘭花, ランファ）：**Lan-Hua**
+- [ ] `ribbon-2006-05-30` Ribbon（リボン）：**Ribon**
+- [ ] `rii-rii-2013-06-20` Rii-Rii（リーリー（日暦））：**Lee-Lee**
+- [ ] `rii-rii-2013-06-20` Rii-Rii（リーリー（日暦））：**Lily**
+- [ ] `riko-2013-06-25` Riko（リコ）：**Rico**
+- [ ] `rin-2018-06-24` Rin（リン）：**Lynn**
+- [ ] `ryou-1992-07-13` Ryou（涼, リョウ）：**Ryo**
+- [ ] `sha-lei-2009-06-13` Sha-Lei：**Shaley**
+- [ ] `shimajirou-1993-07-19` Shimajirou（しまじろう）：**Shimajiro**
+- [ ] `shin-fa-2019-06-19` Shin-Fa（シンファ / 杏花）：**Xinhua**
+- [ ] `shin-fa-2019-06-19` Shin-Fa（シンファ / 杏花）：**Shi-nhowa**
+- [ ] `shin-fa-2019-06-19` Shin-Fa（シンファ / 杏花）：**Shin-howa**
+- [ ] `shin-fa-2019-06-19` Shin-Fa（シンファ / 杏花）：**Shinhowa**
+- [ ] `shiryu-2007-06-26` Shiryu（シーリィウ）：**Sea-Ryu**
+- [ ] `shiryu-2007-06-26` Shiryu（シーリィウ）：**Shiliu**
+- [ ] `shiryu-2007-06-26` Shiryu（シーリィウ）：**Shi-Liu**
+- [ ] `shiryu-2007-06-26` Shiryu（シーリィウ）：**Shiiriu**
+- [ ] `shun-shun-2001-06-28` Shun-Shun（純純, シュンシュン）：**Chun-Chun**
+- [ ] `shun-shun-2001-06-28` Shun-Shun（純純, シュンシュン）：**Chunchun**
+- [ ] `shuuna-2006-07-04` Shuuna（シュウナ）：**Shoona**
+- [ ] `sou-sou-2012-07-08` Sou-Sou（ソウソウ）：**Soo-Soo**
+- [ ] `sou-sou-2012-07-08` Sou-Sou（ソウソウ）：**Soosoo**
+- [ ] `sou-sou-2012-07-08` Sou-Sou（ソウソウ）：**Sōsō**
+- [ ] `sou-sou-2012-07-08` Sou-Sou（ソウソウ）：**Sō-Sō**
+- [ ] `sun-2015-08-23` Sun（サン）：**San**
+- [ ] `sundari-2022-06-14` Sundari（サンダリ）：**Sunsari**
+- [ ] `tai-shan-2008-06-14` Tai-Shan（泰山, タイシャン）：**Tarzan**
+- [ ] `taiyo-2013-06-15` Taiyo（たいよう）：**Taiyou**
+- [ ] `taiyo-2013-06-21` Taiyo（タイヨウ）：**Taiyou**
+- [ ] `teru-2010-07-10` Teru（テル）：**Tell**
+- [ ] `tomy-1995-06-24` Tomy（トミー）：**Tommy**
+- [ ] `udaya-2019-06-20` Udaya：**Aduya**
+- [ ] `xianchi-2007-06-26` Xianchi（シャンチー, 山鳩）：**Syanchi**
+- [ ] `yan-yan-2010-06-24` Yan-Yan（ヤンヤン）：**Jan-Jan**
+- [ ] `yao-2017-07-14` Yao（耀, ヨウ）：**You**
+- [ ] `you-you-2002-06-21` You-You（遊遊, ユウユウ）：**Yuyu**
+- [ ] `you-you-2002-06-21` You-You（遊遊, ユウユウ）：**Yu-Yu**
+- [ ] `yueshi-1999-07-08` Yueshi（ユエシー）：**Yoshi**
+- [ ] `yuu-yuu-2014-07-27` Yuu-Yuu（友友, ユーユー）：**You-You**
+- [ ] `yuu-yuu-2014-07-27` Yuu-Yuu（友友, ユーユー）：**Youyou**
+- [ ] `yuufa-2013-06-20` Yuufa（優花, ユーファ）：**You-hua**
+- [ ] `yuufa-2013-06-20` Yuufa（優花, ユーファ）：**Youhua**
+
+## D. 翻譯型／無關／可疑（RPF 遺毒重災區）（107 筆）
+
+與主名發音無關：亂翻譯（Buna→Beech、Aru→Love）、錯字（Anri→Annapulina）、或來歷不明。多半可刪，但可能混有真實別名，請逐筆圈選。
+
+- [x] `anri-1994-06-19` Anri（アンリ）：**Annapulina** ✅ 已刪（2026-07-18）
+- [x] `anri-1994-06-19` Anri（アンリ）：**Anna Pulina** ✅ 已刪（2026-07-18）
+- [x] `anri-1994-06-19` Anri（アンリ）：**Annapuluna** ✅ 已刪（2026-07-18）
+- [x] `aru-2013-08-15` Aru（アル）：**Love** ✅ 已刪（2026-07-18）
+- [x] `aru-2013-08-15` Aru（アル）：**Al** ✅ 已刪（2026-07-18）
+- [x] `buna-2000-07-13` Buna（ブナ, 橅）：**Beech** ✅ 已刪（2026-07-18）
+- [x] `chuihowa-2010-07-10` Chuihowa（チュイホワ, 菊花）：**Chuy-Fa** ✅ 已刪（2026-07-18）
+- [x] `chuihowa-2010-07-10` Chuihowa（チュイホワ, 菊花）：**Ju-Hua** ✅ 已刪（2026-07-18）
+- [x] `chuihowa-2010-07-10` Chuihowa（チュイホワ, 菊花）：**Juhua** ✅ 已刪（2026-07-18）
+- [x] `cocoa-2018-06-28` Cocoa（ココア, クロ, 紅花, クーファ）：**Kuro** ✅ 已刪（2026-07-18）
+- [x] `cocoa-2018-06-28` Cocoa（ココア, クロ, 紅花, クーファ）：**Kufa** ✅ 已刪（2026-07-18）
+- [x] `cocoa-2018-06-28` Cocoa（ココア, クロ, 紅花, クーファ）：**Ku-Fa** ✅ 已刪（2026-07-18）
+- [x] `cong-cong-2008-06-11` Cong-Cong：**Chung Chung** ✅ 已刪（2026-07-18）
+- [x] `enoki-2023-06-13` Enoki：**Debree** ✅ 已刪（2026-07-18，作者複核後定奪）
+- [x] `fin-fin-2002-06-20` Fin-Fin（フィンフィン, タンポポ）：**Tanpopo** ✅ 已刪（2026-07-18）
+- [x] `foa-foa-2004-06-29` Foa-Foa（ファーファ）：**Angdu** ✅ 已刪（2026-07-18）
+- [x] `fuu-1998-07-04` Fuu（風 / フウ / フウフウ）：**Huu-Huu** ✅ 已刪（2026-07-18）
+- [x] `fuu-2004-07-13` Fuu（風, フウ）：**Kaze** ✅ 已刪（2026-07-18，作者複核後定奪）
+- [x] `fuumi-2007-07-11` Fuumi（風美, フウミ）：**Kazumi** ✅ 已刪（2026-07-18）
+- [x] `fuumi-2007-07-11` Fuumi（風美, フウミ）：**Kazami** ✅ 已刪（2026-07-18）
+- [x] `gao-gao-2015-06-27` Gao-Gao（縞縞, ガオガオ）：**Stripes** ✅ 已刪（2026-07-18）
+- [x] `gao-gao-2015-06-27` Gao-Gao（縞縞, ガオガオ）：**Shaggy** ✅ 已刪（2026-07-18）
+- [x] `hana-2005-06-21` Hana（ハナ, ヒマワリ）：**Himawari** ✅ 已刪（2026-07-18）
+- [x] `hui-hu-2019-06-22` Hui Hu：**Firefox** ✅ 已刪（2026-07-18）
+- [x] `kaori-1991-06-18` Kaori（香, カオリ）：**Kou** ✅ 已刪（2026-07-18）
+- [x] `ken-ken-2006-07-18` Ken-Ken（ケンケン, 賢健）：**Freckle-kun** ✅ 已刪（2026-07-18）
+- [x] `kiku-2015-06-26` Kiku（キク）：**Chrysantheum** ✅ 已刪（2026-07-18）
+- [x] `kinta-2000-06-08` Kinta（キンタ）：**Spaceman** ✅ 已刪（2026-07-18）
+- [x] `kinta-2000-06-08` Kinta（キンタ）：**Quintana-Roo** ✅ 已刪（2026-07-18）
+- [x] `kinta-2000-06-08` Kinta（キンタ）：**Ageless Beauty** ✅ 已刪（2026-07-18）
+- [x] `kou-2011-06-14` Kou（后 / コウ）：**Kisaki** ✅ 已刪（2026-07-18）
+- [x] `kusu-1991-06-24` Kusu（楠（くす／クス））：**Cous** ✅ 已刪（2026-07-18）
+- [x] `kusukusu-2015-07-21` Kusukusu（クスクス, 笑笑, くすくす）：**Couscous** ✅ 已刪（2026-07-18）
+- [x] `kusukusu-2015-07-21` Kusukusu（クスクス, 笑笑, くすくす）：**Cous-Cous** ✅ 已刪（2026-07-18）
+- [x] `leah-2019-05-17` Leah（ローズ）：**Rose** ✅ 已刪（2026-07-18，作者複核後定奪）
+- [x] `leanne-2020-07-20` Leanne（リアン）：**Rian** ✅ 已刪（2026-07-18）
+- [x] `leanne-2020-07-20` Leanne（リアン）：**Rians** ✅ 已刪（2026-07-18）
+- [x] `lemon-2013-07-07` Lemon（ミルキー）：**Meruki** ✅ 已刪（2026-07-18）
+- [x] `lemon-2013-07-07` Lemon（ミルキー）：**Miruki** ✅ 已刪（2026-07-18）
+- [x] `lemon-2013-07-07` Lemon（ミルキー）：**Miruki-** ✅ 已刪（2026-07-18）
+- [x] `lessy-2014-08-18` Lessy（とうや）：**Tōya** ✅ 已刪（2026-07-18）
+- [x] `lessy-2014-08-18` Lessy（とうや）：**Toya** ✅ 已刪（2026-07-18）
+- [x] `lessy-2014-08-18` Lessy（とうや）：**Touya** ✅ 已刪（2026-07-18）
+- [x] `li-zi-2008-06-15` Li-Zi：**Chestnut** ✅ 已刪（2026-07-18）
+- [x] `light-2013-07-18` Light（ライト）：**Raito** ✅ 已刪（2026-07-18）
+- [x] `liuxing-1997-06-16` Liuxing（流星, リューシー, リューシン）：**Ryuusi** ✅ 已刪（2026-07-18）
+- [x] `liuxing-1997-06-16` Liuxing（流星, リューシー, リューシン）：**Ryuusii** ✅ 已刪（2026-07-18）
+- [x] `liuxing-1997-06-16` Liuxing（流星, リューシー, リューシン）：**Ryuusin** ✅ 已刪（2026-07-18）
+- [x] `luna-2015-08-23` Luna（ルナ）：**Moon** ✅ 已刪（2026-07-18）
+- [x] `maple-2022-06-14` Maple（松楓）：**Moose** ✅ 已刪（2026-07-18）
+- [x] `maruo-2018-07-11` Maruo（まるお, ミホ太）：**Mihota** ✅ 已刪（2026-07-18）
+- [x] `maruru-2014-06-06` Maruru（マルル）：**Musuko** ✅ 已刪（2026-07-18）
+- [x] `mebo-2023-06-13` Mebo：**Doza** ✅ 已刪（2026-07-18，作者複核後定奪）
+- [x] `mebo-2023-06-13` Mebo：**Marsala** ✅ 已刪（2026-07-18，作者複核後定奪）
+- [x] `mei-mei-2007-06-28` Mei-Mei（メイメイ）：**May-May** ✅ 已刪（2026-07-18）
+- [x] `mei-mei-2007-06-28` Mei-Mei（メイメイ）：**Maymay** ✅ 已刪（2026-07-18）
+- [x] `mei-mei-2007-06-28` Mei-Mei（メイメイ）：**MayMay** ✅ 已刪（2026-07-18）
+- [x] `meixiang-2017-06-29` Meixiang（めいしゃん, 梅香）：**Meisyan** ✅ 已刪（2026-07-18）
+- [x] `meixiang-2017-06-29` Meixiang（めいしゃん, 梅香）：**Mei-Shan** ✅ 已刪（2026-07-18）
+- [x] `meixiang-2017-06-29` Meixiang（めいしゃん, 梅香）：**Meishan** ✅ 已刪（2026-07-18）
+- [x] `meixiang-2017-06-29` Meixiang（めいしゃん, 梅香）：**Mei Shan** ✅ 已刪（2026-07-18）
+- [x] `mii-2013-06-23` Mii（みい）：**Mie** ✅ 已刪（2026-07-18）
+- [x] `mitsuba-2016-06-25` Mitsuba（みつば）：**Clover** ✅ 已刪（2026-07-18）
+- [x] `mulan-2019-06-07` Mulan（木蓮, ムーラン）：**Mokuren** ✅ 已刪（2026-07-18）
+- [x] `nohana-2017-07-31` Nohana（野花, ノハナ）：**Norin** ✅ 已刪（2026-07-18）
+- [x] `piisuke-2020-06-27` Piisuke（ピースケ）：**Peaceke** ✅ 已刪（2026-07-18）
+- [x] `piisuke-2020-06-27` Piisuke（ピースケ）：**Peace Ke** ✅ 已刪（2026-07-18）
+- [x] `raichi-2005-06-25` Raichi（ライチ）：**Lychee** ✅ 已刪（2026-07-18）
+- [x] `rei-mei-2019-07-10` Rei-Mei（令明, れいめい）：**Raymay** ✅ 已刪（2026-07-18）
+- [x] `rei-mei-2019-07-10` Rei-Mei（令明, れいめい）：**Ray-May** ✅ 已刪（2026-07-18）
+- [x] `rei-rei-2016-06-28` Rei-Rei（雷雷, レイレイ）：**Thunder-Lightning** ✅ 已刪（2026-07-18）
+- [x] `reika-2019-06-02` Reika（れいか）：**Wasabi** ✅ 已刪（2026-07-18）
+- [x] `ren-2004-06-17` Ren（恋）：**レン** ➡️ 移至 japanese 欄（2026-07-18）
+- [x] `rimu-2021-07-31` Rimu（リム）：**Rheem** ✅ 已刪（2026-07-18）
+- [x] `rou-rou-2008-07-09` Rou-Rou：**Rouge** ✅ 已刪（2026-07-18）
+- [x] `rou-rou-2008-07-09` Rou-Rou：**Yau-Yau** ✅ 已刪（2026-07-18，作者複核後定奪）
+- [x] `rou-rou-2008-07-09` Rou-Rou：**Yauyau** ✅ 已刪（2026-07-18）
+- [x] `rouge-2002-06-20` Rouge（ルージュ, チャーファ）：**Chya-Fa** ✅ 已刪（2026-07-18）
+- [x] `rouge-2002-06-20` Rouge（ルージュ, チャーファ）：**Chafa** ✅ 已刪（2026-07-18）
+- [x] `sakura-2004-06-17` Sakura（サクラ）：**Cherry-Blossom** ✅ 已刪（2026-07-18）
+- [x] `shan-tou-2005-05-10` Shan-Tou（シャントゥ, リーファ）：**Rifa** ✅ 已刪（2026-07-18，作者複核後定奪）
+- [x] `shan-tou-2005-05-10` Shan-Tou（シャントゥ, リーファ）：**Li-hua** ✅ 已刪（2026-07-18）
+- [x] `shan-tou-2005-05-10` Shan-Tou（シャントゥ, リーファ）：**Ri-fa** ✅ 已刪（2026-07-18）
+- [x] `shan-tou-2005-05-10` Shan-Tou（シャントゥ, リーファ）：**Riifa** ✅ 已刪（2026-07-18）
+- [x] `shin-fa-2019-06-19` Shin-Fa（シンファ / 杏花）：**Xinghua** ✅ 已刪（2026-07-18）
+- [x] `shin-shin-2000-06-30` Shin-Shin（シンシン）：**Chenxing** ✅ 已刪（2026-07-18）
+- [x] `sumire-2004-06-17` Sumire（スミレ）：**Viola** ✅ 已刪（2026-07-18，作者複核後定奪）
+- [x] `tai-shan-2008-06-14` Tai-Shan（泰山, タイシャン）：**Taixiang** ✅ 已刪（2026-07-18）
+- [x] `tashan-2002-07-01` Tashan（ターシャン, 稲光）：**Ta-Xiang** ✅ 已刪（2026-07-18）
+- [x] `tashan-2002-07-01` Tashan（ターシャン, 稲光）：**Taxiang** ✅ 已刪（2026-07-18）
+- [x] `tashan-2002-07-01` Tashan（ターシャン, 稲光）：**Taixiang** ✅ 已刪（2026-07-18）
+- [x] `tashan-2002-07-01` Tashan（ターシャン, 稲光）：**Daoguang** ✅ 已刪（2026-07-18）
+- [x] `tiara-2015-07-06` Tiara（ティアラ）：**Minko** ✅ 已刪（2026-07-18）
+- [x] `xianchi-2007-06-26` Xianchi（シャンチー, 山鳩）：**Shanzhi** ✅ 已刪（2026-07-18）
+- [x] `yao-2017-07-14` Yao（耀, ヨウ）：**Yō** ✅ 已刪（2026-07-18）
+- [x] `yao-2017-07-14` Yao（耀, ヨウ）：**Yo** ✅ 已刪（2026-07-18）
+- [x] `you-you-2002-06-21` You-You（遊遊, ユウユウ）：**Flying** ✅ 已刪（2026-07-18）
+- [x] `yueshi-1999-07-08` Yueshi（ユエシー）：**Yeosy** ✅ 已刪（2026-07-18）
+- [x] `yukiko-2005-06-23` Yukiko（ユキコ, タケ）：**Take** ✅ 已刪（2026-07-18）
+- [x] `yukiko-2005-06-23` Yukiko（ユキコ, タケ）：**Také** ✅ 已刪（2026-07-18）
+- [x] `yum-yum-2005-07-07` Yum-Yum（ヤムヤム, 飲飲）：**In-In** ✅ 已刪（2026-07-18，作者複核後定奪）
+- [x] `yum-yum-2005-07-07` Yum-Yum（ヤムヤム, 飲飲）：**Yin-Yin** ✅ 已刪（2026-07-18）
+- [x] `yum-yum-2005-07-07` Yum-Yum（ヤムヤム, 飲飲）：**Inin** ✅ 已刪（2026-07-18）
+- [x] `yun-yun-2016-06-28` Yun-Yun（雲雲, ユンユン）：**Cloud** ✅ 已刪（2026-07-18）
+- [x] `yuu-yuu-2014-07-27` Yuu-Yuu（友友, ユーユー）：**Yao-Yao** ✅ 已刪（2026-07-18）
+- [x] `yuu-yuu-2014-07-27` Yuu-Yuu（友友, ユーユー）：**Yaoyao** ✅ 已刪（2026-07-18）
+- [x] `yuuki-2013-07-04` Yuuki（優希, ゆうき）：**Snow** ✅ 已刪（2026-07-18）

@@ -1,5 +1,5 @@
 ---
-import { pandas, zoos, family, i18n, displayName } from '../lib/data.js';
+import { pandas, zoos, family, i18n, displayName, placeholderMotherName } from '../lib/data.js';
 import { pandaUrl, pageUrl } from '../lib/links.js';
 
 const { locale } = Astro.props;
@@ -20,16 +20,9 @@ const thisYear = new Date().getFullYear();
 const newborns = Object.values(pandas)
   .filter((p) => p.born && +p.born.slice(0, 4) === thisYear)
   .sort((a, b) => (a.born < b.born ? 1 : a.born > b.born ? -1 : 0));
-// 蘋果籽 chip 顯示「{媽媽}的蘋果籽（多胞胎保留號碼）」；非佔位（已命名）沿用正式名
-const newbornLabel = (p) => {
-  if (!p.placeholder) return displayName(p, locale);
-  const m = p.mother && pandas[p.mother] ? displayName(pandas[p.mother], locale) : null;
-  if (!m) return displayName(p, locale); // 無母資料時退回原佔位名
-  const n = ((p.name || '').match(/(\d+)\s*$/) || [])[1];
-  return n && T.placeholder_of_mother_n
-    ? T.placeholder_of_mother_n.replace('{m}', m).replace('{n}', n)
-    : (T.placeholder_of_mother || '{m}').replace('{m}', m);
-};
+// 蘋果籽 chip 顯示「{媽媽}的蘋果籽（多胞胎保留號碼）」；非佔位（已命名）沿用正式名。
+// 邏輯抽到 data.js 的 placeholderMotherName，與蘋果籽個體頁標題共用。
+const newbornLabel = (p) => placeholderMotherName(p, locale);
 const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';
 // hero 飄落葉子（裝飾，reduced-motion 下隱藏）
 const leaves = [

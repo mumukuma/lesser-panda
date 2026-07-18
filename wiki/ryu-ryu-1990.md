@@ -13,7 +13,7 @@ rpf_url: https://redpandafinder.com/#profile/960
 tags: [styani, male, deceased, zoo:Tama Zoological Park]
 sources:
   - https://redpandafinder.com/#profile/960
-  - https://www.nhdzoo.jp/red-panda/kakeizu/index.html
+  - https://4travel.jp/travelogue/11691476
 ---
 
 # Ryu-Ryu 🌈（綠綠・緑々 / 緑緑 / リュウリュウ）
@@ -22,7 +22,7 @@ sources:
 > 生卒：1990 年 – 1999 年  
 > 居住：多摩動物公園（Tama Zoological Park），東京都日野市 🇯🇵
 
-> 🚧 生卒僅知年份、居住史細節待查證（來源：讀者回報＋日本平動物園家系圖）。
+> 🚧 生卒僅知年份、居住史細節待查證（來源：讀者回報＋多摩官方個體名單〔4travel 轉載〕：「緑々（♂／1990年生まれ）中中×花花　1999年に死亡」；名單中父母之「花花」應為華々〔華華〕之筆誤——多摩另有 1999 年生之花花ファンファン，不可能為其母）。
 
 多摩動物公園的雄性小熊貓，[[nene-1993-07-11]] 🌈（寧々）之配偶。與寧々育有多隻子女，包括 1997 年出生的三胞胎 [[fu-fu-1997-06-20]] 🌈（風風）、[[you-you-1997-06-20]] 🌈（葉々）、[[kou-kou-1997-06-20]] 🌈（光々），以及 [[tan-tan-1998-06-29]] 🌈（淡淡）、[[ryutarou-1999-07-27]] 🌈（緑太郎）、[[ryuunosuke-1999-07-27]] 🌈（緑之介）。
 
@@ -39,8 +39,8 @@ sources:
 
 ## 家族
 
-- 父：[[naka-naka]]（中々，資料待查證）
-- 母：[[hana-hana]]（華々，資料待查證）
+- 父：[[naka-naka]] 🌈（中々，多摩官方名單確認；生卒不詳）
+- 母：[[hana-hana]] 🌈（華々，多摩官方名單確認；生卒不詳）
 - 姊：[[hou-hou-1988]] 🌈（紅紅／紅々）
 - 配偶：[[nene-1993-07-11]] 🌈（寧々）
 

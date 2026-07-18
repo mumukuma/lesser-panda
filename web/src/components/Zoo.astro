@@ -11,7 +11,7 @@ const z = zooBySlug[slug];
 const name = zooName(z.id, z.en_name, locale);
 
 // 蘋果籽佔位（尚未命名的寶寶）icon，掛在名字後
-const seedIcon = ' <img src="' + base + 'img/apple-seed.svg" alt="' + T.placeholder_badge + '" title="' + T.placeholder_badge + '" class="inline w-[1em] h-[1em] align-[-.12em]" />';
+const seedIcon = ' <span title="' + T.placeholder_badge + '">🍎</span>';
 const link = (p) =>
   `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, p.urlId)}">${displayName(p, locale)}${p.died ? ' 🌈' : ''}${p.unverified ? ' 🚧' : ''}${p.placeholder ? seedIcon : ''}</a>`;
 
