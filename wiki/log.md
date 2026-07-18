@@ -4969,3 +4969,26 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - `puerh-2015-06-25.md` — 引言補 2026 配對與新子；新增「子女（母 `hinagiku`）」表；**更正**子女之母誤連 `yuu-yuu-2014-07-27`（友友，2018 起居広島）→ `yuu-yuu-2011-05-28`（渝渝，旭山，據子女條目及居住史比對）
 - `ren-ren-2020-06-29.md`、`rin-rin-2020-06-29.md`、`jin-jin-2022-07-05.md`、`chen-chen-2022-07-05.md` — 父「Pu'erh（無條目）」改為 wikilink（條目其實已存在）；補父方半血緣妹弟（蘋果籽）
 - `index.md` — Pu'erh 家族新增子女（母 `hinagiku`）段落；兩處 `yuu-yuu-2014-07-27` 誤連同步更正為 `yuu-yuu-2011-05-28`；Hinagiku 列說明更新；條目總數更新為 662
+
+## [2026-07-18] add | 緑々之姊 紅紅（作者提供）＋緑々補中文名 綠綠
+
+**來源**：
+- 作者提供（名稱以作者為準）；家系參照 https://www.nhdzoo.jp/red-panda/kakeizu/index.html
+
+**新增條目**：
+- `hou-hou.md` — 紅紅 Hou-Hou（紅々／ホウホウ）♀，`naka-naka`（中々）× `hana-hana`（華々）之女、`ryu-ryu-1990` 🌈（緑々）之姊；生卒、居住地、RPF 皆不詳，標 unverified（⚠️ 勿與茶臼山 1993 年前後之 Hou-Hou 混淆）
+
+**更新條目**：
+- `ryu-ryu-1990.md` — 新增 `chinese: 綠綠`；標題補 綠綠；家族補姊 `hou-hou`
+- `naka-naka.md`、`hana-hana.md` — 引言與家族補女 `hou-hou`
+- `index.md` — 風々一脈新增「姑母」段落；Ryu-Ryu 列補 綠綠；條目總數更新為 663
+
+## [2026-07-18] rename | 紅紅補生卒 1988–1999，slug 改為 `hou-hou-1988`
+
+**來源**：
+- 作者提供（生卒僅知年份；緑々 1990–1999 與既有條目一致，未變動）
+
+**更新條目**：
+- `hou-hou.md` → `hou-hou-1988.md` — 補 `born: 1988`、`died: 1999`；tags 改 deceased（移除 unverified）；標題與引言補 🌈 與生卒
+- `ryu-ryu-1990.md`、`naka-naka.md`、`hana-hana.md` — wikilink 同步改 `hou-hou-1988` 並補 🌈
+- `index.md` — 姑母列補生卒 1988–1999 🌈、wikilink 同步

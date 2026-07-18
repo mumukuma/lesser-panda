@@ -164,5 +164,21 @@
   "ft_stat": "{n}마리 · {g}세대 · 생존 {a}",
   "ft_hint": "드래그 이동 · 휠/핀치 확대 · 개체 탭하여 혈통 보기",
   "ft_showall": "전체 보기",
-  "ft_focus_tip": "개체를 누르면 그 혈통만 따로 보여줍니다 (보통 수십 마리로 보기 편합니다)."
+  "ft_focus_tip": "개체를 누르면 그 혈통만 따로 보여줍니다 (보통 수십 마리로 보기 편합니다).",
+  "ft_rel_btn": "두 마리 관계 보기",
+  "ft_rel_pick": "{name} 선택됨 — 다른 개체를 누르면 혈연 관계를 보여줍니다",
+  "ft_rel": "관계",
+  "ft_rel_none": "확인된 혈연 없음 (기록 범위 내)",
+  "ft_rel_degree": "촌수",
+  "ft_rel_deg_n": "{n}촌",
+  "ft_rel_ca": "가장 가까운 공통 조상",
+  "ft_rel_again": "다른 개체 선택",
+  "ft_rel_parent": "부모와 자식",
+  "ft_rel_grand": "조부모와 손주",
+  "ft_rel_line": "직계 혈족",
+  "ft_rel_sib": "친형제자매",
+  "ft_rel_half": "반혈연 형제자매 (½)",
+  "ft_rel_auntuncle": "삼촌·이모와 조카",
+  "ft_rel_cousin": "사촌",
+  "ft_rel_far": "먼 친척"
 }

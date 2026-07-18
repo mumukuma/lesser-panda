@@ -130,7 +130,7 @@
   });
   const up = (e) => {
     pts.delete(e.pointerId); if (pts.size < 2) pinch = 0;
-    if (pts.size === 0) { svg.classList.remove('grab'); if (moved < 6 && down) enterFocus(+down.dataset.i); else if (moved < 6 && !down) { const z = document.getElementById('ft-zoo'); if (mode === 'all' && z && z.value) showAll(); } }
+    if (pts.size === 0) { svg.classList.remove('grab'); if (moved < 6 && down) { const j = +down.dataset.i; if (picking) { if (j !== cmpA) showCompare(cmpA, j); } else enterFocus(j); } else if (moved < 6 && !down) { const z = document.getElementById('ft-zoo'); if (mode === 'all' && !picking && z && z.value) showAll(); } }
   };
   svg.addEventListener('pointerup', up); svg.addEventListener('pointercancel', up);
 
@@ -138,7 +138,7 @@
   const info = document.getElementById('ft-info');
   const coach = document.getElementById('ft-coach');
   const COLW = 150;
-  let mode = 'all', focusI = null;
+  let mode = 'all', focusI = null, picking = false, cmpA = null, cmpPair = null;
   const walk = (i, list, set) => { const st = [i]; while (st.length) { const x = st.pop(); list[x].forEach((y) => { if (!set.has(y)) { set.add(y); st.push(y); } }); } };
   const bloodSet = (i) => { const s = new Set([i]); walk(i, parents, s); walk(i, children, s); return s; };
   const edgePath = (c, p, X, Y) => { const x1 = X(p), y1 = Y(p) + NH / 2, x2 = X(c), y2 = Y(c) - NH / 2, my = (y1 + y2) / 2; return `M${x1} ${y1} C ${x1} ${my} ${x2} ${my} ${x2} ${y2}`; };
@@ -167,7 +167,7 @@
     vb = { x, y, w: W, h: H }; applyVB();
   }
   function enterFocus(i) {
-    mode = 'focus'; focusI = i; hideCoach();
+    mode = 'focus'; focusI = i; picking = false; cmpPair = null; hideCoach();
     const set = bloodSet(i), pos = layoutFocus(set);
     const X = (j) => (pos[j] ? pos[j][0] : 0), Y = (j) => (pos[j] ? pos[j][1] : 0);
     let minx = 1e9, maxx = -1e9, miny = 1e9, maxy = -1e9;
@@ -195,23 +195,122 @@
       `<div class="row"><span>${T.ft_relatives || '父母 / 子女'}</span><b>${parents[i].length} / ${children[i].length}</b></div>` +
       `<div class="row"><span>${T.ft_bloodline || '血脈'}</span><b>${blood}</b></div>` +
       `<a class="ft-open" href="${href}">${T.ft_open || '前往個體頁 →'}</a>` +
-      `<button id="ft-all">${T.ft_showall || '看全圖'}</button>`;
+      `<button id="ft-all">${T.ft_showall || '看全圖'}</button>` +
+      `<button id="ft-cmp">${T.ft_rel_btn || '查兩隻關係'}</button>`;
     document.getElementById('ft-all').onclick = showAll;
+    document.getElementById('ft-cmp').onclick = () => startPick(i);
+  }
+
+  // ── 兩隻比較（親等計算）：往上 BFS 找最近共同祖先，路徑高亮 ──────────
+  // upMap(i)：i 的所有祖先（含自身，深度 0）→ { d: 最短代數, prev: 回溯用（值為靠 i 側的子節點）}
+  function upMap(i) {
+    const d = { [i]: 0 }, prev = {}, q = [i];
+    for (let h = 0; h < q.length; h++) {
+      const x = q[h];
+      parents[x].forEach((p) => { if (!(p in d)) { d[p] = d[x] + 1; prev[p] = x; q.push(p); } });
+    }
+    return { d, prev };
+  }
+  function relLabel(da, db, nFullCA) {
+    if (da === 0 || db === 0) {
+      const k = da || db;
+      return k === 1 ? (T.ft_rel_parent || '親子') : k === 2 ? (T.ft_rel_grand || '祖孫') : (T.ft_rel_line || '直系血親');
+    }
+    if (da === 1 && db === 1) return nFullCA >= 2 ? (T.ft_rel_sib || '同胞手足') : (T.ft_rel_half || '半手足（½）');
+    if ((da === 1 && db === 2) || (da === 2 && db === 1)) return T.ft_rel_auntuncle || '叔伯姑姨／姪甥';
+    if (da === 2 && db === 2) return T.ft_rel_cousin || '堂表親';
+    return T.ft_rel_far || '遠親';
+  }
+  function startPick(i) {
+    picking = true; cmpA = i; cmpPair = null; mode = 'all';
+    restoreAll(); info.style.display = 'none';
+    nodeEls[i].classList.add('hl');
+    if (coach) {
+      coach.querySelector('span').textContent =
+        tt(T.ft_rel_pick || '已選 {name}——再點另一隻小熊貓，看牠們的血緣關係', { name: shortName(N[i][1]) });
+      coach.style.display = 'flex';
+    }
+    fit();
+  }
+  function showCompare(a, b) {
+    mode = 'cmp'; cmpPair = [a, b]; picking = false; focusI = null; hideCoach();
+    const A = upMap(a), B = upMap(b);
+    let best = Infinity, cas = [];
+    for (const k in A.d) {
+      if (k in B.d) {
+        const t = A.d[k] + B.d[k];
+        if (t < best) { best = t; cas = [+k]; } else if (t === best) cas.push(+k);
+      }
+    }
+    // 路徑集合＋路徑邊（child,parent 鍵）
+    const set = new Set([a, b]), pe = new Set();
+    const chain = (m, ca) => { let x = ca; set.add(x); while (m.prev[x] !== undefined) { const c = m.prev[x]; pe.add(c + ',' + x); set.add(c); x = c; } };
+    cas.slice(0, 4).forEach((ca) => { chain(A, ca); chain(B, ca); });
+    const pos = layoutFocus(set);
+    const X = (j) => (pos[j] ? pos[j][0] : 0), Y = (j) => (pos[j] ? pos[j][1] : 0);
+    let minx = 1e9, maxx = -1e9, miny = 1e9, maxy = -1e9;
+    const caSet = new Set(cas.slice(0, 4));
+    nodeEls.forEach((g, j) => {
+      if (set.has(j)) {
+        g.classList.remove('ft-hidden', 'faded');
+        g.classList.toggle('hl', j === a || j === b);
+        g.classList.toggle('ca', caSet.has(j) && j !== a && j !== b);
+        g.setAttribute('transform', `translate(${X(j)} ${Y(j)})`);
+        minx = Math.min(minx, X(j)); maxx = Math.max(maxx, X(j)); miny = Math.min(miny, Y(j)); maxy = Math.max(maxy, Y(j));
+      } else { g.classList.add('ft-hidden'); g.classList.remove('ca'); }
+    });
+    edgeEls.forEach((l, k) => {
+      const [c, p] = E[k];
+      if (set.has(c) && set.has(p)) {
+        l.classList.remove('ft-hidden', 'faded');
+        l.classList.toggle('on', pe.has(c + ',' + p));
+        l.setAttribute('d', edgePath(c, p, X, Y));
+      } else l.classList.add('ft-hidden');
+    });
+    svg.classList.add('focus');
+    fitBox(minx - NW / 2, maxx + NW / 2, miny - NH / 2, maxy + NH / 2);
+    showCmpCard(a, b, best, cas, A, B);
+    const z = document.getElementById('ft-zoo'); if (z) z.value = '';
+  }
+  function showCmpCard(a, b, deg, cas, A, B) {
+    const sexMark = (n) => (n[2] === 'm' ? ' ♂' : n[2] === 'f' ? ' ♀' : '');
+    let rel, rows = '';
+    if (!cas.length) {
+      rel = T.ft_rel_none || '無已知血緣（資料範圍內）';
+    } else {
+      const rep = [...cas].sort((x, y) => Math.max(A.d[x], B.d[x]) - Math.max(A.d[y], B.d[y]))[0];
+      const nFull = cas.filter((c) => A.d[c] === 1 && B.d[c] === 1).length;
+      rel = relLabel(A.d[rep], B.d[rep], nFull);
+      rows = `<div class="row"><span>${T.ft_rel_degree || '親等'}</span><b>${tt(T.ft_rel_deg_n || '第 {n} 親等', { n: deg })}</b></div>`;
+      if (!(cas.length === 1 && (cas[0] === a || cas[0] === b))) {
+        rows += `<div class="row" style="display:block"><span>${T.ft_rel_ca || '最近共同祖先'}</span><br>` +
+          cas.slice(0, 4).map((c) => `<b>${shortName(N[c][1])}</b> <span style="opacity:.7">(${A.d[c]}↔${B.d[c]})</span>`).join('、') +
+          (cas.length > 4 ? ` <span style="opacity:.7">+${cas.length - 4}</span>` : '') + `</div>`;
+      }
+    }
+    info.style.display = 'block';
+    info.innerHTML =
+      `<h2>${shortName(N[a][1])}${sexMark(N[a])} × ${shortName(N[b][1])}${sexMark(N[b])}</h2>` +
+      `<div class="row"><span>${T.ft_rel || '關係'}</span><b>${rel}</b></div>` + rows +
+      `<button id="ft-all">${T.ft_showall || '看全圖'}</button>` +
+      `<button id="ft-repick">${T.ft_rel_again || '換一隻'}</button>`;
+    document.getElementById('ft-all').onclick = showAll;
+    document.getElementById('ft-repick').onclick = () => startPick(a);
   }
   // 把節點／連線還原到全圖世界座標並顯示全部（不動視角）
   function restoreAll() {
     mode = 'all'; focusI = null; svg.classList.remove('focus');
-    nodeEls.forEach((g, j) => { g.classList.remove('ft-hidden', 'hl', 'faded'); g.setAttribute('transform', `translate(${N[j][6]} ${N[j][7]})`); });
+    nodeEls.forEach((g, j) => { g.classList.remove('ft-hidden', 'hl', 'faded', 'ca'); g.setAttribute('transform', `translate(${N[j][6]} ${N[j][7]})`); });
     edgeEls.forEach((l, k) => { const [c, p] = E[k]; l.classList.remove('ft-hidden', 'on', 'faded'); l.setAttribute('d', edgePath(c, p, (i) => N[i][6], (i) => N[i][7])); });
   }
-  function showAll() { restoreAll(); info.style.display = 'none'; const z = document.getElementById('ft-zoo'); if (z) z.value = ''; fit(); }
+  function showAll() { picking = false; cmpPair = null; restoreAll(); info.style.display = 'none'; const z = document.getElementById('ft-zoo'); if (z) z.value = ''; fit(); }
   function applyFade(keep) {
     nodeEls.forEach((g, j) => g.classList.toggle('faded', !keep.has(j)));
     edgeEls.forEach((l, k) => { const [c, p] = E[k]; l.classList.toggle('faded', !(keep.has(c) && keep.has(p))); });
   }
   function highlightZoo(zid) {
     if (!zid) { showAll(); return; }
-    restoreAll(); info.style.display = 'none'; hideCoach();
+    picking = false; cmpPair = null; restoreAll(); info.style.display = 'none'; hideCoach();
     const keep = new Set(); N.forEach((n, j) => { if ((n[8] || []).indexOf(+zid) >= 0) keep.add(j); });
     applyFade(keep); fit();
   }
@@ -223,7 +322,8 @@
   if (dl) N.forEach((n) => { const o = document.createElement('option'); o.value = n[1] + (n[3] ? ' (' + n[3] + ')' : ''); dl.appendChild(o); });
   if (search) search.addEventListener('change', (e) => {
     const v = e.target.value.split(' (')[0].trim().toLowerCase();
-    const i = N.findIndex((n) => n[1].toLowerCase() === v); if (i >= 0) enterFocus(i);
+    const i = N.findIndex((n) => n[1].toLowerCase() === v);
+    if (i >= 0) { if (picking && i !== cmpA) showCompare(cmpA, i); else enterFocus(i); }
   });
   const zoo = document.getElementById('ft-zoo');
   if (zoo) {
@@ -231,11 +331,15 @@
     zoo.addEventListener('change', (e) => highlightZoo(e.target.value));
   }
   const coachX = document.getElementById('ft-coach-x');
-  if (coachX) coachX.onclick = hideCoach;
+  if (coachX) coachX.onclick = () => { hideCoach(); picking = false; };
   const stat = document.getElementById('ft-stat');
   if (stat) stat.textContent = tt(T.ft_stat || '{n} 隻 · {g} 世代 · 在世 {a}',
     { n: N.length, g: D.maxg + 1, a: N.filter((n) => !n[4]).length });
 
   requestAnimationFrame(fit);
-  window.addEventListener('resize', () => { mode === 'focus' && focusI != null ? enterFocus(focusI) : fit(); });
+  window.addEventListener('resize', () => {
+    if (mode === 'cmp' && cmpPair) showCompare(cmpPair[0], cmpPair[1]);
+    else if (mode === 'focus' && focusI != null) enterFocus(focusI);
+    else fit();
+  });
 })();

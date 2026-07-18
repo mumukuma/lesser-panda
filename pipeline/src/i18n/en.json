@@ -164,5 +164,21 @@
   "ft_stat": "{n} pandas · {g} generations · {a} living",
   "ft_hint": "Drag to pan · scroll / pinch to zoom · tap for bloodline",
   "ft_showall": "Whole tree",
-  "ft_focus_tip": "Tap any panda to see just its bloodline on its own — usually a couple dozen, easy to read."
+  "ft_focus_tip": "Tap any panda to see just its bloodline on its own — usually a couple dozen, easy to read.",
+  "ft_rel_btn": "Compare two pandas",
+  "ft_rel_pick": "{name} selected — tap another panda to see how they're related",
+  "ft_rel": "Relation",
+  "ft_rel_none": "No known blood relation (within our records)",
+  "ft_rel_degree": "Degree",
+  "ft_rel_deg_n": "Degree {n}",
+  "ft_rel_ca": "Closest common ancestors",
+  "ft_rel_again": "Pick another",
+  "ft_rel_parent": "Parent & child",
+  "ft_rel_grand": "Grandparent & grandchild",
+  "ft_rel_line": "Direct line",
+  "ft_rel_sib": "Full siblings",
+  "ft_rel_half": "Half siblings (½)",
+  "ft_rel_auntuncle": "Aunt/uncle & niece/nephew",
+  "ft_rel_cousin": "First cousins",
+  "ft_rel_far": "Distant relatives"
 }

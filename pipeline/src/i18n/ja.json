@@ -164,5 +164,21 @@
   "ft_stat": "{n}頭 · {g}世代 · 存命 {a}",
   "ft_hint": "ドラッグで移動 · ホイール／ピンチで拡大 · 個体で血統表示",
   "ft_showall": "全体を表示",
-  "ft_focus_tip": "個体をタップすると、その血統だけを抜き出して表示します（たいてい十数頭で見やすくなります）。"
+  "ft_focus_tip": "個体をタップすると、その血統だけを抜き出して表示します（たいてい十数頭で見やすくなります）。",
+  "ft_rel_btn": "2頭の関係を調べる",
+  "ft_rel_pick": "{name} を選択中——もう1頭をタップすると血縁関係を表示します",
+  "ft_rel": "関係",
+  "ft_rel_none": "血縁記録なし（データの範囲内）",
+  "ft_rel_degree": "親等",
+  "ft_rel_deg_n": "{n} 親等",
+  "ft_rel_ca": "最も近い共通祖先",
+  "ft_rel_again": "相手を変える",
+  "ft_rel_parent": "親子",
+  "ft_rel_grand": "祖父母・孫",
+  "ft_rel_line": "直系血族",
+  "ft_rel_sib": "全血きょうだい",
+  "ft_rel_half": "半血きょうだい（½）",
+  "ft_rel_auntuncle": "おじ・おば／おい・めい",
+  "ft_rel_cousin": "いとこ",
+  "ft_rel_far": "遠縁"
 }

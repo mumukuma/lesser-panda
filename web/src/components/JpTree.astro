@@ -77,6 +77,11 @@ const intro = (T.ft_intro || '').replace('{n}', _D.nodes.length).replace('{g}', 
   .ft-node.hl rect { fill: color-mix(in srgb, var(--amber) 24%, var(--bg-card)); stroke-width: 2.6;
     filter: drop-shadow(0 0 4px color-mix(in srgb, var(--amber) 60%, transparent)); }
   .ft-node.hl:not(.f):not(.m) rect { stroke: var(--amber); }
+  .ft-node.hl .ft-dot { fill: var(--amber); }
+  /* 兩隻比較模式：最近共同祖先節點（鏽紅底標記） */
+  .ft-node.ca rect { fill: color-mix(in srgb, var(--rust) 15%, var(--bg-card)); stroke-width: 2.2;
+    filter: drop-shadow(0 0 3px color-mix(in srgb, var(--rust) 45%, transparent)); }
+  .ft-node.ca:not(.f):not(.m) rect { stroke: var(--rust); }
   .ft-genlbl { font-size: 22px; font-weight: 700; fill: var(--rust); opacity: .5; pointer-events: none; }
 
   /* 遠景圓點：依性別上色，已歿較淡 */

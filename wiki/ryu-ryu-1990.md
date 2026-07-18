@@ -1,5 +1,6 @@
 ---
 name: Ryu-Ryu
+chinese: 綠綠
 japanese: 緑々, 緑緑, リュウリュウ
 sex: male
 born: 1990
@@ -15,7 +16,7 @@ sources:
   - https://www.nhdzoo.jp/red-panda/kakeizu/index.html
 ---
 
-# Ryu-Ryu 🌈（緑々 / 緑緑 / リュウリュウ）
+# Ryu-Ryu 🌈（綠綠・緑々 / 緑緑 / リュウリュウ）
 
 > **小熊貓** ♂ | Ailurus fulgens styani  
 > 生卒：1990 年 – 1999 年  
@@ -40,6 +41,7 @@ sources:
 
 - 父：[[naka-naka]]（中々，資料待查證）
 - 母：[[hana-hana]]（華々，資料待查證）
+- 姊：[[hou-hou-1988]] 🌈（紅紅／紅々）
 - 配偶：[[nene-1993-07-11]] 🌈（寧々）
 
 ### 子女（與 [[nene-1993-07-11]] 所生）

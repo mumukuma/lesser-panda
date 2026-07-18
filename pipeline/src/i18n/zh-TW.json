@@ -164,5 +164,21 @@
   "ft_stat": "{n} 隻 · {g} 世代 · 在世 {a}",
   "ft_hint": "拖曳平移 · 滾輪／雙指縮放 · 點個體看血脈",
   "ft_showall": "看全圖",
-  "ft_focus_tip": "點任一隻小熊貓，單獨看牠這一支血脈（通常一、二十隻，清爽好讀）。"
+  "ft_focus_tip": "點任一隻小熊貓，單獨看牠這一支血脈（通常一、二十隻，清爽好讀）。",
+  "ft_rel_btn": "查兩隻關係",
+  "ft_rel_pick": "已選 {name}——再點另一隻小熊貓，看牠們的血緣關係",
+  "ft_rel": "關係",
+  "ft_rel_none": "無已知血緣（資料範圍內）",
+  "ft_rel_degree": "親等",
+  "ft_rel_deg_n": "第 {n} 親等",
+  "ft_rel_ca": "最近共同祖先",
+  "ft_rel_again": "換一隻",
+  "ft_rel_parent": "親子",
+  "ft_rel_grand": "祖孫",
+  "ft_rel_line": "直系血親",
+  "ft_rel_sib": "同胞手足",
+  "ft_rel_half": "半手足（½）",
+  "ft_rel_auntuncle": "叔伯姑姨／姪甥",
+  "ft_rel_cousin": "堂表親",
+  "ft_rel_far": "遠親"
 }
