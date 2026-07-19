@@ -179,8 +179,8 @@
 :root[data-theme="dark"] .jieqi-mark #jq-date,
 :root[data-theme="dark"] .jieqi-mark #jq-en { color: var(--jq-ac); }
 @media (max-width: 640px) {
-  /* 手機探頭吉祥物寬 54px（高同寬），底 ≈ 76+54=130px */
-  .jieqi-mark { top: 136px; }
+  /* 手機探頭吉祥物寬 54px（高同寬），底 ≈ 76+54=130px；左移僅桌機，手機維持 right 7% */
+  .jieqi-mark { top: 136px; right: 7%; }
   .jieqi-mark #jq-name { font-size: 22px; }
   .jieqi-mark #jq-en { max-width: 110px; }
 }

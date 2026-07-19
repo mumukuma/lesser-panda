@@ -2483,3 +2483,16 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - 規範文件同步：`SCHEMA.md`、`CLAUDE.md`、`rpf-wiki-SKILL.md`、`ROADMAP.md`；工具 `tools/query.py`（顯示標記）、`tools/zoo_registry.py`（_NOTES 兩者並收向下相容）
 - 網站側：五語 i18n（標題 ja/ko/en 改直譯「前往小熊星球」）、各頁已故標記、OG 卡彩虹條改星球漸層條
 - 歷史紀錄不改：`log.md`、`log-archive/`、`CHANGELOG.md`、docs/ 內既往文件維持 🌈
+
+## [2026-07-19] hide | `ichiko-2014-07-06` 暫時下架：官方公告該胎僅一隻，Ichiko 存在待查證
+
+**來源**：
+- https://www.facebook.com/zounokuni/posts/686909551385606/ （市原ぞうの国官方 FB：2014-07-06 出生公告僅一郎一隻，未提及雙胞胎）
+- 作者裁定（Ichiko 僅有 RPF 來源、無 rpf_id，可能為錯誤資料，先隱藏待查證）
+
+**更新條目**：
+- `ichiko-2014-07-06.md` — 加註下架原因後移入 `wiki/_hidden/`
+- `ichiro-2014-07-06.md` — 移除雙胞胎 Ichiko 之 wikilink 與家族列，改為 🚧 待查證純文字注記
+- `kojirou-2010-07-14.md` — 子女表移除 Ichiko 列、備注改「育有 Ichiro（RPF 另記 Ichiko，🚧 待查證）」
+- `tomato-2007-07-21.md` — 引言與子女表移除 Ichiko，改 🚧 待查證注記
+- `index.md` — 移除 Ichiko 列；條目總數 663 → 662（_hidden 4 → 5 筆）

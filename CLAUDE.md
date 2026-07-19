@@ -280,4 +280,5 @@ DB 寫入若失敗（沙盒掛載不支援 SQLite lock），build_db.py 會自�
 - 不要動 `.obsidian/`
 - **log.md 按月封存**：`wiki/log.md` 只留近期月份，過往月份移至 `wiki/log-archive/log-YYYY-MM.md`（換月後擇機搬移；append 一律仍寫 log.md 末端，封存檔同樣禁 wikilink）
 - 條目總數以 `ls wiki/*.md | wc -l` 減去 `index.md`、`log.md` 驗證，別只憑 index 頁首數字
+- **⏰ 內嵌日期表續期（到期前要更新）**：`web/public/js/closed.js` 的日本祝日表只涵蓋 **2026–2030**（表外年份視為無祝日，「今日休園」的祝日順延會失準）——**2030 年內要續期**：用 `pip install jpholiday` 重新產生後續年份（含振替休日・国民の休日）、對照内閣府等官方來源抽驗，加進 `HOLIDAYS` 並跑 `node web/tests/closed.test.mjs`。另 `web/public/js/season.js` 的節氣表涵蓋 2026–2035（表外借最近一年、僅 UI 換色，較不急），2035 年前擇機續期。
 - **幼逝寶寶收錄原則（2026-07-14 起）**：出生後未滿一歲即夭折的個體，**只要有正式命名就照常收錄、上站**（如 `takeru`、`tsubasa`、`wu-tan`）；唯有從未取名、僅以佔位名（如 `Baby`／`赤ちゃん`）登錄者，才移入 `wiki/_hidden/` 暫藏。此規則**取代** 2026-07-02「未滿一歲一律暫藏」的舊做法。（注意：因其他原因暫藏者不受此規則影響，如資料未經核實的 `sokka`。）
