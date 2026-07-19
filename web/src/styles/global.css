@@ -163,21 +163,21 @@
     'Songti TC', 'AppleMyungjo', 'Batang', serif;
 }
 .jieqi-mark .jq-row { display: flex; align-items: flex-start; justify-content: flex-end; gap: 6px; }
+/* 白字＋節氣色光暈（B 款）：墨影（--jq-ink）保底可讀性、光暈（--jq-ac）隨節氣換色；
+   淺深模式同一套（夜空上光暈更明顯），不需另寫 dark 覆寫。 */
 .jieqi-mark #jq-name {
   font-weight: 300; font-size: 28px; line-height: 1.1;
-  letter-spacing: .06em; color: var(--ink);
-}
-.jieqi-mark #jq-date {
-  writing-mode: vertical-rl; font-size: 10.5px; letter-spacing: .3em;
-  color: var(--jq-ink); padding-top: 2px;
+  letter-spacing: .06em; color: #fff;
+  text-shadow: 0 1px 2px color-mix(in srgb, var(--jq-ink) 40%, transparent),
+    0 0 14px var(--jq-ac), 0 0 26px color-mix(in srgb, var(--jq-ac) 55%, transparent);
 }
 .jieqi-mark #jq-en {
   font-family: var(--font-body); font-size: 9.5px; letter-spacing: .22em;
-  text-transform: uppercase; color: var(--jq-ink);
+  text-transform: uppercase; color: #fff;
   margin-top: 6px; max-width: 140px; line-height: 1.7;
+  text-shadow: 0 1px 2px color-mix(in srgb, var(--jq-ink) 45%, transparent),
+    0 0 10px var(--jq-ac);
 }
-:root[data-theme="dark"] .jieqi-mark #jq-date,
-:root[data-theme="dark"] .jieqi-mark #jq-en { color: var(--jq-ac); }
 @media (max-width: 640px) {
   /* 手機探頭吉祥物寬 54px（高同寬），底 ≈ 76+54=130px；左移僅桌機，手機維持 right 7% */
   .jieqi-mark { top: 136px; right: 7%; }

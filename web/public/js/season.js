@@ -65,22 +65,6 @@
     return { i: idx, start: start };
   }
 
-  /* 直排起始日文字：中日=漢字數字、韓=N월 N일、英=縮寫月 */
-  var HANZI = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
-  function hanziNum(n) {
-    if (n <= 10) return n === 10 ? '十' : HANZI[n];
-    if (n < 20) return '十' + HANZI[n - 10];
-    return HANZI[Math.floor(n / 10)] + '十' + (n % 10 ? HANZI[n % 10] : '');
-  }
-  function jqDateText(start) {
-    var loc = window.LOCALE || 'zh-TW', m = start.getMonth() + 1, day = start.getDate();
-    if (loc === 'ko') return m + '월 ' + day + '일';
-    if (loc === 'en') {
-      return ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'][m - 1] + ' ' + day;
-    }
-    return hanziNum(m) + '月' + hanziNum(day) + '日';
-  }
-
   function byDate() {
     var m = new Date().getMonth() + 1;
     return m >= 3 && m <= 5 ? 'spring' : m >= 6 && m <= 8 ? 'summer' : m >= 9 && m <= 11 ? 'autumn' : 'winter';
@@ -127,8 +111,9 @@
     document.body.appendChild(box);
   }
 
-  /* 首頁 hero 節氣標示：漢字名＋直排日期（手動切季時日期不真實故隱藏）＋英文 caps */
-  function updateMark(i, start, isAuto) {
+  /* 首頁 hero 節氣標示：漢字名＋英文 caps
+     （起始日行已移除：入節日易被誤讀為今日日期，2026-07-20 作者裁定） */
+  function updateMark(i) {
     var box = document.getElementById('jieqi-mark');
     if (!box) return;
     var T = window.T || {};
@@ -136,10 +121,6 @@
     if (!name) return;   /* i18n 缺字串就不顯示（保險絲） */
     var el = function (id) { return document.getElementById(id); };
     if (el('jq-name')) el('jq-name').textContent = name;
-    if (el('jq-date')) {
-      el('jq-date').textContent = isAuto ? jqDateText(start) : '';
-      el('jq-date').hidden = !isAuto;
-    }
     if (el('jq-en')) el('jq-en').textContent = JQ_EN[i];
     box.hidden = false;
   }
@@ -147,13 +128,7 @@
   function apply(p) {
     var s = p === 'auto' ? byDate() : p;
     d.dataset.season = s;
-    var jq, start = null, isAuto = p === 'auto';
-    if (isAuto) {
-      var r = byDateJieqi(new Date());
-      jq = r.i; start = r.start;
-    } else {
-      jq = SEASON_JQ[s];
-    }
+    var jq = p === 'auto' ? byDateJieqi(new Date()).i : SEASON_JQ[s];
     d.dataset.jieqi = JQ_SLUGS[jq];
     var T = window.T || {};
     var b = document.getElementById('season-toggle');
@@ -166,7 +141,7 @@
       b.setAttribute('aria-label', t);
     }
     updateSnow(s);
-    updateMark(jq, start, isAuto);
+    updateMark(jq);
   }
 
   apply(pref());   /* head 階段：先定 data-season/data-jieqi（此時尚無 body，雪層與標示延後） */

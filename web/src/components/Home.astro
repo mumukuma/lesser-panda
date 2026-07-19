@@ -42,11 +42,10 @@ const leaves = [
         ))}
       </div>
       <!-- 節氣標示（印章式）：文字由 js/season.js 依日期填入；no-JS 保持 hidden。
-           置左上避開右側探頭吉祥物與底部標題（窄螢幕亦不重疊）。 -->
+           只留大字＋英文 caps（起始日易誤讀為今日日期，2026-07-20 作者裁定移除）。 -->
       <div id="jieqi-mark" class="jieqi-mark" hidden>
         <div class="jq-row">
           <span id="jq-name"></span>
-          <span id="jq-date" aria-hidden="true"></span>
         </div>
         <div id="jq-en" aria-hidden="true"></div>
       </div>
