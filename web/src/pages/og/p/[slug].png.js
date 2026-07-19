@@ -1,6 +1,6 @@
 /* 個體 OG 卡片（#22）：build 時為每隻生成 1200×630 PNG（satori → resvg）。
    全站語系共用一張（名字以日文名／羅馬拼音為主）；無 emoji（satori 需另掛 emoji 字型，
-   已逝改以生卒年間呈現＋彩虹漸層條）。字型：Noto Sans JP Bold（web/assets/og/，SIL OFL）。 */
+   已逝改以生卒年間呈現＋星球漸層條）。字型：Noto Sans JP Bold（web/assets/og/，SIL OFL）。 */
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import satori from 'satori';
@@ -18,7 +18,7 @@ const C = {
   rust: '#b5552d', rustDark: '#8f3f1e', amber: '#e8a13c', cream: '#f5e9d9',
   line: '#ece0cf', female: '#c2563f', male: '#3f7a8c',
 };
-const RAINBOW = 'linear-gradient(90deg,#e57373,#e8a13c,#f2d06b,#8bb672,#6aa7c4,#9b7fb8)';
+const PLANET = 'linear-gradient(90deg,#3d4e7a,#6a5a9e,#9b7fb8,#c9a8d4,#e8c06b)';
 
 const h = (type, style, ...children) =>
   ({ type, props: { style, children: children.length === 1 ? children[0] : children } });
@@ -57,8 +57,8 @@ export async function GET({ props }) {
           sexMark ? h('div', { display: 'flex', fontSize: Math.round(nameSize * 0.55), color: sexColor, marginLeft: 18 }, sexMark) : null,
         ),
         sub ? h('div', { display: 'flex', fontSize: 34, color: C.soft, marginTop: 8 }, sub) : null,
-        // 已逝：彩虹條（代替 🌈）
-        p.died ? h('div', { display: 'flex', width: 320, height: 12, borderRadius: 6, marginTop: 22, backgroundImage: RAINBOW }) : null,
+        // 已逝：星球漸層條（代替 🪐；深空藍 → 紫 → 星光金）
+        p.died ? h('div', { display: 'flex', width: 320, height: 12, borderRadius: 6, marginTop: 22, backgroundImage: PLANET }) : null,
         h('div', { display: 'flex', flexDirection: 'column', marginTop: p.died ? 14 : 26 },
           infoLine(dates, p.died ? C.rust : C.soft),
           infoLine(zoo),

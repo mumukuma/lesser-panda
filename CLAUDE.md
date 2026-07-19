@@ -12,7 +12,7 @@
 - 工具配套（2026-07-14 起）：`audit.py` **預設不跑 lineage 比對**（加 `--lineage` 才比對）；`verify.sh`（pre-push）不再抓取 lineage、只跑 wiki 自身檢查；`apply_lineage_fixes.py` **僅作者明確要求時才執行**（只填空欄位、不覆蓋，補入值視同線索）。
 - 名稱（尤其中文名 `chinese`、暱稱、別名）以作者提供為準；RPF 的羅馬拼音僅作後備。
 - **lineage/RPF 的 `ja.name` 是機械轉寫、每隻個體都有（不論來源地），僅「有日本居住史」的個體才採用為 `japanese`**（2026-07-13 起）：歐美等非日本個體一律不抄——其 `ja.name` 若含漢字，多半實為中文名（例：Hui Hu 的「火狐」），應由作者確認後放 `chinese`，而非 `japanese`。工具已內建此規則：`audit.py` 的「lineage 有漢字名、wiki 未收」提示與 `apply_lineage_fixes.py` 的補漢字，都只對 frontmatter `zoos:` 解析出含日本園（`data/zoos.json` 的 `country == "Japan"`）的個體生效；`zoos:` 空白無法確認國別時保守不補。
-- **動物園名以 `data/zoos.json`（註冊表）為唯一事實來源**：每座園的正式名（`canonical`，採完整正式名）、中文名、座標、官網、logo、**地點（`location_ja`）** 只存這裡。wiki 條目（frontmatter `zoos:` 與內文居住史）一律寫 canonical 日文名；`build_db` 會精確比對，**寫了註冊表沒有的園名就報錯中止**（提示去登記或修正）。新增一座沒登記過的園 → 先在 `data/zoos.json` 加一筆，再寫條目。lineage 僅用來初次帶入座標，非權威。
+- **動物園名以 `data/zoos.json`（註冊表）為唯一事實來源**：每座園的正式名（`canonical`，採完整正式名）、中文名、座標、官網、logo、**地點（`location_ja`）**、**休園日（`closed_ja`，選填，照官網原文精簡一行、僅官方來源可填，缺值園頁不顯示；另有機器可讀衍生欄 `closed_rule` 供首頁「今日休園」計算——`closed_ja` 是人讀正本，某園休園制度改了兩欄必須同步改，不定休／営業カレンダー制與年中無休的園不編 `closed_rule`）** 只存這裡。wiki 條目（frontmatter `zoos:` 與內文居住史）一律寫 canonical 日文名；`build_db` 會精確比對，**寫了註冊表沒有的園名就報錯中止**（提示去登記或修正）。新增一座沒登記過的園 → 先在 `data/zoos.json` 加一筆，再寫條目。lineage 僅用來初次帶入座標，非權威。
 - **地點（`location_ja`）也以 `data/zoos.json` 為準**：`gen_residence.py` **只補空白、永不覆寫**既有校訂值（2026-06-29 起）。要改某園地點 → 直接編輯 `data/zoos.json` 的 `location_ja` 再重建；內文居住史的「地點」欄由註冊表自動帶入，勿手改。
 
 ---
@@ -53,7 +53,8 @@ red-panda-wiki/
 ├── web/                 ← Astro + Tailwind 網站前端（見 web/README.md）
 └── wiki/
     ├── index.md         ← 目錄（依家族分類），含條目總數
-    ├── log.md           ← append-only 變更日誌
+    ├── log.md           ← append-only 變更日誌（只留近期月份，舊月份封存至 log-archive/）
+    ├── log-archive/     ← log.md 按月封存（log-YYYY-MM.md；glob 非遞迴自動排除）
     ├── _hidden/         ← 暫時下架的條目（不計數、不上站；glob 非遞迴自動排除）
     └── [slug].md        ← 個體條目（每隻一頁）
 ```
@@ -86,7 +87,7 @@ red-panda-wiki/
 - **YAML frontmatter** 必填：`name`、`sex`、`born`、`species`、`zoos`、`rpf_id`、`rpf_url`、`tags`、`sources`；`japanese`、`nicknames`、`english_variants`、`died` 視情況。
 - **內容結構**：標題 → 引言區塊（性別/生日/現居）→ 一句話家族背景 → `## 居住史`（**自動生成表格，勿手改**）→ `## 家族`（父母/雙胞胎/兄弟姊妹/子女）。
 - **居住史唯一來源是 frontmatter `zoos:`**，格式 `園名 (起 – 訖)`，起訖可用 `YYYY-MM-DD`／`YYYY`／現居留空（訖寫「現在」或空）。內文 `## 居住史` 表格由 `tools/gen_residence.py` 從此生成（含地點、🐣出生地、🏡現居），改居住史一律改 `zoos:` 再重跑該工具。
-- **wikilink**：對方已有條目才用 `[[slug]]`，否則純文字。已故加 🌈。½ 表半血緣。
+- **wikilink**：對方已有條目才用 `[[slug]]`，否則純文字。已故加 🪐。½ 表半血緣。
 - **語言**：條目內文用中文，動物園名沿用日文原名。
 
 ### 檔名與消歧（重要）
@@ -276,6 +277,7 @@ DB 寫入若失敗（沙盒掛載不支援 SQLite lock），build_db.py 會自�
 - 日期一律 ISO（YYYY-MM-DD）；只知年份就只寫年份
 - RPF 的 Other Names 記得填入 `japanese`（**僅日本個體**，見資料來源原則）/ `english_variants`
 - 性別推斷不確定時留空並備注「待確認」
-- 不要動 `.obsidian/`；`test.db`、`Untitled.canvas` 為雜物，可忽略
+- 不要動 `.obsidian/`
+- **log.md 按月封存**：`wiki/log.md` 只留近期月份，過往月份移至 `wiki/log-archive/log-YYYY-MM.md`（換月後擇機搬移；append 一律仍寫 log.md 末端，封存檔同樣禁 wikilink）
 - 條目總數以 `ls wiki/*.md | wc -l` 減去 `index.md`、`log.md` 驗證，別只憑 index 頁首數字
 - **幼逝寶寶收錄原則（2026-07-14 起）**：出生後未滿一歲即夭折的個體，**只要有正式命名就照常收錄、上站**（如 `takeru`、`tsubasa`、`wu-tan`）；唯有從未取名、僅以佔位名（如 `Baby`／`赤ちゃん`）登錄者，才移入 `wiki/_hidden/` 暫藏。此規則**取代** 2026-07-02「未滿一歲一律暫藏」的舊做法。（注意：因其他原因暫藏者不受此規則影響，如資料未經核實的 `sokka`。）

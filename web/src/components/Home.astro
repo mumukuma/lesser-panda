@@ -1,5 +1,5 @@
 ---
-import { pandas, zoos, family, i18n, displayName, placeholderMotherName } from '../lib/data.js';
+import { pandas, zoos, family, i18n, placeholderMotherName } from '../lib/data.js';
 import { pandaUrl, pageUrl } from '../lib/links.js';
 
 const { locale } = Astro.props;
@@ -13,7 +13,6 @@ const stats = [
   ['stat-zoo', zoos.length, T.stat_zoos, pageUrl(base, locale, 'zoos')],
   ['stat-family', family.parent_child.length, T.stat_edges, pageUrl(base, locale, 'stats')],
 ];
-const featured = ['taofa', 'shiryu', 'franken', 'shin-fa', 'ako'].filter((s) => pandas[s]);
 // 今年出生的新寶寶（含蘋果籽佔位）：建置期算，新到舊排序。
 // 展示區間（6/1–11/30）由 client 端依訪客當下日期判斷（見 today.js），此處只準備資料。
 const thisYear = new Date().getFullYear();
@@ -41,6 +40,15 @@ const leaves = [
         {leaves.map((l) => (
           <span class="leaf" style={`left:${l.left};animation-duration:${l.dur};animation-delay:${l.delay}`}></span>
         ))}
+      </div>
+      <!-- 節氣標示（印章式）：文字由 js/season.js 依日期填入；no-JS 保持 hidden。
+           置左上避開右側探頭吉祥物與底部標題（窄螢幕亦不重疊）。 -->
+      <div id="jieqi-mark" class="jieqi-mark" hidden>
+        <div class="jq-row">
+          <span id="jq-name"></span>
+          <span id="jq-date" aria-hidden="true"></span>
+        </div>
+        <div id="jq-en" aria-hidden="true"></div>
       </div>
       <img src={`${base}img/mascot-peek.webp`} alt="" width="120" height="120"
            class="anim-float absolute right-[7%] top-[76px] w-[54px] sm:w-[74px] h-auto z-[2]" />
@@ -90,7 +98,7 @@ const leaves = [
           {newborns.map((p) => (
             <a href={pandaUrl(base, locale, p.urlId)}
                class="pop inline-flex items-baseline gap-1.5 bg-cream border border-line rounded-full px-4 py-2 text-[.94rem] no-underline hover:border-amber">
-              <span class="font-display font-semibold">{p.placeholder ? '🍎 ' : ''}{newbornLabel(p)}{p.died ? ' 🌈' : ''}</span>
+              <span class="font-display font-semibold">{p.placeholder ? '🍎 ' : ''}{newbornLabel(p)}{p.died ? ' ' + T.deceased_mark : ''}</span>
               <span class="text-[.8rem] text-ink-soft">{p.born.slice(5).replace('-', '/')}</span>
             </a>
           ))}
@@ -114,16 +122,12 @@ const leaves = [
   </div>
 </section>
 
-<!-- ── 從這裡開始 ───────────────────────────────────────────── -->
-<section class="reveal">
-  <h2 class={H2}>{T.home_featured}</h2>
-  <p class="flex flex-wrap gap-2">
-    {featured.map((s) => (
-      <a href={pandaUrl(base, locale, pandas[s].urlId)}
-         class="pop inline-flex items-center gap-1.5 bg-cream border border-line rounded-full px-4 py-2 text-[.94rem] no-underline hover:border-amber">
-        <span class="font-display font-semibold">{displayName(pandas[s], locale)}{pandas[s].died ? ' 🌈' : ''}</span>
-      </a>
-    ))}
-  </p>
-  <p class="text-ink-soft text-[.92rem] mt-4">{T.home_intro}</p>
+<!-- ── 今日休園（JST）：由 js/closed.js 依 closed_rule 計算並揭示；
+     今日無休園整個區塊保持 hidden（比照 #newborns-season，不加 reveal） ── -->
+<section id="today-closed-wrap" hidden>
+  <h2 class={H2}>{T.today_closed}</h2>
+  <div class="card-soft p-5">
+    <div id="today-closed" class="flex flex-wrap gap-2 mb-3"></div>
+    <p class="text-ink-soft text-[.85rem] m-0 leading-relaxed">{T.today_closed_note}</p>
+  </div>
 </section>

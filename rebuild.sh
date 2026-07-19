@@ -13,12 +13,12 @@
 set -euo pipefail
 cd "$(dirname "$0")"   # 切到 repo 根目錄（本檔所在處）
 
-echo "==> [1/3] gen_residence（重生居住史表格）"
+echo "==> [1/4] gen_residence（重生居住史表格）"
 # gen_residence 的守門已改成「改寫前後自我比對」，完全在執行內完成、不依賴外部
 # 快照檔（若重生後掉了任何園會直接中止），故這裡直接呼叫即可。
 python3 tools/gen_residence.py
 
-echo "==> [2/3] build_db（建 SQLite，驗證園名）"
+echo "==> [2/4] build_db（建 SQLite，驗證園名）"
 python3 tools/build_db.py
 
 echo "==> [3/4] export_json（匯出網站 JSON）"

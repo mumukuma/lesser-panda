@@ -28,14 +28,15 @@
   const gNodes = document.createElementNS(NS, 'g');
   svg.appendChild(gBands); svg.appendChild(gEdges); svg.appendChild(gNodes);
 
-  // ── generation bands（單一暖色漸層：鏽紅家族，越晚的世代越深）+ 標籤 ──
-  // 用同一色相、只調透明度，貼合網站奶油／鏽紅色調；深淺帶出世代進程。
+  // ── generation bands（單一色相漸層：吃當前節氣點綴色 --jq-ac，越晚的世代越深）+ 標籤 ──
+  // 同色相只調透明度；色相隨 data-jieqi 變（無 JS 設定時退回預設暖褐，見 global.css :root）。
   for (let g = 0; g <= D.maxg; g++) {
     const a = (0.045 + (D.maxg ? g / D.maxg : 0) * 0.11).toFixed(3);
     const r = document.createElementNS(NS, 'rect');
     r.setAttribute('x', worldL); r.setAttribute('width', worldW);
     r.setAttribute('y', g * ROWH - NH / 2 - 24); r.setAttribute('height', ROWH);
-    r.setAttribute('fill', `hsl(22 55% 48% / ${a})`);
+    r.setAttribute('fill', 'var(--jq-ac)');
+    r.setAttribute('fill-opacity', a);
     gBands.appendChild(r);
     const t = document.createElementNS(NS, 'text');
     t.setAttribute('x', worldL + 14); t.setAttribute('y', g * ROWH - 30);
@@ -137,6 +138,12 @@
 
   // ── selection / focus（血脈聚焦：抽出祖先＋後代，就地重排成乾淨小樹）──
   const info = document.getElementById('ft-info');
+  const stage = svg.closest('.ft-stage');
+  // 顯示／隱藏資訊卡（stage 掛 has-info，手機版 CSS 據此隱藏圖例）
+  const infoShow = (on) => { info.style.display = on ? 'block' : 'none'; if (stage) stage.classList.toggle('has-info', on); };
+  // 手機版資訊卡是底部卡片：回傳其佔用高度(px)，讓 fitBox 把樹排在卡片上方
+  const infoInset = () => (window.matchMedia('(max-width: 560px)').matches && info.style.display === 'block')
+    ? Math.min(info.offsetHeight + 8, pxw()[1] * 0.5) : 0;
   const coach = document.getElementById('ft-coach');
   const COLW = 150;
   let mode = 'all', focusI = null, picking = false, cmpA = null, cmpPair = null;
@@ -160,12 +167,15 @@
     gs.forEach((g) => { const w = rows[g].length; rows[g].forEach((i, k) => (pos[i] = [(k - (w - 1) / 2) * COLW, (g - ming) * ROWH])); });
     return pos;
   }
-  function fitBox(minx, maxx, miny, maxy) {
-    const pad = 80; const [pw, ph] = pxw(); const asp = pw / ph;
+  function fitBox(minx, maxx, miny, maxy, insetB = 0) {
+    // insetB：底部被資訊卡遮住的像素高度——內容先塞進可見區（ph-insetB），
+    // 再把 viewBox 往下擴到整個 stage，多出的部分藏在卡片後面。
+    const pad = 80; const [pw, ph] = pxw();
+    const vph = Math.max(120, ph - insetB); const asp = pw / vph;
     let W = (maxx - minx) + pad * 2, H = (maxy - miny) + pad * 2, x = minx - pad, y = miny - pad;
     if (W / H < asp) { const nw = H * asp; x -= (nw - W) / 2; W = nw; }
     else { const nh = W / asp; y -= (nh - H) / 2; H = nh; }
-    vb = { x, y, w: W, h: H }; applyVB();
+    vb = { x, y, w: W, h: H * ph / vph }; applyVB();
   }
   function enterFocus(i) {
     mode = 'focus'; focusI = i; picking = false; cmpPair = null; hideCoach();
@@ -181,13 +191,13 @@
     });
     edgeEls.forEach((l, k) => { const [c, p] = E[k]; if (set.has(c) && set.has(p)) { l.classList.remove('ft-hidden', 'faded', 'on'); l.setAttribute('d', edgePath(c, p, X, Y)); } else l.classList.add('ft-hidden'); });
     svg.classList.add('focus');
-    fitBox(minx - NW / 2, maxx + NW / 2, miny - NH / 2, maxy + NH / 2);
-    showCard(i, set.size);
+    showCard(i, set.size); // 先渲染卡片才量得到高度（手機版 fitBox 要避開）
+    fitBox(minx - NW / 2, maxx + NW / 2, miny - NH / 2, maxy + NH / 2, infoInset());
     const z = document.getElementById('ft-zoo'); if (z) z.value = '';
   }
   function showCard(i, blood) {
     const n = N[i], href = PAGE + 'p/' + encodeURIComponent(n[0]) + '/';
-    info.style.display = 'block';
+    infoShow(true);
     info.innerHTML =
       `<h2>${n[1]}${n[2] === 'm' ? ' ♂' : n[2] === 'f' ? ' ♀' : ''}</h2>` +
       (n[9] ? `<div class="row"><span>🍎 ${T.placeholder_badge || ''}</span></div>` : '') +
@@ -224,7 +234,7 @@
   }
   function startPick(i) {
     picking = true; cmpA = i; cmpPair = null; mode = 'all';
-    restoreAll(); info.style.display = 'none';
+    restoreAll(); infoShow(false);
     nodeEls[i].classList.add('hl');
     if (coach) {
       coach.querySelector('span').textContent =
@@ -269,8 +279,8 @@
       } else l.classList.add('ft-hidden');
     });
     svg.classList.add('focus');
-    fitBox(minx - NW / 2, maxx + NW / 2, miny - NH / 2, maxy + NH / 2);
-    showCmpCard(a, b, best, cas, A, B);
+    showCmpCard(a, b, best, cas, A, B); // 先渲染卡片才量得到高度（手機版 fitBox 要避開）
+    fitBox(minx - NW / 2, maxx + NW / 2, miny - NH / 2, maxy + NH / 2, infoInset());
     const z = document.getElementById('ft-zoo'); if (z) z.value = '';
   }
   function showCmpCard(a, b, deg, cas, A, B) {
@@ -289,7 +299,7 @@
           (cas.length > 4 ? ` <span style="opacity:.7">+${cas.length - 4}</span>` : '') + `</div>`;
       }
     }
-    info.style.display = 'block';
+    infoShow(true);
     info.innerHTML =
       `<h2>${shortName(N[a][1])}${sexMark(N[a])} × ${shortName(N[b][1])}${sexMark(N[b])}</h2>` +
       `<div class="row"><span>${T.ft_rel || '關係'}</span><b>${rel}</b></div>` + rows +
@@ -304,14 +314,14 @@
     nodeEls.forEach((g, j) => { g.classList.remove('ft-hidden', 'hl', 'faded', 'ca'); g.setAttribute('transform', `translate(${N[j][6]} ${N[j][7]})`); });
     edgeEls.forEach((l, k) => { const [c, p] = E[k]; l.classList.remove('ft-hidden', 'on', 'faded'); l.setAttribute('d', edgePath(c, p, (i) => N[i][6], (i) => N[i][7])); });
   }
-  function showAll() { picking = false; cmpPair = null; restoreAll(); info.style.display = 'none'; const z = document.getElementById('ft-zoo'); if (z) z.value = ''; fit(); }
+  function showAll() { picking = false; cmpPair = null; restoreAll(); infoShow(false); const z = document.getElementById('ft-zoo'); if (z) z.value = ''; fit(); }
   function applyFade(keep) {
     nodeEls.forEach((g, j) => g.classList.toggle('faded', !keep.has(j)));
     edgeEls.forEach((l, k) => { const [c, p] = E[k]; l.classList.toggle('faded', !(keep.has(c) && keep.has(p))); });
   }
   function highlightZoo(zid) {
     if (!zid) { showAll(); return; }
-    picking = false; cmpPair = null; restoreAll(); info.style.display = 'none'; hideCoach();
+    picking = false; cmpPair = null; restoreAll(); infoShow(false); hideCoach();
     const keep = new Set(); N.forEach((n, j) => { if ((n[8] || []).indexOf(+zid) >= 0) keep.add(j); });
     applyFade(keep); fit();
   }

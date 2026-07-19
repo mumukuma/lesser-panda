@@ -267,9 +267,9 @@
       const cls = `tree-node ${d[2] === 'f' ? 'f' : d[2] === 'm' ? 'm' : ''} ${n.slug === CENTER ? 'center' : ''}`;
       const primary = nameByLoc(d);
       const alt = [d[0], jaShort(d)].find(x => x && x !== primary) || '';
-      const dead = d[4] ? ' 🌈' : '';
+      const dead = d[4] ? ' ' + (window.T.deceased_mark || '🪐') : '';
       const yr = d[3] || '';
-      // 三行：名字／讀音／年份（🌈 放年份行；無年份時併回名字行）
+      // 三行：名字／讀音／年份（deceased_mark 放年份行；無年份時併回名字行）
       const lines = [{ t: primary + (yr ? '' : dead), fs: 12, cls: '' }];
       if (alt) lines.push({ t: alt, fs: 10, cls: 'sub' });
       if (yr) lines.push({ t: yr + dead, fs: 9, cls: 'yr' });

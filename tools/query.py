@@ -49,7 +49,7 @@ class RedPandaDB:
             print(f"找不到: {slug}")
             return
         print(f"{'='*50}")
-        print(f"  {p['name']}（{p['japanese'] or '-'}）{' 🌈' if p['died'] else ''}")
+        print(f"  {p['name']}（{p['japanese'] or '-'}）{' 🪐' if p['died'] else ''}")
         print(f"  slug: {slug}  |  RPF: #{p['rpf_id']}")
         print(f"  性別: {p['sex']}  |  生: {p['born']}  |  歿: {p['died'] or '現存'}")
         print(f"  物種: {p['species']}")
@@ -123,7 +123,7 @@ class RedPandaDB:
                 for s in gens:
                     r = name_map.get(s)
                     if r:
-                        died = f"🌈{r['died']}" if r['died'] else '現存'
+                        died = f"🪐{r['died']}" if r['died'] else '現存'
                         print(f"    {r['name']} ({r['born'] or '?'}–{r['died'] or ''}) [{s}]")
         else:
             print(f"{slug} 無已知祖先記錄")
@@ -164,7 +164,7 @@ class RedPandaDB:
                 for s in sorted(by_gen[gen]):
                     r = name_map.get(s)
                     if r:
-                        died = " 🌈" if r['died'] else ""
+                        died = " 🪐" if r['died'] else ""
                         print(f"    {r['name']}{died} ({r['born'] or '?'}) [{s}]")
         else:
             print(f"{slug} 無已知後代記錄")
@@ -216,7 +216,7 @@ class RedPandaDB:
         print(f"\n{zoo_name}（搜尋: {keyword}）— {len(rows)} 筆記錄")
         for r in rows:
             end = r['end_year'] or '現在'
-            status = "🌈" if r['died'] else "◎"
+            status = "🪐" if r['died'] else "◎"
             print(f"  {status} {r['name']} ({r['sex']}, {r['born']}): {r['start_year']}–{end}")
 
     # ── 配對候選 ─────────────────────────────────────────────

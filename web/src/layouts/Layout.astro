@@ -138,7 +138,7 @@ const ogLocale = { 'zh-TW': 'zh_TW', 'zh-CN': 'zh_CN', ja: 'ja_JP', en: 'en_US',
 
   <div class:list={['max-w-4xl mx-auto px-4 pb-16', active !== 'home' && 'pt-[var(--header-h,64px)]']}>
     <slot />
-    <!-- 頁尾：無卡片，首頁直接坐在森林地面上（.site-footer 的文字底暈見 global.css）；
+    <!-- 頁尾：無卡片，全站直接坐在森林地面上（.site-footer 的文字底暈見 global.css）；
          連結分隔「·」恆顯示避免兩連結黏成一句；meta 拆兩行免得窄版換行難看 -->
     <footer class="site-footer mt-12 text-ink-soft text-[.84rem] px-4 py-3 text-center">
       <div class="flex flex-wrap justify-center items-center gap-x-2.5 gap-y-1">
@@ -150,7 +150,7 @@ const ogLocale = { 'zh-TW': 'zh_TW', 'zh-CN': 'zh_CN', ja: 'ja_JP', en: 'en_US',
       <div class="mt-0.5 opacity-80">{T.data_note} {new Date().toISOString().slice(0, 10)}</div>
     </footer>
   </div>
-  <!-- 森林地面：頁面最底（首頁限定）-->
+  <!-- 森林地面：頁面最底（全站共用）-->
   <div class="forest-floor" aria-hidden="true">
     <div class="layer trees"></div>
     <div class="layer fore"></div>

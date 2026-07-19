@@ -186,6 +186,13 @@ export const searchDataFor = (locale) => ({
   })),
 });
 
+// ── 首頁「今日休園」：有 closed_rule 的園（名稱依語系解析）；今天是否休園由
+//    client 端 js/closed.js 以 JST 計算（deploy 無 cron）。──
+export const closedDataFor = (locale) => ({
+  zoos: zoos.filter((z) => z.closed_rule)
+    .map((z) => ({ n: zooName(z.id, null, locale), u: z.slug, r: z.closed_rule })),
+});
+
 // ── 日本家系圖（整合頁 #jptree）：建置期算「日本主網」+ 世代分層佈局 ──────
 // 「日本個體」＝一生曾住過 country==='Japan' 的園。整個日本其實是一張互相通婚的
 // 大家族網，故取最大連通元件呈現（父子＋雙胞胎為邊）。佈局：世代為橫列（y），

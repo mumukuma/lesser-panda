@@ -96,7 +96,7 @@ const bandMax = Math.max(...bands.map(([, f, m]) => Math.max(f, m)), 1);
 
 // ── 長壽排行（年紀顯示到「N 歲 M 個月」）─────────────────
 const link = (p) =>
-  `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, p.urlId)}">${displayName(p, locale)}${p.died ? ' 🌈' : ''}</a>`;
+  `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, p.urlId)}">${displayName(p, locale)}${p.died ? ' ' + T.deceased_mark : ''}</a>`;
 const ymStr = (a, b) => {
   let y = b.getFullYear() - a.getFullYear();
   let m = b.getMonth() - a.getMonth();

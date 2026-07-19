@@ -29,6 +29,8 @@
   --cream: #f5e9d9; --line: #ece0cf; --female: #c2563f; --male: #3f7a8c;
   /* 森林點綴（柔和，僅供插畫／背景，不作為 CTA accent）*/
   --sky-1: #e9f1ee; --sky-2: #cfe3ee; --leaf: #8bb672; --leaf-deep: #5e8a4e;
+  /* 家系圖等大畫布共用色：底色摻一點當前天空色（跟著四季／節氣微移）、連線中性暖褐 */
+  --canvas: color-mix(in srgb, var(--sky-1) 26%, #fffdf9); --edge: #d7c5b0;
   /* 形狀 */
   --r-card: 20px; --r-chip: 9999px; --r-input: 14px;
   --shadow: 0 1px 2px rgba(61,44,35,.05), 0 10px 24px rgba(61,44,35,.07);
@@ -43,6 +45,7 @@
   --rust: #e0976a; --rust-dark: #c2703f; --amber: #e8a13c;
   --cream: #322620; --line: #3c322b; --female: #e98c74; --male: #82b6c6;
   --sky-1: #1a2622; --sky-2: #14202a; --leaf: #4f6f41; --leaf-deep: #3a5530;
+  --canvas: color-mix(in srgb, var(--sky-1) 12%, #1c1511); --edge: #5a4a3c;
   --shadow: 0 1px 3px rgba(0,0,0,.45), 0 10px 24px rgba(0,0,0,.38);
   --shadow-pop: 0 3px 0 rgba(0,0,0,.35), 0 12px 26px rgba(0,0,0,.42);
 }
@@ -53,6 +56,7 @@
     --rust: #e0976a; --rust-dark: #c2703f; --amber: #e8a13c;
     --cream: #322620; --line: #3c322b; --female: #e98c74; --male: #82b6c6;
     --sky-1: #1a2622; --sky-2: #14202a; --leaf: #4f6f41; --leaf-deep: #3a5530;
+    --canvas: color-mix(in srgb, var(--sky-1) 12%, #1c1511); --edge: #5a4a3c;
     --shadow: 0 1px 3px rgba(0,0,0,.45), 0 10px 24px rgba(0,0,0,.38);
     --shadow-pop: 0 3px 0 rgba(0,0,0,.35), 0 12px 26px rgba(0,0,0,.42);
   }
@@ -83,6 +87,104 @@
   --snow-1: rgba(255,255,255,.9); --snow-2: rgba(200,220,240,.4);
 }
 
+/* ── 二十四節氣：data-jieqi 由 js/season.js 設定（依 JST 節氣日期表）────
+   四季之上的輕量細分：淺色模式微調 sky/leaf 並給一個節氣點綴色
+   （--jq-ac 色塊／--jq-ink 其上文字），各季內做 6 段漸變；色票參考
+   日本傳統色。深色模式天空過暗、微調無感，只換點綴色（提亮版）。
+   本區塊置於四季覆寫之後（同特異度、後者勝）；深色四季（0,3,0）
+   仍壓過本區淺色值（0,2,0），故深色不會吃到淺色天空。
+   無 JS 時無 data-jieqi，退回四季（再退回品牌預設秋）。 */
+:root { --jq-ac: #c9873b; --jq-ink: #46290a; }
+:root[data-theme="dark"] { --jq-ac: #d9a05e; }
+:root[data-jieqi="xiaohan"]     { --sky-1: #eef2fa; --sky-2: #cddff2; --leaf: #9fb6b4; --leaf-deep: #728f8c; --jq-ac: #8ba6c9; --jq-ink: #22334d; }
+:root[data-jieqi="dahan"]       { --sky-1: #f0f3fa; --sky-2: #d2e0f1; --leaf: #a4b8b0; --leaf-deep: #778f85; --jq-ac: #c8b64c; --jq-ink: #3f3708; }
+:root[data-jieqi="lichun"]      { --sky-1: #f4f1f6; --sky-2: #dbe4ef; --leaf: #a3bda6; --leaf-deep: #748f77; --jq-ac: #d488a8; --jq-ink: #4c1f33; }
+:root[data-jieqi="yushui"]      { --sky-1: #f0f3f4; --sky-2: #d5e5ea; --leaf: #9dbf97; --leaf-deep: #6f9169; --jq-ac: #79aa96; --jq-ink: #1c3a2f; }
+:root[data-jieqi="jingzhe"]     { --sky-1: #fbeff0; --sky-2: #dfeddc; --leaf: #a3c785; --leaf-deep: #6f9c58; --jq-ac: #9fbf58; --jq-ink: #2f3d0e; }
+:root[data-jieqi="chunfen"]     { --sky-1: #fdeaf1; --sky-2: #e3ecdb; --leaf: #a2ca7f; --leaf-deep: #6b9c52; --jq-ac: #e491b0; --jq-ink: #571f35; }
+:root[data-jieqi="qingming"]    { --sky-1: #ecf2f6; --sky-2: #d3e8e2; --leaf: #97c573; --leaf-deep: #639549; --jq-ac: #74b3a2; --jq-ink: #123832; }
+:root[data-jieqi="guyu"]        { --sky-1: #edf0ef; --sky-2: #cfe3da; --leaf: #8fbf6d; --leaf-deep: #5f9247; --jq-ac: #7f9ec4; --jq-ink: #20304d; }
+:root[data-jieqi="lixia"]       { --sky-1: #eaf5ef; --sky-2: #cde8e2; --leaf: #8cc06a; --leaf-deep: #5c9448; --jq-ac: #68be8d; --jq-ink: #123f28; }
+:root[data-jieqi="xiaoman"]     { --sky-1: #e9f4ec; --sky-2: #c9e5d0; --leaf: #7fba58; --leaf-deep: #528a3e; --jq-ac: #8fae3c; --jq-ink: #2b3a0a; }
+:root[data-jieqi="mangzhong"]   { --sky-1: #e8f1f6; --sky-2: #c6d9ec; --leaf: #6bab63; --leaf-deep: #457c3e; --jq-ac: #7a92c9; --jq-ink: #1e2a4d; }
+:root[data-jieqi="xiazhi"]      { --sky-1: #e2f4f9; --sky-2: #bde2f3; --leaf: #5daf4e; --leaf-deep: #3d7d31; --jq-ac: #3a9e5f; --jq-ink: #0b3520; }
+:root[data-jieqi="xiaoshu"]     { --sky-1: #ddf1f8; --sky-2: #b3ddf2; --leaf: #63ad52; --leaf-deep: #417c33; --jq-ac: #e8a13c; --jq-ink: #5b3c08; }
+:root[data-jieqi="dashu"]       { --sky-1: #ddeef6; --sky-2: #abd4ee; --leaf: #5aa04b; --leaf-deep: #3b702e; --jq-ac: #d9702f; --jq-ink: #4a1f05; }
+:root[data-jieqi="liqiu"]       { --sky-1: #e3eef2; --sky-2: #b9d8e8; --leaf: #6aa74f; --leaf-deep: #497a34; --jq-ac: #c9873b; --jq-ink: #46290a; }
+:root[data-jieqi="chushu"]      { --sky-1: #e8eeee; --sky-2: #c3dade; --leaf: #7aa855; --leaf-deep: #547c39; --jq-ac: #b0893f; --jq-ink: #3c2c0d; }
+:root[data-jieqi="bailu"]       { --sky-1: #edf2f0; --sky-2: #d3e4ec; --leaf: #8db370; --leaf-deep: #618a4c; --jq-ac: #8fa8bd; --jq-ink: #263646; }
+:root[data-jieqi="qiufen"]      { --sky-1: #eef0ea; --sky-2: #d4e2e6; --leaf: #94b26a; --leaf-deep: #6a8a47; --jq-ac: #c05a4a; --jq-ink: #451712; }
+:root[data-jieqi="hanlu"]       { --sky-1: #f0efe8; --sky-2: #d6e0dd; --leaf: #a3af62; --leaf-deep: #7a8a43; --jq-ac: #ba7a2f; --jq-ink: #40280c; }
+:root[data-jieqi="shuangjiang"] { --sky-1: #f2ede5; --sky-2: #dcdfd3; --leaf: #b3a659; --leaf-deep: #8a7c3d; --jq-ac: #ad4a26; --jq-ink: #3c1809; }
+:root[data-jieqi="lidong"]      { --sky-1: #eeefec; --sky-2: #d3dde2; --leaf: #9aa583; --leaf-deep: #6f7d5c; --jq-ac: #c96b70; --jq-ink: #481a1e; }
+:root[data-jieqi="xiaoxue"]     { --sky-1: #eef0f2; --sky-2: #d3dde6; --leaf: #97a68b; --leaf-deep: #6d7f63; --jq-ac: #9aa8b5; --jq-ink: #2b3540; }
+:root[data-jieqi="daxue"]       { --sky-1: #eef3f9; --sky-2: #d0e0f0; --leaf: #9cb7ac; --leaf-deep: #6e8e81; --jq-ac: #7f9cb8; --jq-ink: #1f3245; }
+:root[data-jieqi="dongzhi"]     { --sky-1: #edf1f7; --sky-2: #cadcee; --leaf: #96b3a8; --leaf-deep: #6a8a7d; --jq-ac: #e0b13e; --jq-ink: #4a3407; }
+:root[data-theme="dark"][data-jieqi="xiaohan"]     { --jq-ac: #9db8d8; }
+:root[data-theme="dark"][data-jieqi="dahan"]       { --jq-ac: #d6c76a; }
+:root[data-theme="dark"][data-jieqi="lichun"]      { --jq-ac: #dfa0bc; }
+:root[data-theme="dark"][data-jieqi="yushui"]      { --jq-ac: #92c0ad; }
+:root[data-theme="dark"][data-jieqi="jingzhe"]     { --jq-ac: #b3cf76; }
+:root[data-theme="dark"][data-jieqi="chunfen"]     { --jq-ac: #eba7c1; }
+:root[data-theme="dark"][data-jieqi="qingming"]    { --jq-ac: #8fc6b6; }
+:root[data-theme="dark"][data-jieqi="guyu"]        { --jq-ac: #97b2d3; }
+:root[data-theme="dark"][data-jieqi="lixia"]       { --jq-ac: #82cba4; }
+:root[data-theme="dark"][data-jieqi="xiaoman"]     { --jq-ac: #a8c356; }
+:root[data-theme="dark"][data-jieqi="mangzhong"]   { --jq-ac: #93a9d6; }
+:root[data-theme="dark"][data-jieqi="xiazhi"]      { --jq-ac: #5fb886; }
+:root[data-theme="dark"][data-jieqi="xiaoshu"]     { --jq-ac: #edb45f; }
+:root[data-theme="dark"][data-jieqi="dashu"]       { --jq-ac: #e28d55; }
+:root[data-theme="dark"][data-jieqi="liqiu"]       { --jq-ac: #d9a05e; }
+:root[data-theme="dark"][data-jieqi="chushu"]      { --jq-ac: #c6a05f; }
+:root[data-theme="dark"][data-jieqi="bailu"]       { --jq-ac: #a7bccd; }
+:root[data-theme="dark"][data-jieqi="qiufen"]      { --jq-ac: #d47a6b; }
+:root[data-theme="dark"][data-jieqi="hanlu"]       { --jq-ac: #cc934f; }
+:root[data-theme="dark"][data-jieqi="shuangjiang"] { --jq-ac: #cf7350; }
+:root[data-theme="dark"][data-jieqi="lidong"]      { --jq-ac: #d98a8e; }
+:root[data-theme="dark"][data-jieqi="xiaoxue"]     { --jq-ac: #b0bdc9; }
+:root[data-theme="dark"][data-jieqi="daxue"]       { --jq-ac: #9ab4cd; }
+:root[data-theme="dark"][data-jieqi="dongzhi"]     { --jq-ac: #e9c563; }
+
+/* ── 節氣標示（首頁 hero 左上，印章式）：明朝體大字＋直排起始日＋英文小 caps。
+   字型為子集化 Noto Serif TC Light（節氣用字＋漢字數字，約 20KB），
+   韓文名退回系統明朝系 serif。文字由 season.js 填入，no-JS 時保持 hidden。 */
+@font-face {
+  font-family: 'RPW Mincho';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/jieqi-mincho.woff2') format('woff2');
+}
+.jieqi-mark {
+  /* 探頭吉祥物（right 7%、top 76px、寬 74/54px）正下方，往左微移對齊視覺重心 */
+  position: absolute; top: 156px; right: calc(7% + 14px); z-index: 2; text-align: right;
+  user-select: none; pointer-events: none;
+  font-family: 'RPW Mincho', 'Noto Serif TC', 'Hiragino Mincho ProN', 'Yu Mincho',
+    'Songti TC', 'AppleMyungjo', 'Batang', serif;
+}
+.jieqi-mark .jq-row { display: flex; align-items: flex-start; justify-content: flex-end; gap: 6px; }
+.jieqi-mark #jq-name {
+  font-weight: 300; font-size: 28px; line-height: 1.1;
+  letter-spacing: .06em; color: var(--ink);
+}
+.jieqi-mark #jq-date {
+  writing-mode: vertical-rl; font-size: 10.5px; letter-spacing: .3em;
+  color: var(--jq-ink); padding-top: 2px;
+}
+.jieqi-mark #jq-en {
+  font-family: var(--font-body); font-size: 9.5px; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--jq-ink);
+  margin-top: 6px; max-width: 140px; line-height: 1.7;
+}
+:root[data-theme="dark"] .jieqi-mark #jq-date,
+:root[data-theme="dark"] .jieqi-mark #jq-en { color: var(--jq-ac); }
+@media (max-width: 640px) {
+  /* 手機探頭吉祥物寬 54px（高同寬），底 ≈ 76+54=130px */
+  .jieqi-mark { top: 136px; }
+  .jieqi-mark #jq-name { font-size: 22px; }
+  .jieqi-mark #jq-en { max-width: 110px; }
+}
+
 html { scroll-behavior: smooth; overflow-x: clip; }
 body { background: var(--bg); color: var(--ink); min-height: 100dvh; position: relative; }
 h1, h2, h3, .font-display { font-family: var(--font-display); }
@@ -109,9 +211,9 @@ h1, h2, h3 { letter-spacing: .005em; }
   background: radial-gradient(120% 90% at 50% 110%, rgba(70,95,130,.20), transparent 55%);
 }
 
-/* 森林地面：錨定在頁面最底（首頁限定），頁尾坐落森林中，不干擾中段內容 */
-.forest-floor { position: absolute; left: 0; right: 0; bottom: 0; height: 30vh; min-height: 200px; z-index: -1; overflow: hidden; pointer-events: none; display: none; }
-body.home .forest-floor { display: block; }
+/* 森林地面：錨定在頁面最底（全站共用，2026-07-19 起），頁尾坐落森林中，不干擾中段內容；
+   z-index:-1 故卡片內容若落在底部 30vh 內會蓋住插畫，屬預期 */
+.forest-floor { position: absolute; left: 0; right: 0; bottom: 0; height: 30vh; min-height: 200px; z-index: -1; overflow: hidden; pointer-events: none; }
 .forest-floor .layer { position: absolute; left: 0; right: 0; bottom: 0; background-repeat: no-repeat; }
 .forest-floor .trees {
   height: 62%;
@@ -138,10 +240,10 @@ body.home .forest-floor { display: block; }
 :root[data-theme="dark"] .forest-floor .trees,
 :root[data-theme="dark"] .forest-floor .fore { opacity: .55; filter: saturate(.7) brightness(.7); }
 
-/* 頁尾：無卡片。首頁時文字直接坐在森林地面插畫上，
+/* 頁尾：無卡片。文字直接坐在森林地面插畫上（全站），
    用 --bg 色 text-shadow 做柔和底暈確保四季（含雪景/深色模式）都讀得到 */
-.site-footer { position: relative; z-index: 1; }
-body.home .site-footer {
+.site-footer {
+  position: relative; z-index: 1;
   text-shadow: 0 1px 2px var(--bg), 0 0 8px var(--bg), 0 0 18px var(--bg);
 }
 
@@ -348,9 +450,8 @@ body.home .site-footer {
 @media (max-width: 640px) { .hero-forest { height: 330px; } }
 
 /* ── 家系圖 SVG（沿用，非 Tailwind）──────────────────── */
-#tree-box { height: 460px; overflow: hidden; touch-action: none; background: #fffdf9;
+#tree-box { height: 460px; overflow: hidden; touch-action: none; background: var(--canvas);
   border: 1px solid var(--line); border-radius: 14px; user-select: none; }
-:root[data-theme="dark"] #tree-box { background: #1c1511; }
 #tree-box svg { display: block; width: 100%; height: 100%; }
 .tree-node { cursor: pointer; }
 .tree-node rect { fill: var(--bg-card); stroke: var(--line); stroke-width: 1.2; }
@@ -369,8 +470,7 @@ body.home .site-footer {
 .tree-node text { font-size: 12px; fill: var(--ink); }
 .tree-node .sub { font-size: 10px; fill: var(--ink-soft); }
 .tree-node .yr { font-size: 9px; fill: var(--ink-soft); opacity: .72; letter-spacing: .03em; }
-.tree-link { fill: none; stroke: #d7c5b0; stroke-width: 1.4; }
-:root[data-theme="dark"] .tree-link { stroke: #5a4a3c; }
+.tree-link { fill: none; stroke: var(--edge); stroke-width: 1.4; }
 .tree-link.twin { stroke: var(--amber); stroke-dasharray: 4 3; }
 .tree-link.half { stroke: #b9a78f; stroke-dasharray: 2 3; opacity: .8; }
 :root[data-theme="dark"] .tree-link.half { stroke: #6b5b4a; }

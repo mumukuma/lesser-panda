@@ -13,7 +13,7 @@ const name = zooName(z.id, z.en_name, locale);
 // 蘋果籽佔位（尚未命名的寶寶）icon，掛在名字後
 const seedIcon = ' <span title="' + T.placeholder_badge + '">🍎</span>';
 const link = (p) =>
-  `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, p.urlId)}">${displayName(p, locale)}${p.died ? ' 🌈' : ''}${p.unverified ? ' 🚧' : ''}${p.placeholder ? seedIcon : ''}</a>`;
+  `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, p.urlId)}">${displayName(p, locale)}${p.died ? ' ' + T.deceased_mark : ''}${p.unverified ? ' 🚧' : ''}${p.placeholder ? seedIcon : ''}</a>`;
 
 // 現居：pipeline 已依 zoos.json residents 排序好
 const residents = z.residents.map((s) => pandas[s]).filter(Boolean);
@@ -54,6 +54,9 @@ const pill = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem] no
   </div>
   {(z.location_ja || z.location_en || z.country) && (
     <p class="text-ink-soft text-[.95rem] mt-1.5 mb-0">📍 {z.location_ja || z.location_en || z.country}</p>
+  )}
+  {z.closed_ja && (
+    <p class="text-ink-soft text-[.95rem] mt-1.5 mb-0">🗓️ {T.zoo_closed}：{z.closed_ja}<span class="text-[.8rem] opacity-70">（{T.zoo_closed_note}）</span></p>
   )}
   <div class="mt-3 flex gap-2 flex-wrap">
     {z.lat && <a class={pill} href={`${zoosHref}#zoo-${z.id}`}>🗺️ {T.nav_zoos}</a>}

@@ -18,7 +18,7 @@
   var fill = function (t, n) { return t.replace('{n}', n); };
   var chip = function (p, info) {
     return '<a class="pop inline-flex items-baseline gap-1.5 bg-cream border border-line rounded-full px-3.5 py-1.5 text-[.92rem] no-underline hover:border-amber" href="' + PAGE + 'p/' + (p.u || p.slug) + '/">' +
-      '<span class="font-semibold">' + esc(nameOf(p)) + (p.died ? ' 🌈' : '') + '</span>' +
+      '<span class="font-semibold">' + esc(nameOf(p)) + (p.died ? ' ' + T.deceased_mark : '') + '</span>' +
       (info ? '<span class="text-[.82rem] text-ink-soft">' + esc(info) + '</span>' : '') + '</a>';
   };
   var byBorn = function (a, b) { return (a.born || '') < (b.born || '') ? -1 : 1; };

@@ -62,7 +62,7 @@
     var sexTxt = p.sex === 'female' ? '♀' : p.sex === 'male' ? '♂' : '?';
     var age = ageOf(p);
     // 存疑個體不顯示推算年齡（等同宣稱在世），改標 🚧
-    var life = p.died ? ((p.born || '?').slice(0, 4) + '-' + p.died.slice(0, 4) + ' 🌈')
+    var life = p.died ? ((p.born || '?').slice(0, 4) + '-' + p.died.slice(0, 4) + ' ' + T.deceased_mark)
       : p.uv ? ((p.born || '?').slice(0, 4) + '- 🚧')
       : ((p.born || '?').slice(0, 4) + '-' + (age !== null ? '（' + age + '）' : ''));
     var alt = altOf(p);

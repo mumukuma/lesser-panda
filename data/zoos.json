@@ -292,6 +292,33 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "石川縣能美市",
+  "closed_ja": "毎週火曜日（祝日の場合は翌平日）、12月29日〜1月1日 ※春・夏休み期間は無休",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "tue"
+    ],
+    "holiday": "next_weekday",
+    "suspend": [
+     {
+      "from": "03-25",
+      "to": "04-07",
+      "note": "春休み期間は無休（慣例窗，非官方日期）"
+     },
+     {
+      "from": "07-20",
+      "to": "08-31",
+      "note": "夏休み期間は無休（慣例窗，非官方日期）"
+     }
+    ]
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Nomi, Ishikawa, Japan",
   "lat": 36.4337633,
   "lng": 136.5435233,
@@ -311,6 +338,21 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "徳島縣徳島市",
+  "closed_ja": "毎週月曜日（祝日の場合は翌日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Tokushima City, Tokushima Prefecture, Japan",
   "lat": 34.0137524,
   "lng": 134.5191863,
@@ -329,6 +371,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "大阪府枚方市",
+  "closed_ja": "不定休（営業カレンダーで告知）",
   "location_en": "Hirakata, Osaka Prefecture, Japan",
   "lat": 34.8082596,
   "lng": 135.6374833,
@@ -369,6 +412,21 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "神奈川縣橫濱市",
+  "closed_ja": "毎週火曜日（祝日の場合は翌日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "tue"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Yokohama, Kanagawa Prefecture, Japan",
   "lat": 35.4948688,
   "lng": 139.5243211,
@@ -387,6 +445,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "和歌山縣白濱町",
+  "closed_ja": "不定休（主に水曜日、公式営業カレンダーで告知）",
   "location_en": "Shirahama, Wakayama Prefecture, Japan",
   "lat": 33.6678459,
   "lng": 135.3738168,
@@ -422,6 +481,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "沖繩縣名護市",
+  "closed_ja": "年中無休",
   "location_en": "Nago, Okinawa, Japan",
   "lat": 26.3518089,
   "lng": 127.5471944,
@@ -440,6 +500,21 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "靜岡縣三島市",
+  "closed_ja": "毎週月曜日（祝日・振替休日の場合は直後の平日）、12月27日〜1月2日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_weekday"
+   },
+   {
+    "type": "range",
+    "from": "12-27",
+    "to": "01-02"
+   }
+  ],
   "location_en": "Mishima, Shizuoka Prefecture, Japan",
   "lat": 35.1248786,
   "lng": 138.9087188,
@@ -459,6 +534,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "佐世保市長崎県",
+  "closed_ja": "年中無休",
   "location_en": "Sasebo, Nagasaki Prefecture, Japan",
   "lat": 33.1512305,
   "lng": 129.6873023,
@@ -478,6 +554,21 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "京都府京都市左京區",
+  "closed_ja": "毎週月曜日（祝日の場合は翌平日）、12月28日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_weekday"
+   },
+   {
+    "type": "range",
+    "from": "12-28",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Kyoto City, Kyoto Prefecture, Sakyo Ward, Japan",
   "lat": 35.0126991,
   "lng": 135.7839212,
@@ -496,6 +587,15 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "宮城県仙台市",
+  "closed_ja": "毎週水曜日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ]
+   }
+  ],
   "location_en": "Taihaku Ward, Sendai, Miyagi Prefecture, Japan",
   "lat": 38.245601,
   "lng": 140.8446113,
@@ -516,6 +616,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "靜岡縣伊東市",
+  "closed_ja": "年中無休",
   "location_en": "Itō, Shizuoka Prefecture, Japan",
   "lat": 34.9074178,
   "lng": 139.0957297,
@@ -534,6 +635,17 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "福岡県北九州市",
+  "closed_ja": "毎週火曜日（祝日の場合は開園し翌日休園）、年末年始 ※年始・春休み・夏休み等は開園する場合あり",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "tue"
+    ],
+    "holiday": "next_day",
+    "note": "「年末年始」具体日付未確認のため未編碼；年始・春休み・夏休み等の臨時開園は含まず"
+   }
+  ],
   "location_en": "Kitakyushu, Fukuoka Prefecture, Japan",
   "lat": 33.8738674,
   "lng": 130.8444053,
@@ -553,6 +665,21 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "千葉縣千葉市",
+  "closed_ja": "毎週水曜日（休日の場合は翌日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Chiba Prefecture, Japan",
   "lat": 35.6449037,
   "lng": 140.1250899,
@@ -588,6 +715,22 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "山口縣周南市",
+  "closed_ja": "毎週火曜日（祝日の場合は翌日）、12月29日〜31日 ※冬期に臨時休園あり",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "tue"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "12-31",
+    "note": "冬期臨時休園は日付不定のため未編碼"
+   }
+  ],
   "location_en": "Shūnan, Yamaguchi Prefecture, Japan",
   "lat": 34.061274,
   "lng": 131.8129122,
@@ -607,6 +750,21 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "埼玉縣東松山市",
+  "closed_ja": "毎週月曜日（祝日の場合は開園）、12月30日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "open"
+   },
+   {
+    "type": "range",
+    "from": "12-30",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Highashimatsuyama, Saitama Prefecture, Japan",
   "lat": 35.9993587,
   "lng": 139.3728133,
@@ -625,6 +783,21 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "東京都日野市",
+  "closed_ja": "毎週水曜日（祝日・振替休日の場合は翌日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Hino, Tokyo, Japan",
   "lat": 35.6495222,
   "lng": 139.4000674,
@@ -643,6 +816,23 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "福岡縣大牟田市",
+  "closed_ja": "毎月第2・第4月曜日（祝日・振替休日の場合は翌日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "nth_weekly",
+    "dow": "mon",
+    "nth": [
+     2,
+     4
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Omuta, Fukuoka Prefecture, Japan",
   "lat": 33.019018,
   "lng": 130.4423493,
@@ -661,11 +851,26 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "大阪府大阪市",
+  "closed_ja": "毎週月曜日（休日の場合は翌日）、年末年始（12月29日〜1月1日）※臨時開園日は営業日カレンダー参照",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Tennōji-ku, Osaka, Japan",
   "lat": 34.6505304,
   "lng": 135.5062635,
   "map": "https://goo.gl/maps/jgQy9DYiBJJ2",
-  "website": "http://www.city.osaka.lg.jp/contents/wdu170/tennojizoo/",
+  "website": "https://www.tennojizoo.jp/",
   "logo": null,
   "aliases": [
    "Osaka Tennōji Zoo"
@@ -679,6 +884,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "兵庫縣姬路市",
+  "closed_ja": "不定休（営業カレンダーで告知）",
   "location_en": "Himeji, Hyōgo Prefecture, Japan",
   "lat": 34.8710334,
   "lng": 134.7621733,
@@ -697,6 +903,14 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "兵庫縣姫路市",
+  "closed_ja": "12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Himeji, Hyōgo Prefecture, Japan",
   "lat": 34.8372111,
   "lng": 134.6921642,
@@ -715,6 +929,19 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "宮崎県宮崎市",
+  "closed_ja": "毎週水曜日、12月31日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ]
+   },
+   {
+    "type": "date",
+    "on": "12-31"
+   }
+  ],
   "location_en": "Miyazaki City, Miyazaki Prefecture, Japan",
   "lat": 31.9828945,
   "lng": 131.4739183,
@@ -733,6 +960,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "靜岡縣裾野市",
+  "closed_ja": "年中無休（悪天候時は休園の場合あり）",
   "location_en": "Susuno, Shizuoka Prefecture, Japan",
   "lat": 35.2587801,
   "lng": 138.8076475,
@@ -752,6 +980,28 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "富山縣富山市",
+  "closed_ja": "毎月第1・第3火曜日（祝祭日を除く）、2月24日〜3月14日、12月28日〜1月4日",
+  "closed_rule": [
+   {
+    "type": "nth_weekly",
+    "dow": "tue",
+    "nth": [
+     1,
+     3
+    ],
+    "holiday": "open"
+   },
+   {
+    "type": "range",
+    "from": "02-24",
+    "to": "03-14"
+   },
+   {
+    "type": "range",
+    "from": "12-28",
+    "to": "01-04"
+   }
+  ],
   "location_en": "Toyama, Toyama Prefecture, Japan",
   "lat": 36.6909023,
   "lng": 137.1460493,
@@ -770,6 +1020,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "神奈川縣川崎市",
+  "closed_ja": "年中無休",
   "location_en": "Kawasaki, Kanagawa Prefecture, Japan",
   "lat": 35.5491319,
   "lng": 139.6630574,
@@ -788,6 +1039,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "千葉縣市原市",
+  "closed_ja": "不定休（営業日カレンダーで告知）",
   "location_en": "Ichihara, Chiba Prefecture, Japan",
   "lat": 35.3547971,
   "lng": 140.1801333,
@@ -806,6 +1058,17 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "千葉縣市川市",
+  "closed_ja": "毎週月曜日（祝日の場合は翌日）、年末年始",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day",
+    "note": "「年末年始」具体日付未確認のため未編碼"
+   }
+  ],
   "location_en": "Ichikawa, Chiba Prefecture, Japan",
   "lat": 35.7642063,
   "lng": 139.9638014,
@@ -824,6 +1087,21 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "廣島縣",
+  "closed_ja": "毎週木曜日（祝日は開園）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "thu"
+    ],
+    "holiday": "open"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Hiroshima Prefecture, Japan",
   "lat": 34.4982738,
   "lng": 132.4386406,
@@ -842,6 +1120,21 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "東京都台東區",
+  "closed_ja": "毎週月曜日（祝日・振替休日の場合は翌日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Taitō, Tokyo, Japan",
   "lat": 35.7164578,
   "lng": 139.769129,
@@ -861,6 +1154,21 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "愛媛縣伊予郡砥部町",
+  "closed_ja": "毎週月曜日（祝日の場合は翌平日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_weekday"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Tobe, Ehime Prefecture, Shikoku, Japan",
   "lat": 33.7640286,
   "lng": 132.7920585,
@@ -881,6 +1189,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "茨城縣日立市",
+  "closed_ja": "月曜日を中心に月ごとに指定（祝日の場合は翌日等、7月下旬〜8月は無休）※公式サイト参照",
   "location_en": "Hitachi, Ibaraki Prefecture, Japan",
   "lat": 36.6067412,
   "lng": 140.6559983,
@@ -900,6 +1209,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "北海道旭川市",
+  "closed_ja": "夏期・冬期開園制、期間切替時（11月上旬・4月）に休園期間あり（公式開園カレンダーで告知）",
   "location_en": "Asahikawa, Hokkaido, Japan",
   "lat": 43.7684289,
   "lng": 142.4778913,
@@ -919,6 +1229,58 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "北海道札幌市",
+  "closed_ja": "第2・第4水曜日（8月は第1・第4、祝日の場合は翌日）、4月・11月の第2水曜日を含む週の平日、12月29日〜31日",
+  "closed_rule": [
+   {
+    "type": "nth_weekly",
+    "dow": "wed",
+    "nth": [
+     2,
+     4
+    ],
+    "holiday": "next_day",
+    "months": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     9,
+     10,
+     11,
+     12
+    ]
+   },
+   {
+    "type": "nth_weekly",
+    "dow": "wed",
+    "nth": [
+     1,
+     4
+    ],
+    "holiday": "next_day",
+    "months": [
+     8
+    ]
+   },
+   {
+    "type": "week_of_nth_dow",
+    "dow": "wed",
+    "nth": 2,
+    "months": [
+     4,
+     11
+    ],
+    "days": "mon-fri"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "12-31"
+   }
+  ],
   "location_en": "Sapporo, Hokkaido, Japan",
   "lat": 43.051468,
   "lng": 141.3056561,
@@ -937,6 +1299,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "東京都大島町",
+  "closed_ja": "年中無休",
   "location_en": "Ōshima, Tokyo, Japan",
   "lat": 34.7607382,
   "lng": 139.4311267,
@@ -956,6 +1319,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "福島縣二本松市",
+  "closed_ja": "不定休（公式サイトの休園日カレンダーで告知）",
   "location_en": "Nihonmatsu, Fukushima Prefecture, Japan",
   "lat": 37.6410782,
   "lng": 140.3484296,
@@ -974,6 +1338,21 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "愛知縣名古屋市",
+  "closed_ja": "毎週月曜日（祝日・振替休日の場合は直後の平日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_weekday"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Chikusa-ku, Nagoya, Japan",
   "lat": 35.1554125,
   "lng": 136.981182,
@@ -993,6 +1372,45 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "埼玉県南埼玉郡宮代町",
+  "closed_ja": "元日、1月・2月の火・水曜日、6月の水曜日、7月の第1〜第3水曜日",
+  "closed_rule": [
+   {
+    "type": "date",
+    "on": "01-01"
+   },
+   {
+    "type": "weekly",
+    "dow": [
+     "tue",
+     "wed"
+    ],
+    "months": [
+     1,
+     2
+    ]
+   },
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ],
+    "months": [
+     6
+    ]
+   },
+   {
+    "type": "nth_weekly",
+    "dow": "wed",
+    "nth": [
+     1,
+     2,
+     3
+    ],
+    "months": [
+     7
+    ]
+   }
+  ],
   "location_en": "Miyashiro, Minamisaitama, Saitama Prefecture, Japan",
   "lat": 36.0196909,
   "lng": 139.7174791,
@@ -1011,6 +1429,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "群馬縣桐生市",
+  "closed_ja": "月ごとに指定（主に火曜日、公式サイトで告知）",
   "location_en": "Kiryu, Gunma Prefecture, Japan",
   "lat": 36.4198651,
   "lng": 139.3324586,
@@ -1029,6 +1448,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "神奈川縣橫濱市",
+  "closed_ja": "年中無休",
   "location_en": "Hakkeijima, Yokohama, Kanagawa Prefecture, Japan",
   "lat": 35.3364318,
   "lng": 139.6440622,
@@ -1047,6 +1467,40 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "神奈川縣橫濱市",
+  "closed_ja": "毎週月曜日（祝日の場合は翌日、5月は無休）、12月29日〜1月1日 ※2027年1月7日からリニューアル工事のため長期休園予定",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day",
+    "months": [
+     1,
+     2,
+     3,
+     4,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12
+    ],
+    "note": "5月は無休"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   },
+   {
+    "type": "range_abs",
+    "from": "2027-01-07",
+    "note": "リニューアル工事のため長期休園予定"
+   }
+  ],
   "location_en": "Nishi Ward, Yokohama, Japan",
   "lat": 35.4472864,
   "lng": 139.6205233,
@@ -1066,6 +1520,17 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "東京都江戶川區",
+  "closed_ja": "毎週月曜日（祝日の場合は翌日）、年末年始",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day",
+    "note": "「年末年始」具体日付未確認のため未編碼"
+   }
+  ],
   "location_en": "Edogawa, Tokyo Prefecture, Japan",
   "lat": 35.6710531,
   "lng": 139.8562134,
@@ -1084,11 +1549,12 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "岡山県岡山市",
+  "closed_ja": "水曜日中心の不定休（公式サイトの営業カレンダーで告知）",
   "location_en": "Okayama, Okayama Prefecture, Chugoku Region, Japan",
   "lat": 34.6746507,
   "lng": 133.9040114,
   "map": "https://goo.gl/maps/2bjmzYUBiqk",
-  "website": "http://www.urban.ne.jp/home/ikedazoo/",
+  "website": "https://ikedazoo.jp/",
   "logo": null,
   "aliases": [
    "Ikeda Zoo"
@@ -1102,6 +1568,14 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "靜岡縣濱松市",
+  "closed_ja": "12月29日〜31日",
+  "closed_rule": [
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "12-31"
+   }
+  ],
   "location_en": "Hamamatsu, Shizuoka Prefecture, Japan",
   "lat": 34.7658483,
   "lng": 137.6301835,
@@ -1120,6 +1594,33 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "東区熊本市熊本県",
+  "closed_ja": "毎週月曜日（祝日の場合は次の平日、第4月曜は開園し翌日休園）、12月30日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_weekday",
+    "skip_nth": [
+     4
+    ]
+   },
+   {
+    "type": "nth_weekly",
+    "dow": "mon",
+    "nth": [
+     4
+    ],
+    "shift": "next_day",
+    "note": "第4月曜は開園し翌日休園"
+   },
+   {
+    "type": "range",
+    "from": "12-30",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Higashi Ward, Kumamoto, Japan",
   "lat": 32.7749943,
   "lng": 130.7392573,
@@ -1138,6 +1639,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "靜岡縣東伊豆町",
+  "closed_ja": "年中無休",
   "location_en": "Higashiizu-cho, Kamo, Shizuoka Prefecture, Japan",
   "lat": 34.8161636,
   "lng": 139.0656855,
@@ -1156,6 +1658,14 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "山梨縣甲府市",
+  "closed_ja": "整備工事のため休園中（2027年3月末まで予定）",
+  "closed_rule": [
+   {
+    "type": "range_abs",
+    "to": "2027-03-31",
+    "note": "整備工事のため休園中"
+   }
+  ],
   "location_en": "Kōfu City, Yamanashi Prefecture, Japan",
   "lat": 35.6513653,
   "lng": 138.5694874,
@@ -1174,6 +1684,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "兵庫県神戸市",
+  "closed_ja": "木曜日中心の不定休（営業カレンダーで告知、祝日・夏休み等の木曜は営業）",
   "location_en": "Port Island, Chūō-ku, Kobe, Japan",
   "lat": 34.654646,
   "lng": 135.2203581,
@@ -1192,6 +1703,21 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "兵庫縣神戸市灘區",
+  "closed_ja": "毎週水曜日（祝日は開園）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ],
+    "holiday": "open"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Nada Ward, Kobe, Japan",
   "lat": 34.710002,
   "lng": 135.2126901,
@@ -1211,6 +1737,21 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "福岡縣福岡市",
+  "closed_ja": "毎週月曜日（祝日の場合は翌日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Chuo-ku, Fukuoka City, Fukuoka Prefecture, Japan",
   "lat": 33.5812228,
   "lng": 130.3829501,
@@ -1248,11 +1789,21 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "京都府福知山市",
+  "closed_ja": "毎週水曜日（祝日の場合は翌日）",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ],
+    "holiday": "next_day"
+   }
+  ],
   "location_en": "Fukuchiyama, Japan",
   "lat": 35.3101894,
   "lng": 135.1364023,
   "map": "https://goo.gl/maps/XZvhpftc9L72",
-  "website": "http://www.sandanike-kouen.or.jp/zoo.php",
+  "website": "https://fukuchiyamazoo.jp/",
   "logo": null,
   "aliases": [
    "Fukuchiyama Zoo"
@@ -1266,6 +1817,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "山口県美祢市",
+  "closed_ja": "年中無休（点検・悪天候等で臨時休園あり）",
   "location_en": "Mine, Yamaguchi Prefecture, Japan",
   "lat": 34.2683467,
   "lng": 131.3007106,
@@ -1285,6 +1837,35 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "秋田縣秋田市",
+  "closed_ja": "冬季休園（12月1日〜1月8日・3月1日〜19日）、1月・2月は土日祝のみ開園",
+  "closed_rule": [
+   {
+    "type": "range",
+    "from": "12-01",
+    "to": "01-08"
+   },
+   {
+    "type": "range",
+    "from": "03-01",
+    "to": "03-19"
+   },
+   {
+    "type": "weekly",
+    "dow": [
+     "mon",
+     "tue",
+     "wed",
+     "thu",
+     "fri"
+    ],
+    "months": [
+     1,
+     2
+    ],
+    "holiday": "open",
+    "note": "1月・2月は土日祝のみ開園"
+   }
+  ],
   "location_en": "Akita City, Akita Prefecture, Japan",
   "lat": 39.671723,
   "lng": 140.0741066,
@@ -1303,6 +1884,42 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "群馬縣",
+  "closed_ja": "毎週水曜日（祝日・春休み・GW・夏休み・年末年始〈1月1日を除く〉は無休）",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ],
+    "holiday": "open",
+    "suspend": [
+     {
+      "from": "03-25",
+      "to": "04-07",
+      "note": "春休みは無休（慣例窗，非官方日期）"
+     },
+     {
+      "from": "04-29",
+      "to": "05-05",
+      "note": "GWは無休"
+     },
+     {
+      "from": "07-20",
+      "to": "08-31",
+      "note": "夏休みは無休（慣例窗，非官方日期）"
+     },
+     {
+      "from": "12-28",
+      "to": "01-04",
+      "note": "年末年始は無休（慣例窗，非官方日期）"
+     }
+    ]
+   },
+   {
+    "type": "date",
+    "on": "01-01"
+   }
+  ],
   "location_en": "Gunma Prefecture, Japan",
   "lat": 36.227195,
   "lng": 138.8849445,
@@ -1321,6 +1938,37 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "東京都羽村市",
+  "closed_ja": "毎週月曜日（祝日・繁忙期は開園）、1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "open",
+    "suspend": [
+     {
+      "from": "03-25",
+      "to": "04-07",
+      "note": "繁忙期は開園（慣例窗，非官方日期）"
+     },
+     {
+      "from": "04-29",
+      "to": "05-05",
+      "note": "繁忙期は開園（慣例窗，非官方日期）"
+     },
+     {
+      "from": "07-20",
+      "to": "08-31",
+      "note": "繁忙期は開園（慣例窗，非官方日期）"
+     }
+    ]
+   },
+   {
+    "type": "date",
+    "on": "01-01"
+   }
+  ],
   "location_en": "Hamura, Tokyo, Japan",
   "lat": 35.7673958,
   "lng": 139.3266258,
@@ -1339,6 +1987,16 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "愛知縣豊橋市",
+  "closed_ja": "毎週月曜日（祝日の場合は翌平日）",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_weekday"
+   }
+  ],
   "location_en": "Toyohashi, Aichi, Japan",
   "lat": 34.7202041,
   "lng": 137.4302548,
@@ -1358,6 +2016,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "栃木県那須郡",
+  "closed_ja": "不定休（主に水曜日、公式営業カレンダーで告知）、夏休み期間は無休",
   "location_en": "Nasu District, Tochigi Prefecture, Japan",
   "lat": 37.1290293,
   "lng": 140.0349543,
@@ -1376,6 +2035,25 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "北海道釧路市",
+  "closed_ja": "12月〜2月の水曜日、12月29日〜1月2日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ],
+    "months": [
+     12,
+     1,
+     2
+    ]
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-02"
+   }
+  ],
   "location_en": "Kushiro, Kushiro Subprefecture, Hokkaido, Japan",
   "lat": 43.0812619,
   "lng": 144.2343677,
@@ -1394,6 +2072,7 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "長崎縣西海市",
+  "closed_ja": "年中無休（悪天候時は臨時休園あり）",
   "location_en": "Nagasaki Prefecture, Japan",
   "lat": 32.9884125,
   "lng": 129.7810003,
@@ -1412,6 +2091,26 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "長野縣長野市",
+  "closed_ja": "12月〜2月の毎週月曜日（休日の場合は翌日）、12月29日〜31日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day",
+    "months": [
+     12,
+     1,
+     2
+    ]
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "12-31"
+   }
+  ],
   "location_en": "Nagano, Nagano Prefecture, Japan",
   "lat": 36.5867283,
   "lng": 138.1132733,
@@ -1431,6 +2130,21 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "靜岡縣靜岡市",
+  "closed_ja": "毎週月曜日（祝日・振替休日の場合は翌平日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_weekday"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Shizuoka, Shizuoka Prefecture, Japan",
   "lat": 34.9796519,
   "lng": 138.4373118,
@@ -1450,6 +2164,21 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "高知縣香南市",
+  "closed_ja": "毎週月曜日（祝日の場合は翌日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Konan, Kōchi Prefecture, Japan",
   "lat": 33.5700558,
   "lng": 133.7052225,
@@ -1470,6 +2199,16 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "福井縣鯖江市",
+  "closed_ja": "毎週月曜日（祝日の場合は翌日）",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day"
+   }
+  ],
   "location_en": "Sabae, Fukui Prefecture, Japan",
   "lat": 35.9506249,
   "lng": 136.1787345,
@@ -1489,6 +2228,14 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "鹿兒島縣鹿兒島市",
+  "closed_ja": "12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Kagoshima, Kagoshima Prefecture, Japan",
   "lat": 31.4630427,
   "lng": 130.4997487,
@@ -5075,6 +5822,21 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "埼玉県さいたま市",
+  "closed_ja": "毎週月曜日（祝祭日の場合は翌日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
   "location_en": "Saitama, Saitama Prefecture, Japan",
   "lat": 35.8867828,
   "lng": 139.701668,
@@ -5145,6 +5907,33 @@
   "zh": null,
   "country": "Japan",
   "location_ja": "那須町 栃木県",
+  "closed_ja": "毎週水曜・木曜日（GW・夏季・年末年始は除く）",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "wed",
+     "thu"
+    ],
+    "suspend": [
+     {
+      "from": "04-29",
+      "to": "05-05",
+      "note": "GWは除く"
+     },
+     {
+      "from": "07-20",
+      "to": "08-31",
+      "note": "夏季は除く（慣例窗，非官方日期）"
+     },
+     {
+      "from": "12-28",
+      "to": "01-04",
+      "note": "年末年始は除く（慣例窗，非官方日期）"
+     }
+    ]
+   }
+  ],
   "location_en": "Nasu, Tochigi Prefecture, Japan",
   "lat": 37.0353086,
   "lng": 140.0307087,
