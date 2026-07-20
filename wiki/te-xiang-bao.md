@@ -12,8 +12,8 @@ sources:
 
 # 特香包（Te Xiang Bao）
 
-> **小熊貓** | Ailurus fulgens styani  
-> 生日：不詳；性別待確認  
+> **小熊貓** | Ailurus fulgens styani
+> 生日：不詳；性別待確認
 > 現居：廈門靈玲動物王國（福建省廈門市集美区）🇨🇳
 
 現居**廈門靈玲動物王國**。與同園的 [[dou-dou]]（豆豆）一家關係尚未確認，暫作獨立個體收錄。

@@ -12,8 +12,8 @@ sources:
 
 # Fei Fei（霏霏）
 
-> **小熊貓** ♀ | Ailurus fulgens styani  
-> 生日：不詳  
+> **小熊貓** ♀ | Ailurus fulgens styani
+> 生日：不詳
 > 現居：廣州動物園（広東省広州市越秀区）🇨🇳
 
 現居**廣州動物園**，[[di-di-2022-06-30]]（迪迪）之母。出生年、出身與父母均不詳。

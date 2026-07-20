@@ -1,7 +1,6 @@
 ---
 name: Hou-Hou
 chinese: 紅紅
-japanese: 紅々, ホウホウ
 sex: female
 born: 1988
 died: 1999
@@ -11,9 +10,9 @@ sources:
   - 作者提供（2026-07-18：名稱、生卒、家系）
 ---
 
-# Hou-Hou 🪐（紅紅・紅々 / ホウホウ）
+# Hou-Hou 🪐（紅紅・紅々）
 
-> **小熊貓** ♀ | Ailurus fulgens styani  
+> **小熊貓** ♀ | Ailurus fulgens styani
 > 生卒：1988 年 – 1999 年
 
 > 🚧 **資料待查證**：生卒（僅知年份）由作者提供；居住地、RPF 皆不詳，羅馬拼音（Hou-Hou）依假名讀音。**未見於多摩官方個體名單**（4travel 轉載）；日本平家系圖頁僅列現役個體、亦無本個體。

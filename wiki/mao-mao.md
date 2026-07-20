@@ -16,8 +16,8 @@ sources:
 
 # Mao Mao（毛毛）
 
-> **小熊貓** ♀ | Ailurus fulgens styani  
-> 生日：不詳  
+> **小熊貓** ♀ | Ailurus fulgens styani
+> 生日：不詳
 > 現居：上海野生動物園（上海市浦東新区）🇨🇳
 
 現居**上海野生動物園**（小熊猫展区）。出生年、出身與入園時間均不詳。父母不詳。

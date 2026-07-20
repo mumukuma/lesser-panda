@@ -1,7 +1,6 @@
 ---
 name: Xiao Bai Lian
 chinese: 小白脸
-japanese: シャオバイラン
 nicknames: [小白, 董事长, 白女士, 咪咪, 白面]
 sex: female
 species: Ailurus fulgens styani
@@ -20,8 +19,8 @@ sources:
 
 # Xiao Bai Lian（小白臉／小白脸）
 
-> **小熊貓** ♀ | Ailurus fulgens styani  
-> 生日：不詳  
+> **小熊貓** ♀ | Ailurus fulgens styani
+> 生日：不詳
 > 現居：廣州動物園（広東省広州市越秀区）🇨🇳
 
 **廣州動物園**個體，[[xi-xi-2020-06-23]] 🪐（晞晞）之母，[[yi-yi-2023-06-28]]（逸逸）與 [[yao-yao-2023-06-28]]（遙遙）之外祖母。出生年、出身與父母均不詳（依 RPF #1322）。暱稱小白、董事长、白女士、咪咪、白面。

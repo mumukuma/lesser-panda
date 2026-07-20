@@ -12,8 +12,8 @@ sources:
 
 # Du Du（嘟嘟）
 
-> **小熊貓** ♀ | Ailurus fulgens styani  
-> 生日：不詳  
+> **小熊貓** ♀ | Ailurus fulgens styani
+> 生日：不詳
 > 現居：南京市紅山森林動物園（江蘇省南京市玄武区）🇨🇳
 
 現居**南京市紅山森林動物園**。出生年、出身與父母均不詳。

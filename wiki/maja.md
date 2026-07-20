@@ -1,6 +1,5 @@
 ---
 name: Maja
-japanese: マージャ
 sex: male
 species: Ailurus fulgens fulgens
 zoos:
@@ -13,10 +12,10 @@ sources:
   - https://www.drusillas.co.uk/red-panda-joins-pack
 ---
 
-# Maja（マージャ）
+# Maja
 
-> **小熊貓** ♂ | Ailurus fulgens fulgens  
-> 生日：不詳（待查證）  
+> **小熊貓** ♂ | Ailurus fulgens fulgens
+> 生日：不詳（待查證）
 > 現居：Drusillas Park（英國東薩塞克斯）🇬🇧
 
 > 🚧 **部分資料待查證**：生日與出生園不詳；抵園年份依 RPF 收錄時間（2020-06）推定為 2020 年前後，園方報導未載明日期。

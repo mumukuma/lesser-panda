@@ -12,8 +12,8 @@ sources:
 
 # 馬蹄酥／马蹄酥（Ma Ti Su）
 
-> **小熊貓** ♂ | Ailurus fulgens styani  
-> 生日：不詳  
+> **小熊貓** ♂ | Ailurus fulgens styani
+> 生日：不詳
 > 現居：廈門靈玲動物王國（福建省廈門市集美区）🇨🇳
 
 現居**廈門靈玲動物王國**，[[dou-dou]]（豆豆）之子；與三胞胎 [[sha-sha]]🪐（沙沙）、[[cha-cha]]（茶茶）、[[mian-mian]]（面面）同母。父不詳，故與三胞胎是否同父未定。

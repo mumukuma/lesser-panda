@@ -13,8 +13,8 @@ sources:
 
 # 沙沙（Sha Sha）🪐
 
-> **小熊貓** ♂ | Ailurus fulgens styani  
-> 生日：不詳；已故（歿日不詳）  
+> **小熊貓** ♂ | Ailurus fulgens styani
+> 生日：不詳；已故（歿日不詳）
 > 終居：廈門靈玲動物王國（福建省廈門市集美区）🇨🇳
 
 [[fei-fei-xiamen]]🪐（飛飛）與 [[dou-dou]]（豆豆）之子，三胞胎大哥，弟妹為 [[cha-cha]]（茶茶）、[[mian-mian]]（面面）。已故。

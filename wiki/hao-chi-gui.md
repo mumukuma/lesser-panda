@@ -12,8 +12,8 @@ sources:
 
 # 好吃鬼（Hao Chi Gui）
 
-> **小熊貓** | ♀ | Ailurus fulgens styani  
-> 生日：不詳  
+> **小熊貓** | ♀ | Ailurus fulgens styani
+> 生日：不詳
 > 現居：柳州市動物園（広西チワン族自治区柳州市柳南区）
 
 現居**柳州市動物園**，[[hao-hong]]（好紅）之母。出生年、出身與父母均不詳。

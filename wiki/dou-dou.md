@@ -12,8 +12,8 @@ sources:
 
 # 豆豆（Dou Dou）
 
-> **小熊貓** ♀ | Ailurus fulgens styani  
-> 生日：不詳  
+> **小熊貓** ♀ | Ailurus fulgens styani
+> 生日：不詳
 > 現居：廈門靈玲動物王國（福建省廈門市集美区）🇨🇳
 
 現居**廈門靈玲動物王國**，[[ma-ti-su]]（馬蹄酥）之母，並與 [[fei-fei-xiamen]]🪐（飛飛）共育三胞胎 [[sha-sha]]🪐（沙沙）、[[cha-cha]]（茶茶）、[[mian-mian]]（面面）。

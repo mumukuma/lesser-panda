@@ -12,8 +12,8 @@ sources:
 
 # 小白（Xiao Bai）
 
-> **小熊貓** | ♀ | Ailurus fulgens styani  
-> 生日：不詳  
+> **小熊貓** | ♀ | Ailurus fulgens styani
+> 生日：不詳
 > 現居：上海動物園（上海市長寧区）
 
 現居**上海動物園**，與 [[zhuang-zhuang]]（壯壯）生下 [[fu-fu-2023-06-24]]（富富）與 [[mei-mei-2023-06-24]]（美美）。出生年、出身與父母均不詳。

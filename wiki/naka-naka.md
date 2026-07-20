@@ -10,7 +10,7 @@ sources:
 
 # Naka-Naka 🪐（中々 / 中中）
 
-> **小熊貓** ♂ | Ailurus fulgens styani  
+> **小熊貓** ♂ | Ailurus fulgens styani
 > 生卒：不詳（已歿）
 
 > 🚧 **資料待查證**：多摩官方個體名單（4travel 轉載）記「中中（♂／出自不明）　死亡」——出自、生卒年、歿日皆不詳；居住年份、RPF 亦不詳。羅馬拼音（Naka-Naka）為暫定讀音，待確認。

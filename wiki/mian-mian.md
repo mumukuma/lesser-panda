@@ -12,8 +12,8 @@ sources:
 
 # 面面（Mian Mian）
 
-> **小熊貓** ♂ | Ailurus fulgens styani  
-> 生日：不詳  
+> **小熊貓** ♂ | Ailurus fulgens styani
+> 生日：不詳
 > 現居：廈門靈玲動物王國（福建省廈門市集美区）🇨🇳
 
 [[fei-fei-xiamen]]🪐（飛飛）與 [[dou-dou]]（豆豆）之子，三胞胎小弟，兄姊為 [[sha-sha]]🪐（沙沙，大哥）、[[cha-cha]]（茶茶，二姐）。

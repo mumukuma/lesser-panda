@@ -12,8 +12,8 @@ sources:
 
 # 小寶／小宝（Xiao Bao）
 
-> **小熊貓** | ♀ | Ailurus fulgens styani  
-> 生日：不詳  
+> **小熊貓** | ♀ | Ailurus fulgens styani
+> 生日：不詳
 > 現居：天津動物園（天津市南開区）
 
 生於**天津動物園**並居住至今，與 [[tu-tu]]（圖圖）育有 [[tuan-tuan-2023-06-06]]（團團）。出生年與父母不詳。

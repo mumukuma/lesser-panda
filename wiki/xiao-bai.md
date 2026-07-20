@@ -12,8 +12,8 @@ sources:
 
 # 小白（Xiao Bai）
 
-> **小熊貓** | ♀ | Ailurus fulgens styani  
-> 生日：不詳  
+> **小熊貓** | ♀ | Ailurus fulgens styani
+> 生日：不詳
 > 現居：柳州市動物園（広西チワン族自治区柳州市柳南区）
 
 現居**柳州市動物園**，[[bai-tao-2025-06-16]]（白桃）之母。出生年、出身與父母均不詳。

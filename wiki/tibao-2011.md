@@ -12,7 +12,7 @@ sources:
 
 # Tibao
 
-> **小熊貓** ♂ | Ailurus fulgens fulgens  
+> **小熊貓** ♂ | Ailurus fulgens fulgens
 > 生：2011（依園方報導推算，待查證）
 
 > 🚧 **部分資料待查證**：生年依 Drusillas 園方 2013 年初報導「18 個月大」推算為 2011；確切生日、出生園、後續去向皆不詳（2020 年前後 [[maja]] 抵園時，園方報導已僅稱 Mulan 為在園個體），故居住史暫不列入 frontmatter。無 RPF 條目。

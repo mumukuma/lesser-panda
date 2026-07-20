@@ -2496,3 +2496,15 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - `kojirou-2010-07-14.md` — 子女表移除 Ichiko 列、備注改「育有 Ichiro（RPF 另記 Ichiko，🚧 待查證）」
 - `tomato-2007-07-21.md` — 引言與子女表移除 Ichiko，改 🚧 待查證注記
 - `index.md` — 移除 Ichiko 列；條目總數 663 → 662（_hidden 4 → 5 筆）
+
+## [2026-07-20] update | 清除非日本個體誤填的片假名 japanese 名
+
+**來源**：
+- 作者裁定（依 CLAUDE.md 資料來源原則：`japanese` 僅限有日本居住史之個體；lineage/RPF 的 ja.name 為機械轉寫，非日本個體不採用）
+
+**更新條目**：
+- 36 隻無日本居住史個體：移除 frontmatter `japanese:` 片假名欄（純片假名者整欄移除；`tai-shan`、`hou-hou` 之漢字名已存於 `chinese`，亦整欄移除），並清除各自標題行的（片假名）
+  - `arun`、`carson`、`dawa`、`duli`、`ferguson`、`hou-hou`、`karma`、`kayah`、`kelu`、`kendji`、`kiari`、`kovu`、`leah`、`lincoln`、`maja`、`malikha`、`meeko`、`mei-mei`、`mulan`、`nima`、`poppy`、`rakesh`、`ravi`、`rinzen`、`sakura`、`sophia`、`sundari`、`tai-shan`、`tango`、`tanvi`、`tayla`、`willa`、`xi-xi`、`xiao-bai-lian`、`zeyar`、`zorro`
+- 其他條目家族欄中指向上列 36 隻的（片假名）交叉引用一併清除（保留性別、RPF 編號、韓文名等其他括號內容；日本居住個體之片假名與動物園名不動）
+- `leah`、`sundari` 內文引言的片假名別名（ローズ／サンサリ）一併清除
+- 重建：`gen_residence.py` → `build_db.py` → `export_json.py`；`verify.sh` 通過（🔴 0）

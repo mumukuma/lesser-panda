@@ -12,8 +12,8 @@ sources:
 
 # 壯壯（Zhuang-Zhuang）
 
-> **小熊貓** | ♂ | Ailurus fulgens styani  
-> 生：待確認  
+> **小熊貓** | ♂ | Ailurus fulgens styani
+> 生：待確認
 > **[[tian-tian-2024-06-23]]（甜甜）之父，現居上海動物園**
 
 [[niu-niu]]（妞妞）與 [[xiao-bai-shanghai]]（小白，上海）之配偶；與妞妞生 [[tian-tian-2024-06-23]]（甜甜）、[[pao-pao-2024-06-23]]（泡泡），與小白生 [[fu-fu-2023-06-24]]（富富）、[[mei-mei-2023-06-24]]（美美）。生日待確認。

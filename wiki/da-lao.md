@@ -12,8 +12,8 @@ sources:
 
 # 大佬（Da Lao）
 
-> **小熊貓** | ♀ | Ailurus fulgens styani  
-> 生日：不詳  
+> **小熊貓** | ♀ | Ailurus fulgens styani
+> 生日：不詳
 > 現居：中山市紫馬嶺動物園（広東省中山市東区）
 
 現居**中山市紫馬嶺動物園**。出生年、出身與父母均不詳。

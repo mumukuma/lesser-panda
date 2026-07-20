@@ -13,8 +13,8 @@ sources:
 
 # 飛飛／飞飞（Fei Fei）🪐
 
-> **小熊貓** ♂ | Ailurus fulgens styani  
-> 生日：不詳；歿於 2024 年 8 月  
+> **小熊貓** ♂ | Ailurus fulgens styani
+> 生日：不詳；歿於 2024 年 8 月
 > 終居：廈門靈玲動物王國（福建省廈門市集美区）🇨🇳
 
 現居**廈門靈玲動物王國**的三胞胎 [[sha-sha]]🪐（沙沙）、[[cha-cha]]（茶茶）、[[mian-mian]]（面面）之父，與 [[dou-dou]]（豆豆）共育此三胞胎。2024 年 8 月過世。

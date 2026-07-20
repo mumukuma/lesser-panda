@@ -12,8 +12,8 @@ sources:
 
 # 圖圖／图图（Tu Tu）
 
-> **小熊貓** | ♂ | Ailurus fulgens styani  
-> 生日：不詳  
+> **小熊貓** | ♂ | Ailurus fulgens styani
+> 生日：不詳
 > 現居：天津動物園（天津市南開区）
 
 現居**天津動物園**，與 [[xiao-bao]]（小寶）育有 [[tuan-tuan-2023-06-06]]（團團）。出生年、出身與父母均不詳。

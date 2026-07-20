@@ -12,8 +12,8 @@ sources:
 
 # 妞妞（Niu-Niu）
 
-> **小熊貓** | ♀ | Ailurus fulgens styani  
-> 生：待確認  
+> **小熊貓** | ♀ | Ailurus fulgens styani
+> 生：待確認
 > **[[tian-tian-2024-06-23]]（甜甜）之母，現居上海動物園**
 
 [[zhuang-zhuang]]（壯壯）之配偶，[[tian-tian-2024-06-23]]（甜甜）之母。生日待確認。

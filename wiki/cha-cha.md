@@ -12,8 +12,8 @@ sources:
 
 # 茶茶（Cha Cha）
 
-> **小熊貓** ♀ | Ailurus fulgens styani  
-> 生日：不詳  
+> **小熊貓** ♀ | Ailurus fulgens styani
+> 生日：不詳
 > 現居：廈門靈玲動物王國（福建省廈門市集美区）🇨🇳
 
 [[fei-fei-xiamen]]🪐（飛飛）與 [[dou-dou]]（豆豆）之女，三胞胎二姐，兄弟為 [[sha-sha]]🪐（沙沙，大哥）、[[mian-mian]]（面面，小弟）。
