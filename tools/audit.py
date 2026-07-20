@@ -87,8 +87,11 @@ def main():
         limited = "limited-profile" in tags
         rpf = fm.get("rpf_id")
         url = fm.get("rpf_url") or ""
+        # RPF 降為「線索」、非權威（2026-07-14 原則）：缺 rpf_id 不是資料缺陷
+        # （中國個體、蘋果籽佔位、官方來源建檔者本就常無 RPF profile），
+        # 故一律列為 ⚪ info、不當黃燈警告，避免把 RPF 覆蓋率誤當成專案指標。
         if not rpf:
-            R.append(("info" if limited else "warn", "缺 rpf_id", name))
+            R.append(("info", "缺 rpf_id", name))
         else:
             seen_rpf.setdefault(int(rpf) if str(rpf).isdigit() else rpf, []).append(name)
         if "#query/" in url:

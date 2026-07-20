@@ -9,7 +9,7 @@
 - **`wiki/*.md` 是唯一正本與權威來源**，由作者校訂。
 - **RPF/lineage 降為「線索」（2026-07-14 起）**：[Red Panda Finder](https://redpandafinder.com)（RPF）與 [redpanda-lineage](https://github.com/wwoast/redpanda-lineage) 雜訊多，wiki 經作者大量校訂後可信度已**高於**兩者。它們不再是「基礎參考」，僅在**無官方來源時**當線索用；由 RPF/lineage 帶入而未經官方佐證的關鍵資料標 `🚧 待查證`。新條目 `sources` 以園方公告等官方來源優先，RPF 為輔。
 - 兩者衝突時，**一律以 wiki（作者的校訂）為準**，不可用 RPF/lineage 覆蓋既有資料；與 lineage 的「不符」不代表 wiki 錯、不需逐筆處理。
-- 工具配套（2026-07-14 起）：`audit.py` **預設不跑 lineage 比對**（加 `--lineage` 才比對）；`verify.sh`（pre-push）不再抓取 lineage、只跑 wiki 自身檢查；`apply_lineage_fixes.py` **僅作者明確要求時才執行**（只填空欄位、不覆蓋，補入值視同線索）。
+- 工具配套（2026-07-14 起）：`audit.py` **預設不跑 lineage 比對**（加 `--lineage` 才比對）；`verify.sh`（pre-push）不再抓取 lineage、只跑 wiki 自身檢查；`apply_lineage_fixes.py` **僅作者明確要求時才執行**（只填空欄位、不覆蓋，補入值視同線索）。**`audit.py` 的「缺 rpf_id」列為 ⚪ info、非黃燈警告（2026-07-20 起）**：RPF 為線索非指標，中國個體／蘋果籽佔位／官方來源建檔者本就常無 RPF profile，缺 rpf_id 不是資料缺陷、不應被當成專案覆蓋率指標；真正擋 push 的仍只有「rpf_id 重複」（🔴 整合性錯誤）與 `check_twins` 的 E 級。
 - 名稱（尤其中文名 `chinese`、暱稱、別名）以作者提供為準；RPF 的羅馬拼音僅作後備。
 - **lineage/RPF 的 `ja.name` 是機械轉寫、每隻個體都有（不論來源地），僅「有日本居住史」的個體才採用為 `japanese`**（2026-07-13 起）：歐美等非日本個體一律不抄——其 `ja.name` 若含漢字，多半實為中文名（例：Hui Hu 的「火狐」），應由作者確認後放 `chinese`，而非 `japanese`。工具已內建此規則：`audit.py` 的「lineage 有漢字名、wiki 未收」提示與 `apply_lineage_fixes.py` 的補漢字，都只對 frontmatter `zoos:` 解析出含日本園（`data/zoos.json` 的 `country == "Japan"`）的個體生效；`zoos:` 空白無法確認國別時保守不補。
 - **動物園名以 `data/zoos.json`（註冊表）為唯一事實來源**：每座園的正式名（`canonical`，採完整正式名）、中文名、座標、官網、logo、**地點（`location_ja`）**、**休園日（`closed_ja`，選填，照官網原文精簡一行、僅官方來源可填，缺值園頁不顯示；另有機器可讀衍生欄 `closed_rule` 供首頁「今日休園」計算——`closed_ja` 是人讀正本，某園休園制度改了兩欄必須同步改，不定休／営業カレンダー制與年中無休的園不編 `closed_rule`）** 只存這裡。wiki 條目（frontmatter `zoos:` 與內文居住史）一律寫 canonical 日文名；`build_db` 會精確比對，**寫了註冊表沒有的園名就報錯中止**（提示去登記或修正）。新增一座沒登記過的園 → 先在 `data/zoos.json` 加一筆，再寫條目。lineage 僅用來初次帶入座標，非權威。
@@ -39,7 +39,7 @@ red-panda-wiki/
 │   ├── zoo_registry.py  ← 載入 data/zoos.json 並提供園名比對 resolver
 │   ├── gen_residence.py ← 由 frontmatter zoos: 自動生成內文「## 居住史」表格（勿手改該表）
 │   ├── query.py         ← 家系查詢 CLI / Python API
-│   ├── audit.py         ← 資料完整度檢查；--strict 時僅內部錯誤（如 rpf_id 重複）回傳非零；--lineage 才比對 lineage（預設不跑）
+│   ├── audit.py         ← 資料完整度檢查；缺 rpf_id 列為 ⚪ info（非警告，RPF 為線索非指標）；--strict 時僅內部錯誤（如 rpf_id 重複）回傳非零；--lineage 才比對 lineage（預設不跑）
 │   ├── check_twins.py   ← 多胞胎稽核（同生群同父母／生日±1天／群大小）；E 級錯誤回傳 1
 │   ├── ig_audit.py      ← 盤點 instagram: 連結（格式／活性提示，只報不改，exit 恆 0）
 │   ├── verify.sh        ← 驗證單一關卡：audit --strict + check_twins（只讀；已掛 pre-push；不再抓 lineage）
