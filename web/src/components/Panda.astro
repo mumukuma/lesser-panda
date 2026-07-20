@@ -1,5 +1,5 @@
 ---
-import { pandas, i18n, displayName, placeholderMotherName, zooName, zooSlugById } from '../lib/data.js';
+import { pandas, i18n, displayName, placeholderMotherName, zooName, zooSlugById, deceasedHtml } from '../lib/data.js';
 import { pandaUrl, pageUrl, zooUrl } from '../lib/links.js';
 import { feedbackFormId, photoFormId } from '../lib/feedback.js';
 
@@ -75,15 +75,15 @@ const curZoo = !p.died && (p.current_zoo || p.current_zoo_raw)
 const facts = [
   [T.field_sex, `<span class="inline-block text-[.76rem] px-2 py-px rounded-full ${p.sex === 'female' ? 'bg-[#f7e3df] text-female' : p.sex === 'male' ? 'bg-[#dfeef2] text-male' : 'bg-cream text-rust-dark'}">${sexTxt}</span>`],
   [T.field_born, bornCell],
-  p.died ? [T.field_died, `${p.died} ${T.deceased_mark}`] : null,
+  p.died ? [T.field_died, `${p.died}${deceasedHtml(locale)}`] : null,
   [T.field_species, `<i>${p.species ? 'Ailurus fulgens ' + p.species : '-'}</i>`],
   curZoo ? [T.field_zoo, curZoo] : null,
 ].filter(Boolean);
 
-// 蘋果籽佔位（尚未命名的寶寶）標記 🍎，掛在名字後
-const seedIcon = ' <span title="' + T.placeholder_badge + '">🍎</span>';
+// 蘋果籽佔位（尚未命名的寶寶）標記 🍎，掛在名字後（role=img+aria-label：SR 念「蘋果籽」而非「紅蘋果」）
+const seedIcon = ' <span role="img" title="' + T.placeholder_badge + '" aria-label="' + T.placeholder_badge + '">🍎</span>';
 const link = (s) => pandas[s]
-  ? `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, pandas[s].urlId)}">${displayName(pandas[s], locale)}${pandas[s].died ? ' ' + T.deceased_mark : ''}${pandas[s].placeholder ? seedIcon : ''}</a>` : s;
+  ? `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, pandas[s].urlId)}">${displayName(pandas[s], locale)}${pandas[s].died ? deceasedHtml(locale) : ''}${pandas[s].placeholder ? seedIcon : ''}</a>` : s;
 const famRow = (label, slugs, showCount) => slugs && slugs.length
   ? `<li class="py-1 flex flex-col sm:flex-row sm:gap-2"><span class="sm:shrink-0 sm:min-w-[9em] text-ink-soft text-[.88rem]">${label}${showCount ? `<span class="ml-1 text-[.82rem]">（${slugs.length}）</span>` : ''}</span><span class="min-w-0 flex-1">${slugs.map(link).join('、')}</span></li>` : '';
 // 父母行永遠顯示：缺資料時填「不詳 / Unknown」而非隱藏整行
@@ -135,7 +135,7 @@ const tl = (() => {
   if (!segs.some((x) => !x.gap && x.ms > 0)) return null;
   // 表格列（新→舊）要對回自己的顏色/時長：依 residence 物件對照
   const byRes = new Map(segs.filter((x) => !x.gap).map((x) => [x.r, x]));
-  return { segs, byRes, endLabel: p.died ? `${p.died} ${T.deceased_mark}` : T.present };
+  return { segs, byRes, endLabel: p.died ? `${p.died}${deceasedHtml(locale)}` : T.present };
 })();
 
 const H3 = 'font-display text-lg font-semibold mt-7 mb-2.5 border-l-4 border-amber pl-2.5';
@@ -149,7 +149,7 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
   <img src={`${base}img/mascot-peek.webp`} alt="" aria-hidden="true" width="120" height="120"
        class="anim-float pointer-events-none hidden sm:block absolute -right-2 -top-1 w-[84px] h-auto opacity-[.18]" />
   <div class="flex gap-3 items-baseline flex-wrap relative">
-    <h1 class="font-display text-3xl font-semibold my-0.5">{primary}{p.died ? ' ' + T.deceased_mark : ''}</h1>
+    <h1 class="font-display text-3xl font-semibold my-0.5">{primary}{p.died && <span role="img" aria-label={T.deceased} class="ml-1">{T.deceased_mark}</span>}</h1>
     {altNames.length > 0 && <span class="text-ink-soft text-[1.1rem]">{altNames.join(' · ')}</span>}
     {p.unverified && (
       <span class="inline-block text-[.78rem] px-2.5 py-0.5 rounded-full border-2 border-amber text-rust-dark font-medium self-center"
@@ -244,7 +244,7 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
           {/* 生涯比例條：每段寬度 ∝ 居住時長（flex-grow），小段保底 6px 仍看得見；同園同色 */}
           <div class="flex items-baseline justify-between gap-2 text-[.78rem] text-ink-soft mb-1.5">
             <span class="whitespace-nowrap">🐣 {p.born || (p.residences[0].start || '')}</span>
-            <span class="whitespace-nowrap">{tl.endLabel}</span>
+            <span class="whitespace-nowrap" set:html={tl.endLabel}></span>
           </div>
           <div class="flex w-full h-4 rounded-full overflow-hidden border border-line" role="img" aria-label={T.sec_residences}>
             {tl.segs.map((seg) => seg.gap
@@ -255,7 +255,11 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
         </div>
       )}
       <table class="w-full text-[.93rem] scroll-x">
-        <tr class="text-left text-ink-soft text-[.84rem]"><th class="p-2">{T.th_period}</th><th class="p-2">{T.th_zoo}</th></tr>
+        <caption class="sr-only">{T.sec_residences}</caption>
+        <thead>
+          <tr class="text-left text-ink-soft text-[.84rem]"><th scope="col" class="p-2">{T.th_period}</th><th scope="col" class="p-2">{T.th_zoo}</th></tr>
+        </thead>
+        <tbody>
         {[...p.residences].reverse().map((r) => {
           const seg = tl?.byRes.get(r);
           {/* 訖日缺值：只有「最後一段居所且個體在世」才顯示現在，中途段（如轉園日不明）顯示 ? */}
@@ -271,6 +275,7 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
             </tr>
           );
         })}
+        </tbody>
       </table>
     </div>
   </>
@@ -293,7 +298,11 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
     <>
       <h3 class="font-display text-base mt-4 mb-2 font-semibold">{T.sec_children}</h3>
       <table class="w-full text-[.93rem] scroll-x">
-        <tr class="text-left text-ink-soft text-[.84rem]"><th class="p-2">{T.th_name}</th><th class="p-2">{T.th_born_year}</th><th class="p-2">{T.th_other_parent}</th></tr>
+        <caption class="sr-only">{T.sec_children}</caption>
+        <thead>
+          <tr class="text-left text-ink-soft text-[.84rem]"><th scope="col" class="p-2">{T.th_name}</th><th scope="col" class="p-2">{T.th_born_year}</th><th scope="col" class="p-2">{T.th_other_parent}</th></tr>
+        </thead>
+        <tbody>
         {p.children.map((c) => {
           const q = pandas[c];
           const other = [q.mother, q.father].filter((s) => s && s !== p.slug)[0];
@@ -305,6 +314,7 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
             </tr>
           );
         })}
+        </tbody>
       </table>
     </>
   )}
@@ -318,9 +328,9 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
         <button class={treeBtn} id="tree-down">{T.tree_more_descendants}</button>
         <button class={treeBtn} id="tree-half" style="display:none">{T.tree_show_half}</button>
         <span class="inline-flex gap-1.5 ml-auto">
-          <button class="pop bg-cream text-rust rounded-full px-3 py-1.5 text-base leading-none border-0 cursor-pointer min-w-[38px]" id="tree-zoom-out" aria-label="zoom out">−</button>
-          <button class="pop bg-cream text-rust rounded-full px-3 py-1.5 text-base leading-none border-0 cursor-pointer min-w-[38px]" id="tree-zoom-in" aria-label="zoom in">＋</button>
-          <button class="pop bg-cream text-rust rounded-full px-3 py-1.5 text-base leading-none border-0 cursor-pointer min-w-[38px]" id="tree-reset" aria-label="reset">⟳</button>
+          <button class="pop bg-cream text-rust rounded-full px-3 py-1.5 text-base leading-none border-0 cursor-pointer min-w-[38px]" id="tree-zoom-out" aria-label={T.tree_zoom_out}>−</button>
+          <button class="pop bg-cream text-rust rounded-full px-3 py-1.5 text-base leading-none border-0 cursor-pointer min-w-[38px]" id="tree-zoom-in" aria-label={T.tree_zoom_in}>＋</button>
+          <button class="pop bg-cream text-rust rounded-full px-3 py-1.5 text-base leading-none border-0 cursor-pointer min-w-[38px]" id="tree-reset" aria-label={T.tree_reset}>⟳</button>
         </span>
       </div>
       <div id="tree-box" data-slug={slug}></div>

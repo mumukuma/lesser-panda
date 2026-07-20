@@ -11,7 +11,7 @@ const intro = (T.ft_intro || '').replace('{n}', _D.nodes.length).replace('{g}', 
 <p class="text-ink-soft text-[.9rem] leading-relaxed mb-3 max-w-2xl">{intro}</p>
 
 <div class="ft-tools">
-  <input id="ft-search" type="text" list="ft-names" autocomplete="off" placeholder={T.ft_search} />
+  <input id="ft-search" type="text" list="ft-names" autocomplete="off" placeholder={T.ft_search} aria-label={T.ft_search} />
   <datalist id="ft-names"></datalist>
   <select id="ft-zoo" aria-label={T.ft_zoo_filter} title={T.ft_zoo_filter}>
     <option value="">{T.ft_zoo_all}</option>

@@ -7,6 +7,9 @@
   if (!D || !svg) return;
   const NS = 'http://www.w3.org/2000/svg';
   const T = window.T || {};
+  // 整張圖給群組角色與標籤，供螢幕閱讀器辨識
+  svg.setAttribute('role', 'group');
+  svg.setAttribute('aria-label', T.nav_family || T.tree_aria || 'family tree');
   const BASE = window.BASE || '/';
   const PAGE = window.PAGE || BASE;
   const tt = (s, m) => (s || '').replace(/\{(\w+)\}/g, (_, k) => (k in m ? m[k] : '{' + k + '}'));
@@ -59,6 +62,13 @@
     g.setAttribute('class', 'ft-node ' + (n[4] ? 'dead' : 'alive') + (n[2] === 'f' ? ' f' : n[2] === 'm' ? ' m' : ''));
     g.setAttribute('transform', `translate(${n[6]} ${n[7]})`);
     g.dataset.i = i;
+    // 全圖近 450 個節點：不逐一納入 Tab 序（否則鍵盤使用者要按數百次才能離開圖），
+    // 鍵盤操作走上方 #ft-search（可選任一隻並聚焦其血脈）。此處給節點 role+aria-label，
+    // 讓螢幕閱讀器瀏覽模式仍能逐一朗讀名字／生卒／已故。
+    g.setAttribute('role', 'img');
+    g.setAttribute('aria-label', shortName(n[1])
+      + (n[3] ? ' ' + n[3] + (n[4] ? '–' + n[4] : '') : '')
+      + (n[4] ? '，' + (T.deceased || 'deceased') : ''));
     // 遠景 LOD：畫成小圓點（縮到很小時只顯示點、隱藏方塊與文字）
     const dot = document.createElementNS(NS, 'circle');
     dot.setAttribute('class', 'ft-dot'); dot.setAttribute('r', 17);

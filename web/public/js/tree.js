@@ -131,6 +131,17 @@
       e.preventDefault();
       zoomAt(e.clientX, e.clientY, e.deltaY > 0 ? 1.12 : 0.89, svg);
     }, { passive: false });
+
+    // 鍵盤操作：節點聚焦後按 Enter／空白鍵跳轉至該個體頁（等同滑鼠點擊）
+    svg.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+      const g = e.target.closest && e.target.closest('.tree-node');
+      if (!g) return;
+      const s = g.dataset.slug;
+      if (!s || s === CENTER) return;
+      e.preventDefault();
+      location.href = PAGE + 'p/' + ((G.nodes[s] && G.nodes[s][6]) || s) + '/';
+    });
   }
 
   function render() {
@@ -262,12 +273,13 @@
       : `M${l.x1},${l.y1} C${l.x1},${(l.y1 + l.y2) / 2} ${l.x2},${(l.y1 + l.y2) / 2} ${l.x2},${l.y2}`;
     // 名字靠上對齊（跨卡基線一致）；單行時置中
     const yByN = { 1: [30], 2: [19, 34], 3: [19, 33, 46] };
+    const T = window.T || {};
     const nodeSvg = (n) => {
       const d = G.nodes[n.slug];
       const cls = `tree-node ${d[2] === 'f' ? 'f' : d[2] === 'm' ? 'm' : ''} ${n.slug === CENTER ? 'center' : ''}`;
       const primary = nameByLoc(d);
       const alt = [d[0], jaShort(d)].find(x => x && x !== primary) || '';
-      const dead = d[4] ? ' ' + (window.T.deceased_mark || '🪐') : '';
+      const dead = d[4] ? ' ' + (T.deceased_mark || '🪽') : '';
       const yr = d[3] || '';
       // 三行：名字／讀音／年份（deceased_mark 放年份行；無年份時併回名字行）
       const lines = [{ t: primary + (yr ? '' : dead), fs: 12, cls: '' }];
@@ -277,7 +289,15 @@
       // hover 顯示完整資訊（含被截掉的其餘讀音）
       const full = [d[5], d[1], d[0]].filter(Boolean).filter((v, i, a) => a.indexOf(v) === i).join(' / ')
         + (yr ? ' · ' + yr : '') + dead;
-      return `<g class="${cls}" data-slug="${esc(n.slug)}" transform="translate(${n.x - NODE_W / 2},${n.y - NODE_H / 2})">
+      // 螢幕閱讀器標籤：名字（＋副名／年份）＋「已故」文字；🪽 emoji 不入標籤
+      const aria = [primary, alt].filter(Boolean).join(' ') + (yr ? ' ' + yr : '')
+        + (d[4] ? '，' + (T.deceased || 'deceased') : '');
+      // 中心＝當前個體（點了不跳轉）→ 不可聚焦、標 aria-current；其餘為可鍵盤操作的連結
+      const isCenter = n.slug === CENTER;
+      const a11y = isCenter
+        ? `role="img" aria-current="page" aria-label="${esc(aria)}"`
+        : `tabindex="0" role="link" aria-label="${esc(aria)}"`;
+      return `<g class="${cls}" data-slug="${esc(n.slug)}" ${a11y} transform="translate(${n.x - NODE_W / 2},${n.y - NODE_H / 2})">
         <title>${esc(full)}</title>
         <rect width="${NODE_W}" height="${NODE_H}" rx="10"></rect>` +
         lines.map((ln, i) => `<text ${ln.cls ? `class="${ln.cls}" ` : ''}x="${NODE_W / 2}" y="${ys[i]}" text-anchor="middle"${clampAttr(ln.t, ln.fs)}>${esc(ln.t)}</text>`).join('') +
@@ -286,7 +306,7 @@
 
     worldW = width; worldH = height; focalX = centerX; focalY = centerY;
     box.innerHTML =
-      `<svg preserveAspectRatio="xMidYMid meet" role="img" aria-label="family tree">` +
+      `<svg preserveAspectRatio="xMidYMid meet" role="group" aria-label="${esc(T.tree_aria || 'family tree')}">` +
       links.map(l => `<path class="tree-link ${l.twin ? 'twin' : ''}${l.half ? ' half' : ''}${l.loop ? ' loop' : ''}" d="${linkPath(l)}"></path>`).join('') +
       nodes.map(nodeSvg).join('') + '</svg>';
 

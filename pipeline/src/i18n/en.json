@@ -75,7 +75,7 @@
   "sex_m": "♂ Male",
   "sex_unknown": "Unconfirmed",
   "age_years": "{n} yrs",
-  "deceased_mark": "🪐",
+  "deceased_mark": "🪽",
   "sec_residences": "Residence history",
   "sec_family": "Family",
   "sec_photos": "Photos",
@@ -212,5 +212,11 @@
   "ft_rel_half": "Half siblings (½)",
   "ft_rel_auntuncle": "Aunt/uncle & niece/nephew",
   "ft_rel_cousin": "First cousins",
-  "ft_rel_far": "Distant relatives"
+  "ft_rel_far": "Distant relatives",
+  "deceased": "deceased",
+  "skip_to_content": "Skip to main content",
+  "tree_zoom_in": "Zoom in",
+  "tree_zoom_out": "Zoom out",
+  "tree_reset": "Reset view",
+  "tree_aria": "Family tree"
 }

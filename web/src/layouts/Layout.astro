@@ -57,6 +57,7 @@ const ogLocale = { 'zh-TW': 'zh_TW', 'zh-CN': 'zh_CN', ja: 'ja_JP', en: 'en_US',
   <meta property="og:description" content={T.site_subtitle} />
   <meta property="og:url" content={canonicalUrl} />
   <meta property="og:image" content={ogImage} />
+  <meta property="og:image:alt" content={pageTitle} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content={ogLocale[locale] ?? cur.htmlLang.replace('-', '_')} />
@@ -67,6 +68,7 @@ const ogLocale = { 'zh-TW': 'zh_TW', 'zh-CN': 'zh_CN', ja: 'ja_JP', en: 'en_US',
   <meta name="twitter:title" content={pageTitle} />
   <meta name="twitter:description" content={T.site_subtitle} />
   <meta name="twitter:image" content={ogImage} />
+  <meta name="twitter:image:alt" content={pageTitle} />
   <meta name="theme-color" content="#b5552d" />
   <link rel="icon" href={`${base}icon.svg`} type="image/svg+xml" />
   <link rel="preload" as="font" type="font/woff2" href={`${base}fonts/fredoka-latin.woff2`} crossorigin />
@@ -82,6 +84,8 @@ const ogLocale = { 'zh-TW': 'zh_TW', 'zh-CN': 'zh_CN', ja: 'ja_JP', en: 'en_US',
   <slot name="head" />
 </head>
 <body class:list={['font-sans', active === 'home' && 'home']}>
+  <!-- 跳至主要內容：鍵盤/螢幕閱讀器使用者可略過 header 導覽，聚焦時才現身 -->
+  <a href="#main-content" class="skip-link">{T.skip_to_content}</a>
   <!-- 柔和天空（固定層，全站；裝飾用，輔助技術忽略）-->
   <div class="forest-bg" aria-hidden="true">
     <div class="sky"></div>
@@ -136,7 +140,7 @@ const ogLocale = { 'zh-TW': 'zh_TW', 'zh-CN': 'zh_CN', ja: 'ja_JP', en: 'en_US',
     </div>
   </header>
 
-  <div class:list={['max-w-4xl mx-auto px-4 pb-16', active !== 'home' && 'pt-[var(--header-h,64px)]']}>
+  <main id="main-content" class:list={['max-w-4xl mx-auto px-4 pb-16', active !== 'home' && 'pt-[var(--header-h,64px)]']}>
     <slot />
     <!-- 頁尾：無卡片，全站直接坐在森林地面上（.site-footer 的文字底暈見 global.css）；
          連結分隔「·」恆顯示避免兩連結黏成一句；meta 拆兩行免得窄版換行難看 -->
@@ -149,7 +153,7 @@ const ogLocale = { 'zh-TW': 'zh_TW', 'zh-CN': 'zh_CN', ja: 'ja_JP', en: 'en_US',
       <div class="mt-1.5">{T.footer_note}</div>
       <div class="mt-0.5 opacity-80">{T.data_note} {new Date().toISOString().slice(0, 10)}</div>
     </footer>
-  </div>
+  </main>
   <!-- 森林地面：頁面最底（全站共用）-->
   <div class="forest-floor" aria-hidden="true">
     <div class="layer trees"></div>

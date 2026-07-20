@@ -74,6 +74,13 @@ export const placeholderName = (p, locale) => {
     : t.placeholder_name || p.name;
 };
 
+// 已故標記：把 🪽 包成 role="img" + aria-label（螢幕閱讀器念「已故」而非「翅膀」）。
+// 前面留一個半形空格保持與名字的間距（與舊 ' ' + deceased_mark 一致）。
+export const deceasedHtml = (locale) => {
+  const t = i18n[locale] || {};
+  return ` <span role="img" aria-label="${t.deceased || 'deceased'}">${t.deceased_mark || '🪽'}</span>`;
+};
+
 export const displayName = (p, locale) =>
   p.placeholder && (locale === 'ja' || locale === 'ko') ? placeholderName(p, locale)
     : locale === 'ja' ? p.japanese || p.name

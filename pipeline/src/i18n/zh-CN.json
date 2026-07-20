@@ -75,7 +75,7 @@
   "sex_m": "♂ 雄性",
   "sex_unknown": "待确认",
   "age_years": "{n} 岁",
-  "deceased_mark": "🪐",
+  "deceased_mark": "🪽",
   "sec_residences": "居住史",
   "sec_family": "家族",
   "sec_photos": "照片",
@@ -212,5 +212,11 @@
   "ft_rel_half": "半同胞（½）",
   "ft_rel_auntuncle": "叔伯姑姨／侄甥",
   "ft_rel_cousin": "堂表亲",
-  "ft_rel_far": "远亲"
+  "ft_rel_far": "远亲",
+  "deceased": "已故",
+  "skip_to_content": "跳到主要内容",
+  "tree_zoom_in": "放大",
+  "tree_zoom_out": "缩小",
+  "tree_reset": "重置视角",
+  "tree_aria": "家系图"
 }

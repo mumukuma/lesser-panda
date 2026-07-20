@@ -75,7 +75,7 @@
   "sex_m": "♂ 수컷",
   "sex_unknown": "미확인",
   "age_years": "{n}세",
-  "deceased_mark": "🪐",
+  "deceased_mark": "🪽",
   "sec_residences": "거주 이력",
   "sec_family": "가족",
   "sec_photos": "사진",
@@ -212,5 +212,11 @@
   "ft_rel_half": "반혈연 형제자매 (½)",
   "ft_rel_auntuncle": "삼촌·이모와 조카",
   "ft_rel_cousin": "사촌",
-  "ft_rel_far": "먼 친척"
+  "ft_rel_far": "먼 친척",
+  "deceased": "사망",
+  "skip_to_content": "본문으로 건너뛰기",
+  "tree_zoom_in": "확대",
+  "tree_zoom_out": "축소",
+  "tree_reset": "보기 초기화",
+  "tree_aria": "가계도"
 }

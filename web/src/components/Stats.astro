@@ -1,7 +1,7 @@
 ---
 /* 統計儀表板（#17）：全部由 pipeline/data 於建置期計算，純 HTML/CSS 長條圖、零 JS 零圖表庫。
    顏色一律走主題 CSS 變數 → 深色模式自動成立。僅統計日期已知的個體（見頁尾註）。 */
-import { pandas, i18n, displayName, zooName, zooSlugById } from '../lib/data.js';
+import { pandas, i18n, displayName, zooName, zooSlugById, deceasedHtml } from '../lib/data.js';
 import { pandaUrl, pageUrl, zooUrl } from '../lib/links.js';
 
 const { locale } = Astro.props;
@@ -96,7 +96,7 @@ const bandMax = Math.max(...bands.map(([, f, m]) => Math.max(f, m)), 1);
 
 // ── 長壽排行（年紀顯示到「N 歲 M 個月」）─────────────────
 const link = (p) =>
-  `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, p.urlId)}">${displayName(p, locale)}${p.died ? ' ' + T.deceased_mark : ''}</a>`;
+  `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, p.urlId)}">${displayName(p, locale)}${p.died ? deceasedHtml(locale) : ''}</a>`;
 const ymStr = (a, b) => {
   let y = b.getFullYear() - a.getFullYear();
   let m = b.getMonth() - a.getMonth();

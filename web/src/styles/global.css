@@ -162,6 +162,12 @@
   font-family: 'RPW Mincho', 'Noto Serif TC', 'Hiragino Mincho ProN', 'Yu Mincho',
     'Songti TC', 'AppleMyungjo', 'Batang', serif;
 }
+/* 白字疊在插畫上：加一層柔和暗色暈影當底，確保任何季節背景都達到對比 */
+.jieqi-mark::before {
+  content: ""; position: absolute; inset: -14px -10px -12px -18px; z-index: -1;
+  background: radial-gradient(120% 130% at 80% 30%, rgba(30,22,14,.34), transparent 72%);
+  pointer-events: none;
+}
 .jieqi-mark .jq-row { display: flex; align-items: flex-start; justify-content: flex-end; gap: 6px; }
 /* 白字＋節氣色光暈（B 款）：墨影（--jq-ink）保底可讀性、光暈（--jq-ac）隨節氣換色；
    淺深模式同一套（夜空上光暈更明顯），不需另寫 dark 覆寫。 */
@@ -401,6 +407,33 @@ h1, h2, h3 { letter-spacing: .005em; }
   .walker, .walker-legs img { animation: none !important; }
   .walker { left: 6%; }
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* ── 無障礙：統一鍵盤焦點指示、跳至內容連結 ───────────────────── */
+/* 全站 focus-visible 輪廓（只在鍵盤操作時出現，滑鼠點擊不會有框），
+   取代各 input 只換邊框色的薄弱指示。用品牌鏽橘＋offset 確保各底色可見。 */
+:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+/* 家系圖 SVG 節點：鍵盤聚焦時描邊高亮（outline 在 SVG 內支援度不一，改用 stroke） */
+.tree-node:focus-visible { outline: none; }
+.tree-node:focus-visible rect { stroke: var(--rust); stroke-width: 3; }
+.ft-node:focus-visible { outline: none; }
+.ft-node:focus-visible rect { stroke: var(--rust); stroke-width: 3; }
+
+/* 跳至主要內容：預設藏在畫面外，鍵盤 Tab 聚焦時滑入左上角 */
+.skip-link {
+  position: fixed; top: -60px; left: 12px; z-index: 1000;
+  background: var(--rust); color: #fff; text-decoration: none;
+  padding: 10px 16px; border-radius: var(--r-input); font-weight: 600;
+  box-shadow: var(--shadow-pop); transition: top .18s ease;
+}
+.skip-link:focus { top: 12px; }
+@media (prefers-reduced-motion: reduce) {
+  .skip-link { transition: none; }
+  .animate-pulse { animation: none !important; }  /* IG 骨架卡脈動：降級 */
 }
 
 /* ── 浮動毛玻璃 Header：頂端近透明讓森林透出，捲動後轉霧面 ──────── */

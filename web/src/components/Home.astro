@@ -68,7 +68,7 @@ const leaves = [
     <p class="text-ink-soft text-[1.02rem] mb-4">{T.site_subtitle}</p>
     <form action={pageUrl(base, locale, 'pandas')}
           class="flex gap-2.5 flex-wrap items-center justify-center card-soft p-3.5 max-w-2xl mx-auto">
-      <input type="search" name="q" placeholder={T.search_placeholder}
+      <input type="search" name="q" placeholder={T.search_placeholder} aria-label={T.search_placeholder}
         class="flex-1 min-w-[220px] bg-card text-ink border border-line rounded-input px-3.5 py-2.5 focus:outline-none focus:border-rust" />
       <button type="submit" class="pop bg-rust text-white rounded-full px-5 py-2.5 text-[.92rem] font-semibold hover:bg-rust-dark">{T.nav_search}</button>
     </form>
@@ -97,7 +97,7 @@ const leaves = [
           {newborns.map((p) => (
             <a href={pandaUrl(base, locale, p.urlId)}
                class="pop inline-flex items-baseline gap-1.5 bg-cream border border-line rounded-full px-4 py-2 text-[.94rem] no-underline hover:border-amber">
-              <span class="font-display font-semibold">{p.placeholder ? '🍎 ' : ''}{newbornLabel(p)}{p.died ? ' ' + T.deceased_mark : ''}</span>
+              <span class="font-display font-semibold">{p.placeholder && <span aria-hidden="true">🍎 </span>}{newbornLabel(p)}{p.died && <span role="img" aria-label={T.deceased} class="ml-1">{T.deceased_mark}</span>}</span>
               <span class="text-[.8rem] text-ink-soft">{p.born.slice(5).replace('-', '/')}</span>
             </a>
           ))}
@@ -105,7 +105,7 @@ const leaves = [
         <p class="text-ink-soft text-[.85rem] m-0 leading-relaxed">{T.home_newborns_note}</p>
       </Fragment>
     ) : (
-      <p class="text-ink-soft text-[.95rem] m-0">🍎 {T.home_newborns_empty}</p>
+      <p class="text-ink-soft text-[.95rem] m-0"><span aria-hidden="true">🍎</span> {T.home_newborns_empty}</p>
     )}
   </div>
 </section>

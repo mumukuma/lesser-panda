@@ -4,6 +4,8 @@
   var data = window.SEARCH_DATA;
   if (!data) return;
   var pandas = data.pandas, PAGE = window.PAGE || window.BASE || '', loc = window.LOCALE, T = window.T;
+  // 已故標記：role=img + aria-label，SR 念「已故」而非「翅膀」（含前導空格）
+  var deadMark = ' <span role="img" aria-label="' + (T.deceased || 'deceased') + '">' + (T.deceased_mark || '🪽') + '</span>';
   /* 中文（繁／簡）都用 p.k：zh-CN 的簡體已在建置時轉好（searchDataFor(locale)） */
   var nameOf = function (p) { return loc === 'ja' ? (p.j || p.n) : loc.indexOf('zh') === 0 ? (p.k || p.n) : p.n; };
   // 顯示一個乾淨的副名：主名非英文時顯示英文，否則顯示日文名
@@ -62,12 +64,12 @@
     var sexTxt = p.sex === 'female' ? '♀' : p.sex === 'male' ? '♂' : '?';
     var age = ageOf(p);
     // 存疑個體不顯示推算年齡（等同宣稱在世），改標 🚧
-    var life = p.died ? ((p.born || '?').slice(0, 4) + '-' + p.died.slice(0, 4) + ' ' + T.deceased_mark)
+    var life = p.died ? ((p.born || '?').slice(0, 4) + '-' + p.died.slice(0, 4) + deadMark)
       : p.uv ? ((p.born || '?').slice(0, 4) + '- 🚧')
       : ((p.born || '?').slice(0, 4) + '-' + (age !== null ? '（' + age + '）' : ''));
     var alt = altOf(p);
     // 蘋果籽佔位（尚未命名的寶寶）：名字旁加 🍎
-    var seed = p.ap ? ' <span title="' + (T.placeholder_badge || '') + '">🍎</span>' : '';
+    var seed = p.ap ? ' <span role="img" title="' + (T.placeholder_badge || '') + '" aria-label="' + (T.placeholder_badge || '') + '">🍎</span>' : '';
     var photoBadge = p.ph ? '<span class="absolute top-2 right-2 inline-flex items-center gap-0.5 bg-cream text-rust rounded-full px-1.5 py-0.5 text-[.7rem] font-medium leading-none" aria-label="' + p.ph + ' ' + (T.sec_photos || '') + '">' +
       '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3.2"/></svg>' + p.ph + '</span>' : '';
     return '<a class="relative block pop bg-card border border-line rounded-card shadow-card p-[13px_16px] no-underline text-ink hover:border-amber" href="' + PAGE + 'p/' + (p.u || p.slug) + '/">' + photoBadge +

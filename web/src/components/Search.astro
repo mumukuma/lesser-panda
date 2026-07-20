@@ -8,9 +8,9 @@ const arrowStyle = "background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http
 ---
 <h1 class="font-display text-2xl font-semibold mt-7 mb-1.5">{T.nav_search}</h1>
 <div class="flex gap-2.5 flex-wrap items-center my-4">
-  <input type="search" id="f-q" placeholder={T.search_placeholder} class={`flex-1 min-w-0 w-full sm:w-auto sm:min-w-[240px] ${inputCls}`} />
-  <select id="f-zoo" class={`w-full sm:w-auto min-w-0 max-w-full ${selectCls}`} style={arrowStyle}><option value="">{T.filter_zoo}：{T.filter_all}</option></select>
-  <select id="f-sex" class={`w-full sm:w-auto ${selectCls}`} style={arrowStyle}>
+  <input type="search" id="f-q" placeholder={T.search_placeholder} aria-label={T.search_placeholder} class={`flex-1 min-w-0 w-full sm:w-auto sm:min-w-[240px] ${inputCls}`} />
+  <select id="f-zoo" aria-label={T.filter_zoo} class={`w-full sm:w-auto min-w-0 max-w-full ${selectCls}`} style={arrowStyle}><option value="">{T.filter_zoo}：{T.filter_all}</option></select>
+  <select id="f-sex" aria-label={T.filter_sex} class={`w-full sm:w-auto ${selectCls}`} style={arrowStyle}>
     <option value="">{T.filter_sex}：{T.filter_all}</option>
     <option value="female">{T.filter_female}</option>
     <option value="male">{T.filter_male}</option>
