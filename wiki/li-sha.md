@@ -7,7 +7,7 @@ zoos:
   - 柳州市動物園 ( – 現在)
 tags: [styani, female, zoo:柳州市動物園]
 sources:
-  - http://xhslink.com/o/4g1ZO8bso7S （柳州動物園官方小紅書：列為木薯之母，2026）
+  - http://xhslink.com/o/4g1ZO8bso7S
 ---
 
 # 麗莎（丽莎 / Li Sha）

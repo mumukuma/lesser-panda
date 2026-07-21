@@ -55,8 +55,19 @@ const leaves = [
         <img src={`${base}img/mascot.webp`} alt={T.site_title} width="480" height="781" fetchpriority="high" class="block w-full h-auto" />
       </div>
     </div>
-    <!-- 走路小熊貓：2 格 sprite，沿森林下緣左右來回（CSS 橫移 + 翻面，見 global.css .walker）-->
-    <div class="walker" aria-hidden="true">
+    <!-- 走路小熊貓：媽媽帶兩隻寶寶，2 格 sprite，沿森林下緣左右來回（CSS 橫移 + 翻面，見 global.css .walker）
+         寶寶用 animation-delay 落在同一條 walk-track 稍前的相位，形成跟在後面的小隊 -->
+    <div class="walker walker-lead" aria-hidden="true">
+      <div class="walker-legs">
+        <img src={`${base}img/walk-sheet.webp`} alt="" width="340" height="178" loading="lazy" />
+      </div>
+    </div>
+    <div class="walker walker-cub walker-cub-1" aria-hidden="true">
+      <div class="walker-legs">
+        <img src={`${base}img/walk-sheet.webp`} alt="" width="340" height="178" loading="lazy" />
+      </div>
+    </div>
+    <div class="walker walker-cub walker-cub-2" aria-hidden="true">
       <div class="walker-legs">
         <img src={`${base}img/walk-sheet.webp`} alt="" width="340" height="178" loading="lazy" />
       </div>

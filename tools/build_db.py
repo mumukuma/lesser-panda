@@ -57,6 +57,9 @@ OFFICIAL_HOSTS = {
     # 中國園方官網／官方微信公眾號（無官網者以微信文章為官方，見 CLAUDE.md）
     "shanghaizoo.cn", "nbzoo.com", "shwzoo.com", "enjoyland.cn",
     "swap-shendi.com", "lyhylj.liuzhou.gov.cn", "mp.weixin.qq.com",
+    # 小紅書：園方官方帳號亦於此發布（如柳州動物園）。與微信同為共用平台、整域列入，
+    # ⚠️ sources 只放官方帳號貼文；粉絲轉載請勿放 sources（會被誤判官方）。xhslink 為短連結轉址域。
+    "xiaohongshu.com", "xhslink.com",
     # 其他國家園方官網
     "drusillas.co.uk", "witheverland.com", "chiangmai.zoothailand.org", "sriayuthayalionpark.com",
 }
