@@ -48,6 +48,7 @@ OFFICIAL_HOSTS = {
     # 日本園方官網／營運協會
     "tokyo-zoo.net", "nhdzoo.jp", "tohoku-safaripark.co.jp", "tobezoo.com",
     "asazoo.jp", "omutacityzoo.org", "hama-midorinokyokai.or.jp",
+    "kobe-ojizoo.jp", "ojizoo.jp",  # 神戸市立王子動物園（現行官網＋舊官方網域）
     # 日本自治體（園區隸屬市府）
     "city.ichikawa.lg.jp", "city.asahikawa.hokkaido.jp", "city.kawasaki.jp",
     "soumu.metro.tokyo.lg.jp",

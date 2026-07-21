@@ -2371,6 +2371,19 @@ Sheet I 欄「已補進」標記待作者手動處理。
 **更新條目**：
 - `gao-gao-2015-06-27.md` — frontmatter 移除 `english_variants: [Stripes, Shaggy]`；引言移除「別名：Stripes、Shaggy」列
 
+## [2026-07-21] update | 円山動物園蘋果籽 `hinagiku` × `puerh` 第一胎夭折（2026-07-20，生後 4 日）
+
+**來源**：
+- https://www.city.sapporo.jp/zoo/03doubutsu/05asiazone/redpanda/r8/redpand_child.html （札幌市円山動物園官方訃告：2026-07-20 死亡，子為メス／雌、0 歲；7/19 起活動力轉弱、7/20 產箱確認死亡；同日解剖無明確異常、母獸健康無虞）
+
+**說明**：寶寶出生後未及正式命名即夭折。官方訃告齊備，依 2026-07-01 授權直接採用，並回填性別為雌（原留空）。依 2026-07-21 作者裁定的新做法，**當季（6/1–11/30）仍保留於 wiki／首頁「新鮮的寶寶」（帶歿記）**，不立即移入 `_hidden`；季末（每年 12/1 由排程 `hide-deceased-apple-seeds-yearly` 自動）區塊隱藏後再下架。故此筆僅記死亡、未移 `_hidden`、條目總數不變（仍 663、仍上站）。
+
+**更新條目**：
+- `apple-seed-hinagiku-2026-07-16.md` — frontmatter 補 `died: 2026-07-20`、`sex: female`、tags 加 `female`／`deceased`、`sources` 補官方訃告、`zoos:` 訖日 現在 → 2026-07-20；標題與引言補 🪐、♀、歿日與「生後 4 日」，佔位提示改為「未及命名即夭折」，內文改過去式並補死亡經過／解剖結果
+- `puerh-2015-06-25.md`、`hinagiku-2022-07-01.md` — 引言與子女表對該子補 🪐 與幼逝註記
+- `ren-ren-2020-06-29.md`、`rin-rin-2020-06-29.md`、`jin-jin-2022-07-05.md`、`chen-chen-2022-07-05.md` — 父方半血緣手足列對該妹補 🪐
+- `index.md` — 該列補 🪐 與「生後四日夭折」；總數不變
+
 ## [2026-07-18] update | 來源勘誤：日本平家系圖頁僅列現役個體，錯引批次更正
 
 作者指出 `hou-hou-1988`（紅紅）、`ryu-ryu-1990`（綠綠）引用的日本平家系圖連結中查無其人。實際核對家系圖圖片（sec01-img01.png，2320×3000）：最上代僅自 シュウシュウ／楢／風々 起、共 27 隻現役相關個體，且頁尾註明「一部の情報は省略しています」——與 2026-07-01 log 已註記的「僅列現役個體」一致，但當時未同步清理各條目 sources。本批將「不在圖中卻引用該頁」的 11 個條目改引真正佐證來源：多摩官方個體名單（4travel 轉載，官方轉載可直採）有載者換該連結；未載者移除、改記實際來源。並依名單補採 中中／華華 之「出自不明・死亡」。
@@ -2506,5 +2519,21 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - 36 隻無日本居住史個體：移除 frontmatter `japanese:` 片假名欄（純片假名者整欄移除；`tai-shan`、`hou-hou` 之漢字名已存於 `chinese`，亦整欄移除），並清除各自標題行的（片假名）
   - `arun`、`carson`、`dawa`、`duli`、`ferguson`、`hou-hou`、`karma`、`kayah`、`kelu`、`kendji`、`kiari`、`kovu`、`leah`、`lincoln`、`maja`、`malikha`、`meeko`、`mei-mei`、`mulan`、`nima`、`poppy`、`rakesh`、`ravi`、`rinzen`、`sakura`、`sophia`、`sundari`、`tai-shan`、`tango`、`tanvi`、`tayla`、`willa`、`xi-xi`、`xiao-bai-lian`、`zeyar`、`zorro`
 - 其他條目家族欄中指向上列 36 隻的（片假名）交叉引用一併清除（保留性別、RPF 編號、韓文名等其他括號內容；日本居住個體之片假名與動物園名不動）
-- `leah`、`sundari` 內文引言的片假名別名（ローズ／サンサリ）一併清除
+- 內文引言中提及片假名別名者（如 `leah` ローズ、`sundari` サンサリ）依作者裁定保留原文、不動
 - 重建：`gen_residence.py` → `build_db.py` → `export_json.py`；`verify.sh` 通過（🔴 0）
+
+---
+
+## [2026-07-21] add | 王子動物園早期個體 `太郎`（讀者回報，楊桃）
+
+**來源**：
+- http://ojizoo.jp/html/oj-07-114.htm （王子動物園官方個體アルバム頁：出生 1989-07-01・オス・1990-12-12 由長野市茶臼山動物園來園）
+- https://www.kobe-ojizoo.jp/habataki/pdf/habataki66.pdf （園報〈はばたき No.66〉2010 年 4 月號第 16 頁「別れ」欄：シセンレッサーパンダ「太郎」オス・20 歳・10 月 25 日死亡 → 2009-10-25）
+
+**新增條目**：
+- `tarou-1989-07-01.md` — `Tarou` 太郎（タロウ），♂，生於 1989-07-01 長野市茶臼山動物園，1990-12-12 移神戸市立王子動物園，2009-10-25 歿（享年 20 歲）；家系不詳；styani；deceased
+
+**更新條目**：
+- `index.md` — 「王子動物園 早期個體（神戸）」新增 `太郎`；條目總數 662 → 663
+
+**備注**：讀者（楊桃）回報，兩筆來源皆官方（園方官網＋園報），依 CLAUDE.md「官方來源可直接採用」建檔。兩座園（長野市茶臼山動物園、神戸市立王子動物園）皆已登記於 `data/zoos.json`。無 RPF profile（缺 rpf_id，audit 列 ⚪ info）。
