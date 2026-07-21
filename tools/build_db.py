@@ -51,7 +51,7 @@ OFFICIAL_HOSTS = {
     "kobe-ojizoo.jp", "ojizoo.jp",  # 神戸市立王子動物園（現行官網＋舊官方網域）
     # 日本自治體（園區隸屬市府）
     "city.ichikawa.lg.jp", "city.asahikawa.hokkaido.jp", "city.kawasaki.jp",
-    "soumu.metro.tokyo.lg.jp",
+    "soumu.metro.tokyo.lg.jp", "city.sapporo.jp",  # 札幌市円山動物園
     # 台灣／港澳
     "zoo.gov.taipei", "gov.taipei", "macaotourism.gov.mo", "gcs.gov.mo",
     # 中國園方官網／官方微信公眾號（無官網者以微信文章為官方，見 CLAUDE.md）

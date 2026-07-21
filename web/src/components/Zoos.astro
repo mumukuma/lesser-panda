@@ -1,5 +1,5 @@
 ---
-import { zoos, pandas, i18n, displayName, zooName, deceasedHtml } from '../lib/data.js';
+import { zoos, pandas, i18n, displayName, zooName, zooLocation, deceasedHtml } from '../lib/data.js';
 import { pandaUrl, zooUrl } from '../lib/links.js';
 const { locale } = Astro.props;
 const T = i18n[locale];
@@ -32,12 +32,12 @@ const arrowStyle = "background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http
       data-count={z.residents.length}
       data-name={zooName(z.id, z.en_name, locale)}
       data-region={z.country || z.location_en || z.location_ja || ''}
-      data-search={[z.ja_name, z.ja_kana, z.en_name, z.name_zh, zooName(z.id, z.en_name, locale), z.location_ja, z.location_en, z.country].filter(Boolean).join('|')}>
+      data-search={[z.ja_name, z.ja_kana, z.en_name, z.name_zh, zooName(z.id, z.en_name, locale), z.location_ja, z.location_en, z.location_zh, z.country].filter(Boolean).join('|')}>
       <h2 class="font-display m-0 mb-1 text-[1.02rem] font-semibold flex items-start gap-2.5 leading-snug">
         {z.logo && <img class="w-[26px] h-[26px] flex-none mt-px object-contain bg-white border border-line rounded-md p-0.5" src={z.logo} alt="" loading="lazy" onerror="this.style.display='none'" />}
         <a class="text-ink no-underline hover:text-rust hover:underline" href={zooUrl(base, locale, z.slug)}>{zooName(z.id, z.en_name, locale)}</a>
       </h2>
-      <div class="text-[.84rem] text-ink-soft mb-2">{z.location_ja || z.location_en || z.country || ''}</div>
+      <div class="text-[.84rem] text-ink-soft mb-2">{zooLocation(z, locale) || ''}</div>
       <div class="text-[.9rem]">
         <strong>{T.zoo_residents}（{z.residents.length}）</strong><br />
         <Fragment set:html={z.residents.map(resLink).join('、') || T.zoo_no_residents} />

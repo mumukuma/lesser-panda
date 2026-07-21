@@ -65,6 +65,17 @@ export const zooName = (id, raw, locale = 'zh-TW') => {
   return locale === 'zh-CN' ? toHans(zh) : zh;
 };
 
+// 動物園地點依語系：中文（zh-TW／zh-CN）優先 location_zh（正本繁體），缺則退回 location_ja；
+// 註記：location_ja 對多數非日本園實為繁中，僅日本相關園存真日文，故中文站對「日文地址」的中國園
+// 需靠 location_zh 覆蓋。zh-CN 一律 toHans。ja／en／ko 維持既有 location_ja／location_en 順序。
+export const zooLocation = (z, locale = 'zh-TW') => {
+  if (!z) return '';
+  if (locale === 'ja') return z.location_ja || z.location_en || z.country || '';
+  if (locale === 'en' || locale === 'ko') return z.location_en || z.location_ja || z.country || '';
+  const zh = z.location_zh || z.location_ja || z.location_en || z.country || '';
+  return locale === 'zh-CN' ? toHans(zh) : zh;
+};
+
 // 佔位個體（蘋果籽）的 ja/ko 顯示名：資料正本 japanese 依規則留空（「赤ちゃん」非正式名）、
 // ko 無個體名欄位，故於顯示層由 i18n 直譯（りんごのタネ／사과씨）；多胞胎編號用 placeholder_name_n 模板。
 export const placeholderName = (p, locale) => {

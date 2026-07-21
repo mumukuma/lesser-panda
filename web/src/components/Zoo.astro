@@ -1,7 +1,7 @@
 ---
 /* 動物園個別頁（#18）：現居名單、歷代居住個體、該園出生紀錄。
    全部建置期由 pandas.json residences 計算，零 client JS（同 #16/#17 模式）。 */
-import { pandas, i18n, displayName, zooName, zooBySlug, deceasedHtml } from '../lib/data.js';
+import { pandas, i18n, displayName, zooName, zooLocation, zooBySlug, deceasedHtml } from '../lib/data.js';
 import { pandaUrl, pageUrl } from '../lib/links.js';
 
 const { locale, slug } = Astro.props;
@@ -52,8 +52,8 @@ const pill = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem] no
     {z.logo && <img class="w-9 h-9 flex-none object-contain bg-white border border-line rounded-md p-0.5" src={z.logo} alt="" loading="lazy" onerror="this.style.display='none'" />}
     <h1 class="font-display text-3xl font-semibold my-0.5">{name}</h1>
   </div>
-  {(z.location_ja || z.location_en || z.country) && (
-    <p class="text-ink-soft text-[.95rem] mt-1.5 mb-0">📍 {z.location_ja || z.location_en || z.country}</p>
+  {zooLocation(z, locale) && (
+    <p class="text-ink-soft text-[.95rem] mt-1.5 mb-0">📍 {zooLocation(z, locale)}</p>
   )}
   {z.closed_ja && (
     <p class="text-ink-soft text-[.95rem] mt-1.5 mb-0">🗓️ {T.zoo_closed}：{z.closed_ja}<span class="text-[.8rem] opacity-70">（{T.zoo_closed_note}）</span></p>
