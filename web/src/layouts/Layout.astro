@@ -154,6 +154,28 @@ const ogLocale = { 'zh-TW': 'zh_TW', 'zh-CN': 'zh_CN', ja: 'ja_JP', en: 'en_US',
       <div class="mt-0.5 opacity-80">{T.data_note} {new Date().toISOString().slice(0, 10)}</div>
     </footer>
   </main>
+  <!-- 返回頂部：捲動一段距離後於右下角淡入，點擊平滑回到頁首 -->
+  <button id="back-to-top" type="button" aria-label={T.back_to_top} title={T.back_to_top} hidden>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+  </button>
+  <script is:inline>
+    (function () {
+      var btn = document.getElementById('back-to-top');
+      if (!btn) return;
+      var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function toggle() {
+        if (window.scrollY > 400) btn.hidden = false;
+        else { btn.hidden = true; btn.classList.remove('show'); return; }
+        // 下一幀加 class 觸發淡入過場
+        requestAnimationFrame(function () { btn.classList.add('show'); });
+      }
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      });
+      addEventListener('scroll', toggle, { passive: true });
+      toggle();
+    })();
+  </script>
   <!-- 森林地面：頁面最底（全站共用）-->
   <div class="forest-floor" aria-hidden="true">
     <div class="layer trees"></div>

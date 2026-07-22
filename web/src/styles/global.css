@@ -305,20 +305,30 @@ h1, h2, h3 { letter-spacing: .005em; }
 .walker {
   position: absolute; left: 0; bottom: 16px; z-index: 6;
   width: 46px; pointer-events: none; will-change: left, transform;
-  animation: walk-track 17s linear infinite;
+  animation: walk-track 11s linear infinite;
 }
-@media (min-width: 640px) { .walker { width: 54px; bottom: 22px; } }
+/* 手機畫面窄、橫移距離短 → 用較短時長(11s)才不會顯得龜速；
+   桌機畫面寬、距離長 → 維持 17s 才不會太快。速度＝距離/時長，故分段設。 */
+@media (min-width: 640px) { .walker { width: 54px; bottom: 22px; animation-duration: 17s; } }
 /* 兩隻寶寶：同一條 walk-track、身形較小，用 negative animation-delay 落在稍前相位，
    於去程時排在媽媽後方，形成跟走小隊（回程翻面時短暫重整屬自然）。
    寶寶較小 → walk-track 右端 calc(97% - 54px) 對牠們略保守、絕不出界（延續 walker 93% 教訓）。 */
 .walker-cub { width: 34px; }
-/* 落後媽媽：walk-track 一圈 17s，落後 L 秒 = animation-delay -(17-L)s
-   （用「近整圈」的負延遲，讓寶寶落在媽媽後方且開場即在移動、不卡住） */
-.walker-cub-1 { animation-delay: -16.45s; } /* 落後 0.55s */
-.walker-cub-2 { animation-delay: -15.9s; }  /* 落後 1.1s  */
-@media (min-width: 640px) { .walker-cub { width: 40px; } }
-/* 寶寶毛色較淺：提亮、降彩度（套在 sprite 上，不影響 scaleX 翻面） */
-.walker-cub .walker-legs img { filter: brightness(1.14) saturate(0.8); }
+/* 落後媽媽：走一圈 T 秒、落後 L 秒 = animation-delay -(T-L)s
+   （用「近整圈」的負延遲，讓寶寶落在媽媽後方且開場即在移動、不卡住）。
+   延遲是「時間差」，換成像素間距要乘速度 → 時長不同就得各自重算，
+   否則手機(慢)換算出來的間距太小會疊在一起。 */
+.walker-cub-1 { animation-delay: -10.3s; } /* 手機 T=11s，落後 0.7s */
+.walker-cub-2 { animation-delay: -9.6s; }  /* 手機 T=11s，落後 1.4s */
+@media (min-width: 640px) {
+  .walker-cub { width: 40px; }
+  .walker-cub-1 { animation-delay: -16.45s; } /* 桌機 T=17s，落後 0.55s */
+  .walker-cub-2 { animation-delay: -15.9s; }  /* 桌機 T=17s，落後 1.1s  */
+}
+/* 寶寶毛色較淺：提亮、降彩度（套在 sprite 上，不影響 scaleX 翻面）。
+   兩隻深淺不同：cub-1 稍淺、cub-2 更淺。 */
+.walker-cub-1 .walker-legs img { filter: brightness(1.1) saturate(0.85); }
+.walker-cub-2 .walker-legs img { filter: brightness(1.24) saturate(0.7); }
 .walker-legs { width: 100%; overflow: hidden; line-height: 0; }
 .walker-legs img {
   width: 200%; max-width: none; height: auto; display: block;
@@ -442,6 +452,28 @@ h1, h2, h3 { letter-spacing: .005em; }
 @media (prefers-reduced-motion: reduce) {
   .skip-link { transition: none; }
   .animate-pulse { animation: none !important; }  /* IG 骨架卡脈動：降級 */
+}
+
+/* 返回頂部：右下角圓鈕，捲動一段距離後淡入（JS 切 hidden / .show）。
+   固定定位 + 安全區內距，窄螢幕不出界；z-index 低於 header(500)。 */
+#back-to-top {
+  position: fixed; z-index: 480;
+  right: calc(16px + env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  width: 44px; height: 44px; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 0; border-radius: 9999px; cursor: pointer;
+  color: #fff; background: var(--rust);
+  box-shadow: var(--shadow-pop);
+  opacity: 0; transform: translateY(8px);
+  transition: opacity .22s ease, transform .22s ease, background .2s ease;
+}
+#back-to-top.show { opacity: 1; transform: translateY(0); }
+#back-to-top:hover { background: var(--rust-dark); }
+#back-to-top:focus-visible { outline: 2px solid var(--rust); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  #back-to-top { transition: opacity .22s ease; transform: none; }
+  #back-to-top.show { transform: none; }
 }
 
 /* ── 浮動毛玻璃 Header：頂端近透明讓森林透出，捲動後轉霧面 ──────── */
