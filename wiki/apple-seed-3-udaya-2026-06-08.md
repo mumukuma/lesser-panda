@@ -8,6 +8,7 @@ zoos:
   - Calgary Zoo (2026-06-08 – 現在)
 instagram:
   - https://www.instagram.com/calgaryzoo/reel/DaS3WVsAvG5/
+  - https://www.instagram.com/calgaryzoo/reel/DbEAJPTjLtp/
 tags: [styani, apple-seed, zoo:Calgary Zoo]
 sources:
   - https://www.calgaryzoo.com/news/welcoming-red-panda-cubs/
