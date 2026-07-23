@@ -208,6 +208,7 @@ def main():
             "slug": r["slug"],
             "name": r["name"],
             "japanese": clean_japanese(r["japanese"]),
+            "korean": r["korean"],
             "chinese": r["chinese"],
             "kanji": extract_kanji(r["japanese"], r["rpf_id"]),
             "nicknames": json.loads(r["nicknames"] or "[]"),

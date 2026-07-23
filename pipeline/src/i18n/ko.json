@@ -125,7 +125,7 @@
   "feedback_hub_intro": "도감을 더 완전하고 유용하게 만드는 데 도움을 주셔서 감사합니다. 아래 양식의 '유형' 드롭다운에서 시작하세요: 누락된 레서판다나 동물원 제보, 기타 의견·제안, 또는 위시리스트 요청을 남길 수 있습니다. 모든 제보는 반영되기 전에 작성자가 검토합니다.",
   "report_error": "이 페이지의 정보 오류나 근황 제보",
   "data_note": "데이터 업데이트",
-  "footer_note": "직접 정리한 Obsidian 위키에서 자동 생성됨 (초기 참고: Red Panda Finder & redpanda-lineage)",
+  "footer_note": "직접 정리한 Obsidian 위키에서 자동 생성됨 (초기 참고: <a href=\"https://redpandafinder.com/\" target=\"_blank\" rel=\"noopener\" class=\"text-rust no-underline hover:underline\">Red Panda Finder</a>)",
   "feedback_footer_link": "오류 또는 누락된 레서판다/동물원 제보",
   "thanks_footer_link": "감사의 말",
   "thanks_title": "감사의 말",

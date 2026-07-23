@@ -10,7 +10,7 @@
 
 本專案採 [llm-wiki 模式](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)：人類提供資料來源與問題，LLM 負責撰寫與維護所有條目。`wiki/*.md` 是唯一的真相來源，網站與資料庫都由它自動產生、可隨時重建。
 
-資料正本為作者手工校訂的 `wiki/*.md`。經作者大量校訂後，wiki 的可信度已高於外部資料庫，故自 2026-07 起 [Red Panda Finder](https://redpandafinder.com) 與 [Red Panda Lineage Project](https://github.com/wwoast/redpanda-lineage) 已降為「線索」——僅在無官方來源時當參考，衝突一律以 wiki 為準。新條目以園方公告等官方一手來源優先。動物園資料另以 `data/zoos.json` 註冊表（340 座園）為唯一來源。
+資料正本為作者手工校訂的 `wiki/*.md`。經作者大量校訂後，wiki 的可信度已高於外部資料庫，故自 2026-07 起 [Red Panda Finder](https://redpandafinder.com/) 已降為「線索」——僅在無官方來源時當參考，衝突一律以 wiki 為準。新條目以園方公告等官方一手來源優先。動物園資料另以 `data/zoos.json` 註冊表（340 座園）為唯一來源。
 
 ## 功能
 
@@ -69,6 +69,6 @@ cd web && pnpm install && pnpm dev   # Astro 開發伺服器
 
 ## 資料來源與致謝
 
-資料正本為作者手工校訂的 wiki，以園方公告等官方一手來源為優先。建立初期參考了 [Red Panda Finder](https://redpandafinder.com)（家系、居住地、別名）與 [redpanda-lineage](https://github.com/wwoast/redpanda-lineage)（底層血統、動物園座標），兩者皆非權威、現已降為線索，一律以作者校訂為準。亦感謝各動物園、透過回報表單提供資料的讀者，以及愛好者社群的紀錄。
+資料正本為作者手工校訂的 wiki，以園方公告等官方一手來源為優先。建立初期參考了 [Red Panda Finder](https://redpandafinder.com/)（家系、居住地、別名、底層血統與動物園座標），現已降為線索、非權威，一律以作者校訂為準。亦感謝各動物園、透過回報表單提供資料的讀者，以及愛好者社群的紀錄。
 
 本專案為非營利的同好整理，若資料來源方有任何疑慮，歡迎來信告知調整。

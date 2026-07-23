@@ -125,7 +125,7 @@
   "feedback_hub_intro": "Thanks for helping make the directory more complete and more useful. Start from the form's \"type\" dropdown below: report a missing panda or zoo, share other suggestions and feedback, or drop a request in the wishlist. Every report is reviewed by the author before anything is acted on.",
   "report_error": "Report info or an update on this page",
   "data_note": "Data updated",
-  "footer_note": "Auto-generated from a hand-curated Obsidian wiki (initial reference: Red Panda Finder & redpanda-lineage)",
+  "footer_note": "Auto-generated from a hand-curated Obsidian wiki (initial reference: <a href=\"https://redpandafinder.com/\" target=\"_blank\" rel=\"noopener\" class=\"text-rust no-underline hover:underline\">Red Panda Finder</a>)",
   "feedback_footer_link": "Report a problem or missing panda/zoo",
   "thanks_footer_link": "Thanks",
   "thanks_title": "Thanks",

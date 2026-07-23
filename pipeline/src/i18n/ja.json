@@ -125,7 +125,7 @@
   "feedback_hub_intro": "図鑑をより充実・使いやすくするためのご協力に感謝します。下のフォームの「種類」からお選びください：未掲載の個体・動物園の報告、その他のご意見・ご提案、または「願いの池」へのリクエスト。いただいた内容は管理人が確認のうえ対応します。",
   "report_error": "このページの情報・近況を報告",
   "data_note": "データ更新日",
-  "footer_note": "Obsidian wiki から自動生成・データは手作業で校訂（初期参考: Red Panda Finder・redpanda-lineage）",
+  "footer_note": "Obsidian wiki から自動生成・データは手作業で校訂（初期参考: <a href=\"https://redpandafinder.com/\" target=\"_blank\" rel=\"noopener\" class=\"text-rust no-underline hover:underline\">Red Panda Finder</a>）",
   "feedback_footer_link": "不具合・不足の報告",
   "thanks_footer_link": "謝辞",
   "thanks_title": "謝辞",

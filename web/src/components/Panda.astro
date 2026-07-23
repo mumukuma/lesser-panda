@@ -24,7 +24,7 @@ const pfid = photoFormId(locale);
 const photoEmbedSrc = pfid
   ? `https://tally.so/embed/${pfid}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&panda=${encodeURIComponent(p.name)}&slug=${encodeURIComponent(p.slug)}&url=${encodeURIComponent(pageHref)}`
   : null;
-const altNames = [...new Set([p.name, p.japanese].filter(Boolean).filter((n) => n !== primary))];
+const altNames = [...new Set([p.name, p.japanese, p.korean].filter(Boolean).filter((n) => n !== primary))];
 const aka = [...new Set([...(p.nicknames || []), ...(p.english_variants || [])])].filter((n) => n !== primary && !altNames.includes(n));
 
 // IG 貼文：frontmatter 可寫「URL YYYY-MM-DD」，依貼文日期新到舊排序（無日期者排後）

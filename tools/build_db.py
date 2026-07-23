@@ -324,10 +324,16 @@ def build_db():
         if isinstance(extra_sources, str):
             extra_sources = [extra_sources]
 
+        # 韓文名可為單值或多值（list）；正規化為以逗號分隔的字串（比照 japanese 多值寫法）
+        korean = fm.get("korean")
+        if isinstance(korean, list):
+            korean = ", ".join(str(x) for x in korean) if korean else None
+
         row = {
             "slug":             slug,
             "name":             fm.get("name", ""),
             "japanese":         fm.get("japanese"),
+            "korean":           korean,
             "chinese":          fm.get("chinese"),
             "nicknames":        json.dumps(nicknames, ensure_ascii=False) if nicknames else None,
             "english_variants": json.dumps(english_variants, ensure_ascii=False) if english_variants else None,
@@ -349,10 +355,10 @@ def build_db():
 
     cur.executemany("""
         INSERT OR REPLACE INTO pandas
-          (slug, name, japanese, chinese, nicknames, english_variants,
+          (slug, name, japanese, korean, chinese, nicknames, english_variants,
            sex, born, died, last_seen, species, rpf_id, rpf_url, tags, instagram, is_alive, sources, extra_sources)
         VALUES
-          (:slug,:name,:japanese,:chinese,:nicknames,:english_variants,
+          (:slug,:name,:japanese,:korean,:chinese,:nicknames,:english_variants,
            :sex,:born,:died,:last_seen,:species,:rpf_id,:rpf_url,:tags,:instagram,:is_alive,:sources,:extra_sources)
     """, [r for _, _, r in panda_rows])
     conn.commit()

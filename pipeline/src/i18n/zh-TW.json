@@ -125,7 +125,7 @@
   "feedback_hub_intro": "感謝你協助讓圖鑑更完整、更好用。請從下方表單的「類型」開始：報缺的熊／動物園、其他建議與意見，或丟一個願望到許願池。所有回報都會由作者查證後處理。",
   "report_error": "回報這頁資料／近況",
   "data_note": "資料更新於",
-  "footer_note": "由 Obsidian wiki 自動生成・資料經人工校訂（初期參考：Red Panda Finder、redpanda-lineage）",
+  "footer_note": "由 Obsidian wiki 自動生成・資料經人工校訂（初期參考：<a href=\"https://redpandafinder.com/\" target=\"_blank\" rel=\"noopener\" class=\"text-rust no-underline hover:underline\">Red Panda Finder</a>）",
   "feedback_footer_link": "回報問題或缺少的熊／動物園",
   "thanks_footer_link": "致謝名單",
   "thanks_title": "致謝",

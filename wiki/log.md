@@ -6,6 +6,21 @@
 
 ---
 
+## [2026-07-23] rename | `leanne` → `lian`（リアン／리안）＋補韓文名、名字由來
+
+作者本人回報：`leanne` 的正式羅馬拼音應為 `Lian`，取自母親 `himawari`（ひまわり，向日葵）學名 Helianthus 當中的「lian」；韓文名 리안 見於園方公布出生的官方 IG 貼文（同一貼文亦佐證 `ravi` 韓文名 라비）。依此更名、補韓文名並補名字由來。
+
+**更名**：
+- `leanne-2020-07-20.md` → `lian-2020-07-20.md`（`name` Leanne → Lian；舊拼音 Leanne 留 `english_variants`；移除舊變體 Leeane／Lee-Anne／Leeanne／Leane；引言補名字由來、母親改 wikilink、家族「母」列改 wikilink；`sources` 補官方 IG）
+- `apple-seed-1-leanne-2026-06-19.md` → `apple-seed-1-lian-2026-06-19.md`（母 slug 隨改）
+- `apple-seed-2-leanne-2026-06-19.md` → `apple-seed-2-lian-2026-06-19.md`（同上）
+
+**更新條目**：
+- `ravi-2022-06-14.md` — 補 `korean: 라비`（官方 IG 佐證）、`sources` 補該 IG；配偶／子女／內文 wikilink 由 `leanne` 改 `lian`
+- `fran-2020-07-20.md`／`himawari-2017-07-13.md`／`kanoko-2016-06-24.md`／`franken-2012-06-11.md`／`index.md` — 所有 `[[leanne-2020-07-20]]` 與蘋果籽舊 slug 改 `lian`；顯示名 Leanne → Lian
+
+---
+
 ## [2026-07-23] fix | Subaru 來園日修正 2013-03-13 → 2013-05-14（平川動物公園官網）
 
 讀者（`楊桃`）回報 `subaru`（スバル）轉入鹿児島市平川動物公園的日期有誤。平川動物公園官網訃告〈レッサーパンダの死亡について〉載明「来園年月日 ２０１３年５月１４日」，屬園方官方來源，直接採用更正（原 2013-03-13 疑為 RPF/lineage 帶入）。

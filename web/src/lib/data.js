@@ -95,6 +95,7 @@ export const deceasedHtml = (locale) => {
 export const displayName = (p, locale) =>
   p.placeholder && (locale === 'ja' || locale === 'ko') ? placeholderName(p, locale)
     : locale === 'ja' ? p.japanese || p.name
+    : locale === 'ko' ? p.korean || p.name
     : locale === 'zh-TW' ? p.chinese || p.kanji || p.name
     : locale === 'zh-CN' ? toHans(p.chinese || p.kanji || p.name)
     : p.name;
@@ -187,6 +188,7 @@ export const searchDataFor = (locale) => ({
     n: p.placeholder && locale === 'ko' ? placeholderName(p, 'ko') : p.name,
     j: p.placeholder && locale === 'ja' ? placeholderName(p, 'ja') : p.japanese,
     en: [...(p.english_variants || []), ...(p.nicknames || []),
+      ...(p.korean ? [p.korean] : []),
       ...(p.placeholder && locale === 'ko' ? [p.name] : [])].join('|') || null,
     k: locale === 'zh-CN' ? toHans(p.chinese || p.kanji || '') || null : p.chinese || p.kanji,
     sex: p.sex, born: p.born, died: p.died,
