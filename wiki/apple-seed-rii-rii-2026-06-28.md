@@ -9,6 +9,7 @@ zoos:
 tags: [styani, male, apple-seed, zoo:Hamura Zoo]
 instagram:
   - https://www.instagram.com/hamurazoo.official/p/DaywLHLSJcZ/ 2026-07-14
+  - https://www.instagram.com/p/DbHS7RBkj2N/
 sources:
   - https://hamurazoo.jp/news/detail.html?CN=430019
   - https://www.instagram.com/hamurazoo.official/p/DaywLHLSJcZ/
