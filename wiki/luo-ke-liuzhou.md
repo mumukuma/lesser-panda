@@ -7,6 +7,8 @@ last_seen: 2026-07-24
 species: Ailurus fulgens styani
 zoos:
   - 柳州市動物園 ( – 現在)
+siblings:
+  - luo-xi
 tags: [styani, male, limited-profile, zoo:柳州市動物園]
 sources:
   - 維護者提供（2026-07-24：♂、[[luo-xi]] 洛茜之兄、現居柳州市動物園）

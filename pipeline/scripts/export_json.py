@@ -8,7 +8,7 @@ export_json.py — 從 redpanda.db 匯出網站所需的 JSON
 
 輸出（pipeline/data/）：
     pandas.json   — 所有個體完整資料（含居住史、現居）
-    family.json   — 親子邊 + 雙胞胎邊（家系圖用）
+    family.json   — 親子邊 + 雙胞胎邊 + 已宣告手足邊（家系圖／個體頁用）
     zoos.json     — 動物園（含座標），及各園現居個體
     report.json   — 匯出統計與未匹配動物園名（除錯用）
 
@@ -244,6 +244,8 @@ def main():
             "father": None,
             "twins": [],
             "children": [],
+            # 已宣告手足（父母不詳、無法由共同父母推導）；網站顯示為未分血緣度的「兄弟姊妹」列
+            "declared_siblings": [],
         }
 
     # 居住史 + 現居
@@ -288,6 +290,13 @@ def main():
             pandas[a]["twins"].append(b)
             pandas[b]["twins"].append(a)
             twins.append([a, b])
+    declared_siblings = []
+    for r in conn.execute("SELECT * FROM declared_siblings"):
+        a, b = r["slug_a"], r["slug_b"]
+        if a in pandas and b in pandas:
+            pandas[a]["declared_siblings"].append(b)
+            pandas[b]["declared_siblings"].append(a)
+            declared_siblings.append([a, b])
     for p in pandas.values():
         p["children"].sort(key=lambda s: pandas[s]["born"] or "9999")
 
@@ -317,7 +326,8 @@ def main():
     out = {
         "pandas.json": {"generated_from": "wiki/*.md via redpanda.db",
                         "count": len(pandas), "pandas": pandas},
-        "family.json": {"parent_child": edges, "twins": twins},
+        "family.json": {"parent_child": edges, "twins": twins,
+                        "declared_siblings": declared_siblings},
         "zoos.json": {"count": len(zoos_out), "zoos": zoos_out},
         "report.json": {
             "pandas": len(pandas),

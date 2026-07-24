@@ -10,6 +10,7 @@ DROP VIEW  IF EXISTS mates;
 DROP VIEW  IF EXISTS full_siblings;
 DROP TABLE IF EXISTS parent_child;
 DROP TABLE IF EXISTS twins;
+DROP TABLE IF EXISTS declared_siblings;
 DROP TABLE IF EXISTS residences;
 DROP TABLE IF EXISTS pandas;
 
@@ -51,6 +52,17 @@ CREATE TABLE IF NOT EXISTS parent_child (
 -- ── 3. 雙胞胎關係 ────────────────────────────────────────────
 -- 無方向性，slug_a < slug_b（字母順序）避免重複
 CREATE TABLE IF NOT EXISTS twins (
+    slug_a  TEXT NOT NULL REFERENCES pandas(slug),
+    slug_b  TEXT NOT NULL REFERENCES pandas(slug),
+    PRIMARY KEY (slug_a, slug_b),
+    CHECK (slug_a < slug_b)
+);
+
+-- ── 3b. 已宣告手足關係 ───────────────────────────────────────
+-- 維護者確認為兄弟姊妹、但共同父母不詳（無法由 parent_child 推導）時使用。
+-- 來源＝frontmatter `siblings:`（見 SCHEMA.md）。無方向性，slug_a < slug_b。
+-- 網站顯示為未分全血／半血的「兄弟姊妹」列（父母不詳故無法判定血緣度）。
+CREATE TABLE IF NOT EXISTS declared_siblings (
     slug_a  TEXT NOT NULL REFERENCES pandas(slug),
     slug_b  TEXT NOT NULL REFERENCES pandas(slug),
     PRIMARY KEY (slug_a, slug_b),

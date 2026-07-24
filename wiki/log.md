@@ -2787,3 +2787,47 @@ Sheet I 欄「已補進」標記待作者手動處理。
 **政策**：`CLAUDE.md` 檔案卡規則同步更新——起始年預設留空（覆蓋舊「一律填首次確認年份」）；已知副作用為空白起始首站會被標 🐣（可接受，老條目皆然）。
 
 **備注**：`gen_residence` → `build_db` → `export_json` 已重建；`audit --strict`、`check_twins` 皆通過。
+
+---
+
+## [2026-07-24] update | 新增「已宣告手足」機制，補顯示 `luo-xi` × `luo-ke-liuzhou` 兄妹
+
+**背景**：`luo-xi`（洛茜）與 `luo-ke-liuzhou`（洛克）為維護者確認的兄妹，但兩隻共同父母不詳。網站家系原僅由共同父母推導手足，故站上不顯示此關係。
+
+**新增機制**：frontmatter 新增選填欄位 `siblings:`——維護者確認為兄弟姊妹、但父母不詳無法推導時才用；對稱（單邊列出即可），網站顯示為未分血緣度的「兄弟姊妹」列。父母已知者仍走共同父母自動推導、勿用此欄。
+
+**改動**：
+- `tools/schema.sql` — 新增 `declared_siblings` 表（對稱，slug_a < slug_b）
+- `tools/build_db.py` — 解析 frontmatter `siblings:` → 建對稱邊
+- `pipeline/scripts/export_json.py` — 每隻補 `declared_siblings`、`family.json` 加 `declared_siblings` 邊
+- `web/src/lib/data.js` — 計算顯示清單（排除已列為全血／半血、直系父母/子女者）
+- `web/src/components/Panda.astro` — 家族卡新增一列
+- `pipeline/src/i18n/*.json`（五語）— 新增 `rel_siblings_unknown` 字串
+- `SCHEMA.md` — 記錄 `siblings:` 欄位用法
+
+**更新條目**：
+- `luo-xi.md`、`luo-ke-liuzhou.md` — 各加 `siblings:` 指向對方
+
+**備注**：`build_db` → `export_json` 已重建（`declared_siblings` 邊 1 組已出現於 `family.json` 與兩隻的 `pandas.json`）；`audit --strict`、`check_twins` 皆通過。Astro 站需 CI／本機重建生效。
+
+## [2026-07-24] add | 無錫動物園三隻（暖暖・露露・暖寶寶）＋新登記兩座園
+
+**來源**：
+- 讀者 Gaia 回報，附無錫動物園官網 https://www.wxzoo.com.cn/（維護者確認採用）
+
+**新登記動物園**（`data/zoos.json`）：
+- `無錫動物園`（Wuxi Zoo，江蘇省無錫市濱湖區・太湖歡樂園）
+- `宜興隱龍谷君瀾度假酒店`（Yixing Inlong Narada Resort Hotel，江蘇省無錫市宜興市）
+- 座標為近似值、`宜興隱龍谷` 官網待補，🚧 待查證
+
+**新增條目**（維護者確認、`limited-profile`；來源記 `維護者提供（2026-07-24）`、無官方佐證）：
+- `nuan-nuan-wuxi.md` — 暖暖 Nuan Nuan（♀），生年不詳，現居 無錫動物園、目前未展出；暖寶寶之母
+- `lulu-2022-06-18.md` — 露露 Lulu（♀），生於 2022-06-18，現居 無錫動物園
+- `nuan-bao-bao-2023-07-06.md` — 暖寶寶 Nuan Bao Bao（♀），生於 2023-07-06，暖暖之女；2026 曾短暫轉 宜興隱龍谷君瀾度假酒店、同年返回無錫
+
+**暫緩／候補**（`data/cn-candidates.json`）：
+- `麻團` — 雄性，月餅之雙胞胎哥哥；資料矛盾（報稱 2026-06-16 生於杭州動物園，卻又 2024 年轉無錫），待維護者釐清生日／轉園年份後轉正
+- `月餅` — 麻團之雙胞胎手足，性別未述（未達建檔門檻），現於杭州動物園、未展出
+
+**更新條目**：
+- `index.md` — 新增「海外個體（中國・無錫動物園）」分類三筆；條目總數 683 → 686

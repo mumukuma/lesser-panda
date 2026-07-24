@@ -101,6 +101,7 @@
   "rel_quadruplet": "네쌍둥이",
   "rel_siblings": "친형제자매",
   "rel_half_siblings": "½ 배다른 형제자매",
+  "rel_siblings_unknown": "형제자매",
   "tree_show_half": "배다른 형제자매 표시",
   "tree_hide_half": "배다른 형제자매 숨기기",
   "tree_more_ancestors": "조상 더 보기",

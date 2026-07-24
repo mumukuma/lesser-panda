@@ -288,6 +288,7 @@ def build_db():
     # ── Pass 1：插入 pandas 基本資料 ──────────────────────────
     all_slugs: set[str] = set()
     panda_rows: list[dict] = []
+    declared_sib_raw: dict[str, list[str]] = {}  # slug -> frontmatter siblings 列出的 slug
 
     for md_path in md_files:
         slug = md_path.stem.lower()
@@ -352,6 +353,13 @@ def build_db():
         }
         panda_rows.append((slug, body, row))
         all_slugs.add(slug)
+
+        # 已宣告手足（父母不詳、無法由共同父母推導時使用）；正規化為 kebab-lowercase
+        siblings_raw = fm.get("siblings", [])
+        if isinstance(siblings_raw, str):
+            siblings_raw = [siblings_raw]
+        if siblings_raw:
+            declared_sib_raw[slug] = [str(s).strip().lower() for s in siblings_raw if str(s).strip()]
 
     cur.executemany("""
         INSERT OR REPLACE INTO pandas
@@ -445,6 +453,21 @@ def build_db():
     cur.executemany("INSERT OR IGNORE INTO twins (slug_a, slug_b) VALUES (?,?)", twin_rows)
     conn.commit()
     print(f"  ✅ 插入 {len(twin_rows)} 組雙胞胎關係")
+
+    # ── 已宣告手足（frontmatter siblings:）───────────────────────
+    # 只在共同父母不詳、無法由 parent_child 推導時使用。對稱（單邊列出即可），
+    # 兩隻都須有條目才建邊。
+    declared_pairs: set[frozenset] = set()
+    for slug, sibs in declared_sib_raw.items():
+        for sib in sibs:
+            if sib in all_slugs and sib != slug:
+                declared_pairs.add(frozenset([slug, sib]))
+    declared_rows = sorted((tuple(sorted(pair)) for pair in declared_pairs))
+    cur.executemany(
+        "INSERT OR IGNORE INTO declared_siblings (slug_a, slug_b) VALUES (?,?)",
+        declared_rows)
+    conn.commit()
+    print(f"  ✅ 插入 {len(declared_rows)} 組已宣告手足關係")
 
     # ── Pass 3：居住史 ─────────────────────────────────────────
     # 居住史唯一來源 = frontmatter zoos（含精確日期）；內文 ## 居住史 表格由

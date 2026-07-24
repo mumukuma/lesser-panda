@@ -42,6 +42,8 @@ last_seen: YYYY-MM-DD  # 選填（檔案卡用）：最後一次由來源「確�
 species: Ailurus fulgens styani | Ailurus fulgens fulgens
 zoos:                      # 居住史唯一來源（frontmatter 為準）；內文「## 居住史」表格純衍生，由 tools/gen_residence.py 自動生成、勿手改
   - 動物園名稱 (起 – 訖)     # 園名須為 data/zoos.json 註冊表 canonical（未登記 build 報錯）；起訖可用 YYYY-MM-DD / YYYY / 現居留空。更正居住地只改這裡再重建；地點欄由 data/zoos.json 的 location_ja 自動帶入
+siblings:                  # 選填：維護者確認為兄弟姊妹、但共同父母不詳（無法由 ## 家族 的父/母推導）時才用。列對方 slug；對稱（單邊列出即可，工具自動雙向）。網站顯示為未分血緣度的「兄弟姊妹」列。父母已知者勿用此欄——手足由共同父母自動推導
+  - 對方-slug
 rpf_id: RedPandaFinder 的 profile ID
 rpf_url: https://redpandafinder.com/#profile/XXX
 tags: [標籤]

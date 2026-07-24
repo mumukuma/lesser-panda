@@ -5,6 +5,8 @@ sex: female
 species: Ailurus fulgens styani
 zoos:
   - 柳州市動物園 ( – 現在)
+siblings:
+  - luo-ke-liuzhou
 tags: [styani, female, zoo:柳州市動物園]
 sources:
   - http://xhslink.com/o/4g1ZO8bso7S

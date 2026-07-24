@@ -101,6 +101,7 @@
   "rel_quadruplet": "四胞胎",
   "rel_siblings": "全血緣兄弟姊妹",
   "rel_half_siblings": "½ 半血緣兄弟姊妹",
+  "rel_siblings_unknown": "兄弟姊妹",
   "tree_show_half": "顯示半血手足",
   "tree_hide_half": "隱藏半血手足",
   "tree_more_ancestors": "顯示更多祖先",

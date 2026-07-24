@@ -6315,5 +6315,53 @@
    "灵玲国际马戏城",
    "Xiamen Lingling Animal Kingdom"
   ]
+ },
+ {
+  "canonical": "無錫動物園",
+  "lineage_id": null,
+  "en": "Wuxi Zoo",
+  "zh": "无锡动物园",
+  "country": "China",
+  "location_ja": "江蘇省無錫市濱湖区",
+  "location_en": "Binhu, Wuxi, Jiangsu, China",
+  "location_zh": "江蘇省無錫市濱湖區",
+  "lat": 31.533,
+  "lng": 120.259,
+  "map": "https://www.google.com/maps/search/?api=1&query=31.533,120.259",
+  "website": "https://www.wxzoo.com.cn/",
+  "logo": null,
+  "aliases": [
+   "Wuxi Zoo",
+   "無錫市動物園",
+   "無錫動物園·太湖歡樂園",
+   "太湖歡樂園",
+   "无锡动物园",
+   "无锡市动物园",
+   "无锡动物园·太湖欢乐园"
+  ]
+ },
+ {
+  "canonical": "宜興隱龍谷君瀾度假酒店",
+  "lineage_id": null,
+  "en": "Yixing Inlong Narada Resort Hotel",
+  "zh": "宜兴隐龙谷君澜度假酒店",
+  "country": "China",
+  "location_ja": "江蘇省無錫市宜興市",
+  "location_en": "Yixing, Wuxi, Jiangsu, China",
+  "location_zh": "江蘇省無錫市宜興市",
+  "lat": 31.226,
+  "lng": 119.755,
+  "map": "https://www.google.com/maps/search/?api=1&query=31.226,119.755",
+  "website": null,
+  "logo": null,
+  "aliases": [
+   "宜興隱龍谷酒店",
+   "宜興隱龍谷",
+   "隱龍谷",
+   "Yixing Inlong Narada Resort Hotel",
+   "宜兴隐龙谷君澜度假酒店",
+   "宜兴隐龙谷酒店",
+   "隐龙谷"
+  ]
  }
 ]

@@ -46,6 +46,9 @@ for (const z of zoos) {
 }
 export const zooBySlug = Object.fromEntries(zoos.map((z) => [z.slug, z]));
 export const zooSlugById = Object.fromEntries(zoos.map((z) => [z.id, z.slug]));
+// 動物園列表／地圖只露出「目前有現居個體」的園；無現居者（個體已故或轉出）
+// 仍保留於 zoos（供個別頁與居住史連結的園名解析），僅不在列表/地圖顯示。
+export const zoosListed = zoos.filter((z) => z.residents && z.residents.length > 0);
 // 供前端內嵌資料（ZOOS_DATA）使用的簡體園名：建置時預轉，客戶端不用帶 OpenCC
 for (const z of zoos) {
   const zh = z.name_zh || z.ja_name || z.en_name || '';
@@ -138,6 +141,13 @@ for (const p of Object.values(pandas)) {
   }
   const byBorn = (a, b) => ((pandas[a].born || '9999') < (pandas[b].born || '9999') ? -1 : 1);
   p.full_siblings.sort(byBorn); p.half_siblings.sort(byBorn);
+  // 已宣告手足（frontmatter siblings:，父母不詳無法推導血緣度）：只顯示尚未被
+  // 全血／半血涵蓋、且非自己直系父母/子女者，避免重複列出。
+  const shown = new Set([...p.full_siblings, ...p.half_siblings, p.slug,
+    p.mother, p.father, ...(p.children || [])]);
+  p.declared_siblings = (p.declared_siblings || [])
+    .filter((s) => pandas[s] && !shown.has(s));
+  p.declared_siblings.sort(byBorn);
 }
 
 // ── 完整家系 graph + 每隻的封閉子圖 ──────────────────

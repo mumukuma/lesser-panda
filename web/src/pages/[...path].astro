@@ -9,7 +9,7 @@ import Thanks from '../components/Thanks.astro';
 import Stats from '../components/Stats.astro';
 import Zoo from '../components/Zoo.astro';
 import JpTree from '../components/JpTree.astro';
-import { pandas, zoos, LOCALES, searchDataFor, closedDataFor, subGraph, placeholderMotherName, zooName, japanTreeData } from '../lib/data.js';
+import { pandas, zoos, zoosListed, LOCALES, searchDataFor, closedDataFor, subGraph, placeholderMotherName, zooName, japanTreeData } from '../lib/data.js';
 
 export function getStaticPaths() {
   const out = [];
@@ -81,7 +81,7 @@ const graph = p ? subGraph(slug, locale) : null;
   )}
   {kind === 'zoos' && (
     <Fragment slot="scripts">
-      <script is:inline define:vars={{ data: { zoos } }}>window.ZOOS_DATA = data;</script>
+      <script is:inline define:vars={{ data: { zoos: zoosListed } }}>window.ZOOS_DATA = data;</script>
       <script is:inline src={`${base}vendor/leaflet.js`}></script>
       <script is:inline src={`${base}js/map.js`}></script>
       <script is:inline src={`${base}js/zoos.js`}></script>

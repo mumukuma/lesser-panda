@@ -293,6 +293,7 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
       p.twins),
     famRow(T.rel_siblings, p.full_siblings, true),
     famRow(T.rel_half_siblings, p.half_siblings, true),
+    famRow(T.rel_siblings_unknown, p.declared_siblings, true),
   ].join('')} />
   {p.children.length > 0 && (
     <>

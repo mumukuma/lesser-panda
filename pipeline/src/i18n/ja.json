@@ -101,6 +101,7 @@
   "rel_quadruplet": "四つ子",
   "rel_siblings": "兄弟姉妹（全血）",
   "rel_half_siblings": "½ 兄弟姉妹（半血）",
+  "rel_siblings_unknown": "兄弟姉妹",
   "tree_show_half": "半血の兄弟姉妹を表示",
   "tree_hide_half": "半血を隠す",
   "tree_more_ancestors": "祖先をもっと見る",
