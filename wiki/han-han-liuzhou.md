@@ -4,6 +4,7 @@ chinese: 憨憨
 sex: male
 born:
 died: 2026-07-18
+last_seen: 2026-07-18
 species: Ailurus fulgens styani
 zoos:
   - 柳州市動物園 (2020-12-18 – 2026-07-18)

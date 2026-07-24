@@ -222,12 +222,19 @@ def main():
             "unverified": "unverified" in tags,
             # 蘋果籽佔位條目（tags 含 apple-seed）：網站顯示「尚未命名的寶寶」icon 標記
             "placeholder": "apple-seed" in tags,
+            # 資料有限個體檔案卡（tags 含 limited-profile）：配合 has_official_source 判斷是否顯示
+            # 「維護者提供・未經官方佐證」標記——避免誤觸大量以 RPF 為來源、本就無官方的一般條目
+            "limited_profile": "limited-profile" in tags,
             "species": r["species"],
             "rpf_id": r["rpf_id"],
             "rpf_url": r["rpf_url"],
             "instagram": json.loads(r["instagram"] or "[]"),
             # 僅官方來源（園方/政府/園報/官方微信）；分類於 build_db.official_sources
             "sources": json.loads(r["sources"] or "[]"),
+            # 佐證軸（自動推導，非手動 tag）：官方來源清單非空 → 有官方背書。
+            # 為空（如僅「維護者提供（…）」無 host）→ 網站顯示「維護者提供・未經官方佐證」標記。
+            # 補進官方來源後自動轉 true、標記自動消失。與在世軸 unverified 獨立、勿混用。
+            "has_official_source": bool(json.loads(r["sources"] or "[]")),
             # 其他補充資料（展牌實拍等一手非官方鏈結佐證；網站另區塊顯示，待實作）
             "extra_sources": json.loads(r["extra_sources"] or "[]"),
             "residences": [],

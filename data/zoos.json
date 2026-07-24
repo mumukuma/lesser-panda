@@ -6209,6 +6209,31 @@
   ]
  },
  {
+  "canonical": "深圳野生動物園",
+  "lineage_id": null,
+  "en": "Shenzhen Safari Park",
+  "zh": "深圳野生动物园",
+  "country": "China",
+  "location_ja": "広東省深圳市南山区",
+  "location_en": "Nanshan, Shenzhen, Guangdong, China",
+  "location_zh": "廣東省深圳市南山區",
+  "lat": 22.5847,
+  "lng": 113.9846,
+  "map": null,
+  "website": null,
+  "logo": null,
+  "wechat": "深圳野生动物园",
+  "aliases": [
+   "Shenzhen Safari Park",
+   "Shenzhen Wildlife Park",
+   "Shenzhen Zoo",
+   "深圳市野生動物園",
+   "深圳市野生动物园",
+   "深圳野生动物园",
+   "深圳动物园"
+  ]
+ },
+ {
   "canonical": "銀基動物王國",
   "lineage_id": null,
   "en": "Yinji Kingdom of Animals",
