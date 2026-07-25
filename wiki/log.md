@@ -2831,3 +2831,26 @@ Sheet I 欄「已補進」標記待作者手動處理。
 
 **更新條目**：
 - `index.md` — 新增「海外個體（中國・無錫動物園）」分類三筆；條目總數 683 → 686
+
+## [2026-07-25] add | 成都動物園全雌性八隻（檔案卡）＋新登記成都動物園
+
+**來源**：
+- 維護者提供（2026-07-25）；成都動物園官網 http://www.cdzoo.com.cn/（園名/地點參考，個體名單無官方公告佐證）
+
+**新登記動物園**（`data/zoos.json`）：
+- `成都動物園`（Chengdu Zoo，四川省成都市成華区昭覺寺南路234號；1953 創立、1976 遷現址）——與既有 `Chengdu Research Base of Giant Panda Breeding`（成都大熊貓繁育研究基地，panda.org.cn）為不同機構；座標 30.6989,104.0986 為近似值 🚧
+
+**新增條目**（維護者提供、`limited-profile`、`sex: female`、`species: styani`；來源記 `維護者提供（2026-07-25）`、無官方佐證；生日／入園年／家系均不詳，`zoos:` 起始留空 `( – 現在)`、`last_seen: 2026-07`；未掛 `unverified`，確認現存）：
+- `qiu-qiu-chengdu.md` — 球球 Qiu Qiu（♀）
+- `jiu-jiu-chengdu.md` — 玖玖 Jiu Jiu（♀）
+- `qian-qian-chengdu.md` — 淺淺／浅浅 Qian Qian（♀）
+- `mao-mao-chengdu.md` — 毛毛 Mao Mao（♀）
+- `wai-wai-chengdu.md` — 歪歪 Wai Wai（♀）
+- `yuan-yuan-chengdu.md` — 圓圓／圆圆 Yuan Yuan（♀）
+- `han-han-chengdu.md` — 憨憨 Han Han（♀）
+- `dou-dou-chengdu.md` — 豆豆 Dou Dou（♀）
+
+**備注**：查得各隻生日後依命名規則將 slug 由 `名字-chengdu` 更名為 `名字-生日` 並同步修正 wikilink。既有 `毛毛`（上海野生動物園 `mao-mao.md`）、`憨憨`（柳州 `han-han-liuzhou.md`，另 `cn-candidates` 亦有柳州憨憨）、`豆豆`（`dou-dou.md`）為不同個體，以園簡稱區隔。
+
+**更新條目**：
+- `index.md` — 新增「海外個體（中國・成都動物園）」分類八筆；條目總數 686 → 694

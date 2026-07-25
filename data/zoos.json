@@ -6363,5 +6363,26 @@
    "宜兴隐龙谷酒店",
    "隐龙谷"
   ]
+ },
+ {
+  "canonical": "成都動物園",
+  "lineage_id": null,
+  "en": "Chengdu Zoo",
+  "zh": "成都动物园",
+  "country": "China",
+  "location_ja": "四川省成都市成華区",
+  "location_en": "Chenghua, Chengdu, Sichuan, China",
+  "location_zh": "四川省成都市成華區",
+  "lat": 30.6989,
+  "lng": 104.0986,
+  "map": "https://www.google.com/maps/search/?api=1&query=30.6989,104.0986",
+  "website": "http://www.cdzoo.com.cn/",
+  "logo": null,
+  "aliases": [
+   "Chengdu Zoo",
+   "成都动物园",
+   "成都動物園",
+   "成都市動物園"
+  ]
  }
 ]
