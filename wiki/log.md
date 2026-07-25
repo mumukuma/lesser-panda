@@ -2854,3 +2854,34 @@ Sheet I 欄「已補進」標記待作者手動處理。
 
 **更新條目**：
 - `index.md` — 新增「海外個體（中國・成都動物園）」分類八筆；條目總數 686 → 694
+
+## [2026-07-25] fix | Mutan 西山→茶臼山移動日 2020-01-18 → 2021-01-18（官網更正）
+
+**來源**：
+- https://www.city.sabae.fukui.jp/nishiyama_zoo/news/2021_news.html （鯖江市西山動物園 2021年ニュース「ムータンが旅立ちます」：移動日 令和３年１月１２日 ※降雪により１月１８日に移動）
+
+**更新條目**：
+- `mutan-2014-06-19.md` — 依西山動物園官網更正 `zoos:` 移動日：鯖江市西山動物園訖與長野市茶臼山動物園起由 `2020-01-18` 改為 `2021-01-18`（原僅有 RPF 來源、年份誤差一年）；居住史表格同步；`sources` 補西山官網。回報者「楊桃」填目的地「京都市動物園」為出生園之誤，未採納。
+- `contributors.json` — 更新「楊桃」致謝 note。
+
+## [2026-07-25] add | Kiki 喜喜（RPF #331）與其全血緣手足
+
+**來源**：
+- https://redpandafinder.com/#profile/331 (Kiki)
+- https://redpandafinder.com/#profile/477 (Aporo)
+- https://redpandafinder.com/#profile/714 (Ten-Ten)
+- https://redpandafinder.com/#profile/716 (Kei-Kei)
+- https://redpandafinder.com/#profile/715 (Ai-Ai)
+
+**新增條目**（`rin-rin-1999-07-09` 怜怜 × `ryuunosuke-1999-07-27` 緑之介 之子女；RPF 為線索）：
+- `kiki-2007-07-25.md` — Kiki 喜喜（♀，RPF #331），生於 2007-07-25 愛媛県立とべ動物園，2009-11-25 移居長崎バイオパーク（現居）
+- `aporo-2004-06-28.md` — Aporo アポロ（♂，RPF #477），2004-06-28 生、2023-04-03 歿；`luna-2004-06-28` 之雙胞胎；とべ→ソウル大公園動物園
+- `ten-ten-2005-07-12.md` — Ten-Ten 天天（♂，RPF #714），2005-07-12 生、2014-10-07 歿；とべ→恩賜上野動物園→天王寺動物園（同名消歧註記）
+- `kei-kei-2008.md` — Kei-Kei（♂，RPF #716），僅知生年 2008、RPF 標示已歿；生日／居住史／歿日不詳 🚧（`zoos: []`）
+- `ai-ai-2008.md` — Ai-Ai（♀，RPF #715），僅知生年 2008、RPF 標示已歿；生日／居住史／歿日不詳 🚧（`zoos: []`）
+
+**更新條目**（回填雙向 wikilink）：
+- `ron-ron-2002-06-28.md` — 兄弟姊妹表六隻改為 wikilink
+- `luna-2004-06-28.md` — 雙胞胎／兄弟姊妹改 wikilink；更正雙胞胎 `aporo` 性別 ♀→♂
+- `rin-rin-1999-07-09.md`、`ryuunosuke-1999-07-27.md` — 子女敘述補齊七名手足 wikilink
+- `index.md` — 新增「Ron-Ron 的兄弟姊妹（父方旁系）」分類五筆；條目總數 694 → 699
