@@ -35,9 +35,42 @@
   --r-card: 20px; --r-chip: 9999px; --r-input: 14px;
   --shadow: 0 1px 2px rgba(61,44,35,.05), 0 10px 24px rgba(61,44,35,.07);
   --shadow-pop: 0 3px 0 rgba(143,63,30,.10), 0 12px 26px rgba(181,85,45,.16);
-  /* 字 */
-  --font-body: 'Hiragino Sans', 'Noto Sans TC', 'Noto Sans JP', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif;
+  /* 字（預設＝zh-Hant；實際堆疊由下方 :lang() 依語系覆寫）*/
+  --font-body: 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', 'Hiragino Sans', system-ui, sans-serif;
   --font-display: 'Fredoka', 'Yuanti TC', 'Yuanti SC', 'Hiragino Maru Gothic ProN', 'Hiragino Maru Gothic Pro', var(--font-body);
+}
+
+/* ── 依 lang 切換 CJK 系統字（不下載字檔，零位元組成本）───────────────
+   漢字統一（Han unification）使同一碼位在中／日字型下字形不同（骨・直・令・海…）。
+   全站原本固定以 Hiragino Sans 打頭，導致 Apple 裝置上中文頁的漢字被渲染成日文字形。
+   改為依 :lang() 指定各語系正確的系統字順序；`:lang()` 會沿 DOM 繼承，故頁內個別
+   標了 lang="ja" 的日文名（見 Panda.astro altNames、search.js altOf）也會自動吃到
+   日文字形，即使外層是中文頁。Noto 一律留在第二順位當後備（Android／Linux 內建），
+   不自架 webfont——CJK 字檔動輒數 MB，對 mobile-first 不划算。
+   註：選擇器不加 :root 前綴，才能同時作用於 <html> 與頁內的 lang 標記元素。 */
+:lang(zh-Hant) {
+  --font-body: 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', 'Heiti TC', system-ui, sans-serif;
+  --font-cjk-round: 'Yuanti TC', 'Yuanti SC';
+}
+:lang(zh-Hans) {
+  --font-body: 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', 'Heiti SC', system-ui, sans-serif;
+  --font-cjk-round: 'Yuanti SC', 'Yuanti TC';
+}
+:lang(ja) {
+  --font-body: 'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', 'Meiryo', system-ui, sans-serif;
+  --font-cjk-round: 'Hiragino Maru Gothic ProN', 'Hiragino Maru Gothic Pro';
+}
+:lang(ko) {
+  --font-body: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Nanum Gothic', system-ui, sans-serif;
+  --font-cjk-round: 'Apple SD Gothic Neo';
+}
+:lang(en) {
+  /* 英文頁仍會出現日文園名與漢字個體名 → 拉丁字用系統字，CJK 後備給日文字形 */
+  --font-body: system-ui, -apple-system, 'Segoe UI', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  --font-cjk-round: 'Hiragino Maru Gothic ProN', 'Yuanti TC';
+}
+:lang(zh-Hant), :lang(zh-Hans), :lang(ja), :lang(ko), :lang(en) {
+  --font-display: 'Fredoka', var(--font-cjk-round), var(--font-body);
 }
 :root[data-theme="dark"] {
   color-scheme: dark;

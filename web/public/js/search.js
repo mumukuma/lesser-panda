@@ -10,6 +10,8 @@
   var nameOf = function (p) { return loc === 'ja' ? (p.j || p.n) : loc.indexOf('zh') === 0 ? (p.k || p.n) : p.n; };
   // 顯示一個乾淨的副名：主名非英文時顯示英文，否則顯示日文名
   var altOf = function (p) { var pr = nameOf(p); return pr !== p.n ? p.n : (p.j || ''); };
+  // 副名若是日文名，於非日文頁需標 lang="ja"，否則漢字會套到中文字形（見 global.css :lang()）
+  var altLangAttr = function (p, alt) { return (alt && alt === p.j && loc !== 'ja') ? ' lang="ja"' : ''; };
 
   // 動物園下拉的選項來源：園名（各語系已解析）依全庫個體數排序。實際要列出哪些園、
   // 各顯示幾隻，改由下方 faceted 計數每次重算（見 refreshFacets）。
@@ -183,7 +185,7 @@
     var photoBadge = p.ph ? '<span class="absolute top-2 right-2 inline-flex items-center gap-0.5 bg-cream text-rust rounded-full px-1.5 py-0.5 text-[.7rem] font-medium leading-none" aria-label="' + p.ph + ' ' + (T.sec_photos || '') + '">' +
       '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3.2"/></svg>' + p.ph + '</span>' : '';
     return '<a class="relative block pop bg-card border border-line rounded-card shadow-card p-[13px_16px] no-underline text-ink hover:border-amber" href="' + PAGE + 'p/' + (p.u || p.slug) + '/">' + photoBadge +
-      '<div class="font-bold pr-9">' + nameOf(p) + seed + (alt ? '<span class="font-normal text-ink-soft text-[.9em] ml-1.5">' + alt + '</span>' : '') + '</div>' +
+      '<div class="font-bold pr-9">' + nameOf(p) + seed + (alt ? '<span' + altLangAttr(p, alt) + ' class="font-normal text-ink-soft text-[.9em] ml-1.5">' + alt + '</span>' : '') + '</div>' +
       '<div class="text-[.84rem] text-ink-soft mt-0.5"><span class="inline-block text-[.76rem] px-2 py-px rounded-full mr-1.5 ' + sexCls + '">' + sexTxt + '</span>' + life + '</div>' +
       '<div class="text-[.84rem] text-ink-soft">' + (p.zoo || '') + '</div></a>';
   }

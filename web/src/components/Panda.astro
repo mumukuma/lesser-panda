@@ -24,7 +24,13 @@ const pfid = photoFormId(locale);
 const photoEmbedSrc = pfid
   ? `https://tally.so/embed/${pfid}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&panda=${encodeURIComponent(p.name)}&slug=${encodeURIComponent(p.slug)}&url=${encodeURIComponent(pageHref)}`
   : null;
-const altNames = [...new Set([p.name, p.japanese, p.korean].filter(Boolean).filter((n) => n !== primary))];
+// 副名各自帶語系標記：日文名在中文頁若不標 lang="ja"，漢字會被渲染成中文字形
+// （骨・直・海…等 Han unification 差異字）。lang 屬性交由 global.css 的 :lang() 切字型。
+const altEntries = [
+  { t: p.name, lang: 'en' }, { t: p.japanese, lang: 'ja' }, { t: p.korean, lang: 'ko' },
+].filter((e) => e.t && e.t !== primary)
+  .filter((e, i, a) => a.findIndex((x) => x.t === e.t) === i);
+const altNames = altEntries.map((e) => e.t);
 const aka = [...new Set([...(p.nicknames || []), ...(p.english_variants || [])])].filter((n) => n !== primary && !altNames.includes(n));
 
 // IG 貼文：frontmatter 可寫「URL YYYY-MM-DD」，依貼文日期新到舊排序（無日期者排後）
@@ -150,7 +156,11 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
        class="anim-float pointer-events-none hidden sm:block absolute -right-2 -top-1 w-[84px] h-auto opacity-[.18]" />
   <div class="flex gap-3 items-baseline flex-wrap relative">
     <h1 class="font-display text-3xl font-semibold my-0.5">{primary}{p.died && <span role="img" aria-label={T.deceased} class="ml-1">{T.deceased_mark}</span>}</h1>
-    {altNames.length > 0 && <span class="text-ink-soft text-[1.1rem]">{altNames.join(' · ')}</span>}
+    {altEntries.length > 0 && (
+      <span class="text-ink-soft text-[1.1rem]">{altEntries.map((e, i) => (
+        <>{i > 0 && ' · '}<span lang={e.lang}>{e.t}</span></>
+      ))}</span>
+    )}
     {p.unverified && (
       <span class="inline-block text-[.78rem] px-2.5 py-0.5 rounded-full border-2 border-amber text-rust-dark font-medium self-center"
         style="background: color-mix(in srgb, var(--amber) 15%, transparent);">🚧 {T.unverified_badge}</span>

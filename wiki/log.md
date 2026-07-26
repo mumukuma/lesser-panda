@@ -2955,3 +2955,25 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - `data/zoos.json` — 新增登記「清遠長隆森林王國」（Chimelong Forest Kingdom，広東省清遠市清城区；官網 chimelong.com/qy/forestkingdom）；座標暫缺（lat／lng 為 null）。註冊表 344 → 345 座
 - `niu-niu.md` — 補 ⚠️ 同名提示，指向 `niu-niu-qingyuan`
 - `index.md` — 新增分類「海外個體（中國・清遠長隆森林王國）」八筆；條目總數 702 → 710
+
+## [2026-07-26] add | 南京市紅山森林動物園 四隻（新園登記：南京金牛湖野生動物王國）
+
+**來源**：
+- 維護者提供（2026-07-26）；無官方公告佐證，🚧 待查證
+- 金牛湖園方官網（園區資訊，非個體名單）：https://www.zoojnh.cn/ ；英文頁 https://www.zoojnh.cn/en/
+
+**新增條目**（檔案卡 `limited-profile`；生日／轉入年份全部不詳，性別由維護者確認）：
+- `niu-niu-nanjing.md` — 牛牛 Niu Niu（♂）；自南京金牛湖野生動物王國轉入，年份不詳
+- `rou-rou-nanjing.md` — 肉肉 Rou Rou（♀）；自南京金牛湖野生動物王國轉入，年份不詳
+- `hei-xuan-feng-nanjing.md` — 黑旋風／黑旋风 Hei Xuan Feng（♂）；自常州淹城野生動物世界轉入，年份不詳；`nuo-mi-nanjing` 之父
+- `nuo-mi-nanjing.md` — 糯米 Nuo Mi（♂）；`hei-xuan-feng-nanjing` 之子，母不詳
+
+**更新條目**：
+- `data/zoos.json` — 新增登記「南京金牛湖野生動物王國」（Nanjing Jinniu Lake Wildlife Kingdom，江蘇省南京市六合区；官網 zoojnh.cn）；座標暫缺（lat／lng 為 null）。註冊表 345 → 346 座。**維護者原稱「南京金牛湖野生動物世界」，依官網正式名定 canonical 為「王國」，「世界」寫入 aliases**
+- `du-du.md` — 補出身：由南京金牛湖野生動物王國轉入（年份不詳），`zoos:` 增列該園、tag 補 `zoo:南京金牛湖野生動物王國`；待查證項目由「出身（園內繁殖或外園轉入）」改為「出身園是否為金牛湖、轉入紅山年份」；`sources` 的「作者提供」改「維護者提供」並註明本次補正
+- `niu-niu.md`、`niu-niu-qingyuan.md` — ⚠️ 同名提示增列 `niu-niu-nanjing`（三隻羅馬拼音相同：上海妞妞♀、清遠妞妞♀、南京牛牛♂）
+- `nuo-mi-dalian.md` — 補 ⚠️ 同名提示，指向 `nuo-mi-nanjing`（大連糯米♀ vs 南京糯米♂，中文名相同）
+- `rou-rou-2008-07-09.md` — 補 ⚠️ 同名提示，指向 `rou-rou-nanjing`（香港柔柔 vs 南京肉肉，僅拼音相同）
+- `index.md` — 南京分類新增四筆、`du-du` 說明改為「自南京金牛湖轉入」；條目總數 710 → 714
+
+**備注**：四隻皆無生日資料，slug 依檔案卡規則用園簡稱（`名字-nanjing`）；`zoos:` 起始年留空（不詳抵達年，渲染為「? – 現在」，首站因既有慣例會帶 🐣 符號）；`last_seen: 2026-07`、皆為現況在世故不掛 `unverified`。`sources` 為「維護者提供」（無 host）故 `has_official_source` 為 false，網站顯示未經官方佐證標記。糯米之母、黑旋風與牛牛／肉肉／糯米的生日與轉入年份待查。

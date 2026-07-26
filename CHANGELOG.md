@@ -6,6 +6,17 @@
 
 ---
 
+## 2026-07-26 ・ 修正：CJK 字型改依 `lang` 切換（漢字統一造成的字形錯置）
+
+維護者問「站上有各國文字，是否該改用 Noto 字型」。**結論是不自架 Noto**，但查證過程發現一個既有的實際缺陷並修掉。
+
+- **不自架 Noto 的理由**：`--font-body` 原本就把 Noto 列在 stack 裡，只是沒有 `@font-face`，所以只有本來裝了 Noto 的裝置（Android／Linux）吃得到。自架的代價是 Noto Sans TC/SC/JP/KR 每套完整 woff2 數 MB；即使用 unicode-range 分片，一頁 CJK 內容仍要抓 300KB–1MB。缺字不是問題（各家系統都內建完整 CJK＋諺文），這個代價換不到相稱的效果，與 mobile-first 原則衝突。
+- **真正的缺陷**：`--font-body` 全站固定以 `'Hiragino Sans'` 打頭。因**漢字統一（Han unification）**，同一碼位在中／日字型下字形不同（骨・直・海・每・令…），所以 Apple 裝置上**中文頁的漢字一律被渲染成日文字形**。這不是換成 Noto 能解的——同一頁同時有中文 UI 與日文園名／個體名，單一字型本來就無法兩者都對。
+- **修法（零位元組成本）**：`global.css` 改用 `:lang()` 指定各語系的系統字順序，Noto 一律留在第二順位當後備。zh-Hant → PingFang TC；**zh-Hans → PingFang SC／Noto Sans SC／Microsoft YaHei**（簡體先前完全沒有對應字型、跟繁體共用同一組 stack，Windows 上會拿到繁體字形）；ja → Hiragino Sans；**ko → Apple SD Gothic Neo／Noto Sans KR／Malgun Gothic**（先前 stack 裡沒有任何諺文字型，靠 `system-ui` 兜底）；en → system-ui。選擇器**不加 `:root` 前綴**是刻意的——這樣才能同時作用於 `<html>` 與頁內個別標了 `lang` 的元素。
+- **頁內混排的日文名加 `lang="ja"`**：`Panda.astro` 的副名列從 `altNames.join(' · ')` 改為逐項帶語系的 `altEntries`（`p.name`→en、`p.japanese`→ja、`p.korean`→ko）；`search.js` 的 `altOf` 在副名等於日文名且非日文頁時補 `lang="ja"`；語系下拉的 `<option>` 帶 `lang`。`:lang()` 沿 DOM 繼承，故這些元素在中文頁也會拿到日文字形。
+- **未動的部分**：園名不需處理——`zooName` 對中文語系走 `zh` 欄位，344 座園全部有值；`ja`／`en`／`ko` 頁各走自己的欄位。家系圖（`tree.js`／`jptree.js`）的節點名走 `displayName(p, locale)`，本來就是該語系的名字。
+- 驗證：沙盒 `pnpm build` 通過，4302 頁；抽驗產物確認五語 `<html lang>` 正確（zh-Hant／zh-Hans／ja／en／ko）、CSS 五條 `:lang()` 規則都在、`yuuta-2006-06-02` 的日文名在 zh-Hant／zh-Hans／ko 頁都帶 `lang="ja"`，在 ja 頁則因等於主名而正確被濾除。
+
 ## 2026-07-26 ・ 修正：圖鑑篩選改為 faceted counts（數字與狀態不一致）
 
 維護者回報「filter 的狀態跟數字不一致」。確認是同日新增數量顯示時留下的缺陷，非狀態管理函式庫的問題。
