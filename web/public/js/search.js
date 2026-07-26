@@ -11,12 +11,66 @@
   // 顯示一個乾淨的副名：主名非英文時顯示英文，否則顯示日文名
   var altOf = function (p) { var pr = nameOf(p); return pr !== p.n ? p.n : (p.j || ''); };
 
-  var zooCount = {};
-  pandas.forEach(function (p) { if (p.zoo) zooCount[p.zoo] = (zooCount[p.zoo] || 0) + 1; });
-  var zooSel = $('#f-zoo');
-  Object.entries(zooCount).sort(function (a, b) { return b[1] - a[1]; }).forEach(function (e) {
-    var o = document.createElement('option'); o.value = e[0]; o.textContent = e[0] + '（' + e[1] + '）'; zooSel.appendChild(o);
+  // 動物園下拉：園名（各語系已解析）→ 個體數；同時記下每座園的地區 key（p.r 與 p.zoo
+  // 指同一座園，故可直接對應），供地區下拉連動篩減園清單用。
+  var zooCount = {}, zooRegion = {};
+  pandas.forEach(function (p) {
+    if (!p.zoo) return;
+    zooCount[p.zoo] = (zooCount[p.zoo] || 0) + 1;
+    if (p.r) zooRegion[p.zoo] = p.r;
   });
+  var zooSel = $('#f-zoo');
+  var zooEntries = Object.entries(zooCount).sort(function (a, b) { return b[1] - a[1]; });
+  // 只列出屬於 region 的園（region 空＝全部）；重建時盡量保留使用者原本選的園。
+  function fillZoos(region) {
+    var keep = zooSel.value;
+    zooSel.length = 1;   // 留第一個「動物園：全部」
+    var stillThere = false;
+    zooEntries.forEach(function (e) {
+      if (region && zooRegion[e[0]] !== region) return;
+      var o = document.createElement('option');
+      o.value = e[0]; o.textContent = e[0] + '（' + e[1] + '）';
+      zooSel.appendChild(o);
+      if (e[0] === keep) stillThere = true;
+    });
+    zooSel.value = stillThere ? keep : '';   // 原選的園不屬於新地區就退回「全部」
+  }
+  fillZoos('');
+
+  // 地區下拉：選項在建置期算好（searchDataFor 的 regions，含該語系顯示名與個體數）
+  var regionSel = $('#f-region');
+  (data.regions || []).forEach(function (r) {
+    var o = document.createElement('option');
+    o.value = r.v; o.textContent = r.l + '（' + r.c + '）';
+    regionSel.appendChild(o);
+  });
+
+  var sexSel = $('#f-sex'), ageSel = $('#f-age'), dataSel = $('#f-data');
+  // 「現存」定義與 #f-alive 一致：未歿且非待查證（動向不明者不宣稱在世）
+  var isAlive = function (p) { return !p.died && !p.uv; };
+  // 年齡層邊界（含兩端）。選了任一層即隱含現存——已故個體的年齡是享壽、不是現齡，
+  // 混在一起會讓「12 歲以上」同時撈出在世高齡與早逝已故者，語意不成立。
+  var AGE_BANDS = { baby: [0, 0], '1_3': [1, 3], '4_7': [4, 7], '8_11': [8, 11], senior: [12, 999] };
+  function inAgeBand(p, band) {
+    var b = AGE_BANDS[band];
+    if (!b || !isAlive(p)) return false;
+    var a = ageOf(p);
+    return a !== null && a >= b[0] && a <= b[1];   // 無生日者落不進任何層（僅「全部」看得到）
+  }
+  var DATA_TESTS = {
+    unverified: function (p) { return !!p.uv; },
+    no_birthday: function (p) { return !p.born || p.born.length < 10; },
+    no_residence: function (p) { return !p.zoo; },
+  };
+  // 性別／年齡／資料三個下拉的數量都在 client 端算，避免與 i18n 標籤耦合（標籤只放文字）。
+  // 實際呼叫在 ageOf 定義之後（annotate → inAgeBand → ageOf，var 函式不會提前可用）。
+  function annotate(sel, test) {
+    Array.prototype.forEach.call(sel.options, function (o) {
+      if (!o.value) return;
+      o.textContent = o.textContent.replace(/（\d+）$/, '') +
+        '（' + pandas.filter(function (p) { return test(p, o.value); }).length + '）';
+    });
+  }
 
   // 羅馬拼音折疊：把 Hepburn↔訓令式的常見差異、以及 L/R 混用折成同一骨架，
   // 讓「Shin-Fa」用 shinfa／sinfa／sin-fa 都搜得到（查詢與索引都套同一折疊，只增命中不漏）。
@@ -43,6 +97,9 @@
     if ((e[1] || 1) < (b[1] || 1) || ((e[1] || 1) === (b[1] || 1) && (e[2] || 1) < (b[2] || 1))) a--;
     return a >= 0 ? a : null;
   };
+  annotate(sexSel, function (p, v) { return p.sex === v; });
+  annotate(ageSel, function (p, v) { return inAgeBand(p, v); });
+  annotate(dataSel, function (p, v) { return DATA_TESTS[v] ? DATA_TESTS[v](p) : false; });
 
   // 隨機排序：以「種子 + slug」算出穩定亂序鍵，過濾子集合時順序不變；按洗牌鈕換種子。
   var PER = 60, page = 1, seed = (Math.random() * 1e9) | 0;
@@ -107,22 +164,30 @@
 
   function apply(resetPage) {
     if (resetPage !== false) page = 1;
-    var q = norm($('#f-q').value), zoo = zooSel.value, sex = $('#f-sex').value, aliveOnly = $('#f-alive').checked, photosOnly = $('#f-photos').checked;
+    var q = norm($('#f-q').value), region = regionSel.value, zoo = zooSel.value, sex = sexSel.value,
+      band = ageSel.value, dkey = dataSel.value, dtest = DATA_TESTS[dkey],
+      aliveOnly = $('#f-alive').checked, photosOnly = $('#f-photos').checked;
     var filtered = pandas.filter(function (p) {
-      return (!q || p._hay.indexOf(q) >= 0) && (!zoo || p.zoo === zoo) && (!sex || p.sex === sex) && (!aliveOnly || (!p.died && !p.uv)) && (!photosOnly || p.ph > 0);
+      return (!q || p._hay.indexOf(q) >= 0) && (!region || p.r === region) && (!zoo || p.zoo === zoo)
+        && (!sex || p.sex === sex) && (!band || inAgeBand(p, band)) && (!dtest || dtest(p))
+        && (!aliveOnly || isAlive(p)) && (!photosOnly || p.ph > 0);
     });
     _sorted = sortList(filtered);
     $('#result-count').textContent = T.result_count.replace('{n}', _sorted.length);
     draw();
   }
 
-  ['#f-q', '#f-zoo', '#f-sex', '#f-alive', '#f-photos', '#f-sort'].forEach(function (s) { $(s).addEventListener('input', function () { apply(true); }); });
+  ['#f-q', '#f-zoo', '#f-sex', '#f-age', '#f-data', '#f-alive', '#f-photos', '#f-sort'].forEach(function (s) { $(s).addEventListener('input', function () { apply(true); }); });
+  // 地區改變：先按新地區重建園清單（可能清掉原選的園），再套過濾
+  regionSel.addEventListener('input', function () { fillZoos(regionSel.value); apply(true); });
   $('#f-shuffle').addEventListener('click', function () {
     seed = (Math.random() * 1e9) | 0; $('#f-sort').value = 'random'; apply(true);
   });
 
   var params = new URLSearchParams(location.search);
   if (params.get('q')) $('#f-q').value = params.get('q');
+  // region 要先套（會重建園清單），zoo 才不會被 fillZoos 清掉；無效值 select 會自動退回「全部」
+  if (params.get('region')) { regionSel.value = params.get('region'); fillZoos(regionSel.value); }
   if (params.get('zoo')) zooSel.value = params.get('zoo');
   if (params.get('alive')) $('#f-alive').checked = true;
   if (params.get('photos')) $('#f-photos').checked = true;

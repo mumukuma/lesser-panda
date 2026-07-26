@@ -2900,3 +2900,35 @@ Sheet I 欄「已補進」標記待作者手動處理。
 
 **更新條目**：
 - `index.md` — 「海外個體（中國・南京市紅山森林動物園）」新增三筆；條目總數 699 → 702
+
+## [2026-07-26] update | 六隻補居住史（Drusillas 三隻・多摩三隻）、`you-you-1997-06-20` 補日文名
+
+**背景**：網站新增「地區」篩選後盤點出 10 隻個體無法歸屬任何地區，原因皆為 frontmatter `zoos:` 空白或缺欄。本批補回六隻，餘四隻（`ai-ai-2008`、`kei-kei-2008`、`kachin-1995-05-31`、`ki-ki-1996`）仍無居住地線索。
+
+**來源**：
+- https://www.drusillas.co.uk/news/red-pandas-born-at-drusillas-park-
+- https://www.drusillas.co.uk/news/panda-pair-arrive-at-zoo-in-sussex
+- https://www.drusillas.co.uk/news/red-pandas-babies-are-named-at-drusillas
+- 維護者提供（2026-07-26：`hana-hana`、`naka-naka`、`hou-hou-1988` 居住多摩動物公園）
+- 維護者提供（2026-07-26：`you-you-1997-06-20` 日文名補「葉々」）
+
+**更新條目**：
+- `anmar-2014-06-16.md`、`mya-2014-06-16.md` — 依園方報導補 `zoos: Drusillas Park (2014-06-16 – 現在)`（出生園，標 🐣）；🚧 註記改寫——「現在」僅表示查無離園紀錄、非園方確認之現居，仍掛 `unverified` 不計入現存統計
+- `tibao-2011.md` — 補 `zoos: Drusillas Park (2012 – 現在)`；抵園前的 Zoo d'Asson 期間起始不詳，寫入 frontmatter 會被自動標為 🐣 出生地（等同宣稱生於 Asson），故僅記於內文敘述、不進 `zoos:`
+- `hana-hana.md`、`naka-naka.md` — 補 `zoos: 多摩動物公園`（起訖不詳）、`birth_zoo: unknown`（多摩名單明載「出自不明」，不標 🐣）、`died: "?"`（原僅有 `deceased` tag 而無 `died`，會被居住史誤標 🏡 現居）、tag 補 `zoo:多摩動物公園`
+- `hou-hou-1988.md` — 補 `zoos: 多摩動物公園 ( – 1999)`、`birth_zoo: unknown`（入園年份與出生園皆不詳）、tag 補 `zoo:多摩動物公園`；`sources` 的「作者提供」改「維護者提供」
+- `you-you-1997-06-20.md` — `japanese` 由「葉葉 / ユウユウ」改為「葉葉, 葉々, ユウユウ」（比照雙胞胎 `fu-fu-1997-06-20` 的「風風, 風々, フウフウ, ふうふう」寫法）；標題同步
+
+**備注**：條目總數不變（702）。`birth_zoo: unknown` 為本次新增的選填 frontmatter 欄位，見 SCHEMA.md 與 CHANGELOG.md 同日條目。
+
+## [2026-07-26] update | `ki-ki-1996` 補居住史（多摩 → 墨西哥）、合併 チャプルテペック動物園 重複登記
+
+**來源**：
+- 維護者提供（2026-07-26：`ki-ki-1996` 生於多摩動物公園，後移居チャプルテペック動物園；日期不詳）
+
+**更新條目**：
+- `ki-ki-1996.md` — 補 `zoos: 多摩動物公園 (1996 – )`（出生園，起始年＝生年故標 🐣）與 `チャプルテペック動物園 ( – 現在)`；tag 補兩座園。**移園日期與離開多摩的年份皆不詳**，🚧 註記改寫說明「現在」僅表示查無後續紀錄；父母仍為〔待查證〕，`unverified` 維持
+- `data/zoos.json` — 合併重複登記：刪除 `Chapultepec Zoo`（`lineage_id` 66、無 wiki 條目使用），其 `lineage_id` 與 map 併入實際在用的 `チャプルテペック動物園`（該筆原 `lineage_id` 為 null、走合成 ID）；註冊表 345 → 344 座
+- `data/zoos.json` — 補 `location_zh`：チャプルテペック動物園「墨西哥墨西哥城」、Buin Zoo「智利首都大區布因」。兩園的 `location_ja` 為片假名（メキシコ・メキシコシティ／チリレヒオン・メトロポリターナ州ブイン），中文介面缺 `location_zh` 時會退回 `location_ja`、對中文讀者不可讀
+
+**備注**：條目總數不變（702）。配套工具修正見 CHANGELOG.md 同日條目（`export_json.py` 現居判定、`gen_residence.py` 國旗表）。

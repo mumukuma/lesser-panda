@@ -1,9 +1,11 @@
-/* 動物園清單：文字過濾 + 排序 + 顯示更多（漸進增強：SSR 卡片，JS 重排既有 DOM 節點） */
+/* 動物園清單：文字過濾 + 地區過濾 + 排序 + 顯示更多（漸進增強：SSR 卡片，JS 重排既有 DOM 節點） */
+/* 註：地區 filter 讀卡片的 data-country（資料正本欄名為 country，UI 標籤刻意寫「地區」，見 data.js） */
 (function () {
   var grid = document.getElementById('zoo-grid');
   if (!grid) return;
   var cards = Array.prototype.slice.call(grid.querySelectorAll('.zoo-card'));
   var sortSel = document.getElementById('zoo-sort');
+  var countrySel = document.getElementById('zoo-country');
   var moreBtn = document.getElementById('zoo-more');
   var qInput = document.getElementById('zoo-q');
   var countEl = document.getElementById('zoo-count');
@@ -29,24 +31,27 @@
 
   function render() {
     var q = norm(qInput ? qInput.value : '');
+    var cty = countrySel ? countrySel.value : '';   // 小寫英文地區名，空＝全部
     var mode = sortSel.value, arr = cards.slice();
     if (mode === 'name') arr.sort(byName);
     else if (mode === 'region') arr.sort(function (a, b) { return region(a).localeCompare(region(b), loc) || (count(b) - count(a)); });
     else arr.sort(function (a, b) { return (count(b) - count(a)) || byName(a, b); });
+    var active = !!q || !!cty;
     var shown = 0, hitIds = [];
     arr.forEach(function (c) {
       grid.appendChild(c);
-      var hit = !q || c._hay.indexOf(q) >= 0;
+      var hit = (!q || c._hay.indexOf(q) >= 0) && (!cty || (c.dataset.country || '') === cty);
       c.style.display = (hit && (expanded || shown < LIMIT)) ? '' : 'none';
       if (hit) { shown++; hitIds.push(c.id.replace('zoo-', '')); }
     });
     // 通知地圖跟著 focus（map.js 監聽；也存全域，防 map 較晚初始化時漏接）
-    var detail = { q: !!q, ids: hitIds };
+    // detail.q＝「是否有任何過濾生效」（文字或國家），map.js 據此決定調暗＋縮放或回日本預設視野
+    var detail = { q: active, ids: hitIds };
     window.__ZOO_FILTER = detail;
     document.dispatchEvent(new CustomEvent('zoo-filter', { detail: detail }));
     if (countEl) {
-      countEl.hidden = !q;
-      if (q) countEl.textContent = (T.result_count || '{n}').replace('{n}', shown);
+      countEl.hidden = !active;
+      if (active) countEl.textContent = (T.result_count || '{n}').replace('{n}', shown);
     }
     if (shown > LIMIT) {
       moreBtn.classList.remove('hidden');
@@ -57,6 +62,7 @@
   }
 
   sortSel.addEventListener('change', render);
+  if (countrySel) countrySel.addEventListener('change', function () { expanded = false; render(); });
   if (qInput) qInput.addEventListener('input', function () { expanded = false; render(); });
   moreBtn.addEventListener('click', function () {
     expanded = !expanded; render();
@@ -68,8 +74,12 @@
     if (!/^#zoo-/.test(location.hash)) return;
     var card = document.getElementById(location.hash.slice(1));
     if (!card) return;
-    // 被收合或被過濾隱藏時：清掉過濾字串並展開，確保捲得到
-    if (card.style.display === 'none') { if (qInput) qInput.value = ''; expanded = true; render(); }
+    // 被收合或被過濾隱藏時：清掉所有過濾條件並展開，確保捲得到
+    if (card.style.display === 'none') {
+      if (qInput) qInput.value = '';
+      if (countrySel) countrySel.value = '';
+      expanded = true; render();
+    }
     card.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
   window.addEventListener('hashchange', jumpToHash);

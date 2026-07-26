@@ -9,11 +9,36 @@ const arrowStyle = "background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http
 <h1 class="font-display text-2xl font-semibold mt-7 mb-1.5">{T.nav_search}</h1>
 <div class="flex gap-2.5 flex-wrap items-center my-4">
   <input type="search" id="f-q" placeholder={T.search_placeholder} aria-label={T.search_placeholder} class={`flex-1 min-w-0 w-full sm:w-auto sm:min-w-[240px] ${inputCls}`} />
-  <select id="f-zoo" aria-label={T.filter_zoo} class={`w-full sm:w-auto min-w-0 max-w-full ${selectCls}`} style={arrowStyle}><option value="">{T.filter_zoo}：{T.filter_all}</option></select>
-  <select id="f-sex" aria-label={T.filter_sex} class={`w-full sm:w-auto ${selectCls}`} style={arrowStyle}>
-    <option value="">{T.filter_sex}：{T.filter_all}</option>
-    <option value="female">{T.filter_female}</option>
-    <option value="male">{T.filter_male}</option>
+  <div class="flex gap-2 items-center w-full sm:w-auto">
+    <select id="f-region" aria-label={T.filter_region} class={`flex-1 sm:flex-none min-w-0 max-w-full ${selectCls}`} style={arrowStyle}><option value="">{T.filter_region}：{T.filter_all}</option></select>
+    <select id="f-zoo" aria-label={T.filter_zoo} class={`flex-1 sm:flex-none min-w-0 max-w-full ${selectCls}`} style={arrowStyle}><option value="">{T.filter_zoo}：{T.filter_all}</option></select>
+  </div>
+  <div class="flex gap-2 items-center w-full sm:w-auto">
+    <select id="f-sex" aria-label={T.filter_sex} class={`flex-1 sm:flex-none min-w-0 ${selectCls}`} style={arrowStyle}>
+      <option value="">{T.filter_sex}：{T.filter_all}</option>
+      <option value="female">{T.filter_female}</option>
+      <option value="male">{T.filter_male}</option>
+      {/* build_db 把空白 sex 正規化為 "unknown"（蘋果籽性別待園方公布、部分中國個體未公布）；
+          下拉顯示數量後若少了這一項，♀＋♂ 會加不到總數、這些個體也只有「全部」撈得到 */}
+      <option value="unknown">{T.filter_sex_unknown}</option>
+    </select>
+    {/* 年齡層：僅對「現存」個體有意義（已故者的年齡是享壽、非現齡），故選了任一層即隱含現存；
+        數量於 client 端算好標在選項上（js/search.js），與 i18n 標籤分離 */}
+    <select id="f-age" aria-label={T.filter_age} class={`flex-1 sm:flex-none min-w-0 ${selectCls}`} style={arrowStyle}>
+      <option value="">{T.filter_age}：{T.filter_all}</option>
+      <option value="baby">{T.age_baby}</option>
+      <option value="1_3">{T.age_1_3}</option>
+      <option value="4_7">{T.age_4_7}</option>
+      <option value="8_11">{T.age_8_11}</option>
+      <option value="senior">{T.age_senior}</option>
+    </select>
+  </div>
+  {/* 資料狀態：維護用途——把資料不完整的個體撈出來盤點 */}
+  <select id="f-data" aria-label={T.filter_data} class={`w-full sm:w-auto min-w-0 ${selectCls}`} style={arrowStyle}>
+    <option value="">{T.filter_data}：{T.filter_all}</option>
+    <option value="unverified">{T.data_unverified}</option>
+    <option value="no_birthday">{T.data_no_birthday}</option>
+    <option value="no_residence">{T.data_no_residence}</option>
   </select>
   <label class="text-[.9rem] text-ink-soft flex gap-1.5 items-center"><input type="checkbox" id="f-alive" />{T.filter_alive_only}</label>
   <label class="text-[.9rem] text-ink-soft flex gap-1.5 items-center"><input type="checkbox" id="f-photos" />{T.filter_has_photos}</label>

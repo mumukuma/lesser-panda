@@ -22,9 +22,12 @@ CFLAG = {'Japan':('日本','🇯🇵'),'Taiwan':('台灣','🇹🇼'),'USA':('�
  'Chile':('智利','🇨🇱'),'Canada':('加拿大','🇨🇦'),'South Korea':('韓國','🇰🇷'),'Australia':('澳洲','🇦🇺'),
  'Netherlands':('荷蘭','🇳🇱'),'Indonesia':('印尼','🇮🇩'),'Thailand':('泰國','🇹🇭'),
  'Argentina':('阿根廷','🇦🇷'),'Hong Kong':('香港','🇭🇰'),
- 'Belgium':('比利時','🇧🇪'),'Germany':('德國','🇩🇪'),'UK':('英國','🇬🇧')}
+ 'Belgium':('比利時','🇧🇪'),'Germany':('德國','🇩🇪'),'UK':('英國','🇬🇧'),
+ 'Mexico':('墨西哥','🇲🇽'),'Macau':('澳門','🇲🇴'),'Singapore':('新加坡','🇸🇬'),
+ 'New Zealand':('紐西蘭','🇳🇿')}
 _COUNTRY_WORDS = ['日本','台灣','台湾','中國','中国','美國','美国','加拿大','韓國','韩国','大韓民國',
- '智利','澳洲','澳大利亞','荷蘭','印尼','英國','德國','法國','泰國','新加坡','阿根廷','香港']
+ '智利','澳洲','澳大利亞','荷蘭','印尼','英國','德國','法國','泰國','新加坡','阿根廷','香港',
+ '墨西哥','澳門','澳门','紐西蘭','新西兰']
 _FLAG = re.compile(r"[\U0001F1E6-\U0001F1FF]")
 DATE_RANGE_RE = re.compile(
     r"(\d{4})(?:[/\-](\d{2})[/\-](\d{2}))?\s*[–—~〜-]+\s*"
@@ -186,7 +189,7 @@ def daterange_str(r, is_last, died):
     return None
 
 
-def render_section(res, born, died):
+def render_section(res, born, died, birth_zoo=""):
     lines = ["## 居住史", "",
              "<!-- 此表由 tools/gen_residence.py 自動生成；請勿手改。來源：frontmatter zoos: 與 data/zoos.json -->",
              "", "| 期間 | 動物園 | 地點 |", "|------|--------|------|"]
@@ -205,7 +208,11 @@ def render_section(res, born, died):
         period = f"{start} – {end}" if end else f"{start} –"
         rec = r["rec"]
         flags = ""
-        if i == 0 and (r["sy"] is None or str(r["sy"]) == str(born)[:4]):
+        # 🐣 出生地：首站且（起始不詳 or 起始年＝生年）。frontmatter `birth_zoo: unknown`
+        # 為明示的退出開關——首站起始不詳時本來一律標 🐣，但有些個體來源明寫「出自不明」
+        # （如多摩名單的華華・中中），此時標 🐣 等同宣稱生於該園、與來源矛盾，故標了旗標就不標。
+        if i == 0 and str(birth_zoo).strip().lower() != "unknown" \
+                and (r["sy"] is None or str(r["sy"]) == str(born)[:4]):
             flags += " 🐣"
         if i == n - 1 and not died and not r["ed"] and not r["ey"]:
             flags += " 🏡"
@@ -251,7 +258,8 @@ def main():
             continue
         _, fmb, _, body = parts
         res = extract(fmb, body)
-        parsed[slug] = (text, parts, res, fm_get(fmb, "born") or "", fm_get(fmb, "died"))
+        parsed[slug] = (text, parts, res, fm_get(fmb, "born") or "", fm_get(fmb, "died"),
+                        fm_get(fmb, "birth_zoo") or "")
         before = zoos_before(fmb, body)        # 改寫前：frontmatter ∪ 既有表格
         after = {r["zoo"] for r in res}        # 改寫後：即將寫出的園
         lost = before - after
@@ -297,10 +305,10 @@ def main():
 
     # ── pass 2：改寫 frontmatter zoos + 重生/插入 居住史 ──
     written = 0
-    for slug, (text, parts, res, born, died) in parsed.items():
+    for slug, (text, parts, res, born, died, birth_zoo) in parsed.items():
         head, fmb, sep, body = parts
         new_fmb = re.sub(r"(?m)^zoos:\s*\n(?:[ \t]+-[^\n]*\n?)*", build_fm_zoos(res, died), fmb, count=1)
-        section = render_section(res, born, died)
+        section = render_section(res, born, died, birth_zoo)
         if re.search(r"(?m)^##\s*居住史", body):
             new_body = re.sub(r"(?ms)^##\s*居住史.*?(?=\n##\s|\n---|\Z)", section, body, count=1)
         else:

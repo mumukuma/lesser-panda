@@ -79,6 +79,84 @@ export const zooLocation = (z, locale = 'zh-TW') => {
   return locale === 'zh-CN' ? toHans(zh) : zh;
 };
 
+// ── 地區名依語系（動物園清單的地區 filter）──────────────────────────────
+// UI 標籤刻意用「地區／地域／Region」而非「國家」（i18n filter_region）：台灣、香港、澳門
+// 在此與各國並列，用「國家」會讓部分讀者讀成主權主張，用「地區」則不表態（同 Apple／Google
+// 的 Country or Region 慣例）。資料欄位名維持 country（data/zoos.json 正本欄名），故本區
+// 函式仍叫 countryXxx——命名對齊資料來源，顯示層才換詞。
+// country 欄位正本為英文（data/zoos.json），且歷史資料大小寫不一（france／Germany 並存），
+// 故一律以小寫 key 查表、也以小寫值當 filter 值；查不到的國家原樣顯示英文，不致漏園。
+// zh-CN 不用 toHans 機器轉：國名的大陸慣用譯名常整詞不同（義大利→意大利、紐西蘭→新西兰），
+// 逐筆手寫較準。表涵蓋 data/zoos.json 目前全部國家（含尚無現居個體的園），日後新增園請補一筆。
+const COUNTRY_NAMES = {
+  argentina: { 'zh-TW': '阿根廷', 'zh-CN': '阿根廷', ja: 'アルゼンチン', en: 'Argentina', ko: '아르헨티나' },
+  australia: { 'zh-TW': '澳洲', 'zh-CN': '澳大利亚', ja: 'オーストラリア', en: 'Australia', ko: '호주' },
+  austria: { 'zh-TW': '奧地利', 'zh-CN': '奥地利', ja: 'オーストリア', en: 'Austria', ko: '오스트리아' },
+  belgium: { 'zh-TW': '比利時', 'zh-CN': '比利时', ja: 'ベルギー', en: 'Belgium', ko: '벨기에' },
+  canada: { 'zh-TW': '加拿大', 'zh-CN': '加拿大', ja: 'カナダ', en: 'Canada', ko: '캐나다' },
+  chile: { 'zh-TW': '智利', 'zh-CN': '智利', ja: 'チリ', en: 'Chile', ko: '칠레' },
+  china: { 'zh-TW': '中國', 'zh-CN': '中国', ja: '中国', en: 'China', ko: '중국' },
+  croatia: { 'zh-TW': '克羅埃西亞', 'zh-CN': '克罗地亚', ja: 'クロアチア', en: 'Croatia', ko: '크로아티아' },
+  czechia: { 'zh-TW': '捷克', 'zh-CN': '捷克', ja: 'チェコ', en: 'Czechia', ko: '체코' },
+  denmark: { 'zh-TW': '丹麥', 'zh-CN': '丹麦', ja: 'デンマーク', en: 'Denmark', ko: '덴마크' },
+  france: { 'zh-TW': '法國', 'zh-CN': '法国', ja: 'フランス', en: 'France', ko: '프랑스' },
+  germany: { 'zh-TW': '德國', 'zh-CN': '德国', ja: 'ドイツ', en: 'Germany', ko: '독일' },
+  'hong kong': { 'zh-TW': '香港', 'zh-CN': '香港', ja: '香港', en: 'Hong Kong', ko: '홍콩' },
+  hungary: { 'zh-TW': '匈牙利', 'zh-CN': '匈牙利', ja: 'ハンガリー', en: 'Hungary', ko: '헝가리' },
+  india: { 'zh-TW': '印度', 'zh-CN': '印度', ja: 'インド', en: 'India', ko: '인도' },
+  indonesia: { 'zh-TW': '印尼', 'zh-CN': '印尼', ja: 'インドネシア', en: 'Indonesia', ko: '인도네시아' },
+  ireland: { 'zh-TW': '愛爾蘭', 'zh-CN': '爱尔兰', ja: 'アイルランド', en: 'Ireland', ko: '아일랜드' },
+  'isle of man': { 'zh-TW': '曼島', 'zh-CN': '马恩岛', ja: 'マン島', en: 'Isle of Man', ko: '맨섬' },
+  italy: { 'zh-TW': '義大利', 'zh-CN': '意大利', ja: 'イタリア', en: 'Italy', ko: '이탈리아' },
+  japan: { 'zh-TW': '日本', 'zh-CN': '日本', ja: '日本', en: 'Japan', ko: '일본' },
+  laos: { 'zh-TW': '寮國', 'zh-CN': '老挝', ja: 'ラオス', en: 'Laos', ko: '라오스' },
+  macau: { 'zh-TW': '澳門', 'zh-CN': '澳门', ja: 'マカオ', en: 'Macau', ko: '마카오' },
+  mexico: { 'zh-TW': '墨西哥', 'zh-CN': '墨西哥', ja: 'メキシコ', en: 'Mexico', ko: '멕시코' },
+  nepal: { 'zh-TW': '尼泊爾', 'zh-CN': '尼泊尔', ja: 'ネパール', en: 'Nepal', ko: '네팔' },
+  netherlands: { 'zh-TW': '荷蘭', 'zh-CN': '荷兰', ja: 'オランダ', en: 'Netherlands', ko: '네덜란드' },
+  'new zealand': { 'zh-TW': '紐西蘭', 'zh-CN': '新西兰', ja: 'ニュージーランド', en: 'New Zealand', ko: '뉴질랜드' },
+  poland: { 'zh-TW': '波蘭', 'zh-CN': '波兰', ja: 'ポーランド', en: 'Poland', ko: '폴란드' },
+  portugal: { 'zh-TW': '葡萄牙', 'zh-CN': '葡萄牙', ja: 'ポルトガル', en: 'Portugal', ko: '포르투갈' },
+  russia: { 'zh-TW': '俄羅斯', 'zh-CN': '俄罗斯', ja: 'ロシア', en: 'Russia', ko: '러시아' },
+  singapore: { 'zh-TW': '新加坡', 'zh-CN': '新加坡', ja: 'シンガポール', en: 'Singapore', ko: '싱가포르' },
+  slovakia: { 'zh-TW': '斯洛伐克', 'zh-CN': '斯洛伐克', ja: 'スロバキア', en: 'Slovakia', ko: '슬로바키아' },
+  'south korea': { 'zh-TW': '韓國', 'zh-CN': '韩国', ja: '韓国', en: 'South Korea', ko: '대한민국' },
+  spain: { 'zh-TW': '西班牙', 'zh-CN': '西班牙', ja: 'スペイン', en: 'Spain', ko: '스페인' },
+  sweden: { 'zh-TW': '瑞典', 'zh-CN': '瑞典', ja: 'スウェーデン', en: 'Sweden', ko: '스웨덴' },
+  taiwan: { 'zh-TW': '台灣', 'zh-CN': '台湾', ja: '台湾', en: 'Taiwan', ko: '타이완' },
+  thailand: { 'zh-TW': '泰國', 'zh-CN': '泰国', ja: 'タイ', en: 'Thailand', ko: '태국' },
+  uk: { 'zh-TW': '英國', 'zh-CN': '英国', ja: 'イギリス', en: 'UK', ko: '영국' },
+  usa: { 'zh-TW': '美國', 'zh-CN': '美国', ja: 'アメリカ', en: 'USA', ko: '미국' },
+};
+export const countryKey = (c) => (c || '').trim().toLowerCase();
+export const countryName = (c, locale = 'zh-TW') => {
+  const row = COUNTRY_NAMES[countryKey(c)];
+  return (row && (row[locale] || row.en)) || (c || '');
+};
+// 地區 filter 的選項：只列「有現居個體的園」實際出現的地區（園數多→少，同數依名稱）。
+// 未登記 country 的園不產生選項，選「全部」時仍會顯示。
+export const countryOptions = (locale = 'zh-TW') => {
+  const n = {};
+  for (const z of zoosListed) {
+    const k = countryKey(z.country);
+    if (k) n[k] = (n[k] || 0) + 1;
+  }
+  return Object.keys(n)
+    .map((k) => ({ value: k, label: countryName(k, locale), count: n[k] }))
+    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label, locale));
+};
+
+// 個體所屬地區＝其「代表園」的 country：在世＝現居園、已故＝最後居住園。刻意與搜尋頁
+// 動物園 filter 用同一套認定（見 searchDataFor 的 zoo 欄），否則兩個 filter 會互相矛盾。
+// 只有 raw 園名、解析不到園 id 時回空字串（該個體不出現在任何地區選項下，選「全部」仍看得到）。
+const _zooCountryKey = Object.fromEntries(zoos.map((z) => [z.id, countryKey(z.country)]));
+export const pandaRegionKey = (p) => {
+  if (!p.died) return _zooCountryKey[p.current_zoo] || '';
+  const res = p.residences || [];
+  const last = res[res.length - 1];
+  return (last && _zooCountryKey[last.zoo_id]) || '';
+};
+
 // 佔位個體（蘋果籽）的 ja/ko 顯示名：資料正本 japanese 依規則留空（「赤ちゃん」非正式名）、
 // ko 無個體名欄位，故於顯示層由 i18n 直譯（りんごのタネ／사과씨）；多胞胎編號用 placeholder_name_n 模板。
 export const placeholderName = (p, locale) => {
@@ -192,6 +270,17 @@ export function subGraph(slug, locale = 'zh-TW') {
 }
 
 export const searchDataFor = (locale) => ({
+  // 地區下拉的選項：v＝小寫英文 key（對上每隻的 r）、l＝該語系顯示名、c＝個體數。
+  // 建置期算好，client 端不必帶地區譯名表。排序同動物園頁：數量多→少，同數依名稱。
+  regions: (() => {
+    const n = {};
+    for (const p of Object.values(pandas)) {
+      const k = pandaRegionKey(p);
+      if (k) n[k] = (n[k] || 0) + 1;
+    }
+    return Object.keys(n).map((k) => ({ v: k, l: countryName(k, locale), c: n[k] }))
+      .sort((a, b) => b.c - a.c || a.l.localeCompare(b.l, locale));
+  })(),
   pandas: Object.values(pandas).map((p) => ({
     slug: p.slug, u: p.urlId,
     // 佔位個體：ko 主名（n）、ja 日文名（j）用直譯佔位名；原英文名移入 en 保持可搜尋
@@ -207,6 +296,7 @@ export const searchDataFor = (locale) => ({
 
     ph: (p.instagram || []).length || null,
     kids: (p.children || []).length || null,
+    r: pandaRegionKey(p) || null,   // 地區 key（與下方 zoo 同一座園）
     // 在世＝現居園；已故＝最後居住園（否則 zoo 篩選永遠濾不出已故個體，「現存」checkbox 形同虛設）
     zoo: (() => {
       if (!p.died) return zooName(p.current_zoo, p.current_zoo_raw, locale) || null;

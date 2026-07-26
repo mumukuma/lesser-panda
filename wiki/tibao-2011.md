@@ -3,6 +3,8 @@ name: Tibao
 sex: male
 born: 2011
 species: Ailurus fulgens fulgens
+zoos:
+  - Drusillas Park (2012 – 現在)
 tags: [fulgens, male, zoo:Drusillas Park, unverified]
 sources:
   - https://www.drusillas.co.uk/news/new-year-brings-new-red-panda-to-the-zoo
@@ -15,7 +17,7 @@ sources:
 > **小熊貓** ♂ | Ailurus fulgens fulgens
 > 生：2011（依園方報導推算，待查證）
 
-> 🚧 **部分資料待查證**：生年依 Drusillas 園方 2013 年初報導「18 個月大」推算為 2011；確切生日、出生園、後續去向皆不詳（2020 年前後 [[maja]] 抵園時，園方報導已僅稱 Mulan 為在園個體），故居住史暫不列入 frontmatter。無 RPF 條目。
+> 🚧 **部分資料待查證**：生年依 Drusillas 園方 2013 年初報導「18 個月大」推算為 2011；確切生日與**出生園不詳**。居住史僅列有明確日期的 Drusillas Park 一段——抵園前的 Zoo d'Asson 期間起始不詳，若寫入 frontmatter 會被自動標為 🐣 出生地（等同宣稱生於 Asson），故暫僅記於下方敘述。**後續去向亦不詳**（2020 年前後 [[maja]] 抵園時，園方報導已僅稱 Mulan 為在園個體），「現在」僅表示查無離園紀錄。故掛 `unverified`，不計入現存統計。無 RPF 條目。
 
 2012 年 7 月自法國 Asson Zoo 抵達英國 Drusillas Park，檢疫與新展區完工後於 2013 年復活節前後亮相；2013-03-28 與自 Paignton Zoo 移居的 [[mulan-2012-07-09]] 配對。2014-06-16 兩人誕下雙胞胎 [[mya-2014-06-16]] 與 [[anmar-2014-06-16]]——Drusillas 建園 89 年來首度繁殖小熊貓。園方報導稱其最愛黑竹、喜於枝上進食。
 
@@ -29,6 +31,7 @@ sources:
 
 | 期間 | 動物園 | 地點 |
 |------|--------|------|
+| 2012 – 現在 | Drusillas Park 🏡 | 英國 東薩塞克斯郡阿爾弗里斯頓 🇬🇧 |
 ---
 
 ## 家族

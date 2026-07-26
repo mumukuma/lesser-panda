@@ -250,8 +250,12 @@ def main():
 
     # 居住史 + 現居
     unmatched = {}
-    # 起年不明（start_year NULL，如「? – 2003-04-07」）以訖年代排，避免 NULL 被排到最前
-    for r in conn.execute("SELECT * FROM residences ORDER BY slug, COALESCE(start_year, end_year), id"):
+    # 起年不明（start_year NULL，如「? – 2003-04-07」）以訖年代排，避免 NULL 被排到最前。
+    # 起訖「都」不明（如「? – 現在」：只知道現在在這座園、不知何時抵達）再退到 9999 排最後——
+    # 這種筆本質是「最新一站」，若跟著 NULL 排到最前，會讓下方的現居判定（由後往前找 end IS NULL）
+    # 誤取到前一站有起年的園（實例：ki-ki-1996 多摩 1996 → 墨西哥 ? – 現在，曾誤判現居多摩）。
+    # 同鍵時以 id（＝frontmatter 順序，即維護者寫的時序）為序。
+    for r in conn.execute("SELECT * FROM residences ORDER BY slug, COALESCE(start_year, end_year, 9999), id"):
         p = pandas.get(r["slug"])
         if not p:
             continue

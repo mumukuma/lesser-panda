@@ -1,5 +1,5 @@
 ---
-import { zoosListed as zoos, pandas, i18n, displayName, zooName, zooLocation, deceasedHtml } from '../lib/data.js';
+import { zoosListed as zoos, pandas, i18n, displayName, zooName, zooLocation, deceasedHtml, countryKey, countryOptions } from '../lib/data.js';
 import { pandaUrl, zooUrl } from '../lib/links.js';
 const { locale } = Astro.props;
 const T = i18n[locale];
@@ -9,6 +9,7 @@ const resLink = (s) =>
 const inputCls = 'bg-card text-ink border border-line rounded-input px-3.5 py-2.5 font-[inherit] focus:outline-none focus:border-rust';
 const selectCls = `${inputCls} appearance-none pr-9 cursor-pointer`;
 const arrowStyle = "background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237a6a5f' stroke-width='1.5' fill='none'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 12px center";
+const countries = countryOptions(locale);
 ---
 <h1 class="font-display text-2xl font-semibold mt-7 mb-1.5">{T.nav_zoos}</h1>
 <p class="text-ink-soft mb-4">{T.zoos_intro}</p>
@@ -19,11 +20,17 @@ const arrowStyle = "background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http
     <input id="zoo-q" type="search" placeholder={T.zoos_filter} aria-label={T.zoos_filter} class={`${inputCls} grow max-w-[340px]`} />
     <span id="zoo-count" class="text-ink-soft text-[.85rem] whitespace-nowrap" hidden></span>
   </div>
-  <select id="zoo-sort" aria-label={T.sort_by} class={selectCls} style={arrowStyle}>
-    <option value="residents">{T.sort_by}：{T.sort_residents}</option>
-    <option value="name">{T.sort_by}：{T.sort_name}</option>
-    <option value="region">{T.sort_by}：{T.sort_region}</option>
-  </select>
+  <div class="flex gap-2 items-center w-full sm:w-auto">
+    <select id="zoo-country" aria-label={T.filter_region} class={`flex-1 sm:flex-none min-w-0 ${selectCls}`} style={arrowStyle}>
+      <option value="">{T.filter_region}：{T.filter_all}</option>
+      {countries.map((c) => <option value={c.value}>{c.label}（{c.count}）</option>)}
+    </select>
+    <select id="zoo-sort" aria-label={T.sort_by} class={`flex-1 sm:flex-none min-w-0 ${selectCls}`} style={arrowStyle}>
+      <option value="residents">{T.sort_by}：{T.sort_residents}</option>
+      <option value="name">{T.sort_by}：{T.sort_name}</option>
+      <option value="region">{T.sort_by}：{T.sort_region}</option>
+    </select>
+  </div>
 </div>
 
 <div class="grid gap-3.5 mt-3 [grid-template-columns:repeat(auto-fill,minmax(280px,1fr))]" id="zoo-grid">
@@ -32,6 +39,7 @@ const arrowStyle = "background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http
       data-count={z.residents.length}
       data-name={zooName(z.id, z.en_name, locale)}
       data-region={z.country || z.location_en || z.location_ja || ''}
+      data-country={countryKey(z.country)}
       data-search={[z.ja_name, z.ja_kana, z.en_name, z.name_zh, zooName(z.id, z.en_name, locale), z.location_ja, z.location_en, z.location_zh, z.country].filter(Boolean).join('|')}>
       <h2 class="font-display m-0 mb-1 text-[1.02rem] font-semibold flex items-start gap-2.5 leading-snug">
         {z.logo && <img class="w-[26px] h-[26px] flex-none mt-px object-contain bg-white border border-line rounded-md p-0.5" src={z.logo} alt="" loading="lazy" onerror="this.style.display='none'" />}
