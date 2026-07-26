@@ -6,6 +6,14 @@
 
 ---
 
+## 2026-07-26 ・ 修正：iOS 上中文標題失去圓體、性別符號 ♀♂ 變彩色 emoji
+
+維護者回報「iPhone 上字型都不見了，只有日文有吃到字型，而且性別 icon 跑版」。兩者都是同日 `:lang()` 字型改版的迴歸，Mac 上看不出來。
+
+- **中文標題失去圓體**：改版把 `--font-display` 的後備鏈拆成 `--font-cjk-round`，中文只留 `Yuanti TC／SC`。**Yuanti 是 macOS 專屬字型、iOS 沒有內建**，於是 iPhone 上中文標題整條後備鏈落空、退回 `--font-body` 的 PingFang TC 黑體；日文因為 `Hiragino Maru Gothic ProN` iOS 有內建而不受影響，看起來就像「只有日文吃到字型」。改版前的鏈末端本來就有 Hiragino Maru 兜底，拆分時漏掉。**修法**：中文的 `--font-cjk-round` 末端補回 `'Hiragino Maru Gothic ProN'`。代價是 iOS 中文**標題**的漢字為日文字形（內文仍走正確的 PingFang），這是刻意取捨——iOS 沒有任何內建的中文圓體，維護者選擇保留圓體調性。
+- **♀♂ 變彩色 emoji**：U+2640／U+2642 在 Apple 平台屬「可 emoji 化」碼位，字型鏈裡沒有任何字型收錄它時會退到 **Apple Color Emoji**，字寬變大、基線偏移、且吃不到 `text-female`／`text-male` 的顏色，就是「跑版」。起因是中文鏈改以 PingFang TC 打頭而 PingFang 沒收這兩個符號（鏈中其餘 Noto／JhengHei／Heiti 在 iOS 上都不存在）；改版前 `Hiragino Sans` 打頭時它有收，所以一直正常。**修法**：新增 `unicode-range: U+2640, U+2642` 的 `@font-face 'RPW Symbols'`，用 `local()` 只對這兩個碼位借一套確定有收錄的系統字（日文字型自 JIS X 0208 起皆含 ♀♂），並置於五條 `--font-body` 之首。不下載任何檔案、其餘文字完全不受影響；`local()` 在 WebKit 比對家族名、Blink 比對 full/PostScript name，故兩種都列，比對不到就自然落空、不會比現況更糟。此法一次涵蓋所有出現處（i18n 的 `sex_f`／`sex_m`、Stats、JpTree、search.js、jptree.js），毋須逐處插入 U+FE0E，也不影響 satori 產的 OG 卡。
+- 驗證：沙盒 `pnpm build` 通過，4327 頁；抽驗產物 CSS 確認 `@font-face` 的 `local()` 與 `unicode-range` 經 minify 後完整保留、五條 `--font-body` 都以 `RPW Symbols` 打頭、中文 `--font-cjk-round` 末端有 Hiragino Maru。
+
 ## 2026-07-26 ・ 修正：CJK 字型改依 `lang` 切換（漢字統一造成的字形錯置）
 
 維護者問「站上有各國文字，是否該改用 Noto 字型」。**結論是不自架 Noto**，但查證過程發現一個既有的實際缺陷並修掉。

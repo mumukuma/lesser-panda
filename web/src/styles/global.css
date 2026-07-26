@@ -21,6 +21,23 @@
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
+/* ── 性別符號 ♀♂ 的字型墊片（不下載任何檔案）────────────────────────
+   U+2640／U+2642 在 Apple 平台屬「可 emoji 化」碼位：若字型鏈裡沒有任何字型收錄它，
+   系統會退到 Apple Color Emoji → 變成彩色 emoji，字寬變大、基線偏移、且吃不到
+   text-female／text-male 的顏色（2026-07-26 回報：iPhone 上性別 icon 跑版）。
+   起因是中文鏈改以 PingFang TC 打頭，而 PingFang 沒收這兩個符號（iOS 上鏈中其餘
+   Noto／JhengHei／Heiti 皆不存在）。此處用 unicode-range 限定只對這兩個碼位借一套
+   確定有收錄的系統字（日文字型自 JIS X 0208 起皆含 ♀♂），其餘文字完全不受影響。
+   local() 在 WebKit 可比對家族名，Blink 只比對 full/PostScript name，故兩種都列；
+   任一比對不到就自然落空、退回原本行為，不會比現況更糟。 */
+@font-face {
+  font-family: 'RPW Symbols';
+  src: local('Hiragino Sans'), local('HiraginoSans-W3'), local('Hiragino Kaku Gothic ProN'),
+       local('HiraKakuProN-W3'), local('Apple Symbols'), local('AppleSymbols'),
+       local('Segoe UI Symbol'), local('Noto Sans Symbols 2'), local('DejaVu Sans');
+  unicode-range: U+2640, U+2642;
+}
+
 /* ── 主題變數（淺色預設）──────────────────────────────────────── */
 :root {
   /* 品牌主色（保留，不變）*/
@@ -36,7 +53,7 @@
   --shadow: 0 1px 2px rgba(61,44,35,.05), 0 10px 24px rgba(61,44,35,.07);
   --shadow-pop: 0 3px 0 rgba(143,63,30,.10), 0 12px 26px rgba(181,85,45,.16);
   /* 字（預設＝zh-Hant；實際堆疊由下方 :lang() 依語系覆寫）*/
-  --font-body: 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', 'Hiragino Sans', system-ui, sans-serif;
+  --font-body: 'RPW Symbols', 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', 'Hiragino Sans', system-ui, sans-serif;
   --font-display: 'Fredoka', 'Yuanti TC', 'Yuanti SC', 'Hiragino Maru Gothic ProN', 'Hiragino Maru Gothic Pro', var(--font-body);
 }
 
@@ -47,26 +64,30 @@
    標了 lang="ja" 的日文名（見 Panda.astro altNames、search.js altOf）也會自動吃到
    日文字形，即使外層是中文頁。Noto 一律留在第二順位當後備（Android／Linux 內建），
    不自架 webfont——CJK 字檔動輒數 MB，對 mobile-first 不划算。
-   註：選擇器不加 :root 前綴，才能同時作用於 <html> 與頁內的 lang 標記元素。 */
+   註 1：選擇器不加 :root 前綴，才能同時作用於 <html> 與頁內的 lang 標記元素。
+   註 2：圓體 Yuanti TC／SC 只有 macOS 有、iOS 沒有內建，故中文的 --font-cjk-round
+   末端必須留 'Hiragino Maru Gothic ProN'（iOS 有）當後備，否則 iPhone 上中文標題
+   會整條落空、退回 --font-body 的黑體（2026-07-26 回報：手機只有日文吃到圓體）。
+   代價是 iOS 中文「標題」的漢字為日文字形；內文仍走正確的 PingFang，可接受。 */
 :lang(zh-Hant) {
-  --font-body: 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', 'Heiti TC', system-ui, sans-serif;
-  --font-cjk-round: 'Yuanti TC', 'Yuanti SC';
+  --font-body: 'RPW Symbols', 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', 'Heiti TC', system-ui, sans-serif;
+  --font-cjk-round: 'Yuanti TC', 'Yuanti SC', 'Hiragino Maru Gothic ProN';
 }
 :lang(zh-Hans) {
-  --font-body: 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', 'Heiti SC', system-ui, sans-serif;
-  --font-cjk-round: 'Yuanti SC', 'Yuanti TC';
+  --font-body: 'RPW Symbols', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', 'Heiti SC', system-ui, sans-serif;
+  --font-cjk-round: 'Yuanti SC', 'Yuanti TC', 'Hiragino Maru Gothic ProN';
 }
 :lang(ja) {
-  --font-body: 'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', 'Meiryo', system-ui, sans-serif;
+  --font-body: 'RPW Symbols', 'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', 'Meiryo', system-ui, sans-serif;
   --font-cjk-round: 'Hiragino Maru Gothic ProN', 'Hiragino Maru Gothic Pro';
 }
 :lang(ko) {
-  --font-body: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Nanum Gothic', system-ui, sans-serif;
+  --font-body: 'RPW Symbols', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Nanum Gothic', system-ui, sans-serif;
   --font-cjk-round: 'Apple SD Gothic Neo';
 }
 :lang(en) {
   /* 英文頁仍會出現日文園名與漢字個體名 → 拉丁字用系統字，CJK 後備給日文字形 */
-  --font-body: system-ui, -apple-system, 'Segoe UI', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  --font-body: 'RPW Symbols', system-ui, -apple-system, 'Segoe UI', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
   --font-cjk-round: 'Hiragino Maru Gothic ProN', 'Yuanti TC';
 }
 :lang(zh-Hant), :lang(zh-Hans), :lang(ja), :lang(ko), :lang(en) {

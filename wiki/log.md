@@ -2977,3 +2977,47 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - `index.md` — 南京分類新增四筆、`du-du` 說明改為「自南京金牛湖轉入」；條目總數 710 → 714
 
 **備注**：四隻皆無生日資料，slug 依檔案卡規則用園簡稱（`名字-nanjing`）；`zoos:` 起始年留空（不詳抵達年，渲染為「? – 現在」，首站因既有慣例會帶 🐣 符號）；`last_seen: 2026-07`、皆為現況在世故不掛 `unverified`。`sources` 為「維護者提供」（無 host）故 `has_official_source` 為 false，網站顯示未經官方佐證標記。糯米之母、黑旋風與牛牛／肉肉／糯米的生日與轉入年份待查。
+
+## [2026-07-26] add | 常州淹城野生動物世界 二十一隻（新園登記：鄂州靈玲野生動物王國）
+
+**來源**：
+- 維護者提供（2026-07-26）；個體名、性別、生卒與轉園年份皆由維護者確認，無官方公告佐證，🚧 待查證
+- 淹城園方官網（園區資訊，非個體名單）：https://www.yczoo.com/ ；紅熊貓館 https://www.yclyq.com/11306.html
+- 鄂州靈玲園區佐證（政府公告／新聞，非個體名單）：鄂州市國資委 2023-08-25 https://gzw.ezhou.gov.cn/xwzx/gqdt/202308/t20230825_570740.html （靈玲文旅集團落戶鄂州園博園，文中列明旗下含「江苏灵玲淹城野生动物世界」）；荊楚網 2026-03-31 http://news.cnhubei.com/content/2026-03/31/content_19896791.html （2026-03-30 開園、華中最大小熊貓種群繁育基地）
+
+**新增條目**（檔案卡 `limited-profile`；生日／入園年份全部不詳，性別由維護者確認）：
+
+雄性 6 隻：
+- `ya-se-yancheng.md` — 亞瑟／亚瑟 Ya Se（♂）；2025 年歿 🪐，精確歿日不詳
+- `yi-yi-yancheng.md` — 一一 Yi Yi（♂）；與廣州 `yi-yi-2023-06-28`（逸逸）拼音相同、非同一隻
+- `yi-zhi-er-yancheng.md` — 一隻耳／一只耳 Yi Zhi Er（♂）
+- `jing-jing-yancheng.md` — 靜靜／静静 Jing Jing（♂）；2026 年轉至鄂州靈玲野生動物王國
+- `ti-la-yancheng.md` — 提拉 Ti La（♂）；`mi-su-yancheng`（米蘇）之雙胞胎哥哥
+- `tuan-zi-yancheng.md` — 團子／团子 Tuan Zi（♂）；2026 年轉至鄂州靈玲野生動物王國
+
+雌性 15 隻：
+- `tao-hua-yancheng.md` — 桃花 Tao Hua（♀）；2025 年歿 🪐；與多摩 `taofa-2015-06-14` 中文名相同、非同一隻
+- `mu-lan-yancheng.md` — 木蘭／木兰 Mu Lan（♀）
+- `hong-shu-yancheng.md` — 紅薯／红薯 Hong Shu（♀）
+- `mi-su-yancheng.md` — 米蘇／米苏 Mi Su（♀）；`ti-la-yancheng`（提拉）之雙胞胎妹妹、`mi-hu-yancheng`（米糊）之母
+- `mi-hu-yancheng.md` — 米糊 Mi Hu（♀）；`mi-su-yancheng`（米蘇）之女，父不詳
+- `jiao-tang-yancheng.md` — 焦糖 Jiao Tang（♀）；`bu-ding-yancheng`（布丁）之雙胞胎姐姐
+- `bu-ding-yancheng.md` — 布丁 Bu Ding（♀）；`jiao-tang-yancheng`（焦糖）之雙胞胎妹妹；2026 年轉至鄂州靈玲野生動物王國
+- `hui-xiang-yancheng.md` — 茴香 Hui Xiang（♀）
+- `hei-mei-yancheng.md` — 黑妹 Hei Mei（♀）；別名「短短」
+- `mu-si-yancheng.md` — 沐絲／沐丝 Mu Si（♀）；別名「角角」
+- `chu-wu-yancheng.md` — 初霧／初雾 Chu Wu（♀）
+- `zhu-li-yancheng.md` — 朱莉 Zhu Li（♀）
+- `sha-qi-ma-yancheng.md` — 沙琪瑪／沙琪玛 Sha Qi Ma（♀）
+- `lu-lu-yancheng.md` — 露露 Lu Lu（♀）；與無錫 `lulu-2022-06-18` 中文名相同、非同一隻
+- `mei-jing-yancheng.md` — 梅景 Mei Jing（♀）
+
+**更新條目**：
+- `data/zoos.json` — 新增登記「鄂州靈玲野生動物王國」（Ezhou Lingling Wild Animal Kingdom，湖北省鄂州市鄂城区；2026-03-30 開園，隸屬靈玲文旅集團，與廈門靈玲動物王國、常州淹城野生動物世界為姊妹園）；座標與官網暫缺（lat／lng／website 為 null）。註冊表 346 → 347 座
+- `data/cn-candidates.json` — 刪除已轉正的淹城五筆（桃花、木蘭、黑妹、沐絲、初霧）；候補 8 → 3 筆
+- `taofa-2015-06-14.md` — 補 ⚠️ 同名提示，指向 `tao-hua-yancheng`（多摩桃花 vs 淹城桃花，中文名相同）
+- `lulu-2022-06-18.md` — 補 ⚠️ 同名提示，指向 `lu-lu-yancheng`（無錫露露 vs 淹城露露，中文名相同）
+- `yi-yi-2023-06-28.md` — 補 ⚠️ 同名提示，指向 `yi-yi-yancheng`（廣州逸逸 vs 淹城一一，拼音相同）
+- `index.md` — 新增分類「海外個體（中國・常州淹城野生動物世界）」十八筆與「海外個體（中國・鄂州靈玲野生動物王國）」三筆；條目總數 714 → 735
+
+**備注**：二十一隻皆無生日資料，slug 依檔案卡規則用園簡稱、依維護者指定採園名「淹城」而非城市名（`名字-yancheng`）；`zoos:` 起始年一律留空（不詳抵達年，渲染為「? – 現在」，首站因既有慣例會帶 🐣 符號），轉至鄂州的三隻**兩園起訖年份均留空**（僅記先後順序，比照 `hei-xuan-feng-nanjing`）；歿者訖填 2025。`last_seen: 2026-07`（歿者 2025），現況在世故不掛 `unverified`。`sources` 為「維護者提供」（無 host）故 `has_official_source` 為 false，網站顯示未經官方佐證標記。淹城與鄂州同屬靈玲文旅集團，此前已有小小白、藍羽、黑旋風三隻自淹城轉入南京市紅山森林動物園。查得生日後依命名規則改為 `名字-生日` 並同步修正 wikilink。
