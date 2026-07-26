@@ -11,37 +11,18 @@
   // 顯示一個乾淨的副名：主名非英文時顯示英文，否則顯示日文名
   var altOf = function (p) { var pr = nameOf(p); return pr !== p.n ? p.n : (p.j || ''); };
 
-  // 動物園下拉：園名（各語系已解析）→ 個體數；同時記下每座園的地區 key（p.r 與 p.zoo
-  // 指同一座園，故可直接對應），供地區下拉連動篩減園清單用。
-  var zooCount = {}, zooRegion = {};
-  pandas.forEach(function (p) {
-    if (!p.zoo) return;
-    zooCount[p.zoo] = (zooCount[p.zoo] || 0) + 1;
-    if (p.r) zooRegion[p.zoo] = p.r;
-  });
+  // 動物園下拉的選項來源：園名（各語系已解析）依全庫個體數排序。實際要列出哪些園、
+  // 各顯示幾隻，改由下方 faceted 計數每次重算（見 refreshFacets）。
   var zooSel = $('#f-zoo');
-  var zooEntries = Object.entries(zooCount).sort(function (a, b) { return b[1] - a[1]; });
-  // 只列出屬於 region 的園（region 空＝全部）；重建時盡量保留使用者原本選的園。
-  function fillZoos(region) {
-    var keep = zooSel.value;
-    zooSel.length = 1;   // 留第一個「動物園：全部」
-    var stillThere = false;
-    zooEntries.forEach(function (e) {
-      if (region && zooRegion[e[0]] !== region) return;
-      var o = document.createElement('option');
-      o.value = e[0]; o.textContent = e[0] + '（' + e[1] + '）';
-      zooSel.appendChild(o);
-      if (e[0] === keep) stillThere = true;
-    });
-    zooSel.value = stillThere ? keep : '';   // 原選的園不屬於新地區就退回「全部」
-  }
-  fillZoos('');
+  var zooCount = {};
+  pandas.forEach(function (p) { if (p.zoo) zooCount[p.zoo] = (zooCount[p.zoo] || 0) + 1; });
+  var zooNames = Object.keys(zooCount).sort(function (a, b) { return zooCount[b] - zooCount[a]; });
 
-  // 地區下拉：選項在建置期算好（searchDataFor 的 regions，含該語系顯示名與個體數）
+  // 地區下拉：選項與該語系顯示名在建置期算好（searchDataFor 的 regions）；數量同樣改由 faceted 重算
   var regionSel = $('#f-region');
   (data.regions || []).forEach(function (r) {
     var o = document.createElement('option');
-    o.value = r.v; o.textContent = r.l + '（' + r.c + '）';
+    o.value = r.v; o.textContent = r.l;
     regionSel.appendChild(o);
   });
 
@@ -51,25 +32,101 @@
   // 年齡層邊界（含兩端）。選了任一層即隱含現存——已故個體的年齡是享壽、不是現齡，
   // 混在一起會讓「12 歲以上」同時撈出在世高齡與早逝已故者，語意不成立。
   var AGE_BANDS = { baby: [0, 0], '1_3': [1, 3], '4_7': [4, 7], '8_11': [8, 11], senior: [12, 999] };
-  function inAgeBand(p, band) {
-    var b = AGE_BANDS[band];
-    if (!b || !isAlive(p)) return false;
+  function bandOf(p) {
+    if (!isAlive(p)) return null;
     var a = ageOf(p);
-    return a !== null && a >= b[0] && a <= b[1];   // 無生日者落不進任何層（僅「全部」看得到）
+    if (a === null) return null;              // 無生日者落不進任何層（僅「全部」看得到）
+    for (var k in AGE_BANDS) {
+      if (a >= AGE_BANDS[k][0] && a <= AGE_BANDS[k][1]) return k;
+    }
+    return null;
   }
+  function inAgeBand(p, band) { return !!band && bandOf(p) === band; }
   var DATA_TESTS = {
     unverified: function (p) { return !!p.uv; },
     no_birthday: function (p) { return !p.born || p.born.length < 10; },
     no_residence: function (p) { return !p.zoo; },
   };
-  // 性別／年齡／資料三個下拉的數量都在 client 端算，避免與 i18n 標籤耦合（標籤只放文字）。
-  // 實際呼叫在 ageOf 定義之後（annotate → inAgeBand → ageOf，var 函式不會提前可用）。
-  function annotate(sel, test) {
+
+  // ── 狀態與 faceted 計數 ───────────────────────────────────────────────
+  // 單一狀態來源：所有條件一次讀齊，結果清單與各下拉的數量都由它衍生。
+  // 每顆下拉的數量＝套用「其他所有條件、但不含自己」後的數量，所以數字永遠等於
+  // 「點下去會得到幾筆」。少了 except 自己這一步，選了某項後該顆下拉會塌成只剩該項。
+  function readState() {
+    return {
+      q: norm($('#f-q').value), region: regionSel.value, zoo: zooSel.value,
+      sex: sexSel.value, age: ageSel.value, data: dataSel.value,
+      alive: $('#f-alive').checked, photos: $('#f-photos').checked,
+    };
+  }
+  var TESTS = {
+    q: function (p, s) { return !s.q || p._hay.indexOf(s.q) >= 0; },
+    region: function (p, s) { return !s.region || p.r === s.region; },
+    zoo: function (p, s) { return !s.zoo || p.zoo === s.zoo; },
+    sex: function (p, s) { return !s.sex || p.sex === s.sex; },
+    age: function (p, s) { return !s.age || inAgeBand(p, s.age); },
+    data: function (p, s) { return !s.data || !DATA_TESTS[s.data] || DATA_TESTS[s.data](p); },
+    alive: function (p, s) { return !s.alive || isAlive(p); },
+    photos: function (p, s) { return !s.photos || p.ph > 0; },
+  };
+  function matches(p, s, except) {
+    for (var k in TESTS) {
+      if (k !== except && !TESTS[k](p, s)) return false;
+    }
+    return true;
+  }
+  // 每個 facet 的「一隻個體屬於哪些選項」。資料狀態會回傳多個（一隻可能同時缺生日又待查證），
+  // 故各選項數量本就會重疊、不該加總；其餘 facet 每隻最多屬於一項。
+  var FACET_KEYS = {
+    sex: function (p) { return [p.sex]; },
+    age: function (p) { var b = bandOf(p); return b ? [b] : []; },
+    data: function (p) { var o = []; for (var k in DATA_TESTS) { if (DATA_TESTS[k](p)) o.push(k); } return o; },
+    region: function (p) { return p.r ? [p.r] : []; },
+    zoo: function (p) { return p.zoo ? [p.zoo] : []; },
+  };
+  function tally(facet, s) {
+    var keys = FACET_KEYS[facet], out = {};
+    pandas.forEach(function (p) {
+      if (!matches(p, s, facet)) return;
+      keys(p).forEach(function (k) { if (k) out[k] = (out[k] || 0) + 1; });
+    });
+    return out;
+  }
+  // 短清單（性別／年齡／資料／地區）：選項固定不動，0 就顯示（0）並變灰——「這個條件存在
+  // 但現在沒有」本身是資訊。原始標籤存在 _label，避免每次重算把數量疊加上去。
+  function paintShort(sel, facet, s) {
+    var t = tally(facet, s);
     Array.prototype.forEach.call(sel.options, function (o) {
       if (!o.value) return;
-      o.textContent = o.textContent.replace(/（\d+）$/, '') +
-        '（' + pandas.filter(function (p) { return test(p, o.value); }).length + '）';
+      if (o._label === undefined) o._label = o.textContent.replace(/（\d+）$/, '');
+      var c = t[o.value] || 0;
+      o.textContent = o._label + '（' + c + '）';
+      o.disabled = c === 0 && sel.value !== o.value;
     });
+  }
+  // 動物園清單有 121 項，太長，故 0 的直接不列（等於把原本的「地區連動篩減」一併涵蓋：
+  // 不屬於所選地區的園自然算出 0）。原選的園若歸零就退回「全部」，並回報有無重設。
+  function paintZoo(s) {
+    var t = tally('zoo', s), keep = zooSel.value, stillThere = false;
+    zooSel.length = 1;                     // 留第一個「動物園：全部」
+    zooNames.forEach(function (nm) {
+      if (!t[nm]) return;
+      var o = document.createElement('option');
+      o.value = nm; o.textContent = nm + '（' + t[nm] + '）';
+      zooSel.appendChild(o);
+      if (nm === keep) stillThere = true;
+    });
+    zooSel.value = stillThere ? keep : '';
+    return !stillThere && !!keep;          // true＝剛才那座園被重設了
+  }
+  function refreshFacets(s) {
+    var reset = paintZoo(s);
+    if (reset) s = readState();            // 園被重設會改變狀態，其餘 facet 要用新狀態算
+    paintShort(sexSel, 'sex', s);
+    paintShort(ageSel, 'age', s);
+    paintShort(dataSel, 'data', s);
+    paintShort(regionSel, 'region', s);
+    return s;
   }
 
   // 羅馬拼音折疊：把 Hepburn↔訓令式的常見差異、以及 L/R 混用折成同一骨架，
@@ -97,10 +154,6 @@
     if ((e[1] || 1) < (b[1] || 1) || ((e[1] || 1) === (b[1] || 1) && (e[2] || 1) < (b[2] || 1))) a--;
     return a >= 0 ? a : null;
   };
-  annotate(sexSel, function (p, v) { return p.sex === v; });
-  annotate(ageSel, function (p, v) { return inAgeBand(p, v); });
-  annotate(dataSel, function (p, v) { return DATA_TESTS[v] ? DATA_TESTS[v](p) : false; });
-
   // 隨機排序：以「種子 + slug」算出穩定亂序鍵，過濾子集合時順序不變；按洗牌鈕換種子。
   var PER = 60, page = 1, seed = (Math.random() * 1e9) | 0;
   function randKey(s, str) { var h = s >>> 0; for (var i = 0; i < str.length; i++) { h = Math.imul(h ^ str.charCodeAt(i), 0x01000193) >>> 0; } return h; }
@@ -162,34 +215,28 @@
     renderPager(pages);
   }
 
+  // 單一流程：讀狀態 → 重算所有下拉的數量 → 算結果 → 畫。任何條件變動都走同一條路，
+  // 不再有「只有某顆下拉會連動」的分歧（舊版只手動接了動物園那顆）。
   function apply(resetPage) {
     if (resetPage !== false) page = 1;
-    var q = norm($('#f-q').value), region = regionSel.value, zoo = zooSel.value, sex = sexSel.value,
-      band = ageSel.value, dkey = dataSel.value, dtest = DATA_TESTS[dkey],
-      aliveOnly = $('#f-alive').checked, photosOnly = $('#f-photos').checked;
-    var filtered = pandas.filter(function (p) {
-      return (!q || p._hay.indexOf(q) >= 0) && (!region || p.r === region) && (!zoo || p.zoo === zoo)
-        && (!sex || p.sex === sex) && (!band || inAgeBand(p, band)) && (!dtest || dtest(p))
-        && (!aliveOnly || isAlive(p)) && (!photosOnly || p.ph > 0);
-    });
-    _sorted = sortList(filtered);
+    var s = refreshFacets(readState());
+    _sorted = sortList(pandas.filter(function (p) { return matches(p, s, null); }));
     $('#result-count').textContent = T.result_count.replace('{n}', _sorted.length);
     draw();
   }
 
-  ['#f-q', '#f-zoo', '#f-sex', '#f-age', '#f-data', '#f-alive', '#f-photos', '#f-sort'].forEach(function (s) { $(s).addEventListener('input', function () { apply(true); }); });
-  // 地區改變：先按新地區重建園清單（可能清掉原選的園），再套過濾
-  regionSel.addEventListener('input', function () { fillZoos(regionSel.value); apply(true); });
+  ['#f-q', '#f-region', '#f-zoo', '#f-sex', '#f-age', '#f-data', '#f-alive', '#f-photos', '#f-sort']
+    .forEach(function (s) { $(s).addEventListener('input', function () { apply(true); }); });
   $('#f-shuffle').addEventListener('click', function () {
     seed = (Math.random() * 1e9) | 0; $('#f-sort').value = 'random'; apply(true);
   });
 
   var params = new URLSearchParams(location.search);
   if (params.get('q')) $('#f-q').value = params.get('q');
-  // region 要先套（會重建園清單），zoo 才不會被 fillZoos 清掉；無效值 select 會自動退回「全部」
-  if (params.get('region')) { regionSel.value = params.get('region'); fillZoos(regionSel.value); }
-  if (params.get('zoo')) zooSel.value = params.get('zoo');
+  if (params.get('region')) regionSel.value = params.get('region');
   if (params.get('alive')) $('#f-alive').checked = true;
   if (params.get('photos')) $('#f-photos').checked = true;
+  // 動物園選項由 faceted 計數動態產生，第一輪 apply 之後才存在，故 ?zoo= 要在那之後才設得進去
   apply(true);
+  if (params.get('zoo')) { zooSel.value = params.get('zoo'); apply(true); }
 })();

@@ -6371,5 +6371,30 @@
    "成都動物園",
    "成都市動物園"
   ]
+ },
+ {
+  "canonical": "清遠長隆森林王國",
+  "lineage_id": null,
+  "en": "Chimelong Forest Kingdom",
+  "zh": "清远长隆森林王国",
+  "country": "China",
+  "location_ja": "広東省清遠市清城区",
+  "location_en": "Qingcheng, Qingyuan, Guangdong, China",
+  "location_zh": "廣東省清遠市清城區",
+  "lat": null,
+  "lng": null,
+  "map": null,
+  "website": "https://www.chimelong.com/qy/forestkingdom/",
+  "logo": null,
+  "aliases": [
+   "Chimelong Forest Kingdom",
+   "Qingyuan Chimelong Forest Kingdom",
+   "清远长隆森林王国",
+   "清遠長隆森林王國",
+   "长隆森林王国",
+   "長隆森林王國",
+   "清远长隆",
+   "清遠長隆"
+  ]
  }
 ]

@@ -2932,3 +2932,26 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - `data/zoos.json` — 補 `location_zh`：チャプルテペック動物園「墨西哥墨西哥城」、Buin Zoo「智利首都大區布因」。兩園的 `location_ja` 為片假名（メキシコ・メキシコシティ／チリレヒオン・メトロポリターナ州ブイン），中文介面缺 `location_zh` 時會退回 `location_ja`、對中文讀者不可讀
 
 **備注**：條目總數不變（702）。配套工具修正見 CHANGELOG.md 同日條目（`export_json.py` 現居判定、`gen_residence.py` 國旗表）。
+
+## [2026-07-26] add | 清遠長隆森林王國 八隻（新園登記）
+
+**來源**：
+- 維護者提供（2026-07-26；zoo 友告知）；無官方公告佐證，🚧 待查證
+- 園方官網（園區資訊，非個體名單）：https://www.chimelong.com/qy/forestkingdom/
+
+**新增條目**（檔案卡 `limited-profile`；生日／入園年份全部不詳，性別由維護者確認）：
+- `da-ge-qingyuan.md` — 大哥 Da Ge（♂）
+- `xiao-xiong-bing-gan-qingyuan.md` — 小熊餅乾／小熊饼干 Xiao Xiong Bing Gan（♂）
+- `pi-pi-qingyuan.md` — 皮皮 Pi Pi（♀）
+- `niu-niu-qingyuan.md` — 妞妞 Niu Niu（♀）；與上海動物園 `niu-niu` 同名、非同一隻
+- `qi-qi-qingyuan.md` — 琪琪 Qi Qi（♀）
+- `jojo-qingyuan.md` — Jojo（♀）；以英文名登錄，無中文名
+- `lady-qingyuan.md` — Lady（♀）；以英文名登錄，無中文名
+- `pang-pang-qingyuan.md` — 胖胖 Pang Pang（♀）
+
+**備注**：八隻皆無生日資料，slug 依檔案卡規則用園簡稱（`名字-qingyuan`）；`zoos:` 起始年留空（不詳抵達年，渲染為「? – 現在」）；`last_seen: 2026-07`、皆為現況在世故不掛 `unverified`。`sources` 為「維護者提供」（無 host）故 `has_official_source` 為 false，網站顯示未經官方佐證標記。查得生日後依命名規則改為 `名字-生日` 並同步修正 wikilink。
+
+**更新條目**：
+- `data/zoos.json` — 新增登記「清遠長隆森林王國」（Chimelong Forest Kingdom，広東省清遠市清城区；官網 chimelong.com/qy/forestkingdom）；座標暫缺（lat／lng 為 null）。註冊表 344 → 345 座
+- `niu-niu.md` — 補 ⚠️ 同名提示，指向 `niu-niu-qingyuan`
+- `index.md` — 新增分類「海外個體（中國・清遠長隆森林王國）」八筆；條目總數 702 → 710
