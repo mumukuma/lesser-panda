@@ -3358,12 +3358,12 @@
   "aliases": []
  },
  {
-  "canonical": "Hangzhou Zoo",
+  "canonical": "杭州動物園",
   "lineage_id": 236,
   "en": "Hangzhou Zoo",
-  "zh": null,
+  "zh": "杭州动物园",
   "country": "China",
-  "location_ja": null,
+  "location_ja": "浙江省杭州市",
   "location_en": "Hangzhou, Zhejiang, China",
   "location_zh": "浙江省杭州市",
   "lat": 30.213737,
@@ -3371,7 +3371,12 @@
   "map": "https://goo.gl/maps/UTyFC8HCPycgveWz6",
   "website": "http://www.hzzoo.com/",
   "logo": null,
-  "aliases": []
+  "aliases": [
+   "Hangzhou Zoo",
+   "杭州动物园",
+   "杭州市動物園",
+   "杭州市动物园"
+  ]
  },
  {
   "canonical": "Hanover Adventure Zoo",
