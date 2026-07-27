@@ -6453,5 +6453,52 @@
    "金牛湖野生動物園",
    "金牛湖野生动物园"
   ]
+ },
+ {
+  "canonical": "杭州少年兒童公園",
+  "lineage_id": null,
+  "en": "Hangzhou Children's Park",
+  "zh": "杭州少年儿童公园",
+  "country": "China",
+  "location_ja": "浙江省杭州市西湖区",
+  "location_en": "Xihu, Hangzhou, Zhejiang, China",
+  "location_zh": "浙江省杭州市西湖區",
+  "lat": null,
+  "lng": null,
+  "map": null,
+  "website": "https://www.hzzoo.com/segyjs.html",
+  "logo": null,
+  "aliases": [
+   "Hangzhou Children's Park",
+   "Hangzhou Youth and Children's Park",
+   "杭州少年儿童公园",
+   "杭州少兒公園",
+   "杭州少儿公园",
+   "少年兒童公園",
+   "少年儿童公园"
+  ]
+ },
+ {
+  "canonical": "武漢動物園",
+  "lineage_id": null,
+  "en": "Wuhan Zoo",
+  "zh": "武汉动物园",
+  "country": "China",
+  "location_ja": "湖北省武漢市漢陽区",
+  "location_en": "Hanyang, Wuhan, Hubei, China",
+  "location_zh": "湖北省武漢市漢陽區",
+  "lat": 30.5468,
+  "lng": 114.227,
+  "map": "https://www.google.com/maps/search/?api=1&query=30.5468,114.227",
+  "website": "https://www.wuhanzoo.com.cn/",
+  "logo": null,
+  "aliases": [
+   "Wuhan Zoo",
+   "武汉动物园",
+   "武漢市動物園",
+   "武汉市动物园",
+   "武漢市陸生野生動物收容救護中心",
+   "武汉市陆生野生动物收容救护中心"
+  ]
  }
 ]
