@@ -2795,7 +2795,7 @@
   "canonical": "Chengdu Research Base of Giant Panda Breeding",
   "lineage_id": 195,
   "en": "Chengdu Research Base of Giant Panda Breeding",
-  "zh": null,
+  "zh": "成都大熊貓繁育研究基地",
   "country": "China",
   "location_ja": "四川成都",
   "location_en": "Chengdu, Sichuan, China",
@@ -2805,7 +2805,13 @@
   "map": "https://goo.gl/maps/DYBfNPLa9KAdbDtg7",
   "website": "http://www.panda.org.cn/",
   "logo": null,
-  "aliases": []
+  "aliases": [
+   "成都大熊貓繁育研究基地",
+   "成都大熊猫繁育研究基地",
+   "成都熊貓基地",
+   "成都熊猫基地",
+   "Chengdu Panda Base"
+  ]
  },
  {
   "canonical": "澳門石排灣郊野公園",
