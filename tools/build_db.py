@@ -74,6 +74,18 @@ OFFICIAL_FB_PAGES = {
 }
 _FB_HOSTS = {"facebook.com", "m.facebook.com", "web.facebook.com", "fb.com"}
 
+# X（舊 Twitter）同為共用網域，比照 Facebook 只認「園方官方帳號」——比對 URL 路徑
+# 第一段的 handle（小寫、不含 @）。多數日本園以 X 為主要公告管道（出生・命名・雌雄
+# 鑑定・訃報常只發在這裡），故列為官方來源。
+# ⚠️ 只放園方自己的帳號；粉絲／個人拍攝帳號請勿加入（會被誤判官方）。
+OFFICIAL_X_ACCOUNTS = {
+    "nishiyama_zoo",    # 鯖江市西山動物園
+    "nhdzoo",           # 静岡市立日本平動物園（同 nhdzoo.jp）
+    "ichikawa_zoo",     # 市川市動植物園（同 city.ichikawa.lg.jp）
+    "kumamotocityzoo",  # 熊本市動植物園（ezooko.jp）
+}
+_X_HOSTS = {"x.com", "twitter.com", "mobile.twitter.com", "mobile.x.com"}
+
 def _host(url: str) -> str:
     from urllib.parse import urlparse
     return urlparse(url).netloc.lower().split("@")[-1].split(":")[0].removeprefix("www.") \
@@ -93,6 +105,11 @@ def is_official_source(url: str) -> bool:
         from urllib.parse import urlparse
         seg = urlparse(url).path.strip("/").split("/")[0].lower()
         return seg in OFFICIAL_FB_PAGES
+    # X（Twitter）：僅特定園方官方帳號（比對路徑第一段 handle）
+    if host in _X_HOSTS:
+        from urllib.parse import urlparse
+        seg = urlparse(url).path.strip("/").split("/")[0].lower().lstrip("@")
+        return seg in OFFICIAL_X_ACCOUNTS
     # 政府網域 pattern（未來新自治體/政府站自動涵蓋）
     if host.endswith((".lg.jp", ".go.jp", ".gov", ".gov.tw", ".gov.cn",
                       ".gov.mo", ".gov.taipei")):

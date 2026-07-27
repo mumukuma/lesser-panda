@@ -6,6 +6,15 @@
 
 ---
 
+## 2026-07-27 ・ 來源判定：X（Twitter）園方官方帳號可列為官方來源
+
+個體頁的「來源」區塊原本只顯示官網／政府公告／園報／微信，X 一律不顯示。但多數日本園以 X 為主要公告管道（出生・命名・雌雄鑑定・訃報常只發在 X、官網不另發稿），導致只有 X 來源的條目在站上顯示「未經官方佐證」。
+
+- `tools/build_db.py` 新增 `OFFICIAL_X_ACCOUNTS` 白名單，比照既有 `OFFICIAL_FB_PAGES` 的做法：X 是共用網域不能整域列入，改比對 URL 路徑第一段的 handle。`_X_HOSTS` 涵蓋 `x.com`／`twitter.com`／`mobile.*`。
+- 首批登記四個園方帳號：`nishiyama_zoo`、`nhdzoo`、`ichikawa_zoo`、`kumamotocityzoo`。個人／粉絲帳號（如 `0yDeN464cBT145p`）不列入。
+- 影響：3 筆條目 `has_official_source` 由 false 轉 true（兩隻西山蘋果籽、熊本 `apple-seed-shin-fa`），另 4 筆條目來源區塊多顯示一條園方 X 連結。
+- 日後新增園方 X 帳號只需把小寫 handle 補進該集合即自動生效。
+
 ## 2026-07-26 ・ 修正：iOS 上中文標題失去圓體、性別符號 ♀♂ 變彩色 emoji
 
 維護者回報「iPhone 上字型都不見了，只有日文有吃到字型，而且性別 icon 跑版」。兩者都是同日 `:lang()` 字型改版的迴歸，Mac 上看不出來。
