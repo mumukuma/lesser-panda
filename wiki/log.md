@@ -3343,3 +3343,19 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - `ayumi-1991-07-27.md` — 「同胎手足はじめ（未建檔）」改為雙胞胎 `[[hajime-1991-07-27]]`；引言補雙胞胎；生日備注由「維護者確認」升級為「已有官方佐證」，並明記記念誌該筆為誤；`sources` 增列平川訃報與快照網址
 - `index.md` — 新增 `hajime-1991-07-27` 一列、`ayumi` 該列補雙胞胎；條目總數 765 → 766
 - `tools/build_db.py` — `OFFICIAL_HOSTS` 新增 `hirakawazoo.jp`
+
+---
+
+## [2026-07-28] update | `apple-seed-shin-fa-2026-05-27` — 園方公告性別為雌，補官方 IG 照片
+
+熊本市動植物園官方 Instagram（@kumamoto_doushokubutsuen）2026-07-28 貼文公告：5 月 27 日出生的 `shin-fa` 之仔**性別確定為メス（雌）**，並公布滿兩個月體重 1670 克。依「官方來源可直接採用」原則回補 `sex: female` 與 `female` tag，佔位提示移除「性別待確認」（尚未命名，`apple-seed` tag 續留）。該貼文同時公告 8/1–8/16 命名投票，本次未寫入條目，待正式命名後照轉正流程處理。
+
+**工具**：`tools/build_db.py` 比照既有 X／FB 白名單新增 `OFFICIAL_IG_ACCOUNTS`（含 `_IG_HOSTS` 判定），登記 `kumamoto_doushokubutsuen`；**僅認含帳號的完整形式** `/帳號/p/XXXX/`，IG「複製連結」的短形式 `/p/XXXX/` 無從判斷發文者、一律非官方。日後其他園方官方 IG 帳號補進名單即自動於個體頁來源區塊顯示。
+
+**來源**：
+- https://www.instagram.com/kumamoto_doushokubutsuen/p/DbUkQpSCR13/ （熊本市動植物園官方 IG，性別公告，官方）
+
+**更新條目**：
+- `apple-seed-shin-fa-2026-05-27.md` — `sex: female`、tags 加 `female`；新增 `instagram:` 官方貼文（2026-07-28）；`sources` 增列該貼文；引言補 ♀、性別公告與體重，「第二子／弟妹／外孫」改「次女／妹妹／外孫女」；移除「RPF 尚未建檔、rpf_id 待補」贅述
+- `index.md` — 該列性別 ？ → ♀、說明改「次女」；條目總數不變（766）
+- `tools/build_db.py` — 新增 `OFFICIAL_IG_ACCOUNTS` 官方 IG 帳號白名單

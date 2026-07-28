@@ -1,26 +1,29 @@
 ---
 name: Apple Seed
 chinese: 蘋果籽
-sex:
+sex: female
 born: 2026-05-27
 species: Ailurus fulgens styani
 zoos:
   - 熊本市動植物園 (2026-05-27 – 現在)
-tags: [taofa-family, styani, apple-seed, zoo:Kumamoto City Zoological and Botanical Gardens]
+tags: [taofa-family, styani, female, apple-seed, zoo:Kumamoto City Zoological and Botanical Gardens]
+instagram:
+  - https://www.instagram.com/kumamoto_doushokubutsuen/p/DbUkQpSCR13/ 2026-07-28
 sources:
   - https://x.com/kumamotocityzoo/status/2062708738474344721
+  - https://www.instagram.com/kumamoto_doushokubutsuen/p/DbUkQpSCR13/
   - https://kumanichi.com/articles/1999252
 ---
 
 # 蘋果籽（Apple Seed）— [[shin-fa-2019-06-19]] × [[kabosu-2018-06-28]] 之寶寶
 
-> ⚠️ 佔位條目：寶寶尚未正式命名、性別待確認，暫以「蘋果籽」稱之，園方公布正式名後改名。
+> ⚠️ 佔位條目：寶寶尚未正式命名，暫以「蘋果籽」稱之，園方公布正式名後改名。
 
-> **小熊貓** | Ailurus fulgens styani
+> **小熊貓** | ♀ | Ailurus fulgens styani
 > 生日：2026 年 5 月 27 日
 > 現居：熊本市動植物園（熊本市東区、熊本県）🇯🇵
 
-[[shin-fa-2019-06-19]]（母）與 [[kabosu-2018-06-28]]（父）之第二子，[[ako-2023-06-01]] 之全血緣弟妹、[[taofa-2015-06-14]] 🪐 之外孫。園方於巢箱攝影機確認 5 月 27 日晚間出生；6 月 4 日測得體重 286 克，發育良好。育兒期間シンファ暫停展示，預定 2026 年秋（9–10 月）公開亮相。RPF 尚未建檔，`rpf_id` 待補。
+[[shin-fa-2019-06-19]]（母）與 [[kabosu-2018-06-28]]（父）之第二女，[[ako-2023-06-01]] 之全血緣妹妹、[[taofa-2015-06-14]] 🪐 之外孫女。園方於巢箱攝影機確認 5 月 27 日晚間出生；6 月 4 日測得體重 286 克，發育良好。**2026 年 7 月 28 日園方公告性別確定為雌**，同日公布滿兩個月時體重已達 1670 克。育兒期間シンファ暫停展示，預定 2026 年秋（9–10 月）公開亮相。
 
 ---
 

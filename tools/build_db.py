@@ -87,6 +87,16 @@ OFFICIAL_X_ACCOUNTS = {
 }
 _X_HOSTS = {"x.com", "twitter.com", "mobile.twitter.com", "mobile.x.com"}
 
+# Instagram 同為共用網域，比照 X／FB 只認「園方官方帳號」——比對 URL 路徑第一段的
+# 帳號（小寫、不含 @）。⚠️ 僅認含帳號的完整形式 /帳號/p/XXXX/；IG「複製連結」給的
+# 短形式 /p/XXXX/ 無從判斷發文者，一律視為非官方（sources 請存完整形式）。
+# ⚠️ 只放園方自己的帳號；同好／個人拍攝帳號請勿加入（會被誤判官方）。
+OFFICIAL_IG_ACCOUNTS = {
+    "kumamoto_doushokubutsuen",  # 熊本市動植物園（ezooko.jp）
+}
+_IG_HOSTS = {"instagram.com", "m.instagram.com"}
+_IG_NON_ACCOUNT_SEGS = {"p", "reel", "reels", "tv", "stories", "explore"}
+
 def _host(url: str) -> str:
     from urllib.parse import urlparse
     return urlparse(url).netloc.lower().split("@")[-1].split(":")[0].removeprefix("www.") \
@@ -111,6 +121,13 @@ def is_official_source(url: str) -> bool:
         from urllib.parse import urlparse
         seg = urlparse(url).path.strip("/").split("/")[0].lower().lstrip("@")
         return seg in OFFICIAL_X_ACCOUNTS
+    # Instagram：僅特定園方官方帳號（比對路徑第一段帳號；短形式 /p/… 不算官方）
+    if host in _IG_HOSTS:
+        from urllib.parse import urlparse
+        seg = urlparse(url).path.strip("/").split("/")[0].lower().lstrip("@")
+        if seg in _IG_NON_ACCOUNT_SEGS:
+            return False
+        return seg in OFFICIAL_IG_ACCOUNTS
     # 政府網域 pattern（未來新自治體/政府站自動涵蓋）
     if host.endswith((".lg.jp", ".go.jp", ".gov", ".gov.tw", ".gov.cn",
                       ".gov.mo", ".gov.taipei")):
