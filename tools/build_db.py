@@ -129,6 +129,10 @@ def is_official_source(url: str) -> bool:
             return False
         return seg in OFFICIAL_IG_ACCOUNTS
     # 政府網域 pattern（未來新自治體/政府站自動涵蓋）
+    # ⚠️ 這條也涵蓋 J-STAGE（jstage.jst.go.jp）。園方自行編輯登載的《安佐動物公園飼育記録集》
+    # （https://www.jstage.jst.go.jp/article/asazoo/…，Online ISSN 2759-6567）即靠這條被認列為
+    # 官方園報，符合 CLAUDE.md「園報視為官方」。副作用：J-STAGE 上**其他**期刊（非園方編輯的
+    # 學術論文）也會被判為官方；日後若要收緊，改成只認 /article/asazoo/ 等園方刊物路徑。
     if host.endswith((".lg.jp", ".go.jp", ".gov", ".gov.tw", ".gov.cn",
                       ".gov.mo", ".gov.taipei")):
         return True
