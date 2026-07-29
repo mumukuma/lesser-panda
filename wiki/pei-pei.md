@@ -3,9 +3,11 @@ name: Pei Pei
 chinese: 霈霈
 sex: female
 species: Ailurus fulgens styani
+died: 2026-07-27
+birth_zoo: unknown
 zoos:
-  - 廣州動物園 ( – 現在)
-tags: [styani, female, zoo:廣州動物園]
+  - 廣州動物園 ( – 2026-07-27)
+tags: [styani, female, deceased, zoo:廣州動物園]
 instagram:
   - https://www.instagram.com/p/DUn5aYACfPg/
   - https://www.instagram.com/p/DTxxrEVCZww/
@@ -15,18 +17,22 @@ instagram:
   - https://www.instagram.com/p/DRHewJViTCK/
   - https://www.instagram.com/p/DLcvVrChZo8/
 sources:
-  - 作者提供（2026-07-04；官方來源待補）
+  - 維護者提供（2026-07-04；官方來源待補）
+extra_sources:
+  - 廣州動物園 園內現場公告牌（讀者 2026-07 實拍，回報附件）：載霈霈於 2026-07-27 過世
 ---
 
-# Pei Pei（霈霈）
+# Pei Pei 🪐（霈霈）
 
 > **小熊貓** ♀ | Ailurus fulgens styani
 > 生日：不詳（野生救護個體）
-> 現居：廣州動物園（広東省広州市越秀区）🇨🇳
+> 歿：2026 年 7 月 27 日（於廣州動物園）
 
-野生救護個體，現居**廣州動物園**。出生年、救護時間與入園時間均不詳。父母不詳（野生出身）。
+野生救護個體，生前居於**廣州動物園**。出生年、救護時間與入園時間均不詳，故得年不明。父母不詳（野生出身）。
 
-> 🚧 待查證：出生年（估計值亦未知）、救護與入園時間、官方來源（園方微信公眾號等）。查得估計出生年後，依命名規則應將 slug 更名為 `pei-pei-YYYY` 並同步修正 wikilink。
+> ⚰️ **歿於 2026-07-27**：依廣州動物園園內現場公告牌（讀者 2026-07 實拍）。園方微信公眾號等官方管道尚未查得對應公告，死因與詳情不明。
+
+> 🚧 待查證：出生年（估計值亦未知）、救護與入園時間、死因、官方訃告來源（園方微信公眾號等）。查得估計出生年後，依命名規則應將 slug 更名為 `pei-pei-YYYY` 並同步修正 wikilink。
 
 ---
 
@@ -36,7 +42,7 @@ sources:
 
 | 期間 | 動物園 | 地點 |
 |------|--------|------|
-| ? – 現在 | 廣州動物園 🐣 🏡 | 中國 広東省広州市越秀区 🇨🇳 |
+| ? – 2026-07-27 | 廣州動物園 | 中國 広東省広州市越秀区 🇨🇳 |
 ---
 
 ## 家族
