@@ -13,6 +13,9 @@ rpf_url: https://redpandafinder.com/#profile/108
 tags: [styani, male, deceased, zoo:Tokushima Zoo]
 sources:
   - https://redpandafinder.com/#profile/108
+  - http://www.chausuyama.com/zukan/zukan/2008
+  - http://www.chausuyama.com/zukan/zukan/2009
+  - http://www.chausuyama.com/zukan/zukan/2011
 ---
 
 # Sora（ソラ）🪐
@@ -21,7 +24,7 @@ sources:
 > 生日：2008 年 6 月 16 日　歿：2020 年 11 月 18 日（享年 12 歲）
 > 終居：Tokushima Zoo（とくしま動物園）🇯🇵
 
-[[seina-2000-06-25]] 🪐 與 [[kiki-2000-07-04]] 🪐 之子，[[lala-2008-06-16]] 的雙胞胎兄弟，[[momo-2011-06-24]] 之兄。生於長野市茶臼山動物園，後移居德島動物園並在此辭世，2020 年 11 月 18 日辭世，享年 12 歲。
+[[seina-2000-06-23]] 🪐 與 [[kiki-2000-07-04]] 🪐 之子，[[lala-2008-06-16]] 的雙胞胎兄弟，[[momo-2011-06-24]] 之兄。生於長野市茶臼山動物園，後移居德島動物園並在此辭世，2020 年 11 月 18 日辭世，享年 12 歲。
 
 ⚠️ 請勿與 [[sora-2014-06-12]]（RPF #214，Sora 家族主角，生於 2014 年）混淆。本條目為 RPF #108。
 
@@ -39,11 +42,11 @@ sources:
 
 ## 家族
 
-- 母：[[seina-2000-06-25]] 🪐
+- 母：[[seina-2000-06-23]] 🪐
 - 父：[[kiki-2000-07-04]] 🪐
 - 雙胞胎：[[lala-2008-06-16]]（ララ）
 
-### 全血緣兄弟姊妹（[[seina-2000-06-25]] × [[kiki-2000-07-04]]）
+### 全血緣兄弟姊妹（[[seina-2000-06-23]] × [[kiki-2000-07-04]]）
 
 | 姓名 | 出生年 | 備注 |
 |------|--------|------|
