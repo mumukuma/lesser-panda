@@ -50,6 +50,11 @@ OFFICIAL_HOSTS = {
     "asazoo.jp", "omutacityzoo.org", "hama-midorinokyokai.or.jp",
     "kobe-ojizoo.jp", "ojizoo.jp",  # 神戸市立王子動物園（現行官網＋舊官方網域）
     "tennojizoo.jp",  # 天王寺動物園（含園報《なきごえ》/nakigoe/ 與 ZOO DIARY，官方一手）
+    # 長野市茶臼山動物園。⚠️ 官網已改版為扁平靜態站，舊 CMS 的年度存檔
+    # /zukan/zukan/YYYY（2003–2022「動物情報バックナンバー」）整批下架、現為 404。
+    # 既有 sources 仍保留該原始位址作為 canonical 出處，原文摘錄存於
+    # sources/chausuyama-zukan/；要驗證請走 Wayback（見下方 _WAYBACK_HOSTS）。
+    "chausuyama.com",
     "hirakawazoo.jp",  # 鹿児島市平川動物公園（含園方「飼育員の日記」等 staff blog）
     # 日本自治體（園區隸屬市府）
     "city.ichikawa.lg.jp", "city.asahikawa.hokkaido.jp", "city.kawasaki.jp",
@@ -98,6 +103,18 @@ OFFICIAL_IG_ACCOUNTS = {
 _IG_HOSTS = {"instagram.com", "m.instagram.com"}
 _IG_NON_ACCOUNT_SEGS = {"p", "reel", "reels", "tv", "stories", "explore"}
 
+_WAYBACK_HOSTS = {"web.archive.org", "archive.org"}
+_WAYBACK_RE = re.compile(r"/web/[^/]+/(?P<inner>https?://.+)$", re.I)
+
+def _unwrap_wayback(url: str) -> str:
+    """從 Wayback 快照 URL 取出被封存的原始 URL；取不到回空字串。
+
+    形如 https://web.archive.org/web/20180101000000/http://example.com/a
+    或省略 timestamp 的 https://web.archive.org/web/2018/http://example.com/a。
+    """
+    m = _WAYBACK_RE.search(url)
+    return m.group("inner") if m else ""
+
 def _host(url: str) -> str:
     from urllib.parse import urlparse
     return urlparse(url).netloc.lower().split("@")[-1].split(":")[0].removeprefix("www.") \
@@ -112,6 +129,12 @@ def is_official_source(url: str) -> bool:
         return False
     if host in OFFICIAL_HOSTS:
         return True
+    # Wayback Machine：不整域列白名單（archive.org 上什麼站都有，整域列入會把粉絲站、
+    # 部落格的快照也誤判官方）。改為「拆出被封存的原始 URL，遞迴判斷內層 host」——
+    # 只有原本就是官方來源的快照才算官方。用於引用已下架的園方頁面（如茶臼山舊年度存檔）。
+    if host in _WAYBACK_HOSTS:
+        inner = _unwrap_wayback(url)
+        return is_official_source(inner) if inner else False
     # Facebook：僅特定園方/機構官方專頁（比對路徑第一段 vanity / page id）
     if host in _FB_HOSTS:
         from urllib.parse import urlparse
