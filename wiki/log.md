@@ -3964,3 +3964,122 @@ Sheet I 欄「已補進」標記待作者手動處理。
 **備注**：
 - `oolong-2011-06-05` 的來源園亦待釐清——wiki 記其出生於重慶動物園，但京都廣報資料寫
   「上海動物園（中国）から導入」，可能為經上海出口或京都記載以出口機構為準，🚧 待查證（本次未動）
+
+## [2026-07-31] add | 桐生が岡動物園首次繁殖：`fran` × `kazunoko` 雙胞胎誕生（蘋果籽佔位）
+
+**來源**：
+- https://www.city.kiryu.lg.jp/zoo/event/1027433.html （桐生市官方公告「レッサーパンダの赤ちゃんが誕生しました！」，2026-07-31）
+- https://www.instagram.com/kiryuzoo/p/DbcdbHIDyjK/ （桐生が岡動物園官方 IG，2026-07-31）
+- https://www.city.kiryu.lg.jp/zoo/event/1027366.html （懷孕公告與レッサーパンダ舎觀覽限制，2026-07-08）
+
+**新增條目**：
+- `apple-seed-1-fran-2026-07-12.md` — 蘋果籽1號（Apple Seed 1），**第一仔**（上午 5:56 誕生、毛色較淺），生於 2026-07-12，桐生が岡動物園
+- `apple-seed-2-fran-2026-07-12.md` — 蘋果籽2號（Apple Seed 2），**第二仔**（上午 6:55 誕生、毛色較深），生於 2026-07-12，桐生が岡動物園
+
+**建檔方式**：蘋果籽佔位（四項資格全符合——父母皆有條目、生日確認、尚在世、尚未命名）。
+`sex` 留空、tags 不加性別（園方以巢箱內攝影機觀察，**尚未進行雌雄判別**）；`japanese` 留空（園方稱「赤ちゃん」為泛稱非名字）。
+序號 1號／2號**對應園方公告的「第一仔／第二仔」**，非任意暫編——官方公告明載出生時刻與毛色深淺可資區別。
+RPF 尚未建檔，故無 `rpf_id`／`rpf_url`。
+
+**要點**：
+- **桐生が岡動物園創園以來首次成功繁殖小熊貓**，亦為母 `fran`（6 歲）與父 `kazunoko`（4 歲）雙方的初次產仔
+- 自然哺育：園方經巢箱攝影機確認授乳與促進排泄行為，判定成長順利；為免干擾育兒，飼育員與獸醫暫不直接接觸寶寶
+- レッサーパンダ舎自 7 月 8 日公布懷孕起臨時休館，出生後繼續閉館
+- 巧合：母親 `fran` 的雙胞胎姊妹 `lian`（現居ソウル大公園動物園）於 2026-06-19 亦產下雙胞胎，兩姊妹同年各生一對雙胞胎
+
+**更新條目**：
+- `fran-2020-07-20.md` — 引言補 2026 產仔敘述；`## 家族` 加配偶 `kazunoko` 與子女兩筆；`sources` 補園方公告與官方 IG；`instagram` 補官方 IG 貼文
+- `kazunoko-2021-08-04.md` — 引言補 2026 產仔敘述；`## 家族` 加配偶 `fran` 與子女兩筆；`sources` 補園方公告與官方 IG；新增 `instagram` 欄
+- `index.md` — Franken 其他子女區塊新增兩隻蘋果籽；`fran` 與 `kazunoko` 說明欄補產仔註記；最後更新改 2026-07-31、條目總數更新為 795
+
+**工具變更**：
+- `tools/build_db.py` — `OFFICIAL_IG_ACCOUNTS` 新增 `kiryuzoo`。已核實：桐生市官網動物園首頁的 IG banner 連至 `instagram.com/kiryuzoo`，確為園方官方帳號，故其貼文可認列官方來源（僅完整形式 `/kiryuzoo/p/…` 生效）
+
+## [2026-07-31] rename | 繁繁 Fan-Fan → 樂樂 Le-Le（台北市立動物園揭名）
+
+**來源**：
+- https://www.zoo.gov.taipei/News_Content.aspx?n=BD065B2FA7782989&sms=72544237BBE4C5F6&s=09AADC73DBB8E0B3 （臺北市立動物園新聞稿〈小貓熊「樂樂」、「甜甜」溫帶動物區可愛亮相 動物訓練無縫接軌〉，2026-07-29 發布）
+
+**更名條目**：
+- `fan-fan-2023-05-02.md` → **`le-le-2023-05-02.md`** — 台北市立動物園於 2026-07-29 舉行見面會，由台北市長蔣萬安揭名，上海動物園來的雄性個體「繁繁」正式改名為「**樂樂**」（同批雌性「甜甜」維持原名）。`name` Fan-Fan → **Le-Le**、`chinese` 繁繁 → **樂樂**；舊名保留於 `nicknames: [繁繁]`／`english_variants: [Fan-Fan]` 以利搜尋。內文標題、引言、基本資料表加「原名」列並補亮相經過（月餘檢疫、溫帶動物區企鵝館旁新整修戶外活動場、2024 年臺北上海城市論壇「動物交換」備忘錄背景）。`sources` 補此新聞稿。
+
+**更新條目**：
+- `tian-tian-2024-06-23.md` — 指向 `fan-fan-2023-05-02` 的 wikilink 改指 `le-le-2023-05-02` 並註明改名；引言補 2026-07-29 亮相與揭名（甜甜維持原名）；`sources` 補同一新聞稿
+- `index.md` — 區塊標題「繁繁（獨立個體）」改為「樂樂（獨立個體）」，連結改指新 slug、說明補原名與揭名日；甜甜列補揭名註記。條目總數不變（795）
+
+**備注**：官方來源（市立動物園新聞稿）可直接採用。園方新聞稿未提及父母資料，`## 家族` 維持「待確認」。羅馬拼音 Le-Le 依既有中國／台灣個體疊字命名慣例（Tian-Tian、Pao-Pao）擬定，園方英文名如日後公布以官方為準。
+
+## [2026-07-31] add | 都江堰小熊貓森林公園 8 隻檔案卡建檔（維護者提供）
+
+**來源**：
+- 維護者提供（2026-07-31）—— 名字與性別由維護者確認，暫無官方公告佐證
+- 園區基本資料（地址／經營單位）：攜程、大河票務等旅遊資訊彙整
+
+**新增條目**（皆為 `limited-profile` 檔案卡，生日／入園／家系不詳）：
+- `tian-tian-dujiangyan.md` — 天天 Tian Tian ♀（⚠️ 與台北 `tian-tian-2024-06-23` 甜甜同拼音）
+- `xiao-xiao-dujiangyan.md` — 小小 Xiao Xiao ♀
+- `xiao-bai-dujiangyan.md` — 小白 Xiao Bai ♀（⚠️ 與柳州 `xiao-bai`、上海 `xiao-bai-shanghai` 同名）
+- `xiao-mi-feng-dujiangyan.md` — 小蜜蜂 Xiao Mi Feng ♀（別名 唐小糖）
+- `mai-mai-dujiangyan.md` — 麥麥 Mai Mai ♀
+- `qing-tian-dujiangyan.md` — 晴天 Qing Tian ♀
+- `xiu-xiu-dujiangyan.md` — 秀秀 Xiu Xiu ♀（⚠️ 與西山 `shuu-shuu-1981` 同名）
+- `can-can-dujiangyan.md` — 燦燦 Can Can ♂
+
+**更新條目**：
+- `data/zoos.json` — 新登記「都江堰小熊貓森林公園」（四川省成都市都江堰市蒲陽街道華西社區；無官網，座標待補）
+- `index.md` — 新增「海外個體（中國・都江堰小熊貓森林公園）」區塊；條目總數更新為 803
+
+## [2026-07-31] add | 讀者回報：Hertfordshire Zoo × Bojnice 一脈 6 筆（含 2026 雙胞胎蘋果籽）
+
+**來源**：
+- https://zoobojnice.sk/obrovska-radost-v-nasej-zoo-mame-mladata-pandy-cervenej/ （Bojnice 官方公告，2024-07-24：Bambu 於 6 月 2 日產下兩仔、父為 Mao）
+- https://zoobojnice.sk/bambu-nova-obyvatelka-nasej-zoo/ （Bojnice 官方公告，2023-06-09：Bambu 自 ZOO Ljubljana 抵園始末、Mao「快滿 8 歲」）
+- https://zoobojnice.sk/uspech-nasho-chovu-ziskal-ocenenie/ （Bojnice 官方公告，2025-06-18：2024 年育幼獲 BÍLÝ SLON 第三名、Mao 10 歲／Bambu 3 歲）
+- https://zoobojnice.sk/video-mame-mladata-pandy-cervenej/ （Bojnice 官方公告，2025-07-10：2025-06-03 再產雙胞胎）
+- https://www.zoo.si/novice/mladic-macje-pande-prvic-v-zoo-ljubljana （ZOO Ljubljana 官方公告，2022-09-13：Bambu 為該園首隻誕生小熊貓、6 月生、命名由來）
+- https://hertfordshirezoo.com/news/meet-nila-hertfordshire-zoos-new-red-panda/ （Hertfordshire Zoo 官方公告，2025-11-12：Nila 抵園、1 歲 5 個月、名字取自 Nila Gurung）
+- https://hertfordshirezoo.com/news/ash-the-red-panda/ （Hertfordshire Zoo 官方公告，2024-02-09：Ash 自 Welsh Mountain Zoo 抵園）
+- https://hertfordshirezoo.com/news/endangered-red-panda-twins-born/ （Hertfordshire Zoo 官方公告，2026-07-07：Nila × Ash 於 2026-06-03 產下雙胞胎）
+- https://www.instagram.com/p/DRHMP_5DEjj/ （回報者提供，Nila 轉園）
+- https://www.instagram.com/reel/DakdJ6DtWFw/ ・ https://www.instagram.com/hertfordshirezoo/reel/Dba-5ztpRj_/ （回報者提供，2026 產仔）
+
+**新增條目**：
+- `nila-2024-06-02.md` — Nila ♀，生於 2024-06-02（Bojnice，雙胞胎之一），2025-11 移居 Hertfordshire Zoo
+- `mao-2015.md` — Mao ♂，Nila 之父，現居 Bojnice；生年 2015 僅依園方三度公布的年齡推定，標 🚧
+- `bambu-2022.md` — Bambu（暱稱 Ola）♀，Nila 之母，2022-06 生於 ZOO Ljubljana（該園首隻），2023-04-24 移居 Bojnice
+- `ash-hertfordshire.md` — Ash ♂，Nila 之配偶，2024-02 自 Welsh Mountain Zoo 抵 Hertfordshire Zoo；生日不詳故用園簡稱 slug、tags 加 `limited-profile`＋`last_seen`
+- `apple-seed-1-nila-2026-06-03.md` — 蘋果籽1號（Apple Seed 1），生於 2026-06-03，Hertfordshire Zoo
+- `apple-seed-2-nila-2026-06-03.md` — 蘋果籽2號（Apple Seed 2），生於 2026-06-03，Hertfordshire Zoo
+
+**回報處理**：來自「圖鑑缺漏回報收件匣」的一筆（Nila）。回報所附出生／轉園／生產三組連結逐項核對，
+**全部由園方官網證實**（Bojnice、Hertfordshire Zoo 皆為園方一手公告），依「官方來源可直接採用」逕行建檔。
+回報內容與官方來源的兩處差異已修正：
+1. 回報寫「子女：2026年6月3日出生，未命名」為**單數**，官方公告明載為**雙胞胎兩隻**（園方暱稱 the Little Red twins），故建兩筆蘋果籽
+2. 回報未提 Nila 本身是**雙胞胎之一**（Bojnice 2024 年那胎為 `dve mláďatá` 兩隻），已補入家族欄；同胎手足園方未公布名字與性別、去向不明，不建條目
+
+**建檔方式**：兩筆 2026 幼崽走蘋果籽佔位（四項資格全符合——父母皆已建條目、生日確認、尚在世、尚未命名）。
+`sex` 留空、tags 不加性別（園方未公布性別）。**⚠️ 1號／2號純為 wiki 暫編**——與桐生那胎不同，
+Hertfordshire 官方公告並未區分兩仔（無出生順序、體徵或 RPF ID 可依），命名公布後須依園方對應關係更正。
+六筆均無 RPF 收錄，故無 `rpf_id`／`rpf_url`。
+
+**要點**：
+- Hertfordshire Zoo **12 年來首次成功繁殖雙胞胎**（上次為 2014），亦為該園 2022 年 Tashi 之後的第一胎；Nila 與 Ash 雙方皆為初次產仔
+- Bojnice 一脈連兩年繁殖成功：2024-06-02（Nila 那胎）與 2025-06-03，兩胎皆雙胞胎；2024 那胎為捷克・斯洛伐克動物園「BÍLÝ SLON」2024 年度哺乳類育幼第三名
+- 2025-06-03 出生的兩隻園方未公布名字，僅記於 `nila`／`mao`／`bambu` 的家族欄，不建條目
+- Bambu 的父母媒體記為 Muka × Magu，園方公告未載 → 標 🚧 待查證、不建祖父母條目（依查證省時原則不另行搜證）
+- Hertfordshire 曾與 Ash 同居展區的雌性 Tilly 僅見於園方介紹文，資料不足未建條目
+
+**更新條目**：
+- `index.md` — 新增「海外個體（英國・Hertfordshire Zoo ← 斯洛伐克 Bojnice 一脈）」區塊共 6 筆；條目總數更新為 809
+
+**註冊表變更（`data/zoos.json`）**：
+- 新增 `Národná zoologická záhrada Bojnice`（斯洛伐克，`en: Bojnice Zoo`）與 `Zoo Ljubljana`（斯洛維尼亞）兩座園
+- `Hertfordshire Zoo` 補 `zh`／`location_ja`／`location_zh`，官網由已失效的舊名網域 `pwpark.com` 改為 `hertfordshirezoo.com`，別名補「Paradise Wildlife Park」
+
+**工具變更**：
+- `tools/gen_residence.py` — `CFLAG` 與 `_COUNTRY_WORDS` 新增 Slovakia 🇸🇰、Slovenia 🇸🇮（原本無此兩國，居住史表格不會顯示國名與國旗）
+- `web/src/lib/data.js` — `COUNTRY_NAMES` 補 `slovenia` 一列（`slovakia` 本已有）
+- `tools/build_db.py` — `OFFICIAL_HOSTS` 新增 `hertfordshirezoo.com`、`zoobojnice.sk`、`zoo.si`，並順手補上先前遺漏的 `pairidaiza.eu`（Pairi Daiza 一家的 `sources` 因此本來不顯示於個體頁）；`OFFICIAL_IG_ACCOUNTS` 新增 `hertfordshirezoo`（已核實：園方官網 News & Socials 與頁尾 IG 連結皆指向此帳號）
+
+**備注**：
+- 條目總數基準修正——上一批（都江堰 8 筆）的 log 已記為 803，但 `index.md` 頁首當時仍留 795，本次一併校正後為 809（`ls wiki/*.md | wc -l` 減 index／log 驗證相符）

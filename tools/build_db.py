@@ -70,6 +70,10 @@ OFFICIAL_HOSTS = {
     "xiaohongshu.com", "xhslink.com",
     # 其他國家園方官網
     "drusillas.co.uk", "witheverland.com", "chiangmai.zoothailand.org", "sriayuthayalionpark.com",
+    "hertfordshirezoo.com",  # Hertfordshire Zoo（英國；舊名 Paradise Wildlife Park）
+    "zoobojnice.sk",  # Národná zoologická záhrada Bojnice（斯洛伐克國立動物園，環境部所屬）
+    "zoo.si",  # ZOO Ljubljana（斯洛維尼亞；盧布爾雅那市立）
+    "pairidaiza.eu",  # Pairi Daiza（比利時）
 }
 
 # Facebook 是共用網域，不能整域列白名單（旅遊/粉絲轉載粉專也在同域）。
@@ -99,6 +103,8 @@ _X_HOSTS = {"x.com", "twitter.com", "mobile.twitter.com", "mobile.x.com"}
 # ⚠️ 只放園方自己的帳號；同好／個人拍攝帳號請勿加入（會被誤判官方）。
 OFFICIAL_IG_ACCOUNTS = {
     "kumamoto_doushokubutsuen",  # 熊本市動植物園（ezooko.jp）
+    "kiryuzoo",  # 桐生が岡動物園（官網 city.kiryu.lg.jp/zoo 首頁 IG banner 連此帳號）
+    "hertfordshirezoo",  # Hertfordshire Zoo（官網 News & Socials 與頁尾 IG 連結皆指向此帳號）
 }
 _IG_HOSTS = {"instagram.com", "m.instagram.com"}
 _IG_NON_ACCOUNT_SEGS = {"p", "reel", "reels", "tv", "stories", "explore"}

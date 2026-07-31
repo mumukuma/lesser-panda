@@ -1,6 +1,6 @@
 # Wiki 目錄 Index
 
-> 最後更新：2026-07-30 | 條目總數：793（另有 5 筆條目暫存 wiki/_hidden/，不計入、不上站）
+> 最後更新：2026-07-31 | 條目總數：809（另有 5 筆條目暫存 wiki/_hidden/，不計入、不上站）
 
 ---
 
@@ -122,7 +122,9 @@
 
 | 條目 | 說明 | 性別 | 生年 | 動物園 |
 |------|------|------|------|--------|
-| [[fran-2020-07-20]] | Fran フラン — Franken 三女 | ♀ | 2020 | 桐生が岡動物園 |
+| [[fran-2020-07-20]] | Fran フラン — Franken 三女；2026 與 [[kazunoko-2021-08-04]] 產下雙胞胎（桐生初繁） | ♀ | 2020 | 桐生が岡動物園 |
+| [[apple-seed-1-fran-2026-07-12]] | 蘋果籽1號 Apple Seed 1 — Fran × Kazunoko 第一仔；桐生が岡初次繁殖（佔位，未命名） | ？ | 2026 | 桐生が岡動物園 |
+| [[apple-seed-2-fran-2026-07-12]] | 蘋果籽2號 Apple Seed 2 — Fran × Kazunoko 第二仔；1號雙胞胎（佔位，未命名） | ？ | 2026 | 桐生が岡動物園 |
 | [[lian-2020-07-20]] | Lian リアン / 리안 — Franken 四女；Fran 雙胞胎 | ♀ | 2020 | ソウル大公園 🇰🇷 |
 | [[ranmaru-2022-07-27]] | Ranmaru ランマル — Franken 四子 | ♂ | 2022 | 浜松市動物園 |
 | [[fujimaru-2022-07-27]] | Fujimaru フジマル — Franken 五子；Ranmaru 雙胞胎 | ♂ | 2022 | Batu Secret Zoo 🇮🇩 |
@@ -1305,7 +1307,7 @@
 
 | 條目 | 說明 | 性別 | 生年 | 動物園 |
 |------|------|------|------|--------|
-| [[kazunoko-2021-08-04]] | Kazunoko — Kazu 長子；現居桐生が岡動物園 | ♂ | 2021 | Kiryugaoka Zoo 🇯🇵 |
+| [[kazunoko-2021-08-04]] | Kazunoko — Kazu 長子；現居桐生が岡動物園；2026 與 [[fran-2020-07-20]] 產下雙胞胎（桐生初繁） | ♂ | 2021 | Kiryugaoka Zoo 🇯🇵 |
 | [[emi-2023-07-09]] | Emi — Kazu 次女；Baby 🪐 雙胞胎 | ♀ | 2023 | 靜岡市立日本平動物園 🇯🇵 |
 | [[nanako-2025-07-07]] | Nanako — Kazu 三女 | ♀ | 2025 | 靜岡市立日本平動物園 🇯🇵 |
 
@@ -1986,15 +1988,15 @@
 
 | 條目 | 說明 | 性別 | 生年 | 動物園 |
 |------|------|------|------|--------|
-| [[tian-tian-2024-06-23]] | 甜甜 Tian-Tian — 2026.6 由上海移入台北 | ♀ | 2024 | Taipei Zoo 🇹🇼 |
+| [[tian-tian-2024-06-23]] | 甜甜 Tian-Tian — 2026.6 由上海移入台北；2026.7.29 揭名維持原名 | ♀ | 2024 | Taipei Zoo 🇹🇼 |
 | [[zhuang-zhuang]] | 壯壯 Zhuang-Zhuang — 甜甜之父 | ♂ | 待查證 | 上海動物園 🇨🇳 |
 | [[niu-niu]] | 妞妞 Niu-Niu — 甜甜之母 | ♀ | 待查證 | 上海動物園 🇨🇳 |
 
-### 繁繁（獨立個體）
+### 樂樂（獨立個體）
 
 | 條目 | 說明 | 性別 | 生年 | 動物園 |
 |------|------|------|------|--------|
-| [[fan-fan-2023-05-02]] | 繁繁 Fan-Fan — 2026.6 由上海移入台北；父母待查證 | ♂ | 2023-05-02 | Taipei Zoo 🇹🇼 |
+| [[le-le-2023-05-02]] | 樂樂 Le-Le（原名 繁繁 Fan-Fan，2026.7.29 台北揭名）— 2026.6 由上海移入台北；父母待查證 | ♂ | 2023-05-02 | Taipei Zoo 🇹🇼 |
 
 ---
 
@@ -2292,6 +2294,23 @@
 
 ---
 
+## 海外個體（中國・都江堰小熊貓森林公園）
+
+四川省成都市都江堰市蒲陽街道華西社區都江堰小熊貓森林公園（四川琦趣動物園管理有限公司經營，小熊貓專門的科研繁育與科普園區）的個體，共 8 隻（♂1／♀7）；生日、入園與家系均待查證。名字與性別由維護者確認、暫無官方公告佐證。
+
+| 條目 | 說明 | 性別 | 生年 | 動物園 |
+|------|------|------|------|--------|
+| [[tian-tian-dujiangyan]] | 天天 Tian Tian — ⚠️ 與台北 [[tian-tian-2024-06-23]]（甜甜）同拼音 🚧 | ♀ | 不詳 | 都江堰小熊貓森林公園 🇨🇳 |
+| [[xiao-xiao-dujiangyan]] | 小小 Xiao Xiao — ⚠️ 與武漢「小小」同名 🚧 | ♀ | 不詳 | 都江堰小熊貓森林公園 🇨🇳 |
+| [[xiao-bai-dujiangyan]] | 小白 Xiao Bai — ⚠️ 與柳州 [[xiao-bai]]、上海 [[xiao-bai-shanghai]] 同名 🚧 | ♀ | 不詳 | 都江堰小熊貓森林公園 🇨🇳 |
+| [[xiao-mi-feng-dujiangyan]] | 小蜜蜂 Xiao Mi Feng — 別名「唐小糖」🚧 | ♀ | 不詳 | 都江堰小熊貓森林公園 🇨🇳 |
+| [[mai-mai-dujiangyan]] | 麥麥／麦麦 Mai Mai 🚧 | ♀ | 不詳 | 都江堰小熊貓森林公園 🇨🇳 |
+| [[qing-tian-dujiangyan]] | 晴天 Qing Tian 🚧 | ♀ | 不詳 | 都江堰小熊貓森林公園 🇨🇳 |
+| [[xiu-xiu-dujiangyan]] | 秀秀 Xiu Xiu — ⚠️ 與西山 🪐 [[shuu-shuu-1981]] 同名 🚧 | ♀ | 不詳 | 都江堰小熊貓森林公園 🇨🇳 |
+| [[can-can-dujiangyan]] | 燦燦／灿灿 Can Can 🚧 | ♂ | 不詳 | 都江堰小熊貓森林公園 🇨🇳 |
+
+---
+
 ## 海外個體（中國・清遠長隆森林王國）
 
 広東省清遠市清城区清遠長隆森林王國（清遠長隆度假區）的個體，共 8 隻（♂2／♀6）；生日、入園與家系均待查證。資料由維護者提供（zoo 友告知）、暫無官方公告佐證。
@@ -2489,6 +2508,21 @@
 | [[tibao-2011]] | Tibao — 自法國 Asson Zoo 抵園（2012），Mya/Anmar 之父；後續去向待查證 | ♂ | 2011– | Drusillas Park（曾居）🇬🇧 |
 | [[mya-2014-06-16]] | Mya — Drusillas 首胎雙胞胎之一；後續去向待查證 | ♀ | 2014– | Drusillas Park（出生）🇬🇧 |
 | [[anmar-2014-06-16]] | Anmar — Drusillas 首胎雙胞胎之一；後續去向待查證 | ♂ | 2014– | Drusillas Park（出生）🇬🇧 |
+
+---
+
+## 海外個體（英國・Hertfordshire Zoo ← 斯洛伐克 Bojnice 一脈）
+
+英國 Hertfordshire Zoo（舊名 Paradise Wildlife Park）的小熊貓與其斯洛伐克娘家。2025-11 Nila 依 EAZA EEP 自 Bojnice 抵園與 Ash 配對，2026-06-03 產下雙胞胎（佔位條目，待命名）——該園 12 年來首次雙胞胎繁殖。
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[apple-seed-1-nila-2026-06-03]] | 蘋果籽1號 Apple Seed 1 — Nila × Ash 雙胞胎（佔位，未命名；序號為 wiki 暫編） | ？ | 2026 | Hertfordshire Zoo 🇬🇧 |
+| [[apple-seed-2-nila-2026-06-03]] | 蘋果籽2號 Apple Seed 2 — Nila × Ash 雙胞胎（佔位，未命名；序號為 wiki 暫編） | ？ | 2026 | Hertfordshire Zoo 🇬🇧 |
+| [[nila-2024-06-02]] | Nila — Bojnice 生（雙胞胎之一），2025-11 移居；名字取自尼泊爾保育人士 Nila Gurung | ♀ | 2024– | Hertfordshire Zoo 🇬🇧 |
+| [[ash-hertfordshire]] | Ash — 自威爾斯 Welsh Mountain Zoo 抵園（2024-02），Nila 之配偶；生日不詳 | ♂ | 不詳 | Hertfordshire Zoo 🇬🇧 |
+| [[bambu-2022]] | Bambu（暱稱 Ola）— ZOO Ljubljana 首隻誕生的小熊貓，2023 移居 Bojnice；Nila 之母 | ♀ | 2022– | Národná zoologická záhrada Bojnice 🇸🇰 |
+| [[mao-2015]] | Mao — Bojnice 的雄性，Nila 之父；生年僅依園方年齡推定 | ♂ | 2015– | Národná zoologická záhrada Bojnice 🇸🇰 |
 
 ---
 

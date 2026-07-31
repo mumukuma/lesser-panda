@@ -120,6 +120,7 @@ const COUNTRY_NAMES = {
   russia: { 'zh-TW': '俄羅斯', 'zh-CN': '俄罗斯', ja: 'ロシア', en: 'Russia', ko: '러시아' },
   singapore: { 'zh-TW': '新加坡', 'zh-CN': '新加坡', ja: 'シンガポール', en: 'Singapore', ko: '싱가포르' },
   slovakia: { 'zh-TW': '斯洛伐克', 'zh-CN': '斯洛伐克', ja: 'スロバキア', en: 'Slovakia', ko: '슬로바키아' },
+  slovenia: { 'zh-TW': '斯洛維尼亞', 'zh-CN': '斯洛文尼亚', ja: 'スロベニア', en: 'Slovenia', ko: '슬로베니아' },
   'south korea': { 'zh-TW': '韓國', 'zh-CN': '韩国', ja: '韓国', en: 'South Korea', ko: '대한민국' },
   spain: { 'zh-TW': '西班牙', 'zh-CN': '西班牙', ja: 'スペイン', en: 'Spain', ko: '스페인' },
   sweden: { 'zh-TW': '瑞典', 'zh-CN': '瑞典', ja: 'スウェーデン', en: 'Sweden', ko: '스웨덴' },

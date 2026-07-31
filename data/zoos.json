@@ -3463,16 +3463,20 @@
   "canonical": "Hertfordshire Zoo",
   "lineage_id": 214,
   "en": "Hertfordshire Zoo",
-  "zh": null,
+  "zh": "赫特福德郡動物園",
   "country": "UK",
-  "location_ja": null,
+  "location_ja": "赫特福德郡布羅克斯本",
   "location_en": "Broxbourne EN10 7QA, UK",
+  "location_zh": "赫特福德郡布羅克斯本",
   "lat": 51.744107,
   "lng": -0.062245,
   "map": "https://goo.gl/maps/yWTa37REWi5tVfFj9",
-  "website": "https://www.pwpark.com/",
+  "website": "https://hertfordshirezoo.com/",
   "logo": null,
-  "aliases": []
+  "aliases": [
+   "Paradise Wildlife Park",
+   "Hertfordshire Zoo (Paradise Wildlife Park)"
+  ]
  },
  {
   "canonical": "Highland Wildlife Park",
@@ -4068,6 +4072,29 @@
   "website": "https://www.parconaturaviva.it/",
   "logo": null,
   "aliases": []
+ },
+ {
+  "canonical": "Národná zoologická záhrada Bojnice",
+  "lineage_id": null,
+  "en": "Bojnice Zoo",
+  "zh": null,
+  "country": "Slovakia",
+  "location_ja": "特倫欽州博伊尼采",
+  "location_en": "Bojnice, Trenčín Region, Slovakia",
+  "location_zh": "特倫欽州博伊尼采",
+  "lat": 48.781142,
+  "lng": 18.577373,
+  "map": "https://www.google.com/maps/search/?api=1&query=48.781142,18.577373",
+  "website": "https://zoobojnice.sk/",
+  "logo": null,
+  "aliases": [
+   "Bojnice Zoo",
+   "ZOO Bojnice",
+   "Národná zoo Bojnice",
+   "Zoologická záhrada Bojnice",
+   "Slovak National Zoo Bojnice",
+   "Narodna zoologicka zahrada Bojnice"
+  ]
  },
  {
   "canonical": "Nordens Ark Zoo",
@@ -5486,6 +5513,27 @@
   "aliases": []
  },
  {
+  "canonical": "Zoo Ljubljana",
+  "lineage_id": null,
+  "en": "Zoo Ljubljana",
+  "zh": null,
+  "country": "Slovenia",
+  "location_ja": "盧布爾雅那",
+  "location_en": "Ljubljana, Slovenia",
+  "location_zh": "盧布爾雅那",
+  "lat": 46.0525694,
+  "lng": 14.4722444,
+  "map": "https://www.google.com/maps/search/?api=1&query=46.0525694,14.4722444",
+  "website": "https://www.zoo-ljubljana.si/",
+  "logo": null,
+  "aliases": [
+   "ZOO Ljubljana",
+   "Ljubljana Zoo",
+   "Živalski vrt Ljubljana",
+   "Zivalski vrt Ljubljana"
+  ]
+ },
+ {
   "canonical": "Zoo Montana",
   "lineage_id": 128,
   "en": "Zoo Montana",
@@ -6505,6 +6553,29 @@
    "武汉市动物园",
    "武漢市陸生野生動物收容救護中心",
    "武汉市陆生野生动物收容救护中心"
+  ]
+ },
+ {
+  "canonical": "都江堰小熊貓森林公園",
+  "lineage_id": null,
+  "en": "Dujiangyan Red Panda Forest Park",
+  "zh": "都江堰小熊猫森林公园",
+  "country": "China",
+  "location_ja": "四川省成都市都江堰市蒲陽街道",
+  "location_en": "Puyang, Dujiangyan, Chengdu, Sichuan, China",
+  "location_zh": "四川省成都市都江堰市蒲陽街道華西社區",
+  "lat": null,
+  "lng": null,
+  "map": null,
+  "website": null,
+  "logo": null,
+  "aliases": [
+   "Dujiangyan Red Panda Forest Park",
+   "Red Panda Forest Park",
+   "小熊猫森林公园",
+   "小熊貓森林公園",
+   "都江堰小熊猫森林公园",
+   "都江堰小熊貓森林公園"
   ]
  }
 ]
