@@ -8,6 +8,8 @@ species: Ailurus fulgens styani
 zoos:
   - 都江堰小熊貓森林公園 ( – 現在)
 tags: [styani, female, limited-profile, zoo:都江堰小熊貓森林公園]
+instagram:
+  - https://www.instagram.com/p/DUOYTwrkn_6/
 sources:
   - 維護者提供（2026-07-31）
 ---

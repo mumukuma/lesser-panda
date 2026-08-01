@@ -16,6 +16,7 @@ instagram:
   - https://www.instagram.com/p/DRdw5fvibia/
   - https://www.instagram.com/p/DRHewJViTCK/
   - https://www.instagram.com/p/DLcvVrChZo8/
+  - https://www.instagram.com/p/DbfBRUoxcMi/
 sources:
   - 維護者提供（2026-07-04；官方來源待補）
 extra_sources:
