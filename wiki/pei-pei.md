@@ -17,6 +17,11 @@ instagram:
   - https://www.instagram.com/p/DRHewJViTCK/
   - https://www.instagram.com/p/DLcvVrChZo8/
   - https://www.instagram.com/p/DbfBRUoxcMi/
+  - https://www.instagram.com/p/DbXGudKEmQX/
+  - https://www.instagram.com/p/DZhKH60yWgJ/
+  - https://www.instagram.com/p/DZY7A56EqKl/
+  - https://www.instagram.com/p/DUjkvoOkm4C/
+  - https://www.instagram.com/p/DUinvWkEtZa/
 sources:
   - 維護者提供（2026-07-04；官方來源待補）
 extra_sources:
