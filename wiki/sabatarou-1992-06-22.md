@@ -15,7 +15,8 @@ sources:
   - https://redpandafinder.com/#profile/732
   - https://github.com/wwoast/redpanda-lineage
   - 「西山まとめ」Google Sheet（名稱「サバタロウ」來源；lineage 記為無名 #732）
-  - https://kosaru323.blog.fc2.com/blog-entry-563.html
+extra_sources:
+  - https://kosaru323.blog.fc2.com/blog-entry-563.html  # 北のレッサーパンダ日記：釧路市動物園開園 40 周年記念誌《あゆみ》年表轉載＋作者考證
 ---
 
 # Sabatarou 🪐（サバタロウ）
@@ -40,7 +41,7 @@ sources:
 ## 家族
 
 - 母：[[ran-ran-1987-07-26]]（蘭蘭 / ランラン）🪐
-- 父：[[yuu-yuu-1987-05-31]]（ユーユー）🪐
+- 父：[[yuu-yuu-1987-05-31]]（友友 ユーユー）🪐
 - 雙胞胎：[[chun-chun-1992-06-22]]（春春）🪐
 - 兄弟姊妹：[[ten-ten-1989-06-26]] 🪐、[[hana-1990-06-29]] 🪐、[[chao-chao-1991-06-18]] 🪐、[[kaori-1991-06-18]] 🪐
 - 配偶：[[ayumi-1991-07-27]] 🪐（あゆみ，釧路市動物園）

@@ -10,7 +10,7 @@ instagram:
   - https://www.instagram.com/p/DbCa2XdETd3/
 tags: [styani, apple-seed, zoo:ソウル大公園動物園]
 sources:
-  - https://www.instagram.com/p/DbCa2XdETd3/
+  - https://www.instagram.com/seoulgrandpark/p/DbCa2XdETd3/
 ---
 
 # 蘋果籽1號（Apple Seed 1）— [[lian-2020-07-20]] × [[ravi-2022-06-14]] 之寶寶

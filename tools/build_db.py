@@ -56,9 +56,11 @@ OFFICIAL_HOSTS = {
     # sources/chausuyama-zukan/；要驗證請走 Wayback（見下方 _WAYBACK_HOSTS）。
     "chausuyama.com",
     "hirakawazoo.jp",  # 鹿児島市平川動物公園（含園方「飼育員の日記」等 staff blog）
+    "hamurazoo.jp",  # 羽村市動物公園（園方 /news/ 公告）
     # 日本自治體（園區隸屬市府）
     "city.ichikawa.lg.jp", "city.asahikawa.hokkaido.jp", "city.kawasaki.jp",
     "soumu.metro.tokyo.lg.jp", "city.sapporo.jp",  # 札幌市円山動物園
+    "city.sabae.fukui.jp",  # 鯖江市西山動物園（園頁掛在市府站 /nishiyama_zoo/）
     # 台灣／港澳
     "zoo.gov.taipei", "gov.taipei", "macaotourism.gov.mo", "gcs.gov.mo",
     # 中國園方官網／官方微信公眾號（無官網者以微信文章為官方，見 CLAUDE.md）
@@ -122,9 +124,24 @@ OFFICIAL_IG_ACCOUNTS = {
     "kumamoto_doushokubutsuen",  # 熊本市動植物園（ezooko.jp）
     "kiryuzoo",  # 桐生が岡動物園（官網 city.kiryu.lg.jp/zoo 首頁 IG banner 連此帳號）
     "hertfordshirezoo",  # Hertfordshire Zoo（官網 News & Socials 與頁尾 IG 連結皆指向此帳號）
+    "hamurazoo.official",  # 羽村市動物公園（同 hamurazoo.jp；雌雄鑑定等公告發於此）
+    "maruyamazoo_official",  # 札幌市円山動物園（同 city.sapporo.jp；出産公告發於此）
+    "seoulgrandpark",  # 서울대공원 首爾大公園（韓國；官方帳號）
 }
 _IG_HOSTS = {"instagram.com", "m.instagram.com"}
 _IG_NON_ACCOUNT_SEGS = {"p", "reel", "reels", "tv", "stories", "explore"}
+
+# 「官方內容之忠實轉載」與「共用平台上的園方發布」——整域不可列白名單（同域大多是
+# 個人遊記／新聞稿代發），故逐條 URL 認列。依 CLAUDE.md〈官方來源可直接採用〉：
+# 園方名單／家系圖／新聞稿之忠實轉載視同官方資料。新增前請先確認轉載內容確為園方一手。
+OFFICIAL_URLS = {
+    # 多摩動物公園官方個體名單（含全家系生卒與轉園），由 4travel 旅行記整段轉載
+    "https://4travel.jp/travelogue/11691476",
+    # 横浜八景島 官方新聞稿（2019-07-03），發布於 PR TIMES
+    "https://prtimes.jp/main/html/rd/p/000000321.000011571.html",
+    # 東北サファリパーク 園內製作家系圖之照片（作者確認為官方資訊忠實轉載）
+    "https://mamepandaworld.blog.fc2.com/blog-entry-1311.html",
+}
 
 _WAYBACK_HOSTS = {"web.archive.org", "archive.org"}
 _WAYBACK_RE = re.compile(r"/web/[^/]+/(?P<inner>https?://.+)$", re.I)
@@ -147,6 +164,8 @@ def is_official_source(url: str) -> bool:
     """僅園方官網／政府公告／園報／官方微信視為官方。名單外＋非 gov pattern＝False。"""
     if not isinstance(url, str) or not url.startswith("http"):
         return False
+    if url.split("#")[0].rstrip("/") in {u.rstrip("/") for u in OFFICIAL_URLS}:
+        return True
     host = _host(url)
     if not host:
         return False

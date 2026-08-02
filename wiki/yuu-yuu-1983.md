@@ -14,8 +14,9 @@ rpf_url:
 tags: [styani, male, deceased]
 sources:
   - https://www.jstage.jst.go.jp/article/asazoo/17/0/17_47/_article/-char/ja
-  - https://www.shikoku-np.co.jp/national/life_topic/print.aspx?id=20040216000496
   - 維護者提供（2026-07-28：重慶市友好都市贈與）
+extra_sources:
+  - https://www.shikoku-np.co.jp/national/life_topic/print.aspx?id=20040216000496  # 四国新聞 2004-02-16「最高齢レッサーパンダ死ぬ／昨年末の雄に続き雌も」（報導安佐動物公園發表）
 ---
 
 # Yuu-Yuu 🪐（友友 / ユウユウ）

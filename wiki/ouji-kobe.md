@@ -18,7 +18,8 @@ sources:
   - https://www.kobe-ojizoo.jp/habataki/pdf/habataki14.pdf
   - https://www.kobe-ojizoo.jp/habataki/pdf/habataki29.pdf
 extra_sources:
-  - 王子動物園 動物科學資料館 剥製展示解說牌（讀者 2014-05 實拍，回報附件）：「愛称：王子／オス／飼育期間 1983.2.22 ～ 1990.7.15」— http://shinshin.cocolog-nifty.com/redpanda/2014/05/post-828b.html
+  - 王子動物園 動物科學資料館 剥製展示解說牌（讀者 2014-05 實拍，回報附件）：「愛称：王子／オス／飼育期間 1983.2.22 ～ 1990.7.15」
+  - http://shinshin.cocolog-nifty.com/redpanda/2014/05/post-828b.html  # 徒然レッサーパンダ「おしりから見た動物たち」剥製展示解說牌照（2014-05）
 ---
 
 # Ouji 🪐（王子 / オウジ）

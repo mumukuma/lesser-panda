@@ -12,7 +12,8 @@ instagram:
 sources:
   - https://x.com/kumamotocityzoo/status/2062708738474344721
   - https://www.instagram.com/kumamoto_doushokubutsuen/p/DbUkQpSCR13/
-  - https://kumanichi.com/articles/1999252
+extra_sources:
+  - https://kumanichi.com/articles/1999252  # 熊本日日新聞：6/4 體重 286g、秋季公開預定
 ---
 
 # 蘋果籽（Apple Seed）— [[shin-fa-2019-06-19]] × [[kabosu-2018-06-28]] 之寶寶

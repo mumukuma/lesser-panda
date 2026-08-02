@@ -6,6 +6,22 @@
 
 ---
 
+## 2026-08-02 ・ 來源分類器：補園方白名單，並新增「官方轉載」逐條 URL 認列
+
+承上一則「其他參考資料」上站後盤點日本個體，發現有些**確實是官方**的來源被 `is_official_source` 判為 false、
+在個體頁被丟棄。分兩類補上：
+
+- **`tools/build_db.py` `OFFICIAL_HOSTS`** 補 `hamurazoo.jp`（羽村市動物公園）、`city.sabae.fukui.jp`
+  （鯖江市西山動物園，園頁掛在市府站 `/nishiyama_zoo/`，非 `.lg.jp` 故 gov pattern 抓不到）。
+- **`OFFICIAL_IG_ACCOUNTS`** 補 `hamurazoo.official`、`maruyamazoo_official`、`seoulgrandpark`。相應地把
+  wiki 內這三家的 IG 短形式 `/p/XXXX/` 改回含帳號的完整形式（短形式無從判斷發文者，一律非官方）。
+- **新增 `OFFICIAL_URLS`（逐條 URL 白名單）**：`CLAUDE.md` 早有「官方內容之忠實轉載視同官方」，但轉載常落在
+  共用平台（旅遊網站、新聞稿代發、個人部落格），整域列白名單會把同域的個人遊記一起誤判。改為逐條認列，目前三筆——
+  多摩動物公園官方個體名單（4travel 轉載）、横浜八景島官方新聞稿（PR TIMES）、東北サファリパーク園內家系圖照片。
+  比對時去掉 fragment 與尾斜線。新增前須先確認轉載內容確為園方一手。
+
+配套的 wiki 資料異動（把誤置 `sources` 的非官方連結移入 `extra_sources` 等）記於 `wiki/log.md` 同日條目。
+
 ## 2026-08-02 ・ 「其他參考資料」上站：部落格／影片等非官方連結不再丟棄
 
 處理アーヤ・アーニャ姊妹時，維護者提供了兩篇同好部落格與一支 YouTube 影片。這類連結不能當 `sources`（會被誤判官方、污染 `has_official_source`），過去多半就此丟失，但它們往往是唯一留下當年模樣的紀錄。改為一律留存於 `extra_sources` 並在網站另闢區塊顯示。

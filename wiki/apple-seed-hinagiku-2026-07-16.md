@@ -11,7 +11,7 @@ tags: [styani, female, apple-seed, deceased, zoo:Sapporo Maruyama Zoo]
 instagram:
   - https://www.instagram.com/p/Da4GzmzGaea/
 sources:
-  - https://www.instagram.com/p/Da4GzmzGaea/
+  - https://www.instagram.com/maruyamazoo_official/p/Da4GzmzGaea/
   - https://www.city.sapporo.jp/zoo/03doubutsu/05asiazone/redpanda/r8/redpanda_pregnant.html
   - https://www.city.sapporo.jp/zoo/03doubutsu/05asiazone/redpanda/r8/redpand_child.html
 ---
