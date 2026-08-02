@@ -4145,3 +4145,169 @@ Hertfordshire 官方公告並未區分兩仔（無出生順序、體徵或 RPF I
 - 候補 3 隻（多多・歡歡・樂樂）確認性別**或**查得家系連結後即可轉正（門檻已放寬，見上）
 - 同批「圖鑑缺漏」尚有 `南通森林野生動物園`（附官網）與早前 `銀基動物王國`・`北京野生動物園`・
   `都江堰熊貓谷` 等動物園缺漏回報未處理，另批辦理
+
+---
+
+## [2026-08-02] add | Kalden（RPF #480）一家：Edmonton Valley Zoo 種公與其父母、四名子女
+
+**來源**：
+- https://redpandafinder.com/#profile/480 (Kalden)
+- https://redpandafinder.com/#profile/482 (Tae-Bo)
+- https://redpandafinder.com/#profile/399 (Leafa)
+- https://redpandafinder.com/#profile/434 (Kola)
+- https://redpandafinder.com/#profile/481 (Willow)
+- https://redpandafinder.com/#profile/485 (Pepper)
+- https://redpandafinder.com/#profile/486 (Paprika)
+
+**新增條目**：
+- `kalden-2012-06-07.md` — Kalden ♂（RPF #480），生於 2012-06-07 Northeastern Wisconsin Zoo，2013-07-11 移 Edmonton Valley Zoo、2024-11-01 移 Toronto Zoo；既有 `rinzen`（全兄）與 `tango`（子）之連結對象
+- `tae-bo-1998-06-27.md` — Tae-Bo ♂🪐（RPF #482，別名 Taebo），1998-06-27 – 2015-09-22，享年 17 歲；Cincinnati 生，歷 Binder Park・Nashville，2003 起定居 Northeastern Wisconsin Zoo；父母 RPF 無記錄
+- `leafa-2009-06-11.md` — Leafa ♀（RPF #399，別名 Rifa），生於 2009-06-11 Red River Zoo，現居 Western North Carolina Nature Center；`rinzen`・`kalden` 之母
+- `kola-2015-08-24.md` — Kola ♂（RPF #434），Edmonton 生，2019 起居サンディエゴ動物園；`willow` 雙胞胎
+- `willow-2015-08-24.md` — Willow ♀（RPF #481），Edmonton 生，經 Prospect Park，2022-12 移 Houston Zoo（日不詳，暫記 12-01 🚧）
+- `pepper-2017-07-23.md` — Pepper ♀（RPF #485），Edmonton 生，2019-03-29 移 Red River Zoo
+- `paprika-2017-07-23.md` — Paprika ♀（RPF #486），Edmonton 生，經 Toronto，2023-12-17 移 Greater Vancouver Zoo
+
+**更新條目**：
+- `rinzen-2011-06-12.md` — 母 Leafa、父 Tae-Bo、全血緣兄弟 Kalden 由純文字改 wikilink
+- `tango-2015-07-30.md` — 父 Kalden 改 wikilink；½ 兄弟姊妹 4 隻補 wikilink 並註明母為 Pip
+- `pip-2008-05-26.md` — 補配偶 Kalden 與「子女」表（Kola・Willow・Pepper・Paprika）
+- `rina-2012-08-02.md` — 引言與子女表補入父 Kalden、補配偶欄
+- `yukiko-2005-06-23.md`・`shan-tou-2005-05-10.md` — 子女列中 Leafa 改 wikilink，並加 🚧 親本歸屬註記（見下）
+- `index.md` — 新增「海外個體（北美・Kalden 一家）」7 筆；條目總數更新為 822
+
+**🚧 待查證：Leafa 的親本歸屬**：
+RPF 同時把 `shan-tou`（#405）與 `yukiko`（#313）列為 Leafa（及 Xiao-Li・Li-Ming・Také・Wei-Da・Taiji・
+Mattie 共 7 仔）的親本，但本 wiki 已校訂兩者**皆為 ♀**（RPF 把 Yukiko 標為 ♂，應為誤植）。兩隻母獸
+2007–2014 年同居 Red River Zoo，實際父方待官方佐證，暫於兩邊條目與 `leafa` 條目標 🚧。
+
+**未建條目（本批範圍外）**：
+- Leafa × Phoenix（#400）在 Lincoln Park Zoo 所生四仔——Clark（#420）、Addison（#421）、
+  Waveland（#416）、Sheffield（#417），以純文字記於 `leafa` 與 `kalden` 條目；Phoenix 本身亦未建。
+  另需登記 Zoo Boise、Tulsa Zoo 兩座園後才宜補建。
+
+---
+
+## [2026-08-02] add | Poppy（RPF #1438）：多倫多的遺腹女；出生地矛盾由園方新聞稿釐清
+
+**來源**：
+- https://www.torontozoo.com/mediaroom/press2024/20240617 （官方：2024-06-13 双子誕生）
+- https://www.torontozoo.com/mediaroom/press2024/20240801 （官方：雄仔夭折、Sakura 病況）
+- https://www.torontozoo.com/mediaroom/press2024/20241118 （官方：公眾票選命名 Poppy）
+- https://redpandafinder.com/#profile/1438 (Poppy／Biggie)
+
+**新增條目**：
+- `poppy-2024-06-13.md` — Poppy ♀（RPF #1438，暱稱 Biggie），2024-06-13 生於 Toronto Zoo，現居該園；
+  母 `sakura`🪐、父 `arun`；⚠️ 與 `poppy-2019-05-17` 同名（血緣上為表姊妹）
+
+**更新條目**：
+- `sakura-2013-07-01.md` — 補 2024 年生產經過與歿因；子女表加 Poppy 與未命名雄仔；移除「未建檔」註記
+- `arun-2014-06-28.md` — 同上；子女表加兩筆並註明於 Toronto Zoo 產下
+- `poppy-2019-05-17.md` — 加「⚠️ 注意同名」指向新條目
+- `kalden-2012-06-07.md` — 補一句：2024-11 抵多倫多後與 Poppy 同居一區
+- `index.md` — 「加拿大・Arun × Sakura 一家」補敘述與 Poppy 一列；條目總數更新為 823
+- `tools/build_db.py` — `OFFICIAL_HOSTS` 補 `torontozoo.com`、`gvzoo.com`（既有 `sakura`／`arun` 條目
+  已引用 gvzoo.com，先前未被認列為官方來源）
+
+**🔎 前案更正（2026-07-08 的「出生地資料矛盾、未建檔」已解決）**：
+lineage 記 Sakura 2024-06-13 於多倫多產子，但她 2024-01-26 才自 Greater Vancouver Zoo 抵園、
+父方 Arun 仍在溫哥華，故當時判為矛盾而未建檔。多倫多動物園 2024-06-17 官方新聞稿說明：Sakura
+是以 AZA SSP「退休」身分入園，離開溫哥華前與舊配偶 Arun 共度繁殖季初期，**抵達多倫多時已懷孕**
+（2 月採糞便檢體、3 月測得黃體素升高、6 月 4 日超音波確認胎兒）。故出生地為 Toronto Zoo、
+父方確為 Arun，兩者並不矛盾。依 CLAUDE.md「官方來源可直接採用」逕行建檔並更正兩邊條目。
+
+**未建條目**：
+- 同胎雄仔（RPF #1437，2024-06-13 – 2024-07-31，未滿六週夭折）園方未命名，依 CLAUDE.md
+  「僅以佔位名登錄者暫不上站」不建檔，於 `poppy`・`sakura`・`arun` 三處以純文字記載。
+
+## [2026-08-02] add | アーニャ 建檔（アーヤ 雙胞胎）＋ 導入「其他參考資料」（extra_sources 上站）
+
+**來源**：
+- https://www.nhdzoo.jp/diary/index.php?s_keyword=%E3%82%A2%E3%83%BC%E3%83%8B%E3%83%A3&s1_diary_date_y=-1&s1_diary_date_m=-1&s1_diary_date_d=-1&s2_diary_date_y=-1&s2_diary_date_m=-1&s2_diary_date_d=-1
+  （日本平動物園 飼育日誌・關鍵字「アーニャ」共 9 筆；2016-06-04「アーニャ(♀)老衰で死亡する」）
+- https://www.nhdzoo.jp/diary/index.php?s_keyword=%E3%82%A2%E3%83%BC%E3%83%A4&s1_diary_date_y=-1&s1_diary_date_m=-1&s1_diary_date_d=-1&s2_diary_date_y=-1&s2_diary_date_m=-1&s2_diary_date_d=-1
+  （同上・關鍵字「アーヤ」共 8 筆；2016-09-21「午後に倒れ、夕方遅く老衰で死亡…18歳3か月で、国内のレッサーパンダのメスでは最高齢」）
+- 維護者提供（2026-08-02）：アーニャ 生日 1998-07-03、歿日 2016-06-04、2012-12-02 轉入日本平
+
+**其他參考資料**（非官方，僅供延伸閱讀）：
+- https://mihorinh.exblog.jp/19574101/ — レサパン日和「アーヤ・アーニャ姉妹」（2014-03-16）
+- http://shinshin.cocolog-nifty.com/redpanda/2012/11/post-f4a2.html — 徒然レッサーパンダ「秋吉台４姉妹 アーヤ＆アーニャ編」（2012-11-09）
+- https://www.youtube.com/watch?v=gL9q-U_pXIE — 日本平動物園 タク・アーヤ・アーニャ（mametube2011）
+
+**新增條目**：
+- `a-nya-1998-07-03.md` — A-nya アーニャ ♀，1998-07-03 生於秋吉台自然動物公園サファリランド，
+  2012-12-02 移居静岡市立日本平動物園，2016-06-04 老衰歿（享年 17 歲）；母 `kaori-1991-06-18`🪐、
+  父 `bau-bau-1994-07-11`🪐、雙胞胎 `a-ya-1998-07-03`🪐。無 RPF profile，rpf_id 留空
+
+**更新條目**：
+- `a-ya-1998-07-03.md` — 補日本平飼育日誌為官方來源、歿因老衰與「國內最高齡雌性」記載；
+  母 Kaori、雙胞胎 A-nya 由純文字改 wikilink；補 extra_sources 三筆
+- `kaori-1991-06-18.md` — 家族補「子女」列（與 `bau-bau-1994-07-11` 所生 6 女），移除「子女待補」註記
+- `bau-bau-1994-07-11.md` — 子女表 A-ya／A-nya 改 wikilink
+- `miku-1999-07-21.md` — 母 Kaori、姊妹 A-ya／A-nya 改 wikilink
+- `index.md` — 「2026-06-25 第三批補漏」表加 A-nya 一列、A-ya 說明補雙胞胎與歿因；條目總數更新為 824
+
+**⚠️ 待查證**：
+- 轉入日本平的日期兩邊不一致——`a-nya` 依維護者提供記 2012-12-02、`a-ya` 既有記載為 2012-12-12。
+  雙胞胎應為同日轉園。園方飼育日誌無入園紀錄（關鍵字「秋吉台」0 筆），最早於 2012-12-17 記到
+  兩姊妹已在園內與シュウシュウ相親。兩條目均已加註，待官方資料釐清後統一
+
+**流程／工具變更（見 CHANGELOG）**：
+- 導入「其他參考資料」政策：部落格、YouTube 等非官方連結一律留存於 frontmatter `extra_sources`，
+  不進 `sources`（避免污染 `has_official_source` 判定）。`SCHEMA.md` 新增〈sources 與 extra_sources
+  的分工〉一節、`CLAUDE.md` 於「官方來源可直接採用」補一則原則
+- `web/src/components/Panda.astro` — 新增「其他參考資料」區塊（列於「來源」下方）：值為 URL 者
+  顯示網域並連結（`rel="noopener nofollow"`），純文字說明（如讀者實拍展牌）原樣顯示不連結
+- `pipeline/src/i18n/*.json` — 五語各補 `sec_extra_sources`、`extra_sources_note` 兩個 key
+
+---
+
+## [2026-08-02] add | 補齊 Kaori（RPF #495）待補的子女：Non 與 Riku
+
+**來源**：
+- https://redpandafinder.com/#profile/569 (Non ノン)
+- https://redpandafinder.com/#profile/570 (Riku リク)
+- https://redpandafinder.com/#profile/495 (Kaori 香・子女關係)
+
+**背景**：`kaori-1991-06-18` 條目原註記「於 lineage 另記有數名子女（待補）」。核對 RPF 資料集，
+Kaori 與 `bau-bau` 育有 6 女、無雄仔，其中 4 隻（`a-ya`・`a-nya`・`riku`・`miku`）已有條目，
+本批補上缺漏的 2 隻。
+
+**新增條目**：
+- `non-1996-07-05.md` — Non ノン ♀🪐（RPF #569），1996-07-05 – 2014-10-21，享年 18 歲；
+  Kaori × Bau-Bau 之長女，終生居秋吉台自然動物公園サファリランド，未曾轉園
+- `riku-1999-07-20.md` — Riku リク ♀🪐（RPF #570），1999-07-20 – 2015-10-12，享年 16 歲；
+  秋吉台生，2012-12-21 移仙台市八木山動物公園（時稱セルコホーム ズーパラダイス八木山）；
+  與 `miku` 為雙胞胎（登錄生日相差一天，7/20 與 7/21，依來源原樣保留）
+
+**更新條目**：
+- `kaori-1991-06-18.md` — 移除「子女待補」註記，改列完整「### 子女」表（6 女）
+- `bau-bau-1994-07-11.md` — 移除「Non・Riku 尚未建檔」註記，子女列全數改 wikilink
+- `miku-1999-07-21.md` — 雙胞胎 Riku 改 wikilink，補 2012 年 12 月四姊妹分別轉園之背景
+- `a-ya-1998-07-03.md`・`a-nya-1998-07-03.md` — 姊妹列 Non・Riku 改 wikilink
+- `non-2003-07-25.md`・`non-2009-06-19.md`・`riku-2004-07-13.md` — 補「⚠️ 注意同名」交叉指向
+- `index.md` — 西山家族區補 Non・Riku 兩列；條目總數更新為 826
+
+**未建條目**：
+- Kaori 的三女（RPF #571，1997-06-30 – 2005-11-05，♀）於來源中**未載名字**（`(no name)`／`(無名)`），
+  依 CLAUDE.md「僅以佔位名登錄者不建檔」不建立條目，於 `kaori`・`bau-bau`・`non` 三處以純文字記載。
+  其居住史為：秋吉台生 → 2000-03-09 高知県立のいち動物公園 → 2005-02-26 九十九島動植物園森きらら。
+
+**🚧 待查證**：兩筆新條目的生卒與居住史目前僅有 RPF／redpanda-lineage 為據，尚無園方一手來源。
+
+---
+
+## [2026-08-02] fix | `maple-2022-06-14` 移除 lineage 帶入的漢字名「松楓」
+
+**更新條目**：
+- `maple-2022-06-14.md` — 移除 frontmatter `japanese: 松楓`，標題由「Maple（松楓）」改為「Maple」
+- `mei-mei-2022-06-14.md` — 雙胞胎欄移除「松楓」
+- `index.md` — 該列說明由「Maple 松楓」改為「Maple」
+
+**理由**：Maple（RPF #1405）為加拿大 Greater Vancouver Zoo 出生、現居 Granby Zoo，
+**無任何日本居住史**，依 CLAUDE.md 資料來源原則「lineage/RPF 的 `ja.name` 是機械轉寫，
+僅有日本居住史的個體才採用為 `japanese`」，此名不該收；其漢字形式亦非園方或維護者給的中文名，
+故直接移除、不轉入 `chinese`。網站個體頁（/p/maple-2022-06-14/）先前因此顯示中文名，已一併消除。
+
+**全庫掃描**：以「非日本園居住史 + `japanese` 為純漢字（無假名）」為條件掃過 823 篇，
+僅此一筆，其餘無同類殘留。

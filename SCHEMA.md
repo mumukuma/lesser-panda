@@ -52,8 +52,9 @@ instagram:                # 選填：同好的公開 IG 貼文連結，網站以
   - https://www.instagram.com/帳號/p/XXXXXXXXX/ 2025-06-01   # 建議用含「帳號」的完整形式；可在連結後加貼文日期，網站依日期新到舊排序；超過 6 篇自動「顯示更多」
 sources:
   - https://redpandafinder.com/#profile/XXX
-extra_sources:           # 選填：其他補充資料——非官方鏈結、無法線上核對的一手佐證（如讀者實拍的園方展牌、實體園報掃描），與官方 sources 分開管理；網站規劃另闢區塊顯示（待實作）
-  - 園方展牌（讀者 YYYY-MM 實拍，回報附件）
+extra_sources:           # 選填：其他參考資料——非官方但值得留存的線索，與官方 sources 分開管理。網站個體頁於「來源」下方另闢「其他參考資料」區塊顯示（2026-08-02 起）
+  - https://xxx.exblog.jp/12345678/  # 同好部落格、YouTube 影片等：可放連結，行末以 YAML 註解記標題／日期／看點
+  - 園方展牌（讀者 YYYY-MM 實拍，回報附件）   # 無法線上核對的一手佐證則寫純文字說明，網站原樣顯示、不做連結
 ---
 ```
 
@@ -77,6 +78,17 @@ extra_sources:           # 選填：其他補充資料——非官方鏈結、�
 |------|------|
 | [RedPandaFinder](https://redpandafinder.com) | 家系、居住地、別名 |
 | [Red Panda Lineage Project](https://github.com/wwoast/redpanda-lineage) | 底層血統資料庫 |
+
+### sources 與 extra_sources 的分工（2026-08-02 起）
+
+| 欄位 | 放什麼 | 網站顯示 |
+|------|--------|----------|
+| `sources` | **官方／一手來源**：園方官網、園報、飼育日誌、政府公告、園方官方社群帳號（分類器 `OFFICIAL_HOSTS` 見 `tools/build_db.py`） | 個體頁「來源」區塊；同時決定 `has_official_source` 旗標 |
+| `extra_sources` | **其他參考資料**：同好部落格、YouTube 影片、新聞報導、fan wiki 等非官方鏈結，以及無法線上核對的一手佐證（讀者實拍展牌、實體園報掃描） | 個體頁「其他參考資料」區塊（列在「來源」下方，並註明非官方） |
+
+- **部落格／影片等非官方連結一律進 `extra_sources`、不進 `sources`**，避免污染官方來源判定。
+- 由這類來源帶入、無官方佐證的關鍵資料（生卒日、家系）仍照 `CLAUDE.md` 標 `🚧 待查證`；把連結留在 `extra_sources` 是為了讓讀者能自行追溯，不等於採信。
+- 連結行末可加 YAML 註解（`# 標題（日期）`）記錄出處與看點，註解不會進 DB、僅供維護者參考。
 
 ---
 

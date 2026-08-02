@@ -74,6 +74,8 @@ OFFICIAL_HOSTS = {
     "zoobojnice.sk",  # Národná zoologická záhrada Bojnice（斯洛伐克國立動物園，環境部所屬）
     "zoo.si",  # ZOO Ljubljana（斯洛維尼亞；盧布爾雅那市立）
     "pairidaiza.eu",  # Pairi Daiza（比利時）
+    "torontozoo.com",  # Toronto Zoo（加拿大；含 /mediaroom/ 新聞稿）
+    "gvzoo.com",  # Greater Vancouver Zoo（加拿大；含 /news/ 新聞稿）
 }
 
 # Facebook 是共用網域，不能整域列白名單（旅遊/粉絲轉載粉專也在同域）。
@@ -96,6 +98,21 @@ OFFICIAL_X_ACCOUNTS = {
     "kumamotocityzoo",  # 熊本市動植物園（ezooko.jp）
 }
 _X_HOSTS = {"x.com", "twitter.com", "mobile.twitter.com", "mobile.x.com"}
+
+
+def _strip_yaml_comment(value):
+    """去掉 `extra_sources` 連結行末的 YAML 註解（`  # 標題（日期）`）。
+
+    ⚠️ 只對「以 http(s):// 開頭」的值動手，且以第一個空白為界切斷——URL 本身不含空白，
+    這樣既能清掉註解，又不會誤傷純文字說明（如「…lineage 記為無名 #732）」這種內容裡
+    本來就有 ` #` 的一手佐證描述）。也不會誤切 URL 內的 fragment（`…/#profile/397` 前無空白）。
+    """
+    if not isinstance(value, str):
+        return value
+    s = value.strip()
+    if s.lower().startswith(("http://", "https://")):
+        return s.split(None, 1)[0]
+    return s
 
 # Instagram 同為共用網域，比照 X／FB 只認「園方官方帳號」——比對 URL 路徑第一段的
 # 帳號（小寫、不含 @）。⚠️ 僅認含帳號的完整形式 /帳號/p/XXXX/；IG「複製連結」給的
@@ -394,6 +411,7 @@ def build_db():
         extra_sources = fm.get("extra_sources", [])
         if isinstance(extra_sources, str):
             extra_sources = [extra_sources]
+        extra_sources = [_strip_yaml_comment(s) for s in extra_sources]
 
         # 韓文名可為單值或多值（list）；正規化為以逗號分隔的字串（比照 japanese 多值寫法）
         korean = fm.get("korean")
