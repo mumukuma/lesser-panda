@@ -10,7 +10,8 @@ zoos:
 tags: [styani, unverified, zoo:武漢動物園]
 sources:
   - https://www.wuhanzoo.com.cn/main/zxdt/yqgz/detail/3c22beedf2aa40aab9ff9be116c26eac
-  - http://news.cnhubei.com/content/2020-09/25/content_13357073.html
+extra_sources:
+  - http://news.cnhubei.com/content/2020-09/25/content_13357073.html  # 荊楚網報導（2020-09-25）
 ---
 
 # 歡喜坨／欢喜坨（Huan Xi Tuo）

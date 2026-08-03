@@ -8,7 +8,8 @@ zoos:
   - Zoo Montana (1998 – 2020)
 tags: [styani, male, deceased, zoo:Zoo Montana]
 sources:
-  - https://www.guinnessworldrecords.com/news/2020/3/worlds-oldest-red-panda-is-21-years-old-and-lives-at-zoomontana-611467
+extra_sources:
+  - https://www.guinnessworldrecords.com/news/2020/3/worlds-oldest-red-panda-is-21-years-old-and-lives-at-zoomontana-611467  # 金氏世界紀錄報導（2020-03）：世界最高齡小熊貓
 ---
 
 # Taylor 🪐

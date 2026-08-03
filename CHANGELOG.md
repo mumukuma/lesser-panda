@@ -6,6 +6,34 @@
 
 ---
 
+## 2026-08-03 ・ 來源分類器：補非日本園白名單，並讓 `audit.py` 自動抓漏
+
+2026-08-02 那次盤點只掃了日本個體，**非日本園同樣有漏**——建 `dusk-2004-06-02` 時發現 Calgary Zoo 官方訃告
+沒顯示在個體頁，查出 `calgaryzoo.com` 根本不在 `OFFICIAL_HOSTS`（諷刺的是其 FB 專頁 `thecalgaryzoo` 早就在
+`OFFICIAL_FB_PAGES`，同一家園三個管道只認一個）。
+
+- **`OFFICIAL_HOSTS`** 補 `calgaryzoo.com`、`zooknoxville.org`、`mandai.com`（新加坡動物園營運方）、
+  `grandpark.seoul.go.kr`（首爾大公園；`.go.kr` 不在 gov pattern 內）、`oceanpark.com.hk` 與
+  `corporate.oceanpark.com.hk`。⚠️ host 是**完全比對**，子網域要各自列一筆。
+- **`OFFICIAL_IG_ACCOUNTS`** 補 `calgaryzoo`／`thecalgaryzoo`（兩帳號皆官方）、`edmontonvalleyzoo`、`safariniagara`。
+- 追加 `buildingourzoo.com`＝Valley Zoo Development Society，Edmonton Valley Zoo 的官方支援團體
+  （動物資訊由園方提供、以第一人稱發布），比照 Calgary 的 Wilder Institute 認列官方。
+- **`OFFICIAL_FB_PAGES`** 補 `oceanparkhk`（香港海洋公園官方專頁）。同時把 `li-zi-2008-06-15` 的
+  `?fbid=` 形式網址改存含 vanity 的 `facebook.com/oceanparkhk/photos/<fbid>`——兩種形式指向同一則貼文，
+  但只有後者帶得出專頁識別、分類器才認得。**日後存 FB source 一律用含 vanity 的形式。**
+- 影響 **11 筆條目**恢復顯示官方來源、`has_official_source` 由 false 轉 true：`dusk-2004-06-02`、
+  `udaya-2019-06-20`、`aahana-2023-06-18`、Udaya 三隻蘋果籽、`kiki-2019-06-07`、`karma-2012-12-20`、
+  `lincoln-2013-07-26`、`ravi-2022-06-14`、`rou-rou-2008-07-09`。
+
+**根治：`audit.py` 新增「sources 有非官方 host」檢查（🟡）。** 依 `SCHEMA.md` 的分工，`sources` 只放官方／
+一手來源，故其中任何被 `is_official_source()` 判 false 的 host 必是「漏掛白名單」或「該搬到 `extra_sources`」，
+兩者都需處理——直接由稽核逐 host 列出（RPF／lineage 屬預期線索來源，排除不報）。稽核改為 import
+`build_db.is_official_source`，確保「稽核看到的官方性 = 網站顯示的官方性」。此檢查為警告、不擋 push。
+
+跑出的 16 個 host 逐一判定後**全屬「應搬 `extra_sources`」**（新聞媒體、保育 NGO、園方支援團體、
+非園方粉專轉載），已於同日搬移完畢——26 筆條目、31 條連結，連結全數留存並補上出處註解，
+稽核此項現為 0。資料異動詳見 `wiki/log.md` 同日 `fix` 條目。
+
 ## 2026-08-02 ・ 來源分類器：補園方白名單，並新增「官方轉載」逐條 URL 認列
 
 承上一則「其他參考資料」上站後盤點日本個體，發現有些**確實是官方**的來源被 `is_official_source` 判為 false、

@@ -36,6 +36,9 @@ KANA_RE = re.compile(r"[぀-ヿ]")
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from wiki_io import read_frontmatter, norm_date  # noqa: E402
 from zoo_registry import ZooRegistry  # noqa: E402
+# 來源官方性判定：直接用建檔同一支分類器，稽核才不會與網站顯示脫節
+from build_db import is_official_source, _host  # noqa: E402
+from urllib.parse import urlparse  # noqa: E402
 
 
 # ── lineage 載入 ──────────────────────────────────────────────
@@ -109,6 +112,35 @@ def main():
     for rid, names in seen_rpf.items():
         if len(names) > 1:
             R.append(("error", f"rpf_id {rid} 重複", " / ".join(names)))
+
+    # 2.5) sources 裡的非官方 host（2026-08-03 新增）
+    # 依 SCHEMA.md〈sources 與 extra_sources 的分工〉，`sources` 只放官方／一手來源。
+    # 故 `sources` 出現 is_official_source() 判 False 的 host，必為以下兩者之一，都要處理：
+    #   (a) 確實是園方官網／官方帳號，但漏掛 build_db 的 OFFICIAL_HOSTS/IG/FB/X 白名單
+    #       → 該條目的「來源」區塊會整個空掉、網站顯示「未經官方佐證」（曾兩度發生）
+    #   (b) 本來就非官方（新聞、部落格、NGO）→ 應搬到 `extra_sources`
+    # RPF／lineage 是全 wiki 通用的線索來源、本就不該算官方，屬預期值故排除不報。
+    _EXPECTED_NON_OFFICIAL = {"redpandafinder.com", "github.com"}
+    src_hosts = {}
+    for name, fm in entries.items():
+        for u in (fm.get("sources") or []):
+            u = str(u).split()[0]
+            if not u.startswith("http"):
+                continue
+            if is_official_source(u):
+                continue
+            h = _host(u)
+            if not h or h in _EXPECTED_NON_OFFICIAL:
+                continue
+            # IG/FB/X 共用網域：連帳號一起報，才看得出是哪個帳號沒掛白名單
+            if h in ("instagram.com", "facebook.com", "x.com", "twitter.com"):
+                seg = urlparse(u).path.strip("/").split("/")[0].lower().lstrip("@")
+                h = f"{h}/@{seg}"
+            src_hosts.setdefault(h, []).append(name)
+    for h, names in sorted(src_hosts.items(), key=lambda kv: -len(kv[1])):
+        R.append(("warn", "sources 有非官方 host（漏掛白名單或該進 extra_sources）",
+                  f"{h} ×{len(names)}：{', '.join(sorted(names)[:4])}"
+                  + ("…" if len(names) > 4 else "")))
 
     # 3) 與 lineage 比對
     cross = 0

@@ -1,6 +1,6 @@
 # Wiki 目錄 Index
 
-> 最後更新：2026-08-02 | 條目總數：828（另有 5 筆條目暫存 wiki/_hidden/，不計入、不上站）
+> 最後更新：2026-08-03 | 條目總數：844（另有 5 筆條目暫存 wiki/_hidden/，不計入、不上站）
 
 ---
 
@@ -2123,7 +2123,7 @@
 | [[yang-tao-2018]] | 楊桃／杨桃 Yang Tao — 山竹之雙胞胎妹妹；桃子之母 | ♀ | 2018 | 杭州動物園 🇨🇳 |
 | [[yue-bing-2023-06-16]] | 月餅／月饼 Yue Bing — 山竹之女；麻團之雙胞胎妹妹；目前未展出 | ♀ | 2023-06-16 | 杭州動物園 🇨🇳 |
 | [[wen-wen-hangzhou]] | 文文 Wen Wen — 生年・家系不詳 🚧 | ♀ | 不詳 | 杭州動物園 🇨🇳 |
-| [[duo-duo-hangzhou]] | 朵朵 Duo Duo — 生年・家系不詳 🚧 | ♀ | 不詳 | 杭州動物園 🇨🇳 |
+| [[duo-duo-hangzhou]] | 朵朵 Duo Duo — 生年・家系不詳；⚠️ 與都江堰 [[duo-duo-dujiangyan]]（多多）同拼音 🚧 | ♀ | 不詳 | 杭州動物園 🇨🇳 |
 
 ---
 
@@ -2308,9 +2308,9 @@
 
 ## 海外個體（中國・都江堰小熊貓森林公園）
 
-四川省成都市都江堰市蒲陽街道華西社區都江堰小熊貓森林公園（四川琦趣動物園管理有限公司經營，小熊貓專門的科研繁育與科普園區）的個體，共 14 隻（♂4／♀8／性別不詳 2）；生日（天天除外）、入園與家系均待查證。名字由維護者確認、暫無官方公告佐證；家系依 2026-08-01・08-02 讀者現場回報，園方未公布。
+四川省成都市都江堰市蒲陽街道華西社區都江堰小熊貓森林公園（四川琦趣動物園管理有限公司經營，小熊貓專門的科研繁育與科普園區）的個體，共 16 隻（♂5／♀8／性別不詳 3）；生日（天天除外）、入園與家系均待查證。名字由維護者確認、暫無官方公告佐證；家系依 2026-07-14 園內名單與 2026-08-01・08-02 讀者現場回報，園方未公布。
 
-另有 3 隻（多多、歡歡、樂樂）經讀者回報存在於本園，惟性別未確認且無家系線索，暫記於 `data/cn-candidates.json`，不計入上表。
+另有 3 隻（歡歡、樂樂、緩緩）經讀者回報存在於本園，惟性別未確認、家系線索不足，暫記於 `data/cn-candidates.json`，不計入上表。
 
 | 條目 | 說明 | 性別 | 生年 | 動物園 |
 |------|------|------|------|--------|
@@ -2326,8 +2326,10 @@
 | [[qing-tian-dujiangyan]] | 晴天 Qing Tian 🚧 | ♀ | 不詳 | 都江堰小熊貓森林公園 🇨🇳 |
 | [[xiu-xiu-dujiangyan]] | 秀秀 Xiu Xiu — ⚠️ 與西山 🪐 [[shuu-shuu-1981]] 同名 🚧 | ♀ | 不詳 | 都江堰小熊貓森林公園 🇨🇳 |
 | [[can-can-dujiangyan]] | 燦燦／灿灿 Can Can 🚧 | ♂ | 不詳 | 都江堰小熊貓森林公園 🇨🇳 |
-| [[hei-shuai-dujiangyan]] | 黑帥／黑帅 Hei Shuai — 心心之子女；性別待確認 🚧 | 不詳 | 不詳 | 都江堰小熊貓森林公園 🇨🇳 |
+| [[hei-shuai-dujiangyan]] | 黑帥／黑帅 Hei Shuai — 心心之子 🚧 | ♂ | 不詳 | 都江堰小熊貓森林公園 🇨🇳 |
 | [[nian-nian-dujiangyan]] | 年年 Nian Nian — 陽陽之子女；性別待確認 🚧 | 不詳 | 不詳 | 都江堰小熊貓森林公園 🇨🇳 |
+| [[duo-duo-dujiangyan]] | 多多 Duo Duo — 慢慢之親代；性別待確認；⚠️ 與杭州 [[duo-duo-hangzhou]]（朵朵）同拼音 🚧 | 不詳 | 不詳 | 都江堰小熊貓森林公園 🇨🇳 |
+| [[man-man-dujiangyan]] | 慢慢 Man Man — 多多之子女；性別待確認 🚧 | 不詳 | 不詳 | 都江堰小熊貓森林公園 🇨🇳 |
 
 ---
 
@@ -2408,6 +2410,20 @@
 | [[sophia-2002-06-20]] | Sophia ソフィア — Carson・Willa 之母 🪐（RPF #528）| ♀ | 2002–2019 🪐 | Lincoln Children's Zoo 🇺🇸 |
 | [[duli-2011-07-05]] | Duli ドゥリ — Carson・Willa 之父（RPF #526）| ♂ | 2011– | Zoo Montana 🇺🇸 |
 
+### Tenzing 一家（Sacramento Zoo → San Francisco Zoo）
+
+[[shama-2007-07-01]] 🪐 × [[tate-2006-06-28]] 🪐 之女 [[pili-2011-06-17]] 🪐 與 [[sophia-2002-06-20]] 🪐 × [[he-ping-1998-06-19]] 🪐 之子 [[takeo-2008-06-29]] 🪐，2012 年在 Sacramento Zoo 配對，翌年生下 [[tenzing-2013-06-08]] 🪐；Tenzing 依 SSP 於 2014 年移居 San Francisco Zoo，成為該園最受歡迎的動物之一。Takeo 在 Mill Mountain Zoo 時另與 Nova 育有 [[razz-2011-06-14]] 🪐。此家系為喜馬拉雅亞種（fulgens），並與 Carson 一家經 [[sophia-2002-06-20]] 🪐 相連。
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[tenzing-2013-06-08]] | Tenzing（原名 Kodari）— 舊金山明星個體，歿於肉孢子蟲症 🪐（RPF #697） | ♂ | 2013–2025 🪐 | San Francisco Zoo 🇺🇸 |
+| [[pili-2011-06-17]] | Pili — Tenzing 之母；Sacramento Zoo 最年長雌性 🪐（RPF #843） | ♀ | 2011–2026 🪐 | Sacramento Zoo 🇺🇸 |
+| [[takeo-2008-06-29]] | Takeo — Tenzing 之父；[[sophia-2002-06-20]]🪐 之子 🪐（RPF #531） | ♂ | 2008–2023 🪐 | Sacramento Zoo 🇺🇸 |
+| [[razz-2011-06-14]] | Razz — Tenzing 半血緣兄（母 Nova）🪐（RPF #625） | ♂ | 2011–2025 🪐 | Blank Park Zoo 🇺🇸 |
+| [[shama-2007-07-01]] | Shama — Pili 之母 🪐（RPF #874） | ♀ | 2007–2014 🪐 | Smithsonian Conservation Biology Institute 🇺🇸 |
+| [[tate-2006-06-28]] | Tate — Pili 之父 🪐（RPF #1226） | ♂ | 2006–2015 🪐 | Erie Zoological Gardens 🇺🇸 |
+| [[he-ping-1998-06-19]] | He-Ping — Takeo 之父 🪐（RPF #793） | ♂ | 1998–2011 🪐 | Denver Zoological Gardens 🇺🇸 |
+
 ### Zan × Kendji 一家（Roger Williams Park Zoo）
 
 [[zan-2020-05-25]] × [[kendji-2015-06-22]] 於羅德島 Roger Williams Park Zoo 育有雙胞胎 Katara 與 Sokka（2025-07-04 生，命名取自《降世神通》）。Katara 依 SSP 於 2026 春移居新園（園方 2026-06-04 宣布已離園、地點待公布；讀者稱 Toledo 🚧）；Sokka 預定 2026 秋移居（條目暫存 _hidden）。
@@ -2467,13 +2483,29 @@
 | [[mebo-2023-06-13]] | Mebo — [[hazel-2016-06-14]] × [[itsuki-2015-06-22]]；[[enoki-2023-06-13]] 雙胞胎；2024 移居舊金山（RPF #1419） | ♀ | 2023– | San Francisco Zoo 🇺🇸 |
 | [[enoki-2023-06-13]] | Enoki — [[hazel-2016-06-14]] × [[itsuki-2015-06-22]]；[[mebo-2023-06-13]] 雙胞胎；2024 移居西雅圖（RPF #1418） | ♂ | 2023– | 森林公園動物園 🇺🇸 |
 | [[madeline-2015-06-22]] | Madeline — [[kendji-2015-06-22]] 雙胞胎；2024 移居 Greensboro（RPF #444） | ♀ | 2015– | Greensboro Science Center 🇺🇸 |
-| [[dash-2012-06-06]] | Dash — [[kayah-2007-06-11]] × Dusk（RPF #447）之子、Xia ½ 兄（RPF #418） | ♂ | 2012– | Milwaukee County Zoo 🇺🇸 |
+| [[dash-2012-06-06]] | Dash — [[kayah-2007-06-11]] × [[dusk-2004-06-02]] 🪐 之子、Xia ½ 兄（RPF #418） | ♂ | 2012– | Milwaukee County Zoo 🇺🇸 |
 | [[cassie-2007-06-26]] | Cassie — Koko × Lala 之女、[[stellar-2007-06-26]] 雙胞胎（RPF #442） | ♀ | 2007– | Safari Niagara 🇨🇦 |
 | [[stellar-2007-06-26]] | Stellar — [[cassie-2007-06-26]] 雙胞胎；別名 Neko 🪐（RPF #312；🚧 lineage 漢字名「恒星」待確認） | ♀ | 2007–2017 🪐 | 森林公園動物園 🇺🇸 |
 | [[pip-2008-05-26]] | Pip — [[tai-2008-05-26]] 雙胞胎 🪐（RPF #443；🚧 居住史 RPF 無記錄，出生園推定） | ♀ | 2008–2020 🪐 | Edmonton Valley Zoo 🇨🇦 |
 | [[tai-2008-05-26]] | Tai — [[pip-2008-05-26]] 雙胞胎 🪐（RPF #383；⚠️ 勿與 [[tai-shan-2008-06-14]] 混淆） | ♀ | 2008–2022 🪐 | Henry Vilas Zoo 🇺🇸 |
 | [[sha-lei-2009-06-13]] | Sha-Lei — Koko × Lala 之女 🪐（RPF #441） | ♀ | 2009–2022 🪐 | Roger Williams Park Zoo 🇺🇸 |
 | [[kachin-1995-05-31]] | Kachin — Kayah 之父 🪐（RPF #848；🚧 居住園 RPF 無記錄） | ♂ | 1995–2011 🪐 | 不詳 |
+
+---
+
+## 海外個體（加拿大／美國・Dusk 一家）
+
+Dusk（RPF #447）2004 年生於溫尼伯 Assiniboine Park Zoo，經 Granby Zoo（在此與 [[kayah-2007-06-11]] 育有 [[dash-2012-06-06]]）於 2013 年入住 Calgary Zoo，與 [[sakura-2013-07-01]] 🪐 育有五隻子女，2023-01-10 在卡加利以 18 歲半高齡辭世（Calgary Zoo 官方訃告，該園稱其為 SSP 的「conservation superstar」）。本節收錄 Dusk 本人、其在卡加利所生的四隻子女（[[udaya-2019-06-20]] 見下一節），以及雙胞胎兄弟 Rover 與 Rusty。另一位兄弟 Rufus（RPF #426）資料不足未建檔，見 [[xia-2013-07-01]] 條目。
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[dusk-2004-06-02]] | Dusk — Udaya・Usha・Khairo・Chiya・Nisha 與 [[dash-2012-06-06]] 之父 🪐（RPF #447；Calgary Zoo 官方訃告） | ♂ | 2004–2023 🪐 | Calgary Zoo 🇨🇦 |
+| [[usha-2015-07-15]] | Usha — [[sakura-2013-07-01]] 🪐 × Dusk 之女；2016 移居 Greensboro（RPF #460） | ♀ | 2015– | Greensboro Science Center 🇺🇸 |
+| [[khairo-2016-06-21]] | Khairo — [[chiya-2016-06-21]] 雙胞胎；2021 移居 Red River（RPF #459） | ♂ | 2016– | Red River Zoo 🇺🇸 |
+| [[chiya-2016-06-21]] | Chiya — [[khairo-2016-06-21]] 雙胞胎；別名 Chiyo（RPF #458） | ♂ | 2016– | Northeastern Wisconsin Zoo 🇺🇸 |
+| [[nisha-2017-06-13]] | Nisha — Sakura 卡加利時期第四胎；2018 移居波士頓（RPF #462） | ♀ | 2017– | Zoo New England Franklin Park Zoo 🇺🇸 |
+| [[rover-2005-05-16]] | Rover — Dusk 之弟、[[rusty-2005-05-16]] 🪐 雙胞胎；[[homer-2012-06-11]] 之父 🪐（RPF #590） | ♂ | 2005–2015 🪐 | Cincinnati Zoo and Botanical Garden 🇺🇸 |
+| [[rusty-2005-05-16]] | Rusty — Dusk 之弟、[[rover-2005-05-16]] 🪐 雙胞胎 🪐（RPF #473） | ♂ | 2005–2023 🪐 | Roger Williams Park Zoo 🇺🇸 |
 
 ---
 
@@ -2488,7 +2520,7 @@
 | [[anshu-2023-06-18]] | Anshu — 尼泊爾語「ray of sun」；Ravi・Sundari 之弟 | ♂ | 2023– | Calgary Zoo 🇨🇦 |
 | [[aahana-2023-06-18]] | Aahana — 尼泊爾語「first rays of the sun」；Anshu 雙胞胎姊妹；2024 移居 Safari Niagara | ♀ | 2023– | Safari Niagara 🇨🇦 |
 | [[linus-2018-06-23]] | Linus — Ravi・Sundari 之父；Cincinnati 生（RPF #1000） | ♂ | 2018– | Calgary Zoo 🇨🇦 |
-| [[udaya-2019-06-20]] | Udaya — Ravi・Sundari 之母；Sakura 之女；舊名 Aduya（RPF #1081） | ♀ | 2019– | Calgary Zoo 🇨🇦 |
+| [[udaya-2019-06-20]] | Udaya — Ravi・Sundari 之母；[[sakura-2013-07-01]] 🪐 × [[dusk-2004-06-02]] 🪐 之女；舊名 Aduya（RPF #1081） | ♀ | 2019– | Calgary Zoo 🇨🇦 |
 | [[apple-seed-1-udaya-2026-06-08]] | 蘋果籽1號 — Udaya × Linus 2026 三胞胎之一（未命名佔位） | – | 2026– | Calgary Zoo 🇨🇦 |
 | [[apple-seed-2-udaya-2026-06-08]] | 蘋果籽2號 — Udaya × Linus 2026 三胞胎之一（未命名佔位） | – | 2026– | Calgary Zoo 🇨🇦 |
 | [[apple-seed-3-udaya-2026-06-08]] | 蘋果籽3號 — Udaya × Linus 2026 三胞胎之一（未命名佔位） | – | 2026– | Calgary Zoo 🇨🇦 |

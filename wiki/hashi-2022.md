@@ -8,7 +8,8 @@ zoos:
   - Khao Kheow Open Zoo (2024 – 現在)
 tags: [male, thailand, rescue]
 sources:
-  - https://www.facebook.com/Bangkok.Pattaya/posts/-khao-kheow-open-zoo-welcomes-adorable-new-red-panda-pair-hachi-and-hana-khao-kh/1582598963129122/
+extra_sources:
+  - https://www.facebook.com/Bangkok.Pattaya/posts/-khao-kheow-open-zoo-welcomes-adorable-new-red-panda-pair-hachi-and-hana-khao-kh/1582598963129122/  # 旅遊粉專 Bangkok.Pattaya 轉載：Khao Kheow Open Zoo 迎入 Hachi・Hana（非園方帳號）
 ---
 
 # Hashi

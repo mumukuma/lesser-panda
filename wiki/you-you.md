@@ -7,8 +7,9 @@ zoos:
   - 銀基動物王國 ( – 現在)
 tags: [styani, zoo:銀基動物王國]
 sources:
-  - https://hkcd.com/content_p/2025-01/06/content_182122.html
   - https://www.enjoyland.cn/AnimalKingdom.html
+extra_sources:
+  - https://hkcd.com/content_p/2025-01/06/content_182122.html  # 香港商報報導（2025-01-06）
 ---
 
 # You You（佑佑）

@@ -78,6 +78,17 @@ OFFICIAL_HOSTS = {
     "pairidaiza.eu",  # Pairi Daiza（比利時）
     "torontozoo.com",  # Toronto Zoo（加拿大；含 /mediaroom/ 新聞稿）
     "gvzoo.com",  # Greater Vancouver Zoo（加拿大；含 /news/ 新聞稿）
+    "calgaryzoo.com",  # Wilder Institute's Calgary Zoo（加拿大；含 /news/ 新聞稿與訃告）
+    # Valley Zoo Development Society：Edmonton Valley Zoo 的官方支援團體，園內動物資訊
+    # （出生日、父母、飼育員談話）由園方提供、以第一人稱發布，比照 Calgary 的 Wilder Institute 認列官方。
+    "buildingourzoo.com",
+    "zooknoxville.org",  # Zoo Knoxville（美國田納西州）
+    "saczoo.org",  # Sacramento Zoo（美國加州；含 /imported-blog/ 舊園方部落格，出生・命名紀錄）
+    "sfzoo.org",  # San Francisco Zoo & Gardens（美國加州）
+    "mandai.com",  # Mandai Wildlife Group（新加坡；Singapore Zoo／River Wonders 營運方）
+    "grandpark.seoul.go.kr",  # 서울대공원 首爾大公園（韓國；首爾市所屬，同 IG @seoulgrandpark）
+    # ⚠️ host 是「完全比對」，子網域要各自列一筆（corporate. 是新聞稿所在）
+    "oceanpark.com.hk", "corporate.oceanpark.com.hk",  # 香港海洋公園
 }
 
 # Facebook 是共用網域，不能整域列白名單（旅遊/粉絲轉載粉專也在同域）。
@@ -86,6 +97,7 @@ OFFICIAL_HOSTS = {
 OFFICIAL_FB_PAGES = {
     "thecalgaryzoo",   # The Calgary Zoo 官方專頁（page id 100064839398464）
     "zounokuni",       # ぞうの国 官方專頁
+    "oceanparkhk",     # 香港海洋公園 Ocean Park Hong Kong 官方專頁
 }
 _FB_HOSTS = {"facebook.com", "m.facebook.com", "web.facebook.com", "fb.com"}
 
@@ -127,6 +139,11 @@ OFFICIAL_IG_ACCOUNTS = {
     "hamurazoo.official",  # 羽村市動物公園（同 hamurazoo.jp；雌雄鑑定等公告發於此）
     "maruyamazoo_official",  # 札幌市円山動物園（同 city.sapporo.jp；出産公告發於此）
     "seoulgrandpark",  # 서울대공원 首爾大公園（韓國；官方帳號）
+    "calgaryzoo", "thecalgaryzoo",  # Wilder Institute's Calgary Zoo（兩個帳號皆官方；FB 白名單已收 thecalgaryzoo）
+    "edmontonvalleyzoo",  # Edmonton Valley Zoo（加拿大亞伯達省；市府所屬）
+    "safariniagara",  # Safari Niagara（加拿大安大略省）
+    "sanfranciscozoo",  # San Francisco Zoo & Gardens（同 sfzoo.org；訃報等公告發於此）
+    "sacramentozoo",  # Sacramento Zoo（同 saczoo.org；訃報等公告發於此）
 }
 _IG_HOSTS = {"instagram.com", "m.instagram.com"}
 _IG_NON_ACCOUNT_SEGS = {"p", "reel", "reels", "tv", "stories", "explore"}

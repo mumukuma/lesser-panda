@@ -9,8 +9,9 @@ zoos:
 tags: [styani, female, zoo:南京市紅山森林動物園, zoo:常州淹城野生動物世界]
 sources:
   - https://mp.weixin.qq.com/s/D7lBzw2grm8GjXMjF_Eg5A
-  - https://finance.sina.com.cn/jjxw/2026-01-04/doc-inhfeeek7361107.shtml
   - 出身（自常州淹城野生動物世界轉入）由作者提供（2026-07-21）；無官方連結，🚧 待查證
+extra_sources:
+  - https://finance.sina.com.cn/jjxw/2026-01-04/doc-inhfeeek7361107.shtml  # 新浪財經報導（2026-01-04）
 ---
 
 # Xia Wa（夏娃）

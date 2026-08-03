@@ -4482,3 +4482,215 @@ RPF #764「無名之雌」，只是 `jirou-1990-07-06` 一直沒同步。維護�
 - `data/zoos.json` — Chongqing Zoo 的 `zh` 由 `null` 補為「重慶動物園」
 
 （回報者 `楊桃` 已在 `data/contributors.json` 致謝名單，不重複列。）
+
+## [2026-08-03] add | Dusk 一家七筆：`udaya` 之父確認，卡加利時期子女與 Dusk 兄弟補齊
+
+讀者回報 `udaya-2019-06-20` 之父為 `dusk`，附 Calgary Zoo 官方訃告〈Farewell to an Old Friend〉。
+該訃告明載「his daughter, Udaya」，屬園方官網一手來源，依「官方來源可直接採用」逕行採用。
+
+**回報值與來源的出入（以來源為準）**：回報稱 Dusk 歿於 2023-01-16，惟該日為訃告**發稿日**，
+原文寫「last week we said goodbye」；RPF #447 記歿日 2023-01-10，與官方敘述相符，故採 2023-01-10。
+回報稱「2004 年出生於 Assiniboine Park Zoo」，官方僅寫「Born in 2004 in Winnipeg」未指名設施，
+RPF 居住史則明確記為 Assiniboine Park Zoo（2004-06-02 起），兩者一致故採用。
+
+**連帶釐清**：官方訃告稱 Dusk 一生育有六隻幼獸，與 RPF 所列 Dash・Usha・Khairo・Chiya・Nisha・Udaya
+六隻完全吻合，可交叉佐證。`zeyar-2007-06-21` 兄弟表中的 Dusk 亦確認即為 #447（RPF 兄弟名單相同），
+先前的同名疑慮解除。
+
+**來源**：
+- https://www.calgaryzoo.com/news/farewell-to-an-old-friend/ （Calgary Zoo 官方訃告，2023-01-16）
+- https://redpandafinder.com/#profile/447 (Dusk)
+- https://redpandafinder.com/#profile/460 (Usha)、#459 (Khairo)、#458 (Chiya)、#462 (Nisha)
+- https://redpandafinder.com/#profile/590 (Rover)、#473 (Rusty)
+- 讀者回報（未留暱稱，回報資料更正表單，2026-08-03）
+
+**新增條目**：
+- `dusk-2004-06-02.md` — Dusk（RPF #447），2004-06-02 生於 Assiniboine Park Zoo，
+  經 Granby Zoo（2005–2012）、Assiniboine（2012–2013）於 2013-10-30 入 Calgary Zoo，
+  2023-01-10 歿於卡加利、享年 18 歲；`sources` 為園方訃告＋RPF
+- `usha-2015-07-15.md` — Usha（RPF #460）♀，`sakura` × `dusk` 之女，Calgary 生，2016 移居 Greensboro Science Center
+- `khairo-2016-06-21.md` — Khairo（RPF #459）♂，`chiya` 之雙胞胎，2017 移居 Northeastern Wisconsin Zoo、2021 轉 Red River Zoo
+- `chiya-2016-06-21.md` — Chiya（RPF #458）♂，別名 Chiyo，現居 Northeastern Wisconsin Zoo
+- `nisha-2017-06-13.md` — Nisha（RPF #462）♀，2018 移居 Zoo New England Franklin Park Zoo
+- `rover-2005-05-16.md` — Rover（RPF #590）♂ 🪐，Dusk 之弟、`rusty` 之雙胞胎，2005–2015，`homer-2012-06-11` 之父
+- `rusty-2005-05-16.md` — Rusty（RPF #473）♂ 🪐，Dusk 之弟、`rover` 之雙胞胎，2005–2023
+
+**未建檔（資料不足）**：Dusk 另一兄弟 Rufus（RPF #426）**無任何居住史**，
+依維護者裁定維持純文字、不建檔案卡（缺「綁定已登記園」硬門檻）。
+其 profile 頁因缺 `location` 欄位而渲染失敗，改由 `/export/redpanda.json` 取得生日 **2003-06-18**，
+已回填至各條目的純文字提及處。父母（#601／#602）與雙胞胎（#603）皆為 (no name) 佔位名，同樣不建。
+
+**更新條目**：
+- `udaya-2019-06-20.md` — 父由「不詳（🚧 待查證）」改為 `dusk-2004-06-02`；補同父母兄姊四隻與
+  ½ 兄 `dash`、½ 妹 `poppy`；`sources` 增列 Calgary Zoo 官方訃告
+- `sakura-2013-07-01.md` — 子女表補 `usha`／`khairo`／`chiya`／`nisha` 四列（另一方親本均為 `dusk`）、
+  `udaya` 的另一方親本由「不詳」改為 `dusk`；配偶欄補 Calgary 時期的 `dusk`；
+  移除「卡加利時期其他子女亦未建檔」的待辦註記
+- `dash-2012-06-06.md`・`kayah-2007-06-11.md`・`madeline-2015-06-22.md`・`xia-2013-07-01.md`・
+  `zorro-2013-07-01.md` — 純文字「Dusk（RPF #447）」改為 wikilink
+- `zeyar-2007-06-21.md` — 兄弟表的 Dusk／Rover／Rusty 改 wikilink，並補生卒年與雙胞胎關係
+- `homer-2012-06-11.md` — 父由「Rover 🪐（#590，無條目）」改為 wikilink
+- `maple-2022-06-14.md`・`mei-mei-2022-06-14.md`・`poppy-2024-06-13.md` — 半血緣兄姊列表補上
+  卡加利時期四隻同母異父手足
+- `index.md` — 新增「海外個體（加拿大／美國・Dusk 一家）」一節共 7 列；`dash`／`udaya` 說明改 wikilink；
+  條目總數更新為 835
+- `data/zoos.json` — 補 Greensboro Science Center 與 Zoo New England Franklin Park Zoo 的
+  `location_ja`（原為 null，居住史地點欄會空白）；兩園 `zh` 仍留 null，待維護者定名
+
+（回報者未留暱稱，`data/contributors.json` 不列。）
+
+## [2026-08-03] fix | 26 筆條目的非官方連結由 `sources` 移入 `extra_sources`
+
+承同日 `CHANGELOG.md`「來源分類器」條目：`audit.py` 新增的「sources 有非官方 host」檢查跑出 16 個 host。
+逐一判定後，**全部屬「本來就非官方、應改放 `extra_sources`」**（非白名單漏掛），故依 `SCHEMA.md`
+〈sources 與 extra_sources 的分工〉搬移，並在行末以 YAML 註解補記出處與看點。連結一律留存、未刪除。
+
+搬移的 16 個 host：新聞媒體（`turnto10.com`、`wpri.com`、`cbc.ca`、`ytn.co.kr`、`hkcd.com`、
+`timeout.com.hk`、`news.cnhubei.com`、`finance.sina.com.cn`、`m.sohu.com`、`wxrb.com`、
+`zsrbapp.zsnews.cn`、`guinnessworldrecords.com`）、保育 NGO（`redpandanetwork.org`）、
+園方支援團體（`buildingourzoo.com`）、非園方粉專轉載（`facebook.com/Bangkok.Pattaya`）、
+無法辨識發文者的 FB 連結（`facebook.com/photo?fbid=…`）。
+
+**更新條目（26 筆，共搬移 31 條連結）**：
+`bagel-2024-07-12`・`bei-bei`・`cong-cong-2008-06-11`・`dawa-2012-12-20`・`fred-2024-07-07`・
+`george-2024-07-07`・`hana-2023`・`hashi-2022`・`huan-xi-tuo-2020-05-10`・`karma-2012-12-20`・
+`katara-2025-07-04`・`kendji-2015-06-22`・`li-zi-2008-06-15`・`ma-tuan-2023-06-16`・`mei-mei-wuhan`・
+`meng-xia-2025-07-17`・`nan-nan-2024-07-02`・`nima-2012-12-20`・`nuo-mi-ji-2020-05-10`・
+`ravi-2022-06-14`・`tayla-2007-12-08`・`taylor-1998`・`xia-wa`・`you-you`・`zan-2020-05-25`・
+`zhong-xia-2025-07-17`
+
+**待補官方來源（4 筆，搬移後 `sources` 已空，audit 列 ⚪）**：
+`hana-2023`・`hashi-2022`・`katara-2025-07-04`・`taylor-1998`。
+這幾隻原本就只有新聞／轉載佐證，搬移只是讓「無官方佐證」誠實顯示出來，非資料退步。
+
+**`buildingourzoo.com` 依維護者裁定認列為官方**（同日稍後）：Valley Zoo Development Society 是
+Edmonton Valley Zoo 的官方支援團體，園內動物資訊由園方提供、以第一人稱發布，比照 Calgary Zoo 的
+Wilder Institute 辦理。已補進 `OFFICIAL_HOSTS`，並把 `fred-2024-07-07`・`george-2024-07-07` 的該連結
+由 `extra_sources` 移回 `sources`（兩筆 `has_official_source` 轉 true、來源區塊恢復顯示）；
+兩條目的 CBC 報導仍留在 `extra_sources`。
+
+**`li-zi-2008-06-15` 的 FB 連結經維護者確認為官方，已認列**（同日稍後）：該貼文出自
+**香港海洋公園 Ocean Park Hong Kong 官方專頁**，2013-06-16 發布的栗子訃告（園方載明栗子於前一日中午
+在後勤設施進食竹子時無徵兆倒下，解剖初判為腦梗塞或急性心臟衰竭），與條目所記歿日 2013-06-15 及
+RPF #933 一致。作法：
+- 網址由 `facebook.com/photo?fbid=10151628367866390` 改存**含 vanity 的正規形式**
+  `facebook.com/oceanparkhk/photos/10151628367866390`（實測可解析至同一則貼文），並移回 `sources`
+- `OFFICIAL_FB_PAGES` 補 `oceanparkhk`
+- 內文備注改寫：歿日由「非官方、🚧 待查證」改為「有官方佐證」並補死亡經過；生日與居住史仍標 🚧
+
+（作法沿用既有慣例：FB 是共用網域、不可整域列白名單，故存 source 時務必用含 vanity 的正規網址，
+`?fbid=` 形式不含專頁識別、離線分類器無從比對。）
+
+## [2026-08-03] add | 都江堰小熊貓森林公園：多多、慢慢 2 筆建檔（維護者授權之門檻例外）
+
+**來源**：
+- 讀者回報（Gaia，都江堰園內名單，2026-07-14）——該名單列多數個體為性別不明
+- 讀者回報（`@red.panda.ct`，現場所見，2026-08-01）——多多的現場確認
+- 維護者提供（2026-08-03）
+
+**新增條目**：
+- `duo-duo-dujiangyan.md` — 多多 Duo Duo，**性別不詳**，`man-man-dujiangyan` 之親代
+- `man-man-dujiangyan.md` — 慢慢 Man Man，**性別不詳**，`duo-duo-dujiangyan` 之子女
+
+**更新條目**：
+- `duo-duo-hangzhou.md` — 補「⚠️ 注意同拼音」指向新建的都江堰 多多（杭州為「朵朵」、漢字不同）
+- `index.md` — 都江堰區塊 14 → 16 隻（♂4／♀8／性別不詳 4）、候補改記 3 隻；
+  `duo-duo-hangzhou` 該列補同拼音警語；條目總數更新為 837
+- `data/cn-candidates.json` — 移除「多多」（已轉正）；新增「緩緩」為獨立一筆
+  （原僅寫在多多的 note 裡，易遺漏）
+
+**⚠️ 建檔門檻例外（維護者 2026-08-03 裁定）**：
+兩隻**性別皆不詳**，且唯一的家系連結是**彼此**——多多靠子女慢慢、慢慢靠親代多多。
+CLAUDE.md 2026-08-02 的性別例外原文是「有**已建條目**的家系連結時性別可留空」，
+立意在「別讓既有條目的子女表殘缺、家系圖斷鏈」；本案兩隻同時新建、沒有既有條目會斷，
+嚴格照文字並不成立（與黑帥・年年不同——那兩隻的父心心／陽陽是既有且性別已知的條目）。
+經提示後由維護者授權建檔，屬**個案例外，未修改 CLAUDE.md 規則**。日後若要常態化，
+需另行修訂「性別門檻」一節並說明 bootstrap 的界線。
+
+**⚠️ 已知副作用：家系邊不會進 DB**：
+`build_db.py` 由「子女表」反推 `parent_child` 時，需靠**親代的性別**決定 `mother`／`father`
+（`schema.sql` 的 `parent_type` CHECK 只允許這兩值）。多多性別不詳 → `ptype` 為 None →
+該筆關係被丟棄。故多多與慢慢的親子關係目前**只存在於 wiki 內文**，不會出現在 `redpanda.db`、
+網站個體頁的家族欄與家系圖。這是本站第一次出現「性別不詳的親代」（黑帥・年年是性別不詳的**子女**，
+親代性別已知故不受影響）。要讓這類關係上站，需擴充 `parent_type` 容許 `parent` 一值並同步
+`export_json` 與前端——留待維護者裁定，本次未改工具。慢慢的家族欄因此寫「親代：」而非「父：／母：」。
+
+**其他**：
+- 樂樂・歡歡・緩緩三隻仍留候補（`data/cn-candidates.json`），性別未確認、家系線索不足
+- 緩緩的佐證強度與慢慢相同（同一份名單、同為多多之子女），僅因不在本次授權範圍內而未建檔
+- 兩隻均無 RPF 收錄，故無 `rpf_id`／`rpf_url`；生日不詳故 slug 用園簡稱 `-dujiangyan`
+
+## [2026-08-03] update | 黑帥 性別回補 ♂
+
+**來源**：維護者提供（2026-08-03）
+
+**更新條目**：
+- `hei-shuai-dujiangyan.md` — `sex: male`、tags 加 `male`；引言「性別不詳」改 ♂；
+  內文「心心之子女」改「之子」；🚧 待查證移除「性別」一項，並註明性別由維護者確認、
+  非由名字「帥」字推定（原條目明載不可如此推定，避免日後誤讀為推定值）；
+  `sources` 補一行「維護者提供（2026-08-03）：性別 ♂」
+- `xin-xin-dujiangyan.md` — 子女表下方註記由「黑帥性別待確認」改為已確認
+- `index.md` — 都江堰區塊性別分布由（♂4／♀8／性別不詳 3）更正為（♂5／♀8／性別不詳 3）；
+  黑帥該列性別欄 不詳 → ♂。條目總數不變（837）
+
+**影響**：黑帥本身無子女，故 `parent_child` 邊不受影響（其父 心心 性別本已知，邊一直都在）。
+都江堰尚有 3 隻性別不詳：年年、多多、慢慢。
+
+## [2026-08-03] add | Tenzing 一家七筆：舊金山明星個體 Tenzing（原名 Kodari，RPF #697）建檔
+
+讀者透過「圖鑑缺漏」表單回報 San Francisco Zoo 的 `Tenzing`（回報者 Tenzing；附 2 條 IG 連結），
+比對後兩條皆為 **San Francisco Zoo 官方帳號 @sanfranciscozoo** 貼文（10 歲生日 reel 與訃報），
+依「官方來源可直接採用」逕行建檔。連帶把 RPF 家系上的父母、半血緣兄與四位祖父母中三位補齊
+（祖母 `sophia-2002-06-20` 早已有條目，本次補上其與 He-Ping 所出的 Takeo 一支）。
+
+**生日以園方為準**：Sacramento Zoo 園方部落格（2013-07-18 五週齡更新）明載幼獸 "born on June 8th"，
+且載明因母親育幼不穩、出生後兩週半改人工哺育、三個半月大時命名 Kodari（尼泊爾邊境城市名）。
+RPF 記為 2013-06-01，**不採**；回報者所填 2013-06-08 與園方一致。slug 用官方生日。
+
+**Pili 死訊（RPF 未更新）**：RPF 仍顯示 Pili 在世，實則已於 2026-01-16（週五）人道安樂死，
+享年 14 歲——Sacramento Zoo 官方 IG @sacramentozoo 訃報載明甲狀腺疾病長期治療、末期腸胃症狀。
+以官方為準記 `died`。
+
+**來源**：
+- https://www.instagram.com/sanfranciscozoo/p/DL8Mjksz9_q/ （SF Zoo 官方訃報：Tenzing 12 歲、肉孢子蟲症）
+- https://www.instagram.com/sanfranciscozoo/p/CtQJY-XuOUi/ （SF Zoo 官方：Tenzing 10 歲生日 "Hang Ten party"）
+- https://www.saczoo.org/imported-blog/posts/red-panda-cub-5-week-update-video （Sacramento Zoo：born June 8th、人工哺育）
+- https://www.instagram.com/sacramentozoo/p/DTv2-aEiVFP/ （Sacramento Zoo 官方訃報：Pili，2026-01-16 安樂死）
+- https://www.cbsnews.com/sanfrancisco/news/san-francisco-red-panda-tenzing-dies-endangered-species/ （CBS SF，非官方；記 extra_sources）
+- https://www.cbsnews.com/sacramento/news/sacramento-zoos-red-panda-pili-dies-at-14/ （CBS Sacramento，非官方；記 extra_sources）
+- https://redpandafinder.com/#profile/697 ／ /843 ／ /531 ／ /625 ／ /874 ／ /1226 ／ /793
+
+**新增條目**：
+- `tenzing-2013-06-08.md` — Tenzing（原名 `Kodari`，RPF #697）♂ fulgens，2013-06-08 生於 Sacramento Zoo，
+  2014-03-24 移居 San Francisco Zoo，2025-07-10 歿於肉孢子蟲症（享年 12 歲）
+- `pili-2011-06-17.md` — Pili（RPF #843）♀，2011-06-17 生於 National Zoological Park，
+  2012-03-29 移居 Sacramento Zoo，2026-01-16 安樂死（享年 14 歲）；Tenzing 之母
+- `takeo-2008-06-29.md` — Takeo（RPF #531）♂，2008-06-29 生於 Denver，終居 Sacramento Zoo、2023-05-10 歿；
+  Tenzing 之父、`sophia-2002-06-20` 之子（故為 `carson-2014-07-01`／`willa-2014-07-01` 的 ½ 兄）
+- `razz-2011-06-14.md` — Razz（RPF #625，別名 Raz／Dato／Starr）♂，2011-06-14 生於 Mill Mountain Zoo，
+  終居 Blank Park Zoo、2025-08-08 歿；Tenzing 半血緣兄（母 Nova）
+- `shama-2007-07-01.md` — Shama（RPF #874）♀，2007–2014，Pili 之母（Tenzing 外祖母）
+- `tate-2006-06-28.md` — Tate（RPF #1226）♂，2006–2015，Pili 之父（Tenzing 外祖父）
+- `he-ping-1998-06-19.md` — He-Ping（RPF #793）♂，1998–2011，Takeo 之父（Tenzing 祖父）
+
+**更新條目**：
+- `sophia-2002-06-20.md` — 補配偶 `he-ping-1998-06-19`、子女增列 `takeo-2008-06-29` 與 Amaya（雙胞胎，2008）
+- `carson-2014-07-01.md` — ½ 手足清單中 Takeo 由純文字改 wikilink；註記改為「10 隻中僅 Takeo 已建檔」
+- `mebo-2023-06-13.md` — 補述在 San Francisco Zoo 與 Tenzing 同居（園方昵稱 Little Mebo）至 2025-07 為止
+- `index.md` — 海外個體（美國）新增「Tenzing 一家（Sacramento Zoo → San Francisco Zoo）」小節七列；
+  條目總數 837 → 844
+- `data/zoos.json` — 補 13 座美國園的 `location_ja`／`location_zh`（Sacramento／San Francisco／
+  National Zoological Park／SCBI／Erie／Cape May／Denver／Detroit／Milwaukee／Mill Mountain／
+  Blank Park／Hemker／Zoo Knoxville）
+- `tools/build_db.py` — `OFFICIAL_HOSTS` 補 `saczoo.org`・`sfzoo.org`；
+  `OFFICIAL_IG_ACCOUNTS` 補 `sanfranciscozoo`・`sacramentozoo`
+
+**其他**：
+- Tenzing 的全血緣妹妹（2018 生，RPF #1228，登錄名 `Baby`）未及正式命名即夭折，
+  依「幼逝寶寶收錄原則」僅以佔位名登錄者不建條目，僅於父母條目內以文字記錄
+- `japanese` 一律留空：本家系無日本居住史，lineage 的 `ja.name`（テンジン／コダリ／和平 等）
+  為機械轉寫不採；He-Ping 的「和平」疑為中文名，已在條目標 🚧 待維護者確認後再放 `chinese`
+- He-Ping 於 2003-01-20 – 2007-11-28 間 lineage 僅記「Zoo Not Found」，該段居住史缺、`zoos:` 留空缺
+- Takeo 歿日 2023-05-10 僅 RPF 有載（官方僅佐證「卒於 2023 年」），已標 🚧 待查證；
+  Razz、Shama、Tate、He-Ping 四筆亦僅有 RPF 依據，各自條目均標 🚧
+- 致謝名單：`data/contributors.json` 新增回報者 `Tenzing`（留了暱稱、本批已採用）
