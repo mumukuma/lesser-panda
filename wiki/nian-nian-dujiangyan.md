@@ -10,6 +10,7 @@ zoos:
 tags: [styani, limited-profile, zoo:都江堰小熊貓森林公園]
 instagram:
   - https://www.instagram.com/p/DSWSvwGkl1-/
+  - https://www.instagram.com/p/DbieDw7Er59/
 sources:
   - 讀者回報（@red.panda.ct，現場所見，2026-08-01）
   - 維護者提供（2026-08-02）
