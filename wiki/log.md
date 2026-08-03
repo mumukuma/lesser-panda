@@ -4694,3 +4694,30 @@ RPF 記為 2013-06-01，**不採**；回報者所填 2013-06-08 與園方一致�
 - Takeo 歿日 2023-05-10 僅 RPF 有載（官方僅佐證「卒於 2023 年」），已標 🚧 待查證；
   Razz、Shama、Tate、He-Ping 四筆亦僅有 RPF 依據，各自條目均標 🚧
 - 致謝名單：`data/contributors.json` 新增回報者 `Tenzing`（留了暱稱、本批已採用）
+
+---
+
+## [2026-08-03] add | 都江堰 `bei-bei-dujiangyan`、上海野生動物園 `mao-dou-shanghai-wild`；`nian-nian-dujiangyan` 補性別
+
+**來源**：
+- 讀者回報（@red.panda.ct，現場所見，2026-08-01）＋維護者確認（2026-08-03）：都江堰 `bei-bei`（心心之子女）、`nian-nian` 性別 ♂
+- 維護者提供（2026-08-03）：上海野生動物園 `mao-dou`（♂）
+
+**新增條目**：
+- `bei-bei-dujiangyan.md` — 貝貝 Bei Bei，性別待確認，生日不詳，現居 都江堰小熊貓森林公園；
+  父 `xin-xin-dujiangyan`（心心），母不詳。依「檔案卡・性別門檻例外」（有已建條目的家系連結時性別可留空）建檔
+- `mao-dou-shanghai-wild.md` — 毛豆 Mao Dou ♂，生日不詳，現居 上海野生動物園；父母不詳。
+  無生日故 slug 用園簡稱後綴；因上海有兩座已登記園（上海動物園／上海野生動物園），後綴取 `shanghai-wild` 以免混淆
+
+**更新條目**：
+- `nian-nian-dujiangyan.md` — 補 `sex: male` 與 male tag，引言改 ♂，待查證清單移除「性別」
+- `xin-xin-dujiangyan.md` — 子女表增列 `bei-bei-dujiangyan`（第四筆），引言與註記同步
+- `yang-yang-dujiangyan.md` — 註記改為「年年性別 ♂ 由維護者於 2026-08-03 確認」
+- `bei-bei.md` — 補同名提示（銀基 貝貝 ≠ 都江堰 貝貝）
+- `index.md` — 都江堰小節新增 `bei-bei-dujiangyan`、年年性別欄改 ♂、心心說明補列子女；
+  上海野生動物園小節新增 `mao-dou-shanghai-wild`；銀基 `bei-bei` 列補同名提示；條目總數 844 → 846
+
+**其他**：
+- 兩筆新條目皆為 `limited-profile` 檔案卡，`last_seen: 2026-08`、`zoos:` 起始年留空（不知抵達年）；
+  維護者確認、現正在世故**不掛** `unverified`；`sources` 無 host 故 `has_official_source` 仍為 false
+- `貝貝` 之園別經維護者確認為都江堰（同一回報來源），故符合「綁園」硬門檻；性別查得後回補 `sex` 與性別 tag

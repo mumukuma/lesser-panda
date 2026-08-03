@@ -6,6 +6,9 @@ species: Ailurus fulgens styani
 zoos:
   - 廈門靈玲動物王國 ( – 現在)
 tags: [styani, male, zoo:廈門靈玲動物王國]
+instagram:
+  - https://www.instagram.com/p/DRY0hKokb0T/
+  - https://www.instagram.com/p/DQ-72R8Eax4/
 sources:
   - 作者提供（2026-07-15；官方來源待補）
 ---

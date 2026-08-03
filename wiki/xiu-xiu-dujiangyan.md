@@ -11,6 +11,7 @@ tags: [styani, female, limited-profile, zoo:都江堰小熊貓森林公園]
 instagram:
   - https://www.instagram.com/p/DNAiStTy8jZ/
   - https://www.instagram.com/p/DNAd36ISSVj/
+  - https://www.instagram.com/p/DbkfUQ2Scdm/
 sources:
   - 維護者提供（2026-07-31）
 ---

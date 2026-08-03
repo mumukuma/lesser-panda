@@ -20,7 +20,7 @@ sources:
 > 現居：都江堰小熊貓森林公園（四川省成都市都江堰市蒲陽街道）🇨🇳
 > **最後確認**：2026-08（讀者現場回報）
 
-現居**都江堰小熊貓森林公園**，為該園的種公之一。與 [[yuan-yuan-dujiangyan]]（圓圓）育有 [[xiao-mi-feng-dujiangyan]]（小蜜蜂）；另為 [[xiao-xiao-dujiangyan]]（小小）與 [[hei-shuai-dujiangyan]]（黑帥）之父。出生年、入園時間與自身家系均不詳。
+現居**都江堰小熊貓森林公園**，為該園的種公之一。與 [[yuan-yuan-dujiangyan]]（圓圓）育有 [[xiao-mi-feng-dujiangyan]]（小蜜蜂）；另為 [[xiao-xiao-dujiangyan]]（小小）、[[hei-shuai-dujiangyan]]（黑帥）與 [[bei-bei-dujiangyan]]（貝貝）之父。出生年、入園時間與自身家系均不詳。
 
 ⚠️ 注意同名：日本多園有「心心（シンシン）」，如 [[shin-shin-2003-07-15]] 等，均為不同個體。
 
@@ -49,5 +49,7 @@ sources:
 | [[xiao-mi-feng-dujiangyan]]（小蜜蜂）| 不詳 | [[yuan-yuan-dujiangyan]] |
 | [[xiao-xiao-dujiangyan]]（小小）| 不詳 | 不詳 |
 | [[hei-shuai-dujiangyan]]（黑帥）| 不詳 | 不詳 |
+| [[bei-bei-dujiangyan]]（貝貝）| 不詳 | 不詳 |
 
-> 🚧 三筆親子關係均依讀者現場回報（@red.panda.ct，2026-08-01），園方未公布家系。黑帥性別 ♂ 由維護者於 2026-08-03 確認。
+> 🚧 四筆親子關係均依讀者現場回報（@red.panda.ct，2026-08-01）、經維護者確認，園方未公布家系。黑帥性別 ♂ 由維護者於 2026-08-03 確認；貝貝性別待確認（2026-08-03 建檔）。
+> ⚠️ 貝貝與銀基動物王國的 [[bei-bei]]（貝貝）為不同個體。
