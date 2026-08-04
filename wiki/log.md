@@ -4761,3 +4761,126 @@ RPF 記為 2013-06-01，**不採**；回報者所填 2013-06-08 與園方一致�
 - 兩筆新條目皆為 `limited-profile` 檔案卡，`zoos:` 起始年留空（不知抵達年）；
   維護者確認、現正在世故**不掛** `unverified`；`sources` 無 host 故 `has_official_source` 仍為 false
 - 緩緩與慢慢同母，惟慢慢之父不詳，是否同父（全血緣或 ½）、是否同胎均待查證，兩邊條目皆已標 🚧
+
+---
+
+## [2026-08-04] fix | 社群回報查證：`arun`・`mei-mei` 轉入 Assiniboine Park Zoo；新增 `rufus`・`suva`・`kelly`
+
+**來源**（回報者附的來源不足，查證時另尋官方佐證）：
+- https://classic107.com/articles/assiniboine-park-zoo-welcomes-back-red-panda-arun-from-vancouver
+  （2025-11-18；忠實轉載 Assiniboine Park & Zoo 聲明：Arun 依 AZA SSP 建議移入與 Tanvi 配對，並載明其父母為 Rufus 與 Rouge）
+- https://www.assiniboinepark.ca/stories/236/furry-red-and-fun-our-red-panda-update
+  （2024-11-05 園方官網；列出當時園內四隻：Tanvi、Kelly〈9 歲、自 Zoo de Granby 移入〉、Mei Mei〈2 歲、GVZoo 生〉、Suva〈Assiniboine 生、曾在 Toronto Zoo〉）
+- https://www.assiniboinepark.ca/stories/253/double-the-fun-meet-suva-and-mei-mei
+  （2024-12-17 園方官網；Suva × Mei Mei 依 SSP 配對，入住舊雪豹展區）
+- 線索（非採信依據）：RPF #426／#437／#391／#432 之生日、性別、居住史
+
+**回報查核結果**：
+- 回報 `M1vqg6l`（`arun`，轉園 → Assiniboine，生效日 2025-11-18，來源僅 IG 貼文）：**採用**。IG 為非官方來源，
+  但查得園方聲明轉載可佐證移動事實；回報附帶的「父 Rufus 母 Rouge」亦由該聲明證實（原條目父母為「不詳」）。
+  回報者填的 2025-11-18 實為報導日，官方未載抵園日 → 依作者裁定以官方報導日入居住史並標 🚧
+- 回報 `bZKyGE1`（`mei-mei`，轉園 → Assiniboine，生效日 2024-12-17，來源為園方官網）：**採用，惟日期修正**。
+  回報者填的 2024-12-17 是 stories/253 的發布日，但園方 stories/236（2024-11-05）已載她在園 →
+  居住史採官方首次提及日 2024-11-05（較回報值早 6 週），並標 🚧 抵園日不明
+- 兩筆回報者均未留暱稱，`data/contributors.json` 不新增
+
+**新增條目**：
+- `rufus-2003-06-18.md` — Rufus ♂（RPF #426），生於 2003-06-18（🚧 僅 RPF），Assiniboine Park Zoo 種公；
+  `rouge` 之配偶、`arun`・`rakesh` 之父，另與 `xia` 生下 2015 三胞胎。**檔案卡**（`limited-profile`）：
+  RPF 無其居住史與歿日、2024 起園方公告未再提及 → `zoos:` 起訖留空、`last_seen: 2015-06-22`、加 `unverified`、
+  `birth_zoo: unknown`（出生園不詳、不標 🐣）；官方佐證僅「為 Arun 之父、曾在該園」一項
+- `suva-2017-06-13.md` — Suva ♂（RPF #437），生於 2017-06-13 Assiniboine Park Zoo，`tanvi` 之雙胞胎兄弟；
+  2019-07-01 → Toronto Zoo，2024-01-15 回 Assiniboine（🚧 兩移動日僅 RPF；官方僅可確認 2024-11-05 已回園）；
+  2024 年底依 SSP 與 `mei-mei` 配對。子女 Baby #1193・Adira #1194（2020）、Dash #1380（2022）暫未建條目
+- `kelly-2015-06-12.md` — Kelly ♂（RPF #391），生於 2015-06-12 Cincinnati Zoo and Botanical Garden，
+  2016-05-12 → Granby Zoo，2024-05-08 → Assiniboine Park Zoo（🚧 兩移動日僅 RPF）；2024-11 與 `tanvi` 引介中；
+  母 Bailey #381 亦為 `homer` 之母 → 兩者同母半血緣
+
+**更新條目**：
+- `arun-2014-06-28.md` — `zoos:` GVZoo 訖改 2025-11-18、新增 Assiniboine（2025-11-18 – 現在）；tag 改 `zoo:Assiniboine Park Zoo`；
+  刪去原「🚧 待查證：讀者稱 2025-11-17 移回、僅 IG 來源」段，改寫為官方聲明佐證的移動與配對；
+  父母由「不詳」補為 母 `rouge`、父 `rufus`；補同父母手足與 ½ 手足；配偶增列 `tanvi`；sources 加園方聲明轉載
+- `mei-mei-2022-06-14.md` — `zoos:` GVZoo 訖改 2024-11-05、新增 Assiniboine（2024-11-05 – 現在）；tag 改園；
+  內文補移居與 SSP 配對、標 🚧 抵園日不明；配偶增列 `suva`；sources 加園方兩篇 stories
+- `rouge-2002-06-20.md` — 配偶增列 `rufus`；子女行改列 RPF 編號並把 `arun`・`rakesh` 改 wikilink
+- `rakesh-2014-06-28.md` — 父母由「不詳」補為 `rouge`／`rufus`
+- `xia-2013-07-01.md`、`xing-2015-06-22.md`、`itsuki-2015-06-22.md`、`akito-2015-06-22.md` — 純文字「Rufus（RPF #426）」改 wikilink
+- `tanvi-2017-06-13.md` — 雙胞胎 `suva` 改 wikilink；½ 手足 George・Fred 改 wikilink；
+  新增配偶行（`zorro` → `kelly` 引介 → `arun`）；內文補 2024-11・2025-11 兩次配對公告
+- `sachi-2012-06-18.md`、`tango-2015-07-30.md` — 子女表 Suva 改 wikilink 並補性別♂與現居
+- `homer-2012-06-11.md` — 半血緣手足 Kelly 改 wikilink、註明同母 Bailey
+- `tools/build_db.py` — `OFFICIAL_HOSTS` 新增 `assiniboinepark.ca`（Assiniboine Park Conservancy，園方 /stories/ 為官方一手）
+- `index.md` — Arun 一家小節新增 `rufus`；Zorro × Tanvi 小節新增 `suva`・`kelly`；
+  `arun`・`mei-mei` 兩列動物園欄改 Assiniboine Park Zoo 並改寫說明；兩小節前言補 2024–2025 SSP 重組；
+  條目總數 848 → 851
+
+**其他**：
+- 依 CLAUDE.md「官方來源可直接採用」處理。**來源分軸**：園方官網 `assiniboinepark.ca` 已補進
+  `tools/build_db.py` 的 `OFFICIAL_HOSTS`（比照 torontozoo.com／gvzoo.com）；Classic 107 雖忠實轉載園方聲明，
+  但屬新聞媒體 → 依 SCHEMA〈sources 與 extra_sources 的分工〉放 `extra_sources`（`arun`・`rufus`），
+  故 `rufus` 的 `has_official_source` 為 false
+- 尚未處理：Suva 於 Toronto Zoo 的三隻子女（母不詳）、Rufus 未命名的父母（RPF #601／#602）、
+  Rouge × Rufus 的 6 隻無條目子女、Bailey #381・Harold #389
+
+---
+
+## [2026-08-04] add | 補齊 `rufus`・`suva`・`kelly` 牽出的親屬：8 隻新條目＋1 隻暫存
+
+承同日「社群回報查證」那筆——維護者裁定把新條目牽出的無條目親屬一併建檔。
+
+**來源**：RPF `/export/redpanda.json`（#424／#401／#895／#393／#381／#389／#1194／#1380／#1193）。
+**這批全部只有 RPF 依據、無官方佐證**，故生卒日、居住史、家系一律標 🚧；居住史中「日＝1」者
+（如 Beilei 2019-01-01、Ralphie 2019-06-01、Bailey 生 2008-06-01／歿 2019-01-01）在 RPF 常為
+月／年精度佔位，條目內已註明。
+
+**新增條目（Rouge × Rufus 之子女，均生於 Assiniboine Park Zoo）**：
+- `ralphie-2008-05-25.md` — ♂，這對配偶已知最早的子女；→ Edmonton Valley Zoo（2009-12-09）
+  → Toronto Zoo（2012-11-14）→ Wild Zoo of Saint-Félicien（2019-06-01）。🚧 已 18 歲、RPF 未記歿日，是否在世待查證
+- `beilei-2010-06-14.md` — ♀，`meris` 雙胞胎；→ Columbus → Prospect Park Zoo（2011-07-25）
+  → Cincinnati（2016-05-26）→ Chattanooga Zoo At Warner Park（2019-01-01）。子女 4 隻（#394／#493／#469／#470）未建條目
+- `meris-2010-06-14.md` — ♀ 🪐，`beilei` 雙胞胎；1 歲歿於 Columbus Zoo（2011-10-17）
+- `kiah-2012-06-30.md` — ♀；→ Columbus（2013-06-28）→ Toledo Zoological Gardens（2017-11-30）。
+  2014-06-20 三胞胎（#384／#411／#422）未建條目
+
+**新增條目（Kelly 的父母，辛辛那提一脈）**：
+- `bailey-2008-06-01.md` — ♀ 🪐（2008-06-01 – 2019-01-01）；Cincinnati → Lincoln Park Zoo（2009-04-20）
+  → Cincinnati（2011-11-07）。與 `rover` 育有 `homer`、與 `harold` 育有 `kelly`；另有 Lin（#390）無條目
+- `harold-2004-06-08.md` — ♂ 🪐（2004-06-08 – 2016-05-31）；辛辛那提種公。**RPF 完全沒有他的居住史與父母**，
+  園名係由三隻子女的出生園回推的推定值 → `zoos:` 起始日留空、`birth_zoo: unknown`（不標 🐣）。
+  `hazel` 與 Harriet（#425）生於他過世兩週後，屬遺腹胎
+
+**新增條目（Suva 的子女，均生於 Toronto Zoo）**：
+- `adira-2020-07-14.md` — ♀；母 Ila（#324 🪐）；2022-10-03 移居 サンディエゴ動物園。子女 Pavitra（#1417）未建條目
+- `dash-2022-07-13.md` — ♂ 🪐（2022-07-13 – 2022-10-23，3 個月餘）；母 Paprika（#486）。
+  RPF 無居住史，Toronto Zoo 由父 Suva 當時所在園回推 🚧。⚠️ 與既有 `dash-2012-06-06` 同名、無血緣
+- `_hidden/baby-ila-2020-07-14.md` — 出生 8 天夭折（2020-07-14 – 2020-07-22），`adira` 同胎、母 Ila。
+  依「幼逝寶寶收錄原則」**從未取名、僅以佔位名 `Baby` 登錄 → 移入 `wiki/_hidden/`**，不計數、不上站；
+  slug 依佔位名規則含媽媽名。性別 RPF 未記錄
+
+**保留未建（維護者裁定 2026-08-04）**：
+- **Phoenix #400 與 #448** — 同名、同為 2011-06-13 生、父母同為 Rufus × Rouge，但兩條居住史各自完整且
+  完全不同（#400 走 San Diego → Houston → Lincoln Park → Western North Carolina；#448 走 Saskatoon
+  → Safari Niagara）。是同胎同名兩隻、或 RPF 重複登錄未明；且 CLAUDE.md「撞名加媽媽名」在此無效
+  （同一個媽）→ **暫不建條目**，slug 消歧規則待裁定。`rufus` 條目已記此疑點
+
+**更新條目**：
+- `rufus-2003-06-18.md` — 子女表 Ralphie／Beilei／Meris／Kiah 改 wikilink；補「兄弟」行
+  （`rover`・`rusty`・`dusk`・`zeyar`＋RPF #603，均與 `rover` 條目所記的 #601／#602 同父母）；新增兩隻 Phoenix 待釐清備注
+- `rouge-2002-06-20.md` — 子女行改 wikilink，Phoenix ×2 註明暫未建
+- `arun-2014-06-28.md`、`rakesh-2014-06-28.md` — 同父母手足行改 wikilink；`rakesh` 另補 ½ 手足行
+- `xing-2015-06-22.md`、`itsuki-2015-06-22.md`、`akito-2015-06-22.md` — 補「½ 兄弟姊妹（父方，母為 Rouge）」行
+- `rover-2005-05-16.md` — 純文字 Rufus、Bailey 改 wikilink（子女表另一方親本同步）
+- `homer-2012-06-11.md` — 母 Bailey 改 wikilink；½ 手足行區分同母（Lin・Kelly）與同父（Dr. Erin Curry）
+- `kelly-2015-06-12.md` — 父母改 wikilink；½ 手足拆成同母／同父兩行（同父新增 `hazel`・Harriet）
+- `hazel-2016-06-14.md` — 補 母（不詳 🚧）／父 `harold`／雙胞胎 Harriet／½ 手足 `kelly` 四行
+- `suva-2017-06-13.md` — 子女表補母親欄（Ila #324 🪐、Paprika #486）與 wikilink；補配偶行。
+  **修正**：先前寫「母不詳」有誤，RPF 其實有記
+- `dash-2012-06-06.md` — 補 ⚠️ 同名提示（指向 `dash-2022-07-13`）
+- `data/zoos.json` — 補三座園空白的 `location_ja`／`location_zh`：Saskatoon Forestry Farm Park & Zoo
+  （薩斯克其萬省薩斯卡通）、Toledo Zoological Gardens（俄亥俄州托萊多）、Wild Zoo of Saint-Félicien（魁北克省聖費利西安）
+- `index.md` — Arun 一家小節新增 4 隻（Ralphie・Beilei・Meris・Kiah）；Zorro × Tanvi 小節新增
+  `adira`・`dash-2022-07-13`；Dusk 一家小節新增 `bailey`・`harold`；條目總數 851 → 859
+
+**尚未處理（下一批候選）**：Beilei 的 4 隻子女、Kiah 的 3 隻子女、Ralphie 之子 Qiji（#423）、
+Adira 之女 Pavitra（#1417）、Ila（#324）與 Paprika（#486）、Lin（#390）、Harriet（#425）、
+Dr. Erin Curry（#392）、Bailey 的父母 Lum（#380）・JJ（#382）、Rufus 未命名的父母（#601／#602）

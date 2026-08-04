@@ -77,6 +77,8 @@ OFFICIAL_HOSTS = {
     "zoo.si",  # ZOO Ljubljana（斯洛維尼亞；盧布爾雅那市立）
     "pairidaiza.eu",  # Pairi Daiza（比利時）
     "torontozoo.com",  # Toronto Zoo（加拿大；含 /mediaroom/ 新聞稿）
+    # Assiniboine Park Conservancy（加拿大；Assiniboine Park Zoo 營運方，園方 /stories/ 為官方一手）
+    "assiniboinepark.ca",
     "gvzoo.com",  # Greater Vancouver Zoo（加拿大；含 /news/ 新聞稿）
     "calgaryzoo.com",  # Wilder Institute's Calgary Zoo（加拿大；含 /news/ 新聞稿與訃告）
     # Valley Zoo Development Society：Edmonton Valley Zoo 的官方支援團體，園內動物資訊

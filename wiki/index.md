@@ -1,6 +1,6 @@
 # Wiki 目錄 Index
 
-> 最後更新：2026-08-04 | 條目總數：848（另有 5 筆條目暫存 wiki/_hidden/，不計入、不上站）
+> 最後更新：2026-08-04 | 條目總數：859（另有 5 筆條目暫存 wiki/_hidden/，不計入、不上站）
 
 ---
 
@@ -2442,28 +2442,37 @@
 
 ## 海外個體（加拿大・Arun × Sakura 一家）
 
-[[arun-2014-06-28]] × [[sakura-2013-07-01]] 🪐 於 Greater Vancouver Zoo 育有 BC 省首兩隻本地出生的小熊貓（2022-06-14 生，GVZoo 官方新聞）。Sakura 2024-01-26 移居 Toronto Zoo 時已懷孕，同年 6 月在多倫多產下 [[poppy-2024-06-13]] 與一隻未命名雄仔 🪐；母子相繼於 7、8 月離世後，Poppy 由園方獨力帶大並經公眾票選命名。
+[[arun-2014-06-28]] × [[sakura-2013-07-01]] 🪐 於 Greater Vancouver Zoo 育有 BC 省首兩隻本地出生的小熊貓（2022-06-14 生，GVZoo 官方新聞）。Sakura 2024-01-26 移居 Toronto Zoo 時已懷孕，同年 6 月在多倫多產下 [[poppy-2024-06-13]] 與一隻未命名雄仔 🪐；母子相繼於 7、8 月離世後，Poppy 由園方獨力帶大並經公眾票選命名。2024–2025 年這一家依 SSP 大幅重組：[[mei-mei-2022-06-14]] 移居 Assiniboine Park Zoo 與 [[suva-2017-06-13]] 配對，[[arun-2014-06-28]] 亦於 2025-11 移回出生地 Assiniboine 與 [[tanvi-2017-06-13]] 配對（皆有園方公告）。
 
 | 條目 | 說明 | 性別 | 生卒 | 動物園 |
 |------|------|------|------|--------|
-| [[arun-2014-06-28]] | Arun アルン — Assiniboine 生（RPF #432；🚧 讀者稱 2025-11 移回 Assiniboine，僅 IG 來源） | ♂ | 2014– | Greater Vancouver Zoo 🇨🇦 |
+| [[arun-2014-06-28]] | Arun アルン — Assiniboine 生；[[rouge-2002-06-20]] 🪐 × [[rufus-2003-06-18]] 之子；2025-11 依 SSP 移回 Assiniboine 與 [[tanvi-2017-06-13]] 配對（園方聲明；🚧 抵園日不明，暫採報導日 2025-11-18） | ♂ | 2014– | Assiniboine Park Zoo 🇨🇦 |
 | [[rakesh-2014-06-28]] | Rakesh ラケシ — Arun 雙胞胎兄弟 🪐（RPF #449） | ♂ | 2014–2015 🪐 | Greater Vancouver Zoo 🇨🇦 |
 | [[sakura-2013-07-01]] | Sakura サクラ — Granby 生；[[kayah-2007-06-11]] × [[koko-2000-06-23]] 之女、[[zorro-2013-07-01]] 三胞胎；Udaya・Maple・Mei-Mei 之母 🪐（RPF #445；⚠️ 另有兩隻同名） | ♀ | 2013–2024 🪐 | Toronto Zoo 🇨🇦 |
 | [[poppy-2024-06-13]] | Poppy — 暱稱 Biggie；Sakura 遺腹雙胞胎中存活的一隻，2024-11 公眾票選命名（RPF #1438；⚠️ 與 [[poppy-2019-05-17]] 同名） | ♀ | 2024– | Toronto Zoo 🇨🇦 |
 | [[maple-2022-06-14]] | Maple — BC 首胎雙胞胎之一；2024 移居 Granby（RPF #1405） | ♂ | 2022– | Granby Zoo 🇨🇦 |
-| [[mei-mei-2022-06-14]] | Mei-Mei メイメイ — BC 首胎雙胞胎之一（RPF #1404；⚠️ 另有三隻同名） | ♀ | 2022– | Greater Vancouver Zoo 🇨🇦 |
+| [[mei-mei-2022-06-14]] | Mei-Mei メイメイ — BC 首胎雙胞胎之一；2024 移居 Assiniboine 與 [[suva-2017-06-13]] 配對（園方公告；🚧 抵園日不明，暫採 2024-11-05） | ♀ | 2022– | Assiniboine Park Zoo 🇨🇦 |
+| [[rufus-2003-06-18]] | Rufus — Arun・Rakesh 之父（母 [[rouge-2002-06-20]] 🪐）、Assiniboine 種公；亦為 [[xia-2013-07-01]] 2015 三胞胎之父（RPF #426；檔案卡，2015 後動向不明 🚧） | ♂ | 2003– | Assiniboine Park Zoo 🇨🇦 |
+| [[ralphie-2008-05-25]] | Ralphie — Rouge × Rufus 長子；Assiniboine → Edmonton → Toronto → Saint-Félicien（RPF #424；是否在世待查證 🚧） | ♂ | 2008– | Wild Zoo of Saint-Félicien 🇨🇦 |
+| [[beilei-2010-06-14]] | Beilei — Rouge × Rufus 之女、[[meris-2010-06-14]] 🪐 雙胞胎；育有 4 隻子女（RPF #401） | ♀ | 2010– | Chattanooga Zoo At Warner Park 🇺🇸 |
+| [[meris-2010-06-14]] | Meris — Beilei 雙胞胎；移居 Columbus 四個月後夭折 🪐（RPF #895） | ♀ | 2010–2011 🪐 | Columbus Zoo and Aquarium 🇺🇸 |
+| [[kiah-2012-06-30]] | Kiah — Rouge × Rufus 之女；2014 於 Columbus 產下三胞胎（RPF #393） | ♀ | 2012– | Toledo Zoological Gardens 🇺🇸 |
 
 ---
 
 ## 海外個體（加拿大・Zorro × Tanvi 一家 → 韓國 Leah）
 
-[[zorro-2013-07-01]]（[[kayah-2007-06-11]] × [[koko-2000-06-23]] 🪐 之子）× [[tanvi-2017-06-13]]（[[tango-2015-07-30]] × [[sachi-2012-06-18]] 🪐 之女）於 Assiniboine Park Zoo 育有雙胞胎 [[poppy-2019-05-17]] 與 [[leah-2019-05-17]]（RPF 名 Rose，2022 移居韓國 Everland）。祖父 Koko（虎虎）與外祖母 Sachi 均為長野市茶臼山動物園出身的旅加個體。
+[[zorro-2013-07-01]]（[[kayah-2007-06-11]] × [[koko-2000-06-23]] 🪐 之子）× [[tanvi-2017-06-13]]（[[tango-2015-07-30]] × [[sachi-2012-06-18]] 🪐 之女）於 Assiniboine Park Zoo 育有雙胞胎 [[poppy-2019-05-17]] 與 [[leah-2019-05-17]]（RPF 名 Rose，2022 移居韓國 Everland）。祖父 Koko（虎虎）與外祖母 Sachi 均為長野市茶臼山動物園出身的旅加個體。Tanvi 的雙胞胎兄弟 [[suva-2017-06-13]] 於 2024 年初自 Toronto Zoo 回到出生地；同年 5 月 [[kelly-2015-06-12]] 自 Granby Zoo 移入與 Tanvi 引介，2025-11 園方改讓 Tanvi 與 [[arun-2014-06-28]] 配對。
 
 | 條目 | 說明 | 性別 | 生卒 | 動物園 |
 |------|------|------|------|--------|
 | [[zorro-2013-07-01]] | Zorro ゾロ — Granby 生；[[sakura-2013-07-01]] 🪐・[[xia-2013-07-01]] 三胞胎；Leah・Poppy 之父（RPF #431） | ♂ | 2013– | Assiniboine Park Zoo 🇨🇦 |
 | [[tanvi-2017-06-13]] | Tanvi タンヴィ — Sachi × Tango 之女；Leah・Poppy 之母（RPF #438） | ♀ | 2017– | Assiniboine Park Zoo 🇨🇦 |
 | [[poppy-2019-05-17]] | Poppy ポッピー — Leah 雙胞胎（RPF #1253） | ♀ | 2019– | Assiniboine Park Zoo 🇨🇦 |
+| [[suva-2017-06-13]] | Suva スヴァ — Tanvi 雙胞胎兄弟；2019 移居 Toronto、2024 初回出生地，2024 底與 [[mei-mei-2022-06-14]] 配對（RPF #437） | ♂ | 2017– | Assiniboine Park Zoo 🇨🇦 |
+| [[kelly-2015-06-12]] | Kelly — 辛辛那提生、2016 移居 Granby、2024-05 移入 Assiniboine 與 Tanvi 引介；[[homer-2012-06-11]] 同母半血緣弟（RPF #391） | ♂ | 2015– | Assiniboine Park Zoo 🇨🇦 |
+| [[adira-2020-07-14]] | Adira — Suva × Ila（#324 🪐）之女，生於 Toronto Zoo；2022 移居 San Diego（RPF #1194） | ♀ | 2020– | サンディエゴ動物園 🇺🇸 |
+| [[dash-2022-07-13]] | Dash — Suva × Paprika（#486）之子；出生 3 個月餘夭折 🪐（RPF #1380；⚠️ 與 [[dash-2012-06-06]] 同名） | ♂ | 2022 🪐 | Toronto Zoo 🇨🇦 |
 | [[tango-2015-07-30]] | Tango タンゴ — Tanvi 之父；[[rina-2012-08-02]] 🪐 之子（RPF #435） | ♂ | 2015– | Edmonton Valley Zoo 🇨🇦 |
 | [[kiki-2019-06-07]] | Kiki — Fred・George 之母；[[dash-2012-06-06]] 之女、[[tango-2015-07-30]] 之配偶（Milwaukee 生，2021 移居 Edmonton；RPF #998） | ♀ | 2019– | Edmonton Valley Zoo 🇨🇦 |
 | [[fred-2024-07-07]] | Fred — Tango × [[kiki-2019-06-07]] 之子；[[george-2024-07-07]] 雙胞胎（哈利波特衛斯理雙胞胎命名） | ♂ | 2024– | Edmonton Valley Zoo 🇨🇦 |
@@ -2509,6 +2518,8 @@ Dusk（RPF #447）2004 年生於溫尼伯 Assiniboine Park Zoo，經 Granby Zoo�
 | [[chiya-2016-06-21]] | Chiya — [[khairo-2016-06-21]] 雙胞胎；別名 Chiyo（RPF #458） | ♂ | 2016– | Northeastern Wisconsin Zoo 🇺🇸 |
 | [[nisha-2017-06-13]] | Nisha — Sakura 卡加利時期第四胎；2018 移居波士頓（RPF #462） | ♀ | 2017– | Zoo New England Franklin Park Zoo 🇺🇸 |
 | [[rover-2005-05-16]] | Rover — Dusk 之弟、[[rusty-2005-05-16]] 🪐 雙胞胎；[[homer-2012-06-11]] 之父 🪐（RPF #590） | ♂ | 2005–2015 🪐 | Cincinnati Zoo and Botanical Garden 🇺🇸 |
+| [[bailey-2008-06-01]] | Bailey — [[rover-2005-05-16]] 🪐 之配偶、[[homer-2012-06-11]] 之母；與 [[harold-2004-06-08]] 🪐 育有 [[kelly-2015-06-12]] 🪐（RPF #381） | ♀ | 2008–2019 🪐 | Cincinnati Zoo and Botanical Garden 🇺🇸 |
+| [[harold-2004-06-08]] | Harold — 辛辛那提種公；[[kelly-2015-06-12]] 之父，[[hazel-2016-06-14]]・Harriet 之父（遺腹胎）🪐（RPF #389；居住史全缺、園名為推定 🚧） | ♂ | 2004–2016 🪐 | Cincinnati Zoo and Botanical Garden 🇺🇸 |
 | [[rusty-2005-05-16]] | Rusty — Dusk 之弟、[[rover-2005-05-16]] 🪐 雙胞胎 🪐（RPF #473） | ♂ | 2005–2023 🪐 | Roger Williams Park Zoo 🇺🇸 |
 
 ---

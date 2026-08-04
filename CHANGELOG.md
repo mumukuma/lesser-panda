@@ -6,6 +6,13 @@
 
 ---
 
+## 2026-08-04 ・ 來源分類器：補 `assiniboinepark.ca`
+
+- `tools/build_db.py`：把 Assiniboine Park Conservancy 官網 `assiniboinepark.ca` 列入 `OFFICIAL_HOSTS`
+  （該站 `/stories/` 為 Assiniboine Park Zoo 園方一手公告，比照既有的 `torontozoo.com`／`gvzoo.com`）。
+  觸發原因：處理 2026-08-04 社群回報時以該站兩篇公告佐證 `suva`・`kelly`・`mei-mei` 的居住史，
+  audit 報「sources 有非官方 host」。新聞媒體轉載（Classic 107）不入白名單、改放 `extra_sources`。
+
 ## 2026-08-03 ・ 來源分類器：補非日本園白名單，並讓 `audit.py` 自動抓漏
 
 2026-08-02 那次盤點只掃了日本個體，**非日本園同樣有漏**——建 `dusk-2004-06-02` 時發現 Calgary Zoo 官方訃告

@@ -4691,14 +4691,15 @@
   "en": "Saskatoon Forestry Farm Park & Zoo",
   "zh": null,
   "country": "Canada",
-  "location_ja": null,
+  "location_ja": "薩斯克其萬省薩斯卡通",
   "location_en": "Saskatoon, Saskatchewan, Canada",
   "lat": 52.1584862,
   "lng": -106.6062401,
   "map": "https://goo.gl/maps/1YnG95vKmtj",
   "website": "https://www.saskatoon.ca/parks-recreation-attractions/events-attractions/saskatoon-forestry-farm-park-zoo",
   "logo": null,
-  "aliases": []
+  "aliases": [],
+  "location_zh": "薩斯克其萬省薩斯卡通"
  },
  {
   "canonical": "Schwerin Zoo",
@@ -4995,14 +4996,15 @@
   "en": "Toledo Zoological Gardens",
   "zh": null,
   "country": "USA",
-  "location_ja": null,
+  "location_ja": "俄亥俄州托萊多",
   "location_en": "Toledo, Ohio, USA",
   "lat": 41.6274497,
   "lng": -83.591941,
   "map": "https://goo.gl/maps/q4ssNRdiSNP2",
   "website": "https://www.toledozoo.org/",
   "logo": null,
-  "aliases": []
+  "aliases": [],
+  "location_zh": "俄亥俄州托萊多"
  },
  {
   "canonical": "Toronto Zoo",
@@ -5222,14 +5224,15 @@
   "en": "Wild Zoo of Saint-Félicien",
   "zh": null,
   "country": "Canada",
-  "location_ja": null,
+  "location_ja": "魁北克省聖費利西安",
   "location_en": "Saint-Félicien, Quebec, Canada",
   "lat": 48.6854468,
   "lng": -72.516756,
   "map": "https://goo.gl/maps/GuhAEuYcB6w8UNHD8",
   "website": "https://zoosauvage.org/",
   "logo": null,
-  "aliases": []
+  "aliases": [],
+  "location_zh": "魁北克省聖費利西安"
  },
  {
   "canonical": "Wildlife Safari",
