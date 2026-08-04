@@ -4721,3 +4721,43 @@ RPF 記為 2013-06-01，**不採**；回報者所填 2013-06-08 與園方一致�
 - 兩筆新條目皆為 `limited-profile` 檔案卡，`last_seen: 2026-08`、`zoos:` 起始年留空（不知抵達年）；
   維護者確認、現正在世故**不掛** `unverified`；`sources` 無 host 故 `has_official_source` 仍為 false
 - `貝貝` 之園別經維護者確認為都江堰（同一回報來源），故符合「綁園」硬門檻；性別查得後回補 `sex` 與性別 tag
+
+---
+
+## [2026-08-04] add | 都江堰 `huan-huan-dujiangyan`（歡歡）、`huan-huan-duo-duo-dujiangyan`（緩緩）；多多補性別 ♀、開開／慢慢補家系
+
+**來源**：
+- 維護者提供（2026-08-04）：都江堰 `huan-huan`（歡歡 ♀）；`kai-kai`（♂）× `duo-duo`（♀）之子女 `huan-huan`（緩緩，性別未知）；
+  `man-man`（慢慢）之母為 `duo-duo`、父不詳
+- 既有佐證沿用：讀者回報（@red.panda.ct，現場所見，2026-08-01；歡歡目擊）、讀者回報（Gaia，園內名單，2026-07-14；緩緩・慢慢為多多之子女）
+
+**新增條目**：
+- `huan-huan-dujiangyan.md` — 歡歡／欢欢 Huan Huan ♀，生日不詳，現居 都江堰小熊貓森林公園；
+  父母不詳，維護者明示為獨立個體、與開開／多多無家系關係。性別 ♀ 由維護者確認，故自 `cn-candidates.json` 轉正
+- `huan-huan-duo-duo-dujiangyan.md` — 緩緩／缓缓 Huan Huan，性別待確認，生日不詳，現居 都江堰小熊貓森林公園；
+  父 `kai-kai-dujiangyan`、母 `duo-duo-dujiangyan`。依「檔案卡・性別門檻例外」（有已建條目的家系連結時性別可留空）建檔，
+  自 `cn-candidates.json` 轉正
+
+**更新條目**：
+- `duo-duo-dujiangyan.md` — 補 `sex: female` 與 female tag，引言改 ♀；配偶增列 `kai-kai-dujiangyan`；
+  子女表 `man-man-dujiangyan`（父不詳）＋新增 `huan-huan-duo-duo-dujiangyan`（父為開開）；
+  待查證清單移除「性別」，改列「慢慢之父」
+- `kai-kai-dujiangyan.md` — 配偶增列 `duo-duo-dujiangyan`（原僅 `tian-tian-2022-07-10`）；
+  子女新增 `huan-huan-duo-duo-dujiangyan`；註明兩段配對時序不詳
+- `man-man-dujiangyan.md` — 親代由「多多（性別不詳）」改為 母 `duo-duo-dujiangyan`、父不詳（維護者明示）；
+  手足 緩緩 由純文字改 `[[wikilink]]`
+- `huanhuan-2007-07-03.md` — 補同名提示（台北 歡歡 ♂ ≠ 都江堰 歡歡 ♀）
+- `data/cn-candidates.json` — 刪除 `緩緩`、`歡歡` 兩筆（已轉正建檔）；餘 6 筆
+- `index.md` — 都江堰小節新增 `huan-huan-dujiangyan`、`huan-huan-duo-duo-dujiangyan` 兩列；
+  多多性別欄改 ♀、說明改「開開之配偶；緩緩・慢慢之母」；開開說明改「天天・多多之配偶；緩緩之父」；
+  慢慢說明補「（父不詳）」；小節統計 16 隻（♂5／♀8／不詳 3）→ 18 隻（♂5／♀10／不詳 3）、
+  候補註記 3 隻（歡歡・樂樂・緩緩）→ 1 隻（樂樂）；台北 `huanhuan-2007-07-03` 列補同名提示；
+  條目總數 846 → 848
+
+**其他**：
+- **slug 消歧**：歡歡（huān）與緩緩（huǎn）同園、皆無生日，去聲調後拼音同為 `huan-huan`。
+  依維護者裁定，歡歡取乾淨的 `huan-huan-dujiangyan`；緩緩沿用「撞名加媽媽名」慣例作
+  `huan-huan-duo-duo-dujiangyan`。兩條目互相標 ⚠️ 同拼音提示並註明漢字與聲調差異
+- 兩筆新條目皆為 `limited-profile` 檔案卡，`zoos:` 起始年留空（不知抵達年）；
+  維護者確認、現正在世故**不掛** `unverified`；`sources` 無 host 故 `has_official_source` 仍為 false
+- 緩緩與慢慢同母，惟慢慢之父不詳，是否同父（全血緣或 ½）、是否同胎均待查證，兩邊條目皆已標 🚧

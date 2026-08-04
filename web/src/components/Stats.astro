@@ -136,7 +136,7 @@ const topPairs = rankCut(
     .sort((a, b) => b.n - a.n || (a.m.born || '').localeCompare(b.m.born || '')),
   10, (x) => x.n);
 
-// ── 子孫王（只算 2 代以內：子女→孫；存疑個體不計入數字）──
+// ── 子孫王（前 12 名含並列；只算 2 代以內：子女→孫；存疑個體不計入數字）──
 //    不設上限的話永遠是資料庫最老的始祖奪冠，排行沒有鑑別度。
 const DESC_DEPTH = 2;
 const countDesc = (slug) => {
@@ -155,7 +155,7 @@ const countDesc = (slug) => {
 const topDesc = rankCut(
   all.map((p) => [p, countDesc(p.slug)]).filter(([, n]) => n > 0)
     .sort((a, b) => b[1] - a[1] || (a[0].born || '').localeCompare(b[0].born || '')),
-  10, ([, n]) => n);
+  12, ([, n]) => n);
 
 // ── 摘要 ──────────────────────────────────────────────
 const livingAges = living.map(ageOf).filter((a) => a !== null);
