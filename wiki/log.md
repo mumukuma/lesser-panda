@@ -4884,3 +4884,63 @@ RPF 記為 2013-06-01，**不採**；回報者所填 2013-06-08 與園方一致�
 **尚未處理（下一批候選）**：Beilei 的 4 隻子女、Kiah 的 3 隻子女、Ralphie 之子 Qiji（#423）、
 Adira 之女 Pavitra（#1417）、Ila（#324）與 Paprika（#486）、Lin（#390）、Harriet（#425）、
 Dr. Erin Curry（#392）、Bailey 的父母 Lum（#380）・JJ（#382）、Rufus 未命名的父母（#601／#602）
+
+---
+
+## [2026-08-05] update | `suva` 補 Toronto Zoo 官方新聞稿＋2017 命名報導；回報 `8NAybaY` 查核
+
+處理社群回報 `8NAybaY`（2026-08-04 提交，「沒有看到小熊貓」報缺類，主旨為 Assiniboine Park Zoo 的 Suva）。
+**條目其實已存在**——同日「社群回報查證」那批處理 `mei-mei` 時，已把牽出的 `suva` 一併建檔，
+故該批 log 的「回報查核結果」未列到這筆。本次僅補來源與佐證，不新增條目（總數 859 不變）。
+
+**來源**：
+- https://www.torontozoo.com/press/2020/!newsite.asp?pg=20200919
+  （2020-09-19 Toronto Zoo 官方新聞稿；載明 Suva 為「a three-year-old male red panda who came from
+  Assiniboine Park Zoo」、依 AZA 紅熊貓 SSP 建議與自 Woodland Park Zoo 移入的 Ila 配對，
+  2020-07-14 生下雙胞胎、為該園自 1996 年以來首次小熊貓繁殖）
+- https://www.cbc.ca/news/canada/manitoba/red-panda-cubs-winnipeg-zoo-1.4292094
+  （CBC News 2017-09-15；載生於 6-13、母 Sachi 父 Tango）
+- https://winnipeg.ctvnews.ca/assiniboine-park-zoo-announces-names-of-red-panda-cubs-1.3591700
+  （CTV News Winnipeg 2017-09-15；公眾票選命名，Suva ♂・Tanvi ♀，尼泊爾語「好運」／「纖細的女孩」）
+
+**回報查核結果**：
+- **基本資料全部吻合**：♂、母 `sachi`、父 `tango`、雙胞胎 `tanvi`、生於 2017-06-13 —— 與既有條目一致。
+  原本生日與父母僅靠 RPF #437，本次由 CBC／CTV 兩篇 2017-09-15 報導獨立佐證（媒體 host → `extra_sources`）
+- **居住史兩個日期均不採用**：
+  - 回報「2024-12-17 回 Assiniboine」**排除**：該日為園方 stories/253 的發布日，非抵園日；
+    同站 stories/236（2024-11-05）已載他在園 → 回園必早於回報值。與同批 `mei-mei` 那筆同一個坑
+  - 回報「2019-09-06 → Toronto Zoo」**查無佐證**：搜 torontozoo.com 無 2019 抵園公告；
+    回報所附兩支 IG 貼文（約 2020-11、2023-12）只能證明「當時他在多倫多」、定不了日期，且 IG 被 robots 擋住無法直讀
+  - 故 `zoos:` 維持 RPF 值 2019-07-01／2024-01-15 並續標 🚧；**移動「本身」則因本次 Toronto Zoo 新聞稿首次取得官方依據**
+- 回報者未留暱稱，`data/contributors.json` 不新增
+
+**更新條目**：
+- `suva-2017-06-13.md` — `sources` 加 Toronto Zoo 2020-09-19 新聞稿（`torontozoo.com` 已在
+  `OFFICIAL_HOSTS`）；新增 `extra_sources`（CBC・CTV 兩篇 2017-09-15 報導）；
+  🚧 段落改寫（區分「移動事實有官方佐證」與「移動日仍無」，並記下兩個回報日期被排除的理由）；
+  內文補公眾票選命名與名字語義；子女表後補一行官方佐證註（Ila 那胎為該園 1996 年以來首次繁殖）
+
+---
+
+## [2026-08-05] update | `fin-fin` × `toku-toku` 之子 `shun-shun`（#597）母子連結補上，全站純文字改 wikilink
+
+維護者指出 `fin-fin`（#136）除了 `nokaze` 之外還有一個兒子 `shun-shun`（#597）。**條目其實早已存在**
+（`shun-shun-2007-07-01`，2007–2011，池田→平川），只是兩邊各記一半、彼此沒連上：
+`fin-fin` 的子女表寫「Shun-Shun（RPF #597）／父：不明」是純文字，
+而 `shun-shun` 的家族欄寫「母：不詳（園方未公布）」。本次把兩邊接起來，不新增條目（總數 859 不變）。
+
+**依據**：既有 wiki 內既存的兩筆 RPF 資料互補，非新來源——
+- RPF #136（`fin-fin`）的子女列表已載 #597，父方空白 → 母＝`fin-fin` 由此確立
+- RPF #596（`toku-toku`）的子女列表已載 #597（`toku-toku` 條目與 `shun-pei` 條目皆以此記父子）→ 父＝`toku-toku`
+- 旁證吻合：兩隻同期同園（`toku-toku` 2004-05-20 – 2008-02-04 在池田動物園、`fin-fin` 2003-02-07 起在池田），
+  `shun-shun` 2007-07-01 生於池田動物園
+
+**更新條目**：
+- `shun-shun-2007-07-01.md` — 母欄「不詳」改 `fin-fin`（#136）；新增 ½ 妹妹 `nokaze`（同母異父，父 `tsubasa`）；引言改為雙親並列
+- `fin-fin-2002-06-20.md` — 子女表 `shun-shun` 純文字改 wikilink、父欄「不明」填 `toku-toku`、備注補平川轉園與 `shun-pei` 父子關係；引言「與不明雄性育有」改為與 `toku-toku` 育有
+- `toku-toku-2001-07-21.md` — 引言補配偶 `fin-fin`；子女表備注補母
+- `nokaze-2009-06-25.md` — ½ 兄 `shun-shun` 純文字改 wikilink，異父補 `toku-toku`
+- `shun-pei-2011-07-04.md` — 家族補「祖父母（父方）：`toku-toku` × `fin-fin`」
+- `sora-2014-06-12.md`、`kira-2014-06-12.md` — 半血緣兄弟備注的「父：Shun-Shun #597」純文字改 wikilink
+- `index.md` — Shin-Shin 家族「Toku-Toku 之子（母不詳）」段落標題改為「母：`fin-fin`，已收錄於 Nohana 家族」、
+  該列說明改父母並列；Nohana 家族祖父母表 `fin-fin` 說明補「亦為 `shun-shun` 之母」；頁首最後更新日改 2026-08-05
