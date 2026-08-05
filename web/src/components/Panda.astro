@@ -53,12 +53,12 @@ const igRest = igPosts.slice(IG_PAGE);
 // 顯示以網域為連結文字。非官方（RPF、部落格、新聞、社群）不進此清單。
 const sources = p.sources || [];
 const srcHost = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return u; } };
-// 其他參考資料：同好部落格／影片等非官方鏈結，以及無法線上核對的一手佐證（讀者實拍展牌等）。
-// 兩種型態混存於 extra_sources——是 URL 就做連結（顯示網域），純文字說明則原樣顯示、不連結。
-const extraSources = (p.extra_sources || []).map((s) => {
-  const isUrl = /^https?:\/\//i.test(String(s).trim());
-  return { raw: s, isUrl, label: isUrl ? srcHost(s) : s };
-});
+// 其他參考資料：同好部落格／影片等非官方鏈結。**只放可點的 URL**（2026-08-05 起，見 SCHEMA.md）——
+// 無法線上核對的一手佐證（讀者實拍展牌等）改寫在條目內文／備注，不進 extra_sources。
+// 這裡仍過濾一次非 URL 項目，避免舊資料或誤填的純文字被渲染出來。
+const extraSources = (p.extra_sources || [])
+  .filter((s) => /^https?:\/\//i.test(String(s).trim()))
+  .map((s) => ({ raw: s, label: srcHost(s) }));
 const sexTxt = p.sex === 'female' ? T.sex_f : p.sex === 'male' ? T.sex_m : T.sex_unknown;
 
 // 年齡：已故者歲數固定，建置期算即可；在世者以 born 存進 data-attr，交由下方 inline script
@@ -533,9 +533,7 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
         {extraSources.map((s) => (
           <li class="flex gap-2 items-baseline min-w-0">
             <span aria-hidden="true" class="shrink-0 text-ink-soft">📎</span>
-            {s.isUrl
-              ? <a href={s.raw} target="_blank" rel="noopener nofollow" class="text-rust hover:underline break-all min-w-0">{s.label}</a>
-              : <span class="text-ink break-words min-w-0">{s.label}</span>}
+            <a href={s.raw} target="_blank" rel="noopener nofollow" class="text-rust hover:underline break-all min-w-0">{s.label}</a>
           </li>
         ))}
       </ul>

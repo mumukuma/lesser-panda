@@ -24,8 +24,6 @@ instagram:
   - https://www.instagram.com/p/DUinvWkEtZa/
 sources:
   - 維護者提供（2026-07-04；官方來源待補）
-extra_sources:
-  - 廣州動物園 園內現場公告牌（讀者 2026-07 實拍，回報附件）：載霈霈於 2026-07-27 過世
 ---
 
 # Pei Pei 🪐（霈霈）

@@ -6,6 +6,77 @@
 
 ---
 
+## 2026-08-05 ・ 來源分類器：補 Prospect Park Zoo 官方 IG 帳號
+
+處理 `leah-2019-05-17` 的原名回報時，佐證雙胞胎 `Rose` 現居紐約布魯克林的一手來源是該園官方
+IG 影片（2022-11，影片以 Rose 之名介紹園內小熊貓）。
+
+- `tools/build_db.py`：`OFFICIAL_IG_ACCOUNTS` 新增 `prospectparkzoo`。佐證＝官網
+  `prospectparkzoo.com` 頁尾 Instagram 連結指向此帳號。
+- 影響：更名後的 `rose-2019-05-17` 個體頁「來源」區塊顯示該 IG 貼文（判為官方）。
+  資料異動詳見 `wiki/log.md`。
+
+---
+
+## 2026-08-05 ・ 來源分類器：補 Cincinnati Zoo 官方網域與官方社群帳號
+
+處理 `linus-2018-06-23` 家系回報時發現，辛辛那提動物園（全球中華小熊貓亞種繁殖數第一、
+wiki 內已有 Rover／Bailey／Harold／Kelly／Hazel／Lin／Kora／Linus 等 8 筆以上出身個體）
+的官方管道完全不在白名單，導致該園所有官方來源都被判為非官方。
+
+- `tools/build_db.py`：
+  - `OFFICIAL_HOSTS` 新增 `cincinnatizoo.org`（園方官網；出生・命名・訃告公告皆發於此，
+    如 `/remembering-red-panda-lin/`、`/red-panda-cubs-born-at-cincinnati-zoo/`）。
+  - `OFFICIAL_X_ACCOUNTS` 新增 `cincinnatizoo`（官方 X；2018 年 Linus・Kora 幼獸期的家系資訊
+    只發在 X，官網未另發稿）。
+  - `OFFICIAL_FB_PAGES` 新增 `cincinnatizoo`（官方 FB 專頁，同園同名）。
+- 影響：`lin-2013-06-16`、`kora-2018-06-23`、`linus-2018-06-23`、`kola-2015-08-24` 四筆的
+  `has_official_source` 轉為 true，個體頁「來源」區塊改為顯示園方連結、
+  移除「未經官方佐證」標記。資料異動詳見 `wiki/log.md`。
+
+⚠️ 順帶記錄一項工具面事實：`x.com` 在沙盒 `web_fetch` 回 `ROBOTS_DISALLOWED`、抓不到內容，
+但 **Claude in Chrome（`navigate` + `get_page_text`）讀得到貼文全文、發文帳號與精確發文時間**，
+核對回報所附的 X 來源可走這條路，不必再擱置待維護者告知。
+
+---
+
+## 2026-08-05 ・ `extra_sources` 只放 URL；純文字佐證改寫進條目備注
+
+維護者裁定：個體頁的「其他參考資料」區塊**只呈現可點的連結**，純文字說明不顯示。
+
+- `web/src/components/Panda.astro`：`extraSources` 加 `.filter()` 只留 `http(s)://` 開頭者，
+  移除原本「非 URL 就原樣顯示為純文字」的分支（舊資料誤填也不會被渲染）。
+- `SCHEMA.md`：frontmatter 範例與〈sources 與 extra_sources 的分工〉表格改寫——
+  `extra_sources` 只列 URL；無法線上核對的一手佐證（讀者實拍展牌、實體園報掃描、園內公告牌）
+  改寫在條目內文／`## 備注`（可引述展牌原文），`sources` 記 `維護者提供（YYYY-MM-DD：…）`。
+- `CLAUDE.md`：〈非官方連結一律留存為「其他參考資料」〉一段補上此覆蓋規則。
+- 既有資料清理：6 個條目的純文字 `extra_sources` 項目移除
+  （`hajime-1991-07-27`、`ouji-kobe`、`pei-pei`、`mi-duo-dalian`、`nuo-mi-dalian`、`xi-ning-dalian`；
+  後四者移除後 `extra_sources` 已空、整個欄位一併刪除）。**內容無遺失**——這 6 筆的說明原本就都已
+  寫在各自的內文或備注段（如 `ouji-kobe` 備注已完整引述剥製展示解說牌原文）。
+
+---
+
+## 2026-08-05 ・ 來源分類器：補官方網域 `kagoshima-hiroba.jp`
+
+- `tools/build_db.py`：`OFFICIAL_HOSTS` 新增 `kagoshima-hiroba.jp`。該站為**鹿児島市広報課**的
+  「鹿児島市広報デジタルアーカイブ」，封存廣報紙《かごしま市民のひろば》《市民フォト鹿児島》的官方 PDF
+  （站台自述見 <http://kagoshima-hiroba.jp/>，鹿児島市官網 `city.kagoshima.lg.jp/shise/koho/hiroba/` 亦以此為廣報紙頁）。
+  因網域非 `.lg.jp`，不會被既有的自治體 pattern 涵蓋，故個別列入。
+- 用途：平川動物公園初代小熊貓（紅紅・咪咪）條目引用《かごしま市民のひろば》2012 年 3 月號
+  「平川動物公園のあゆみ」年表（載「昭和63年7月 中国・長沙市からレッサーパンダ来園」）作為官方來源。
+
+---
+
+## 2026-08-05 ・ 來源分類器：補 IG 官方帳號 `assiniboineparkzoo`
+
+- `tools/build_db.py`：`OFFICIAL_IG_ACCOUNTS` 新增 `assiniboineparkzoo`。佐證＝官網
+  `assiniboinepark.ca/zoo` 頁尾「Follow us」的 Instagram 連結指向此帳號（同 `facebook.com/assiniboineparkzoo`），
+  比照 `kiryuzoo`／`hertfordshirezoo` 的認列標準。
+- 觸發原因：Assiniboine Park Zoo 2026-06-08 出生的小熊貓寶寶，園方**只在 IG 公告**
+  （官網 `/stories/` 與 `/media/` 都沒有這則），該貼文是唯一的一手來源；不列白名單就無法在個體頁「來源」區塊顯示。
+- 新聞轉載（Classic107／CHVN／CTV Winnipeg）照舊放 `extra_sources`，不入白名單。
+
 ## 2026-08-04 ・ 來源分類器：補 `assiniboinepark.ca`
 
 - `tools/build_db.py`：把 Assiniboine Park Conservancy 官網 `assiniboinepark.ca` 列入 `OFFICIAL_HOSTS`

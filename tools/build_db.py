@@ -57,6 +57,9 @@ OFFICIAL_HOSTS = {
     "chausuyama.com",
     "hirakawazoo.jp",  # 鹿児島市平川動物公園（含園方「飼育員の日記」等 staff blog）
     "hamurazoo.jp",  # 羽村市動物公園（園方 /news/ 公告）
+    # 鹿児島市広報課「鹿児島市広報デジタルアーカイブ」（廣報紙《かごしま市民のひろば》
+    # 等的官方 PDF 封存站；非 .lg.jp 網域故需個別列入）
+    "kagoshima-hiroba.jp",
     # 日本自治體（園區隸屬市府）
     "city.ichikawa.lg.jp", "city.asahikawa.hokkaido.jp", "city.kawasaki.jp",
     "soumu.metro.tokyo.lg.jp", "city.sapporo.jp",  # 札幌市円山動物園
@@ -85,6 +88,9 @@ OFFICIAL_HOSTS = {
     # （出生日、父母、飼育員談話）由園方提供、以第一人稱發布，比照 Calgary 的 Wilder Institute 認列官方。
     "buildingourzoo.com",
     "zooknoxville.org",  # Zoo Knoxville（美國田納西州）
+    # Cincinnati Zoo & Botanical Garden（美國俄亥俄州；全球 styani 亞種繁殖數第一，
+    # 出生・命名・訃報公告多發於官網文章與官方 X／FB）
+    "cincinnatizoo.org",
     "saczoo.org",  # Sacramento Zoo（美國加州；含 /imported-blog/ 舊園方部落格，出生・命名紀錄）
     "sfzoo.org",  # San Francisco Zoo & Gardens（美國加州）
     "mandai.com",  # Mandai Wildlife Group（新加坡；Singapore Zoo／River Wonders 營運方）
@@ -100,6 +106,7 @@ OFFICIAL_FB_PAGES = {
     "thecalgaryzoo",   # The Calgary Zoo 官方專頁（page id 100064839398464）
     "zounokuni",       # ぞうの国 官方專頁
     "oceanparkhk",     # 香港海洋公園 Ocean Park Hong Kong 官方專頁
+    "cincinnatizoo",   # Cincinnati Zoo & Botanical Garden 官方專頁（同 cincinnatizoo.org）
 }
 _FB_HOSTS = {"facebook.com", "m.facebook.com", "web.facebook.com", "fb.com"}
 
@@ -112,6 +119,7 @@ OFFICIAL_X_ACCOUNTS = {
     "nhdzoo",           # 静岡市立日本平動物園（同 nhdzoo.jp）
     "ichikawa_zoo",     # 市川市動植物園（同 city.ichikawa.lg.jp）
     "kumamotocityzoo",  # 熊本市動植物園（ezooko.jp）
+    "cincinnatizoo",    # Cincinnati Zoo & Botanical Garden（同 cincinnatizoo.org）
 }
 _X_HOSTS = {"x.com", "twitter.com", "mobile.twitter.com", "mobile.x.com"}
 
@@ -135,6 +143,7 @@ def _strip_yaml_comment(value):
 # 短形式 /p/XXXX/ 無從判斷發文者，一律視為非官方（sources 請存完整形式）。
 # ⚠️ 只放園方自己的帳號；同好／個人拍攝帳號請勿加入（會被誤判官方）。
 OFFICIAL_IG_ACCOUNTS = {
+    "cincinnatizoo",   # Cincinnati Zoo & Botanical Garden 官方 IG（同 cincinnatizoo.org）
     "kumamoto_doushokubutsuen",  # 熊本市動植物園（ezooko.jp）
     "kiryuzoo",  # 桐生が岡動物園（官網 city.kiryu.lg.jp/zoo 首頁 IG banner 連此帳號）
     "hertfordshirezoo",  # Hertfordshire Zoo（官網 News & Socials 與頁尾 IG 連結皆指向此帳號）
@@ -146,6 +155,8 @@ OFFICIAL_IG_ACCOUNTS = {
     "safariniagara",  # Safari Niagara（加拿大安大略省）
     "sanfranciscozoo",  # San Francisco Zoo & Gardens（同 sfzoo.org；訃報等公告發於此）
     "sacramentozoo",  # Sacramento Zoo（同 saczoo.org；訃報等公告發於此）
+    "assiniboineparkzoo",  # Assiniboine Park Zoo（官網 assiniboinepark.ca/zoo 頁尾 Instagram 連結指向此帳號；出産公告發於此）
+    "prospectparkzoo",  # Prospect Park Zoo（WCS；官網 prospectparkzoo.com 頁尾 Instagram 連結指向此帳號）
 }
 _IG_HOSTS = {"instagram.com", "m.instagram.com"}
 _IG_NON_ACCOUNT_SEGS = {"p", "reel", "reels", "tv", "stories", "explore"}

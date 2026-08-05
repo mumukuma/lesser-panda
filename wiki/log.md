@@ -4944,3 +4944,226 @@ Dr. Erin Curry（#392）、Bailey 的父母 Lum（#380）・JJ（#382）、Rufus
 - `sora-2014-06-12.md`、`kira-2014-06-12.md` — 半血緣兄弟備注的「父：Shun-Shun #597」純文字改 wikilink
 - `index.md` — Shin-Shin 家族「Toku-Toku 之子（母不詳）」段落標題改為「母：`fin-fin`，已收錄於 Nohana 家族」、
   該列說明改父母並列；Nohana 家族祖父母表 `fin-fin` 說明補「亦為 `shun-shun` 之母」；頁首最後更新日改 2026-08-05
+
+---
+
+## [2026-08-05] add | 社群回報：`mei-mei-2022-06-14` × `suva` 2026-06-08 產下雄仔（蘋果籽佔位）
+
+讀者回報 Mei-Mei（`mei-mei-2022-06-14`）產仔、他方親代 Suva，附 IG 連結
+`https://www.instagram.com/p/DbYZijXjgmX`。查證後**採用**：該貼文為 Assiniboine Park Zoo
+官方 IG（@assiniboineparkzoo，官網 assiniboinepark.ca/zoo 頁尾社群連結指向此帳號）2026-07-29
+的出産公告，Classic107・CHVN・CTV Winnipeg 同日轉載園方聲明，三方一致：**2026-06-08 生、
+單胎一隻、雄性、母 Mei-Mei（初產）、父 Suva**，公告時尚未命名。回報者填的生日 2026-06-08
+與來源相符（非文章發布日），無須重算。
+
+依「當季寶寶佔位條目：蘋果籽」制度建檔（父母皆確認＋完整生日＋在世＋未命名，四項符合）；
+性別園方已公告，故 `sex: male` 與 `male` tag 一併填入，不留空。
+
+⚠️ 巧合備注：同日 2026-06-08 另有 Calgary Zoo 的 `udaya` 三胞胎（`apple-seed-1/2/3-udaya-2026-06-08`），
+兩窩無關；Udaya 為 Mei-Mei 的同母異父姊姊，查證時已確認非同一則消息誤植。
+
+**新增條目**：
+- `apple-seed-mei-mei-2026-06-08.md` — ♂，Assiniboine Park Zoo 出生（🐣🏡）；`sources` 為園方官方 IG 貼文，
+  三則新聞轉載入 `extra_sources`；`rpf_id` 待補（RPF 尚未建檔）
+
+**更新條目**：
+- `mei-mei-2022-06-14.md` — 引言補產仔一段；新增 `### 子女` 表；`sources` 加園方 IG 貼文、新增 `extra_sources`（三則轉載）
+- `suva-2017-06-13.md` — 引言補產仔一段；子女表加一列並改標題（原「子女（均生於 Toronto Zoo）」→「子女」，
+  前三隻生於多倫多改以表後註記說明）；`sources` 加園方 IG 貼文、`extra_sources` 補三則轉載
+- `index.md` — Arun × Sakura 一家補列蘋果籽、段落敘述補產仔；`suva` 說明補一子；條目總數 859 → 860
+
+**工具**：`tools/build_db.py` 的 `OFFICIAL_IG_ACCOUNTS` 新增 `assiniboineparkzoo`（官網頁尾連結佐證），
+故該 IG 貼文列為官方來源、於個體頁「來源」區塊顯示。
+
+回報者未留暱稱，`data/contributors.json` 不變。
+
+---
+
+## [2026-08-05] add | 平川動物公園初代・2 代目：`hon-hon-1984-06-15`、`mii-mii-1985-06-28`、`kiki-1992-07-20`
+
+維護者提供園內「平川ZOO レッサーパンダ史」展牌（2014 年遊客實拍）之三隻歷代個體，
+並附平川園報與鹿児島市廣報紙查證。三隻皆為**平川動物公園史上最早的小熊貓**，wiki 原本未收。
+
+**來源**：
+- https://hirakawazoo.jp/wp/wp-content/uploads/2022/10/%E3%81%B2%E3%82%89%E3%81%8B%E3%82%8FNo27.pdf （園報《ひらかわ》No.27，1988-12。封面即小熊貓；p.1 表紙解說「当園のレッサーパンダは友好都市中国長沙市より、昭和63年7月26日贈られました」；p.3「友好都市中国長沙市より珍獣『レッサーパンダ』が贈られました。園内での歓迎式（昭63.7.26）」＋照片說明「赤崎鹿児島市長と肖常錫団長がクス玉を割ると、紅紅（ホンホン、雄）が、早速顔を出しごあいさつ。咪咪（ミーミー、雌）は、はずかしいのか部屋の中です。」；p.2 市長致詞「今年は友好都市の中国・長沙市から『レッサーパンダ』が初めてお目見えしました」）
+- https://hirakawazoo.jp/wp/wp-content/uploads/2022/10/%E3%81%B2%E3%82%89%E3%81%8B%E3%82%8FNo28.pdf （園報《ひらかわ》No.28，1989-12，p.4「ハイ！担当は私です」田淵賀彦技師：「レッサーパンダは友好都市の中国・長沙市から1988年7月25日来園しました」）
+- http://kagoshima-hiroba.jp/wp/oldpdf/h24/03/201203-089.PDF （《かごしま市民のひろば》2012 年 3 月號「平川動物公園のあゆみ」年表：「昭和63年7月　中国・長沙市からレッサーパンダ来園」）
+- 園內「平川ZOO レッサーパンダ史」展牌（園方製作，僅遊客實拍可查；**展牌原文寫進條目「備注」段落，`extra_sources` 只列可點的部落格連結、不另列純文字項目**）
+- https://mihorinh.exblog.jp/20526830/ （レサパン日和 2014-12-16，展牌實拍；非官方 → `extra_sources`）
+- https://4travel.jp/travelogue/10876846 （4travel 2014-04-13 訪，同展牌另一組實拍；非官方 → `extra_sources`）
+- https://gachon.exblog.jp/3406686/ ・ https://gachon.exblog.jp/11081022/ （がちょん 2006-07-19 生日文／2010-05-09 訃報，貴貴的出生園與家系線索；非官方 → `extra_sources`）
+
+**新增條目**：
+- `hon-hon-1984-06-15.md` — 紅紅 ホォンホォン，♀，1984-06-15 生 – 1999-11-17 歿；長沙市動物園 → 平川（1988-07-25 来園）。
+  ⚠️ **性別兩官方來源打架**：展牌 ♀／園報 No.27 「雄」，經維護者裁定採**展牌 ♀**，條目內併記園報原文並標 🚧 待查證
+- `mii-mii-1985-06-28.md` — 咪咪 ミーミー，♀，1985-06-28 生 – 2005-12-03 歿（享年 20 歲）；長沙市動物園 → 平川（1988-07-25 来園）
+- `kiki-1992-07-20.md` — 貴貴 キキ，♀，1992-07-20 生 – 2010-05-02 歿；生於広島市安佐動物公園 → 平川（來園年不詳，居住史起始留空）。
+  🚧 父母（`yuu-yuu-1983` 友友 × `ai-ai-1984` 愛愛）與雙胞胎（恋恋，池田動物園）依同好部落格訃報，**非官方、待查證**；
+  與安佐官方「愛愛育成 14 子」及「桃太郎的姑母」說法一致。恋恋資料過少，暫不建條目
+
+**更新條目**：
+- `ai-ai-1984.md`、`yuu-yuu-1983.md` — 子女表新增 `kiki-1992-07-20`（標 🚧 非官方）；14 子女註記段落補一句說明
+- `hajime-1991-07-27.md` — 內文補「平川 2 代目」定位與初代兩隻；家族補同園夥伴 `kiki-1992-07-20`；
+  `extra_sources` 加園內展牌（ハジメ 那張與園方訃報完全一致，可互為佐證）與部落格實拍
+- `index.md` — 新增「## 平川動物公園 初代・2 代目個體（鹿兒島）」一節（置於安佐重慶始祖之後）；條目總數 860 → 863
+
+**工具**：`tools/build_db.py` 的 `OFFICIAL_HOSTS` 新增 `kagoshima-hiroba.jp`（鹿児島市広報課的廣報數位封存站，
+網域非 `.lg.jp` 故需個別列入），詳見 `CHANGELOG.md`。
+
+**未採用／待辦**：
+- 平川園報 No.26（1987-12，開園 15 周年寫真集）早於小熊貓來園（1988-07），與本批無關
+- 恋恋（レンレン，池田動物園，貴貴雙胞胎）——僅部落格提及，無性別／生卒，未建條目
+- 貴貴由安佐移入平川的年月仍缺；紅紅性別待第三方官方來源裁決
+
+---
+
+## [2026-08-05] update | `extra_sources` 只放 URL：6 筆純文字佐證改由內文承載
+
+維護者裁定：個體頁「其他參考資料」區塊**只呈現連結**，純文字說明不顯示。`SCHEMA.md` 原本
+允許「無法線上核對的一手佐證寫純文字說明」，本次改為**一律寫進條目內文／`## 備注`**（可引述展牌原文），
+`extra_sources` 只列 URL；網站端亦加過濾（詳見 `CHANGELOG.md`、`SCHEMA.md`、`CLAUDE.md`）。
+
+**更新條目**（僅刪 frontmatter 的純文字項目，內容原本就已在內文／備注，無遺失）：
+- `hajime-1991-07-27.md` — 移除「平川動物公園『飼育員の日記』2011 年訃報（原連結已失效…）」（備注段已完整說明）
+- `ouji-kobe.md` — 移除剥製展示解說牌純文字（備注段已引述「愛称：王子／オス／飼育期間 1983.2.22 ～ 1990.7.15」原文）
+- `pei-pei.md` — 移除廣州動物園園內公告牌純文字（備注段已載）；`extra_sources` 已空，整欄刪除
+- `mi-duo-dalian.md`、`nuo-mi-dalian.md`、`xi-ning-dalian.md` — 移除「園方展牌（讀者 2025-04 實拍…）」
+  （引言「最後確認」與內文均已記）；三筆 `extra_sources` 已空，整欄刪除
+- `hon-hon-1984-06-15.md`、`mii-mii-1985-06-28.md`、`kiki-1992-07-20.md`（本日新建）— 展牌原文自 `extra_sources`
+  移入「## 備注」的「📋 展牌原文」一行，`extra_sources` 只留 mihorinh／4travel／gachon 等部落格連結
+
+---
+
+## [2026-08-05] update | 註冊表：`鹿児島市平川動物公園` 座標與地點修正
+
+維護者指出園頁地址不對。核對 Google 地圖後確認：
+
+- **座標偏西約 195 公尺**：原 `31.4630427, 130.4997487`（lineage 帶入值）落在園區西側的平川浄水場一帶，
+  非園本身。改為 Google 地圖該園 POI 的 `31.4631175, 130.5017959`。園頁「🧭 路線導航」按鈕即用此座標。
+- **`location_ja` 補到町層級**：`鹿兒島縣鹿兒島市` → `鹿兒島縣鹿兒島市平川町`（官方地址為
+  〒891-0133 鹿児島県鹿児島市平川町5669-1；比照上野「東京都台東區」、王子「兵庫縣神戸市灘區」的粒度）。
+  個體頁居住史的「地點」欄由註冊表自動帶入，重建後一併更新。
+- `location_en` 同步補 `Hirakawacho`；`map` 由已停用的 goo.gl 短連結改為座標式 Google Maps 連結。
+
+**更新檔案**：`data/zoos.json`（僅平川一筆，5 行）
+
+---
+
+## [2026-08-05] add | 回報查證（`linus-2018-06-23` 家系）：補建母 `lin-2013-06-16` 與雙胞胎妹妹 `kora-2018-06-23`
+
+社群回報（資料更正・親屬關係）指 `linus` 之母為 Lin、父為 Kola、同胞姊妹為 Kora，並附三個來源。
+逐一核對後**三項全部成立**，且來源皆為辛辛那提動物園官方（官網文章＋官方 X），依 CLAUDE.md
+「官方來源可直接採用」逕行更新。回報寫「同胞姊妹」，實為**同日雙胞胎**（兩隻同為 2018-06-23 生）。
+
+**來源**（回報所附三筆，全部可開、全部官方）：
+- https://cincinnatizoo.org/ch-ch-ch-changes-new-faces-and-better-spaces-at-the-cincinnati-zoo/ （官網 2018-08-31：「Cincinnati Zoo leads the world in red panda births for the *fulgen Styani* subspecies, having produced a total of 88 cubs, including the two born in June to experienced mom **Lin** and first-time dad **Kola**」；文首圖檔名含 kora linus）
+- https://x.com/CincinnatiZoo/status/1073359449732067331 （官方 X 2018-12-13：「Red panda cubs **Linus & Kora** & their mom **Lin**」— 一句同時綁定三隻）
+- https://x.com/CincinnatiZoo/status/1058388615313657856 （官方 X 2018-11-02：「Our baby red panda cubs **Linus & Kora** are getting brave and adventurous!」）
+
+**補充來源**（本次自行查得）：
+- https://cincinnatizoo.org/remembering-red-panda-lin/ （官網 2024-02-22 訃告：「Lin was 10 years old」「She was born here at the zoo and then went on to have **10 offspring** of her own」）
+- https://cincinnatizoo.org/red-panda-cubs-born-at-cincinnati-zoo/ （官網 2015-08-03：當年兩胎之母為「two-year-old **Lin**」與「seven-year-old Bailey」→ 獨立佐證 Lin 生於 2013 年、且 2015 年即已育有一胎）
+- https://www.facebook.com/cincinnatizoo/videos/173989166813910/ （官方 FB：「Red panda cubs Linus & Kora, born on **June 23**」）
+- https://www.foxnews.com/us/columbus-zoo-red-panda-kora-found.amp （Fox News 2020-07-23：Kora 在 Columbus Zoo 一度不見蹤影後尋回，全文以 she/her 稱 → 佐證性別 ♀ 與 2020-07 在該園；新聞轉載，列 `extra_sources`）
+- https://www.fox19.com/2024/02/24/cincinnati-zoo-announces-death-10-year-old-red-panda/ （Fox19 訃報轉載；列 `extra_sources`）
+- https://redpandafinder.com/export/redpanda.json （RPF #390 Lin ♀ 2013-06-16 – 2024-02-15、#999 Kora ♀ 2018-06-23、#1000 Linus ♂ 2018-06-23，family edge 一致；**其子女表恰為 10 筆，與官方訃告的「10 offspring」數量相符，可互為佐證**）
+
+**新增條目**：
+- `lin-2013-06-16.md` — Lin，♀，2013-06-16 生 – 2024-02-15 歿（10 歲）；終身居 Cincinnati Zoo and Botanical Garden（RPF #390）。`bailey-2008-06-01` 之女、辛辛那提 2010 年代後期主力母獸，10 隻子女。🚧 歿日採 RPF（官方訃告僅稱「last week」）；父 Toby（#838）僅 RPF、標待查證
+- `kora-2018-06-23.md` — Kora，♀，2018-06-23 生；Cincinnati → Columbus Zoo and Aquarium（RPF #999）。`linus-2018-06-23` 雙胞胎妹妹。🚧 移園日 2019-10-21 僅 RPF 為據（官方層面只能確認 2020-07 已在哥倫布）
+
+**更新條目**：
+- `linus-2018-06-23.md` — 母 → `lin-2013-06-16`、父 → `kola-2015-08-24`、雙胞胎 → `kora-2018-06-23`；引言刪「父母不詳」；補全／半血緣手足列；`sources` 加三筆官方（原僅 RPF）、`extra_sources` 加官方 FB
+- `kola-2015-08-24.md` — 補配偶 `lin-2013-06-16` 與**子女表**（Kora #999・Linus #1000・Audra #1001・Lenore #1002；原本子女欄整段缺）；引言補「first-time dad」一段；`sources` 加官方兩筆
+- `bailey-2008-06-01.md` — 子女表 Lin 一列由純文字改為 `lin-2013-06-16` 連結（原註「無條目」已過期）；父欄由「不詳」補為 Toby（#838）🚧；引言補一句
+- `hazel-2016-06-14.md` — 母由「不詳」補為 `lin-2013-06-16` 🚧（依 RPF #390 子女表；官方僅稱 10 子女、未逐隻公布）；補同母 ½ 手足列；引言補一句
+- `index.md` — Dusk 一家（加拿大／美國）節新增 `lin-2013-06-16`・`kora-2018-06-23` 兩列與節首說明；Ravi 一家節的 Linus 說明補父母與雙胞胎；條目總數 863 → 865
+
+**工具**：`tools/build_db.py` 新增官方來源判定 `cincinnatizoo.org`（`OFFICIAL_HOSTS`）、`cincinnatizoo`
+（`OFFICIAL_X_ACCOUNTS` 與 `OFFICIAL_FB_PAGES`）——否則本批三個回報來源全會被判非官方，詳見 `CHANGELOG.md`。
+
+**待辦**：
+- Lin 另有 6 隻子女尚無條目：Dr. Erin Curry #392（2015-06-19）・Harriet #425（2016-06-14 – 2020-09-06 🪐，Hazel 雙胞胎）・Micu #614（2017-06-25 🪐）・Lucas #1191（2020-06-23）・Shenmi #1304（2021-07-16），以及 Kola 之女 Audra #1001・Lenore #1002（2019-07-05）。Audra・Lenore 有官方命名報導（WKYT 2019-10-03「Our red panda cubs born on July 5 have names! Meet Audra & Lenore!」）可據以建檔
+- Hazel・Harriet 之母是否確為 Lin，仍待園方逐隻資料確認（現標 🚧）
+- 回報者未留暱稱，`data/contributors.json` 不動
+
+---
+
+## [2026-08-05] add | Lin 一家收尾：補建其餘 7 隻子女，辛辛那提繁殖群家系接通
+
+承本日前一筆（`lin-2013-06-16`／`kora-2018-06-23` 建檔），把 Lin 剩下的子女全部補齊。
+園方訃告稱 Lin 共 10 隻子女，RPF #390 的子女表也恰為 10 筆（可互為佐證），**10 隻現已全數有條目**。
+過程中另發現 Lin 的配偶其實有四隻（原本只掌握 Kola），且 `kendji`／`rover`／`harold`／`kelly`／
+`homer`／`dash`／`kiki-2019-06-07`／`katara` 等 8 筆既有條目都存在「親屬其實有條目卻寫成純文字」
+或「母不詳」的缺口，一併接通。
+
+**來源**：
+- https://cincinnatizoo.org/red-panda-cubs-born-at-cincinnati-zoo/ （官網 2015-08-03：該年兩胎之母為「two-year-old Lin」與「seven-year-old Bailey」，並稱是首次以超音波＋糞便荷爾蒙精準預測小熊貓產期的案例）
+- https://cincinnatizoo.org/its-a-girl-x2/ （官網 2019-09-20：2019-07-05 出生的兩隻幼獸經性別鑑定**皆為雌性**、母為 Lin）
+- https://cincinnatizoo.org/red-panda-cub-born-at-the-cincinnati-zoo/ （官網 2021-07-30：2021-07-16 Lin 產下一女；園方生殖生理學家 Dr. Erin Curry 稱 Lin 是「the first documented case of a red panda losing her pregnancy and then having another embryo come along and implant in the same year」）
+- https://www.facebook.com/cincinnatizoo/posts/10155562383845479/ （官方 FB 2017：「Micu our red panda cub is just over 2-months-old and is starting to venture out」）
+- https://www.instagram.com/cincinnatizoo/p/DLu2Y5BuKUg/ （官方 IG 2025-07-06：「Happy 6th Birthday to Audra & Lenore the red panda sisters」→ 佐證兩姊妹至 2025 年仍在出生園）
+- https://www.wkyt.com/content/news/Cincinnati-Zoo-announces-names-of-red-panda-cubs-562096431.html （WKYT 2019-10-03 轉載園方命名公布：「Meet Audra & Lenore!」；新聞轉載 → `extra_sources`）
+- https://www.fox6now.com/news/meet-dr-erin-curry-milwaukee-county-zoo-welcomes-its-new-red-panda （FOX6 Milwaukee 2016-04-19：密爾瓦基迎入辛辛那提出身的九月齡母獸，並說明命名取自追蹤該次懷孕的生殖生理學家；新聞 → `extra_sources`）
+- https://redpandafinder.com/export/redpanda.json （#392／#425／#614／#1001／#1002／#1191／#1304 的性別・生卒・居住史・family edge；Harriet 與 Audra・Lenore 在 RPF **完全無居住地記錄**）
+
+**新增條目**（7 筆）：
+- `dr-erin-curry-2015-06-19.md` — Dr. Erin Curry，♀，2015-06-19 生；Cincinnati → Milwaukee County Zoo（2016-03-15）。Lin 長女、父 `rover-2005-05-16` 🪐。名字取自園方生殖生理學家。子女 Dr. Lily #419・`kiki-2019-06-07`・Cinder #1379（RPF #392）
+- `harriet-2016-06-14.md` — Harriet，♀，2016-06-14 生 – 2020-09-06 歿；`hazel-2016-06-14` 雙胞胎、父 `harold-2004-06-08` 🪐 遺腹胎（RPF #425）。🚧 RPF 無任何居住地記錄，居住史僅依出生園推定（比照 `harold` 條目做法）
+- `micu-2017-06-25.md` — Micu，♂，2017-06-25 生 – 2019-01-01 歿；Cincinnati → Red River Zoo（2018-05-10）。父 `kendji-2015-06-22`（RPF #614）。🚧 歿日「日＝1」為 RPF 精度佔位
+- `audra-2019-07-05.md` — Audra，♀，2019-07-05 生；父 `kola-2015-08-24`，`lenore` 雙胞胎；**至今仍居出生園**（RPF #1001）
+- `lenore-2019-07-05.md` — Lenore，♀，同胎（RPF #1002）
+- `lucas-2020-06-23.md` — Lucas，♂，2020-06-23 生；Cincinnati → サンディエゴ動物園（2021-07-01）。父 `kendji-2015-06-22`；2023 育有一女 Pavitra #1417（無條目）（RPF #1191）
+- `shenmi-2021-07-16.md` — Shenmi，♀，2021-07-16 生；Cincinnati → Ross Park Zoo（2022-05-03）。父 `kendji-2015-06-22`、Lin 最後一胎（RPF #1304）。🚧 RPF 另記中文名「神迷」・暱稱「咪咪」（日文 シェンミ／ミーミー）——依慣例中文名與暱稱以維護者提供為準，`chinese` 暫留空；無日本居住史故 `japanese` 不採 RPF 機械轉寫。`english_variants` 收 Shen-Mi／Mimi／Mii-Mii／Miimii（⚠️ 與 `mii-mii-1985-06-28`・`mii-mii-1992-08-07` 為不同個體）
+
+**更新條目**（10 筆，多為「親屬已有條目卻仍是純文字」的缺口）：
+- `lin-2013-06-16.md` — 子女表 10 列全部上 `[[wikilink]]`、父欄補齊；配偶由 2 隻補為 4 隻（Rover・Harold 🚧・Kendji・Kola）；引言與備注改寫
+- `kola-2015-08-24.md` — 子女表 Audra・Lenore 上連結；引言同步
+- `kendji-2015-06-22.md` — 子女表 Micu・Lucas・Shenmi **母欄由「不詳」補為 `lin-2013-06-16`**、三列上連結；配偶補 Lin；引言改寫
+- `rover-2005-05-16.md` — 子女表 Dr. Erin Curry 上連結、母欄由「不詳 🚧」補為 Lin
+- `harold-2004-06-08.md` — 子女表 Hazel・Harriet 母欄由「不詳 🚧」補為 Lin 🚧、Harriet 上連結；配偶欄由「Hazel・Harriet 之母不詳」改為 Lin 🚧
+- `hazel-2016-06-14.md` — 雙胞胎 Harriet 上連結（原註「無條目」已過期）；同母 ½ 手足列全部上連結
+- `kelly-2015-06-12.md` — ½ 手足 Lin・Harriet 上連結（原註「無條目」已過期）；同父 ½ 的母欄補 Lin 🚧
+- `homer-2012-06-11.md` — ½ 手足 Lin・Dr. Erin Curry 上連結（原註「均無條目」已過期）
+- `dash-2012-06-06.md` — 子女表標題的 Dr. Erin Curry 上連結
+- `kiki-2019-06-07.md` — **母由「Dr. Erin Curry（RPF 佔位名）」改為 `dr-erin-curry-2015-06-19` 連結**；引言補外祖母 Lin
+- `katara-2025-07-04.md` — 父方 ½ 兄姊 Micu・Lucas・Shenmi 上連結、補母 Lin
+- `index.md` — 新增「## Lin 家族（辛辛那提繁殖群 → 全美各園）」一節（9 列，Hazel 與 Linus 已收錄於他節故不重複）；Dusk 一家節移出 Lin・Kora 兩列並改寫節首；條目總數 865 → 872
+
+**工具**：`tools/build_db.py` 的 `OFFICIAL_IG_ACCOUNTS` 新增 `cincinnatizoo`（本批引用其官方 IG 貼文佐證 Audra・Lenore 現況）。
+
+**待辦**：
+- Lin 的孫輩仍缺條目：Dr. Lily #419（2018-06-06，Milwaukee，該園史上第一隻小熊貓幼獸）、Cinder #1379（2022-06-12，Milwaukee）、Pavitra #1417（2023-06-09，Lucas 之女）
+- **辛辛那提 2026-06-22 誕生第 100 隻小熊貓**（官網 2026-06-26〈100th Red Panda Born at the Cincinnati Zoo〉：母 Marcy 首胎、父 Zuko 三歲首次當爸，雙胞胎僅一隻存活，尚未公布名字與性別）→ 符合「蘋果籽」佔位資格，惟 Marcy 與 Zuko 皆無條目，需一併建檔
+- Shenmi 的中文名（RPF 記「神迷」）待維護者裁定
+- Harriet 的轉園與歿地、Micu 精確歿日仍缺官方來源
+---
+
+## [2026-08-05] fix+rename | Leah 的原名是 Poppy 不是 Rose：雙胞胎姊妹身分對調，Rose 實居 Prospect Park Zoo
+
+讀者回報（Tally 資料更正／類型「名字」，未留暱稱）指出 `leah-2019-05-17` 的原名／別名應為 **Poppy**，並附三項來源。查證後成立：本 wiki 原把 Everland 的 Leah 掛成 RPF #1252（主名 Rose），實際上是兩姊妹身分對調——官方年報載明雙胞胎在 2022 年分別去了兩個國家，出生園 Assiniboine 已無這對雙胞胎。
+
+**來源**：
+- https://www.assiniboinepark.ca/uploads/public/documents/2022_AnnualReport.pdf （Assiniboine Park Zoo 官方年報第 7 頁：6 月 `Rose` 轉往紐約布魯克林 Prospect Park Zoo、11 月 `Poppy` 轉往韓國 Everland，皆依 AZA 小熊貓 SSP 建議）
+- https://www.instagram.com/prospectparkzoo/reel/CkvkQA-DODu/ （Prospect Park Zoo 官方 IG，2022-11：影片以 `Rose` 之名介紹園內小熊貓 → 佐證 Rose 在布魯克林）
+- https://namu.wiki/w/%EB%A0%88%EC%95%84(%EB%A0%88%EC%84%9C%ED%8C%90%EB%8B%A4) （韓國 namuwiki「레아(레서판다)」引愛寶樂園官方回覆「에버랜드 공식 답변에 따르면 Poppy가 레아」，並註明 `Rose` 是 2022 年移美的雙胞胎姊妹；fan wiki → `extra_sources`）
+- https://redpandafinder.com/#profile/1252 ／ https://redpandafinder.com/#profile/1253 （Claude in Chrome 實查：#1252 `Rose` 名下掛著 Everland 居住史與韓文名 레아／로즈、英文名 Leah／Lea，#1253 `Poppy` 是無居住史的空白檔 → **RPF 上游同樣掛錯**，待維護者回頭修）
+
+**更名**（1 筆）：
+- `poppy-2019-05-17.md` → **`rose-2019-05-17.md`** — 這隻是 Rose（RPF #1252），原記「雙胞胎中留在出生地 Assiniboine」有誤。`name` Poppy → **Rose**、`rpf_id` 1253 → **1252**、`zoos:` 改為 `Assiniboine Park Zoo (2019-05-17 – 2022-06-01)` ＋ **`Prospect Park Zoo (2022-06-01 – 現在)`**、tag `zoo:` 同步；補年報與官方 IG 來源、`## 備注` 記身分更正與 RPF 上游誤植；引言補「抵園時園內尚有 `willow-2015-08-24`（同年 12 月移 Houston）」。🚧 轉園精確日不明（年報只記「6 月」），暫記 2022-06-01。
+
+**更新條目**（11 筆）：
+- `leah-2019-05-17.md` — `rpf_id` 1252 → **1253**、`nicknames` 移除 `로즈`、`english_variants` 補 `Poppy`；抵 Everland 日由 2022-12-01（RPF 值）改為 **2022-11-01 🚧**（年報與 namuwiki 均只記「2022 年 11 月」，日不明）；標題改 `# Leah（레아 / 原名 Poppy）`、引言改寫為「出生園登錄名 Poppy、赴韓後改稱 Leah」；`sources` 補年報、`extra_sources` 補 namuwiki；`## 備注` 新增「身分更正」（三項來源引述＋RPF 上游誤植）與「注意同名」（Toronto 的 `poppy-2024-06-13`）
+- `tanvi-2017-06-13.md`、`zorro-2013-07-01.md` — 引言與子女表的 `poppy-2019-05-17` 改指 `rose-2019-05-17`，備注由「居 Assiniboine」改為「2022-06 移居美國 Prospect Park Zoo」；Leah 的「RPF 名 Rose」改為「原名 Poppy」
+- `tango-2015-07-30.md`、`sachi-2012-06-18.md`、`kayah-2007-06-11.md`、`koko-2000-06-23.md`、`rina-2012-08-02.md`、`kendji-2015-06-22.md`、`seina-2000-06-23.md` — 同上：全文「（RPF 名 Rose，現居韓國 Everland）」改為「（原名 Poppy，現居韓國 Everland）」，並補上 Rose 的新 slug 與現居園
+- `poppy-2024-06-13.md` — 「⚠️ 注意同名」改指 `leah-2019-05-17` 的**原名** Poppy（已非現用名），親屬稱謂改為「本個體的表姑」
+- `index.md` — 節標題改「海外個體（加拿大・Zorro × Tanvi 一家 → 韓國 Leah・美國 Rose）」；`poppy-2019-05-17` 一列改為 `rose-2019-05-17`（Prospect Park Zoo 🇺🇸、RPF #1252）；Leah 列改記原名 Poppy／RPF #1253；`poppy-2024-06-13` 的同名註記改指 Leah 原名。**條目總數不變（872）**
+
+**工具**：`tools/build_db.py` 的 `OFFICIAL_IG_ACCOUNTS` 新增 `prospectparkzoo`（佐證＝官網 `prospectparkzoo.com` 頁尾 IG 連結）；見 `CHANGELOG.md`。
+
+**重建**：`gen_residence`（872 檔、無額外 churn）→ `build_db`（872 個體 / 1239 親子邊 / 237 雙胞胎）→ `export_json` → `audit.py` 🔴 0（🟡 48 皆為既有中國檔案卡）、`check_twins` 0 錯誤 0 警告。
+
+**待辦**：
+- RPF #1252／#1253 上游資料待修：Everland 居住史與韓文名 레아／로즈 應搬到 #1253（Poppy），#1252（Rose）應改為 Prospect Park Zoo（2022-06）
+- Rose 抵 Prospect Park 後的動向（同居夥伴、是否再轉園）查無園方公告，現居暫記該園
+- 回報者未留暱稱 → 未動 `data/contributors.json`

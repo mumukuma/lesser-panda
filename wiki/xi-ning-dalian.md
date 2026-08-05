@@ -9,8 +9,6 @@ zoos:
 tags: [styani, female, limited-profile, zoo:大連森林動物園]
 sources:
   - 圖鑑缺漏回報（讀者 2025-04 實地目擊；2026-07-17 處理）
-extra_sources:
-  - 園方展牌（讀者 2025-04 實拍，回報附件）；名字與性別依展牌
 ---
 
 # 希檸／希柠（Xi Ning）

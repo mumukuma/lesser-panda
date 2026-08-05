@@ -2231,7 +2231,7 @@
   "ja_kana": "かごしましひらかわどうぶつこうえん",
   "zh": null,
   "country": "Japan",
-  "location_ja": "鹿兒島縣鹿兒島市",
+  "location_ja": "鹿兒島縣鹿兒島市平川町",
   "closed_ja": "12月29日〜1月1日",
   "closed_rule": [
    {
@@ -2240,10 +2240,10 @@
     "to": "01-01"
    }
   ],
-  "location_en": "Kagoshima, Kagoshima Prefecture, Japan",
-  "lat": 31.4630427,
-  "lng": 130.4997487,
-  "map": "https://goo.gl/maps/RHkCy9Syv8G2",
+  "location_en": "Hirakawacho, Kagoshima, Kagoshima Prefecture, Japan",
+  "lat": 31.4631175,
+  "lng": 130.5017959,
+  "map": "https://www.google.com/maps/search/?api=1&query=31.4631175,130.5017959",
   "website": "http://hirakawazoo.jp/",
   "logo": null,
   "aliases": [

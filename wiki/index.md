@@ -1,6 +1,6 @@
 # Wiki 目錄 Index
 
-> 最後更新：2026-08-05 | 條目總數：859（另有 5 筆條目暫存 wiki/_hidden/，不計入、不上站）
+> 最後更新：2026-08-05 | 條目總數：872（另有 5 筆條目暫存 wiki/_hidden/，不計入、不上站）
 
 ---
 
@@ -630,6 +630,18 @@
 | [[yuu-yuu-1983]] | 友友 ユウユウ — 重慶來源**始祖父**；[[shin-shin-1988-07-14]] 真真之父，歿時 20 歲 🪐（生年 1983 推定；⚠️ 同拼音者眾）| ♂ | 1983–2003 🪐 | 広島市安佐動物公園 |
 | [[ai-ai-1984]] | 愛愛 アイアイ — 重慶來源**始祖母**、友友配偶；育成 14 子，**歿時日本最高齡**（19 歲・老衰）🪐（生年 1984 推定；⚠️ 勿與 [[aiai-1988-06-25]]・[[ai-1991-06-20]] 混淆）| ♀ | 1984–2004 🪐 | 広島市安佐動物公園 |
 | [[mei-mei-hiroshima]] | 明明 メイメイ — 同批來園的第三隻（♀）；三隻中體型最小、體況最弱，1988-07 後動向不明、歿日不詳 🪐（生日不詳，slug 暫用城市後綴；⚠️ 勿與 [[mei-mei-1989-06-19]] 美美 混淆）| ♀ | ?–? 🪐 | 広島市安佐動物公園 |
+
+---
+
+## 平川動物公園 初代・2 代目個體（鹿兒島）
+
+1988-07-25 由鹿兒島市友好都市・**中國長沙市**（長沙市動物園）贈與的 2 隻雌性，是平川動物公園小熊貓飼育的起點；翌 26 日於園內舉行歡迎式。依園報《ひらかわ》No.27（1988-12）・No.28（1989-12）與鹿児島市廣報紙《かごしま市民のひろば》2012 年 3 月號「平川動物公園のあゆみ」（皆官方）建檔，生卒與性別另依園內「平川ZOO レッサーパンダ史」展牌（遊客實拍）。1990 年代來園的 2 代目為貴貴（廣島安佐來源）與 [[hajime-1991-07-27]] 🪐（ハジメ，釧路來源，收錄於釧路家族）。
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[hon-hon-1984-06-15]] | 紅紅 ホォンホォン — 長沙來源**初代**；🚧 性別展牌記 ♀、園報 No.27 記「雄」，暫採展牌（⚠️ 勿與多摩的 [[hou-hou-1988]] 🪐 紅紅 混淆）| ♀ | 1984–1999 🪐 | 鹿児島市平川動物公園 |
+| [[mii-mii-1985-06-28]] | 咪咪 ミーミー — 長沙來源**初代**；在平川 17 年，享年 20 歲（⚠️ 同名者眾）| ♀ | 1985–2005 🪐 | 鹿児島市平川動物公園 |
+| [[kiki-1992-07-20]] | 貴貴 キキ — **2 代目**；生於広島市安佐動物公園，🚧 疑為 [[yuu-yuu-1983]] 🪐 × [[ai-ai-1984]] 🪐 之女（非官方）（⚠️ 勿與 [[kiki-2000-07-04]] 🪐 等混淆）| ♀ | 1992–2010 🪐 | 鹿児島市平川動物公園 |
 
 ---
 
@@ -2442,16 +2454,17 @@
 
 ## 海外個體（加拿大・Arun × Sakura 一家）
 
-[[arun-2014-06-28]] × [[sakura-2013-07-01]] 🪐 於 Greater Vancouver Zoo 育有 BC 省首兩隻本地出生的小熊貓（2022-06-14 生，GVZoo 官方新聞）。Sakura 2024-01-26 移居 Toronto Zoo 時已懷孕，同年 6 月在多倫多產下 [[poppy-2024-06-13]] 與一隻未命名雄仔 🪐；母子相繼於 7、8 月離世後，Poppy 由園方獨力帶大並經公眾票選命名。2024–2025 年這一家依 SSP 大幅重組：[[mei-mei-2022-06-14]] 移居 Assiniboine Park Zoo 與 [[suva-2017-06-13]] 配對，[[arun-2014-06-28]] 亦於 2025-11 移回出生地 Assiniboine 與 [[tanvi-2017-06-13]] 配對（皆有園方公告）。
+[[arun-2014-06-28]] × [[sakura-2013-07-01]] 🪐 於 Greater Vancouver Zoo 育有 BC 省首兩隻本地出生的小熊貓（2022-06-14 生，GVZoo 官方新聞）。Sakura 2024-01-26 移居 Toronto Zoo 時已懷孕，同年 6 月在多倫多產下 [[poppy-2024-06-13]] 與一隻未命名雄仔 🪐；母子相繼於 7、8 月離世後，Poppy 由園方獨力帶大並經公眾票選命名。2024–2025 年這一家依 SSP 大幅重組：[[mei-mei-2022-06-14]] 移居 Assiniboine Park Zoo 與 [[suva-2017-06-13]] 配對，[[arun-2014-06-28]] 亦於 2025-11 移回出生地 Assiniboine 與 [[tanvi-2017-06-13]] 配對（皆有園方公告）。2026-06-08 [[mei-mei-2022-06-14]] 與 [[suva-2017-06-13]] 產下雄性寶寶一隻（Mei-Mei 初胎，未命名，蘋果籽佔位；園方 2026-07-29 官方 IG 公告）。
 
 | 條目 | 說明 | 性別 | 生卒 | 動物園 |
 |------|------|------|------|--------|
 | [[arun-2014-06-28]] | Arun アルン — Assiniboine 生；[[rouge-2002-06-20]] 🪐 × [[rufus-2003-06-18]] 之子；2025-11 依 SSP 移回 Assiniboine 與 [[tanvi-2017-06-13]] 配對（園方聲明；🚧 抵園日不明，暫採報導日 2025-11-18） | ♂ | 2014– | Assiniboine Park Zoo 🇨🇦 |
 | [[rakesh-2014-06-28]] | Rakesh ラケシ — Arun 雙胞胎兄弟 🪐（RPF #449） | ♂ | 2014–2015 🪐 | Greater Vancouver Zoo 🇨🇦 |
 | [[sakura-2013-07-01]] | Sakura サクラ — Granby 生；[[kayah-2007-06-11]] × [[koko-2000-06-23]] 之女、[[zorro-2013-07-01]] 三胞胎；Udaya・Maple・Mei-Mei 之母 🪐（RPF #445；⚠️ 另有兩隻同名） | ♀ | 2013–2024 🪐 | Toronto Zoo 🇨🇦 |
-| [[poppy-2024-06-13]] | Poppy — 暱稱 Biggie；Sakura 遺腹雙胞胎中存活的一隻，2024-11 公眾票選命名（RPF #1438；⚠️ 與 [[poppy-2019-05-17]] 同名） | ♀ | 2024– | Toronto Zoo 🇨🇦 |
+| [[poppy-2024-06-13]] | Poppy — 暱稱 Biggie；Sakura 遺腹雙胞胎中存活的一隻，2024-11 公眾票選命名（RPF #1438；⚠️ 與 [[leah-2019-05-17]] 的原名 Poppy 同名） | ♀ | 2024– | Toronto Zoo 🇨🇦 |
 | [[maple-2022-06-14]] | Maple — BC 首胎雙胞胎之一；2024 移居 Granby（RPF #1405） | ♂ | 2022– | Granby Zoo 🇨🇦 |
 | [[mei-mei-2022-06-14]] | Mei-Mei メイメイ — BC 首胎雙胞胎之一；2024 移居 Assiniboine 與 [[suva-2017-06-13]] 配對（園方公告；🚧 抵園日不明，暫採 2024-11-05） | ♀ | 2022– | Assiniboine Park Zoo 🇨🇦 |
+| [[apple-seed-mei-mei-2026-06-08]] | 蘋果籽（Apple Seed）— [[mei-mei-2022-06-14]] × [[suva-2017-06-13]] 之子；Mei-Mei 初胎、單胎；尚未命名（佔位條目） | ♂ | 2026– | Assiniboine Park Zoo 🇨🇦 |
 | [[rufus-2003-06-18]] | Rufus — Arun・Rakesh 之父（母 [[rouge-2002-06-20]] 🪐）、Assiniboine 種公；亦為 [[xia-2013-07-01]] 2015 三胞胎之父（RPF #426；檔案卡，2015 後動向不明 🚧） | ♂ | 2003– | Assiniboine Park Zoo 🇨🇦 |
 | [[ralphie-2008-05-25]] | Ralphie — Rouge × Rufus 長子；Assiniboine → Edmonton → Toronto → Saint-Félicien（RPF #424；是否在世待查證 🚧） | ♂ | 2008– | Wild Zoo of Saint-Félicien 🇨🇦 |
 | [[beilei-2010-06-14]] | Beilei — Rouge × Rufus 之女、[[meris-2010-06-14]] 🪐 雙胞胎；育有 4 隻子女（RPF #401） | ♀ | 2010– | Chattanooga Zoo At Warner Park 🇺🇸 |
@@ -2460,16 +2473,16 @@
 
 ---
 
-## 海外個體（加拿大・Zorro × Tanvi 一家 → 韓國 Leah）
+## 海外個體（加拿大・Zorro × Tanvi 一家 → 韓國 Leah・美國 Rose）
 
-[[zorro-2013-07-01]]（[[kayah-2007-06-11]] × [[koko-2000-06-23]] 🪐 之子）× [[tanvi-2017-06-13]]（[[tango-2015-07-30]] × [[sachi-2012-06-18]] 🪐 之女）於 Assiniboine Park Zoo 育有雙胞胎 [[poppy-2019-05-17]] 與 [[leah-2019-05-17]]（RPF 名 Rose，2022 移居韓國 Everland）。祖父 Koko（虎虎）與外祖母 Sachi 均為長野市茶臼山動物園出身的旅加個體。Tanvi 的雙胞胎兄弟 [[suva-2017-06-13]] 於 2024 年初自 Toronto Zoo 回到出生地；同年 5 月 [[kelly-2015-06-12]] 自 Granby Zoo 移入與 Tanvi 引介，2025-11 園方改讓 Tanvi 與 [[arun-2014-06-28]] 配對。
+[[zorro-2013-07-01]]（[[kayah-2007-06-11]] × [[koko-2000-06-23]] 🪐 之子）× [[tanvi-2017-06-13]]（[[tango-2015-07-30]] × [[sachi-2012-06-18]] 🪐 之女）於 Assiniboine Park Zoo 育有雙胞胎 [[leah-2019-05-17]]（原名 Poppy，2022-11 移居韓國 Everland）與 [[rose-2019-05-17]]（2022-06 移居美國 Prospect Park Zoo）。祖父 Koko（虎虎）與外祖母 Sachi 均為長野市茶臼山動物園出身的旅加個體。Tanvi 的雙胞胎兄弟 [[suva-2017-06-13]] 於 2024 年初自 Toronto Zoo 回到出生地；同年 5 月 [[kelly-2015-06-12]] 自 Granby Zoo 移入與 Tanvi 引介，2025-11 園方改讓 Tanvi 與 [[arun-2014-06-28]] 配對。
 
 | 條目 | 說明 | 性別 | 生卒 | 動物園 |
 |------|------|------|------|--------|
-| [[zorro-2013-07-01]] | Zorro ゾロ — Granby 生；[[sakura-2013-07-01]] 🪐・[[xia-2013-07-01]] 三胞胎；Leah・Poppy 之父（RPF #431） | ♂ | 2013– | Assiniboine Park Zoo 🇨🇦 |
-| [[tanvi-2017-06-13]] | Tanvi タンヴィ — Sachi × Tango 之女；Leah・Poppy 之母（RPF #438） | ♀ | 2017– | Assiniboine Park Zoo 🇨🇦 |
-| [[poppy-2019-05-17]] | Poppy ポッピー — Leah 雙胞胎（RPF #1253） | ♀ | 2019– | Assiniboine Park Zoo 🇨🇦 |
-| [[suva-2017-06-13]] | Suva スヴァ — Tanvi 雙胞胎兄弟；2019 移居 Toronto、2024 初回出生地，2024 底與 [[mei-mei-2022-06-14]] 配對（RPF #437） | ♂ | 2017– | Assiniboine Park Zoo 🇨🇦 |
+| [[zorro-2013-07-01]] | Zorro ゾロ — Granby 生；[[sakura-2013-07-01]] 🪐・[[xia-2013-07-01]] 三胞胎；Leah・Rose 之父（RPF #431） | ♂ | 2013– | Assiniboine Park Zoo 🇨🇦 |
+| [[tanvi-2017-06-13]] | Tanvi タンヴィ — Sachi × Tango 之女；Leah・Rose 之母（RPF #438） | ♀ | 2017– | Assiniboine Park Zoo 🇨🇦 |
+| [[rose-2019-05-17]] | Rose — Leah 雙胞胎；2022-06 移居布魯克林（RPF #1252） | ♀ | 2019– | Prospect Park Zoo 🇺🇸 |
+| [[suva-2017-06-13]] | Suva スヴァ — Tanvi 雙胞胎兄弟；2019 移居 Toronto、2024 初回出生地，2024 底與 [[mei-mei-2022-06-14]] 配對，2026-06-08 育有一子（[[apple-seed-mei-mei-2026-06-08]]，未命名）（RPF #437） | ♂ | 2017– | Assiniboine Park Zoo 🇨🇦 |
 | [[kelly-2015-06-12]] | Kelly — 辛辛那提生、2016 移居 Granby、2024-05 移入 Assiniboine 與 Tanvi 引介；[[homer-2012-06-11]] 同母半血緣弟（RPF #391） | ♂ | 2015– | Assiniboine Park Zoo 🇨🇦 |
 | [[adira-2020-07-14]] | Adira — Suva × Ila（#324 🪐）之女，生於 Toronto Zoo；2022 移居 San Diego（RPF #1194） | ♀ | 2020– | サンディエゴ動物園 🇺🇸 |
 | [[dash-2022-07-13]] | Dash — Suva × Paprika（#486）之子；出生 3 個月餘夭折 🪐（RPF #1380；⚠️ 與 [[dash-2012-06-06]] 同名） | ♂ | 2022 🪐 | Toronto Zoo 🇨🇦 |
@@ -2508,7 +2521,7 @@
 
 ## 海外個體（加拿大／美國・Dusk 一家）
 
-Dusk（RPF #447）2004 年生於溫尼伯 Assiniboine Park Zoo，經 Granby Zoo（在此與 [[kayah-2007-06-11]] 育有 [[dash-2012-06-06]]）於 2013 年入住 Calgary Zoo，與 [[sakura-2013-07-01]] 🪐 育有五隻子女，2023-01-10 在卡加利以 18 歲半高齡辭世（Calgary Zoo 官方訃告，該園稱其為 SSP 的「conservation superstar」）。本節收錄 Dusk 本人、其在卡加利所生的四隻子女（[[udaya-2019-06-20]] 見下一節），以及雙胞胎兄弟 Rover 與 Rusty。另一位兄弟 Rufus（RPF #426）資料不足未建檔，見 [[xia-2013-07-01]] 條目。
+Dusk（RPF #447）2004 年生於溫尼伯 Assiniboine Park Zoo，經 Granby Zoo（在此與 [[kayah-2007-06-11]] 育有 [[dash-2012-06-06]]）於 2013 年入住 Calgary Zoo，與 [[sakura-2013-07-01]] 🪐 育有五隻子女，2023-01-10 在卡加利以 18 歲半高齡辭世（Calgary Zoo 官方訃告，該園稱其為 SSP 的「conservation superstar」）。本節收錄 Dusk 本人、其在卡加利所生的四隻子女（[[udaya-2019-06-20]] 見下一節），以及雙胞胎兄弟 Rover 與 Rusty。另一位兄弟 Rufus（RPF #426）資料不足未建檔，見 [[xia-2013-07-01]] 條目。Bailey 之女 [[lin-2013-06-16]] 🪐 接棒成為辛辛那提主力母獸，她與 10 隻子女另立一節（見下方「Lin 家族」）。
 
 | 條目 | 說明 | 性別 | 生卒 | 動物園 |
 |------|------|------|------|--------|
@@ -2524,6 +2537,24 @@ Dusk（RPF #447）2004 年生於溫尼伯 Assiniboine Park Zoo，經 Granby Zoo�
 
 ---
 
+## Lin 家族（辛辛那提繁殖群 → 全美各園）
+
+[[lin-2013-06-16]] 🪐（RPF #390）是 Cincinnati Zoo and Botanical Garden 2010 年代後期的主力母獸：2013 年生於該園、終身未離開，2024-02 以 10 歲辭世時園方訃告稱她「went on to have 10 offspring of her own」——這 10 隻的名單與 RPF 記錄數量完全相符（可互為佐證），本節全數收錄。四位配偶分別是 [[rover-2005-05-16]] 🪐（2015）、[[harold-2004-06-08]] 🪐（2016，母系待查證 🚧）、[[kendji-2015-06-22]]（2017・2020・2021）與 [[kola-2015-08-24]]（2018・2019）；母親 [[bailey-2008-06-01]] 🪐 與 Rover・Harold 見上一節。子女中 [[hazel-2016-06-14]] 已收錄於 Memphis 一節、[[linus-2018-06-23]] 見下一節，故本表不重複列出。辛辛那提是全球中華小熊貓亞種繁殖數第一的機構（2026-06 誕生第 100 隻）。
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[lin-2013-06-16]] | Lin — 本節主角；[[bailey-2008-06-01]] 🪐 之女、10 隻子女之母 🪐（RPF #390；園方訃告） | ♀ | 2013–2024 🪐 | Cincinnati Zoo and Botanical Garden 🇺🇸 |
+| [[dr-erin-curry-2015-06-19]] | Dr. Erin Curry — 長女，父 [[rover-2005-05-16]] 🪐；名字取自園方生殖生理學家，[[kiki-2019-06-07]] 之母（RPF #392） | ♀ | 2015– | Milwaukee County Zoo 🇺🇸 |
+| [[harriet-2016-06-14]] | Harriet — [[hazel-2016-06-14]] 雙胞胎，父 [[harold-2004-06-08]] 🪐 遺腹胎 🪐（RPF #425；居住史全缺、園名為推定 🚧） | ♀ | 2016–2020 🪐 | Cincinnati Zoo and Botanical Garden 🇺🇸 |
+| [[micu-2017-06-25]] | Micu — 父 [[kendji-2015-06-22]]；2018 移居 Red River，未滿兩歲歿 🪐（RPF #614） | ♂ | 2017–2019 🪐 | Red River Zoo 🇺🇸 |
+| [[kora-2018-06-23]] | Kora — 父 [[kola-2015-08-24]]；[[linus-2018-06-23]] 雙胞胎；2019 移居哥倫布（RPF #999） | ♀ | 2018– | Columbus Zoo and Aquarium 🇺🇸 |
+| [[audra-2019-07-05]] | Audra — 父 [[kola-2015-08-24]]；[[lenore-2019-07-05]] 雙胞胎；至今仍居出生園（RPF #1001） | ♀ | 2019– | Cincinnati Zoo and Botanical Garden 🇺🇸 |
+| [[lenore-2019-07-05]] | Lenore — 父 [[kola-2015-08-24]]；[[audra-2019-07-05]] 雙胞胎；至今仍居出生園（RPF #1002） | ♀ | 2019– | Cincinnati Zoo and Botanical Garden 🇺🇸 |
+| [[lucas-2020-06-23]] | Lucas — 父 [[kendji-2015-06-22]]；2021 移居聖地牙哥，2023 育有一女 Pavitra（RPF #1191） | ♂ | 2020– | サンディエゴ動物園 🇺🇸 |
+| [[shenmi-2021-07-16]] | Shenmi — 父 [[kendji-2015-06-22]]；Lin 最後一胎、流產後同年再受孕的紀錄個案；2022 移居 Ross Park（RPF #1304；中文名待確認 🚧） | ♀ | 2021– | Ross Park Zoo 🇺🇸 |
+
+---
+
 ## 海外個體（加拿大 → 韓國・Ravi 一家）
 
 [[linus-2018-06-23]] × [[udaya-2019-06-20]]（[[sakura-2013-07-01]] 🪐 之女）於 Calgary Zoo 育有兩窩雙胞胎：2022 年 Ravi 與 Sundari、2023 年 Anshu 與 Aahana，2026-06-08 再迎三胞胎（未命名，蘋果籽佔位）；Ravi 於 2023-11-20 移居首爾大公園動物園，與 [[sei-2019-07-02]]（세이）、[[lian-2020-07-20]]（리안）並稱三劍客。2023 年這窩由園方公眾票選、以尼泊爾語命名，延續家族「太陽」主題。2026-06-19 Ravi 與 [[lian-2020-07-20]] 於首爾大公園產下雙胞胎（未命名，蘋果籽佔位），園方稱為大韓民國國內首次小熊貓繁殖成功。
@@ -2534,7 +2565,7 @@ Dusk（RPF #447）2004 年生於溫尼伯 Assiniboine Park Zoo，經 Granby Zoo�
 | [[sundari-2022-06-14]] | Sundari サンダリ — Ravi 雙胞胎姊妹；舊名 Sunsari（RPF #1396） | ♀ | 2022– | Calgary Zoo 🇨🇦 |
 | [[anshu-2023-06-18]] | Anshu — 尼泊爾語「ray of sun」；Ravi・Sundari 之弟 | ♂ | 2023– | Calgary Zoo 🇨🇦 |
 | [[aahana-2023-06-18]] | Aahana — 尼泊爾語「first rays of the sun」；Anshu 雙胞胎姊妹；2024 移居 Safari Niagara | ♀ | 2023– | Safari Niagara 🇨🇦 |
-| [[linus-2018-06-23]] | Linus — Ravi・Sundari 之父；Cincinnati 生（RPF #1000） | ♂ | 2018– | Calgary Zoo 🇨🇦 |
+| [[linus-2018-06-23]] | Linus — Ravi・Sundari 之父；[[lin-2013-06-16]] 🪐 × [[kola-2015-08-24]] 之子、[[kora-2018-06-23]] 雙胞胎；Cincinnati 生（RPF #1000） | ♂ | 2018– | Calgary Zoo 🇨🇦 |
 | [[udaya-2019-06-20]] | Udaya — Ravi・Sundari 之母；[[sakura-2013-07-01]] 🪐 × [[dusk-2004-06-02]] 🪐 之女；舊名 Aduya（RPF #1081） | ♀ | 2019– | Calgary Zoo 🇨🇦 |
 | [[apple-seed-1-udaya-2026-06-08]] | 蘋果籽1號 — Udaya × Linus 2026 三胞胎之一（未命名佔位） | – | 2026– | Calgary Zoo 🇨🇦 |
 | [[apple-seed-2-udaya-2026-06-08]] | 蘋果籽2號 — Udaya × Linus 2026 三胞胎之一（未命名佔位） | – | 2026– | Calgary Zoo 🇨🇦 |
@@ -2548,7 +2579,7 @@ Dusk（RPF #447）2004 年生於溫尼伯 Assiniboine Park Zoo，經 Granby Zoo�
 
 | 條目 | 說明 | 性別 | 生年 | 動物園 |
 |------|------|------|------|--------|
-| [[leah-2019-05-17]] | Leah 레아 — RPF 名 Rose（#1252）；Assiniboine 生、2022 赴韓；[[zorro-2013-07-01]] × [[tanvi-2017-06-13]] 之女、[[poppy-2019-05-17]] 雙胞胎 | ♀ | 2019– | Everland 🇰🇷 |
+| [[leah-2019-05-17]] | Leah 레아 — 原名 Poppy（RPF #1253）；Assiniboine 生、2022-11 赴韓；[[zorro-2013-07-01]] × [[tanvi-2017-06-13]] 之女、[[rose-2019-05-17]] 雙胞胎 | ♀ | 2019– | Everland 🇰🇷 |
 
 ---
 
