@@ -39,7 +39,7 @@ sex: female | male
 born: YYYY-MM-DD
 died: YYYY-MM-DD   # 若健在則省略
 last_seen: YYYY-MM-DD  # 選填（檔案卡用）：最後一次由來源「確認在世／在園」的日期，粒度隨來源（YYYY-MM-DD／YYYY-MM／YYYY）。動向不明個體以此誠實記錄，不猜 died
-species: Ailurus fulgens styani | Ailurus fulgens fulgens
+species: Ailurus fulgens styani | Ailurus fulgens fulgens   # 亞種不詳（如走私查獲個體）→ 整行省略此欄；勿寫種名層級的 `Ailurus fulgens`，build_db 的字串比對會判成 fulgens 亞種
 zoos:                      # 居住史唯一來源（frontmatter 為準）；內文「## 居住史」表格純衍生，由 tools/gen_residence.py 自動生成、勿手改
   - 動物園名稱 (起 – 訖)     # 園名須為 data/zoos.json 註冊表 canonical（未登記 build 報錯）；起訖可用 YYYY-MM-DD / YYYY / 現居留空。更正居住地只改這裡再重建；地點欄由 data/zoos.json 的 location_ja 自動帶入
 birth_zoo: unknown         # 選填：明示「首站不是出生園／出生園不詳」。居住史首站起始日不詳時本來一律被標 🐣 出生地，來源若明寫「出自不明」（如多摩個體名單的華華・中中）標了就與來源矛盾，填 unknown 即不標 🐣。查到出生園後移除此欄

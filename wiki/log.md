@@ -5147,7 +5147,7 @@ Dr. Erin Curry（#392）、Bailey 的父母 Lum（#380）・JJ（#382）、Rufus
 - https://www.assiniboinepark.ca/uploads/public/documents/2022_AnnualReport.pdf （Assiniboine Park Zoo 官方年報第 7 頁：6 月 `Rose` 轉往紐約布魯克林 Prospect Park Zoo、11 月 `Poppy` 轉往韓國 Everland，皆依 AZA 小熊貓 SSP 建議）
 - https://www.instagram.com/prospectparkzoo/reel/CkvkQA-DODu/ （Prospect Park Zoo 官方 IG，2022-11：影片以 `Rose` 之名介紹園內小熊貓 → 佐證 Rose 在布魯克林）
 - https://namu.wiki/w/%EB%A0%88%EC%95%84(%EB%A0%88%EC%84%9C%ED%8C%90%EB%8B%A4) （韓國 namuwiki「레아(레서판다)」引愛寶樂園官方回覆「에버랜드 공식 답변에 따르면 Poppy가 레아」，並註明 `Rose` 是 2022 年移美的雙胞胎姊妹；fan wiki → `extra_sources`）
-- https://redpandafinder.com/#profile/1252 ／ https://redpandafinder.com/#profile/1253 （Claude in Chrome 實查：#1252 `Rose` 名下掛著 Everland 居住史與韓文名 레아／로즈、英文名 Leah／Lea，#1253 `Poppy` 是無居住史的空白檔 → **RPF 上游同樣掛錯**，待維護者回頭修）
+- https://redpandafinder.com/#profile/1252 ／ https://redpandafinder.com/#profile/1253 （Claude in Chrome 實查：#1252 `Rose` 名下掛著 Everland 居住史與韓文名 레아／로즈、英文名 Leah／Lea，#1253 `Poppy` 是無居住史的空白檔 → **RPF 上游同樣掛錯**，僅記錄、不影響本 wiki 判定）
 
 **更名**（1 筆）：
 - `poppy-2019-05-17.md` → **`rose-2019-05-17.md`** — 這隻是 Rose（RPF #1252），原記「雙胞胎中留在出生地 Assiniboine」有誤。`name` Poppy → **Rose**、`rpf_id` 1253 → **1252**、`zoos:` 改為 `Assiniboine Park Zoo (2019-05-17 – 2022-06-01)` ＋ **`Prospect Park Zoo (2022-06-01 – 現在)`**、tag `zoo:` 同步；補年報與官方 IG 來源、`## 備注` 記身分更正與 RPF 上游誤植；引言補「抵園時園內尚有 `willow-2015-08-24`（同年 12 月移 Houston）」。🚧 轉園精確日不明（年報只記「6 月」），暫記 2022-06-01。
@@ -5164,6 +5164,143 @@ Dr. Erin Curry（#392）、Bailey 的父母 Lum（#380）・JJ（#382）、Rufus
 **重建**：`gen_residence`（872 檔、無額外 churn）→ `build_db`（872 個體 / 1239 親子邊 / 237 雙胞胎）→ `export_json` → `audit.py` 🔴 0（🟡 48 皆為既有中國檔案卡）、`check_twins` 0 錯誤 0 警告。
 
 **待辦**：
-- RPF #1252／#1253 上游資料待修：Everland 居住史與韓文名 레아／로즈 應搬到 #1253（Poppy），#1252（Rose）應改為 Prospect Park Zoo（2022-06）
+- RPF #1252／#1253 的錯誤屬**外站資料**（非本專案可控）：Everland 居住史與 레아／Leah／Lea 掛在 #1252、#1253 為空白檔。依資料來源原則以 wiki 為準即可；若日後想回報上游，可到 redpanda-lineage 開 issue（目前未做）
 - Rose 抵 Prospect Park 後的動向（同居夥伴、是否再轉園）查無園方公告，現居暫記該園
 - 回報者未留暱稱 → 未動 `data/contributors.json`
+
+---
+
+## [2026-08-05] fix | Linus・Kora 的官方 FB 來源已失效 → 換成仍在線的官方貼文，原文移入備注
+
+維護者指出 `linus-2018-06-23` 引用的 Cincinnati Zoo 官方 FB 影片雖屬官方來源，但影片已看不到。
+實測確認：`https://www.facebook.com/cincinnatizoo/videos/173989166813910/` 與含標題 slug 的長網址
+**兩種形式都回「This Video Isn't Available Anymore」**——Facebook 已移除該則 2018 年的 FB Live 影片
+（貼文本身連同影片一起消失，非僅播放失敗）。
+
+**處置**（依 SCHEMA 2026-08-05〈`extra_sources` 只列可點的 URL〉與 `ouji-kobe` 展牌原文的先例）：
+- `linus-2018-06-23.md`・`kora-2018-06-23.md` — 移除失效的影片連結；新增「## 備注 → 📋 已失效的官方來源」
+  一段，**逐字保留原標題**「Red panda cubs Linus & Kora, born on June 23, have started exploring outside! #fblive」
+  並註明失效日與實測結果。這是目前**唯一明確寫出「June 23」出生日的官方文字**（官網文章只寫「born in June」、
+  官方 X 兩則都沒提日期），故不能只是刪掉了事。
+- 兩筆的 `sources` 改列仍在線的官方 FB 貼文
+  https://www.facebook.com/cincinnatizoo/posts/10156593028135479/ （2018-10-24：「Our 2 baby red pandas,
+  Linus and Kora, are having fun exploring all the elements of their outdoor yard.」）——同一官方帳號、
+  同樣證明兩隻同胎且當時同在辛辛那提。原本這條 FB 來源被放在 `extra_sources`，既然 `cincinnatizoo`
+  已入 `OFFICIAL_FB_PAGES`，一併移進 `sources`。
+
+**同批複查**：本日新增的其他 Cincinnati 系連結逐一實測皆仍在線——官網 4 篇、官方 X 2 則、
+官方 FB `posts/10155562383845479`（Micu，2017-10-02，內文以 his 稱 → 另佐證性別 ♂）、
+官方 IG `p/DLu2Y5BuKUg`（Audra・Lenore 6 歲生日）、以及 fox19／fox6now／foxnews／WKYT 四則新聞轉載。
+
+**教訓**：**Facebook 的 `/videos/` 連結（尤其 2018 年前後的 FB Live）會整則消失**，`/posts/` 相對穩定。
+日後採用 FB 來源時優先取 `/posts/` 形式，並在寫進 frontmatter 前實際開一次；若只有影片形式，
+就把標題原文抄進條目備注再引連結。
+
+---
+
+## [2026-08-05] add | 圖鑑缺漏回報：壽山動物園（高雄）唯一的小貓熊 `球球`，並登記壽山動物園
+
+讀者回報（2026-08-04，未留暱稱）指壽山動物園有一隻名為「球球」的小貓熊未收錄，附三筆連結。
+回報所填「性別 女／來園 2001 年／過世 2014 年」逐筆對照來源後**全部成立**，惟三筆來源皆非官方
+（新聞報導 ×2、學生專題頁 ×1），故依 2026-08-02 規範一律列入 `extra_sources`，`sources` 記
+`讀者回報（…）` ＋ `維護者提供（…）` 兩行（無 host → `has_official_source` 仍為 false）。
+
+**來源**（皆非官方）：
+- https://www.epochtimes.com/b5/1/2/2/n42607.htm （大紀元 2001-02-02：走私棄養個體於高雄縣被發現，2001-02-01 由壽山動物園正式接收、檢疫 21 天；未提名字）
+- https://news.ltn.com.tw/news/local/paper/915647 （自由時報 2015-09-15：該園「唯一的小貓熊」「因年紀很大、去年過世（約廿五歲）」→ 歿於 2014；未提名字性別）
+- https://www.shute.kh.edu.tw/~2010PBL13/narrative02-5.htm （樹德家商 2010 學生專題〈壽山動物園歷屆活動〉：2008-08-24 園方為小貓熊「球球」辦生日會、文中以「她」稱——名字與性別的唯一佐證）
+
+**查證補充**：
+- 該校專題頁對沙盒回 403，改用 Claude in Chrome 讀取原文。
+- 園方官網（`zoo.kcg.gov.tw`）現行動物名單已無小貓熊，官方公告亦查無此隻；三則來源可互相對應為同一個體（該園史上僅此一隻）。
+- 報導稱歿時「約廿五歲」→ 回推生於 1989 年前後，已超小熊貓常見壽命，屬報導推估，故 `born` 留空、不寫入；生日會辦在 8 月 24 日僅供參考。
+- 亞種不詳（走私來源）→ **`species` 欄整行省略**、tags 不加亞種 tag（比照 `tiger-2012`、`punchang` 等亞種不詳個體）。
+  ⚠️ 一開始寫成 `species: Ailurus fulgens`（比照 `hana-2023`），但 `build_db.py` 的判斷是 `if "fulgens" in species_str: return "fulgens"`
+  → 種名層級的寫法會被**誤判成 fulgens 亞種**（`hana-2023`、`hashi-2022` 目前即被記為 fulgens）。亞種不詳時省略該欄才會輸出 `species: null`。
+- `birth_zoo: unknown`（非出生園，避免居住史首站被標 🐣）。
+
+**新增條目**：
+- `qiu-qiu-kaohsiung.md` — 球球 Qiu Qiu（♀，走私查獲收容），2001-02-01 入壽山動物園、2014 年歿；生日不詳故 slug 用園簡稱（`limited-profile`＋`rescue`＋`deceased`）
+
+**更新條目**：
+- `index.md` — 新增區塊「台灣個體（高雄・壽山動物園）」；條目總數 872 → 873
+- `qiu-qiu-chengdu.md`、`qiu-qiu-nanjing.md` — 「⚠️ 注意同名」補上第三隻同名個體
+
+**註冊表／工具**：
+- `data/zoos.json` — 新增 `壽山動物園`（zh 高雄市壽山動物園／Shou Shan Zoo／Taiwan／高雄市鼓山區／22.6345573, 120.2751711／官網 zoo.kcg.gov.tw；含 `location_zh`）。休園日（每週一）**未編 `closed_ja`／`closed_rule`**：台灣園的國定假日開園規則與現行欄位語意（日本祝日）不合，暫不編碼
+- `tools/build_db.py` — `OFFICIAL_HOSTS` 新增 `zoo.kcg.gov.tw`（供日後若有園方公告可用）
+
+**重建**：`gen_residence`（873 檔、無額外 churn）→ `build_db`（873 個體 / 1239 親子邊 / 237 雙胞胎 / 1514 筆居住史）→ `export_json`（172 園、未匹配園名 0）→ `verify.sh` 通過（`audit` 🔴 0 / 🟡 48 皆既有中國檔案卡、`check_twins` 0 錯誤 0 警告）。
+⚠️ 本次重建由 Cowork 遠端 session 經 device_bash 執行，掛載資料夾不支援 SQLite → DB 寫在 /tmp，**repo 根目錄的 `redpanda.db` 仍是舊的**；`pipeline/data/*.json` 已更新。要同步 DB 檔請在本機跑一次 `bash rebuild.sh`。
+
+**致謝**：回報者未留暱稱 → 未動 `data/contributors.json`
+
+---
+
+## [2026-08-05] fix | 泰國走私救援個體 `hana-2023`・`hashi-2022` 的亞種誤記為 fulgens → 改為留空
+
+承本日 `qiu-qiu-kaohsiung` 建檔時發現的坑：`tools/build_db.py` 的亞種判斷是純字串比對
+（`if "fulgens" in species_str: return "fulgens"`），所以**種名層級**的 `species: Ailurus fulgens`
+（原意是「只到種、亞種不詳」）會被判成 **fulgens（喜馬拉雅亞種）**。
+
+兩隻泰國走私查獲救援個體正是這樣寫的，導致 frontmatter 與內文自相矛盾——內文明寫
+「出生地、**亞種**與血緣等資料皆不詳」，DB 與網站卻記為 fulgens 亞種。
+
+**處置**：兩筆的 `species:` 整行移除（tags 本來就沒有亞種 tag，無須調整），輸出即為
+`species: null`，與 `tiger-2012`、`punchang`、`poddoung` 等亞種不詳個體一致。
+
+**更新條目**：
+- `hana-2023.md`、`hashi-2022.md` — 移除 `species: Ailurus fulgens`
+
+**規範**：
+- `SCHEMA.md` — `species` 欄位註解補上「亞種不詳→整行省略、勿寫種名層級 `Ailurus fulgens`」，避免再犯
+
+**重建**：`build_db`（873 個體）→ `export_json` → `verify.sh` 通過。亞種分佈由
+styani 820 / fulgens 49 / null 4 變為 **styani 820 / fulgens 47 / null 6**（少掉的 2 隻即本次兩筆）。
+
+**慣例（記錄備忘）**：亞種有據才寫 `Ailurus fulgens styani` / `Ailurus fulgens fulgens`；
+**亞種不詳一律整行省略 `species:`**，不要寫種名層級的 `Ailurus fulgens`。
+
+⚠️ 同前一筆：本次重建經 device_bash，repo 根目錄的 `redpanda.db` 仍是舊的，本機跑一次
+`bash rebuild.sh` 即可同步。
+
+---
+
+## [2026-08-05] add | 安佐 `ron-ron-1995-06-30` × `banana-1996-08-09` 一家補齊：`suika-2002-08-04`、`baron-1999-07-11`、`meron-1999-07-11`
+
+維護者指定建立 RPF #332（`suika`）。查 RPF export 資料集後確認其 11 隻手足中 `baron` #564、
+`meron` #565 尚無條目，依「新增成員流程」第 3 步一併補建；至此 Ron-Ron #231 的 12 名子女
+**全數已建檔**。
+
+**來源**：
+- https://redpandafinder.com/#profile/332 (Suika スイカ)
+- https://redpandafinder.com/#profile/564 (Baron バロン)
+- https://redpandafinder.com/#profile/565 (Meron メロン)
+
+**新增條目**：
+- `suika-2002-08-04.md` — Suika スイカ ♂（RPF #332），2002-08-04 生於広島市安佐動物公園，
+  2010-02-25 → 宮崎市フェニックス自然動物園，2012-12-12 → ひらかたパーク，2016-02-03 歿（享年 13 歲）。
+  11 隻手足中**唯一的單胎**（RPF 無同胎 litter 邊），無子女紀錄
+- `baron-1999-07-11.md` — Baron バロン ♂（RPF #564），1999-07-11 生於安佐，2001-01-18 → 釧路市動物園，
+  2004-04-07 → アドベンチャーワールド，2011-09-27 歿（享年 12 歲）；`meron` 之雙胞胎，無子女
+- `meron-1999-07-11.md` — Meron メロン ♀（RPF #565），1999-07-11 生於安佐，2001-01-30 → 群馬サファリパーク，
+  2008-07-17 → いしかわ動物園，2014-06-26 歿（享年 14 歲）；`baron` 之雙胞胎。在群馬與 Ron-Ron
+  RPF #665（≠ #231／#208）育有雙胞胎 `sora-2002-06-24`・`umi-2002-06-24`
+
+**更新條目**（回填雙向 wikilink——原本兩邊各記一半、對方明明已有條目卻寫成純文字）：
+- `ron-ron-1995-06-30.md`、`banana-1996-08-09.md`、`shii-2000-07-13.md` — 子女／½ 手足表中的
+  `meron`・`baron`・`buna`・`suika`・`matsu`・`ichi`・`sora`・`daichi` 改為 wikilink，並補上各自終居園
+- `tochi-2001-07-24.md` — 父／母原為純文字（`Banana`／`Ron-Ron`），改為 wikilink，此前家系圖上其父母顯示不詳
+- `buna-2000-07-17.md`、`daichi-2006-08-01.md`、`sora-2006-08-01.md`、`ichi-2004-07-23.md`、
+  `matsu-2004-07-23.md`、`nara-2000-07-17.md` — 手足列改 wikilink（`ichi` 的「雙胞胎：Matsu」亦為純文字，已改）
+- `sora-2002-06-24.md`、`umi-2002-06-24.md` — 母由「`Meron`（未建檔）」改為 `meron-1999-07-11`
+- `index.md` — 「Ron-Ron #231 × Banana 之子女」區塊新增 3 筆；條目總數 873 → 876
+
+**修正（父/母行 wikilink 陷阱）**：`shii-2000-07-13.md`、`kashi-2000-07-13.md`、`tochi-2001-07-24.md`
+的父／母行「⚠️ 勿與…混淆」註記裡夾了 `ron-ron-2002-06-28`／`ron-ron-2013-07-19`／`mai-2013-06-23`
+的 wikilink，會被 build_db 當成額外父母（徵兆＝那三隻的子女表憑空多出小孩）。註記中的連結改為純文字
+（比照 `nara-2000-07-17` 既有寫法），只留真正的父／母連結。
+
+**維護者提供**：
+- `ron-ron-1995-06-30.md` — 補漢字名 **龍龍**（`japanese: 龍龍, ロンロン`、標題同步），`sources` 加記
+  維護者提供（2026-08-05）；`index.md` 該列說明同步改為「Ron-Ron 龍龍 / ロンロン」

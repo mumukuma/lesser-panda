@@ -14,6 +14,7 @@
 - **lineage/RPF 的 `ja.name` 是機械轉寫、每隻個體都有（不論來源地），僅「有日本居住史」的個體才採用為 `japanese`**（2026-07-13 起）：歐美等非日本個體一律不抄——其 `ja.name` 若含漢字，多半實為中文名（例：Hui Hu 的「火狐」），應由作者確認後放 `chinese`，而非 `japanese`。工具已內建此規則：`audit.py` 的「lineage 有漢字名、wiki 未收」提示與 `apply_lineage_fixes.py` 的補漢字，都只對 frontmatter `zoos:` 解析出含日本園（`data/zoos.json` 的 `country == "Japan"`）的個體生效；`zoos:` 空白無法確認國別時保守不補。
 - **動物園名以 `data/zoos.json`（註冊表）為唯一事實來源**：每座園的正式名（`canonical`，採完整正式名）、中文名、座標、官網、logo、**地點（`location_ja`）**、**休園日（`closed_ja`，選填，照官網原文精簡一行、僅官方來源可填，缺值園頁不顯示；另有機器可讀衍生欄 `closed_rule` 供首頁「今日休園」計算——`closed_ja` 是人讀正本，某園休園制度改了兩欄必須同步改，不定休／営業カレンダー制與年中無休的園不編 `closed_rule`）** 只存這裡。wiki 條目（frontmatter `zoos:` 與內文居住史）一律寫 canonical 日文名；`build_db` 會精確比對，**寫了註冊表沒有的園名就報錯中止**（提示去登記或修正）。新增一座沒登記過的園 → 先在 `data/zoos.json` 加一筆，再寫條目。lineage 僅用來初次帶入座標，非權威。
 - **地點（`location_ja`）也以 `data/zoos.json` 為準**：`gen_residence.py` **只補空白、永不覆寫**既有校訂值（2026-06-29 起）。要改某園地點 → 直接編輯 `data/zoos.json` 的 `location_ja` 再重建；內文居住史的「地點」欄由註冊表自動帶入，勿手改。
+- **完整地址（`address_ja`，選填）**：`location_ja` 是縣市層級的地點標籤（用於居住史表格與搜尋），**完整地址另存 `address_ja`**，格式為官網原文的日文全址含郵遞區號（例：`〒880-0122 宮崎県宮崎市大字塩路字浜山3083-42`）。只填官網／官方公告查得到的，缺值園頁不顯示；不另存各語系譯寫（導航與寄件都用當地語言最準），園頁標籤走 i18n `zoo_address`。不要為了塞地址去改 `location_ja`——那會讓居住史表格的地點欄變成長地址。
 
 ---
 

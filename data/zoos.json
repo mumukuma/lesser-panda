@@ -711,6 +711,27 @@
   ]
  },
  {
+  "canonical": "壽山動物園",
+  "lineage_id": null,
+  "en": "Shou Shan Zoo",
+  "zh": "高雄市壽山動物園",
+  "country": "Taiwan",
+  "location_ja": "高雄市鼓山区",
+  "location_zh": "高雄市鼓山區",
+  "location_en": "Kaohsiung City, Taiwan",
+  "lat": 22.6345573,
+  "lng": 120.2751711,
+  "map": "https://www.google.com/maps/place/%E5%A3%BD%E5%B1%B1%E5%8B%95%E7%89%A9%E5%9C%92/@22.6345573,120.2751711,17z/",
+  "website": "https://zoo.kcg.gov.tw/",
+  "logo": null,
+  "aliases": [
+   "Shou Shan Zoo",
+   "Shoushan Zoo",
+   "Kaohsiung Shoushan Zoo",
+   "高雄市壽山動物園"
+  ]
+ },
+ {
   "canonical": "周南市徳山動物園",
   "lineage_id": 6,
   "en": "Tokuyama Zoo",
@@ -946,6 +967,7 @@
    }
   ],
   "location_en": "Miyazaki City, Miyazaki Prefecture, Japan",
+  "address_ja": "〒880-0122 宮崎県宮崎市大字塩路字浜山3083-42",
   "lat": 31.9828945,
   "lng": 131.4739183,
   "map": "https://goo.gl/maps/Gm2Rjx3mpP72",

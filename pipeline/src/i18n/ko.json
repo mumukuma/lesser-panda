@@ -125,6 +125,7 @@
   "zoo_no_residents": "현재 기록된 거주 개체가 없습니다",
   "zoo_directions": "🧭 길찾기",
   "zoo_website": "웹사이트",
+  "zoo_address": "주소",
   "zoo_closed": "휴원일",
   "zoo_closed_note": "최신 정보는 공식 사이트를 확인하세요",
   "zoo_sec_history": "역대 거주 개체",

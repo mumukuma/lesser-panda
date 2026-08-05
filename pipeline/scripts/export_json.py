@@ -123,6 +123,7 @@ def load_zoo_master() -> list[dict]:
             "location_ja": r.get("location_ja"),
             "location_en": r.get("location_en"),
             "location_zh": r.get("location_zh"),  # 中文地點（正本繁體；缺則前端退回 location_ja）
+            "address_ja": r.get("address_ja"),  # 完整地址（日文原文含郵遞區號；選填，缺則園頁不顯示）
             "closed_ja": r.get("closed_ja"),    # 休園日（官網原文精簡；選填，缺則不顯示）
             "closed_rule": r.get("closed_rule"),  # 休園日機器可讀規則（衍生欄；人讀正本為 closed_ja，改制需同步）
             "country": r.get("country"),

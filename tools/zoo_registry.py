@@ -4,6 +4,7 @@
   canonical（對外顯示主名，必須唯一）、lineage_id、en、zh、country、
   location_ja/en、lat、lng、map、website、logo、aliases[]
   選填：wechat（微信公眾號名稱；中國園常無官網、以公眾號為官方管道時填此欄）
+  選填：address_ja（完整地址，日文原文含郵遞區號；僅官方來源可填，缺值園頁不顯示）
 
 用法：
   reg = ZooRegistry.load()

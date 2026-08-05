@@ -65,7 +65,8 @@ OFFICIAL_HOSTS = {
     "soumu.metro.tokyo.lg.jp", "city.sapporo.jp",  # 札幌市円山動物園
     "city.sabae.fukui.jp",  # 鯖江市西山動物園（園頁掛在市府站 /nishiyama_zoo/）
     # 台灣／港澳
-    "zoo.gov.taipei", "gov.taipei", "macaotourism.gov.mo", "gcs.gov.mo",
+    "zoo.gov.taipei", "gov.taipei", "zoo.kcg.gov.tw",  # 高雄市壽山動物園（高雄市府網域）
+    "macaotourism.gov.mo", "gcs.gov.mo",
     # 中國園方官網／官方微信公眾號（無官網者以微信文章為官方，見 CLAUDE.md）
     "shanghaizoo.cn", "nbzoo.com", "shwzoo.com", "enjoyland.cn",
     "swap-shendi.com", "lyhylj.liuzhou.gov.cn", "mp.weixin.qq.com",

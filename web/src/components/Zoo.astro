@@ -55,6 +55,9 @@ const pill = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem] no
   {zooLocation(z, locale) && (
     <p class="text-ink-soft text-[.95rem] mt-1.5 mb-0">📍 {zooLocation(z, locale)}</p>
   )}
+  {z.address_ja && (
+    <p class="text-ink-soft text-[.95rem] mt-1.5 mb-0">🏣 {T.zoo_address}：<span lang="ja">{z.address_ja}</span></p>
+  )}
   {z.closed_ja && (
     <p class="text-ink-soft text-[.95rem] mt-1.5 mb-0">🗓️ {T.zoo_closed}：{z.closed_ja}<span class="text-[.8rem] opacity-70">（{T.zoo_closed_note}）</span></p>
   )}
