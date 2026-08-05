@@ -6,6 +6,36 @@
 
 ---
 
+## [2026-08-05] update | `qiu-qiu-kaohsiung`（球球・壽山）補兩支 YouTube 影片
+
+網站個體頁「照片」區改版為「照片與影片」分頁（IG／YouTube，功能面見 `CHANGELOG.md`），frontmatter
+新增選填欄位 `youtube:`（規範見 `SCHEMA.md`）。首例為壽山球球——該園史上唯一小熊貓，兩支同好實拍
+影片經 YouTube oEmbed 核對標題與頻道，確屬本個體：
+
+**來源**：
+- https://www.youtube.com/watch?v=kmYvW8R8IRY （「1010325 壽山動物園 小貓熊」，李岱岱；標題民國日期＝2012-03-25，作排序日期）
+- https://www.youtube.com/watch?v=BRw_Y6I80Uw （「寿山動物園～可愛賣萌小貓熊！」，azusakawa；上傳日期不詳、未填排序日期）
+
+**更新條目**：
+- `qiu-qiu-kaohsiung.md` — frontmatter 加 `youtube:` 兩筆（展示用影像；佐證性質的新聞連結仍在 `extra_sources` 不動）
+
+## [2026-08-05] update | `kotarou-2005-07-08`（琥太郎）過世
+
+大島公園動物園官方 X（`@ooshimashicho`＝東京都大島支庁，該園管理單位）2026-08-05 公告：飼育中的雄性小熊貓「琥太郎（コタロウ）」於 2026-07-29 死亡、21 歲，2007 年來園。官方帳號屬園方主管單位，比照官方訃告直接採用（園方訃告未載死因）。補 `died: 2026-07-29`、tags 加 `deceased`、`zoos` 訖改 2026-07-29；標題／引言加 🪐、歿記與得年（享年 21 歲），內文改過去式並補辭世一句。檔案續留 `wiki/`，`index.md` 該列補 🪐、享年段改 `2005–2026 🪐`（總數不變、仍上站）。父／母／姊妹／配偶／子女等既有條目對 `kotarou-2005-07-08` 的 wikilink 一併補 🪐。`tools/build_db.py` 的 `OFFICIAL_X_ACCOUNTS` 新增 `ooshimashicho`，此 X 訃告即計為官方來源。
+
+**來源**：
+- https://x.com/ooshimashicho/status/2084882090672197737 （東京都大島支庁 官方 X：琥太郎 2026-07-29 死亡、21 歲、2007 年來園）
+
+**更新條目**：
+- `kotarou-2005-07-08.md` — 補 `died`／`deceased`／X 來源；標題引言 🪐＋享年 21 歲；內文改過去式、補辭世
+- `luna-2006-07-10.md`／`airi-2006-06-20.md`／`kojirou-2012-06-18.md`／`anko-2013-06-22.md`／`you-you-2002-06-21.md`／`buna-2000-07-17.md`／`marimo-2008-06-24.md`／`kotarou-2006-06-22.md` — 對 `kotarou-2005-07-08` 的 wikilink 補 🪐（`you-you`／`buna` 子女表另改「現居」→「終居」）
+- `index.md` — `kotarou-2005-07-08` 該列補 🪐、享年段 `2005–2026 🪐`；`kotarou-2006-06-22` 列勿混淆註記補 🪐
+
+**工具**：
+- `tools/build_db.py` — `OFFICIAL_X_ACCOUNTS` 新增 `ooshimashicho`（東京都大島支庁＝大島公園動物園）
+
+---
+
 ## [2026-07-27] update | `duo-duo-hangzhou` 確認為 `ma-tuan-2023-06-16`（麻團）之母
 
 維護者提供：朵朵為麻團之母。麻團與月餅（`yue-bing-2023-06-16`）為同日同園雙胞胎（父同為山竹），故一併補上朵朵為月餅之母。三份條目 `家族` 欄位互相補上雙向 wikilink，移除原先「母：不詳（待查證）」；朵朵條目補列子女。家系無官方公告，`sources` 註明維護者提供（2026-07-27）。
@@ -5304,3 +5334,41 @@ styani 820 / fulgens 49 / null 4 變為 **styani 820 / fulgens 47 / null 6**（�
 **維護者提供**：
 - `ron-ron-1995-06-30.md` — 補漢字名 **龍龍**（`japanese: 龍龍, ロンロン`、標題同步），`sources` 加記
   維護者提供（2026-08-05）；`index.md` 該列說明同步改為「Ron-Ron 龍龍 / ロンロン」
+
+---
+
+## [2026-08-05] add | 宮崎フェニックス首代家族：`rin-rin-1993-06-29`（玲玲）、`ron-ron-1995-06-15`（龍龍 #367）、`franz-2000-06-23`
+
+維護者請求「建立龍龍（`ron-ron-1995-06-30`）的媽媽リンリン（1995 到達宮崎）」。查證發現**兩隻不同的 Ron-Ron**：
+維護者提供的宮崎來源（4travel、exblog、月刊パンダ、四國新聞）描述的リンリン＝RPF #781（漢字**玲玲**，
+月刊パンダ載），其子為**宮崎的龍龍 RPF #367**（1995-06-15 生於宮崎、2007-12-17 歿、RPF 上游漢字即「龍龍」、
+別名 Long-Long），並非 #231（ロンロン，長崎バイオパーク生 → 広島安佐）。#231 之母為另一隻リンリン
+（RPF #830，野生出身 → 長崎，未建條目）。經維護者裁定：分建宮崎系條目，**#231 現載的漢字「龍龍」暫不動、
+待後續裁定**。
+
+生日裁定：リンリン採 **1993-06-29**（RPF＋月刊パンダ＋4travel 內文一致；四國新聞 2005-05-24 記 11 歳吻合）；
+維護者所見園製照片曾讀作 1992 🚧 已記於條目備注待重核。
+
+**來源**：
+- https://redpandafinder.com/#profile/781 (Rin-Rin 玲玲)
+- https://redpandafinder.com/#profile/367 (Ron-Ron 龍龍)
+- https://redpandafinder.com/#profile/362 (Franz フランツ)
+- https://www.gekkan-panda.com/zoo/lesserpanda-kyushu/201710/31-470 （漢字 玲玲，維護者提供）
+- https://4travel.jp/travelogue/10781265 ／ https://geroppa55.exblog.jp/11851265/ ／ https://www.shikoku-np.co.jp/national/life_topic/20050524000391 （皆已實開核對，記入各條目 extra_sources）
+
+**新增條目**：
+- `rin-rin-1993-06-29.md` — Rin-Rin 玲玲 ♀（RPF #781），1993-06-29 生於周南市徳山動物園，1995-03-27 →
+  宮崎市フェニックス自然動物園（**初代小熊貓**），2013-11-01 歿（享年 20 歲）。獨子 `ron-ron-1995-06-15`
+  推定為徳山時期受孕（父不詳 🚧）；與同期來園的カンカン（#880，無條目）未有子嗣
+- `ron-ron-1995-06-15.md` — Ron-Ron 龍龍 ♂（RPF #367），1995-06-15 生於宮崎（**園內首隻出生**），一生未離園，
+  2007-12-17 歿。與 `franz-2000-06-23` 育有 `ribbon-2006-05-30`・`ren-2007-06-14`
+- `franz-2000-06-23.md` — Franz フランツ ♀（RPF #362），2000-06-23 生於ズーラシア（`pam-1997-06-26` ×
+  `mii-mii-1994-06-26` 之女、`kousei-2000-06-23` 雙胞胎），2005-03-10 → 宮崎，2016-03-08 歿（享年 15 歲）
+
+**更新條目**（回填雙向 wikilink）：
+- `ribbon-2006-05-30.md`、`ren-2007-06-14.md` — 父／母由純文字改為 `ron-ron-1995-06-15`／`franz-2000-06-23`
+  wikilink；`ribbon` 的 Kotarou・Hiko・Ren、`ren` 的 Ribbon 亦補 wikilink（純文字親屬但條目已存在）
+- `kousei-2000-06-23.md`、`chip-2001-06-19.md`、`dale-2001-06-19.md`、`porin-2002-06-15.md` — 手足列
+  Franz（及 Chip・Porin・Ko-ai 等既有條目）改 wikilink
+- `pam-1997-06-26.md`、`mii-mii-1994-06-26.md`、`gaia-2004-06-10.md` — 子女／手足表 Franz 改 wikilink
+- `index.md` — 新增「Rin-Rin 玲玲 × Ron-Ron 龍龍 家族」區塊（3 筆）；條目總數 876 → 879

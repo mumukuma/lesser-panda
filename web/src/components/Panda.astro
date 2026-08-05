@@ -49,6 +49,28 @@ const igPosts = (p.instagram || []).map((s) => {
 const IG_PAGE = 6;
 const igRest = igPosts.slice(IG_PAGE);
 
+// YouTube 影片：frontmatter 可寫「URL YYYY-MM-DD」，依日期新到舊排序（無日期者排後）。
+// watch／youtu.be／shorts／live 形式皆可，統一解析 video ID；解析不出的項目直接略過。
+// 顯示採 facade：先放官方縮圖（i.ytimg.com，無需 API key），點擊才載入 youtube-nocookie 播放器。
+const ytPosts = (p.youtube || []).map((s) => {
+  const parts = String(s).trim().split(/\s+/);
+  const date = parts[1] && /^\d{4}-\d{2}-\d{2}$/.test(parts[1]) ? parts[1] : '';
+  const url = parts[0];
+  const m = url.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/i);
+  const id = m ? m[1] : '';
+  return id ? {
+    url, date, id,
+    thumb: `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${id}?autoplay=1`,
+  } : null;
+}).filter(Boolean).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+// 照片與影片：合計數供 hero chip 與區塊標題；兩種來源都有才顯示分頁列（九成以上條目
+// 只有 IG，避免全站多一層無意義 UI）；IG 空而 YT 非空（如壽山球球）直接顯示影片分頁。
+const mediaCount = igPosts.length + ytPosts.length;
+const showMediaTabs = igPosts.length > 0 && ytPosts.length > 0;
+const defaultTab = igPosts.length > 0 ? 'ig' : 'yt';
+
 // 官方來源：僅園方官網／政府公告／園報／官方微信（分類於 build_db.official_sources）；
 // 顯示以網域為連結文字。非官方（RPF、部落格、新聞、社群）不進此清單。
 const sources = p.sources || [];
@@ -178,11 +200,11 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
     )}
   </div>
   {aka.length > 0 && <p class="text-ink-soft text-[.95rem] mt-1 relative">{aka.join('、')}</p>}
-  {igPosts.length > 0 && (
+  {mediaCount > 0 && (
     <a href="#photos" class="pop no-underline inline-flex items-center gap-1.5 bg-cream text-rust rounded-full px-3 py-1 text-[.82rem] font-medium mt-2.5 relative"
-       aria-label={`${igPosts.length} ${T.sec_photos}`}>
+       aria-label={`${mediaCount} ${T.sec_photos}`}>
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3.2"/></svg>
-      {igPosts.length}<span class="font-normal">{T.sec_photos}</span>
+      {mediaCount}<span class="font-normal">{T.sec_photos}</span>
     </a>
   )}
   <dl class="grid grid-cols-[auto_1fr] gap-x-[18px] gap-y-1.5 m-0 mt-3 relative">
@@ -355,9 +377,20 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
     </div>
 </>
 
-{igPosts.length > 0 && (
+{mediaCount > 0 && (
   <>
-    <h2 id="photos" class={`${H3} scroll-mt-20`}>{T.sec_photos}<span class="ml-1.5 text-ink-soft text-[.8rem] font-normal align-middle">（{igPosts.length}）</span></h2>
+    <h2 id="photos" class={`${H3} scroll-mt-20`}>{T.sec_photos}<span class="ml-1.5 text-ink-soft text-[.8rem] font-normal align-middle">（{mediaCount}）</span></h2>
+    {/* 分頁列：IG 與 YT 都有才顯示（showMediaTabs）；只有一種來源時直接顯示該區塊、不出分頁 UI。 */}
+    {showMediaTabs && (
+      <div role="tablist" aria-label={T.sec_photos} class="flex gap-2 mb-3">
+        <button type="button" role="tab" id="media-tab-ig" data-tab="ig" aria-selected="true" aria-controls="media-panel-ig"
+          class="media-tab pop rounded-full px-3.5 py-1.5 text-[.85rem] font-medium border-0 cursor-pointer bg-rust text-white">{T.tab_instagram}<span class="font-normal">（{igPosts.length}）</span></button>
+        <button type="button" role="tab" id="media-tab-yt" data-tab="yt" aria-selected="false" aria-controls="media-panel-yt"
+          class="media-tab pop rounded-full px-3.5 py-1.5 text-[.85rem] font-medium border-0 cursor-pointer bg-cream text-rust">{T.tab_youtube}<span class="font-normal">（{ytPosts.length}）</span></button>
+      </div>
+    )}
+    {igPosts.length > 0 && (
+    <div id="media-panel-ig" class="media-panel" role={showMediaTabs ? 'tabpanel' : null} aria-labelledby={showMediaTabs ? 'media-tab-ig' : null}>
     {/* 方案 C：facade ＋ lazy-load。開頁只有零 iframe 的骨架卡（脈動載入動畫），捲進視窗附近才換成真 IG embed；embed 載好後骨架才移除。 */}
     {/* 瀑布流：CSS columns 讓不同高度的卡片往上補、不留整列空白（桌機依寬度自動 2+ 欄、手機 1 欄）。 */}
     <div id="ig-grid" class="columns-[340px] [column-gap:1rem]">
@@ -383,6 +416,35 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
       <button id="ig-more" class="pop mt-3 bg-cream text-rust rounded-full px-4 py-2 text-[.9rem] border-0 cursor-pointer">{T.photos_more}（+{igRest.length}）</button>
     )}
     <p class="text-ink-soft text-[.82rem] mt-2">{T.photos_note}</p>
+    </div>
+    )}
+    {ytPosts.length > 0 && (
+      <div id="media-panel-yt" class="media-panel" hidden={defaultTab !== 'yt'}
+           role={showMediaTabs ? 'tabpanel' : null} aria-labelledby={showMediaTabs ? 'media-tab-yt' : null}>
+        {/* YouTube facade：開頁只放官方縮圖＋播放鍵（零 iframe），點擊才把按鈕換成 youtube-nocookie 播放器。 */}
+        <div class="grid gap-4 [grid-template-columns:repeat(auto-fill,minmax(280px,1fr))]">
+          {ytPosts.map((v) => (
+            <div>
+              <button type="button" class="yt-facade pop relative block w-full aspect-video rounded-card overflow-hidden border border-line bg-black p-0 cursor-pointer"
+                data-embed={v.embedUrl} aria-label={T.videos_play}>
+                <img src={v.thumb} alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover" />
+                <span class="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+                  <span class="flex items-center justify-center w-12 h-12 rounded-full" style="background:rgba(0,0,0,.55)">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                </span>
+              </button>
+              <p class="mt-1.5 mb-0 text-[.8rem] text-ink-soft flex justify-between gap-2">
+                <a href={v.url} target="_blank" rel="noopener nofollow" class="text-rust hover:underline">YouTube ↗</a>
+                {v.date && <span>{v.date}</span>}
+              </p>
+            </div>
+          ))}
+        </div>
+        <p class="text-ink-soft text-[.82rem] mt-2">{T.videos_note}</p>
+      </div>
+    )}
+    {igPosts.length > 0 && (
     <script is:inline define:vars={{ PAGE: IG_PAGE, PIN: 1 }}>
       (function () {
         var grid = document.getElementById('ig-grid');
@@ -505,6 +567,58 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
         }
       })();
     </script>
+    )}
+    {ytPosts.length > 0 && (
+      <script is:inline>
+        (function () {
+          // YouTube facade：點擊縮圖卡才建 iframe（autoplay），把整顆按鈕換成播放器
+          document.querySelectorAll('.yt-facade').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+              var wrap = document.createElement('div');
+              wrap.className = 'relative w-full aspect-video rounded-card overflow-hidden border border-line';
+              var f = document.createElement('iframe');
+              f.src = this.getAttribute('data-embed');
+              f.title = this.getAttribute('aria-label') || 'YouTube';
+              f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+              f.setAttribute('allowfullscreen', '');
+              f.className = 'absolute inset-0 w-full h-full border-0';
+              wrap.appendChild(f);
+              this.replaceWith(wrap);
+            });
+          });
+        })();
+      </script>
+    )}
+    {showMediaTabs && (
+      <script is:inline>
+        (function () {
+          var tabs = Array.prototype.slice.call(document.querySelectorAll('.media-tab'));
+          if (!tabs.length) return;
+          tabs.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+              var target = this.getAttribute('data-tab');
+              tabs.forEach(function (b) {
+                var on = b.getAttribute('data-tab') === target;
+                b.setAttribute('aria-selected', on ? 'true' : 'false');
+                b.classList.toggle('bg-rust', on);
+                b.classList.toggle('text-white', on);
+                b.classList.toggle('bg-cream', !on);
+                b.classList.toggle('text-rust', !on);
+              });
+              document.querySelectorAll('.media-panel').forEach(function (panel) {
+                panel.hidden = panel.id !== 'media-panel-' + target;
+              });
+              // 切回 IG 分頁：hidden 期間 embed 量不到寬度，逼 IG 依現寬重算（同 ig-grid 的 refit）
+              if (target === 'ig') {
+                setTimeout(function () {
+                  try { window.dispatchEvent(new Event('resize')); } catch (e) {}
+                }, 150);
+              }
+            });
+          });
+        })();
+      </script>
+    )}
   </>
 )}
 
@@ -545,7 +659,7 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
 {/* 投稿 CTA：一律顯示（零照片的個體最需要投稿）。點按鈕才載入 Tally embed，panda/slug/url 預填。 */}
 {photoEmbedSrc && (
   <>
-    {igPosts.length === 0 && <h2 class={H3}>{T.sec_photos}</h2>}
+    {mediaCount === 0 && <h2 class={H3}>{T.sec_photos}</h2>}
     <div class="card-soft p-4 mt-3 text-center reveal">
       <p class="m-0 text-[.95rem] text-ink-soft" set:html={T.photos_cta.replace('{name}', `<span class="text-rust font-medium">${primary}</span>`)} />
       <p class="mt-3 mb-0 mx-auto max-w-md text-[.82rem] font-semibold text-rust-dark rounded-input px-3 py-2 border-2 border-amber"

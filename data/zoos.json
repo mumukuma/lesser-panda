@@ -719,6 +719,8 @@
   "location_ja": "高雄市鼓山区",
   "location_zh": "高雄市鼓山區",
   "location_en": "Kaohsiung City, Taiwan",
+  "closed_ja": "星期一及除夕休園，如星期一遇國定假日則照常開園",
+  "address_ja": "804006 高雄市鼓山區萬壽路350號",
   "lat": 22.6345573,
   "lng": 120.2751711,
   "map": "https://www.google.com/maps/place/%E5%A3%BD%E5%B1%B1%E5%8B%95%E7%89%A9%E5%9C%92/@22.6345573,120.2751711,17z/",

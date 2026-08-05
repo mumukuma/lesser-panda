@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS pandas (
     rpf_url     TEXT,
     tags        TEXT,               -- JSON array，原始 tags
     instagram   TEXT,               -- JSON array，公開 IG 貼文連結（curate，官方 embed 展示）
+    youtube     TEXT,               -- JSON array，公開 YouTube 影片連結（curate，個體頁「照片與影片」影片分頁 embed 展示）
     is_alive    INTEGER,  -- 0=已歿, 1=現存（由 build_db.py 填入）
     sources     TEXT,               -- JSON array，僅官方來源（園方/政府/園報/官方微信）；個體頁「來源」區塊用
     extra_sources TEXT              -- JSON array，其他補充資料（展牌實拍等一手但非官方鏈結的佐證；網站另區塊顯示，待實作）

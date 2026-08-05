@@ -6,6 +6,17 @@ const T = i18n[locale];
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const resLink = (s) =>
   pandas[s] ? `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, pandas[s].urlId)}">${displayName(pandas[s], locale)}${pandas[s].died ? deceasedHtml(locale) : ''}</a>` : s;
+// 無現居個體的園：卡片改列歷代居住個體（依在此園首段起始日新→舊，同 Zoo.astro 歷代表排序），
+// 否則卡片只剩「（0）無現居個體」，讀者會以為該園沒資料（2026-08-05 壽山動物園／球球案）。
+const _former = {};
+for (const [s, p] of Object.entries(pandas)) {
+  for (const r of p.residences || []) {
+    if (r.zoo_id == null) continue;
+    const m = (_former[r.zoo_id] ||= new Map());
+    if (!m.has(s)) m.set(s, r.start || '9999');
+  }
+}
+const formerList = (id) => [...(_former[id] || new Map())].sort((a, b) => b[1].localeCompare(a[1])).map(([s]) => s);
 const inputCls = 'bg-card text-ink border border-line rounded-input px-3.5 py-2.5 font-[inherit] focus:outline-none focus:border-rust';
 const selectCls = `${inputCls} appearance-none pr-9 cursor-pointer`;
 const arrowStyle = "background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237a6a5f' stroke-width='1.5' fill='none'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 12px center";
@@ -47,8 +58,17 @@ const countries = countryOptions(locale);
       </h2>
       <div class="text-[.84rem] text-ink-soft mb-2">{zooLocation(z, locale) || ''}</div>
       <div class="text-[.9rem]">
-        <strong>{T.zoo_residents}（{z.residents.length}）</strong><br />
-        <Fragment set:html={z.residents.map(resLink).join('、') || T.zoo_no_residents} />
+        {z.residents.length > 0 ? (
+          <Fragment>
+            <strong>{T.zoo_residents}（{z.residents.length}）</strong><br />
+            <Fragment set:html={z.residents.map(resLink).join('、')} />
+          </Fragment>
+        ) : (
+          <Fragment>
+            <strong>{T.zoo_sec_history}（{formerList(z.id).length}）</strong><br />
+            <Fragment set:html={formerList(z.id).map(resLink).join('、') || T.zoo_no_residents} />
+          </Fragment>
+        )}
       </div>
       <div class="mt-2.5 flex gap-2 flex-wrap">
         {z.lat && <button class="pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem] border-0 cursor-pointer" data-zoo-focus={z.id}>📍</button>}

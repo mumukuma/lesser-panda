@@ -50,6 +50,8 @@ rpf_url: https://redpandafinder.com/#profile/XXX
 tags: [標籤]
 instagram:                # 選填：同好的公開 IG 貼文連結，網站以官方 embed 展示（自動署名、連回原貼文）
   - https://www.instagram.com/帳號/p/XXXXXXXXX/ 2025-06-01   # 建議用含「帳號」的完整形式；可在連結後加貼文日期，網站依日期新到舊排序；超過 6 篇自動「顯示更多」
+youtube:                  # 選填（2026-08-05 起）：值得「展示」的公開 YouTube 影片。個體頁「照片與影片」區的影片分頁以縮圖卡片顯示、點擊才載入播放器
+  - https://www.youtube.com/watch?v=XXXXXXXXXXX 2012-03-25   # watch／youtu.be／shorts 形式皆可；可在連結後加影片日期（新到舊排序）；行末 YAML 註解記標題／頻道
 sources:
   - https://redpandafinder.com/#profile/XXX
 extra_sources:           # 選填：其他參考資料——非官方但值得留存的線索，與官方 sources 分開管理。網站個體頁於「來源」下方另闢「其他參考資料」區塊顯示（2026-08-02 起）
@@ -61,6 +63,8 @@ extra_sources:           # 選填：其他參考資料——非官方但值得�
 ```
 
 > `instagram` 為選填。只放**公開**貼文連結；網站用 Instagram 官方 embed 顯示，會自動標註原作者並連回原貼文（不複製圖片檔）。新增後重跑 `build_db.py` → `export_json.py` 即生效。
+>
+> `youtube` 為選填（2026-08-05 起）。放**值得展示的**公開 YouTube 影片；網站在個體頁「照片與影片」區的**影片分頁**以縮圖卡片顯示（點擊才載入 youtube-nocookie 播放器，連回原影片、顯示頻道署名）。兩種來源都有才顯示分頁列；只有一種就顯示單一區塊。**與 `extra_sources` 的分工**：`youtube:` 是「展示用影像」，`extra_sources` 是「佐證／參考資料」——僅作佐證、不值得 embed 的 YT 連結（畫質差、只拍到告示牌等）仍放 `extra_sources`。同一支影片兩種身分兼具時放 `youtube:` 即可，不必重複列。
 >
 > **連結請盡量用含帳號的完整形式** `https://www.instagram.com/帳號/p/XXXXXXXXX/`（而非僅 `/p/XXXXXXXXX/`）。網站會從 URL 解析出發文帳號，在照片卡片上額外顯示「📷 @帳號」並連回該 IG profile（embed 兩種形式都吃，含帳號不影響顯示）。沒帶帳號的連結仍可正常 embed，只是不會多顯示這行攝影者署名。IG 的「複製連結」常給不含帳號的短形式，curate 時請改存完整形式。
 
@@ -86,7 +90,7 @@ extra_sources:           # 選填：其他參考資料——非官方但值得�
 | 欄位 | 放什麼 | 網站顯示 |
 |------|--------|----------|
 | `sources` | **官方／一手來源**：園方官網、園報、飼育日誌、政府公告、園方官方社群帳號（分類器 `OFFICIAL_HOSTS` 見 `tools/build_db.py`） | 個體頁「來源」區塊；同時決定 `has_official_source` 旗標 |
-| `extra_sources` | **其他參考資料**：同好部落格、YouTube 影片、新聞報導、fan wiki 等非官方鏈結。**只放 URL** | 個體頁「其他參考資料」區塊（列在「來源」下方，並註明非官方）；非 URL 項目一律過濾不顯示 |
+| `extra_sources` | **其他參考資料**：同好部落格、YouTube 影片（佐證用）、新聞報導、fan wiki 等非官方鏈結。**只放 URL**。值得展示的 YT 影片改放 `youtube:` 欄位（見上） | 個體頁「其他參考資料」區塊（列在「來源」下方，並註明非官方）；非 URL 項目一律過濾不顯示 |
 | （條目內文／`## 備注`） | **無法線上核對的一手佐證**：讀者實拍展牌、實體園報掃描等。連同原文引述寫成敘述（2026-08-05 起，取代舊的「在 `extra_sources` 寫純文字說明」做法） | 隨內文顯示 |
 
 - **部落格／影片等非官方連結一律進 `extra_sources`、不進 `sources`**，避免污染官方來源判定。

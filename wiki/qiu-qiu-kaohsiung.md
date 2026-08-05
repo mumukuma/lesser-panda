@@ -9,6 +9,9 @@ zoos:
   - 壽山動物園 (2001-02-01 – 2014)
 birth_zoo: unknown
 tags: [female, limited-profile, rescue, deceased, zoo:壽山動物園]
+youtube:
+  - https://www.youtube.com/watch?v=kmYvW8R8IRY 2012-03-25   # 「1010325 壽山動物園 小貓熊」（李岱岱）；標題民國日期＝2012-03-25
+  - https://www.youtube.com/watch?v=BRw_Y6I80Uw   # 「寿山動物園～可愛賣萌小貓熊！」（azusakawa）；上傳日期不詳
 sources:
   - 讀者回報（未具名，附新聞報導與學生專題頁連結，2026-08-04）
   - 維護者提供（2026-08-05：回報所附連結逐一實開查證，確認 2001-02-01 入園、2014 年歿、性別 ♀）

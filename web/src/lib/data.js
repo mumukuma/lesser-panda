@@ -46,9 +46,10 @@ for (const z of zoos) {
 }
 export const zooBySlug = Object.fromEntries(zoos.map((z) => [z.slug, z]));
 export const zooSlugById = Object.fromEntries(zoos.map((z) => [z.id, z.slug]));
-// 動物園列表／地圖只露出「目前有現居個體」的園；無現居者（個體已故或轉出）
-// 仍保留於 zoos（供個別頁與居住史連結的園名解析），僅不在列表/地圖顯示。
-export const zoosListed = zoos.filter((z) => z.residents && z.residents.length > 0);
+// 動物園列表／地圖列出全部的園（export_json 只匯出「曾有居住史」的園，故 zoos 即此集合）。
+// 無現居者（個體已故或轉出，如壽山動物園）也要列出、卡片改顯示歷代居住個體——
+// 2026-08-05 前只列有現居個體的園，導致壽山（僅球球一隻、已故）在列表/地圖查不到。
+export const zoosListed = zoos;
 // 供前端內嵌資料（ZOOS_DATA）使用的簡體園名：建置時預轉，客戶端不用帶 OpenCC
 for (const z of zoos) {
   const zh = z.name_zh || z.ja_name || z.en_name || '';
@@ -134,7 +135,7 @@ export const countryName = (c, locale = 'zh-TW') => {
   const row = COUNTRY_NAMES[countryKey(c)];
   return (row && (row[locale] || row.en)) || (c || '');
 };
-// 地區 filter 的選項：只列「有現居個體的園」實際出現的地區（園數多→少，同數依名稱）。
+// 地區 filter 的選項：只列列表上的園實際出現的地區（園數多→少，同數依名稱）。
 // 未登記 country 的園不產生選項，選「全部」時仍會顯示。
 export const countryOptions = (locale = 'zh-TW') => {
   const n = {};
@@ -295,7 +296,8 @@ export const searchDataFor = (locale) => ({
     uv: p.unverified ? 1 : null,
     ap: p.placeholder ? 1 : null, // 蘋果籽佔位（尚未命名的寶寶）
 
-    ph: (p.instagram || []).length || null,
+    // 照片／影片數：IG 貼文 + YouTube 影片（搜尋頁「有照片」篩選、排序與 badge 都算合計）
+    ph: ((p.instagram || []).length + (p.youtube || []).length) || null,
     kids: (p.children || []).length || null,
     r: pandaRegionKey(p) || null,   // 地區 key（與下方 zoo 同一座園）
     // 在世＝現居園；已故＝最後居住園（否則 zoo 篩選永遠濾不出已故個體，「現存」checkbox 形同虛設）

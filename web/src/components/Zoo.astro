@@ -9,6 +9,9 @@ const T = i18n[locale];
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const z = zooBySlug[slug];
 const name = zooName(z.id, z.en_name, locale);
+// 地址＝官網原文（當地語言，見 data/zoos.json address_ja 慣例），lang 依所在國標注；
+// 表上沒有的國家不標，交給瀏覽器（不要一律 ja：中文地址會套日文字型，字形不對）。
+const addrLang = { Japan: 'ja', Taiwan: 'zh-Hant-TW', China: 'zh-Hans-CN' }[z.country];
 
 // 蘋果籽佔位（尚未命名的寶寶）icon，掛在名字後（role=img+aria-label，SR 念「蘋果籽」）
 const seedIcon = ' <span role="img" title="' + T.placeholder_badge + '" aria-label="' + T.placeholder_badge + '">🍎</span>';
@@ -56,7 +59,7 @@ const pill = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem] no
     <p class="text-ink-soft text-[.95rem] mt-1.5 mb-0">📍 {zooLocation(z, locale)}</p>
   )}
   {z.address_ja && (
-    <p class="text-ink-soft text-[.95rem] mt-1.5 mb-0">🏣 {T.zoo_address}：<span lang="ja">{z.address_ja}</span></p>
+    <p class="text-ink-soft text-[.95rem] mt-1.5 mb-0">🏣 {T.zoo_address}：<span lang={addrLang}>{z.address_ja}</span></p>
   )}
   {z.closed_ja && (
     <p class="text-ink-soft text-[.95rem] mt-1.5 mb-0">🗓️ {T.zoo_closed}：{z.closed_ja}<span class="text-[.8rem] opacity-70">（{T.zoo_closed_note}）</span></p>

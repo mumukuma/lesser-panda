@@ -6,6 +6,31 @@
 
 ---
 
+## 2026-08-05 ・ 個體頁「照片」改版為「照片與影片」分頁（IG＋YouTube）
+
+個體頁照片區塊新增 YouTube 影片支援，改為分頁設計：第一分頁 Instagram（預設、內容照舊），
+第二分頁 YouTube。資料來源為 frontmatter 新選填欄位 `youtube:`（格式同 `instagram:`——
+「URL 日期」、新到舊排序；規範與 `extra_sources` 的分工見 `SCHEMA.md`）。首例個體為
+`qiu-qiu-kaohsiung`（壽山球球，0 IG＋2 YT）。
+
+- `tools/schema.sql`／`tools/build_db.py`／`pipeline/scripts/export_json.py`：pandas 表新增
+  `youtube` 欄（JSON array），frontmatter → DB → `pandas.json` 全線比照 `instagram`；
+  行末 YAML 註解（自製 parser 不剝）於 build 時去除，只存「URL 日期」。
+- `web/src/components/Panda.astro`：
+  - 分頁列只在**兩種來源都有**時顯示（九成以上條目只有 IG，避免多一層無意義 UI）；
+    只有一種來源時照舊顯示單一區塊。IG 空而 YT 非空 → 直接顯示影片分頁（球球即此例）。
+  - YouTube 採 facade：開頁只放官方縮圖（`i.ytimg.com`，免 API key）＋播放鍵，點擊才載入
+    `youtube-nocookie.com` 播放器（16:9 grid，autoplay）。與 IG 骨架卡同哲學，開頁零 iframe。
+  - 切回 IG 分頁時觸發 `resize`（比照 `refit()`）——IG embed 在 `hidden` 期間量不到寬度，
+    不重算會壓扁。URL 支援 watch／youtu.be／shorts／live 形式，統一解析 video ID。
+  - hero 照片 chip 與區塊標題數字改為 IG＋YT 合計。
+- `web/src/lib/data.js`：搜尋頁 `ph`（「只顯示有照片／影片」篩選、排序、卡片 badge）改為
+  IG＋YT 合計——球球這類只有影片的個體也能被篩出。
+- i18n 五語系：`sec_photos` 改「照片與影片」，新增 `videos_note`（YT 版權說明）、`videos_play`、
+  `tab_instagram`／`tab_youtube`；`filter_has_photos`／`sort_photos` 措辭同步改。
+
+---
+
 ## 2026-08-05 ・ 來源分類器：補 Prospect Park Zoo 官方 IG 帳號
 
 處理 `leah-2019-05-17` 的原名回報時，佐證雙胞胎 `Rose` 現居紐約布魯克林的一手來源是該園官方

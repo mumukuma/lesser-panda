@@ -121,6 +121,7 @@ OFFICIAL_X_ACCOUNTS = {
     "ichikawa_zoo",     # 市川市動植物園（同 city.ichikawa.lg.jp）
     "kumamotocityzoo",  # 熊本市動植物園（ezooko.jp）
     "cincinnatizoo",    # Cincinnati Zoo & Botanical Garden（同 cincinnatizoo.org）
+    "ooshimashicho",    # 東京都大島支庁（大島公園動物園）
 }
 _X_HOSTS = {"x.com", "twitter.com", "mobile.twitter.com", "mobile.x.com"}
 
@@ -458,6 +459,14 @@ def build_db():
         if isinstance(instagram, str):
             instagram = [instagram]
 
+        # YouTube 展示用影片（照片與影片區的影片分頁）；佐證用的 YT 連結仍走 extra_sources。
+        # 行末 YAML 註解（`  # 標題／頻道`）自製 parser 不會剝掉，這裡去掉、保留「URL 日期」。
+        youtube = fm.get("youtube", [])
+        if isinstance(youtube, str):
+            youtube = [youtube]
+        youtube = [re.sub(r"\s+#.*$", "", str(s)).strip() for s in youtube]
+        youtube = [s for s in youtube if s]
+
         extra_sources = fm.get("extra_sources", [])
         if isinstance(extra_sources, str):
             extra_sources = [extra_sources]
@@ -485,6 +494,7 @@ def build_db():
             "rpf_url":          fm.get("rpf_url"),
             "tags":             json.dumps(tags_raw, ensure_ascii=False),
             "instagram":        json.dumps(instagram, ensure_ascii=False) if instagram else None,
+            "youtube":          json.dumps(youtube, ensure_ascii=False) if youtube else None,
             "is_alive":         0 if fm.get("died") else 1,
             "sources":          json.dumps(official_sources(fm.get("sources")), ensure_ascii=False),
             "extra_sources":    json.dumps(extra_sources, ensure_ascii=False) if extra_sources else None,
@@ -502,10 +512,10 @@ def build_db():
     cur.executemany("""
         INSERT OR REPLACE INTO pandas
           (slug, name, japanese, korean, chinese, nicknames, english_variants,
-           sex, born, died, last_seen, species, rpf_id, rpf_url, tags, instagram, is_alive, sources, extra_sources)
+           sex, born, died, last_seen, species, rpf_id, rpf_url, tags, instagram, youtube, is_alive, sources, extra_sources)
         VALUES
           (:slug,:name,:japanese,:korean,:chinese,:nicknames,:english_variants,
-           :sex,:born,:died,:last_seen,:species,:rpf_id,:rpf_url,:tags,:instagram,:is_alive,:sources,:extra_sources)
+           :sex,:born,:died,:last_seen,:species,:rpf_id,:rpf_url,:tags,:instagram,:youtube,:is_alive,:sources,:extra_sources)
     """, [r for _, _, r in panda_rows])
     conn.commit()
     print(f"  ✅ 插入 {len(panda_rows)} 筆個體資料")

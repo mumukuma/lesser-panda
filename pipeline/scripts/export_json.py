@@ -230,6 +230,8 @@ def main():
             "rpf_id": r["rpf_id"],
             "rpf_url": r["rpf_url"],
             "instagram": json.loads(r["instagram"] or "[]"),
+            # 展示用 YouTube 影片（個體頁「照片與影片」影片分頁）；佐證用 YT 連結仍在 extra_sources
+            "youtube": json.loads(r["youtube"] or "[]"),
             # 僅官方來源（園方/政府/園報/官方微信）；分類於 build_db.official_sources
             "sources": json.loads(r["sources"] or "[]"),
             # 佐證軸（自動推導，非手動 tag）：官方來源清單非空 → 有官方背書。
