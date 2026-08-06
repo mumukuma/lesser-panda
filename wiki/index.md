@@ -2599,8 +2599,8 @@ Dusk（RPF #447）2004 年生於溫尼伯 Assiniboine Park Zoo，經 Granby Zoo�
 
 | 條目 | 說明 | 性別 | 生卒 | 動物園 |
 |------|------|------|------|--------|
-| [[ravi-2022-06-14]] | Ravi ラビ／라비 — Calgary 生、2023 赴韓（RPF #1397；🚧 回報稱生日 6/11） | ♂ | 2022– | ソウル大公園動物園 🇰🇷 |
-| [[sundari-2022-06-14]] | Sundari サンダリ — Ravi 雙胞胎姊妹；2023-10 移居魁北克；舊名 Sunsari（RPF #1396；🚧 園方官方 IG 記生日 6/11–12） | ♀ | 2022– | Wild Zoo of Saint-Félicien 🇨🇦 |
+| [[ravi-2022-06-11]] | Ravi ラビ／라비 — Calgary 生、2023 赴韓（RPF #1397；生日 2026-08-06 由 06-14 改採 06-11，官方僅給到「6 月」🚧） | ♂ | 2022– | ソウル大公園動物園 🇰🇷 |
+| [[sundari-2022-06-11]] | Sundari サンダリ — Ravi 雙胞胎姊妹；2023-10 移居魁北克；舊名 Sunsari（RPF #1396；生日 2026-08-06 由 06-14 改採 06-11，依園方官方 IG「11/12 juin 2022」🚧） | ♀ | 2022– | Wild Zoo of Saint-Félicien 🇨🇦 |
 | [[anshu-2023-06-18]] | Anshu — 尼泊爾語「ray of sun」；Ravi・Sundari 之弟 | ♂ | 2023– | Calgary Zoo 🇨🇦 |
 | [[aahana-2023-06-18]] | Aahana — 尼泊爾語「first rays of the sun」；Anshu 雙胞胎姊妹；2024 移居 Safari Niagara | ♀ | 2023– | Safari Niagara 🇨🇦 |
 | [[linus-2018-06-23]] | Linus — Ravi・Sundari 之父；[[lin-2013-06-16]] 🪐 × [[kola-2015-08-24]] 之子、[[kora-2018-06-23]] 雙胞胎；Cincinnati 生（RPF #1000） | ♂ | 2018– | Calgary Zoo 🇨🇦 |

@@ -348,7 +348,7 @@ Hepburn↔訓令式等差異（Tyao↔Chao）。**search.js 的 romajiFold 已�
 - [ ] `sou-sou-2012-07-08` Sou-Sou（ソウソウ）：**Sōsō**
 - [ ] `sou-sou-2012-07-08` Sou-Sou（ソウソウ）：**Sō-Sō**
 - [ ] `sun-2015-08-23` Sun（サン）：**San**
-- [ ] `sundari-2022-06-14` Sundari（サンダリ）：**Sunsari**
+- [ ] `sundari-2022-06-11` Sundari（サンダリ）：**Sunsari**
 - [ ] `tai-shan-2008-06-14` Tai-Shan（泰山, タイシャン）：**Tarzan**
 - [ ] `taiyo-2013-06-15` Taiyo（たいよう）：**Taiyou**
 - [ ] `taiyo-2013-06-21` Taiyo（タイヨウ）：**Taiyou**

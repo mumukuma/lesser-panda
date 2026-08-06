@@ -5810,3 +5810,71 @@ slug 一律不變（slug＝羅馬名＋生日，不受漢字名影響）。
 - `sundari`／`ravi` 生日：Saint-Félicien 官方 IG 記「11/12 juin 2022」，與現採 2022-06-14（RPF）相左，
   且與 `ravi` 那則舊讀者回報（6/11）方向一致。改生日要連動兩隻 slug 與全部 wikilink，暫不動、待維護者裁定
 - 兩筆回報者皆未留暱稱，`data/contributors.json` 未動
+
+---
+
+## [2026-08-06] rename | `ravi`・`sundari` 生日由 2022-06-14 改採 2022-06-11（維護者裁定），兩隻 slug 同步更名
+
+同日稍早那筆記為「暫不動、待維護者裁定」，本筆為裁定後的落實。追加查證結果如下。
+
+**官方來源實查**：
+- https://grandpark.seoul.go.kr/board/view/ko/S001006002003/B012.do?bbs_no=103812 — 서울대공원 引進新聞稿：
+  加拿大來的雄性記「**2022년 6월생**」（僅到月、無日）；另兩隻（多摩・埼玉）同樣只到月
+- https://www.instagram.com/zoosauvageofficiel/p/DOldJGYgQUg/ — Zoo sauvage de Saint-Félicien 官方 IG（2025-09-14，
+  已用瀏覽器實讀原文）：「💛Femelle／🥳**Née le 11/12 juin 2022**／🐾Arrivée au zoo en 2023」。
+  法文此寫法可讀作「6 月 11 或 12 日」，亦可讀作「11 至 12 日之夜」——**園方本身未指定單一天**
+- https://www.calgaryzoo.com/news/red-panda-debut/ 及官網 news／小熊貓展區頁 — 出生園 Calgary Zoo
+  **查無 2022 年這一胎的任何公告**；2023 年胎的公告也只寫「五個月大」不給日期；展區頁不列個體名
+
+**非官方來源**：
+- RPF #1396／#1397 記 2022-06-14（即原採值）——查無任何官方佐證
+- https://namu.wiki/w/%EB%9D%BC%EB%B9%84(%EB%A0%88%EC%84%9C%ED%8C%90%EB%8B%A4) — 나무위키 記 2022-06-11，
+  註腳「6월 14일로 알려졌으나 6월 11일이 맞다」所引為 YouTube 社群貼文，發文頻道「실물펜자네」為**同好頻道非官方**；
+  與 2026-07 那則讀者回報的 6/11 疑為同源
+
+**裁定**：採 2022-06-11——落在官方唯一給出的區間（11/12）內，且與兩個同好來源一致；原值 06-14 無任何來源支持。
+官方仍未指定確切日期，日後園方若公布以園方為準。
+
+**更名條目**：
+- `ravi-2022-06-14.md` → `ravi-2022-06-11.md`（`born`、frontmatter `zoos:` 起始日、引言生日同步改）
+- `sundari-2022-06-14.md` → `sundari-2022-06-11.md`（同上）
+
+**更新條目**（換 wikilink，共 14 檔）：
+- `index.md`（含兩列說明改寫）、`linus`、`udaya`、`anshu`、`aahana`、`dusk`、`usha`、`lian`、
+  `apple-seed-1-udaya-2026-06-08`、`apple-seed-2-udaya-2026-06-08`、`apple-seed-3-udaya-2026-06-08`、
+  `apple-seed-1-lian-2026-06-19`、`apple-seed-2-lian-2026-06-19`
+- `docs/english-variants-audit.md` — 待辦清單的 slug 同步更名
+- `ravi` sources 補서울대공원引進新聞稿與 Saint-Félicien 官方 IG；兩隻 extra_sources 補 나무위키
+
+**注意**：`maple-2022-06-14`・`mei-mei-2022-06-14`（溫哥華 Sakura × Arun 那胎）與本次無關，生日不動。
+
+---
+
+## [2026-08-06] verify | `anshu`・`aahana` 生日 2023-06-18 覆查：園方官方佐證成立，維持不動
+
+前一筆處理 `ravi`／`sundari` 生日時順帶發現 Daily Hive 寫 2023 年這胎生於 6 月 17 日，與 wiki 現採 06-18 不符，遂覆查。
+
+**結論：06-18 正確，不改。**
+
+**決定性官方來源**（Calgary Zoo 官方 Facebook，貼文日期 **6 月 18 日**，以瀏覽器實讀）：
+> Who is black and white and red all over and **turning three today**? Our male red panda, 'Anshu'!
+
+貼文日期與「今天滿三歲」互證 → 出生日 2023-06-18。園方另有官方影片貼文
+「today is the first birthday for our red panda cubs 'Anshu' and 'Aahana'」可佐證同一天
+（`/videos/…/1285671739466899/`，該則貼文日期未能讀取，僅作補強）。
+
+**不採 6 月 17 日的理由**：
+- https://dailyhive.com/calgary/calgary-zoo-red-panda-twins — Daily Hive（2023-07-11）：
+  「Red panda parents 'Udaya' and 'Linus' welcomed their second litter of cubs **on June 17**」，
+  記者自述、未註出處、未連園方貼文
+- 同日 CTV〈Twinning! Red Panda cubs born at the Calgary Zoo〉與 Global News（2023-07-11，均引園方聲明）
+  **都沒給出生日**，只寫本年 6 月生
+- 出生園官網 news 亦查無 2023 年這胎的公告（2026 年三胞胎那篇只提「previously welcomed cubs in 2022 and 2023」）
+
+**更新條目**：
+- `anshu-2023-06-18.md`／`aahana-2023-06-18.md` — 新增「## 備注」記錄本次覆查與 Daily Hive 的不符；
+  sources 補官方一歲生日影片貼文；extra_sources 新增 Daily Hive 連結備查
+
+**⚠️ 工具坑（順手修）**：`build_db` 的 `sources:` 解析**不剝行末 YAML 註解**，註解會連進 URL
+（`extra_sources:` 則正常剝除）。本次先在 `ravi`・`anshu`・`aahana` 的 `sources:` 誤加了註解，已全部移除；
+全庫掃描確認 `sources:` 區塊現無任何行末註解。要寫註解請放 `extra_sources:`。
