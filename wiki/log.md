@@ -5672,3 +5672,141 @@ slug 一律不變（slug＝羅馬名＋生日，不受漢字名影響）。
 
 **一致性檢查（重建後）**：`run-run-1995-07-19` mother=`ten-ten-1992-06-26`／father=`taisyu-1989`；
 大州子女 8 隻、輪輪子女 7 隻（差 Run-Run，正確）；天天子女 1 隻；無重複子女；`verify.sh` 通過。
+
+---
+
+## [2026-08-06] update | 抄錄いしかわ動物園《開園10周年記念誌》：2001 年一胎與ヨンヨン歿日取得官方佐證
+
+維護者在 Chrome 擴充功能開放 `www.ishikawazoo.jp` 網站權限後，改以瀏覽器端 pdf.js 讀取該 PDF
+（34 頁、14.2 MB、**無文字層**，故以 canvas 逐頁繪製後判讀）。
+
+**來源**：
+- https://www.ishikawazoo.jp/box/ichiran/10aniv/pdf/10anniversary.pdf
+  《いしかわ動物園 開園10周年記念誌》p.10–11「命のあゆみ ― 10年間の誕生と死 ―」（**官方**）
+
+**原文（誕生欄）**：
+> 平成13年6月19日にシセンレッサーパンダの「ヨンヨン」（♂）と「ルンルン」（♀）との間に2頭の
+> 赤ちゃんが誕生しました。赤ちゃんは「タンタン」（♂）と「リンリン」（♀）と命名されました。
+
+**原文（死亡欄）**：
+> 平成19年4月19日シセンレッサーパンダの「ヨンヨン」（♂）が12歳で死亡しました。
+
+**取得官方佐證的項目**：2001-06-19 一胎兩隻的生日・性別（タンタン ♂／リンリン ♀）、父方ヨンヨン・
+母方ルンルン、亞種（シセンレッサーパンダ＝styani）、**ヨンヨン之讀音**（RPF 的「ヨニヨン」確為誤植）、
+ヨンヨン歿日 2007-04-19 與享年 12。
+
+**更新條目**：
+- `run-run-1995-07-19.md` — 備注以原文引述記載官方紀錄；子女表新增「佐證」欄（2001 一胎標
+  ✅園方官方、1997 一胎仍為僅 RPF）；「🚧 待抄錄」縮小為僅剩県広報一件
+- `yon-yon-1994-07-13.md` — `sources` 加該 PDF；備注改寫：讀音ヨンヨン已有官方佐證、歿日與享年一致；
+  漢字「勇勇」仍僅同好名鑑
+- `tan-tan-2001-06-19.md`／`rin-rin-2001-06-19.md` — `sources` 加該 PDF；新增／補寫「## 備注」記官方紀錄
+
+**⚠️ 未解**：該書「命のあゆみ」只記園內十年間的**出生與死亡**，**不載個體來歷與血統**，
+故 `run-run-1995-07-19` 自身的父母（大州 × 天天，父女近親）**仍無官方佐證、維持 🚧**。
+1997 年パム・マム 一胎早於開園（1999-10）故亦不在該書範圍。
+下一步：石川県広報《ほっと石川》1999 年秋期号；另可查該書 p.28–30 施設一覧／飼育動物一覧 有無個體級紀錄。
+
+---
+
+## [2026-08-06] add | トラン（RPF #382「JJ」）一脈：ズーラシア → 北米 5 隻
+
+維護者提供同好部落格「がちょん」兩篇，確認 RPF #382「JJ」即よこはま動物園ズーラシア 2002 年生的
+`トラン`：ミーミー追悼記事的出生一覧載「2002.6.15　トラン(Philadelphia)＆ポリン（アドベン）双子誕生」，
+與 RPF #382 的生日（2002-06-15）、雙胞胎（`porin` #310）、終居（Philadelphia Zoo）三項全合；
+另一篇〈北米生まれのホーマーって・・・・！？〉稱 `bailey`（#381）為「ズーラシア生まれのトランの仔」，
+與 RPF 記 #382 為 Bailey 之母一致。故以 `Tran`／`トラン` 為正名建檔，RPF 登錄名 `JJ` 與 Other Names
+`Tram` 收為 english_variants。RPF #382 的 Nicknames「ポーリン」／Other Names「Porrin」實為雙胞胎
+`porin` 之名混入，未採用。
+
+依 CLAUDE.md 新增成員流程一併補齊直系親屬：配偶 `Lum`（#380）與三隻子女 `Qin`（#386）、
+`Big George`（#1403）、`Idgie`（#387）。性別由 RPF 手足性別計數推得：Bailey ♀ 已知，
+由 Qin／Big George／Idgie／Bailey 四筆頁面的「N sisters and M brothers」聯立得 Qin ♂、Big George ♂、Idgie ♀。
+
+**來源**：
+- https://gachon.exblog.jp/21683474/ （同好部落格・ミーミー追悼記事：ズーラシア出生一覧）
+- https://gachon.exblog.jp/23027652/ （同好部落格 2016-03-31：ホーマー來日與血統）
+- https://redpandafinder.com/#profile/382 (Tran / JJ)
+- https://redpandafinder.com/#profile/380 (Lum)
+- https://redpandafinder.com/#profile/386 (Qin)
+- https://redpandafinder.com/#profile/1403 (Big George)
+- https://redpandafinder.com/#profile/387 (Idgie)
+
+**新增條目**：
+- `tran-2002-06-15.md` — Tran トラン（RPF #382，登錄名 JJ），♀，2002-06-15 生於よこはま動物園ズーラシア，
+  2004-04-27 渡美，2017-02-02 歿於 Philadelphia Zoo
+- `lum-2000-06-04.md` — Lum（RPF #380），♂，2000-06-04 生於 Columbus Zoo and Aquarium，
+  2019-10-01 歿於 Henry Vilas Zoo；父母不詳
+- `qin-2005-06-23.md` — Qin（RPF #386），♂，2005-06-23 生於 Cincinnati，2019-04-15 歿於 Prospect Park Zoo
+- `big-george-2006-06-07.md` — Big George（RPF #1403，別名 Nong-Ren），♂，2006-06-07 生於 Cincinnati，
+  2014-05-25 歿；Idgie 雙胞胎
+- `idgie-2006-06-07.md` — Idgie（RPF #387），♀，2006-06-07 生於 Cincinnati，2020-04-02 歿於 Zoo Atlanta
+
+**更新條目**：
+- `bailey-2008-06-01.md` — 母／父純文字改為 `tran-2002-06-15`／`lum-2000-06-04` wikilink；補 ½ 兄弟姊妹三筆
+- `tarrei-2002-07-01.md` — 補配偶 `tran-2002-06-15`（兩隻 2004-04-27 同日渡美入住辛辛那提）；
+  子女三筆改為 wikilink
+- `beilei-2010-06-14.md` — 子女表「父不詳 🚧」改為父 `qin-2005-06-23`（RPF #386 子女表相符）；補配偶
+- `pam-1997-06-26.md`／`mii-mii-1994-06-26.md`／`gaia-2004-06-10.md` — 子女表 `JJ` 列改為 `tran-2002-06-15`
+  wikilink，並順手把 `kousei`／`dale`／`porin` 三列補上 wikilink
+- `franz-2000-06-23.md`／`chip-2001-06-19.md`／`dale-2001-06-19.md`／`kousei-2000-06-23.md`／
+  `porin-2002-06-15.md` — 兄弟姊妹／雙胞胎欄的純文字 `JJ` 改為 `tran-2002-06-15` wikilink；
+  移除「JJ 暫以純文字記錄」提示；`dale`／`kousei` 的 `chip`・`porin`・`koai` 亦補 wikilink
+- `data/zoos.json` — 補 4 座園的 `location_ja`：Philadelphia Zoo「賓夕法尼亞州費城」、
+  Zoo Atlanta「喬治亞州亞特蘭大」、Akron Zoological Park「俄亥俄州阿克倫」、
+  Cleveland Metroparks Zoo「俄亥俄州克里夫蘭」（原為 null，居住史地點欄會空白）
+- `index.md` — 新增「海外個體（ズーラシア → 北米・トラン 一脈）」一節共 5 筆；條目總數更新為 895
+
+**🚧 待查證**：
+- 五筆的生卒日與居住史皆僅有 RPF（線索），無官方佐證；`lum` 歿日 2019-10-01 疑為月精度佔位
+- RPF #1403 在 Assiniboine 之後另記一筆 Edmonton Valley Zoo「2014-05-25 – 2014-05-25」（起訖同日＝歿日），
+  疑為移園當日死亡或資料重複，居住史暫以 Assiniboine 為終站
+- 部落格〈北米生まれのホーマーって・・・・！？〉稱 `rover`（#590）為「旭山で名無し」與「ポンタ」之子，
+  與 RPF 記 Rover 父母（#601／#602，Assiniboine Park Zoo）不符；非官方來源，暫不採用、未改 `rover` 條目
+
+---
+
+## [2026-08-06] add | 讀者回報兩筆查證後採用：`kora` 2020 年產仔（Columbus Zoo）、`sundari` 轉園 Saint-Félicien
+
+**來源**：
+- https://www.columbuszoo.org/news/columbus-zoo-and-aquarium-celebrates-significant-births-represent-species-risk-and-under (Columbus Zoo 官方新聞稿，2020-06-30：6/13 凌晨 1:22／1:53 產下一公一母，母 Kora 2 歲、父 Gen Tso 7 歲，該園自 2015 年以來首次小熊貓繁殖成功，AZA Red Panda SSP 推薦配對，雙親皆首胎)
+- https://www.facebook.com/columbuszoo/posts/10157908765757106 (Columbus Zoo 官方 FB，2020-09-19：國際小熊貓日公布命名 Santi ♀／Bandit ♂，載明「born on June 13 to mother, Kora and father, Gen Tso」)
+- https://www.instagram.com/columbuszoo/p/CT7OGW1trwh/ (Columbus Zoo 官方 IG，2021-09-17：世界小熊貓日，`santi`・`bandit` 與媽媽 `kora`；擊掌訓練)
+- https://www.instagram.com/zoosauvageofficiel/p/C1H2ktUhxMO/ (Zoo sauvage de Saint-Félicien 官方 IG，2023-12-21：「notre toute nouvelle résidente, Sundari… née au The Calgary Zoo et maintenant parmi nous depuis octobre dernier」)
+- https://www.instagram.com/zoosauvageofficiel/p/DOldJGYgQUg/ (同上官方 IG，2025-09-14：Sundari ♀、「Née le 11/12 juin 2022」、「Arrivée au zoo en 2023」)
+- https://redpandafinder.com/#profile/394 (Gen Tso)
+- https://redpandafinder.com/#profile/1185 (Santi)
+- https://redpandafinder.com/#profile/1186 (Bandit)
+
+**新增條目**：
+- `gen-tso-2013-06-22.md` — Gen Tso（RPF #394，別名 General Tso／General T'so），♂，2013-06-22 生於 Prospect Park Zoo，
+  父 `qin`、母 `beilei`；2020 年在 Columbus Zoo 與 `kora` 育有雙胞胎；現居 Northeastern Wisconsin Zoo（RPF，🚧）
+- `santi-2020-06-13.md` — Santi（RPF #1185），♀，2020-06-13 生於 Columbus Zoo and Aquarium，`bandit` 雙胞胎，現居出生園
+- `bandit-2020-06-13.md` — Bandit（RPF #1186），♂，2020-06-13 生於 Columbus Zoo and Aquarium，`santi` 雙胞胎，
+  現居 Henry Vilas Zoo（RPF，移園日 🚧）
+
+**更新條目**：
+- `kora-2018-06-23.md` — 補配偶 `gen-tso` 與子女 `santi`・`bandit`；sources 加 Columbus Zoo 官方新聞稿與官方 FB、
+  instagram 加官方 IG；「移園日待查證」的官方最早時點由 2020 年 7 月（Fox News）修正為 2020 年 6 月（園方產仔公告）；
+  備注段原稱 Fox News 為「最後一次確認在園的紀錄」已不成立，改記 2021-09 官方 IG
+- `sundari-2022-06-14.md` — 居住史加 `Wild Zoo of Saint-Félicien (2023-10-01 – 現在)`、tags 改現居園；
+  內文改寫（原稱「留在出生地卡加利」）；sources 補兩則園方官方 IG；抵園日僅「octobre 2023」故標 🚧 暫採 10-01；
+  備注新增「生日兩說並存」🚧（官方 IG 記 11/12 juin 2022 vs 現採 2022-06-14）
+- `ravi-2022-06-14.md` — 生日 🚧 註記補上 Saint-Félicien 官方 IG 的 6/11–12 佐證方向；內文補姊姊 `sundari` 的去向
+- `beilei-2010-06-14.md`／`qin-2005-06-23.md` — 子女表 `Gen Tso` 純文字改為 wikilink，並移除標題的「均無條目」
+- `linus-2018-06-23.md`／`udaya-2019-06-20.md`／`anshu-2023-06-18.md`／`aahana-2023-06-18.md`／
+  `apple-seed-1-udaya-2026-06-08.md`／`apple-seed-2-udaya-2026-06-08.md`／`apple-seed-3-udaya-2026-06-08.md` —
+  內文提到 `sundari` 處補現居魁北克
+- `tools/build_db.py` — OFFICIAL_HOSTS 加 `columbuszoo.org`・`zoosauvage.org`；OFFICIAL_FB_PAGES 加 `columbuszoo`；
+  OFFICIAL_IG_ACCOUNTS 加 `columbuszoo`・`zoosauvageofficiel`
+- `index.md` — 新增一節「海外個體（美國・哥倫布 Kora × Gen Tso 一家）」共 3 筆；`kora`・`sundari` 兩列更新；
+  條目總數更新為 898
+
+**🚧 待查證**：
+- `gen-tso` 的出生園（Prospect Park Zoo）與現居園（Northeastern Wisconsin Zoo）僅有 RPF，兩次移園日期皆不明；
+  唯一官方佐證是 2020 年 6 月他在 Columbus Zoo
+- `bandit` 離開 Columbus 的日期不明，現居 Henry Vilas Zoo 僅有 RPF；官方只能確認 2021-09 仍在 Columbus
+- `sundari` 抵達 Saint-Félicien 的精確日期不明（園方只寫「十月」），暫採 2023-10-01
+- `sundari`／`ravi` 生日：Saint-Félicien 官方 IG 記「11/12 juin 2022」，與現採 2022-06-14（RPF）相左，
+  且與 `ravi` 那則舊讀者回報（6/11）方向一致。改生日要連動兩隻 slug 與全部 wikilink，暫不動、待維護者裁定
+- 兩筆回報者皆未留暱稱，`data/contributors.json` 未動

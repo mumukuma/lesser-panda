@@ -95,6 +95,10 @@ OFFICIAL_HOSTS = {
     "cincinnatizoo.org",
     "saczoo.org",  # Sacramento Zoo（美國加州；含 /imported-blog/ 舊園方部落格，出生・命名紀錄）
     "sfzoo.org",  # San Francisco Zoo & Gardens（美國加州）
+    # Columbus Zoo and Aquarium（美國俄亥俄州；出生・命名公告發於官網 /news/ 與官方 FB／IG）
+    "columbuszoo.org",
+    # Zoo sauvage de Saint-Félicien（加拿大魁北克；到園・個體介紹公告發於官方 IG @zoosauvageofficiel）
+    "zoosauvage.org",
     "mandai.com",  # Mandai Wildlife Group（新加坡；Singapore Zoo／River Wonders 營運方）
     "grandpark.seoul.go.kr",  # 서울대공원 首爾大公園（韓國；首爾市所屬，同 IG @seoulgrandpark）
     # ⚠️ host 是「完全比對」，子網域要各自列一筆（corporate. 是新聞稿所在）
@@ -109,6 +113,7 @@ OFFICIAL_FB_PAGES = {
     "zounokuni",       # ぞうの国 官方專頁
     "oceanparkhk",     # 香港海洋公園 Ocean Park Hong Kong 官方專頁
     "cincinnatizoo",   # Cincinnati Zoo & Botanical Garden 官方專頁（同 cincinnatizoo.org）
+    "columbuszoo",     # Columbus Zoo and Aquarium 官方專頁（官網頁尾 Facebook 連結指向此專頁）
 }
 _FB_HOSTS = {"facebook.com", "m.facebook.com", "web.facebook.com", "fb.com"}
 
@@ -160,6 +165,8 @@ OFFICIAL_IG_ACCOUNTS = {
     "sacramentozoo",  # Sacramento Zoo（同 saczoo.org；訃報等公告發於此）
     "assiniboineparkzoo",  # Assiniboine Park Zoo（官網 assiniboinepark.ca/zoo 頁尾 Instagram 連結指向此帳號；出産公告發於此）
     "prospectparkzoo",  # Prospect Park Zoo（WCS；官網 prospectparkzoo.com 頁尾 Instagram 連結指向此帳號）
+    "columbuszoo",  # Columbus Zoo and Aquarium（官網 columbuszoo.org 頁尾 Instagram 連結指向此帳號）
+    "zoosauvageofficiel",  # Zoo sauvage de Saint-Félicien（加拿大魁北克；貼文內文連回 zoosauvage.org，到園公告發於此）
 }
 _IG_HOSTS = {"instagram.com", "m.instagram.com"}
 _IG_NON_ACCOUNT_SEGS = {"p", "reel", "reels", "tv", "stories", "explore"}

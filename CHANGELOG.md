@@ -6,6 +6,20 @@
 
 ---
 
+## 2026-08-06 ・ 官方來源白名單新增兩座園（Columbus Zoo、Zoo sauvage de Saint-Félicien）
+
+處理讀者回報時查證到兩座園的官方公告管道，`tools/build_db.py` 的官方來源分類器補上：
+
+- `OFFICIAL_HOSTS`：`columbuszoo.org`（出生・命名公告發於官網 /news/）、`zoosauvage.org`。
+- `OFFICIAL_FB_PAGES`：`columbuszoo`（官網頁尾 Facebook 連結指向此專頁，實測確認）。
+- `OFFICIAL_IG_ACCOUNTS`：`columbuszoo`（同上，官網頁尾 Instagram 連結）、`zoosauvageofficiel`
+  （Zoo sauvage de Saint-Félicien；貼文內文連回 `zoosauvage.org/evenements/`，到園與個體介紹公告發於此。
+  ⚠️ 官網頁尾未實際核對——沙盒 web_fetch 回 520、Chrome 該網域未授權；日後有機會請補驗）。
+
+相關資料異動見 `wiki/log.md` 2026-08-06 一筆。
+
+---
+
 ## 2026-08-05 ・ 個體頁「照片」改版為「照片與影片」分頁（IG＋YouTube）
 
 個體頁照片區塊新增 YouTube 影片支援，改為分頁設計：第一分頁 Instagram（預設、內容照舊），

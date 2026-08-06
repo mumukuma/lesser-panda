@@ -1,6 +1,6 @@
 # Wiki 目錄 Index
 
-> 最後更新：2026-08-06 | 條目總數：890（另有 5 筆條目暫存 wiki/_hidden/，不計入、不上站）
+> 最後更新：2026-08-06 | 條目總數：898（另有 5 筆條目暫存 wiki/_hidden/，不計入、不上站）
 
 ---
 
@@ -2549,6 +2549,20 @@ Dusk（RPF #447）2004 年生於溫尼伯 Assiniboine Park Zoo，經 Granby Zoo�
 
 ---
 
+## 海外個體（ズーラシア → 北米・トラン 一脈）
+
+[[tran-2002-06-15]] 🪐（トラン，RPF 登錄名 JJ／#382）是よこはま動物園ズーラシア 2002 年生的雌性、[[porin-2002-06-15]] 🪐 的雙胞胎、[[franz-2000-06-23]] 🪐 之妹，2004-04-27 與東北サファリパーク出身的 [[tarrei-2002-07-01]] 🪐 同日渡美、入住 Cincinnati Zoo and Botanical Garden。她與 Tarrei 育有 Qin・Big George・Idgie 三仔，再與 [[lum-2000-06-04]] 🪐 生下 [[bailey-2008-06-01]] 🪐——Bailey 之女 [[homer-2012-06-11]] 於 2016 年移居静岡市立日本平動物園，日本同好因此以「トランとポンタの孫が日本平に来ます」相傳。Bailey 與 [[rover-2005-05-16]] 🪐 見上一節，[[lin-2013-06-16]] 🪐 一脈見下一節。
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[tran-2002-06-15]] | Tran トラン — [[pam-1997-06-26]] 🪐 × [[mii-mii-1994-06-26]] 🪐 之女、[[porin-2002-06-15]] 🪐 雙胞胎；[[bailey-2008-06-01]] 🪐 之母 🪐（RPF #382，登錄名 JJ） | ♀ | 2002–2017 🪐 | Philadelphia Zoo 🇺🇸 |
+| [[lum-2000-06-04]] | Lum — [[tran-2002-06-15]] 🪐 之配偶、[[bailey-2008-06-01]] 🪐 之父；父母不詳 🪐（RPF #380） | ♂ | 2000–2019 🪐 | Henry Vilas Zoo 🇺🇸 |
+| [[qin-2005-06-23]] | Qin — 長子，父 [[tarrei-2002-07-01]] 🪐；Prospect Park Zoo 種公，與 [[beilei-2010-06-14]] 等育有 7 仔 🪐（RPF #386） | ♂ | 2005–2019 🪐 | Prospect Park Zoo 🇺🇸 |
+| [[big-george-2006-06-07]] | Big George — [[idgie-2006-06-07]] 🪐 雙胞胎；別名 Nong-Ren，歷 Akron→Toronto→Edmonton→Assiniboine 🪐（RPF #1403） | ♂ | 2006–2014 🪐 | Assiniboine Park Zoo 🇨🇦 |
+| [[idgie-2006-06-07]] | Idgie — [[big-george-2006-06-07]] 🪐 雙胞胎；2013 移居 Zoo Atlanta 🪐（RPF #387） | ♀ | 2006–2020 🪐 | Zoo Atlanta 🇺🇸 |
+
+---
+
 ## Lin 家族（辛辛那提繁殖群 → 全美各園）
 
 [[lin-2013-06-16]] 🪐（RPF #390）是 Cincinnati Zoo and Botanical Garden 2010 年代後期的主力母獸：2013 年生於該園、終身未離開，2024-02 以 10 歲辭世時園方訃告稱她「went on to have 10 offspring of her own」——這 10 隻的名單與 RPF 記錄數量完全相符（可互為佐證），本節全數收錄。四位配偶分別是 [[rover-2005-05-16]] 🪐（2015）、[[harold-2004-06-08]] 🪐（2016，母系待查證 🚧）、[[kendji-2015-06-22]]（2017・2020・2021）與 [[kola-2015-08-24]]（2018・2019）；母親 [[bailey-2008-06-01]] 🪐 與 Rover・Harold 見上一節。子女中 [[hazel-2016-06-14]] 已收錄於 Memphis 一節、[[linus-2018-06-23]] 見下一節，故本表不重複列出。辛辛那提是全球中華小熊貓亞種繁殖數第一的機構（2026-06 誕生第 100 隻）。
@@ -2559,11 +2573,23 @@ Dusk（RPF #447）2004 年生於溫尼伯 Assiniboine Park Zoo，經 Granby Zoo�
 | [[dr-erin-curry-2015-06-19]] | Dr. Erin Curry — 長女，父 [[rover-2005-05-16]] 🪐；名字取自園方生殖生理學家，[[kiki-2019-06-07]] 之母（RPF #392） | ♀ | 2015– | Milwaukee County Zoo 🇺🇸 |
 | [[harriet-2016-06-14]] | Harriet — [[hazel-2016-06-14]] 雙胞胎，父 [[harold-2004-06-08]] 🪐 遺腹胎 🪐（RPF #425；居住史全缺、園名為推定 🚧） | ♀ | 2016–2020 🪐 | Cincinnati Zoo and Botanical Garden 🇺🇸 |
 | [[micu-2017-06-25]] | Micu — 父 [[kendji-2015-06-22]]；2018 移居 Red River，未滿兩歲歿 🪐（RPF #614） | ♂ | 2017–2019 🪐 | Red River Zoo 🇺🇸 |
-| [[kora-2018-06-23]] | Kora — 父 [[kola-2015-08-24]]；[[linus-2018-06-23]] 雙胞胎；2019 移居哥倫布（RPF #999） | ♀ | 2018– | Columbus Zoo and Aquarium 🇺🇸 |
+| [[kora-2018-06-23]] | Kora — 父 [[kola-2015-08-24]]；[[linus-2018-06-23]] 雙胞胎；2019 移居哥倫布，2020 與 [[gen-tso-2013-06-22]] 育有雙胞胎（RPF #999） | ♀ | 2018– | Columbus Zoo and Aquarium 🇺🇸 |
 | [[audra-2019-07-05]] | Audra — 父 [[kola-2015-08-24]]；[[lenore-2019-07-05]] 雙胞胎；至今仍居出生園（RPF #1001） | ♀ | 2019– | Cincinnati Zoo and Botanical Garden 🇺🇸 |
 | [[lenore-2019-07-05]] | Lenore — 父 [[kola-2015-08-24]]；[[audra-2019-07-05]] 雙胞胎；至今仍居出生園（RPF #1002） | ♀ | 2019– | Cincinnati Zoo and Botanical Garden 🇺🇸 |
 | [[lucas-2020-06-23]] | Lucas — 父 [[kendji-2015-06-22]]；2021 移居聖地牙哥，2023 育有一女 Pavitra（RPF #1191） | ♂ | 2020– | サンディエゴ動物園 🇺🇸 |
 | [[shenmi-2021-07-16]] | Shenmi — 父 [[kendji-2015-06-22]]；Lin 最後一胎、流產後同年再受孕的紀錄個案；2022 移居 Ross Park（RPF #1304；中文名待確認 🚧） | ♀ | 2021– | Ross Park Zoo 🇺🇸 |
+
+---
+
+## 海外個體（美國・哥倫布 Kora × Gen Tso 一家）
+
+[[kora-2018-06-23]]（[[lin-2013-06-16]] 🪐 之女，見上一節）2019 年自辛辛那提移居 Columbus Zoo and Aquarium，與 [[qin-2005-06-23]] 🪐 × [[beilei-2010-06-14]] 之子 [[gen-tso-2013-06-22]] 配對，於 2020-06-13 產下雙胞胎 [[santi-2020-06-13]] 與 [[bandit-2020-06-13]]——這是該園自 2015 年以來首次小熊貓繁殖成功，配對由 AZA 小熊貓物種存續計畫（SSP）推薦，雙親皆為首次生育。兩隻幼仔於 2020-09-19 國際小熊貓日由園方公布名字。依讀者回報＋Columbus Zoo 官方新聞稿與官方 Facebook 建檔（2026-08-06）。
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[gen-tso-2013-06-22]] | Gen Tso — [[qin-2005-06-23]] 🪐 × [[beilei-2010-06-14]] 之子；Santi・Bandit 之父；別名 General Tso（RPF #394；居住史 🚧） | ♂ | 2013– | Northeastern Wisconsin Zoo 🇺🇸 |
+| [[santi-2020-06-13]] | Santi — [[bandit-2020-06-13]] 雙胞胎；名取尼泊爾語「和平」（RPF #1185） | ♀ | 2020– | Columbus Zoo and Aquarium 🇺🇸 |
+| [[bandit-2020-06-13]] | Bandit — [[santi-2020-06-13]] 雙胞胎；名取自臉上如面罩的深色斑紋（RPF #1186；移園日 🚧） | ♂ | 2020– | Henry Vilas Zoo 🇺🇸 |
 
 ---
 
@@ -2574,7 +2600,7 @@ Dusk（RPF #447）2004 年生於溫尼伯 Assiniboine Park Zoo，經 Granby Zoo�
 | 條目 | 說明 | 性別 | 生卒 | 動物園 |
 |------|------|------|------|--------|
 | [[ravi-2022-06-14]] | Ravi ラビ／라비 — Calgary 生、2023 赴韓（RPF #1397；🚧 回報稱生日 6/11） | ♂ | 2022– | ソウル大公園動物園 🇰🇷 |
-| [[sundari-2022-06-14]] | Sundari サンダリ — Ravi 雙胞胎姊妹；舊名 Sunsari（RPF #1396） | ♀ | 2022– | Calgary Zoo 🇨🇦 |
+| [[sundari-2022-06-14]] | Sundari サンダリ — Ravi 雙胞胎姊妹；2023-10 移居魁北克；舊名 Sunsari（RPF #1396；🚧 園方官方 IG 記生日 6/11–12） | ♀ | 2022– | Wild Zoo of Saint-Félicien 🇨🇦 |
 | [[anshu-2023-06-18]] | Anshu — 尼泊爾語「ray of sun」；Ravi・Sundari 之弟 | ♂ | 2023– | Calgary Zoo 🇨🇦 |
 | [[aahana-2023-06-18]] | Aahana — 尼泊爾語「first rays of the sun」；Anshu 雙胞胎姊妹；2024 移居 Safari Niagara | ♀ | 2023– | Safari Niagara 🇨🇦 |
 | [[linus-2018-06-23]] | Linus — Ravi・Sundari 之父；[[lin-2013-06-16]] 🪐 × [[kola-2015-08-24]] 之子、[[kora-2018-06-23]] 雙胞胎；Cincinnati 生（RPF #1000） | ♂ | 2018– | Calgary Zoo 🇨🇦 |
