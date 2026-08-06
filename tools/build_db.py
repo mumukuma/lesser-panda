@@ -57,6 +57,7 @@ OFFICIAL_HOSTS = {
     "chausuyama.com",
     "hirakawazoo.jp",  # 鹿児島市平川動物公園（含園方「飼育員の日記」等 staff blog）
     "hamurazoo.jp",  # 羽村市動物公園（園方 /news/ 公告）
+    "ishikawazoo.jp",  # いしかわ動物園（含《開園10周年記念誌》等園方 PDF）
     # 鹿児島市広報課「鹿児島市広報デジタルアーカイブ」（廣報紙《かごしま市民のひろば》
     # 等的官方 PDF 封存站；非 .lg.jp 網域故需個別列入）
     "kagoshima-hiroba.jp",
