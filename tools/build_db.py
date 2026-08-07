@@ -78,6 +78,8 @@ OFFICIAL_HOSTS = {
     # 其他國家園方官網
     "drusillas.co.uk", "witheverland.com", "chiangmai.zoothailand.org", "sriayuthayalionpark.com",
     "hertfordshirezoo.com",  # Hertfordshire Zoo（英國；舊名 Paradise Wildlife Park）
+    "woburnsafari.co.uk",  # Woburn Safari Park（英國貝德福德郡；含 /news-and-events/ 園方報導）
+    "zoodubassindarcachon.com",  # Zoo du Bassin d'Arcachon（法國吉倫特省）
     "zoobojnice.sk",  # Národná zoologická záhrada Bojnice（斯洛伐克國立動物園，環境部所屬）
     "zoo.si",  # ZOO Ljubljana（斯洛維尼亞；盧布爾雅那市立）
     "pairidaiza.eu",  # Pairi Daiza（比利時）
@@ -175,6 +177,7 @@ OFFICIAL_IG_ACCOUNTS = {
     "zoosauvageofficiel",  # Zoo sauvage de Saint-Félicien（加拿大魁北克；貼文內文連回 zoosauvage.org，到園公告發於此）
     "zooknoxville",  # Zoo Knoxville（同 zooknoxville.org；抵園・出産公告發於此）
     "potawatomizoo",  # Potawatomi Zoo（同 potawatomizoo.org；生日・送別公告發於此）
+    "woburn_safari",  # Woburn Safari Park（英國；官網 woburnsafari.co.uk 頁尾 Instagram 連結指向此帳號；到園公告發於此）
 }
 _IG_HOSTS = {"instagram.com", "m.instagram.com"}
 _IG_NON_ACCOUNT_SEGS = {"p", "reel", "reels", "tv", "stories", "explore"}

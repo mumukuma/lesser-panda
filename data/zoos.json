@@ -5300,16 +5300,17 @@
   "canonical": "Woburn Safari Park",
   "lineage_id": 276,
   "en": "Woburn Safari Park",
-  "zh": null,
+  "zh": "沃本野生動物園",
   "country": "UK",
-  "location_ja": null,
-  "location_en": "Woburn, United Kingdom",
+  "location_ja": "貝德福德郡沃本",
+  "location_en": "Woburn, Bedfordshire, UK",
   "lat": 52.0114437,
   "lng": -0.5848833,
   "map": "https://goo.gl/maps/HofxtNwKSEi58s4XA",
   "website": "https://www.woburnsafari.co.uk/",
   "logo": null,
-  "aliases": []
+  "aliases": [],
+  "location_zh": "貝德福德郡沃本"
  },
  {
   "canonical": "常州淹城野生動物世界",
@@ -5433,19 +5434,23 @@
   "aliases": []
  },
  {
-  "canonical": "Zoo Arcachon Basin",
+  "canonical": "Zoo du Bassin d'Arcachon",
   "lineage_id": 249,
-  "en": "Zoo Arcachon Basin",
-  "zh": null,
+  "en": "Zoo du Bassin d'Arcachon",
+  "zh": "阿卡雄灣動物園",
   "country": "France",
-  "location_ja": null,
-  "location_en": "La Teste-de-Buch, France",
+  "location_ja": "吉倫特省拉泰斯特德比施",
+  "location_en": "La Teste-de-Buch, Gironde, France",
   "lat": 44.5890404,
   "lng": -1.1381659,
   "map": "https://goo.gl/maps/Ui2zkKEFvjqBL58o7",
   "website": "https://zoodubassindarcachon.com/",
   "logo": null,
-  "aliases": []
+  "aliases": [
+   "Zoo Arcachon Basin",
+   "Zoo du Bassin Arcachon La Teste"
+  ],
+  "location_zh": "吉倫特省拉泰斯特德比施"
  },
  {
   "canonical": "Zoo Atlanta",

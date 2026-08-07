@@ -1,0 +1,80 @@
+---
+/* 物種介紹頁（PLAN P1）：什麼是小熊貓＋兩個亞種怎麼分。
+   內容字串全在 i18n 的 sp_* key（五語，zh-TW 正本為 repo 根的 red-panda-intro.md）；
+   本檔只放版面與語系無關的常數（學名、參考文獻連結）。
+   個體頁「物種」欄連到本頁的 #fulgens／#styani 錨點（Panda.astro speciesCell）。 */
+import { i18n } from '../lib/data.js';
+
+const { locale } = Astro.props;
+const T = i18n[locale];
+
+const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';
+
+// 學名採亞種寫法（與個體頁「物種」欄一致；兩物種說見 sp_two_p2 內文）
+const LATIN = { fulgens: 'Ailurus fulgens fulgens', styani: 'Ailurus fulgens styani' };
+
+// 參考資料：語系無關（題名照原文），標籤用 i18n 的 sp_refs_title
+const REFS = [
+  { label: 'Hu, Y. et al. (2020). Genomic evidence for two phylogenetic species and long-term population bottlenecks in red pandas. Science Advances, 6(9), eaax5751.', url: 'https://doi.org/10.1126/sciadv.aax5751' },
+  { label: 'Glatston, A. R. (ed.) (2021). Red Panda: Biology and Conservation of the First Panda (2nd ed.). Academic Press.', url: null },
+  { label: 'IUCN Red List — Ailurus fulgens', url: 'https://www.iucnredlist.org/species/714/110023718' },
+  { label: 'Red Panda Network — About Red Pandas', url: 'https://redpandanetwork.org/' },
+];
+
+// 比較表列：i18n key 後綴 _f（喜馬拉雅）／_s（中華）
+const ROWS = ['range', 'face', 'tail', 'coat', 'size'];
+---
+<h1 class="font-display text-3xl font-semibold mt-6 mb-1">{T.sp_title}</h1>
+
+<h2 class={H2}>{T.sp_intro_title}</h2>
+<p class="leading-relaxed mb-3" set:html={T.sp_intro_p1} />
+<p class="leading-relaxed mb-3" set:html={T.sp_intro_p2} />
+<p class="leading-relaxed mb-3" set:html={T.sp_intro_p3} />
+
+<h2 class={H2}>{T.sp_two_title}</h2>
+<p class="leading-relaxed mb-3" set:html={T.sp_two_p1} />
+<p class="leading-relaxed mb-3" set:html={T.sp_two_p2} />
+<p class="leading-relaxed mb-3" set:html={T.sp_two_p3} />
+
+<h2 id="fulgens" class={`${H2} scroll-mt-20`}>{T.subspecies_fulgens}<span class="ml-2 text-ink-soft text-[.86rem] font-normal align-middle"><i>{LATIN.fulgens}</i></span></h2>
+<p class="leading-relaxed mb-3" set:html={T.sp_fulgens_p1} />
+<p class="leading-relaxed mb-3" set:html={T.sp_fulgens_p2} />
+
+<h2 id="styani" class={`${H2} scroll-mt-20`}>{T.subspecies_styani}<span class="ml-2 text-ink-soft text-[.86rem] font-normal align-middle"><i>{LATIN.styani}</i></span></h2>
+<p class="leading-relaxed mb-3" set:html={T.sp_styani_p1} />
+<p class="leading-relaxed mb-3" set:html={T.sp_styani_p2} />
+
+<h2 class={H2}>{T.sp_compare_title}</h2>
+<div class="card-soft p-[6px_10px] overflow-x-auto">
+  <table class="w-full text-[.93rem]">
+    <caption class="sr-only">{T.sp_compare_title}</caption>
+    <thead>
+      <tr class="text-left text-ink-soft text-[.84rem]">
+        <th scope="col" class="p-2"></th>
+        <th scope="col" class="p-2">{T.subspecies_fulgens}</th>
+        <th scope="col" class="p-2">{T.subspecies_styani}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {ROWS.map((r) => (
+        <tr class="border-t border-line">
+          <th scope="row" class="p-2 text-left text-ink-soft whitespace-nowrap font-medium">{T['sp_row_' + r]}</th>
+          <td class="p-2">{T['sp_cmp_' + r + '_f']}</td>
+          <td class="p-2">{T['sp_cmp_' + r + '_s']}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+<p class="text-ink-soft text-[.86rem] leading-relaxed mt-2.5">⚠️ {T.sp_cmp_note}</p>
+
+<h2 class={H2}>{T.sp_refs_title}</h2>
+<ul class="list-disc pl-5 leading-relaxed text-[.93rem]">
+  {REFS.map((r) => (
+    <li class="mb-1.5">
+      {r.url
+        ? <a class="text-rust hover:underline" href={r.url} target="_blank" rel="noopener">{r.label}</a>
+        : r.label}
+    </li>
+  ))}
+</ul>

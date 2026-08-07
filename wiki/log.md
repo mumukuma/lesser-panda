@@ -6,6 +6,15 @@
 
 ---
 
+## [2026-08-07] update | 移除 `kabosu` 的別名 `Komikan`／`こみかん`
+
+維護者校訂：`kabosu`（RPF #255）並無 `Komikan`／`こみかん` 這兩個名字（原由 RPF 別名欄帶入）。移除
+frontmatter `nicknames:` 整行與別名表的該兩筆，日文僅留 `かぼす`。續 2026-06-25 移除中文名「臭橙」
+那筆校訂。
+
+**更新條目**：
+- `kabosu-2018-06-28.md` — 移除 `nicknames: [Komikan, こみかん]`；別名表日文改為僅 `かぼす`、刪「英文別名」列
+
 ## [2026-08-05] update | `qiu-qiu-kaohsiung`（球球・壽山）補兩支 YouTube 影片
 
 網站個體頁「照片」區改版為「照片與影片」分頁（IG／YouTube，功能面見 `CHANGELOG.md`），frontmatter
@@ -6226,3 +6235,76 @@ Sei #827／Ten #828（1999-07-06 雙胞胎，皆生後數週至數月夭折，�
 - **愛愛的第 14 名子女**仍未知。候選線索：`kusu-1991-06-24`（楠）、`ai-1991-06-20`（愛愛２）、RPF #566 ララ（1996-08-09）——三隻皆不在維護者名單內，母系未確認。
 - 13 名中 6 隻（和・恋恋・星星・風風・暑暑・丹丹）的**歿日不詳**（`died: "?"`），其中 4 隻連**生日**也不詳。
 - 官方一手來源已查到盡頭（安佐年報線上僅至平成 26 年度、飼育記録集第 22・24 卷無レッサーパンダ論文、福岡市動物園公告 archive 僅至 2021 年度）。
+
+---
+
+## [2026-08-07] add | Woburn Safari Park（英國）× Zoo du Bassin d'Arcachon（法國）4 隻建檔——wiki 首度收錄這兩座園
+
+維護者提供 Woburn 官方 IG 的到園 reel（2026-08-06）。順線查出主角 `kochi-2025-06-21` 的法國娘家與雙親，
+並補上 Woburn 現居母獸 `mali-2016`。**RPF 完全查無 Kochi／Pici／Chima**（RPF 該園只有 Sanka #1264、Mali #1265 兩筆，
+且生日皆記 unknown、無任何 edge），四隻均無 `rpf_id`。
+
+**來源**：
+- https://www.instagram.com/woburn_safari/reel/Dbscx5ODXy1/ (Woburn 官方 IG，2026-08-06：Kochi 到園公告)
+- https://www.woburnsafari.co.uk/news-and-events/news-2023/happy-birthday-mali/ (Woburn 官網，2023-06-29：Mali 七歲)
+- https://www.bedfordindependent.co.uk/red-panda-travels-800-miles-to-woburn-safari-park-for-breeding-program/ (Bedford Independent，2026-08-05：生日 2025-06-21、原居園)
+- https://tvba.fr/actu-zoo-bassin-arcachon-panda-roux-naissance/ (TVBA，2025-07-15：Pici 首胎、2025-06-21)
+- https://natureetzoo.fr/naissances-de-pandas-roux-en-france-ete-2025/ (Nature et Zoo：Arcachon 一胎，母 Pici、父 Chima)
+
+**新增條目**：
+- `kochi-2025-06-21.md` — Kochi ♂，生於 2025-06-21 法國 Zoo du Bassin d'Arcachon（Pici 首胎單仔），2026-08 依 EEP 移居 Woburn Safari Park
+- `mali-2016.md` — Mali ♀，2017-07 抵 Woburn，Himalayan Heights 首批住民之一；Kochi 的 EEP 配對對象。生年由園方 2023-06-29 賀七歲文推得，確切日期未公布
+- `pici-arcachon.md` — Pici ♀（檔案卡 `limited-profile`），Kochi 之母，Zoo du Bassin d'Arcachon；生日不詳故 slug 取園簡稱
+- `chima-arcachon.md` — Chima ♂（檔案卡 `limited-profile`），Kochi 之父，同園；生日不詳故 slug 取園簡稱
+
+**更新條目**：
+- `index.md` — 新增「海外個體（英國・Woburn Safari Park ← 法國 Zoo du Bassin d'Arcachon）」一節共 4 列；條目總數更新為 934
+
+**註冊表與工具**：
+- `data/zoos.json` — Arcachon 的 canonical 由 lineage 英文名 `Zoo Arcachon Basin` 改為官方法文名 `Zoo du Bassin d'Arcachon`
+  （舊名與新聞常用的 `Zoo du Bassin Arcachon La Teste` 收入 `aliases`），與註冊表內其他法國園（`Zoo de Lille`／`ZooParc de Beauval`）一致；
+  兩座園補 `zh`／`location_ja`／`location_zh`／`location_en`（沃本＝貝德福德郡沃本、阿卡雄＝吉倫特省拉泰斯特德比施）
+- `tools/gen_residence.py` — `CFLAG` 補 `France`（法國 🇫🇷）。**此前註冊表已有 14 座法國園但無任何個體**，故從未觸發；
+  現在有了才發現缺，居住史表格原本會不顯示國名與國旗
+- `tools/build_db.py` — `OFFICIAL_IG_ACCOUNTS` 補 `woburn_safari`（已核對 woburnsafari.co.uk 頁尾 IG 連結指向此帳號）；
+  `OFFICIAL_HOSTS` 補 `woburnsafari.co.uk`、`zoodubassindarcachon.com`
+
+**🚧 待查證**：
+- **Kochi 的生日與雙親缺園方一手佐證**。維護者裁定照錄不掛 🚧 旗標：英國側（Bedford Independent，2026-08-05）與法國側
+  （TVBA，2025-07-15）兩則獨立報導對 2025-06-21 互相印證，且 Arcachon 當季僅此一胎。Arcachon 官網 actualités 已查無該胎公告（僅列至 2022 年）。
+- **Kochi 抵園確切日期不明**——官方 IG 與新聞只說「已安全抵達」，`zoos:` 起訖只能寫到年（`2026`）。
+- **Mali 的確切生日、出生園與家系**園方未公布；查到生日後須照 rename 流程改 slug（`mali-2016` → `mali-YYYY-MM-DD`）。
+- **Pici／Chima 的生日、出生園與家系**皆不詳，`sources` 記 `維護者提供（2026-08-07）`，`has_official_source` 為 false。
+- **Woburn 舊有個體 Mambo（♀，2017-08 自 Birmingham Wildlife Conservation Park 抵園）與 Sanka（♂ RPF #1264，2019-05 抵園）**
+  去向未見園方公告，暫不建檔。Kochi 以「新任種公」身分引進，暗示 Sanka 已離園或已歿，但無佐證、不臆測。
+
+---
+
+## [2026-08-07] add | 風子（フウコ）建檔——秋吉台 バウバウ × 香 六姊妹的最後一塊拼圖
+
+維護者提供がちょん部落格的バウバウ 追悼文（2018-01-02），文中逐一列出六名女兒的去向
+「ミク＠大崎／ノン＠秋吉台／**風子＠佐世保**／アーヤ＆アーニャ＠日本平／リク＠八木山」，
+補上了 RPF #571 缺的名字。該筆此前因「僅以佔位名／無名登錄者不建檔」暫緩，名字查得後補建。
+
+**認定依據**：RPF #571（1997-06-30 生於秋吉台、父 #396 バウバウ、母 #495 香、終居園 #-19 九十九島動植物園森きらら）
+與部落格所列「六女中排第二、去向佐世保」四項相符；六名女兒中僅此一隻去向佐世保，無其他候選。
+
+**來源**：
+- https://redpandafinder.com/#profile/571 （生卒日、性別、居住史、父母）
+- https://gachon.exblog.jp/26293205/ （がちょん「宝宝（バウバウ）さん　ありがとう」2018-01-02：名字「風子」之出處，非官方 → 記入 `extra_sources`）
+
+**新增條目**：
+- `fuuko-1997-06-30.md` — Fuuko 風子／フウコ ♀（RPF #571），1997-06-30 生於秋吉台自然動物公園サファリランド，
+  2000-03-09 移高知県立のいち動物公園，2005-02-26 移九十九島動植物園森きらら（當時仍稱 佐世保市亜熱帯動植物園），
+  2005-11-05 歿，享年 8 歲——`kaori-1991-06-18` × `bau-bau-1994-07-11` 六女中最短命的一隻
+
+**更新條目**：
+- `bau-bau-1994-07-11.md`／`kaori-1991-06-18.md` — 子女列／子女表的「（未載名字，RPF #571）」改為 `fuuko-1997-06-30` 連結；註記改寫
+- `non-1996-07-05.md`／`a-ya-1998-07-03.md`／`a-nya-1998-07-03.md`／`riku-1999-07-20.md`／`miku-1999-07-21.md` — 姊妹列補上風子（此前五隻都漏記這位 1997 年生的姊妹）
+- `index.md` — 新增 1 列（Ran-Ran × Yuu-Yuu 一族表內，接在 `riku-1999-07-20` 之後）；條目總數更新為 935
+
+**🚧 待查證**：
+- **漢字「風子」與讀音フウコ 無官方佐證**：漢字出自同好部落格、片假名依維護者提供；羅馬拼音暫依 wiki 既有フウ系條目慣例作 `Fuuko`。
+  待秋吉台／のいち／森きらら 官方資料（園報・個體名單）確認後再定，若讀音有異須照 rename 流程改 slug。
+- 生卒日與居住史仍僅有 RPF（血統書編號 97102）為據，無園方一手來源。
+- 於のいち動物公園的 5 年（2000–2005）是否曾配對、有無子女，RPF 無 edge、亦查無園方紀錄。

@@ -23,6 +23,7 @@ CFLAG = {'Japan':('日本','🇯🇵'),'Taiwan':('台灣','🇹🇼'),'USA':('�
  'Netherlands':('荷蘭','🇳🇱'),'Indonesia':('印尼','🇮🇩'),'Thailand':('泰國','🇹🇭'),
  'Argentina':('阿根廷','🇦🇷'),'Hong Kong':('香港','🇭🇰'),
  'Belgium':('比利時','🇧🇪'),'Germany':('德國','🇩🇪'),'UK':('英國','🇬🇧'),
+ 'France':('法國','🇫🇷'),
  'Mexico':('墨西哥','🇲🇽'),'Macau':('澳門','🇲🇴'),'Singapore':('新加坡','🇸🇬'),
  'New Zealand':('紐西蘭','🇳🇿'),
  'Slovakia':('斯洛伐克','🇸🇰'),'Slovenia':('斯洛維尼亞','🇸🇮')}

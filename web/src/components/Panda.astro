@@ -106,11 +106,23 @@ const curZoo = !p.died && (p.current_zoo || p.current_zoo_raw)
       : p.current_zoo_raw)
   : null;
 
+// 亞種：學名 + 各語亞種俗名（i18n subspecies_<亞種>）。亞種不詳（species 為 null）只出「-」，
+// 俗名或格式字缺就退回純學名，永不吐出 undefined。括號全／半形由 species_fmt 各語自行決定。
+const speciesCell = (() => {
+  if (!p.species) return '-';
+  const latin = `<i>Ailurus fulgens ${p.species}</i>`;
+  const zh = T['subspecies_' + p.species];
+  if (!zh) return latin;
+  // 亞種俗名連到物種介紹頁的對應段落（#fulgens／#styani），讓讀者查兩亞種差別
+  const named = `<a class="text-rust hover:underline" href="${pageUrl(base, locale, 'species')}#${p.species}">${zh}</a>`;
+  return (T.species_fmt || '{name}（{latin}）').replace('{name}', named).replace('{latin}', latin);
+})();
+
 const facts = [
   [T.field_sex, `<span class="inline-block text-[.76rem] px-2 py-px rounded-full ${p.sex === 'female' ? 'bg-[#f7e3df] text-female' : p.sex === 'male' ? 'bg-[#dfeef2] text-male' : 'bg-cream text-rust-dark'}">${sexTxt}</span>`],
   [T.field_born, bornCell],
   p.died ? [T.field_died, `${p.died}${deceasedHtml(locale)}`] : null,
-  [T.field_species, `<i>${p.species ? 'Ailurus fulgens ' + p.species : '-'}</i>`],
+  [T.field_species, speciesCell],
   curZoo ? [T.field_zoo, curZoo] : null,
 ].filter(Boolean);
 

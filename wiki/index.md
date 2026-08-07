@@ -1,6 +1,6 @@
 # Wiki 目錄 Index
 
-> 最後更新：2026-08-07 | 條目總數：930（另有 6 筆條目暫存 wiki/_hidden/，不計入、不上站）
+> 最後更新：2026-08-07 | 條目總數：935（另有 6 筆條目暫存 wiki/_hidden/，不計入、不上站）
 
 ---
 
@@ -576,6 +576,7 @@
 | [[kaori-1991-06-18]] | Kaori 香 — Ran-Ran × Yuu-Yuu 之女 🪐；Chao-Chao 雙胞胎、西山→秋吉台（RPF #495）| ♀ | 🪐 1991–2003 |
 | [[non-1996-07-05]] | Non ノン 🪐 — Kaori × Bau-Bau 之長女；終生居秋吉台（RPF #569；⚠️ 勿與 [[non-2003-07-25]]、[[non-2009-06-19]] 混淆）| ♀ | 🪐 1996–2014 |
 | [[riku-1999-07-20]] | Riku リク 🪐 — Kaori × Bau-Bau 之女、Miku 雙胞胎；秋吉台→仙台八木山（RPF #570；⚠️ 勿與 [[riku-2004-07-13]] 混淆）| ♀ | 🪐 1999–2015 |
+| [[fuuko-1997-06-30]] | Fuuko 風子 フウコ 🪐 — Kaori × Bau-Bau 之次女；秋吉台→のいち→九十九島動植物園森きらら，享年 8 歲、六姊妹中最短命（RPF #571 未載名字，名字出自同好部落格 🚧）| ♀ | 🪐 1997–2005 |
 | [[sabatarou-1992-06-22]] | Sabatarou サバタロウ — Ran-Ran × Yuu-Yuu 之子 🪐；西山→釧路（RPF #732）| ♂ | 🪐 1992–2000 |
 | [[chun-chun-1992-06-22]] | Chun-Chun 春春 — Ran-Ran × Yuu-Yuu 之子 🪐；Sabatarou 雙胞胎、西山→池田（RPF #733）| ♂ | 🪐 1992–2010 |
 | [[pin-pin-1989-06-28]] | Pin-Pin 平平 — 西山種公 🪐；Yan-Yan(1992)、Takashi 之父（RPF #887；徳山→西山）| ♂ | 🪐 1989–2008 |
@@ -2717,6 +2718,19 @@ Dusk（RPF #447）2004 年生於溫尼伯 Assiniboine Park Zoo，經 Granby Zoo�
 | [[ash-hertfordshire]] | Ash — 自威爾斯 Welsh Mountain Zoo 抵園（2024-02），Nila 之配偶；生日不詳 | ♂ | 不詳 | Hertfordshire Zoo 🇬🇧 |
 | [[bambu-2022]] | Bambu（暱稱 Ola）— ZOO Ljubljana 首隻誕生的小熊貓，2023 移居 Bojnice；Nila 之母 | ♀ | 2022– | Národná zoologická záhrada Bojnice 🇸🇰 |
 | [[mao-2015]] | Mao — Bojnice 的雄性，Nila 之父；生年僅依園方年齡推定 | ♂ | 2015– | Národná zoologická záhrada Bojnice 🇸🇰 |
+
+---
+
+## 海外個體（英國・Woburn Safari Park ← 法國 Zoo du Bassin d'Arcachon）
+
+英國 Woburn Safari Park 步行區「Himalayan Heights」的小熊貓與其法國娘家。2026-08 Kochi 依 EAZA EEP 自 Zoo du Bassin d'Arcachon 跨海抵園，預定與該園母獸 Mali 配對。Kochi 的雙親 Pici × Chima 仍在法國，生日與家系園方均未公布（檔案卡級）。
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[kochi-2025-06-21]] | Kochi — Arcachon 生（Pici 首胎單仔），2026-08 依 EEP 移居英國，該園新任種公 | ♂ | 2025– | Woburn Safari Park 🇬🇧 |
+| [[mali-2016]] | Mali — 2017-07 抵園，Himalayan Heights 首批住民之一；Kochi 之配對對象，生年僅依園方賀壽文推定 | ♀ | 2016– | Woburn Safari Park 🇬🇧 |
+| [[pici-arcachon]] | Pici — Kochi 之母，2025-06-21 首次產仔；生日不詳 | ♀ | 不詳 | Zoo du Bassin d'Arcachon 🇫🇷 |
+| [[chima-arcachon]] | Chima — Kochi 之父；生日不詳 | ♂ | 不詳 | Zoo du Bassin d'Arcachon 🇫🇷 |
 
 ---
 

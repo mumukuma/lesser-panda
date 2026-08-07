@@ -9,6 +9,7 @@ import Thanks from '../components/Thanks.astro';
 import Stats from '../components/Stats.astro';
 import Zoo from '../components/Zoo.astro';
 import JpTree from '../components/JpTree.astro';
+import Species from '../components/Species.astro';
 import { pandas, zoos, zoosListed, LOCALES, searchDataFor, closedDataFor, subGraph, placeholderMotherName, zooName, japanTreeData } from '../lib/data.js';
 
 export function getStaticPaths() {
@@ -20,6 +21,7 @@ export function getStaticPaths() {
     out.push({ params: { path: path('zoos') }, props: { locale: l.code, kind: 'zoos', relPath: 'zoos' } });
     out.push({ params: { path: path('stats') }, props: { locale: l.code, kind: 'stats', relPath: 'stats' } });
     out.push({ params: { path: path('jptree') }, props: { locale: l.code, kind: 'jptree', relPath: 'jptree' } });
+    out.push({ params: { path: path('species') }, props: { locale: l.code, kind: 'species', relPath: 'species' } });
     out.push({ params: { path: path('feedback') }, props: { locale: l.code, kind: 'feedback', relPath: 'feedback' } });
     out.push({ params: { path: path('thanks') }, props: { locale: l.code, kind: 'thanks', relPath: 'thanks' } });
     for (const p of Object.values(pandas)) {
@@ -41,6 +43,7 @@ const titles = {
   zoos: (await import('../lib/data.js')).i18n[locale].nav_zoos,
   stats: (await import('../lib/data.js')).i18n[locale].nav_stats,
   jptree: (await import('../lib/data.js')).i18n[locale].nav_family,
+  species: (await import('../lib/data.js')).i18n[locale].nav_species,
   feedback: (await import('../lib/data.js')).i18n[locale].nav_feedback,
   thanks: (await import('../lib/data.js')).i18n[locale].thanks_title,
   panda: kind === 'panda' ? placeholderMotherName(pandas[slug], locale) : undefined,
@@ -60,6 +63,7 @@ const graph = p ? subGraph(slug, locale) : null;
   {kind === 'zoos' && <Zoos locale={locale} />}
   {kind === 'stats' && <Stats locale={locale} />}
   {kind === 'jptree' && <JpTree locale={locale} />}
+  {kind === 'species' && <Species locale={locale} />}
   {kind === 'feedback' && <Feedback locale={locale} />}
   {kind === 'thanks' && <Thanks locale={locale} />}
   {kind === 'panda' && <Panda locale={locale} slug={slug} />}

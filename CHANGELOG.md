@@ -6,6 +6,28 @@
 
 ---
 
+## 2026-08-07 ・ 新頁面「物種介紹」（/species/）＋個體頁物種欄連結
+
+新增全站第一個敘述型頁面：介紹「什麼是小熊貓」與兩個亞種（喜馬拉雅小熊貓 *Ailurus fulgens
+fulgens*／中華小熊貓 *Ailurus fulgens styani*）怎麼分，含快速分辨比較表與精簡參考文獻
+（Hu et al. 2020、Glatston 2021、IUCN、RPN）。範圍為 `docs/red-panda-intro-PLAN.md` 的 P1；
+分界河流已查證：2020 全基因體研究將兩者分界由怒江修正為雅魯藏布江。
+
+- 中文正本：repo 根目錄 `red-panda-intro.md`（不放 `wiki/`，避免被管線當個體條目解析）。
+- `web/src/components/Species.astro`：新元件，`#fulgens`／`#styani` 段落錨點（scroll-mt 配合
+  浮動 header）；學名與文獻連結為語系無關常數，其餘內容全走 i18n。
+- `pipeline/src/i18n/*.json`：五語各加 32 個 `sp_*` key＋`nav_species`（zh-TW 正本、zh-CN 大陸
+  用語手譯、ja／en／ko 翻譯）；段落含斜體學名者存 `<i>` 標記、以 `set:html` 渲染（比照
+  `footer_note` 慣例）。印度分布刻意只寫「錫金、西孟加拉一帶」。
+- `web/src/pages/[...path].astro`：新 kind `species`（五語 ×1 路由）；`Layout.astro` 導覽列
+  加「物種介紹」（置於統計之後）。
+- `web/src/components/Panda.astro`：`speciesCell` 的亞種俗名改為連結 → `/species/#<亞種>`，
+  個體頁可一鍵查兩亞種差別；亞種不詳（顯示「-」）與俗名缺 key（純學名）情形不變。
+- 圖鑑立場不變：仍採亞種寫法（`species` 欄值域 `fulgens`／`styani`），兩物種說（*A. styani*）
+  於頁內說明；用詞照 `SCHEMA.md`「中華小熊貓」。
+
+---
+
 ## 2026-08-07 ・ 官方來源白名單新增三座美國園＋兩個官方 IG；註冊表補八園地點
 
 處理兩筆「圖鑑缺漏」回報（Doofah × Sisu 一家）時查證到的官方管道，`tools/build_db.py` 補上：
