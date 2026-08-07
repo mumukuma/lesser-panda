@@ -6,6 +6,24 @@
 
 ---
 
+## 2026-08-07 ・ 官方來源白名單新增三座美國園＋兩個官方 IG；註冊表補八園地點
+
+處理兩筆「圖鑑缺漏」回報（Doofah × Sisu 一家）時查證到的官方管道，`tools/build_db.py` 補上：
+
+- `OFFICIAL_HOSTS`：`potterparkzoo.org`（抵園・出生公告發於官網新聞稿）、`potawatomizoo.org`、
+  `rosamondgiffordzoo.org`（含 `www.` 一筆，host 為完全比對）。
+- `OFFICIAL_IG_ACCOUNTS`：`zooknoxville`（同 zooknoxville.org；抵園・出産公告發於此，本次以瀏覽器實讀
+  2021-03 Doofa 抵園、2025-09 Sisu 兩則）、`potawatomizoo`（同 potawatomizoo.org；生日・送別公告發於此）。
+
+另補 `data/zoos.json` 的地點欄（原為 null，個體頁居住史表格因此只顯示「美國 🇺🇸」）：Charles Paddock、
+Fort Wayne Children's、Hamilton、Memphis、Potawatomi、Potter Park、Rosamond Gifford、Sunset 八園補
+`location_ja`＋`location_zh`，セントラルパーク動物園補 `location_zh`。重跑 `gen_residence.py` 後
+另有 9 個既有條目的居住史表格順帶補上地點（willa、itsuki、nima 等）。
+
+相關資料異動見 `wiki/log.md` 2026-08-07 一筆。
+
+---
+
 ## 2026-08-06 ・ 官方來源白名單新增兩座園（Columbus Zoo、Zoo sauvage de Saint-Félicien）
 
 處理讀者回報時查證到兩座園的官方公告管道，`tools/build_db.py` 的官方來源分類器補上：

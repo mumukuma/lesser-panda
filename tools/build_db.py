@@ -90,6 +90,12 @@ OFFICIAL_HOSTS = {
     # （出生日、父母、飼育員談話）由園方提供、以第一人稱發布，比照 Calgary 的 Wilder Institute 認列官方。
     "buildingourzoo.com",
     "zooknoxville.org",  # Zoo Knoxville（美國田納西州）
+    # Potter Park Zoological Gardens（美國密西根州；抵園・出生公告發於官網新聞稿）
+    "potterparkzoo.org",
+    # Potawatomi Zoo（美國印第安納州；出生公告發於官網與官方 IG @potawatomizoo）
+    "potawatomizoo.org",
+    # Rosamond Gifford Zoo at Burnet Park（美國紐約州雪城）
+    "rosamondgiffordzoo.org", "www.rosamondgiffordzoo.org",
     # Cincinnati Zoo & Botanical Garden（美國俄亥俄州；全球 styani 亞種繁殖數第一，
     # 出生・命名・訃報公告多發於官網文章與官方 X／FB）
     "cincinnatizoo.org",
@@ -167,6 +173,8 @@ OFFICIAL_IG_ACCOUNTS = {
     "prospectparkzoo",  # Prospect Park Zoo（WCS；官網 prospectparkzoo.com 頁尾 Instagram 連結指向此帳號）
     "columbuszoo",  # Columbus Zoo and Aquarium（官網 columbuszoo.org 頁尾 Instagram 連結指向此帳號）
     "zoosauvageofficiel",  # Zoo sauvage de Saint-Félicien（加拿大魁北克；貼文內文連回 zoosauvage.org，到園公告發於此）
+    "zooknoxville",  # Zoo Knoxville（同 zooknoxville.org；抵園・出産公告發於此）
+    "potawatomizoo",  # Potawatomi Zoo（同 potawatomizoo.org；生日・送別公告發於此）
 }
 _IG_HOSTS = {"instagram.com", "m.instagram.com"}
 _IG_NON_ACCOUNT_SEGS = {"p", "reel", "reels", "tv", "stories", "explore"}
