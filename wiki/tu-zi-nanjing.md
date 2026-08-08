@@ -13,7 +13,7 @@ sources:
   - 維護者提供（2026-07-26：已故、歿日不詳）
 ---
 
-# 兔子（Tu Zi）🪐
+# 兔子（Tu Zi）🪽
 
 > **小熊貓** | ♀ | Ailurus fulgens styani
 > 生日：不詳

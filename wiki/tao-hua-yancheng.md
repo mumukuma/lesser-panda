@@ -13,7 +13,7 @@ sources:
   - 維護者提供（2026-07-26）
 ---
 
-# 桃花（Tao Hua）🪐
+# 桃花（Tao Hua）🪽
 
 > **小熊貓** ♀ | Ailurus fulgens styani
 > 生日：不詳；歿於 2025 年 🚧

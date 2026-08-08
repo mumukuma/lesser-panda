@@ -26,7 +26,7 @@ sources:
   - 維護者提供（2026-07-04；官方來源待補）
 ---
 
-# Pei Pei 🪐（霈霈）
+# Pei Pei 🪽（霈霈）
 
 > **小熊貓** ♀ | Ailurus fulgens styani
 > 生日：不詳（野生救護個體）

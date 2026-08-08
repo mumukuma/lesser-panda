@@ -13,6 +13,10 @@ description: >
 幫使用者從 [Red Panda Finder](https://redpandafinder.com)（RPF）抓取小熊貓資料，
 並按照 Obsidian wiki 的 SCHEMA.md 規範，產生正確格式的 wiki 條目。
 
+> ⚠️ **RPF 已降為「線索」（2026-07-14 起，詳見 `CLAUDE.md` 資料來源原則）**：新條目 `sources`
+> 以園方公告等官方一手來源優先、RPF 為輔；由 RPF/lineage 帶入而無官方佐證的關鍵資料標 `🚧 待查證`；
+> 與既有 wiki 校訂衝突時一律以 wiki 為準，不可用 RPF 覆蓋。
+
 ---
 
 ## 第一步：讀取現有 wiki 結構
@@ -41,13 +45,20 @@ description: >
      .filter(x => x.href.includes('profile'))
    ```
 
-### 從頁面文字推斷性別
+> 💡 另有全站資料集可抓：`https://redpandafinder.com/export/redpanda.json`（扁平 key 如 `v['en.name']`、
+> 動物園 `_id` 為負數）。舊的 `window.Pandas` 全域變數已不存在，勿再依賴。
 
-RPF 不直接標示性別，但可以從以下判斷：
-- 「Mother」/ 「daughters」/ 「sisters」→ ♀ female
-- 「Father」/ 「sons」/ 「brothers」→ ♂ male
-- 「has X daughters」→ 本體為 female；「has X sons」→ 本體可能為 male（但也可能是 female 的子女）
-- 若不確定，留空並備注「待確認」
+### 性別：讀名字前的性別 icon（勿從子女反推）
+
+RPF **有**標示性別——是名字前的 icon 圖片，`get_page_text` 會把它濾掉、看起來像沒標，其實有。用 DOM 讀取：
+
+- **本尊**：`document.querySelector('.gender.profile img').alt`（`male`／`female`）。
+- **親屬卡**：各卡的 `.gender img` 的 **`alt` 不可靠**（曾出現整頁親屬都是 `alt="male"`），改讀 img **`src` 檔名**（`male.svg`／`female.svg`）。一次抓全家：
+  ```javascript
+  Array.from(document.querySelectorAll('a[href*="profile"]')).map(a=>{const i=a.querySelector('img[src*=".svg"]');return {h:a.getAttribute('href'),t:a.textContent.trim().replace(/\s+/g,' '),s:i?i.src.split('/').pop():null}})
+  ```
+- **嚴禁從 Mother/Father/daughters/sons 等關係反推本人性別**（不可靠、作者已明令禁止）。
+- 若仍不確定，留空並備注「待確認」。
 
 ---
 
@@ -73,45 +84,47 @@ RPF 不直接標示性別，但可以從以下判斷：
 
 ## 第四步：建立個別 wiki 條目
 
-對每一隻需要建立頁面的小熊貓，在 `wiki/` 資料夾建立 `[name].md`。
+對每一隻需要建立頁面的小熊貓，在 `wiki/` 資料夾建立 `[slug].md`。
 
-### 檔案命名規則
+### 檔案命名規則（2026-06-18 起，slug＝名字-生日）
 
-基本格式：全小寫、空格換成連字號（`akebi.md`、`gumi.md`）。
+**slug 一律為「名字-生日」**（詳見 `CLAUDE.md`「檔名與消歧」）：
 
-**消歧規則**（重要）：小熊貓的名字在全球動物園中經常重複。命名時要先判斷是否需要消歧：
+1. 格式：`slugify(name)` + `-` + 生日。生日用完整 `YYYY-MM-DD`；只知年份則用 `YYYY`。
+   - 例：`yan-yan-2014-06-22.md`、`akebi-2020-06-29.md`、`tian-1999.md`
+2. slugify：全小寫、空白/底線換連字號、去除 `'`、`()`、`.`；重音字母以 NFKD 轉為基本拉丁字母（é→e、ñ→n…，不可整個刪掉）。
+3. **撞名（同名又同生日）才加第三層消歧＝媽媽的名字**（slug），**不用父名**：
+   - 例：`sora-seina-2008-06-16`、`sora-nami-2008-06-16`
+4. 佔位名字一律用「名字-媽媽名-生日」；當季未命名寶寶用「蘋果籽」制度（`apple-seed-媽媽slug-生日`，見 `CLAUDE.md`）。
+5. 同名並存時，條目內加 `⚠️ 注意同名` 提示。
+6. 完全無生日的檔案卡個體（多為中國個體）fallback：`slugify(name)-園簡稱`（如 `xiao-bai-shanghai`），查到生日再照 rename 流程改回標準 slug。
 
-1. **查現有 wiki**：先搜尋 `wiki/index.md` 確認同名條目是否已存在。
-2. **若名字在紅熊貓族群中常見**（如 Yan-Yan、Fu-Fu、Ten-Ten），**一律加父名消歧**：
-   - 格式：`[名字]-[父親名].md`
-   - 例：`yan-yan-franken.md`（Franken 之子 Yan-Yan）、`fu-fu-franken.md`
-3. **若同名個體在同一 wiki 中並存**，也必須消歧，並在條目內加 `⚠️ 注意同名` 提示：
-   - 例：`ten-ten-shiryu-father.md`（與另一隻 Ten-Ten 區別）
-4. **名字足夠獨特**（在紅熊貓族群中罕見）則用單名：`akebi.md`、`sumomo.md`
-
-如不確定，優先加父名，避免未來衝突。
+建檔前先搜尋 `wiki/index.md` 確認同名條目是否已存在，避免重複。
 
 ### YAML frontmatter 格式
 
 ```yaml
 ---
 name: 英文名
-japanese: 日文名（假名 / 漢字）
+chinese: 中文名                     # 台灣／中國個體的正式中文名；若無則省略
+japanese: 日文名（漢字 / 假名）      # ⚠️ 僅「有日本居住史」的個體才填（RPF 的 ja.name 是機械轉寫，歐美個體勿抄）
 nicknames: [暱稱1, 暱稱2]          # 若無則省略
 english_variants: [變體1, 變體2]   # 若無則省略
 sex: female | male
 born: YYYY-MM-DD
 died: YYYY-MM-DD                   # 若健在則省略
-species: Ailurus fulgens styani | Ailurus fulgens fulgens
+species: Ailurus fulgens styani | Ailurus fulgens fulgens   # 亞種不詳→整行省略（勿寫 Ailurus fulgens）
 zoos:
-  - 動物園名稱（起訖年份，若仍在則只寫起始）
+  - 動物園名稱 (起 – 訖)            # 園名須為 data/zoos.json 註冊表 canonical（未登記 build 報錯）；起訖可 YYYY-MM-DD／YYYY，現居訖留空或寫「現在」
 rpf_id: 數字
 rpf_url: https://redpandafinder.com/#profile/數字
 tags: [styani或fulgens, female或male, zoo:動物園名]
-sources:
+sources:                           # 官方一手來源優先，RPF 為輔
   - https://redpandafinder.com/#profile/數字
 ---
 ```
+
+完整欄位規範（`instagram:`、`youtube:`、`extra_sources`、`last_seen`、`birth_zoo`、`siblings` 等選填欄）見 `SCHEMA.md`。
 
 ### 條目內容結構
 
@@ -129,10 +142,8 @@ sources:
 
 ## 居住史
 
-| 期間 | 動物園 | 地點 |
-|------|--------|------|
-| YYYY/MM/DD–YYYY/MM/DD | 動物園名 | 國家 地點 🇯🇵 |
-| YYYY/MM/DD– | 動物園名（英文名） | 日本 地點 🇯🇵 |
+（此表格**由 `tools/gen_residence.py` 依 frontmatter `zoos:` 自動生成，勿手改**——
+含地點、🐣出生地、🏡現居標記。建檔時可先留空段落，跑 `bash rebuild.sh` 即自動填入。）
 
 ---
 
@@ -177,7 +188,7 @@ sources:
 - https://redpandafinder.com/#profile/XXX (名字)
 
 **新增條目**：
-- `name.md` — 簡短說明（RPF #XXX），生於 YYYY-MM-DD，現居 動物園
+- `slug.md` — 簡短說明（RPF #XXX），生於 YYYY-MM-DD，現居 動物園
 
 **更新條目**：
 - `index.md` — 新增 XXX 條目，條目總數更新為 N
@@ -206,4 +217,5 @@ sources:
 - **不要覆蓋**：若條目已存在，改用 Edit 更新，並在 log 記錄為 `update`
 - **清理錯誤檔案**：若之前在錯誤位置建立了格式錯誤的檔案（如 wiki 根目錄下的 .md），詢問使用者是否要刪除
 - **自動補齊所有親屬**：父、母、雙胞胎、子女、兄弟姊妹、祖父母一律自動建立（若尚無條目）
-- **日文名**：若 RPF 顯示 Other Names，記得填入 frontmatter 的 `japanese` 欄位
+- **日文名**：若 RPF 顯示 Other Names，記得填入 frontmatter 的 `japanese` 欄位（**僅日本個體**——歐美等非日本個體的 ja.name 若含漢字，多半實為中文名，經作者確認後放 `chinese`）
+- **建檔後重建**：`bash rebuild.sh`（gen_residence → build_db → export_json → check_twins）

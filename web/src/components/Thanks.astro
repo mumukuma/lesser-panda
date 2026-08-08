@@ -1,15 +1,23 @@
 ---
+/* 關於本站＋致謝（URL 維持 /thanks/，footer 既有入口不變）：
+   上半＝站的宣言（非營利同好專案、把喜歡化成對真實小熊貓的關注，i18n about_*），
+   下半＝原本的貢獻者致謝名單。首頁底部短版小卡（home_about_text）連到本頁。 */
 import { i18n, contributors } from '../lib/data.js';
 const { locale } = Astro.props;
 const T = i18n[locale];
+const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';
 
-// 只顯示名字；過濾掉空白項，保留作者維護的順序
+// 只顯示名字；過濾掉空白項，保留維護者維護的順序
 const names = (contributors || [])
   .map((c) => (typeof c === 'string' ? c : c && c.name))
   .filter((n) => n && String(n).trim())
   .map((n) => String(n).trim());
 ---
-<h1 class="font-display text-2xl font-semibold mt-7 mb-1.5">🐾 {T.thanks_title}</h1>
+<h1 class="font-display text-2xl font-semibold mt-7 mb-3">🐾 {T.about_title}</h1>
+<p class="leading-relaxed mb-3">{T.about_p1}</p>
+<p class="leading-relaxed mb-3">{T.about_p2}</p>
+
+<h2 class={H2}>{T.thanks_title}</h2>
 <p class="text-ink-soft mb-5 leading-relaxed">{T.thanks_intro}</p>
 
 {names.length > 0 ? (

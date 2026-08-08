@@ -142,6 +142,25 @@ def main():
                   f"{h} ×{len(names)}：{', '.join(sorted(names)[:4])}"
                   + ("…" if len(names) > 4 else "")))
 
+    # 2.7) index.md 對帳（2026-08-08 新增；🔴 整合性錯誤，--strict 會擋）
+    # 不變量：① index 的每個 [[wikilink]] 都對應存在的條目檔；② 每個條目檔至少
+    # 在 index 出現一次；③ 頁首「條目總數：N」== 實際檔數（wiki/*.md 扣 index/log）。
+    # 同一條目在多個家族表重複出現屬正常（交叉引用），不檢查唯一性。
+    idx_text = (WIKI / "index.md").read_text(encoding="utf-8")
+    idx_set = set(re.findall(r"\[\[([^\]|#]+?)(?:\|[^\]]*)?\]\]", idx_text))
+    file_set = {Path(n).stem for n in entries}
+    for slug in sorted(idx_set - file_set):
+        R.append(("error", "index 對帳：index 連到不存在的條目",
+                  f"[[{slug}]]（條目改名/下架後 index 未同步？）"))
+    for slug in sorted(file_set - idx_set):
+        R.append(("error", "index 對帳：條目未列入 index", f"{slug}.md"))
+    m_cnt = re.search(r"條目總數：(\d+)", idx_text)
+    if not m_cnt:
+        R.append(("error", "index 對帳：頁首缺「條目總數：N」", "index.md"))
+    elif int(m_cnt.group(1)) != len(entries):
+        R.append(("error", "index 對帳：頁首總數與實際檔數不符",
+                  f"index 寫 {m_cnt.group(1)}、實際 {len(entries)}"))
+
     # 3) 與 lineage 比對
     cross = 0
     if lineage:

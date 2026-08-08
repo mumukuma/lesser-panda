@@ -12,7 +12,7 @@ extra_sources:
   - https://www.guinnessworldrecords.com/news/2020/3/worlds-oldest-red-panda-is-21-years-old-and-lives-at-zoomontana-611467  # 金氏世界紀錄報導（2020-03）：世界最高齡小熊貓
 ---
 
-# Taylor 🪐
+# Taylor 🪽
 
 > **小熊貓** ♂ | Ailurus fulgens styani
 > 生：1998 年（6 月）｜歿：2020 年 3 月（享年 21 歲）

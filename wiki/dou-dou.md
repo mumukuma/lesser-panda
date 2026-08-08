@@ -16,7 +16,7 @@ sources:
 > 生日：不詳
 > 現居：廈門靈玲動物王國（福建省廈門市集美区）🇨🇳
 
-現居**廈門靈玲動物王國**，[[ma-ti-su]]（馬蹄酥）之母，並與 [[fei-fei-xiamen]]🪐（飛飛）共育三胞胎 [[sha-sha]]🪐（沙沙）、[[cha-cha]]（茶茶）、[[mian-mian]]（面面）。
+現居**廈門靈玲動物王國**，[[ma-ti-su]]（馬蹄酥）之母，並與 [[fei-fei-xiamen]]🪽（飛飛）共育三胞胎 [[sha-sha]]🪽（沙沙）、[[cha-cha]]（茶茶）、[[mian-mian]]（面面）。
 
 ⚠️ 注意同名：與 [[dou-dou-chengdu]]（成都動物園，♀）、[[dou-dou-nanjing]]（南京市紅山森林動物園，♂）同名，為不同個體。
 
@@ -37,13 +37,13 @@ sources:
 
 - 父：不詳
 - 母：不詳
-- 配偶：[[fei-fei-xiamen]]🪐（飛飛，三胞胎之父）
+- 配偶：[[fei-fei-xiamen]]🪽（飛飛，三胞胎之父）
 
 ### 子女
 
 | 姓名 | 出生年 | 另一方親本 |
 |------|--------|-----------|
 | [[ma-ti-su]]（馬蹄酥）| 不詳 | 不詳（待查證）|
-| [[sha-sha]]🪐（沙沙，三胞胎大哥）| 不詳 | [[fei-fei-xiamen]]🪐（飛飛）|
-| [[cha-cha]]（茶茶，三胞胎二姐）| 不詳 | [[fei-fei-xiamen]]🪐（飛飛）|
-| [[mian-mian]]（面面，三胞胎小弟）| 不詳 | [[fei-fei-xiamen]]🪐（飛飛）|
+| [[sha-sha]]🪽（沙沙，三胞胎大哥）| 不詳 | [[fei-fei-xiamen]]🪽（飛飛）|
+| [[cha-cha]]（茶茶，三胞胎二姐）| 不詳 | [[fei-fei-xiamen]]🪽（飛飛）|
+| [[mian-mian]]（面面，三胞胎小弟）| 不詳 | [[fei-fei-xiamen]]🪽（飛飛）|

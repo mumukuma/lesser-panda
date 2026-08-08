@@ -61,7 +61,7 @@
 
 ## 步驟 4：驗收與收尾
 
-- `python tools/audit.py` 檢查完整度（缺欄位／與 lineage 不符提示）。
+- `python tools/audit.py` 檢查完整度（缺欄位提示；2026-07-14 起預設不比對 lineage，要比對加 `--lineage`）。
 - 條目總數用 `ls wiki/*.md | wc -l` 減 2 核對（若有增減）。
 - 在收件匣（Google Sheet）把該筆標為「已處理」，要致謝就記下暱稱。
 - 推 `main` → GitHub Actions 自動部署。

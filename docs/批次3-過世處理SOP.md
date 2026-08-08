@@ -3,6 +3,8 @@
 > 收到一筆「🌈 過世」或「🍼 出生」回報後，照這份做。
 > 一切遵循 `CLAUDE.md`：`wiki/*.md` 是唯一正本，回報只是提示，校訂後才寫入。
 > 過世見以下；出生見文末〈出生〉。
+>
+> ℹ️ **已故標記現行慣例（2026-08-08 起統一）**：wiki 正本與網站顯示一律用 **🪽**（網站由 `web` 依 `died` 自動加）。表單下拉選項的「🌈 過世」僅為表單文案。
 
 ---
 
@@ -33,12 +35,12 @@
 
 1. 加 `died: YYYY-MM-DD`（只知月份就 `YYYY-MM`，只知年就 `YYYY`）。
 2. `tags:` 加 `deceased`。
-3. 名稱不用手改——🌈 由網站依 `died` 自動呈現（見步驟 4）。
+3. 網站顯示不用手改——🪽 由網站依 `died` 自動呈現（見步驟 4）。
 
-## 步驟 3：🌈 標記（依現有慣例）
+## 步驟 3：已故標記（🪽）
 
-- 網站會自動處理：設了 `died` 後，個體頁標題、搜尋結果、家系圖、以及**其他條目指向這隻的 `[[wikilink]]`** 都會自動加 🌈（`web` 的 `link()`／`displayName` 依 `died` 判斷）。
-- wiki 內文若有手寫提及該個體名稱的地方，依慣例在名字後補 🌈（`log.md` 例外，一律用 backtick、不加 wikilink）。
+- 網站會自動處理：設了 `died` 後，個體頁標題、搜尋結果、家系圖、以及**其他條目指向這隻的 `[[wikilink]]`** 都會自動加 🪽（`web` 的 `link()`／`displayName` 依 `died` 判斷）。
+- wiki 正本要手動補 🪽：該條目標題／引言、`index.md` 該列、其他條目手寫提及該個體名稱處，依慣例在名字後補 🪽（`log.md` 例外，一律用 backtick、不加 wikilink）。
 
 ## 步驟 4：重建管線
 
@@ -53,7 +55,7 @@ python3 pipeline/scripts/export_json.py
 `wiki/log.md` 末端 append 一筆 `update`，名字用 backtick、**不用 `[[wikilink]]`**：
 
 ```markdown
-## [YYYY-MM-DD] update | 依回報標記 `名字` 過世 🌈
+## [YYYY-MM-DD] update | 依回報標記 `名字` 過世 🪽
 
 **來源**：
 - <回報附的官網／訃聞連結>
@@ -65,7 +67,7 @@ python3 pipeline/scripts/export_json.py
 ## 步驟 6：驗收
 
 - `python tools/audit.py` 檢查完整度。
-- 開該個體頁與首頁，確認名字旁出現 🌈、基本資料列出「過世日」。
+- 開該個體頁與首頁，確認名字旁出現 🪽、基本資料列出「過世日」。
 - 收件匣標「已處理」，要致謝記下暱稱。
 - 推 `main` → 自動部署。
 
@@ -97,7 +99,7 @@ python3 pipeline/scripts/export_json.py
 
 ## 步驟 2：建檔（走 `CLAUDE.md`「新增成員流程」）
 
-1. 建 `wiki/<寶寶名-生日>.md`；**未命名**就用佔位名＋媽媽名當 slug（見 `CLAUDE.md`「檔名與消歧」），待正式命名再改 slug。
+1. 建 `wiki/<寶寶名-生日>.md`；**未命名**的當季新生寶寶走「**蘋果籽**」佔位制度（2026-07-14 起）：slug `apple-seed-媽媽slug-生日`、tags 必含 `apple-seed`，資格（父母皆確認、生日確認、在世、未命名）與轉正流程見 `CLAUDE.md`「當季寶寶佔位條目：蘋果籽」；待正式命名再改 slug。
 2. frontmatter：`born:`（大概日期就寫到月／年）、`sex`（不確定留空備註待確認）、`zoos:`（多半＝親代現居園）、父母（一位是步驟 0 的親代；另一位填解析到的 canonical 名或留空待確認）、`species`、`sources`（回報附的連結）。
 3. **同胎多隻**（補充欄有寫）→ 一隻一檔。
 4. **自動補齊直系親屬**：父、母、雙胞胎、子女若無條目一律建立（順序：寶寶→父→母→雙胞胎）。
@@ -112,11 +114,13 @@ python3 pipeline/scripts/export_json.py
 
 ```bash
 python3 tools/build_db.py
-python tools/audit.py          # 檢查缺欄位／與 lineage 不符
+python tools/audit.py          # 檢查缺欄位（預設不比對 lineage）
 python3 pipeline/scripts/export_json.py
 ```
 
 條目總數用 `ls wiki/*.md | wc -l` 減 2 核對；推 `main` 自動部署。
+
+> 補充：**佔位期間（蘋果籽）夭折**的處理（2026-07-21 起）＝當季保留帶歿記、季末 12/1 排程才移 `_hidden`，見 `CLAUDE.md`「佔位期間夭折」。
 
 ## 退回／追問（出生）
 

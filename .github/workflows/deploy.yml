@@ -34,6 +34,12 @@ jobs:
           cache: pnpm
           cache-dependency-path: web/pnpm-lock.yaml
 
+      - name: Verify data & i18n (gate — bad data stops the deploy)
+        run: |
+          bash tools/verify.sh
+          python tools/check_i18n.py
+          node web/tests/closed.test.mjs
+
       - name: Build data pipeline (wiki → SQLite → JSON)
         run: |
           python tools/build_db.py

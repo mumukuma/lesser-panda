@@ -11,17 +11,20 @@
 # 擋關原則（符合 CLAUDE.md 資料來源原則）：
 #   - 只有"真正的 wiki 整合性錯誤"會擋：
 #       · audit 的 rpf_id 重複（--strict 計入）
+#       · audit 的 index.md 對帳錯誤（缺列/斷鏈/總數不符；2026-08-08 起，--strict 計入）
 #       · check_twins 的 E 級（連錯隻／同生群生日>±1天／群過大）→ 它自己 exit 1
 #   - 缺欄位、單邊缺父母等警告不擋。
 #
 # 用法：
 #   bash tools/verify.sh        # 手動跑
-#   （已掛 .git/hooks/pre-push → push 前自動跑，未通過即中止 push）
+#   （已掛 .git/hooks/pre-push → push 前自動跑，未通過即中止 push；
+#    2026-08-08 起 CI（deploy.yml）建置前也會跑本檔＋check_i18n＋closed.test，
+#    沒裝 hook 的機器 push 壞資料會在部署前被擋下）
 #
 set -uo pipefail
 cd "$(dirname "$0")/.."   # 切到 repo 根目錄（本檔在 tools/）
 
-echo "==> [1/2] audit（資料完整度；僅 rpf_id 重複等內部錯誤會擋）"
+echo "==> [1/2] audit（資料完整度；rpf_id 重複、index 對帳等內部錯誤會擋）"
 python3 tools/audit.py --strict
 audit_rc=$?
 

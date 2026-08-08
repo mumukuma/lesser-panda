@@ -21,7 +21,7 @@ REGISTRY_PATH = ROOT / "data" / "zoos.json"
 _FLAG = re.compile(r"[\U0001F1E6-\U0001F1FF]")
 _EMOJI = re.compile(r"[\U0001F000-\U0001FAFF☀-➿️]")
 _YEARPAREN = re.compile(r"[（(][^（）()]*(?:現在|今|–|—|-|~|〜|\d{4})[^（）()]*[）)]")
-_NOTES = ("出生地", "終老之地", "終焉の地", "終焉", "終居", "終老", "出生", "現居", "🏡", "🐣", "🌈", "🪐")
+_NOTES = ("出生地", "終老之地", "終焉の地", "終焉", "終居", "終老", "出生", "現居", "🏡", "🐣", "🌈", "🪐", "🪽")
 
 
 def preclean(s: str) -> str:

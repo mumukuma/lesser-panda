@@ -48,6 +48,8 @@ wiki，一律經作者核可後才動。**
 | 資料更正 | `回報資料更正` | https://tally.so/r/ODr777 |
 | 圖鑑缺漏 | `回報缺少的小熊貓或動物園…` | https://tally.so/r/2EVJlb |
 
+> 另有第三張「照片投稿」表（`lb5zVv`），**不在本 skill 範圍**——由 `photo-inbox-audit` skill 處理。
+
 ⚠️ **只讀現用的三語表。** Drive 裡還躺著已退役的純英／純日舊表（如 `Report a correction`、
 `データ修正のご報告`），現在是空的，**一律忽略**（CLAUDE.md 記載 2026-06-22 已合併為單張三語表）。
 
@@ -101,20 +103,19 @@ wiki，一律經作者核可後才動。**
 
 - **新增個體** → 交給 `rpf-wiki` skill（含自動補直系親屬、回頭把純文字親屬改 wikilink）。
 - **既有條目修正** → 依 CLAUDE.md「新增成員流程／條目格式」直接 Edit：
-  - 改**居住史**一律改 frontmatter `zoos:`（格式 `園名 (起 – 訖)`，精確日期）。
-    ⚠️ 注意 `gen_residence.py` 解析時**優先讀內文 `## 居住史` 表格**，且 frontmatter 的
-    fallback 只認年份、不認 ISO 日期；故精確日期修正要同步改**表格列**（date 用 `YYYY-MM-DD – YYYY-MM-DD`），
-    🐣 標出生園、🏡 標現居。園名須是 `data/zoos.json` 的 canonical；沒登記的園先加註冊表。
+  - 改**居住史**一律只改 frontmatter `zoos:`（格式 `園名 (起 – 訖)`，可用精確日期）。
+    **frontmatter `zoos:` 是居住史唯一來源（2026-06-29 起）**：內文 `## 居住史` 表格純為衍生，
+    由 `gen_residence.py` 自動重生（含地點、🐣、🏡），**勿手改表格**。
+    園名須是 `data/zoos.json` 的 canonical；沒登記的園先加註冊表。
   - 寫了註冊表沒有的園名，`build_db` 會報錯中止。
-- 重建（在 wiki 根目錄）：
+- 重建（在 wiki 根目錄）：`bash rebuild.sh`（gen_residence → build_db → export_json → check_twins），
+  或手動依序：
   ```
+  python3 tools/gen_residence.py     # 依 zoos: 重生居住史表格（守門：重生後掉園即中止）
   python3 tools/build_db.py          # 讀 frontmatter；沙盒會 fallback 到 /tmp/redpanda.db
-  python tools/audit.py              # sanity check（0 問題）
+  python tools/audit.py              # sanity check（預設不比對 lineage；要比對加 --lineage）
   python3 pipeline/scripts/export_json.py
   ```
-  > 是否要跑 `gen_residence.py`：它會**順手把全 wiki 的地點字串正規化**（重寫數百檔）。
-  > 若只想改動目標條目、不想擴大 diff，就手改該條目的表格＋frontmatter，**跳過** gen_residence；
-  > 想做全站正規化再單獨跑、單獨 commit。
 - 在 `wiki/log.md` append 一筆 `fix`（backtick 名字、無 wikilink、附來源連結）。
 
 ---

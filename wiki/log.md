@@ -30,15 +30,15 @@ frontmatter `nicknames:` 整行與別名表的該兩筆，日文僅留 `かぼ�
 
 ## [2026-08-05] update | `kotarou-2005-07-08`（琥太郎）過世
 
-大島公園動物園官方 X（`@ooshimashicho`＝東京都大島支庁，該園管理單位）2026-08-05 公告：飼育中的雄性小熊貓「琥太郎（コタロウ）」於 2026-07-29 死亡、21 歲，2007 年來園。官方帳號屬園方主管單位，比照官方訃告直接採用（園方訃告未載死因）。補 `died: 2026-07-29`、tags 加 `deceased`、`zoos` 訖改 2026-07-29；標題／引言加 🪐、歿記與得年（享年 21 歲），內文改過去式並補辭世一句。檔案續留 `wiki/`，`index.md` 該列補 🪐、享年段改 `2005–2026 🪐`（總數不變、仍上站）。父／母／姊妹／配偶／子女等既有條目對 `kotarou-2005-07-08` 的 wikilink 一併補 🪐。`tools/build_db.py` 的 `OFFICIAL_X_ACCOUNTS` 新增 `ooshimashicho`，此 X 訃告即計為官方來源。
+大島公園動物園官方 X（`@ooshimashicho`＝東京都大島支庁，該園管理單位）2026-08-05 公告：飼育中的雄性小熊貓「琥太郎（コタロウ）」於 2026-07-29 死亡、21 歲，2007 年來園。官方帳號屬園方主管單位，比照官方訃告直接採用（園方訃告未載死因）。補 `died: 2026-07-29`、tags 加 `deceased`、`zoos` 訖改 2026-07-29；標題／引言加 🪽、歿記與得年（享年 21 歲），內文改過去式並補辭世一句。檔案續留 `wiki/`，`index.md` 該列補 🪽、享年段改 `2005–2026 🪽`（總數不變、仍上站）。父／母／姊妹／配偶／子女等既有條目對 `kotarou-2005-07-08` 的 wikilink 一併補 🪽。`tools/build_db.py` 的 `OFFICIAL_X_ACCOUNTS` 新增 `ooshimashicho`，此 X 訃告即計為官方來源。
 
 **來源**：
 - https://x.com/ooshimashicho/status/2084882090672197737 （東京都大島支庁 官方 X：琥太郎 2026-07-29 死亡、21 歲、2007 年來園）
 
 **更新條目**：
-- `kotarou-2005-07-08.md` — 補 `died`／`deceased`／X 來源；標題引言 🪐＋享年 21 歲；內文改過去式、補辭世
-- `luna-2006-07-10.md`／`airi-2006-06-20.md`／`kojirou-2012-06-18.md`／`anko-2013-06-22.md`／`you-you-2002-06-21.md`／`buna-2000-07-17.md`／`marimo-2008-06-24.md`／`kotarou-2006-06-22.md` — 對 `kotarou-2005-07-08` 的 wikilink 補 🪐（`you-you`／`buna` 子女表另改「現居」→「終居」）
-- `index.md` — `kotarou-2005-07-08` 該列補 🪐、享年段 `2005–2026 🪐`；`kotarou-2006-06-22` 列勿混淆註記補 🪐
+- `kotarou-2005-07-08.md` — 補 `died`／`deceased`／X 來源；標題引言 🪽＋享年 21 歲；內文改過去式、補辭世
+- `luna-2006-07-10.md`／`airi-2006-06-20.md`／`kojirou-2012-06-18.md`／`anko-2013-06-22.md`／`you-you-2002-06-21.md`／`buna-2000-07-17.md`／`marimo-2008-06-24.md`／`kotarou-2006-06-22.md` — 對 `kotarou-2005-07-08` 的 wikilink 補 🪽（`you-you`／`buna` 子女表另改「現居」→「終居」）
+- `index.md` — `kotarou-2005-07-08` 該列補 🪽、享年段 `2005–2026 🪽`；`kotarou-2006-06-22` 列勿混淆註記補 🪽
 
 **工具**：
 - `tools/build_db.py` — `OFFICIAL_X_ACCOUNTS` 新增 `ooshimashicho`（東京都大島支庁＝大島公園動物園）
@@ -149,13 +149,13 @@ frontmatter `nicknames:` 整行與別名表的該兩筆，日文僅留 `かぼ�
 
 ## [2026-07-21] update | 柳州 白桃 2026 年夭折
 
-作者回報 `bai-tao-2025-06-16`（白桃）於 2026 年夭折（僅知年份，確切日期待查證）。白桃有正式名，依幼逝寶寶收錄原則續留 wiki、照常上站（僅標 🪐）。
+作者回報 `bai-tao-2025-06-16`（白桃）於 2026 年夭折（僅知年份，確切日期待查證）。白桃有正式名，依幼逝寶寶收錄原則續留 wiki、照常上站（僅標 🪽）。
 
 **更新條目**：
-- `bai-tao-2025-06-16.md` — 補 `died: 2026`、tags 加 `deceased`、`zoos` 訖改 2026；標題／引言／基本資料加 🪐、歿記與得年（約一歲）
-- `xiao-bai.md`／`xi-bao.md` — 父母子女表白桃列加 🪐、生卒改 2025–2026
-- `mu-shu-2026-06-12.md`／`liang-shu-2026-06-20.md` — 同父異母手足白桃加 🪐
-- `index.md` — 白桃列加 🪐、生卒 2025–2026、說明補「2026 年夭折」（總數不變）
+- `bai-tao-2025-06-16.md` — 補 `died: 2026`、tags 加 `deceased`、`zoos` 訖改 2026；標題／引言／基本資料加 🪽、歿記與得年（約一歲）
+- `xiao-bai.md`／`xi-bao.md` — 父母子女表白桃列加 🪽、生卒改 2025–2026
+- `mu-shu-2026-06-12.md`／`liang-shu-2026-06-20.md` — 同父異母手足白桃加 🪽
+- `index.md` — 白桃列加 🪽、生卒 2025–2026、說明補「2026 年夭折」（總數不變）
 
 ---
 
@@ -2570,10 +2570,10 @@ Sheet I 欄「已補進」標記待作者手動處理。
 **說明**：寶寶出生後未及正式命名即夭折。官方訃告齊備，依 2026-07-01 授權直接採用，並回填性別為雌（原留空）。依 2026-07-21 作者裁定的新做法，**當季（6/1–11/30）仍保留於 wiki／首頁「新鮮的寶寶」（帶歿記）**，不立即移入 `_hidden`；季末（每年 12/1 由排程 `hide-deceased-apple-seeds-yearly` 自動）區塊隱藏後再下架。故此筆僅記死亡、未移 `_hidden`、條目總數不變（仍 663、仍上站）。
 
 **更新條目**：
-- `apple-seed-hinagiku-2026-07-16.md` — frontmatter 補 `died: 2026-07-20`、`sex: female`、tags 加 `female`／`deceased`、`sources` 補官方訃告、`zoos:` 訖日 現在 → 2026-07-20；標題與引言補 🪐、♀、歿日與「生後 4 日」，佔位提示改為「未及命名即夭折」，內文改過去式並補死亡經過／解剖結果
-- `puerh-2015-06-25.md`、`hinagiku-2022-07-01.md` — 引言與子女表對該子補 🪐 與幼逝註記
-- `ren-ren-2020-06-29.md`、`rin-rin-2020-06-29.md`、`jin-jin-2022-07-05.md`、`chen-chen-2022-07-05.md` — 父方半血緣手足列對該妹補 🪐
-- `index.md` — 該列補 🪐 與「生後四日夭折」；總數不變
+- `apple-seed-hinagiku-2026-07-16.md` — frontmatter 補 `died: 2026-07-20`、`sex: female`、tags 加 `female`／`deceased`、`sources` 補官方訃告、`zoos:` 訖日 現在 → 2026-07-20；標題與引言補 🪽、♀、歿日與「生後 4 日」，佔位提示改為「未及命名即夭折」，內文改過去式並補死亡經過／解剖結果
+- `puerh-2015-06-25.md`、`hinagiku-2022-07-01.md` — 引言與子女表對該子補 🪽 與幼逝註記
+- `ren-ren-2020-06-29.md`、`rin-rin-2020-06-29.md`、`jin-jin-2022-07-05.md`、`chen-chen-2022-07-05.md` — 父方半血緣手足列對該妹補 🪽
+- `index.md` — 該列補 🪽 與「生後四日夭折」；總數不變
 
 ## [2026-07-18] update | 來源勘誤：日本平家系圖頁僅列現役個體，錯引批次更正
 
@@ -2676,13 +2676,13 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - `sumire-2004-06-17.md` — 移除 Viola；內文改「到台後取中文名」
 - `shan-tou-2005-05-10.md` — 移除 Rifa（同名消歧警告保留）
 
-## [2026-07-19] update | 已故標記全面改用 🪐（原 🌈）
+## [2026-07-19] update | 已故標記全面改用 🪽（原 🌈）
 
 **來源**：
 - 作者裁定（配合網站「今日前往小熊星球」區塊改版，全站統一星球意象）
 
 **更新條目**：
-- `wiki/*.md` 全部條目（含 `_hidden/`）— 內文已故標記 🌈 → 🪐，共 559 檔
+- `wiki/*.md` 全部條目（含 `_hidden/`）— 內文已故標記 🌈 → 🪽，共 559 檔
 - `index.md` — 同步替換
 - 規範文件同步：`SCHEMA.md`、`CLAUDE.md`、`rpf-wiki-SKILL.md`、`ROADMAP.md`；工具 `tools/query.py`（顯示標記）、`tools/zoo_registry.py`（_NOTES 兩者並收向下相容）
 - 網站側：五語 i18n（標題 ja/ko/en 改直譯「前往小熊星球」）、各頁已故標記、OG 卡彩虹條改星球漸層條
@@ -2798,7 +2798,7 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - `tai-zi-shenzhen.md` — 太子 Tai Zi，♀，現居深圳野生動物園；生年・家系不詳
 - `mao-mao-shenzhen.md` — 毛毛 Mao Mao，♂，現居深圳野生動物園；生年・家系不詳；⚠️ 與上海野生動物園 `mao-mao` 同名（不同個體）
 - `dian-dian-shenzhen.md` — 點點 Dian Dian，♂，現居深圳野生動物園；生年・家系不詳
-- `tao-zi-shenzhen.md` — 桃子 Tao Zi，♀，曾居深圳野生動物園，2025 年 12 月離世 🪐；生年・家系不詳
+- `tao-zi-shenzhen.md` — 桃子 Tao Zi，♀，曾居深圳野生動物園，2025 年 12 月離世 🪽；生年・家系不詳
 
 **更新條目**：
 - `data/zoos.json` — 新增登記「深圳野生動物園」（Shenzhen Safari Park；広東省深圳市南山区；wechat 深圳野生动物园）
@@ -2943,7 +2943,7 @@ Sheet I 欄「已補進」標記待作者手動處理。
 
 **新增條目**（檔案卡 `limited-profile`；生日／年份全部不詳）：
 - `lan-yu-nanjing.md` — 藍羽／蓝羽 Lan Yu（♂），現居南京市紅山森林動物園，自常州淹城野生動物世界轉入（年份不詳）；糖芋苗之父
-- `tu-zi-nanjing.md` — 兔子 Tu Zi（♀）🪐，曾居南京市紅山森林動物園，已故、歿日不詳（`died: "?"`）；糖芋苗之母
+- `tu-zi-nanjing.md` — 兔子 Tu Zi（♀）🪽，曾居南京市紅山森林動物園，已故、歿日不詳（`died: "?"`）；糖芋苗之母
 - `tang-yu-miao-nanjing.md` — 糖芋苗 Tang Yu Miao（♂），生於南京市紅山森林動物園、現居同園；`lan-yu-nanjing` × `tu-zi-nanjing` 之子
 
 **備注**：三隻皆無生日資料，slug 依檔案卡規則用園簡稱（`名字-nanjing`）；`zoos:` 起始年留空（不詳抵達年，渲染為「? – 現在」）。既有紅山個體 `xiao-xiao-bai-nanjing`、`xia-wa` 一系與本批無已知親緣關係。查得生日後依命名規則改為 `名字-生日` 並同步修正 wikilink。
@@ -3038,7 +3038,7 @@ Sheet I 欄「已補進」標記待作者手動處理。
 **新增條目**（檔案卡 `limited-profile`；生日／入園年份全部不詳，性別由維護者確認）：
 
 雄性 6 隻：
-- `ya-se-yancheng.md` — 亞瑟／亚瑟 Ya Se（♂）；2025 年歿 🪐，精確歿日不詳
+- `ya-se-yancheng.md` — 亞瑟／亚瑟 Ya Se（♂）；2025 年歿 🪽，精確歿日不詳
 - `yi-yi-yancheng.md` — 一一 Yi Yi（♂）；與廣州 `yi-yi-2023-06-28`（逸逸）拼音相同、非同一隻
 - `yi-zhi-er-yancheng.md` — 一隻耳／一只耳 Yi Zhi Er（♂）
 - `jing-jing-yancheng.md` — 靜靜／静静 Jing Jing（♂）；2026 年轉至鄂州靈玲野生動物王國
@@ -3046,7 +3046,7 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - `tuan-zi-yancheng.md` — 團子／团子 Tuan Zi（♂）；2026 年轉至鄂州靈玲野生動物王國
 
 雌性 15 隻：
-- `tao-hua-yancheng.md` — 桃花 Tao Hua（♀）；2025 年歿 🪐；與多摩 `taofa-2015-06-14` 中文名相同、非同一隻
+- `tao-hua-yancheng.md` — 桃花 Tao Hua（♀）；2025 年歿 🪽；與多摩 `taofa-2015-06-14` 中文名相同、非同一隻
 - `mu-lan-yancheng.md` — 木蘭／木兰 Mu Lan（♀）
 - `hong-shu-yancheng.md` — 紅薯／红薯 Hong Shu（♀）
 - `mi-su-yancheng.md` — 米蘇／米苏 Mi Su（♀）；`ti-la-yancheng`（提拉）之雙胞胎妹妹、`mi-hu-yancheng`（米糊）之母
@@ -3134,7 +3134,7 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - **楊梅 `sex:` 留空**：檔案卡門檻本要求性別必填，經維護者裁定破例照建、內文註明「性別待確認」（比照蘋果籽做法），tags 不加性別；公布後回補 `sex` 與性別 tag。
 - **居住史只寫少年兒童公園**：桃子之母楊桃現居杭州動物園、兩園同屬一家管理單位，但無公告說明蘋果／桃子是否曾在動物園，故不推測前段居住史，列為待查證（維護者裁定 2026-07-27）。
 - **來源顯示**：`sources` 為「維護者提供」（無 host）故 `has_official_source` 為 false，網站顯示未經官方佐證標記；hzzoo.com 官網只佐證該園飼有小熊貓、未載個體資料，故僅登記於 `data/zoos.json` 的 `website`，不列入個體 `sources`（亦未加入 `build_db.py` 的 `OFFICIAL_HOSTS`）。
-- 同名提醒：深圳野生動物園已故的 `tao-zi-shenzhen` 🪐 與本批杭州「桃子」為不同個體，兩頁均已加 ⚠️ 提示。
+- 同名提醒：深圳野生動物園已故的 `tao-zi-shenzhen` 🪽 與本批杭州「桃子」為不同個體，兩頁均已加 ⚠️ 提示。
 
 ## [2026-07-27] add | 新增中國個體三筆：武漢動物園 糯米雞・歡喜坨・美美（並登記武漢動物園）
 
@@ -3448,11 +3448,11 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - https://www.kobe-ojizoo.jp/habataki/pdf/habataki23.pdf （神戸市立王子動物園《はばたき》第 23 號，官方；優優 1988-02-05 轉出京都）
 
 **更新條目**：
-- `yuu-yuu-1987-07-07.md` — `died: 1988`、移除 `last_seen`、tags `unverified` → `deceased`；`zoos:` 京都段訖填 1988；標題與引言補 🪐、改「終居：京都市動物園」，待查證段改為歿年說明
-- `gen-gen-1989-06-03.md` — `died: "?"`、tags `unverified` → `deceased`（`last_seen: 1991-03` 保留為最後確認在世時點）；標題引言補 🪐
-- `ouji-kobe.md` — `died: "?"`、tags `unverified` → `deceased`（`last_seen: 1990-06` 保留）；標題引言補 🪐
-- 全 wiki 指向此三隻的 wikilink 補 🪐（洋洋・遊遊・興興・泰泰・元元・優優・王子各條目與 `index.md`）
-- `index.md` — 三列生卒欄改 `1987–1988 🪐`／`1989–? 🪐`／`?–? 🪐`；條目總數不變（770）
+- `yuu-yuu-1987-07-07.md` — `died: 1988`、移除 `last_seen`、tags `unverified` → `deceased`；`zoos:` 京都段訖填 1988；標題與引言補 🪽、改「終居：京都市動物園」，待查證段改為歿年說明
+- `gen-gen-1989-06-03.md` — `died: "?"`、tags `unverified` → `deceased`（`last_seen: 1991-03` 保留為最後確認在世時點）；標題引言補 🪽
+- `ouji-kobe.md` — `died: "?"`、tags `unverified` → `deceased`（`last_seen: 1990-06` 保留）；標題引言補 🪽
+- 全 wiki 指向此三隻的 wikilink 補 🪽（洋洋・遊遊・興興・泰泰・元元・優優・王子各條目與 `index.md`）
+- `index.md` — 三列生卒欄改 `1987–1988 🪽`／`1989–? 🪽`／`?–? 🪽`；條目總數不變（770）
 
 ---
 
@@ -3608,9 +3608,9 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - 廣州動物園 園內現場公告牌（讀者 2026-07 實拍，回報附件）
 
 **更新條目**：
-- `pei-pei.md` — 新增 `died: 2026-07-27`；tags 加 `deceased`；`zoos:` 訖日改 2026-07-27；新增 `birth_zoo: unknown`（野生救護個體，廣州非出生園，居住史不再誤標 🐣）；新增 `extra_sources`（展牌實拍）；標題加 🪐、引言「現居」改「歿」、內文改過去式並新增 ⚰️ 段落；🚧 待查證追加死因與官方訃告
-- `lang-lang-guangzhou.md`／`wei-wei-guangzhou.md`／`fei-fei.md`／`pi-pi-qingyuan.md` — 提及霈霈處的 wikilink 補 🪐
-- `index.md` — 廣州該列備注補歿日、生年欄補 🪐（條目總數不變，775）
+- `pei-pei.md` — 新增 `died: 2026-07-27`；tags 加 `deceased`；`zoos:` 訖日改 2026-07-27；新增 `birth_zoo: unknown`（野生救護個體，廣州非出生園，居住史不再誤標 🐣）；新增 `extra_sources`（展牌實拍）；標題加 🪽、引言「現居」改「歿」、內文改過去式並新增 ⚰️ 段落；🚧 待查證追加死因與官方訃告
+- `lang-lang-guangzhou.md`／`wei-wei-guangzhou.md`／`fei-fei.md`／`pi-pi-qingyuan.md` — 提及霈霈處的 wikilink 補 🪽
+- `index.md` — 廣州該列備注補歿日、生年欄補 🪽（條目總數不變，775）
 
 ---
 
@@ -3953,7 +3953,7 @@ Sheet I 欄「已補進」標記待作者手動處理。
 - **中文名「誼誼／谊谊」**（誼 yì → 羅馬拼音 I-I）。lineage 的 `ja.name` 記漢字「良」屬機械轉寫之誤（「良」訓讀作 いい 罕見，實為把中文名硬套日文漢字），**不採用**——正是 `CLAUDE.md`「ja.name 含漢字多半實為中文名，應經維護者確認後放 `chinese`」的案例。假名 いい 取自 `ja.othernames`、暫收 `japanese`，園方實際稱呼 🚧 待查證
 
 **更新條目**：
-- `rei-1988-06-17.md` — **補漢字名「鈴」**（維護者提供）：`japanese` 由「レイ」改為「鈴, レイ」，標題改 `Rei 🪐（鈴 / レイ）`；父改連 `i-i-nagano`
+- `rei-1988-06-17.md` — **補漢字名「鈴」**（維護者提供）：`japanese` 由「レイ」改為「鈴, レイ」，標題改 `Rei 🪽（鈴 / レイ）`；父改連 `i-i-nagano`
 - `hoa-hoa-1982-06-15.md` — 子女表「父」欄的 4 筆 I-I 改為條目連結；配偶行改列三代種公分期（誼誼 1985–1989／陽陽 1991／勇勇 1992 後）；父欄補充改為「已建條目」並記中文名來由與「野生捕獲」存疑（與花花同日入園，極可能同批自石家莊來園）
 - `mi-mi-1985-06-12.md`、`yuu-yuu-1987-05-31.md`、`genki-1989-06-30.md` — 父 I-I 由純文字改為 `[[i-i-nagano]]`，移除「暫無條目」字樣
 - `index.md` — 花花區塊「始祖母」小節改名為「始祖母與初代種公」並新增 `i-i-nagano` 一列；條目總數更新為 793
@@ -4200,7 +4200,7 @@ Hertfordshire 官方公告並未區分兩仔（無出生順序、體徵或 RPF I
 
 **新增條目**：
 - `kalden-2012-06-07.md` — Kalden ♂（RPF #480），生於 2012-06-07 Northeastern Wisconsin Zoo，2013-07-11 移 Edmonton Valley Zoo、2024-11-01 移 Toronto Zoo；既有 `rinzen`（全兄）與 `tango`（子）之連結對象
-- `tae-bo-1998-06-27.md` — Tae-Bo ♂🪐（RPF #482，別名 Taebo），1998-06-27 – 2015-09-22，享年 17 歲；Cincinnati 生，歷 Binder Park・Nashville，2003 起定居 Northeastern Wisconsin Zoo；父母 RPF 無記錄
+- `tae-bo-1998-06-27.md` — Tae-Bo ♂🪽（RPF #482，別名 Taebo），1998-06-27 – 2015-09-22，享年 17 歲；Cincinnati 生，歷 Binder Park・Nashville，2003 起定居 Northeastern Wisconsin Zoo；父母 RPF 無記錄
 - `leafa-2009-06-11.md` — Leafa ♀（RPF #399，別名 Rifa），生於 2009-06-11 Red River Zoo，現居 Western North Carolina Nature Center；`rinzen`・`kalden` 之母
 - `kola-2015-08-24.md` — Kola ♂（RPF #434），Edmonton 生，2019 起居サンディエゴ動物園；`willow` 雙胞胎
 - `willow-2015-08-24.md` — Willow ♀（RPF #481），Edmonton 生，經 Prospect Park，2022-12 移 Houston Zoo（日不詳，暫記 12-01 🚧）
@@ -4237,7 +4237,7 @@ Mattie 共 7 仔）的親本，但本 wiki 已校訂兩者**皆為 ♀**（RPF �
 
 **新增條目**：
 - `poppy-2024-06-13.md` — Poppy ♀（RPF #1438，暱稱 Biggie），2024-06-13 生於 Toronto Zoo，現居該園；
-  母 `sakura`🪐、父 `arun`；⚠️ 與 `poppy-2019-05-17` 同名（血緣上為表姊妹）
+  母 `sakura`🪽、父 `arun`；⚠️ 與 `poppy-2019-05-17` 同名（血緣上為表姊妹）
 
 **更新條目**：
 - `sakura-2013-07-01.md` — 補 2024 年生產經過與歿因；子女表加 Poppy 與未命名雄仔；移除「未建檔」註記
@@ -4275,8 +4275,8 @@ lineage 記 Sakura 2024-06-13 於多倫多產子，但她 2024-01-26 才自 Grea
 
 **新增條目**：
 - `a-nya-1998-07-03.md` — A-nya アーニャ ♀，1998-07-03 生於秋吉台自然動物公園サファリランド，
-  2012-12-02 移居静岡市立日本平動物園，2016-06-04 老衰歿（享年 17 歲）；母 `kaori-1991-06-18`🪐、
-  父 `bau-bau-1994-07-11`🪐、雙胞胎 `a-ya-1998-07-03`🪐。無 RPF profile，rpf_id 留空
+  2012-12-02 移居静岡市立日本平動物園，2016-06-04 老衰歿（享年 17 歲）；母 `kaori-1991-06-18`🪽、
+  父 `bau-bau-1994-07-11`🪽、雙胞胎 `a-ya-1998-07-03`🪽。無 RPF profile，rpf_id 留空
 
 **更新條目**：
 - `a-ya-1998-07-03.md` — 補日本平飼育日誌為官方來源、歿因老衰與「國內最高齡雌性」記載；
@@ -4313,9 +4313,9 @@ Kaori 與 `bau-bau` 育有 6 女、無雄仔，其中 4 隻（`a-ya`・`a-nya`�
 本批補上缺漏的 2 隻。
 
 **新增條目**：
-- `non-1996-07-05.md` — Non ノン ♀🪐（RPF #569），1996-07-05 – 2014-10-21，享年 18 歲；
+- `non-1996-07-05.md` — Non ノン ♀🪽（RPF #569），1996-07-05 – 2014-10-21，享年 18 歲；
   Kaori × Bau-Bau 之長女，終生居秋吉台自然動物公園サファリランド，未曾轉園
-- `riku-1999-07-20.md` — Riku リク ♀🪐（RPF #570），1999-07-20 – 2015-10-12，享年 16 歲；
+- `riku-1999-07-20.md` — Riku リク ♀🪽（RPF #570），1999-07-20 – 2015-10-12，享年 16 歲；
   秋吉台生，2012-12-21 移仙台市八木山動物公園（時稱セルコホーム ズーパラダイス八木山）；
   與 `miku` 為雙胞胎（登錄生日相差一天，7/20 與 7/21，依來源原樣保留）
 
@@ -4359,7 +4359,7 @@ Kaori 與 `bau-bau` 育有 6 女、無雄仔，其中 4 隻（`a-ya`・`a-nya`�
 - 維護者提供（2026-08-02）
 
 **更新條目**：
-- `yuu-yuu-1987-05-31.md` — `japanese` 由「ユーユー」改為「友友, ユーユー」；標題改為「Yuu-Yuu（友友 / ユーユー）🪐」；`sources` 補「維護者提供（2026-08-02）」
+- `yuu-yuu-1987-05-31.md` — `japanese` 由「ユーユー」改為「友友, ユーユー」；標題改為「Yuu-Yuu（友友 / ユーユー）🪽」；`sources` 補「維護者提供（2026-08-02）」
 - `index.md` — 該列說明由「Yuu-Yuu ユーユー」改為「Yuu-Yuu 友友 ユーユー」
 
 **備注**：本個體生於長野市茶臼山動物園、終老鯖江市西山動物園，有日本居住史，
@@ -4551,8 +4551,8 @@ RPF 居住史則明確記為 Assiniboine Park Zoo（2004-06-02 起），兩者�
 - `khairo-2016-06-21.md` — Khairo（RPF #459）♂，`chiya` 之雙胞胎，2017 移居 Northeastern Wisconsin Zoo、2021 轉 Red River Zoo
 - `chiya-2016-06-21.md` — Chiya（RPF #458）♂，別名 Chiyo，現居 Northeastern Wisconsin Zoo
 - `nisha-2017-06-13.md` — Nisha（RPF #462）♀，2018 移居 Zoo New England Franklin Park Zoo
-- `rover-2005-05-16.md` — Rover（RPF #590）♂ 🪐，Dusk 之弟、`rusty` 之雙胞胎，2005–2015，`homer-2012-06-11` 之父
-- `rusty-2005-05-16.md` — Rusty（RPF #473）♂ 🪐，Dusk 之弟、`rover` 之雙胞胎，2005–2023
+- `rover-2005-05-16.md` — Rover（RPF #590）♂ 🪽，Dusk 之弟、`rusty` 之雙胞胎，2005–2015，`homer-2012-06-11` 之父
+- `rusty-2005-05-16.md` — Rusty（RPF #473）♂ 🪽，Dusk 之弟、`rover` 之雙胞胎，2005–2023
 
 **未建檔（資料不足）**：Dusk 另一兄弟 Rufus（RPF #426）**無任何居住史**，
 依維護者裁定維持純文字、不建檔案卡（缺「綁定已登記園」硬門檻）。
@@ -4568,7 +4568,7 @@ RPF 居住史則明確記為 Assiniboine Park Zoo（2004-06-02 起），兩者�
 - `dash-2012-06-06.md`・`kayah-2007-06-11.md`・`madeline-2015-06-22.md`・`xia-2013-07-01.md`・
   `zorro-2013-07-01.md` — 純文字「Dusk（RPF #447）」改為 wikilink
 - `zeyar-2007-06-21.md` — 兄弟表的 Dusk／Rover／Rusty 改 wikilink，並補生卒年與雙胞胎關係
-- `homer-2012-06-11.md` — 父由「Rover 🪐（#590，無條目）」改為 wikilink
+- `homer-2012-06-11.md` — 父由「Rover 🪽（#590，無條目）」改為 wikilink
 - `maple-2022-06-14.md`・`mei-mei-2022-06-14.md`・`poppy-2024-06-13.md` — 半血緣兄姊列表補上
   卡加利時期四隻同母異父手足
 - `index.md` — 新增「海外個體（加拿大／美國・Dusk 一家）」一節共 7 列；`dash`／`udaya` 說明改 wikilink；
@@ -4877,20 +4877,20 @@ RPF 記為 2013-06-01，**不採**；回報者所填 2013-06-08 與園方一致�
   → Toronto Zoo（2012-11-14）→ Wild Zoo of Saint-Félicien（2019-06-01）。🚧 已 18 歲、RPF 未記歿日，是否在世待查證
 - `beilei-2010-06-14.md` — ♀，`meris` 雙胞胎；→ Columbus → Prospect Park Zoo（2011-07-25）
   → Cincinnati（2016-05-26）→ Chattanooga Zoo At Warner Park（2019-01-01）。子女 4 隻（#394／#493／#469／#470）未建條目
-- `meris-2010-06-14.md` — ♀ 🪐，`beilei` 雙胞胎；1 歲歿於 Columbus Zoo（2011-10-17）
+- `meris-2010-06-14.md` — ♀ 🪽，`beilei` 雙胞胎；1 歲歿於 Columbus Zoo（2011-10-17）
 - `kiah-2012-06-30.md` — ♀；→ Columbus（2013-06-28）→ Toledo Zoological Gardens（2017-11-30）。
   2014-06-20 三胞胎（#384／#411／#422）未建條目
 
 **新增條目（Kelly 的父母，辛辛那提一脈）**：
-- `bailey-2008-06-01.md` — ♀ 🪐（2008-06-01 – 2019-01-01）；Cincinnati → Lincoln Park Zoo（2009-04-20）
+- `bailey-2008-06-01.md` — ♀ 🪽（2008-06-01 – 2019-01-01）；Cincinnati → Lincoln Park Zoo（2009-04-20）
   → Cincinnati（2011-11-07）。與 `rover` 育有 `homer`、與 `harold` 育有 `kelly`；另有 Lin（#390）無條目
-- `harold-2004-06-08.md` — ♂ 🪐（2004-06-08 – 2016-05-31）；辛辛那提種公。**RPF 完全沒有他的居住史與父母**，
+- `harold-2004-06-08.md` — ♂ 🪽（2004-06-08 – 2016-05-31）；辛辛那提種公。**RPF 完全沒有他的居住史與父母**，
   園名係由三隻子女的出生園回推的推定值 → `zoos:` 起始日留空、`birth_zoo: unknown`（不標 🐣）。
   `hazel` 與 Harriet（#425）生於他過世兩週後，屬遺腹胎
 
 **新增條目（Suva 的子女，均生於 Toronto Zoo）**：
-- `adira-2020-07-14.md` — ♀；母 Ila（#324 🪐）；2022-10-03 移居 サンディエゴ動物園。子女 Pavitra（#1417）未建條目
-- `dash-2022-07-13.md` — ♂ 🪐（2022-07-13 – 2022-10-23，3 個月餘）；母 Paprika（#486）。
+- `adira-2020-07-14.md` — ♀；母 Ila（#324 🪽）；2022-10-03 移居 サンディエゴ動物園。子女 Pavitra（#1417）未建條目
+- `dash-2022-07-13.md` — ♂ 🪽（2022-07-13 – 2022-10-23，3 個月餘）；母 Paprika（#486）。
   RPF 無居住史，Toronto Zoo 由父 Suva 當時所在園回推 🚧。⚠️ 與既有 `dash-2012-06-06` 同名、無血緣
 - `_hidden/baby-ila-2020-07-14.md` — 出生 8 天夭折（2020-07-14 – 2020-07-22），`adira` 同胎、母 Ila。
   依「幼逝寶寶收錄原則」**從未取名、僅以佔位名 `Baby` 登錄 → 移入 `wiki/_hidden/`**，不計數、不上站；
@@ -4912,7 +4912,7 @@ RPF 記為 2013-06-01，**不採**；回報者所填 2013-06-08 與園方一致�
 - `homer-2012-06-11.md` — 母 Bailey 改 wikilink；½ 手足行區分同母（Lin・Kelly）與同父（Dr. Erin Curry）
 - `kelly-2015-06-12.md` — 父母改 wikilink；½ 手足拆成同母／同父兩行（同父新增 `hazel`・Harriet）
 - `hazel-2016-06-14.md` — 補 母（不詳 🚧）／父 `harold`／雙胞胎 Harriet／½ 手足 `kelly` 四行
-- `suva-2017-06-13.md` — 子女表補母親欄（Ila #324 🪐、Paprika #486）與 wikilink；補配偶行。
+- `suva-2017-06-13.md` — 子女表補母親欄（Ila #324 🪽、Paprika #486）與 wikilink；補配偶行。
   **修正**：先前寫「母不詳」有誤，RPF 其實有記
 - `dash-2012-06-06.md` — 補 ⚠️ 同名提示（指向 `dash-2022-07-13`）
 - `data/zoos.json` — 補三座園空白的 `location_ja`／`location_zh`：Saskatoon Forestry Farm Park & Zoo
@@ -5122,7 +5122,7 @@ Dr. Erin Curry（#392）、Bailey 的父母 Lum（#380）・JJ（#382）、Rufus
 （`OFFICIAL_X_ACCOUNTS` 與 `OFFICIAL_FB_PAGES`）——否則本批三個回報來源全會被判非官方，詳見 `CHANGELOG.md`。
 
 **待辦**：
-- Lin 另有 6 隻子女尚無條目：Dr. Erin Curry #392（2015-06-19）・Harriet #425（2016-06-14 – 2020-09-06 🪐，Hazel 雙胞胎）・Micu #614（2017-06-25 🪐）・Lucas #1191（2020-06-23）・Shenmi #1304（2021-07-16），以及 Kola 之女 Audra #1001・Lenore #1002（2019-07-05）。Audra・Lenore 有官方命名報導（WKYT 2019-10-03「Our red panda cubs born on July 5 have names! Meet Audra & Lenore!」）可據以建檔
+- Lin 另有 6 隻子女尚無條目：Dr. Erin Curry #392（2015-06-19）・Harriet #425（2016-06-14 – 2020-09-06 🪽，Hazel 雙胞胎）・Micu #614（2017-06-25 🪽）・Lucas #1191（2020-06-23）・Shenmi #1304（2021-07-16），以及 Kola 之女 Audra #1001・Lenore #1002（2019-07-05）。Audra・Lenore 有官方命名報導（WKYT 2019-10-03「Our red panda cubs born on July 5 have names! Meet Audra & Lenore!」）可據以建檔
 - Hazel・Harriet 之母是否確為 Lin，仍待園方逐隻資料確認（現標 🚧）
 - 回報者未留暱稱，`data/contributors.json` 不動
 
@@ -5147,8 +5147,8 @@ Dr. Erin Curry（#392）、Bailey 的父母 Lum（#380）・JJ（#382）、Rufus
 - https://redpandafinder.com/export/redpanda.json （#392／#425／#614／#1001／#1002／#1191／#1304 的性別・生卒・居住史・family edge；Harriet 與 Audra・Lenore 在 RPF **完全無居住地記錄**）
 
 **新增條目**（7 筆）：
-- `dr-erin-curry-2015-06-19.md` — Dr. Erin Curry，♀，2015-06-19 生；Cincinnati → Milwaukee County Zoo（2016-03-15）。Lin 長女、父 `rover-2005-05-16` 🪐。名字取自園方生殖生理學家。子女 Dr. Lily #419・`kiki-2019-06-07`・Cinder #1379（RPF #392）
-- `harriet-2016-06-14.md` — Harriet，♀，2016-06-14 生 – 2020-09-06 歿；`hazel-2016-06-14` 雙胞胎、父 `harold-2004-06-08` 🪐 遺腹胎（RPF #425）。🚧 RPF 無任何居住地記錄，居住史僅依出生園推定（比照 `harold` 條目做法）
+- `dr-erin-curry-2015-06-19.md` — Dr. Erin Curry，♀，2015-06-19 生；Cincinnati → Milwaukee County Zoo（2016-03-15）。Lin 長女、父 `rover-2005-05-16` 🪽。名字取自園方生殖生理學家。子女 Dr. Lily #419・`kiki-2019-06-07`・Cinder #1379（RPF #392）
+- `harriet-2016-06-14.md` — Harriet，♀，2016-06-14 生 – 2020-09-06 歿；`hazel-2016-06-14` 雙胞胎、父 `harold-2004-06-08` 🪽 遺腹胎（RPF #425）。🚧 RPF 無任何居住地記錄，居住史僅依出生園推定（比照 `harold` 條目做法）
 - `micu-2017-06-25.md` — Micu，♂，2017-06-25 生 – 2019-01-01 歿；Cincinnati → Red River Zoo（2018-05-10）。父 `kendji-2015-06-22`（RPF #614）。🚧 歿日「日＝1」為 RPF 精度佔位
 - `audra-2019-07-05.md` — Audra，♀，2019-07-05 生；父 `kola-2015-08-24`，`lenore` 雙胞胎；**至今仍居出生園**（RPF #1001）
 - `lenore-2019-07-05.md` — Lenore，♀，同胎（RPF #1002）
@@ -5920,7 +5920,7 @@ slug 一律不變（slug＝羅馬名＋生日，不受漢字名影響）。
 - `loofah-2018-06-21` — ♂（RPF #1225），Doofah 雙胞胎兄弟，現居 Sunset Zoo
 - `sunisa-2024-07-14` — ♀，Loofah 之女，2024-07-14 生於 Sunset Zoo、人工哺育（`sources` 暫空，見下）
 - `tabei-2013-06-01`（RPF #912）・`ketu-2011-12-09`（RPF #954）— Doofah・Loofah 之母／父
-- `rohan-2015-06-25` 🪐（#343）・`pumori-2015-06-25`（#617）・`ravi-2016-06-27`（#854）・`amaya-2016-06-27`（#855）
+- `rohan-2015-06-25` 🪽（#343）・`pumori-2015-06-25`（#617）・`ravi-2016-06-27`（#854）・`amaya-2016-06-27`（#855）
   — Tabei × Ketu 的 2015、2016 兩胎，皆為 Doofah・Loofah 的兄姊
 - `maiya-2014-06-26`（RPF #553）・`justin-2012-07-01`（RPF #820）— Sisu・Raya 之母／父，現居 Potawatomi
 - `raya-2021-06-17`（RPF #1302）— Sisu 雙胞胎姊妹，人工哺育、仍在出生園
@@ -6308,3 +6308,147 @@ Sei #827／Ten #828（1999-07-06 雙胞胎，皆生後數週至數月夭折，�
   待秋吉台／のいち／森きらら 官方資料（園報・個體名單）確認後再定，若讀音有異須照 rename 流程改 slug。
 - 生卒日與居住史仍僅有 RPF（血統書編號 97102）為據，無園方一手來源。
 - 於のいち動物公園的 5 年（2000–2005）是否曾配對、有無子女，RPF 無 edge、亦查無園方紀錄。
+
+## [2026-08-08] update | 已故標記全站統一為 🪽
+
+**說明**：
+- 依維護者裁定，wiki 正本的已故標記由 🪐 全面改為 🪽（與網站顯示一致）：條目標題／引言、`index.md`、家族段、`_hidden/` 與 `log-archive/` 舊記錄，共 732 檔 7,976 處。
+- 純標記替換，條目總數不變（935）。
+
+---
+
+## [2026-08-08] add | Mogwai 一家四隻建檔——讀者回報「Buffalo Zoo 缺 Mogwai」查證後補建
+
+讀者於「圖鑑缺漏」表單回報 Buffalo Zoo 的 `mogwai` 未收錄，並附 Buffalo Zoo 官方 IG 貼文。
+查證後確認確為缺漏，連同雙胞胎姊妹、父、母共四隻一併建檔。**回報所填生日「2021 年 8 月」經查證有誤，
+更正為 2021-06-18**：Pueblo Zoo 官方 IG（2021-07-19）寫「baby red pandas had their one month check up today」、
+KRDO（2021-11-18）寫亮相時「born five months ago」，兩者與 RPF #1381／#1382 的 6/18 一致；
+回報者所本的 NPR 訃聞「born in Aug. 2021」與三者皆矛盾，不採。
+
+**來源**：
+- https://www.instagram.com/pueblozoo/p/CRhuVIRlSas/ （Pueblo Zoo 官方 IG，2021-07-19：滿月健檢，生日佐證）
+- https://www.facebook.com/pueblozoo/videos/oh-joy-our-red-panda-cubs-mogwai-and-momo-are-making-their-public-debut/602529364498699/ （Pueblo Zoo 官方 FB：命名與公開亮相）
+- https://www.instagram.com/buffalo_zoo/p/CxLlDd0Lp5c/ （Buffalo Zoo 官方 IG，2023-09-14：`mogwai` 自 Pueblo 移入、與 Scout 對調）
+- https://buffalozoo.org/58027-2/ （Buffalo Zoo 官網，2024-06-06：引進 Himalaya 與 `mogwai` 配對）
+- https://buffalozoo.org/red-panda-cub-born-at-the-buffalo-zoo/ （Buffalo Zoo 官網，2025-09-03：`himalaya` × `mogwai` 之女 2025-06-15 生）
+- https://nationalzoo.si.edu/animals/news/6807 （史密森尼國家動物園：`shama` × `rusty` 於 SCBI 產下 Clinger／Slash／Shredder）
+- https://siarchives.si.edu/collections/siris_sic_13865 （史密森尼機構檔案館：2013 年 `rusty` 逃脫事件）
+- https://redpandafinder.com/#profile/1381 / #1382 / #523 / #936
+
+**新增條目**：
+- `mogwai-2021-06-18.md` — Mogwai ♂（RPF #1381），2021-06-18 生於 Pueblo Zoo，2023-09-14 移居 Buffalo Zoo；別名 Mowgi／Mowgli
+- `momo-2021-06-18.md` — Momo ♀（RPF #1382），`mogwai` 之雙胞胎姊妹，留在出生園 Pueblo Zoo
+- `rusty-2012-07-11.md` — Rusty ♂（RPF #523），2012-07-11 生於 Lincoln Children's Zoo，2013-06-24 自史密森尼國家動物園逃脫成名，2022-10-14 歿於 Pueblo Zoo，享年 10 歲
+- `priya-2018-06-29.md` — Priya ♀（RPF #936），2018-06-29 生於 Zoo New England Franklin Park Zoo，2023-11-28 歿於 Hogle Zoo，享年 5 歲
+
+**更新條目**：
+- `sophia-2002-06-20.md` — 補配偶 Disney、子女 `rusty-2012-07-11` 與 Wayne（RPF #497）；內文補一段
+- `shama-2007-07-01.md` — 配偶補 `rusty-2012-07-11`；子女表 Clinger／Shredder／Slash 的「另一方親本」由「不詳」改為 `rusty-2012-07-11`（依史密森尼官方紀錄），生年精確化為 2014-06-26
+- `rusty-2005-05-16.md` — 補「⚠️ 注意同名」提示（RPF #473 vs #523）；順手把殘留的 🪐 統一為 🪽
+- `momo-2011-06-24.md` — 補「⚠️ 注意同名」提示（茶臼山 Momo vs Pueblo Momo）
+- `data/zoos.json` — Buffalo Zoo／Pueblo Zoo／Hogle Zoo 補 `location_ja`（紐約州水牛城／科羅拉多州普韋布洛／猶他州鹽湖城）
+- `tools/build_db.py` — `OFFICIAL_HOSTS` 補 buffalozoo.org、pueblozoo.org、nationalzoo.si.edu、siarchives.si.edu；
+  `OFFICIAL_IG_ACCOUNTS` 補 pueblozoo、buffalo_zoo；`OFFICIAL_FB_PAGES` 補 pueblozoo
+- `index.md` — 海外個體（美國）新增「Rusty 一家」小節共 4 列；條目總數更新為 939
+
+**🚧 待查證**：
+- **`mogwai` 抵 Buffalo Zoo 的確切日期**：官方 IG 只寫「recently welcomed」，暫採公告日 2023-09-14
+  （RPF 記對調的 Scout 於 2023-09-15 抵 Pueblo）。
+- **`priya` 歿日三說**：Salt Lake Tribune 作 2023-11-28（採用）、KSL 作「Wednesday」（＝11-29）、RPF 作 2023-12-02（應為公告日）。
+- **`rusty` 歿日**：NPR 與 Washingtonian 皆作 2022-10-14（採用），RPF 記 2022-10-19。
+- **`momo` 近況**：官方最後一次明確提及她在園為 2022-10；2023-09 Buffalo Zoo 公告只說 Scout 去 Pueblo「與一隻雌性配對」、未點名。
+  暫記現居出生園並填 `last_seen: 2022-10`，未掛 `unverified`——是否要掛請維護者裁定。
+- **未建檔的直系親屬**：`mogwai` 之配偶 Himalaya（2023 生，Greenville Zoo 出身）與 2025-06-15 出生之女（尚未命名）、
+  `rusty` 之父 Disney（#788）與雙胞胎 Wayne（#497）、`priya` 之父母 Hoppy（#513）／Fia（#653）與其 Hogle 之子 Dorji（#1420）、
+  `rusty` × `shama` 的三胞胎 Slash／Shredder／Clinger（#871–873）皆尚無條目，本批未建。
+
+---
+
+## [2026-08-08] add | Mogwai 一家第二批——補齊 8 隻直系親屬
+
+承同日第一批（`mogwai` 一家四隻），依維護者指示補建 `rusty-2012-07-11` 與 `priya-2018-06-29` 的直系親屬。
+
+**來源**：
+- https://www.beardsleyzoo.org/press/a-memorable-memorial-day-weekend-at-connecticuts-beardsley-zoo-dorji-the-10-month-old-red-panda-making-his-public-debut （Beardsley Zoo 官方新聞稿，2024-05-24：`dorji` 移入與公開亮相）
+- https://nationalzoo.si.edu/animals/news/6807 （史密森尼國家動物園：`shama` × `rusty` 之三胞胎 Clinger／Slash／Shredder）
+- https://gephardtdaily.com/local/utahs-hogle-zoo-welcomes-newest-resident-with-birth-of-red-panda-cub/ （2023-06-24：`dorji` 生於 2023-06-23 下午）
+- https://www.ksl.com/article/51183370/utahs-hogle-zoo-trades-himalayan-red-pandas-for-chinese-red-panda （2024-11-07：`dorji` 移居 Beardsley、Mow-Mow 移居 SCBI）
+- https://www.nbcphiladelphia.com/news/local/elmwood-park-zoo-shredder-red-panda-dies/38843/ ・ https://patch.com/pennsylvania/norristown/elmwood-park-zoo-provides-cause-death-beloved-red-panda （`shredder` 死因心衰竭、`clinger` 死於腦炎）
+- https://redpandafinder.com/#profile/788 / #497 / #513 / #653 / #1420 / #871 / #872 / #873
+
+**新增條目**：
+- `disney-1997-06-25.md` — Disney ♂（RPF #788），1997-06-25 生於 Indianapolis Zoo，2015-02-21 歿於 Lincoln Children's Zoo，享年 17 歲；`rusty-2012-07-11` 之父，共八名子女
+- `wayne-2012-07-11.md` — Wayne ♂（RPF #497），`rusty-2012-07-11` 的雙胞胎兄弟，2015 起在 Brights Zoo
+- `hoppy-2015-05-31.md` — Hoppy ♂（RPF #513），`priya-2018-06-29` 之父，SCBI 生的三胞胎之一
+- `fia-2015-07-02.md` — Fia ♀（RPF #653），`priya-2018-06-29` 之母，別名 Fiametta／Fiammetta
+- `dorji-2023-06-23.md` — Dorji ♂（RPF #1420），`priya` 在 Hogle Zoo 所生、該園首胎，2024 移居 Connecticut's Beardsley Zoo
+- `slash-2014-06-26.md` — Slash ♂（RPF #871），`rusty` × `shama` 三胞胎中唯一存活者
+- `shredder-2014-06-26.md` — Shredder ♂（RPF #872），2017-01-04 歿於心衰竭，享年 2 歲
+- `clinger-2014-06-26.md` — Clinger ♂（RPF #873），2015-11-29 歿於腦部寄生蟲引起的腦炎，未滿 1 歲半
+
+**更新條目**：
+- `rusty-2012-07-11.md` — 父／雙胞胎／子女表的純文字親屬改為 wikilink
+- `priya-2018-06-29.md` — 父母改為 wikilink；子女表 Dorji 改為 wikilink 並補性別與去向
+- `mogwai-2021-06-18.md`／`momo-2021-06-18.md` — ½ 手足（三胞胎與 Dorji）改為 wikilink
+- `shama-2007-07-01.md`／`sophia-2002-06-20.md` — 子女表與配偶欄的純文字親屬改為 wikilink
+- `data/zoos.json` — Indianapolis Zoo／Bronx Zoo／Brights Zoo／Lee Richardson Zoo／Oglebay's Good Children's Zoo／Elmwood Park Zoo／Connecticut's Beardsley Zoo 補 `location_ja`
+- `tools/build_db.py` — `OFFICIAL_HOSTS` 補 beardsleyzoo.org
+- `index.md` — 「Rusty 一家」小節擴充為 12 列；條目總數更新為 947
+
+**🚧 待查證**：
+- **`dorji` 抵 Beardsley Zoo 的日期**：園方新聞稿只提到亮相前已完成 30 天檢疫，`zoos:` 僅能寫到年（2024）。
+- **`clinger` 歿日**：RPF 記 2015-11-29，NBC10 引園方說法為「Dec. 2015」；暫採 RPF。
+- **`shredder` 歿日**：RPF 與 Patch 標題皆指向 2017-01-04（1 月 3 日夜間發病）。
+- **`wayne`（#497）與 `slash`（#871）現況**：RPF 最後紀錄皆為 2015 年，無後續官方消息，居住史末段標 🚧、未掛 `unverified`（比照 `pumori-2015-06-25` 慣例）。
+- **`disney` 的子女出生園有矛盾**：RPF 記 Velcro／Firecracker（2006-06-30 生）出生於 Miller Park Zoo，但同一份資料記 Disney 當時仍在 Memphis Zoo；未逕自調整。
+- **仍未建檔**：Mow-Mow（#541，`dorji` 之父）、Gimli（#1092）、Winnie（#499）／Will Smith（#169）、Amberfire（#925）／Wendee（#1123）／Mei-Mei（#498）等配偶與旁系，以及 `mogwai` 的配偶 Himalaya 與 2025-06-15 出生之女。
+
+---
+
+## [2026-08-08] add | Mogwai 一家第三批——旁系 7 隻＋Buffalo Zoo 現行三代 4 隻
+
+承同日前兩批，補齊剩餘旁系；查證 Mogwai 現配偶與後代時，發現 **2025 年那隻幼獸早已命名為 Joy**
+（維護者原以為未命名／可能夭折），並查到 **2026-06-10 新生的一對雙胞胎尚未命名**，依蘋果籽制度佔位建檔。
+
+**來源**：
+- https://buffalozoo.org/pair-of-endangered-red-panda-cubs-born-at-the-buffalo-zoo/ （官網，2026-07-28：2026-06-10 生雙胞胎、母 Himalaya 父 Mogwai、母獸自行哺育、該園第 14・15 隻）
+- https://buffalozoo.org/buffalo-zoos-red-panda-cubs-names-revealed/ （官網，2025-09-20：兩隻皆雌，`joy` 6/15 生於本園、`henny` 來自 Binder Park Zoo）
+- https://buffalozoo.org/buffalo-zoo-welcomes-second-red-panda-cub-in-partnership-with-michigan-zoo/ （官網，2025-09-12：Binder Park 幼獸 6/11 生、兩隻皆人工哺育）
+- https://buffalozoo.org/buffalo-zoo-bidding-farewell-to-red-panda-cubs-african-lion-sisters/ （官網，2026-04-17：兩隻依 SSP 於 2026-05 離園，去向待公布）
+- https://lostcoastoutpost.com/2026/jun/9/new-red-panda-alert-sequoia-park-zoo-welcomes-henn/ （2026-06-09：`henny` 已抵 Sequoia Park Zoo；`joy` 去向仍未見公布）
+- https://www.ksl.com/article/51183370/utahs-hogle-zoo-trades-himalayan-red-pandas-for-chinese-red-panda （2024-11-07：`mow-mow` 移居 SCBI）
+- https://redpandafinder.com/#profile/541 / #1092 / #498 / #499 / #169 / #925 / #1123
+
+**新增條目**：
+- `mow-mow-2014-06-11.md` — Mow-Mow ♂（RPF #541），`priya` 在 Hogle Zoo 的配偶、`dorji` 之父；2024 移居 SCBI
+- `gimli-2019-07-06.md` — Gimli ♂（RPF #1092），`priya` 之弟
+- `mei-mei-2009-06-28.md` — Mei-Mei ♀（RPF #498），`wayne` 在 Bronx Zoo 的配偶，2017-02-20 歿
+- `winnie-2014-07-24.md` — Winnie ♀（RPF #499），`wayne` × `mei-mei` 之女，2022 移居 Saint Louis Zoo
+- `will-smith-2015-07-04.md` — Will Smith ♂（RPF #169），Winnie 之弟，2025-04-21 歿於 Happy Hollow Park & Zoo
+- `amberfire-2003-06-24.md` — Amberfire ♀（RPF #925，別名 Amber），`disney` 的配偶之一、四子女之母，2019-06-09 歿
+- `wendee-1999-06-28.md` — Wendee ♀（RPF #1123，別名 Wen-dee），`disney` 的配偶之一，2016-01-19 歿
+- `himalaya-2023.md` — Himalaya ♀，`mogwai` 之配偶；Greenville Zoo 出身，2024-06 移入 Buffalo Zoo。**不在 RPF 上**
+- `joy-2025-06-15.md` — Joy ♀，`mogwai` × `himalaya` 初胎，2025-06-15 生於 Buffalo Zoo、人工哺育；2026-05 依 SSP 離園
+- `apple-seed-1-himalaya-2026-06-10.md`／`apple-seed-2-himalaya-2026-06-10.md` — 2026-06-10 生的雙胞胎佔位條目
+
+**更新條目**：
+- `mogwai-2021-06-18.md` — 配偶改為 wikilink，子女表由「未命名 1 隻」擴為 Joy ＋兩隻蘋果籽；內文改寫
+- `priya-2018-06-29.md`／`dorji-2023-06-23.md` — Mow-Mow 改為 wikilink
+- `hoppy-2015-05-31.md`／`fia-2015-07-02.md` — 子女表 Gimli 改為 wikilink
+- `wayne-2012-07-11.md` — 配偶與子女表改為 wikilink
+- `disney-1997-06-25.md` — 配偶與子女表的 Amberfire／Wendee 改為 wikilink
+- `data/zoos.json` — Trevor Zoo At Millbrook School／Kansas City Zoo／Saint Louis Zoo／Happy Hollow Park & Zoo／
+  Greenville Zoo／Miller Park Zoo／Sequoia Park Zoo 補 `location_ja`
+- `index.md` — 「Rusty 一家」小節擴為 23 列；條目總數更新為 958
+
+**🚧 待查證**：
+- **`himalaya-2023` 只知生年**：園方 2024-06-06 稱「11 個月大」、2026-07-28 稱「3 歲」→ 2023 年年中生，
+  但無確切日期，slug 暫用 `himalaya-2023`。父母亦不詳——Greenville Zoo 2023 年那胎（Mushu／Cricket）父母為
+  Asha × Neo，但無來源指她屬該胎，**不逕行採用**。她不在 RPF 上（#1045 的同名個體生於 2013，是別隻）。
+- **`joy-2025-06-15` 去向未公布**：園方只說「移完再公布」，`zoos:` 訖只能寫到年（2026）。同伴 `henny`
+  （Binder Park Zoo 出身，非本家系血親）已確認於 2026-05 抵 Sequoia Park Zoo。
+- **2026 雙胞胎的生日**：園方官網與 BTPM、Niagara Gazette 皆作 6/10，WKBW 作 6/13，採園方。
+  兩隻性別未公布（`sex` 留空、tags 不加性別 tag）；1號／2號僅為 wiki 暫編序號。
+- **`gimli-2019-07-06` 居住史為推定**：RPF 完全無居住地紀錄，出生園依父母當時所在推定。
+- **`wendee-1999-06-28` 居住史有空白**：RPF 記 2001-02-13 至 2003-11-04 所在為「unknown」（園 ID 不在註冊表），`zoos:` 跳過該段。
+- **`mow-mow` 在 Binder Park Zoo 時期的四隻子女**（Saffron／Bo／Oolong／Binsa）母方未查證，暫不建檔。

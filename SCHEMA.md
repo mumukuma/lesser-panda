@@ -73,7 +73,7 @@ extra_sources:           # 選填：其他參考資料——非官方但值得�
 ## 家族連結慣例
 
 - 使用 `[[wiki-link]]` 格式互相連結（Obsidian 相容）
-- 已故成員在名稱後加 🪐 標記
+- 已故成員在名稱後加 🪽 標記
 - ½ 代表同父異母或同母異父的半血緣兄弟姊妹
 
 ---
@@ -82,8 +82,9 @@ extra_sources:           # 選填：其他參考資料——非官方但值得�
 
 | 來源 | 說明 |
 |------|------|
-| [RedPandaFinder](https://redpandafinder.com) | 家系、居住地、別名 |
-| [Red Panda Lineage Project](https://github.com/wwoast/redpanda-lineage) | 底層血統資料庫 |
+| 園方官網／公告／園報等官方一手來源 | **優先採用**；`sources` 以官方為主 |
+| [RedPandaFinder](https://redpandafinder.com) | 家系、居住地、別名——2026-07-14 起降為「線索」、非權威 |
+| [Red Panda Lineage Project](https://github.com/wwoast/redpanda-lineage) | 底層血統資料庫——同上，僅供參考，衝突以 wiki 為準 |
 
 ### sources 與 extra_sources 的分工（2026-08-02 起）
 

@@ -18,13 +18,13 @@ sources:
   - https://redpandafinder.com/#profile/1403
 ---
 
-# Big George 🪐
+# Big George 🪽
 
 > **小熊貓** ♂ | Ailurus fulgens styani
 > 生日：2006 年 6 月 7 日　歿：2014 年 5 月 25 日（享年 7 歲）
 > 終居：Assiniboine Park Zoo（加拿大 曼尼托巴省溫尼伯）🇨🇦
 
-[[tran-2002-06-15]] 🪐（トラン）與 [[tarrei-2002-07-01]] 🪐（ターレイ）之子，與 [[idgie-2006-06-07]] 🪐 為雙胞胎。生於辛辛那提，2007 年移居俄亥俄州 Akron Zoological Park，2008 年出美赴加拿大，歷經 Toronto Zoo、Edmonton Valley Zoo，2013 年入住溫尼伯 Assiniboine Park Zoo，2014 年 5 月辭世。無子女紀錄。別名 Nong-Ren。
+[[tran-2002-06-15]] 🪽（トラン）與 [[tarrei-2002-07-01]] 🪽（ターレイ）之子，與 [[idgie-2006-06-07]] 🪽 為雙胞胎。生於辛辛那提，2007 年移居俄亥俄州 Akron Zoological Park，2008 年出美赴加拿大，歷經 Toronto Zoo、Edmonton Valley Zoo，2013 年入住溫尼伯 Assiniboine Park Zoo，2014 年 5 月辭世。無子女紀錄。別名 Nong-Ren。
 
 🚧 生卒日與居住史皆來自 RPF #1403（線索），無官方佐證。
 
@@ -45,10 +45,10 @@ sources:
 
 ## 家族
 
-- 母：[[tran-2002-06-15]] 🪐（トラン，#382）
-- 父：[[tarrei-2002-07-01]] 🪐（ターレイ／稲妻，#354）
-- 雙胞胎：[[idgie-2006-06-07]] 🪐（2006）
-- 兄弟姊妹：[[qin-2005-06-23]] 🪐（2005）、[[bailey-2008-06-01]] ½ 🪐（2008，父 [[lum-2000-06-04]] 🪐）
+- 母：[[tran-2002-06-15]] 🪽（トラン，#382）
+- 父：[[tarrei-2002-07-01]] 🪽（ターレイ／稲妻，#354）
+- 雙胞胎：[[idgie-2006-06-07]] 🪽（2006）
+- 兄弟姊妹：[[qin-2005-06-23]] 🪽（2005）、[[bailey-2008-06-01]] ½ 🪽（2008，父 [[lum-2000-06-04]] 🪽）
 
 ---
 

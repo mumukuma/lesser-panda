@@ -6,6 +6,87 @@
 
 ---
 
+## 2026-08-08 ・ 致謝頁升級為「關於本站」＋首頁短版宣言小卡
+
+維護者提供本站宣言（非營利同好專案、把喜歡化成對真實小熊貓的關注），經潤飾後：
+
+- `/thanks/` 頁升級：上半新增「關於本站」兩段宣言（i18n `about_p1`／`about_p2`），
+  下半保留貢獻者致謝名單（原內容不動）；頁標題與 `<title>` 改用 `about_title`。
+  **URL 維持 /thanks/ 不變**，不另開新頁。
+- 首頁最下方新增短版小卡（`home_about_text`）＋「關於本站 →」連結到 /thanks/。
+- footer 連結文字 `thanks_footer_link` 五語改為「關於本站與致謝」系（About & Thanks…）。
+- `pipeline/src/i18n/*.json`：五語各加 4 key（`about_title`／`about_p1`／`about_p2`／
+  `home_about_text`）＋改 1 值，總數 309。
+- 位置決策記錄：刻意**不放物種介紹頁**（科普正文與站務宣言分離）、不新開 /about/（內容
+  單薄且 footer 已有入口）。
+
+---
+
+## 2026-08-08 ・ 物種介紹頁再擴充：「換毛與健康」節＋FAQ 第五題
+
+`/species/` 頁新增「換毛與健康」一節（維護者提議加換毛與死因科普）：
+
+- **換毛**：春季換毛約 4 月起、6 月初穩定，從臉頰／額頭／尾根開始掉、外觀變瘦變邋遢
+  ——依桐生が岡動物園官方專文〈レッサーパンダの換毛事情〉（該園已在官方來源白名單）。
+  另加 FAQ 第五題「夏天怎麼毛稀稀疏疏」對應遊客常見誤會。
+- **死因**：幼獸關卡（北美 366 例解剖統計：<30 天新生兒佔全部死亡 40%；成都研究近七成幼獸
+  死於頭 15 天、夏季高溫高濕引發感染）；成體／高齡以心血管疾病最常見、次為腎臟與消化道
+  ——與園方訃報常見「心臓疾患」「腎不全」互相印證；犬瘟熱幾乎絕症、含 1976 活毒疫苗致死
+  案例（動物園用死毒／重組疫苗），呼應保育節的流浪犬威脅。
+- 壓力掉毛刻意不寫：文獻僅個案且原因常不明（Captive Red Panda Medicine 章節），科普頁不採。
+- `pipeline/src/i18n/*.json`：五語各加 7 key（`sp_health_*`＋`sp_faq_q5/a5`），總數 302；
+  正本 `red-panda-intro.md` 同步；參考資料補桐生換毛文、JZWM 2015、BMC Vet Res 2022、
+  JAVMA 1976 四筆。
+
+---
+
+## 2026-08-08 ・ 物種頁內容更新：換毛用詞、腸套疊、甜味 FAQ
+
+- 換毛 FAQ 用詞：「又瘦又邋遢」→「又瘦又潦草」（維護者指定；zh-TW／zh-CN 與正本）。
+- 「換毛與健康」死因段補**急性消化道疾患**：胃擴張扭轉（GDV）有獸醫期刊病例報告（*Veterinary Surgery* 2014）；腸套疊（腸重積）查無小熊貓專屬論文（PubMed 0 筆），以**園方官方訃報**為據——天王寺動物園メル（2025-04-06，「腸重積に伴う循環不全」）。
+- 新增 FAQ「小熊貓喜歡吃什麼？聽說牠們嚐得出甜味？」：主食竹＋動物園蘋果零食；甜味受體 *Tas1r2* 功能完整、行為測試偏好天然糖與阿斯巴甜等人工甜味劑（受測食肉目唯一），佐證 Li & Glaser et al. (2009) *J Hered* 100(S1):S90–S100。
+- 五語 i18n 同步（sp_faq_q6/a6 新 key、sp_health_p3 追加）；參考資料清單＋3 筆；中文正本 `red-panda-intro.md` 同步。
+
+## 2026-08-08 ・ 統計頁新增「物種」區塊（連結物種介紹頁）
+
+- `/stats/` 摘要徽章下方新增「物種」卡片：中華（styani）／喜馬拉雅（fulgens）占比條（主題色 rust／amber，深色模式自動成立、零 JS），兩個亞種名稱直連 `/species/#styani`／`#fulgens`（與個體頁「物種」欄同一連結慣例），另有「亞種不詳 N 隻」與「物種介紹 →」入口。
+- i18n 新增 `stats_species_unknown`（五語）；`check_i18n.py` 加測 U+FFFD 替換字元（mojibake 偵測）。
+
+## 2026-08-08 ・ 驗證進 CI＋index.md 自動對帳（架構補強）
+
+- **CI 驗證關卡**：`deploy.yml` 建置前新增 gate——`tools/verify.sh`（audit --strict＋check_twins）、新工具 `tools/check_i18n.py`（五語 i18n key 一致性：缺 key／多 key／重複 key／空值即擋）、`node web/tests/closed.test.mjs`。未通過即不部署；本機沒裝 pre-push hook 或 `--no-verify` 繞過時，壞資料仍會被擋在上線前。
+- **index.md 對帳**：`audit.py` 新增整合性檢查（🔴、--strict 擋）——index 的 wikilink 必須都對應存在的條目、每個條目至少列入 index 一次、頁首「條目總數」須等於實際檔數。同條目跨家族表重複出現屬正常、不檢查唯一性。
+
+## 2026-08-08 ・ 已故標記統一為 🪽（wiki 正本跟進網站）
+
+- 依維護者裁定，已故標記全面統一用翅膀：wiki 正本（標題／引言／index／內文家族段，含 `_hidden/` 與 `log-archive/`）🪐 → 🪽，共 732 檔 7,976 處，與網站顯示（2026-07-19 起 🪽）一致。
+- 工具同步：`tools/query.py` CLI 輸出改 🪽；`tools/zoo_registry.py` 的註記過濾清單加入 🪽。
+- 首頁「今日前往小熊星球」（i18n `today_rainbow`）維持 🪐 星球意象，不在此次範圍。
+
+## 2026-08-08 ・ 專案文件盤點更新（過時資訊修正）
+
+- README／CLAUDE.md／ROADMAP／SCHEMA：條目數改「900+」耐放寫法、註冊表 350+ 座園、五語字串、補物種介紹頁與照片與影片等新功能描述；ROADMAP 補記 7/20 後完成項。
+- `rpf-wiki-SKILL.md` 大修：slug 改為現行「名字-生日」規則（撞名用媽媽名）、性別改讀 RPF 性別 icon（嚴禁從子女反推）、RPF 降為線索、居住史表格由 gen_residence 自動生成。
+- `report-intake-SKILL.md`：gen_residence 舊行為描述更正（frontmatter `zoos:` 為唯一來源）。
+- docs：批次 1–4 SOP 與 Tally 藍圖補「三語表已合併」現況與 audit 預設不比對 lineage；三份歷史計劃（資料校訂、回報校正、中國個體放寬）補「已實作／已覆蓋」狀態註記。
+
+## 2026-08-08 ・ 物種介紹頁擴充：繁殖與寶寶／保育現況／FAQ 三節
+
+`/species/` 頁（昨日上線）續作，對應 `docs/red-panda-intro-PLAN.md` 的 P2 部分範圍＋計劃外的 FAQ：
+
+- **繁殖與寶寶**：季節性繁殖（北半球 1–3 月交配、5–7 月出生）、延遲著床（懷孕紀錄 93–156 天，
+  依 Smithsonian National Zoo）、一胎 1–4 隻以雙胞胎最常見、幼獸成長時程、壽命。段落內嵌站內
+  連結呼應既有功能：家系圖雙胞胎標記、統計頁「長壽排行」「每年出生數」、首頁「新鮮的寶寶」
+  季節窗——i18n 字串用 `{tree}`/`{longevity}`/`{newborns}`/`{stats}` placeholder，
+  `Species.astro` 建置時替換成 `pageUrl` 連結、連結文字重用既有 key（各語不必再翻標籤）。
+- **保育現況**：IUCN 瀕危與族群數字（減幅寫 40–50%，Smithsonian 40% vs RPN 50% 取區間）、
+  CITES 附錄一、三大威脅＋犬瘟熱、保育作為（棲地／社區型／域外保種與血統書配對，
+  點出本圖鑑居住史與家系即其縮影）。
+- **FAQ** 四題：能不能養（不行）、與浣熊的關係、Firefox 名字由來、會不會冬眠（不會）。
+- `pipeline/src/i18n/*.json`：五語各加 19 個 key（`sp_breed_*`／`sp_consv_*`／`sp_faq_*`），
+  總數 295；正本 `red-panda-intro.md` 同步加三節；參考資料補 Smithsonian National Zoo。
+---
+
 ## 2026-08-07 ・ 新頁面「物種介紹」（/species/）＋個體頁物種欄連結
 
 新增全站第一個敘述型頁面：介紹「什麼是小熊貓」與兩個亞種（喜馬拉雅小熊貓 *Ailurus fulgens

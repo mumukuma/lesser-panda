@@ -4,9 +4,21 @@
    本檔只放版面與語系無關的常數（學名、參考文獻連結）。
    個體頁「物種」欄連到本頁的 #fulgens／#styani 錨點（Panda.astro speciesCell）。 */
 import { i18n } from '../lib/data.js';
+import { pageUrl } from '../lib/links.js';
 
 const { locale } = Astro.props;
 const T = i18n[locale];
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+
+// 站內連結 placeholder：繁殖段落把 {tree}/{longevity}/{newborns}/{stats} 換成對應頁連結，
+// 連結文字重用既有 i18n key（nav_family／stats_sec_longevity／home_newborns／stats_sec_years），
+// 各語不必再翻一份標籤。含 <i> 學名的段落同樣走 set:html。
+const a = (rp, label) => `<a class="text-rust hover:underline" href="${pageUrl(base, locale, rp)}">${label}</a>`;
+const link = (s) => s
+  .replace('{tree}', a('jptree', T.nav_family))
+  .replace('{longevity}', a('stats', T.stats_sec_longevity))
+  .replace('{newborns}', a('', T.home_newborns))
+  .replace('{stats}', a('stats', T.stats_sec_years));
 
 const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';
 
@@ -16,9 +28,17 @@ const LATIN = { fulgens: 'Ailurus fulgens fulgens', styani: 'Ailurus fulgens sty
 // 參考資料：語系無關（題名照原文），標籤用 i18n 的 sp_refs_title
 const REFS = [
   { label: 'Hu, Y. et al. (2020). Genomic evidence for two phylogenetic species and long-term population bottlenecks in red pandas. Science Advances, 6(9), eaax5751.', url: 'https://doi.org/10.1126/sciadv.aax5751' },
-  { label: 'Glatston, A. R. (ed.) (2021). Red Panda: Biology and Conservation of the First Panda (2nd ed.). Academic Press.', url: null },
+  { label: 'Glatston, A. R. (ed.) (2021). Red Panda: Biology and Conservation of the First Panda (2nd ed.). Academic Press.', url: 'https://www.sciencedirect.com/book/9780128237533/red-panda' },
   { label: 'IUCN Red List — Ailurus fulgens', url: 'https://www.iucnredlist.org/species/714/110023718' },
+  { label: "Smithsonian's National Zoo & Conservation Biology Institute — Red Panda", url: 'https://nationalzoo.si.edu/animals/red-panda' },
   { label: 'Red Panda Network — About Red Pandas', url: 'https://redpandanetwork.org/' },
+  { label: '桐生が岡動物園 — レッサーパンダの換毛事情', url: 'https://www.city.kiryu.lg.jp/zoo/yomoyama/1022284/1022730.html' },
+  { label: 'Retrospective analysis of mortality in the North American captive red panda (Ailurus fulgens) population, 1992–2012. Journal of Zoo and Wildlife Medicine, 46(4) (2015).', url: 'https://doi.org/10.1638/2014-0166.1' },
+  { label: 'Mortality analysis of captive red panda cubs within Chengdu, China. BMC Veterinary Research, 18 (2022).', url: 'https://doi.org/10.1186/s12917-022-03170-2' },
+  { label: 'Vaccine-induced canine distemper in a lesser panda. Journal of the American Veterinary Medical Association, 169(9) (1976).', url: 'https://pubmed.ncbi.nlm.nih.gov/988010/' },
+  { label: 'Li, X., Glaser, D. et al. (2009). Analyses of sweet receptor gene (Tas1r2) and preference for sweet stimuli in species of Carnivora. Journal of Heredity, 100(S1), S90–S100.', url: 'https://doi.org/10.1093/jhered/esp015' },
+  { label: 'Gastric dilatation and volvulus in a red panda (Ailurus fulgens). Veterinary Surgery, 43(6) (2014).', url: 'https://doi.org/10.1111/j.1532-950X.2014.12135.x' },
+  { label: '天王寺動物園 — レッサーパンダのメルについて（2025・腸重積の訃報）', url: 'https://www.tennojizoo.jp/blog/33693/' },
 ];
 
 // 比較表列：i18n key 後綴 _f（喜馬拉雅）／_s（中華）
@@ -67,6 +87,32 @@ const ROWS = ['range', 'face', 'tail', 'coat', 'size'];
   </table>
 </div>
 <p class="text-ink-soft text-[.86rem] leading-relaxed mt-2.5">⚠️ {T.sp_cmp_note}</p>
+
+<h2 class={H2}>{T.sp_breed_title}</h2>
+<p class="leading-relaxed mb-3" set:html={link(T.sp_breed_p1)} />
+<p class="leading-relaxed mb-3" set:html={link(T.sp_breed_p2)} />
+<p class="leading-relaxed mb-3" set:html={link(T.sp_breed_p3)} />
+<p class="leading-relaxed mb-3" set:html={link(T.sp_breed_p4)} />
+<p class="leading-relaxed mb-3" set:html={link(T.sp_breed_p5)} />
+
+<h2 class={H2}>{T.sp_consv_title}</h2>
+<p class="leading-relaxed mb-3" set:html={T.sp_consv_p1} />
+<p class="leading-relaxed mb-3" set:html={T.sp_consv_p2} />
+<p class="leading-relaxed mb-3" set:html={T.sp_consv_p3} />
+
+<h2 class={H2}>{T.sp_health_title}</h2>
+<p class="leading-relaxed mb-3" set:html={T.sp_health_p1} />
+<p class="leading-relaxed mb-3" set:html={T.sp_health_p2} />
+<p class="leading-relaxed mb-3" set:html={T.sp_health_p3} />
+<p class="leading-relaxed mb-3" set:html={T.sp_health_p4} />
+
+<h2 class={H2}>{T.sp_faq_title}</h2>
+{[1, 2, 3, 4, 5, 6].map((n) => (
+  <div class="mb-4">
+    <h3 class="font-display font-semibold mb-1">Q. {T['sp_faq_q' + n]}</h3>
+    <p class="leading-relaxed text-[.95rem]" set:html={T['sp_faq_a' + n]} />
+  </div>
+))}
 
 <h2 class={H2}>{T.sp_refs_title}</h2>
 <ul class="list-disc pl-5 leading-relaxed text-[.93rem]">

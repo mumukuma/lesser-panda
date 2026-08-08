@@ -84,6 +84,12 @@ OFFICIAL_HOSTS = {
     "zoo.si",  # ZOO Ljubljana（斯洛維尼亞；盧布爾雅那市立）
     "pairidaiza.eu",  # Pairi Daiza（比利時）
     "torontozoo.com",  # Toronto Zoo（加拿大；含 /mediaroom/ 新聞稿）
+    # 美國
+    "buffalozoo.org",  # Buffalo Zoo（紐約州；抵園・出産公告發於官網 news）
+    "pueblozoo.org",  # Pueblo Zoo（科羅拉多州）
+    "beardsleyzoo.org",  # Connecticut's Beardsley Zoo（康乃狄克州；/press/ 為園方新聞稿）
+    # 史密森尼（National Zoological Park／SCBI 同屬；siarchives 為機構檔案館）
+    "nationalzoo.si.edu", "siarchives.si.edu",
     # Assiniboine Park Conservancy（加拿大；Assiniboine Park Zoo 營運方，園方 /stories/ 為官方一手）
     "assiniboinepark.ca",
     "gvzoo.com",  # Greater Vancouver Zoo（加拿大；含 /news/ 新聞稿）
@@ -122,6 +128,7 @@ OFFICIAL_FB_PAGES = {
     "oceanparkhk",     # 香港海洋公園 Ocean Park Hong Kong 官方專頁
     "cincinnatizoo",   # Cincinnati Zoo & Botanical Garden 官方專頁（同 cincinnatizoo.org）
     "columbuszoo",     # Columbus Zoo and Aquarium 官方專頁（官網頁尾 Facebook 連結指向此專頁）
+    "pueblozoo",       # Pueblo Zoo 官方專頁（同 pueblozoo.org；出生・命名公告發於此）
 }
 _FB_HOSTS = {"facebook.com", "m.facebook.com", "web.facebook.com", "fb.com"}
 
@@ -178,6 +185,8 @@ OFFICIAL_IG_ACCOUNTS = {
     "zooknoxville",  # Zoo Knoxville（同 zooknoxville.org；抵園・出産公告發於此）
     "potawatomizoo",  # Potawatomi Zoo（同 potawatomizoo.org；生日・送別公告發於此）
     "woburn_safari",  # Woburn Safari Park（英國；官網 woburnsafari.co.uk 頁尾 Instagram 連結指向此帳號；到園公告發於此）
+    "pueblozoo",  # Pueblo Zoo（同 pueblozoo.org；幼獸健檢等公告發於此）
+    "buffalo_zoo",  # Buffalo Zoo（同 buffalozoo.org；抵園公告發於此）
 }
 _IG_HOSTS = {"instagram.com", "m.instagram.com"}
 _IG_NON_ACCOUNT_SEGS = {"p", "reel", "reels", "tv", "stories", "explore"}

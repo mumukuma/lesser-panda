@@ -118,7 +118,7 @@ python3 pipeline/scripts/export_json.py   # 重生網站資料
 ## 步驟 7：驗收與收尾
 
 - 開該個體頁，確認「## 居住史」表多了新園一列、「現居」指向新園。
-- `python tools/audit.py` 看完整度（缺欄位／與 lineage 不符提示）。
+- `python tools/audit.py` 看完整度（缺欄位提示；2026-07-14 起預設不比對 lineage，要比對加 `--lineage`）。
 - 收件匣（Google Sheet）把該筆標「已處理」，要致謝就記下暱稱。
 - 推 `main` → GitHub Actions 自動部署。
 

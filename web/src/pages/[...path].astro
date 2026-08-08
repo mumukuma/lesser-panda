@@ -45,7 +45,7 @@ const titles = {
   jptree: (await import('../lib/data.js')).i18n[locale].nav_family,
   species: (await import('../lib/data.js')).i18n[locale].nav_species,
   feedback: (await import('../lib/data.js')).i18n[locale].nav_feedback,
-  thanks: (await import('../lib/data.js')).i18n[locale].thanks_title,
+  thanks: (await import('../lib/data.js')).i18n[locale].about_title,
   panda: kind === 'panda' ? placeholderMotherName(pandas[slug], locale) : undefined,
   zoo: kind === 'zoo' ? zooName(zoos.find((z) => z.slug === slug)?.id, null, locale) : undefined,
 };

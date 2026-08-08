@@ -21,7 +21,7 @@
 
 ## 喜馬拉雅小熊貓（*Ailurus fulgens fulgens*）
 
-分布於**尼泊爾、印度（錫金、西孟加拉、阿魯納恰爾邦一帶）、不丹與西藏南部**，即雅魯藏布江以西的喜馬拉雅山區。
+分布於**尼泊爾、印度（錫金、西孟加拉一帶）、不丹與西藏南部**，即雅魯藏布江以西的喜馬拉雅山區。
 
 外觀上臉部白色較多、看起來比較「白臉」，額頭毛色較淺，尾巴環紋的深淺對比較淡，體型略小，吻部輪廓較直。
 
@@ -43,9 +43,67 @@
 
 ⚠️ 上表是**族群層級的傾向**，不是絕對判準——個體差異很大，光憑照片常常分不出來。動物園個體請以血統紀錄為準。
 
+## 繁殖與寶寶
+
+小熊貓是季節性繁殖者：北半球約在 1–3 月（冬季）交配，寶寶集中在 5–7 月出生。懷孕期紀錄從約 93 天到 156 天不等，落差這麼大是因為有「**延遲著床**」——受精卵可以先暫停發育、等時機合適再著床，讓寶寶都趕在食物最充足的夏天出生。
+
+一胎通常 1–4 隻，**以雙胞胎最常見**。家系圖上的雙胞胎標記，就是這個現象在本圖鑑資料裡的樣子。
+
+剛出生的寶寶全身已有濃密胎毛、體重只有約 90–110 克，約三週大才睜眼、三個月左右才開始探出巢箱，之後跟著媽媽生活到將近一歲，約 18 個月大性成熟。
+
+野外壽命約 8–10 年，人照顧下常見 12–15 年、最高紀錄超過 20 年——統計頁的「長壽排行」可以看到本圖鑑的紀錄保持者。
+
+這也是為什麼本站首頁的「新鮮的寶寶」只在每年 6–11 月出現、統計頁的「每年出生數」會呈現 6–7 月的出生高峰——整個北半球的小熊貓寶寶，幾乎都是同一季來報到的。
+
+## 保育現況
+
+IUCN 紅色名錄將小熊貓列為**瀕危（Endangered）**：野外成熟個體估計不到一萬隻、也可能低至數千，近數十年估計已減少四到五成，趨勢仍在下降。國際貿易受 **CITES 附錄一**管制，禁止商業性國際交易。
+
+主要威脅是**棲地喪失與破碎化**（伐木、農地與道路把竹林切成一座座孤島）、**盜獵毛皮**，以及為其他動物設下的**陷阱誤捕**；流浪犬帶來的犬瘟熱在部分地區也是致命威脅。
+
+保育工作包括棲地與保護區的維護、社區型保育（如尼泊爾的森林守護員制度），以及動物園的**域外保種**——各國動物園依血統書進行計畫性配對，維持健康的備援族群。你在本圖鑑看到的居住史與家系，其實就是這套國際合作的縮影。
+
+## 換毛與健康
+
+每年春天小熊貓會把厚重的冬毛換成夏毛：大約 4 月開始、6 月初告一段落，毛從臉頰、額頭和尾巴根部開始脫落，看起來會突然「變瘦」、甚至有點邋遢；長新毛很耗體力，這段期間也會休息得比較多。夏天在動物園看到毛稀稀疏疏的小熊貓，多半不是生病，而是正在換裝（桐生が岡動物園的飼育觀察）。
+
+圈養小熊貓的死因統計相當清楚。寶寶的頭一個月是最大關卡：北美 20 年間的解剖統計裡，未滿 30 天的新生兒佔了全部死亡的四成；成都的研究則有近七成幼獸死於出生後 15 天內，夏季高溫高濕引發的呼吸道與腸道感染是大宗——這也是為什麼園方多半等寶寶度過最脆弱的幾週才公開亮相。
+
+順利長大的個體，成年與高齡期最常見的死因是**心血管疾病**，其次是腎臟病與消化道疾病。園方訃報裡常見的「心臟疾患」「腎功能衰竭」，正對應這份統計。消化道也可能突發急症——胃擴張扭轉（GDV）有病例報告，**腸套疊**（日文訃報寫「腸重積」）則見於園方公告：2025 年天王寺動物園的メル前一晚仍正常進食，隔天早上便因腸套疊引發的循環衰竭驟逝。
+
+犬瘟熱（canine distemper）對小熊貓幾乎是絕症，甚至有注射活毒疫苗反而發病死亡的案例（1976 年），因此動物園只能使用死毒或重組疫苗，並嚴防流浪犬接近——這也呼應上一節保育威脅裡的犬瘟熱。
+
+## 常見問題
+
+**Q. 可以養小熊貓當寵物嗎？**
+不行。小熊貓受 CITES 附錄一與各分布國法律保護，禁止商業交易；牠們也需要大量新鮮竹子、怕熱、晨昏才活動，家庭環境無法滿足。想親近牠們，請到合法飼養的動物園。
+
+**Q. 小熊貓和浣熊是親戚嗎？**
+算遠親。小熊貓曾一度被歸入浣熊科，但現在自成小熊貓科；兩者同屬鼬總科，所以浣熊、鼬、臭鼬都是牠的遠房親戚。
+
+**Q. Firefox 瀏覽器和小熊貓有關嗎？**
+有——「firefox」正是小熊貓的英文別名之一，Mozilla 官方也說 Firefox 指的就是小熊貓，只是 logo 畫得太像狐狸、常被誤會。
+
+**Q. 小熊貓冬天會冬眠嗎？**
+不會。牠們整年活動，靠濃密的毛皮（連腳底都有毛）和當被子蓋的大尾巴過冬；天冷時會降低活動量、放慢代謝、多曬太陽，但不是冬眠。
+
+**Q. 夏天的小熊貓怎麼毛稀稀疏疏、瘦瘦的，是生病了嗎？**
+多半沒有——那是春天換毛的痕跡。冬毛從臉頰、額頭、尾根開始脫落，換毛期看起來會又瘦又潦草，等夏毛長齊就帥回來了。詳見上方「換毛與健康」。
+
+**Q. 小熊貓喜歡吃什麼？聽說牠們嚐得出甜味？**
+主食是竹葉和竹筍，野外也吃果實、蛋和小動物；動物園裡最經典的獎勵零食則是蘋果與竹糰子。甜味不是錯覺——基因與行為研究顯示，小熊貓的甜味受體基因（*Tas1r2*）完整有功能，味覺測試中除了天然糖、還偏好阿斯巴甜等多種人工甜味劑，是受測食肉目動物中唯一的一種，與舊世界靈長類趨同（Li & Glaser et al. 2009）。牠們是真的「懂甜」，不過為了健康，園方給甜食向來斤斤計較。
+
 ## 參考資料
 
 - Hu, Y. et al. (2020). Genomic evidence for two phylogenetic species and long-term population bottlenecks in red pandas. *Science Advances*, 6(9), eaax5751. https://doi.org/10.1126/sciadv.aax5751
-- Glatston, A. R. (ed.) (2021). *Red Panda: Biology and Conservation of the First Panda* (2nd ed.). Academic Press.
+- Glatston, A. R. (ed.) (2021). *Red Panda: Biology and Conservation of the First Panda* (2nd ed.). Academic Press. https://www.sciencedirect.com/book/9780128237533/red-panda
 - IUCN Red List — *Ailurus fulgens*. https://www.iucnredlist.org/species/714/110023718
+- Smithsonian's National Zoo & Conservation Biology Institute — Red Panda. https://nationalzoo.si.edu/animals/red-panda
 - Red Panda Network — About Red Pandas. https://redpandanetwork.org/
+- 桐生が岡動物園 — レッサーパンダの換毛事情. https://www.city.kiryu.lg.jp/zoo/yomoyama/1022284/1022730.html
+- Retrospective analysis of mortality in the North American captive red panda (*Ailurus fulgens*) population, 1992–2012. *Journal of Zoo and Wildlife Medicine*, 46(4) (2015). https://doi.org/10.1638/2014-0166.1
+- Mortality analysis of captive red panda cubs within Chengdu, China. *BMC Veterinary Research*, 18 (2022). https://doi.org/10.1186/s12917-022-03170-2
+- Vaccine-induced canine distemper in a lesser panda. *JAVMA*, 169(9) (1976). https://pubmed.ncbi.nlm.nih.gov/988010/
+- Li, X., Glaser, D. et al. (2009). Analyses of sweet receptor gene (*Tas1r2*) and preference for sweet stimuli in species of Carnivora. *Journal of Heredity*, 100(S1), S90–S100. https://doi.org/10.1093/jhered/esp015
+- Gastric dilatation and volvulus in a red panda (*Ailurus fulgens*). *Veterinary Surgery*, 43(6) (2014). https://doi.org/10.1111/j.1532-950X.2014.12135.x
+- 天王寺動物園 — レッサーパンダのメルについて（2025・腸重積の訃報）. https://www.tennojizoo.jp/blog/33693/

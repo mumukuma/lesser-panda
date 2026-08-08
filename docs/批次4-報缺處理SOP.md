@@ -32,7 +32,7 @@
 | 暱稱 | 想被列入致謝可留 | ⬜ |
 
 > 沒有 hidden field（缺熊無頁面、缺園不屬於任何一隻）。隱私：不強制 email，致謝用暱稱。
-> 三語各一張表（zh／ja／en），可見欄位、選項完全一致，只差文字語言。**改一處要三張一起改。**
+> **2026-06-22 起為單張三語表（中／日／英並列，`2EVJlb`）**；舊的純日／純英表已退役刪除。
 
 收件匣與批次 1–3 共用同一個信箱／Google Sheet，作者逐筆審核。
 
@@ -58,7 +58,7 @@
 
 確認🟢後，照 `CLAUDE.md`〈新增成員流程〉做，重點：
 
-1. 有 RPF 連結 → 優先用 **`rpf-wiki` skill** 從 RPF 抓資料建條目（RPF 不標性別，需從 Mother／Father／daughters／sons 推斷）。沒有 RPF、只有官網／新聞 → 手動依 `SCHEMA.md` 建。
+1. 有 RPF 連結 → 優先用 **`rpf-wiki` skill** 從 RPF 抓資料建條目（性別讀 RPF 頁面名字前的性別 icon——本尊讀 `.gender.profile img` 的 `alt`、親屬卡讀 img `src` 檔名；**勿從子女反推**）。沒有 RPF、只有官網／新聞 → 手動依 `SCHEMA.md` 建。
 2. 建 `wiki/<名字-生日>.md`（slug＝名字-生日；只知年份就用 `YYYY`；撞名再加媽媽名消歧，見 `CLAUDE.md`）。
 3. **父母不詳就先留空**（frontmatter 欄位空著、`sex` 不確定也留空並備注「待確認」）。孤兒個體不必硬湊親屬。
 4. 有已知直系親屬且本身缺條目的，照流程一併補建（父→母→雙胞胎→子女），並回頭把既有條目的純文字親屬改成 `[[wikilink]]`。
@@ -143,7 +143,7 @@ python tools/resolve_zoo.py --add tama 多摩動物公園   # 把簡稱補進該
 python3 tools/gen_residence.py            # 依 zoos: 重生內文「## 居住史」表
 python3 tools/build_db.py                 # 重建 DB（園名未登記會在這報錯）
 python3 pipeline/scripts/export_json.py   # 重生網站資料
-python tools/audit.py                     # 完整度檢查（缺欄位／與 lineage 不符提示）
+python tools/audit.py                     # 完整度檢查（缺欄位提示；預設不比對 lineage）
 ```
 
 `build_db.py` 沒報錯 = 園名都對得上註冊表。若報「未登記」就回 §B2。
@@ -178,15 +178,16 @@ python tools/audit.py                     # 完整度檢查（缺欄位／與 li
 
 ---
 
-## 「報缺」Tally 表單（獨立一張，×三語）— 建置記錄
+## 「報缺」Tally 表單 — 建置記錄
 
-> 與批次 1–3 的「更正／近況」表分開的一張獨立表，**沒有 hidden field**。三語各一張。
+> 與批次 1–3 的「更正／近況」表分開的一張獨立表，**沒有 hidden field**。
+> ⚠️ **現況（2026-06-22 起）：單張三語表（中／日／英並列）`2EVJlb`**，舊的純日（`ODrJok`）／純英（`RG2JVv`）表已退役刪除。下表為合併前的歷史記錄。
 
 | 語系 | 表單名 | 表單 ID | 公開網址 |
 |------|--------|---------|----------|
-| 中文 | 回報圖鑑沒有的熊或動物園 | `2EVJlb` | https://tally.so/r/2EVJlb |
-| 日文 | 図鑑にいない子・動物園の報告 | `ODrJok` | https://tally.so/r/ODrJok |
-| 英文 | Report a missing panda or zoo | `RG2JVv` | https://tally.so/r/RG2JVv |
+| 三語（現行） | 回報缺少的小熊貓或動物園資料 | `2EVJlb` | https://tally.so/r/2EVJlb |
+| ~~日文（已退役）~~ | 図鑑にいない子・動物園の報告 | `ODrJok` | — |
+| ~~英文（已退役）~~ | Report a missing panda or zoo | `RG2JVv` | — |
 
 可見欄位（三語一致，只差文字）：
 
@@ -201,5 +202,5 @@ python tools/audit.py                     # 完整度檢查（缺欄位／與 li
 設定：表單語言設對應語系；新回報 email 通知開；不強制 email；連接同一個收件匣 Google Sheet。
 
 > **發佈（Publish）屬公開變更，動手前先取得作者同意。** Tally 編輯走 Claude in Chrome（帳號 mumukuma）。
-> 建好後把三張表的 ID 填進 `web/src/lib/feedback.js` 的 `MISSING_FORMS`；填好前 `/feedback` 會顯示「建置中」訊息（`feedback_setup`）。
-> 維護提醒：三張表的欄位、選項、文案與 i18n 文案一律**同步**，改一處要三張表＋三語一起改。
+> 表單 ID 設定在 `web/src/lib/feedback.js` 的 `MISSING_FORMS`（現三語皆指向 `2EVJlb`）；未設定時 `/feedback` 會顯示「建置中」訊息（`feedback_setup`）。
+> 維護提醒：表單題目與選項為三語並列，改文案要三語一起改；改完記得 Publish 才生效。
