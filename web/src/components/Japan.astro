@@ -1,0 +1,67 @@
+---
+/* 日本總覽（/japan/）：導覽列「日本」群組的落地頁。
+   桌機有子選單可直接跳家系圖／搬園紀錄，但點群組本身一定要落到有內容的一頁——
+   手機沒有 hover、子選單直接攤平，這頁也是觸控使用者的第一站。
+   數字全部建置期算（JP_SUMMARY／japanTreeData／MOVES），零客戶端 JS。 */
+import { i18n, JP_SUMMARY, MOVES, japanTreeData } from '../lib/data.js';
+import { pageUrl } from '../lib/links.js';
+
+const { locale } = Astro.props;
+const T = i18n[locale];
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const num = (n) => n.toLocaleString('en-US');
+const treeSize = japanTreeData(locale).nodes.length;
+
+const stats = [
+  [num(JP_SUMMARY.recorded), T.jp_stat_recorded],
+  [num(JP_SUMMARY.living), T.jp_stat_living],
+  [num(JP_SUMMARY.zoosTotal), T.jp_stat_zoos],
+  [num(MOVES.total), T.jp_stat_moves],
+];
+
+const cards = [
+  {
+    href: pageUrl(base, locale, 'jptree'), icon: '🌳', title: T.nav_family,
+    desc: T.jp_card_tree.replace('{n}', num(treeSize)),
+  },
+  {
+    href: pageUrl(base, locale, 'moves'), icon: '🚚', title: T.nav_moves,
+    desc: T.jp_card_moves.replace('{n}', num(MOVES.total)).replace('{p}', num(MOVES.pairCount)),
+  },
+];
+
+const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';
+---
+<h1 class="font-display text-3xl font-semibold mt-6 mb-1">{T.nav_japan}</h1>
+<p class="text-ink-soft text-[.95rem] mb-5">{T.jp_intro}</p>
+
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-5">
+  {stats.map(([n, label]) => (
+    <div class="stat-card py-4 px-2">
+      <div class="text-2xl sm:text-3xl font-display font-semibold text-rust leading-none">{n}</div>
+      <div class="text-[.82rem] text-ink-soft mt-1.5">{label}</div>
+    </div>
+  ))}
+</div>
+<p class="text-ink-soft text-[.82rem] -mt-2 mb-6">{T.jp_stat_note.replace('{n}', num(JP_SUMMARY.zoosWithLiving))}</p>
+
+<section class="reveal">
+  <h2 class={H2}>{T.jp_sec_pages}</h2>
+  <div class="grid sm:grid-cols-2 gap-3">
+    {cards.map((c) => (
+      <a href={c.href} class="card-soft p-[18px_20px] no-underline block hover:shadow-md transition-shadow">
+        <div class="flex items-baseline gap-2">
+          <span aria-hidden="true" class="text-xl">{c.icon}</span>
+          <span class="font-display text-lg font-semibold text-rust-dark">{c.title}</span>
+          <span class="ml-auto text-rust text-[.9rem]">→</span>
+        </div>
+        <p class="text-ink-soft text-[.88rem] mt-2 mb-0 leading-relaxed">{c.desc}</p>
+      </a>
+    ))}
+  </div>
+</section>
+
+<p class="text-ink-soft text-[.85rem] mt-6" set:html={T.jp_global_note
+  .replace('{stats}', `<a class="text-rust no-underline hover:underline" href="${pageUrl(base, locale, 'stats')}">${T.nav_stats}</a>`)
+  .replace('{zoos}', `<a class="text-rust no-underline hover:underline" href="${pageUrl(base, locale, 'zoos')}">${T.nav_zoos}</a>`)
+  .replace('{search}', `<a class="text-rust no-underline hover:underline" href="${pageUrl(base, locale, 'pandas')}">${T.nav_search}</a>`)} />

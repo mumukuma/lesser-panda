@@ -14,14 +14,19 @@ const url = (dir, rp) => base + dir + (rp ? rp + '/' : '');
 const langUrls = Object.fromEntries(LOCALES.map((l) => [l.code, url(l.dir, relPath)]));
 const page = url(cur.dir, '');                    // 當前語系根，給前端組個體連結
 
+// 導覽列：日本專屬的兩頁（家系圖／搬園紀錄）收進「日本」群組——群組本身連到
+// /japan/ 落地頁（手機與觸控裝置沒有 hover，點下去一定要落到有內容的一頁），
+// 桌機再以 hover／focus-within 展開子項；手機不浮出、子項直接縮排列在下面。
+// 第三個元素存在即視為群組（見下方 nav.map 與 global.css 的 .nav-sub）。
 const nav = [
   ['', T.nav_home],
   ['pandas', T.nav_search],
   ['zoos', T.nav_zoos],
-  ['jptree', T.nav_family],
   ['stats', T.nav_stats],
   ['species', T.nav_species],
+  ['japan', T.nav_japan, [['jptree', T.nav_family], ['moves', T.nav_moves]]],
 ];
+const NAV_LINK = 'nav-link px-3.5 py-1.5 rounded-full text-[.92rem] text-center sm:text-left whitespace-nowrap no-underline';
 
 // Social sharing（OG / Twitter card）：圖與網址必須是絕對 URL（用 astro.config 的 site）
 const site = Astro.site?.href.replace(/\/$/, '') ?? 'https://ressapanda.com';
@@ -133,10 +138,24 @@ const ogLocale = { 'zh-TW': 'zh_TW', 'zh-CN': 'zh_CN', ja: 'ja_JP', en: 'en_US',
         </button>
       </div>
       <nav id="site-nav" class="order-3 sm:order-2 w-full sm:w-auto sm:ml-auto hidden sm:flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-1">
-        {nav.map(([rp, label]) => (
+        {nav.map(([rp, label, sub]) => (sub ? (
+          <div class="nav-group flex flex-col sm:block">
+            <a href={url(cur.dir, rp)} aria-haspopup="true"
+               class={`${NAV_LINK} inline-flex items-center justify-center sm:justify-start gap-1 ${[rp, ...sub.map((x) => x[0])].includes(active) ? 'active' : ''}`}>
+              {label}
+              <svg class="hidden sm:block opacity-55" width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <div class="nav-sub">
+              {sub.map(([srp, slabel]) => (
+                <a href={url(cur.dir, srp)}
+                   class={`${NAV_LINK} block ${active === srp ? 'active' : ''}`}>{slabel}</a>
+              ))}
+            </div>
+          </div>
+        ) : (
           <a href={url(cur.dir, rp)}
-             class={`nav-link px-3.5 py-1.5 rounded-full text-[.92rem] text-center sm:text-left whitespace-nowrap no-underline ${active === (rp || 'home') ? 'active' : ''}`}>{label}</a>
-        ))}
+             class={`${NAV_LINK} ${active === (rp || 'home') ? 'active' : ''}`}>{label}</a>
+        )))}
       </nav>
     </div>
   </header>

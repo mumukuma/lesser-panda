@@ -25,7 +25,7 @@ sources:
 
 | 期間 | 動物園 | 地點 |
 |------|--------|------|
-| ? – 現在 | Sri Ayutthaya Lion Park 🐣 🏡 | 泰國 🇹🇭 |
+| ? – 現在 | Sri Ayutthaya Lion Park 🐣 🏡 | 泰國 大城府塔魯阿 🇹🇭 |
 ---
 
 ## 家族

@@ -35,6 +35,8 @@ const REFS = [
   { label: '桐生が岡動物園 — レッサーパンダの換毛事情', url: 'https://www.city.kiryu.lg.jp/zoo/yomoyama/1022284/1022730.html' },
   { label: 'Retrospective analysis of mortality in the North American captive red panda (Ailurus fulgens) population, 1992–2012. Journal of Zoo and Wildlife Medicine, 46(4) (2015).', url: 'https://doi.org/10.1638/2014-0166.1' },
   { label: 'Mortality analysis of captive red panda cubs within Chengdu, China. BMC Veterinary Research, 18 (2022).', url: 'https://doi.org/10.1186/s12917-022-03170-2' },
+  { label: 'Princée, F. P. G. & Glatston, A. R. (2016). Influence of climate on the survivorship of neonatal red pandas in captivity. Zoo Biology, 35(2), 104–110.', url: 'https://doi.org/10.1002/zoo.21266' },
+  { label: 'Kappelhof, J. & Weerman, J. (2020). The development of the Red panda Ailurus fulgens EEP: from a failing captive population to a stable population that provides effective support to in situ conservation. International Zoo Yearbook, 54(1), 102–112.', url: 'https://doi.org/10.1111/izy.12278' },
   { label: 'Vaccine-induced canine distemper in a lesser panda. Journal of the American Veterinary Medical Association, 169(9) (1976).', url: 'https://pubmed.ncbi.nlm.nih.gov/988010/' },
   { label: 'Li, X., Glaser, D. et al. (2009). Analyses of sweet receptor gene (Tas1r2) and preference for sweet stimuli in species of Carnivora. Journal of Heredity, 100(S1), S90–S100.', url: 'https://doi.org/10.1093/jhered/esp015' },
   { label: 'Gastric dilatation and volvulus in a red panda (Ailurus fulgens). Veterinary Surgery, 43(6) (2014).', url: 'https://doi.org/10.1111/j.1532-950X.2014.12135.x' },
@@ -88,7 +90,7 @@ const ROWS = ['range', 'face', 'tail', 'coat', 'size'];
 </div>
 <p class="text-ink-soft text-[.86rem] leading-relaxed mt-2.5">⚠️ {T.sp_cmp_note}</p>
 
-<h2 class={H2}>{T.sp_breed_title}</h2>
+<h2 id="breeding" class={`${H2} scroll-mt-20`}>{T.sp_breed_title}</h2>
 <p class="leading-relaxed mb-3" set:html={link(T.sp_breed_p1)} />
 <p class="leading-relaxed mb-3" set:html={link(T.sp_breed_p2)} />
 <p class="leading-relaxed mb-3" set:html={link(T.sp_breed_p3)} />
@@ -99,10 +101,12 @@ const ROWS = ['range', 'face', 'tail', 'coat', 'size'];
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p1} />
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p2} />
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p3} />
+<p class="leading-relaxed mb-3" set:html={T.sp_consv_p4} />
 
 <h2 class={H2}>{T.sp_health_title}</h2>
 <p class="leading-relaxed mb-3" set:html={T.sp_health_p1} />
 <p class="leading-relaxed mb-3" set:html={T.sp_health_p2} />
+<p class="leading-relaxed mb-3" set:html={T.sp_health_p2b} />
 <p class="leading-relaxed mb-3" set:html={T.sp_health_p3} />
 <p class="leading-relaxed mb-3" set:html={T.sp_health_p4} />
 

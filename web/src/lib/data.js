@@ -69,9 +69,11 @@ export const zooName = (id, raw, locale = 'zh-TW') => {
   return locale === 'zh-CN' ? toHans(zh) : zh;
 };
 
-// 動物園地點依語系：中文（zh-TW／zh-CN）優先 location_zh（正本繁體），缺則退回 location_ja；
-// 註記：location_ja 對多數非日本園實為繁中，僅日本相關園存真日文，故中文站對「日文地址」的中國園
-// 需靠 location_zh 覆蓋。zh-CN 一律 toHans。ja／en／ko 維持既有 location_ja／location_en 順序。
+// 動物園地點依語系。註冊表（data/zoos.json）自 2026-08-09 起一欄一語：
+//   location_ja＝當地語言（日本園日文、中港台園中文漢字、其餘缺值）
+//   location_zh＝繁體中文正本   location_en＝英文
+// 中文（zh-TW／zh-CN）優先 location_zh，缺則退回 location_ja；zh-CN 一律 toHans。
+// ja 走 location_ja → location_en（非漢字圈園沒有日文地點，直接顯示英文）；en／ko 走 location_en。
 export const zooLocation = (z, locale = 'zh-TW') => {
   if (!z) return '';
   if (locale === 'ja') return z.location_ja || z.location_en || z.country || '';
@@ -408,3 +410,164 @@ export function japanTreeData(locale = 'zh-TW') {
     .map((z) => [z, zooName(z, null, locale), zc[z]]);
   return { nodes, edges, twins, maxg, zoos: zooList };
 }
+
+// ── 搬園統計（#moves）：由居住史相鄰兩段推得「園間移動」──────────────
+// 只計「日本國內」移動：起訖園皆為 Japan 且皆已對應到註冊表的園（zoo_id 非 null）。
+// 移動日期＝新園 start，缺則舊園 end；月份/年齡/成功率等只用完整日期（YYYY-MM-DD）。
+// 存疑（unverified）個體整段不列入，與統計頁同一原則。
+const _zooLL = Object.fromEntries(zoos.map((z) => [z.id, z.lat != null && z.lng != null ? [z.lat, z.lng] : null]));
+const _haversine = (a, b) => {
+  if (!a || !b) return null;
+  const R = 6371, p = Math.PI / 180;
+  const h = Math.sin(((b[0] - a[0]) * p) / 2) ** 2
+    + Math.cos(a[0] * p) * Math.cos(b[0] * p) * Math.sin(((b[1] - a[1]) * p) / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+};
+const _isFullDate = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s || '');
+const _median = (arr) => {
+  if (!arr.length) return null;
+  const a = [...arr].sort((x, y) => x - y);
+  const m = a.length >> 1;
+  return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2;
+};
+const _birthZooId = (p) => { const r0 = (p.residences || [])[0]; return r0 ? r0.zoo_id : null; };
+const _isJPZoo = (id) => id != null && _zooCountry[id] === 'Japan';
+const DAY = 86400000;
+
+export const MOVES = (() => {
+  const all = Object.values(pandas).filter((p) => !p.unverified);
+  const moves = [];
+  for (const p of all) {
+    const rs = p.residences || [];
+    for (let i = 0; i < rs.length - 1; i++) {
+      const a = rs[i], b = rs[i + 1];
+      if (!_isJPZoo(a.zoo_id) || !_isJPZoo(b.zoo_id) || a.zoo_id === b.zoo_id) continue;
+      const date = b.start || a.end || null;
+      const t = _isFullDate(date) ? new Date(date + 'T00:00:00Z').getTime() : null;
+      const born = _isFullDate(p.born) ? new Date(p.born + 'T00:00:00Z').getTime() : null;
+      moves.push({
+        slug: p.slug, from: a.zoo_id, to: b.zoo_id, date, t,
+        km: _haversine(_zooLL[a.zoo_id], _zooLL[b.zoo_id]),
+        age: t !== null && born !== null ? (t - born) / DAY / 365.25 : null,
+      });
+    }
+  }
+
+  // 搬家月曆 vs 出生月曆（皆只取完整日期；出生只計日本出生個體）
+  const monthMoves = Array(12).fill(0), monthBirths = Array(12).fill(0);
+  for (const m of moves) if (m.t !== null) monthMoves[+m.date.slice(5, 7) - 1]++;
+  for (const p of all) {
+    if (_isFullDate(p.born) && _isJPZoo(_birthZooId(p))) monthBirths[+p.born.slice(5, 7) - 1]++;
+  }
+
+  // 熱門路線（無向；同時保留兩個方向的次數）
+  const pairs = new Map();
+  for (const m of moves) {
+    const [x, y] = m.from < m.to ? [m.from, m.to] : [m.to, m.from];
+    const k = x + '|' + y;
+    const e = pairs.get(k) || { a: x, b: y, n: 0, ab: 0, ba: 0 };
+    e.n++; m.from === x ? e.ab++ : e.ba++;
+    pairs.set(k, e);
+  }
+  const routes = [...pairs.values()].sort((p, q) => q.n - p.n || q.ab + q.ba - (p.ab + p.ba) || p.a - q.a);
+
+  // 送出／接收（淨值＝接收－送出；繁殖園天然偏送出，標籤用「輸出型／接收型」而非排名）
+  const flowMap = new Map();
+  const bump = (id, k) => { const e = flowMap.get(id) || { id, out: 0, in: 0 }; e[k]++; flowMap.set(id, e); };
+  for (const m of moves) { bump(m.from, 'out'); bump(m.to, 'in'); }
+  const flow = [...flowMap.values()].map((e) => ({ ...e, net: e.in - e.out, sum: e.in + e.out }))
+    .sort((p, q) => q.sum - p.sum || q.net - p.net || p.id - q.id);
+
+  // お見合い成功率：搬進新園後 3 年內、於該園生下已收錄的寶寶
+  const WINDOW = 3 * 365.25 * DAY;
+  const kidsBornAt = new Map(); // parentSlug -> [{zoo, t, slug}]
+  for (const p of all) {
+    if (!_isFullDate(p.born)) continue;
+    const z = _birthZooId(p);
+    if (!_isJPZoo(z)) continue;
+    const t = new Date(p.born + 'T00:00:00Z').getTime();
+    for (const par of [p.mother, p.father]) {
+      if (!par) continue;
+      const arr = kidsBornAt.get(par) || [];
+      arr.push({ zoo: z, t, slug: p.slug });
+      kidsBornAt.set(par, arr);
+    }
+  }
+  const matchZoo = new Map();
+  let succ = 0, tried = 0;
+  const matchCases = [];
+  for (const m of moves) {
+    if (m.t === null) continue;
+    tried++;
+    const hit = (kidsBornAt.get(m.slug) || [])
+      .filter((k) => k.zoo === m.to && k.t > m.t && k.t - m.t <= WINDOW)
+      .sort((a, b) => a.t - b.t)[0];
+    if (hit) { succ++; matchCases.push({ slug: m.slug, from: m.from, to: m.to, date: m.date, kid: hit.slug }); }
+    const e = matchZoo.get(m.to) || { id: m.to, succ: 0, total: 0 };
+    e.total++; if (hit) e.succ++;
+    matchZoo.set(m.to, e);
+  }
+  const MIN_SAMPLE = 6;
+  const byZoo = [...matchZoo.values()].filter((e) => e.total >= MIN_SAMPLE)
+    .map((e) => ({ ...e, rate: e.succ / e.total }))
+    .sort((p, q) => q.rate - p.rate || q.total - p.total || p.id - q.id);
+
+  // 距離紀錄
+  const withKm = moves.filter((m) => m.km != null);
+  const longest = [...withKm].sort((p, q) => q.km - p.km || (p.date || '').localeCompare(q.date || '')).slice(0, 8);
+  const travMap = new Map();
+  for (const m of withKm) {
+    const e = travMap.get(m.slug) || { slug: m.slug, km: 0, n: 0 };
+    e.km += m.km; e.n++; travMap.set(m.slug, e);
+  }
+  const travellers = [...travMap.values()].sort((p, q) => q.km - p.km || q.n - p.n).slice(0, 8);
+
+  // 首次搬家年齡（每隻只取最早一次）
+  const firstAge = new Map();
+  for (const m of moves) {
+    if (m.age == null || m.age < 0) continue;
+    const cur = firstAge.get(m.slug);
+    if (cur == null || m.age < cur) firstAge.set(m.slug, m.age);
+  }
+  const ages = [...firstAge.values()];
+  const ageBands = Array(8).fill(0); // 0,1,2,…,6,7+
+  for (const a of ages) ageBands[Math.min(Math.floor(a), 7)]++;
+
+  return {
+    total: moves.length,
+    dated: moves.filter((m) => m.t !== null).length,
+    zooCount: flowMap.size,
+    pairCount: pairs.size,
+    totalKm: Math.round(withKm.reduce((s, m) => s + m.km, 0)),
+    medianKm: Math.round(_median(withKm.map((m) => m.km)) || 0),
+    ageMedian: ages.length ? Math.round(_median(ages) * 10) / 10 : null,
+    ageBands,
+    ageN: ages.length,
+    monthMoves, monthBirths,
+    routes, flow,
+    match: { succ, total: tried, rate: tried ? succ / tried : 0, byZoo, cases: matchCases },
+    longest, travellers,
+  };
+})();
+
+// ── 日本總覽（/japan/ 落地頁）：日本相關頁面的共用數字，建置期算 ──────────
+// 「日本個體」沿用 _jpZooIds 的定義（一生曾住過 country==='Japan' 的園）。
+// 現居＝最後一段居住史仍未結束（end 為 null）且該園在日本；存疑個體不計入現存。
+export const JP_SUMMARY = (() => {
+  const all = Object.values(pandas).filter((p) => !p.unverified);
+  const recorded = all.filter((p) => _jpZooIds(p).length > 0).length;
+  const zooSet = new Set();
+  let living = 0;
+  for (const p of all) {
+    if (p.died) continue;
+    const last = (p.residences || [])[(p.residences || []).length - 1];
+    if (!last || last.end || !_isJPZoo(last.zoo_id)) continue;
+    living++; zooSet.add(last.zoo_id);
+  }
+  return {
+    recorded,
+    living,
+    zoosWithLiving: zooSet.size,
+    zoosTotal: zoos.filter((z) => z.country === 'Japan').length,
+  };
+})();

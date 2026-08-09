@@ -39,6 +39,9 @@ const intro = (T.ft_intro || '').replace('{n}', _D.nodes.length).replace('{g}', 
     font: inherit; font-size: .88rem; padding: 7px 10px; border: 1px solid var(--line);
     border-radius: 9px; background: var(--bg-card); color: var(--ink); }
   .ft-tools input { width: 170px; }
+  /* 原生 select 的內建寬度跟著最長 option 走（英／韓園名可到 466px），在窄螢幕會把整頁
+     撐出橫向捲動。設 max-width＋min-width:0 讓它縮在工具列內，選單展開時仍顯示全名。 */
+  .ft-tools select { max-width: 100%; min-width: 0; }
   .ft-tools button { cursor: pointer; color: var(--ink-soft); }
   .ft-tools button:hover { color: var(--rust-dark); }
   .ft-stat { font-size: .8rem; color: var(--ink-soft); margin-left: auto; }

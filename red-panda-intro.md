@@ -17,7 +17,7 @@
 
 2020 年胡義波（Hu, Y.）等人在《Science Advances》發表的全基因體研究提出：兩者的遺傳分化已達物種層級，應視為**兩個獨立物種**——*Ailurus fulgens*（喜馬拉雅小熊貓）與 *Ailurus styani*（中華小熊貓），分化時間估計約 20 多萬年前；地理分界也修正為更西邊的**雅魯藏布江**，而非傳統認定的怒江。
 
-兩物種說目前仍在學界討論中，IUCN 等機構暫仍以「單一物種、兩亞種」處理。**本圖鑑沿用亞種寫法**：個體頁「物種」欄的 *Ailurus fulgens fulgens*／*Ailurus fulgens styani*，即對應本頁的喜馬拉雅小熊貓／中華小熊貓。
+兩物種說目前仍在學界討論中，IUCN 等機構暫仍以「單一物種、兩亞種」處理。這不只是命名之爭——主張兩物種的同一批學者也指出，若真的成立兩個物種，兩者的受脅程度就必須**分別評估**、不能再合併看待。**本圖鑑沿用亞種寫法**：個體頁「物種」欄的 *Ailurus fulgens fulgens*／*Ailurus fulgens styani*，即對應本頁的喜馬拉雅小熊貓／中華小熊貓。
 
 ## 喜馬拉雅小熊貓（*Ailurus fulgens fulgens*）
 
@@ -63,11 +63,15 @@ IUCN 紅色名錄將小熊貓列為**瀕危（Endangered）**：野外成熟個�
 
 保育工作包括棲地與保護區的維護、社區型保育（如尼泊爾的森林守護員制度），以及動物園的**域外保種**——各國動物園依血統書進行計畫性配對，維持健康的備援族群。你在本圖鑑看到的居住史與家系，其實就是這套國際合作的縮影。
 
+以歐洲為例：1979 年成立**國際血統書**時，圈養族群小而不穩、繁殖成績不佳；1985 年啟動 **EEP（歐洲瀕危物種保育計畫）**後，隨著飼育技術改良，族群才逐步穩定成長，到 2019 年底已有 **407 隻分養於 182 家機構**，並回頭支援野外的保育工作。
+
 ## 換毛與健康
 
 每年春天小熊貓會把厚重的冬毛換成夏毛：大約 4 月開始、6 月初告一段落，毛從臉頰、額頭和尾巴根部開始脫落，看起來會突然「變瘦」、甚至有點邋遢；長新毛很耗體力，這段期間也會休息得比較多。夏天在動物園看到毛稀稀疏疏的小熊貓，多半不是生病，而是正在換裝（桐生が岡動物園的飼育觀察）。
 
 圈養小熊貓的死因統計相當清楚。寶寶的頭一個月是最大關卡：北美 20 年間的解剖統計裡，未滿 30 天的新生兒佔了全部死亡的四成；成都的研究則有近七成幼獸死於出生後 15 天內，夏季高溫高濕引發的呼吸道與腸道感染是大宗——這也是為什麼園方多半等寶寶度過最脆弱的幾週才公開亮相。
+
+幼獸能不能活下來，和**出生園所在地的氣候**關係很大。分析全球血統書資料發現，出生地的氣候會明顯影響新生小熊貓的存活：在繁殖季氣候溫暖潮濕的國家，第一年死亡率高達 **36%**，推測是母獸因熱緊迫而較常離巢、把幼獸單獨留下。小熊貓本來就適應喜馬拉雅冷濕的中海拔森林，怕熱可以說是牠們在動物園裡最根本的難題。
 
 順利長大的個體，成年與高齡期最常見的死因是**心血管疾病**，其次是腎臟病與消化道疾病。園方訃報裡常見的「心臟疾患」「腎功能衰竭」，正對應這份統計。消化道也可能突發急症——胃擴張扭轉（GDV）有病例報告，**腸套疊**（日文訃報寫「腸重積」）則見於園方公告：2025 年天王寺動物園的メル前一晚仍正常進食，隔天早上便因腸套疊引發的循環衰竭驟逝。
 
@@ -103,6 +107,8 @@ IUCN 紅色名錄將小熊貓列為**瀕危（Endangered）**：野外成熟個�
 - 桐生が岡動物園 — レッサーパンダの換毛事情. https://www.city.kiryu.lg.jp/zoo/yomoyama/1022284/1022730.html
 - Retrospective analysis of mortality in the North American captive red panda (*Ailurus fulgens*) population, 1992–2012. *Journal of Zoo and Wildlife Medicine*, 46(4) (2015). https://doi.org/10.1638/2014-0166.1
 - Mortality analysis of captive red panda cubs within Chengdu, China. *BMC Veterinary Research*, 18 (2022). https://doi.org/10.1186/s12917-022-03170-2
+- Princée, F. P. G. & Glatston, A. R. (2016). Influence of climate on the survivorship of neonatal red pandas in captivity. *Zoo Biology*, 35(2), 104–110. https://doi.org/10.1002/zoo.21266
+- Kappelhof, J. & Weerman, J. (2020). The development of the Red panda *Ailurus fulgens* EEP: from a failing captive population to a stable population that provides effective support to in situ conservation. *International Zoo Yearbook*, 54(1), 102–112. https://doi.org/10.1111/izy.12278
 - Vaccine-induced canine distemper in a lesser panda. *JAVMA*, 169(9) (1976). https://pubmed.ncbi.nlm.nih.gov/988010/
 - Li, X., Glaser, D. et al. (2009). Analyses of sweet receptor gene (*Tas1r2*) and preference for sweet stimuli in species of Carnivora. *Journal of Heredity*, 100(S1), S90–S100. https://doi.org/10.1093/jhered/esp015
 - Gastric dilatation and volvulus in a red panda (*Ailurus fulgens*). *Veterinary Surgery*, 43(6) (2014). https://doi.org/10.1111/j.1532-950X.2014.12135.x

@@ -221,9 +221,13 @@ def render_section(res, born, died, birth_zoo=""):
         loc = ""
         if rec:
             cl = CFLAG.get(rec.get("country"), ("", ""))
-            locja = rec.get("location_ja") or ""
+            # wiki 內文是中文 → 地點取 location_zh 優先（2026-08-09 起）。註冊表分工：
+            # location_ja 存當地語言、location_zh 存繁體中文、location_en 存英文，
+            # 三欄都可能缺，依「中文 → 當地語言 → 英文」退。
+            locja = (rec.get("location_zh") or rec.get("location_ja")
+                     or rec.get("location_en") or "")
             if cl[0] and locja.startswith(cl[0]):
-                loc = locja  # location_ja 已含國名（如「香港南区黄竹坑」），不重複前綴
+                loc = locja  # 地點已含國名（如「香港南區黃竹坑」），不重複前綴
             else:
                 loc = " ".join(p for p in [cl[0], locja] if p)
             if cl[1]:
@@ -287,18 +291,21 @@ def main():
         for slug, b, a in changed:
             print(f"   {slug}: {b} → {a}")
 
-    # ── 補齊註冊表 location_ja（data/zoos.json 為唯一事實來源：只填「空白」者，
+    # ── 補齊註冊表 location_zh（data/zoos.json 為唯一事實來源：只填「空白」者，
     #    永不覆寫既有人工校訂值，避免與 lineage 衍生值來回拉扯造成全庫地點抖動）──
+    #    收割來源是 wiki 內文表格，內文是中文 → 只能填 location_zh。
+    #    2026-08-09 前這裡誤填 location_ja，是非日本園的 location_ja 混入繁中的來源之一。
     data = json.load(open(REGISTRY_PATH, encoding="utf-8"))
     bycanon = {r["canonical"]: r for r in data}
     filled = 0
     for canon, ctr in harvest.items():
         loc = ctr.most_common(1)[0][0]
-        if canon in bycanon and loc and not bycanon[canon].get("location_ja"):
-            bycanon[canon]["location_ja"] = loc; filled += 1
+        if canon in bycanon and loc and not bycanon[canon].get("location_zh"):
+            bycanon[canon]["location_zh"] = loc; filled += 1
     if not dry:
-        json.dump(data, open(REGISTRY_PATH, "w"), ensure_ascii=False, indent=1)
-    print(f"✅ 註冊表 location_ja 補齊 {filled} 座空白（既有校訂值不動）")
+        json.dump(data, open(REGISTRY_PATH, "w", encoding="utf-8"),
+                  ensure_ascii=False, indent=1)
+    print(f"✅ 註冊表 location_zh 補齊 {filled} 座空白（既有校訂值不動）")
     reg.__init__(data)  # reload index with new locations
 
     if dry:

@@ -116,6 +116,12 @@ died: YYYY-MM-DD                   # 若健在則省略
 species: Ailurus fulgens styani | Ailurus fulgens fulgens   # 亞種不詳→整行省略（勿寫 Ailurus fulgens）
 zoos:
   - 動物園名稱 (起 – 訖)            # 園名須為 data/zoos.json 註冊表 canonical（未登記 build 報錯）；起訖可 YYYY-MM-DD／YYYY，現居訖留空或寫「現在」
+
+> **遇到沒登記過的園要先加進 `data/zoos.json`**，此時地點三欄一欄一語、**不可混填**（詳見 CLAUDE.md）：
+> `location_ja`＝當地語言（日本園日文新字体「神奈川県横浜市」、中港台韓園日文可讀漢字「上海市長寧区」；
+> **非漢字圈的園留空 `null`**，ja 語系自動退回英文），`location_zh`＝繁體中文正本（「紐約州水牛城」），
+> `location_en`＝英文。RPF／lineage 帶出的地點多半是繁中或英文，**落地前先分流**，別整串丟進 `location_ja`；
+> 也順手看語序有沒有顛倒（lineage 會給「佐世保市長崎県」這種值）。
 rpf_id: 數字
 rpf_url: https://redpandafinder.com/#profile/數字
 tags: [styani或fulgens, female或male, zoo:動物園名]

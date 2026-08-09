@@ -544,6 +544,37 @@ h1, h2, h3 { letter-spacing: .005em; }
 .nav-link:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }
 .nav-link.active { background: color-mix(in srgb, var(--rust) 16%, transparent); color: var(--rust-dark); font-weight: 600; }
 
+/* 導覽列子選單（「日本」群組）：桌機以 hover／鍵盤 focus-within 展開浮層，純 CSS 無 JS——
+   父項本身是連往 /japan/ 的連結，滑鼠不停留也點得到，鍵盤 Tab 到父項即展開再 Tab 進子項。
+   手機（<640px）不浮出：子項直接縮排列在群組下方，漢堡選單一次看完不必多一次點擊。 */
+.nav-group { position: relative; }
+@media (min-width: 640px) {
+  .nav-sub {
+    position: absolute; top: 100%; left: 0; z-index: 30;
+    display: none; min-width: 100%;
+    margin-top: .3rem; padding: .3rem;
+    background: var(--bg-card); border: 1px solid var(--line);
+    border-radius: var(--r-card); box-shadow: 0 8px 24px rgba(61,44,35,.16);
+  }
+  :root[data-theme="dark"] .nav-sub { box-shadow: 0 8px 24px rgba(0,0,0,.5); }
+  .nav-group:hover > .nav-sub,
+  .nav-group:focus-within > .nav-sub { display: block; }
+  /* 父項與浮層之間留了 .3rem 空隙，補一層透明橋接免得滑過去就收起來 */
+  .nav-group:hover > .nav-sub::before,
+  .nav-group:focus-within > .nav-sub::before {
+    content: ''; position: absolute; left: 0; right: 0; top: -.4rem; height: .4rem;
+  }
+}
+@media (max-width: 639px) {
+  /* 手機清單裡的項目是置中的，光靠 padding-left 看不出階層——改用左側細線＋內縮，
+     子項才不會被讀成第七個平行項目 */
+  #site-nav:not(.hidden) .nav-sub {
+    margin: .1rem 0 .2rem 1.5rem; padding-left: .75rem;
+    border-left: 2px solid var(--line);
+  }
+  #site-nav:not(.hidden) .nav-sub .nav-link { font-size: .88rem; opacity: .92; padding-top: .5rem; padding-bottom: .5rem; }
+}
+
 /* 手機版下拉選單：漢堡開啟後，nav 換行佔滿寬度、直向堆疊成清單列，
    加分隔線與輕微下滑動畫。display:flex 必須在這裡明確給——
    nav.js 只移除 .hidden，Tailwind 的 sm:flex 在手機不生效，

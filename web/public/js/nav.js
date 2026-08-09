@@ -21,7 +21,11 @@
       if (!nav.classList.contains('hidden') && !nav.contains(e.target) && !btn.contains(e.target)) setOpen(false);
     });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key !== 'Escape') return;
+      setOpen(false);
+      // 桌機子選單靠 :focus-within 展開，收起＝把焦點移出群組（純 CSS 無狀態可清）
+      var a = document.activeElement;
+      if (a && a.closest && a.closest('.nav-group')) a.blur();
     });
     // 放大到桌機尺寸時重置（桌機本就 sm:flex 顯示）
     var mq = matchMedia('(min-width: 640px)');

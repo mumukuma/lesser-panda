@@ -36,7 +36,7 @@ sources:
 | 期間 | 動物園 | 地點 |
 |------|--------|------|
 | 2024 – 現在 | Hertfordshire Zoo 🏡 | 英國 赫特福德郡布羅克斯本 🇬🇧 |
-| ? – 2024 | Welsh Mountain Zoo | 英國 🇬🇧 |
+| ? – 2024 | Welsh Mountain Zoo | 英國 威爾斯 🇬🇧 |
 ---
 
 ## 家族

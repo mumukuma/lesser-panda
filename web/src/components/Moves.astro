@@ -1,0 +1,209 @@
+---
+/* 搬園統計（#moves）：由居住史相鄰兩段推得的「園間移動」，全部在建置期算完
+   （見 data.js 的 MOVES）。純 HTML/CSS 長條圖、零 JS 零圖表庫，顏色走主題變數。
+   只計日本國內移動：起訖園皆為 Japan 且皆已對應註冊表；存疑個體不列入。 */
+import { pandas, i18n, displayName, zooName, zooSlugById, deceasedHtml, MOVES } from '../lib/data.js';
+import { pandaUrl, pageUrl, zooUrl } from '../lib/links.js';
+
+const { locale } = Astro.props;
+const T = i18n[locale];
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const M = MOVES;
+
+const months = T.mv_months.split(',');
+const num = (n) => n.toLocaleString('en-US');
+const pct = (r) => Math.round(r * 100);
+const km = (n) => T.mv_km.replace('{n}', num(Math.round(n)));
+
+const zooLink = (id) =>
+  `<a class="text-rust no-underline hover:underline" href="${zooUrl(base, locale, zooSlugById[id])}">${zooName(id, null, locale)}</a>`;
+const pandaLink = (slug) => {
+  const p = pandas[slug];
+  if (!p) return slug;
+  return `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, p.urlId)}">${displayName(p, locale)}${p.died ? deceasedHtml(locale) : ''}</a>`;
+};
+
+// 兩條序列各自以自身最大值為滿高：出生（270+）與搬家（80）量級差三倍多，
+// 共用刻度會把搬家壓成一條線，這裡要比的是「季節形狀」而非絕對數。
+const moveMax = Math.max(...M.monthMoves, 1);
+const birthMax = Math.max(...M.monthBirths, 1);
+const peakMoveMonth = M.monthMoves.indexOf(Math.max(...M.monthMoves));
+const topRoutes = M.routes.slice(0, 12);
+const routeMax = Math.max(...topRoutes.map((r) => r.n), 1);
+const topFlow = M.flow.slice(0, 14);
+const flowMax = Math.max(...topFlow.map((f) => Math.max(f.out, f.in)), 1);
+const topMatch = M.match.byZoo.slice(0, 10);
+const ageMax = Math.max(...M.ageBands, 1);
+const ageLabels = M.ageBands.map((_, i) => (i === 7 ? '7+' : String(i)));
+
+const summary = [
+  [T.mv_stat_moves, num(M.total)],
+  [T.mv_stat_pairs, num(M.pairCount)],
+  [T.mv_stat_median_km, num(M.medianKm)],
+  [T.mv_stat_total_km, num(M.totalKm)],
+];
+
+const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';
+const CARD = 'card-soft p-[18px_20px]';
+const speciesHref = pageUrl(base, locale, 'species');
+const statsHref = pageUrl(base, locale, 'stats');
+---
+<h1 class="font-display text-3xl font-semibold mt-6 mb-1">{T.nav_moves}</h1>
+<p class="text-ink-soft text-[.95rem] mb-5">{T.mv_intro}</p>
+
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-5">
+  {summary.map(([l, n]) => (
+    <div class="stat-card py-4 px-2">
+      <div class="text-2xl sm:text-3xl font-display font-semibold text-rust leading-none">{n}</div>
+      <div class="text-[.82rem] text-ink-soft mt-1.5">{l}</div>
+    </div>
+  ))}
+</div>
+
+<!-- 搬家季 vs 出生季：兩條序列疊在同一組月份上 -->
+<section class="reveal">
+  <h2 class={H2}>{T.mv_sec_season}</h2>
+  <div class={CARD}>
+    <div class="flex flex-wrap gap-x-4 gap-y-1 text-[.82rem] mb-3">
+      <span class="text-ink-soft"><span class="inline-block w-2.5 h-2.5 rounded-full align-[-1px] mr-1" style="background:var(--rust)"></span>{T.mv_legend_moves}</span>
+      <span class="text-ink-soft"><span class="inline-block w-2.5 h-2.5 rounded-full align-[-1px] mr-1" style="background:var(--leaf)"></span>{T.mv_legend_births}</span>
+    </div>
+    <div class="flex items-end gap-[3px] sm:gap-1.5">
+      {months.map((label, i) => (
+        <div class="flex-1 flex flex-col items-center min-w-0">
+          <div class="flex items-end gap-[2px] h-[120px] w-full justify-center"
+            title={`${label}｜${T.mv_legend_moves} ${M.monthMoves[i]}｜${T.mv_legend_births} ${M.monthBirths[i]}`}>
+            <div class="w-[45%] max-w-[14px] rounded-t" style={`height:${Math.max(Math.round((M.monthMoves[i] / moveMax) * 120), M.monthMoves[i] ? 2 : 0)}px;background:var(--rust)`}></div>
+            <div class="w-[45%] max-w-[14px] rounded-t" style={`height:${Math.max(Math.round((M.monthBirths[i] / birthMax) * 120), M.monthBirths[i] ? 2 : 0)}px;background:var(--leaf)`}></div>
+          </div>
+          <span class="text-[.65rem] sm:text-[.72rem] text-ink-soft mt-1.5 truncate w-full text-center">{label}</span>
+        </div>
+      ))}
+    </div>
+    <p class="text-ink-soft text-[.85rem] mt-3 mb-0">{T.mv_season_note.replace('{peak}', months[peakMoveMonth]).replace('{n}', M.monthMoves[peakMoveMonth])}</p>
+    <p class="text-ink-soft text-[.8rem] mt-1 mb-0">{T.mv_season_scale.replace('{a}', moveMax).replace('{b}', birthMax)}</p>
+    <p class="mt-2 mb-0 text-[.85rem]"><a class="text-rust no-underline hover:underline" href={`${speciesHref}#breeding`}>{T.mv_season_link} →</a></p>
+  </div>
+</section>
+
+<!-- 交流最頻繁的動物園（無向園對） -->
+<section class="reveal">
+  <h2 class={H2}>{T.mv_sec_routes}</h2>
+  <div class={CARD}>
+    {topRoutes.map((r, i) => (
+      <div class="flex items-center gap-2.5 py-1">
+        <span class="w-5 text-right text-ink-soft text-[.8rem] tabular-nums shrink-0">{i + 1}</span>
+        <span class="min-w-0 flex-1 sm:flex-none sm:w-[26rem] sm:truncate text-[.88rem] leading-snug">
+          <Fragment set:html={zooLink(r.a)} /><span class="text-ink-soft mx-1">⇄</span><Fragment set:html={zooLink(r.b)} />
+        </span>
+        <div class="flex-1 h-3.5 rounded-full bg-cream overflow-hidden hidden sm:block">
+          <div class="h-full rounded-full" style={`width:${Math.max((r.n / routeMax) * 100, 4)}%;background:var(--amber)`}></div>
+        </div>
+        <span class="text-right text-[.85rem] tabular-nums whitespace-nowrap">{T.mv_route_n.replace('{n}', r.n)}</span>
+      </div>
+    ))}
+    <p class="text-ink-soft text-[.85rem] mt-3 mb-0">{T.mv_routes_note.replace('{n}', num(M.pairCount)).replace('{z}', num(M.zooCount))}</p>
+  </div>
+</section>
+
+<!-- 送出與接收：左送出、右接收 -->
+<section class="reveal">
+  <h2 class={H2}>{T.mv_sec_flow}</h2>
+  <div class={CARD}>
+    <div class="flex justify-between text-[.8rem] mb-1.5">
+      <span class="text-rust font-medium">← {T.mv_flow_out}</span>
+      <span class="text-leaf font-medium">{T.mv_flow_in} →</span>
+    </div>
+    {topFlow.map((f) => (
+      <div class="flex items-center gap-1.5 py-[3px] text-[.78rem]">
+        <span class="w-6 text-right text-ink-soft tabular-nums">{f.out || ''}</span>
+        <div class="flex-1 flex justify-end">
+          <div class="h-3.5 rounded-l-full" style={`width:${(f.out / flowMax) * 100}%;background:var(--rust);min-width:${f.out ? 3 : 0}px`}></div>
+        </div>
+        <span class="w-[7.5rem] sm:w-48 text-center shrink-0 truncate" set:html={zooLink(f.id)} />
+        <div class="flex-1">
+          <div class="h-3.5 rounded-r-full" style={`width:${(f.in / flowMax) * 100}%;background:var(--leaf);min-width:${f.in ? 3 : 0}px`}></div>
+        </div>
+        <span class="w-6 text-ink-soft tabular-nums">{f.in || ''}</span>
+      </div>
+    ))}
+    <p class="text-ink-soft text-[.85rem] mt-3 mb-0">{T.mv_flow_note}</p>
+  </div>
+</section>
+
+<!-- お見合い成功率 -->
+<section class="reveal">
+  <h2 class={H2}>{T.mv_sec_match}</h2>
+  <div class={CARD}>
+    <p class="m-0 mb-3 text-[.95rem]" set:html={T.mv_match_headline.replace('{p}', `<strong class="text-rust">${pct(M.match.rate)}%</strong>`).replace('{n}', num(M.match.succ)).replace('{t}', num(M.match.total))} />
+    {topMatch.map((z, i) => (
+      <div class="flex items-center gap-2.5 py-1">
+        <span class="w-5 text-right text-ink-soft text-[.8rem] tabular-nums shrink-0">{i + 1}</span>
+        <span class="w-[38%] sm:w-56 shrink-0 truncate text-[.88rem]" set:html={zooLink(z.id)} />
+        <div class="flex-1 h-3.5 rounded-full bg-cream overflow-hidden">
+          <div class="h-full rounded-full" style={`width:${Math.max(z.rate * 100, 3)}%;background:var(--leaf)`}></div>
+        </div>
+        <span class="text-right text-[.85rem] tabular-nums whitespace-nowrap">{pct(z.rate)}%</span>
+        <span class="w-14 text-right text-ink-soft text-[.78rem] tabular-nums whitespace-nowrap hidden sm:inline">{T.mv_match_n.replace('{s}', z.succ).replace('{t}', z.total)}</span>
+      </div>
+    ))}
+    <p class="text-ink-soft text-[.85rem] mt-3 mb-0">{T.mv_match_note}</p>
+  </div>
+</section>
+
+<!-- 距離紀錄 -->
+<section class="reveal">
+  <h2 class={H2}>{T.mv_sec_records}</h2>
+  <div class="grid sm:grid-cols-2 gap-3">
+    <div class={`${CARD} min-w-0`}>
+      <h3 class="font-display text-base mt-0 mb-2 font-semibold text-rust-dark">{T.mv_rec_longest}</h3>
+      <ol class="list-none p-0 m-0">
+        {M.longest.map((m, i) => (
+          <li class="py-1 border-t border-line first:border-t-0 text-[.9rem]">
+            <div class="flex items-baseline gap-2">
+              <span class="w-5 text-right text-ink-soft text-[.82rem] tabular-nums shrink-0">{i + 1}</span>
+              <span class="min-w-0 flex-1 truncate" set:html={pandaLink(m.slug)} />
+              <span class="text-ink-soft text-[.85rem] whitespace-nowrap">{km(m.km)}</span>
+            </div>
+            <div class="pl-7 text-ink-soft text-[.8rem] leading-snug sm:truncate">
+              <Fragment set:html={zooName(m.from, null, locale)} /> → <Fragment set:html={zooName(m.to, null, locale)} />
+              {m.date && <span class="ml-1 whitespace-nowrap">（{m.date}）</span>}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+    <div class={`${CARD} min-w-0`}>
+      <h3 class="font-display text-base mt-0 mb-2 font-semibold text-rust-dark">{T.mv_rec_travellers}</h3>
+      <ol class="list-none p-0 m-0">
+        {M.travellers.map((t, i) => (
+          <li class="py-1 flex items-baseline gap-2 border-t border-line first:border-t-0 text-[.9rem]">
+            <span class="w-5 text-right text-ink-soft text-[.82rem] tabular-nums shrink-0">{i + 1}</span>
+            <span class="min-w-0 flex-1 truncate" set:html={pandaLink(t.slug)} />
+            <span class="text-ink-soft text-[.8rem] whitespace-nowrap">{T.mv_route_n.replace('{n}', t.n)}</span>
+            <span class="text-ink-soft text-[.85rem] whitespace-nowrap">{km(t.km)}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 第一次搬家的年齡 -->
+<section class="reveal">
+  <h2 class={H2}>{T.mv_sec_age}</h2>
+  <div class={CARD}>
+    <div class="flex items-end gap-[3px] sm:gap-1.5">
+      {M.ageBands.map((n, i) => (
+        <div class="flex-1 flex flex-col items-center min-w-0" title={`${ageLabels[i]} ${T.stats_age_unit}: ${n}`}>
+          <div class="w-full max-w-[26px] rounded-t" style={`height:${Math.max(Math.round((n / ageMax) * 100), n ? 2 : 0)}px;background:var(--amber)`}></div>
+          <span class="text-[.7rem] text-ink-soft mt-1.5">{ageLabels[i]}</span>
+        </div>
+      ))}
+    </div>
+    <p class="text-ink-soft text-[.85rem] mt-3 mb-0">{T.mv_age_note.replace('{n}', M.ageMedian).replace('{t}', num(M.ageN))}</p>
+  </div>
+</section>
+
+<p class="text-ink-soft text-[.82rem] mt-6">{T.mv_note}</p>
+<p class="text-[.85rem] mt-2"><a class="text-rust no-underline hover:underline" href={statsHref}>{T.nav_stats} →</a></p>

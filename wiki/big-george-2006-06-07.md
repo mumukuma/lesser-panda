@@ -38,7 +38,7 @@ sources:
 |------|--------|------|
 | 2013-09-11 – 2014-05-25 | Assiniboine Park Zoo | 加拿大 曼尼托巴省溫尼伯 🇨🇦 |
 | 2012-11-21 – 2013-09-11 | Edmonton Valley Zoo | 加拿大 亞伯達省艾德蒙頓 🇨🇦 |
-| 2008-11-12 – 2012-11-21 | Toronto Zoo | 加拿大 安大略省Toronto 🇨🇦 |
+| 2008-11-12 – 2012-11-21 | Toronto Zoo | 加拿大 安大略省多倫多 🇨🇦 |
 | 2007-06-28 – 2008-11-12 | Akron Zoological Park | 美國 俄亥俄州阿克倫 🇺🇸 |
 | 2006-06-07 – 2007-06-28 | Cincinnati Zoo and Botanical Garden 🐣 | 美國 俄亥俄州辛辛那提 🇺🇸 |
 ---

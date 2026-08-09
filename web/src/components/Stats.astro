@@ -313,7 +313,7 @@ const ageUnit = T.stats_age_unit;
   <h2 class={H2}>{T.stats_sec_longevity}</h2>
   <div class="grid sm:grid-cols-2 gap-3">
     {[[T.stats_oldest_living, oldestLiving], [T.stats_longest_lived, longestLived]].map(([title, list]) => (
-      <div class={CARD}>
+      <div class={`${CARD} min-w-0`}>
         <h3 class="font-display text-base mt-0 mb-2 font-semibold text-rust-dark">{title}</h3>
         <ol class="list-none p-0 m-0">
           {list.map(([p, a], i) => (
@@ -334,7 +334,7 @@ const ageUnit = T.stats_age_unit;
   <h2 class={H2}>{T.stats_sec_children}</h2>
   <div class="grid sm:grid-cols-2 gap-3">
     {[[T.stats_top_mothers, topMothers, 'text-female'], [T.stats_top_fathers, topFathers, 'text-male']].map(([title, list, cls]) => (
-      <div class={CARD}>
+      <div class={`${CARD} min-w-0`}>
         <h3 class={`font-display text-base mt-0 mb-2 font-semibold ${cls}`}>{title}</h3>
         <ol class="list-none p-0 m-0">
           {list.map(([p, r]) => (
@@ -389,3 +389,4 @@ const ageUnit = T.stats_age_unit;
 </section>
 
 <p class="text-ink-soft text-[.82rem] mt-6">{T.stats_note}</p>
+<p class="text-[.85rem] mt-2"><a class="text-rust no-underline hover:underline" href={pageUrl(base, locale, 'moves')}>{T.nav_moves} →</a></p>
