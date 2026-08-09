@@ -94,6 +94,63 @@ for (const p of living) {
 }
 const bandMax = Math.max(...bands.map(([, f, m]) => Math.max(f, m)), 1);
 
+// ── 母獸產仔年齡（母子雙方生日皆已知者；依生日估算）──────────
+//    生日在兩邊都記得很完整，故此分布不受「夭折仔未收錄」影響（已與國際血統書對照，
+//    最年輕／中位數／最年長三個值均吻合）。
+const _med = (xs) => {
+  const a = [...xs].sort((x, y) => x - y);
+  return a.length % 2 ? a[(a.length - 1) / 2] : (a[a.length / 2 - 1] + a[a.length / 2]) / 2;
+};
+const f1 = (x) => (Math.round(x * 10) / 10).toFixed(1);
+const damAges = [];
+const damSet = new Set();
+for (const p of all) {
+  if (!p.mother) continue;
+  const m = pandas[p.mother];
+  if (!m || m.unverified) continue;
+  const b = toDate(p.born), mb = toDate(m.born);
+  if (!b || !mb) continue;
+  const a = yearsBetween(mb, b);
+  if (a > 0 && a < 30) { damAges.push(a); damSet.add(p.mother); }
+}
+const damBins = [];
+for (const a of damAges) {
+  const i = Math.floor(a);
+  while (damBins.length <= i) damBins.push(0);
+  damBins[i]++;
+}
+const damSeries = damBins.map((n, i) => [i, n]).filter(([i]) => i >= 1);
+const damPeak = Math.max(...damSeries.map(([, n]) => n), 1);
+const damNote = damAges.length ? T.stats_dam_age_note
+  .replace('{n}', damAges.length).replace('{d}', damSet.size)
+  .replace('{min}', f1(Math.min(...damAges))).replace('{med}', f1(_med(damAges)))
+  .replace('{max}', f1(Math.max(...damAges))) : '';
+
+// ── 歿齡分布（已故且生日／歿日皆已知者）──────────────────
+//    ⚠️ 這是「歿齡組成」不是存活率：未滿一歲夭折者多半沒有條目（國際血統書裡約四分之一
+//    的幼獸活不過第一年，本站只有 2% 上下），註腳已說明，勿改寫成「壽命／存活率」。
+const deathAges = [];
+for (const p of all) {
+  if (!p.died) continue;
+  const b = toDate(p.born), d = toDate(p.died);
+  if (!b || !d) continue;
+  const a = yearsBetween(b, d);
+  if (a >= 0 && a < 40) deathAges.push(a);
+}
+const deathBins = [];
+for (const a of deathAges) {
+  const i = Math.floor(a);
+  while (deathBins.length <= i) deathBins.push(0);
+  deathBins[i]++;
+}
+const deathSeries = deathBins.map((n, i) => [i, n]);
+const deathPeak = Math.max(...deathSeries.map(([, n]) => n), 1);
+const deathTotal = Math.max(deathAges.length, 1);
+const pctBand = (lo, hi) => Math.round((deathAges.filter((a) => a >= lo && a < hi).length / deathTotal) * 100);
+const deathNote = deathAges.length ? T.stats_death_age_note
+  .replace('{n}', deathAges.length).replace('{med}', f1(_med(deathAges)))
+  .replace('{p2}', pctBand(10, 15)).replace('{p3}', pctBand(15, 20)).replace('{p4}', pctBand(20, 99)) : '';
+
 // ── 長壽排行（年紀顯示到「N 歲 M 個月」）─────────────────
 const link = (p) =>
   `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, p.urlId)}">${displayName(p, locale)}${p.died ? deceasedHtml(locale) : ''}</a>`;
@@ -308,6 +365,26 @@ const ageUnit = T.stats_age_unit;
   </div>
 </section>
 
+<!-- 母獸產仔年齡 -->
+<section class="reveal">
+  <h2 class={H2}>{T.stats_sec_dam_age}</h2>
+  <div class={CARD}>
+    <div class="flex items-end gap-[3px] h-[118px]">
+      {damSeries.map(([a, n]) => (
+        <div class="flex-1 h-full flex flex-col justify-end items-center" title={`${a} ${ageUnit}：${n}`}>
+          <div class="w-full max-w-[18px] rounded-t" style={`height:${Math.max(Math.round((n / damPeak) * 110), n ? 3 : 0)}px;background:var(--female)`}></div>
+        </div>
+      ))}
+    </div>
+    <div class="flex gap-[3px] mt-1">
+      {damSeries.map(([a]) => (
+        <span class="flex-1 text-center text-[.62rem] text-ink-soft tabular-nums">{a % 2 === 1 ? a : ''}</span>
+      ))}
+    </div>
+    <p class="text-ink-soft text-[.8rem] mt-2.5 mb-0">{damNote}</p>
+  </div>
+</section>
+
 <!-- 長壽排行 -->
 <section class="reveal">
   <h2 class={H2}>{T.stats_sec_longevity}</h2>
@@ -326,6 +403,26 @@ const ageUnit = T.stats_age_unit;
         </ol>
       </div>
     ))}
+  </div>
+</section>
+
+<!-- 歿齡分布：⚠️ 歿齡組成，非存活率（見註腳） -->
+<section class="reveal">
+  <h2 class={H2}>{T.stats_sec_death_age}</h2>
+  <div class={CARD}>
+    <div class="flex items-end gap-[2px] h-[118px]">
+      {deathSeries.map(([a, n]) => (
+        <div class="flex-1 h-full flex flex-col justify-end items-center" title={`${a} ${ageUnit}：${n}（${Math.round((n / deathTotal) * 1000) / 10}%）`}>
+          <div class="w-full max-w-[16px] rounded-t" style={`height:${Math.max(Math.round((n / deathPeak) * 110), n ? 3 : 0)}px;background:var(--rust)`}></div>
+        </div>
+      ))}
+    </div>
+    <div class="flex gap-[2px] mt-1">
+      {deathSeries.map(([a]) => (
+        <span class="flex-1 text-center text-[.62rem] text-ink-soft tabular-nums">{a % 5 === 0 ? a : ''}</span>
+      ))}
+    </div>
+    <p class="text-ink-soft text-[.8rem] mt-2.5 mb-0">{deathNote}</p>
   </div>
 </section>
 
