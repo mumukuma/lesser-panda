@@ -7,6 +7,7 @@ species: Ailurus fulgens styani
 zoos: []
 rpf_id: 716
 rpf_url: https://redpandafinder.com/#profile/716
+studbook_id: "0878"
 tags: [styani, male, deceased]
 sources:
   - https://redpandafinder.com/#profile/716

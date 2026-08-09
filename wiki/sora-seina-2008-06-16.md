@@ -10,6 +10,7 @@ zoos:
   - とくしま動物園 (2011-06-22 – 2020-11-18)
 rpf_id: 108
 rpf_url: https://redpandafinder.com/#profile/108
+studbook_id: "0863"
 tags: [styani, male, deceased, zoo:Tokushima Zoo]
 sources:
   - https://redpandafinder.com/#profile/108

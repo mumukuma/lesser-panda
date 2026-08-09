@@ -3,15 +3,18 @@ name: Sei-Sei
 japanese: 誠誠, セイセイ
 english_variants: [Seisei]
 sex: female
-born: 1986
+born: 1984
 died: 2000-09-07
 species: Ailurus fulgens styani
 zoos:
   - 市川市動植物園 (1986-11-01 – 2000-09-07)
+birth_zoo: unknown
 rpf_id: 747
 rpf_url: https://redpandafinder.com/#profile/747
+studbook_id: "8640"
 tags: [styani, female, deceased]
 sources:
+  - https://web.archive.org/web/20120128200628/http://www.rotterdamzoo.nl/import/assetmanager/2/6732/Red%20Panda%20Studbook.pdf
   - https://redpandafinder.com/#profile/747
 extra_sources:
   - http://blog.livedoor.jp/maiaitsuki/archives/1070532051.html  # レッサーパンダに会いに行く「市川②～お宝写真満載『大人のための動物講座』」（2018-03-27）：市川市動植物園 30 週年展板轉述，記真真×誠誠 1986-11-01 來園及子女生日
@@ -22,12 +25,12 @@ extra_sources:
 > ⚠️ **注意同讀音**：wiki 內另有 [[sei-sei-hiroshima]] 🪽（**星星** / セイセイ，♂，広島市安佐動物公園），漢字名不同、讀音相同，為**不同個體**。
 
 > **小熊貓** ♀ | Ailurus fulgens styani
-> 生年：約 1986 年（生年不詳・野生捕獲，以抵日年份為近似）　歿日：2000 年 9 月 7 日
+> 生年：約 1984 年（生年不詳・野生捕獲，依國際血統登録書推定）　歿日：2000 年 9 月 7 日
 > 終居：市川市動植物園（日本千葉縣市川市）🇯🇵
 
-[[non-non-2003-06-16]] 🪽（暢暢）之祖母——[[yuu-yuu-1990-06-25]] 🪽 之母。原為中國野生捕獲個體，1986 年起居於市川市動植物園。與 Shin-Shin 🪽 育有 7 隻子女。
+[[non-non-2003-06-16]] 🪽（暢暢）之祖母——[[yuu-yuu-1990-06-25]] 🪽 之母。原為中國野生捕獲個體，1986 年 11 月起居於市川市動植物園。與 Shin-Shin 🪽 育有 7 隻子女。
 
-> 🚧 生年不詳：RPF 未載生日，本條目以最早記錄年份為近似生年。
+> ✅ **生年 2026-08-09 依國際血統登録書由 1986 改為 1984**：ISB（*International Red Panda Studbook*，Rotterdam Zoo 編，血統書番號 8640）記本隻為**中國野生捕獲、推定 `~1984` 年生**，1986-11-01 移入 ICHIKAWA（市川市動植物園）——**來園日與本條目原有記載完全一致**。原值 1986 是本 wiki 以抵日年份當近似生年的產物，並非生年；今改採血統登録書的推定值，slug 亦同步由 `sei-sei-1984` 更名為 `sei-sei-1984`。生年仍為推定（`~`），非確定生日。同時補 `birth_zoo: unknown`，居住史首站不再誤標 🐣（本隻並非生於市川）。
 
 ---
 
@@ -37,7 +40,7 @@ extra_sources:
 
 | 期間 | 動物園 | 地點 |
 |------|--------|------|
-| 1986-11-01 – 2000-09-07 | 市川市動植物園 🐣 | 日本 千葉縣市川市 🇯🇵 |
+| 1986-11-01 – 2000-09-07 | 市川市動植物園 | 日本 千葉縣市川市 🇯🇵 |
 ---
 
 ## 家族

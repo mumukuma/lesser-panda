@@ -558,16 +558,100 @@ export const JP_SUMMARY = (() => {
   const recorded = all.filter((p) => _jpZooIds(p).length > 0).length;
   const zooSet = new Set();
   let living = 0;
+  // 亞種分布（現居日本者）：指名亞種 fulgens 在日本極少，另記它現居在哪些園——
+  // 頁面要據此判斷是「集中在單一園」還是「分散多園」，措辭跟著資料走、不寫死。
+  const species = { styani: 0, fulgens: 0, unknown: 0 };
+  const fulgensByZoo = new Map();
   for (const p of all) {
     if (p.died) continue;
     const last = (p.residences || [])[(p.residences || []).length - 1];
     if (!last || last.end || !_isJPZoo(last.zoo_id)) continue;
     living++; zooSet.add(last.zoo_id);
+    const sp = p.species === 'styani' || p.species === 'fulgens' ? p.species : 'unknown';
+    species[sp]++;
+    if (sp === 'fulgens') fulgensByZoo.set(last.zoo_id, (fulgensByZoo.get(last.zoo_id) || 0) + 1);
   }
   return {
     recorded,
     living,
     zoosWithLiving: zooSet.size,
     zoosTotal: zoos.filter((z) => z.country === 'Japan').length,
+    species,
+    fulgensZoos: [...fulgensByZoo.entries()].map(([id, n]) => ({ id, n })).sort((a, b) => b.n - a.n || a.id - b.id),
   };
+})();
+
+// ── 日本族群的年度變化（/japan/「族群變化」）：建置期算 ────────────────
+// 逐年三個數：該年日本出生數、該年在日本園內死亡數、以及**年底**仍住在日本園的頭數
+//（含年齡中位數與 12 歲以上占比）。年底＝12/31，最後一年（未結束）改用今天，標為進行中。
+// ⚠️ 死亡數天生偏低：夭折幼獸園方多半不公布，wiki 現有日本完整生歿紀錄裡死於一歲前的
+//    只有個位數，故「死亡年齡」只能解讀為「活到成年的個體」，不可當壽命統計。
+const _zooAt = (p, t) => {
+  let z = null;
+  for (const r of p.residences || []) {
+    if (r.zoo_id == null) continue;
+    const s = r.start ? Date.parse(r.start) : -Infinity;
+    const e = r.end ? Date.parse(r.end) : Infinity;
+    if (s <= t && t <= e) z = r.zoo_id;
+  }
+  return z;
+};
+export const JP_TREND = (() => {
+  const all = Object.values(pandas).filter((p) => !p.unverified);
+  const now = new Date();
+  const thisYear = now.getFullYear();
+  const FROM = 1996;
+  const parse = (s) => (_isFullDate(s) ? Date.parse(s) : null);
+  const rows = [];
+  for (let Y = FROM; Y <= thisYear; Y++) {
+    const partial = Y === thisYear;
+    const t = partial ? now.getTime() : Date.parse(Y + '-12-31');
+    let births = 0, deaths = 0;
+    const ages = [];
+    for (const p of all) {
+      const b = parse(p.born);
+      if (p.born && +p.born.slice(0, 4) === Y && _isJPZoo(_birthZooId(p))) births++;
+      const dd = parse(p.died);
+      if (dd && +p.died.slice(0, 4) === Y && _isJPZoo(_zooAt(p, dd))) deaths++;
+      if (b === null || b > t) continue;
+      if (dd !== null && dd <= t) continue;
+      if (p.died && dd === null) continue;           // 只有年份的歿日無法定位，整筆不計入存量
+      if (!_isJPZoo(_zooAt(p, t))) continue;
+      ages.push((t - b) / DAY / 365.25);
+    }
+    ages.sort((a, b2) => a - b2);
+    const living = ages.length;
+    const old = ages.filter((a) => a >= 12).length;
+    rows.push({
+      y: Y, births, deaths, living, old, young: living - old,
+      median: living ? Math.round(_median(ages) * 10) / 10 : null,
+      oldPct: living ? Math.round((old / living) * 100) : 0,
+      partial,
+    });
+  }
+  const peak = rows.reduce((a, b) => (b.living > a.living ? b : a), rows[0]);
+
+  // 12 歲這條分界不是隨便挑的：用自家資料驗證它≈繁殖生涯的實質終點。
+  // 親代在生產當下的年齡（僅日本出生、且該親代生日已知者），算出滿 12 歲之後
+  // 才生下的比例——頁面上用這兩個數字向讀者交代分界的依據，資料長大也會自己更新。
+  const parentAges = { mother: [], father: [] };
+  for (const p of all) {
+    const b = parse(p.born);
+    if (b === null || !_isJPZoo(_birthZooId(p))) continue;
+    for (const [key, slug] of [['mother', p.mother], ['father', p.father]]) {
+      const par = slug && pandas[slug];
+      const pb = par && parse(par.born);
+      if (pb === null || pb === undefined || !pb) continue;
+      parentAges[key].push((b - pb) / DAY / 365.25);
+    }
+  }
+  const shareOver = (arr, t) => (arr.length ? (arr.filter((a) => a >= t).length / arr.length) * 100 : 0);
+  const SENIOR = 12;
+  const senior = {
+    age: SENIOR,
+    momPct: Math.round(shareOver(parentAges.mother, SENIOR)),
+    dadPct: Math.round(shareOver(parentAges.father, SENIOR)),
+    momMedian: parentAges.mother.length ? Math.round(_median(parentAges.mother) * 10) / 10 : null,
+  };
+  return { rows, peak, senior, first: rows[0], last: rows[rows.length - 1] };
 })();

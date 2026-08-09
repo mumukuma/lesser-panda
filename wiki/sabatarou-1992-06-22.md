@@ -10,6 +10,7 @@ zoos:
   - 釧路市動物園 (1995-02-15 – 2000-02-18)
 rpf_id: 732
 rpf_url: https://redpandafinder.com/#profile/732
+studbook_id: "9259"
 tags: [styani, male, deceased]
 sources:
   - https://redpandafinder.com/#profile/732

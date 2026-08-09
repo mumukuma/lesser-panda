@@ -50,6 +50,8 @@ OFFICIAL_HOSTS = {
     "asazoo.jp", "omutacityzoo.org", "hama-midorinokyokai.or.jp",
     "kobe-ojizoo.jp", "ojizoo.jp",  # 神戸市立王子動物園（現行官網＋舊官方網域）
     "tennojizoo.jp",  # 天王寺動物園（含園報《なきごえ》/nakigoe/ 與 ZOO DIARY，官方一手）
+    # 到津の森公園（北九州市；含公園だより「動物たちのおはなし」staff blog 與開園周年特設頁）
+    "itozu-zoo.jp",
     # 長野市茶臼山動物園。⚠️ 官網已改版為扁平靜態站，舊 CMS 的年度存檔
     # /zukan/zukan/YYYY（2003–2022「動物情報バックナンバー」）整批下架、現為 404。
     # 既有 sources 仍保留該原始位址作為 canonical 出處，原文摘錄存於
@@ -79,6 +81,10 @@ OFFICIAL_HOSTS = {
     "drusillas.co.uk", "witheverland.com", "chiangmai.zoothailand.org", "sriayuthayalionpark.com",
     "hertfordshirezoo.com",  # Hertfordshire Zoo（英國；舊名 Paradise Wildlife Park）
     "woburnsafari.co.uk",  # Woburn Safari Park（英國貝德福德郡；含 /news-and-events/ 園方報導）
+    # Diergaarde Blijdorp／Rotterdam Zoo（荷蘭）：國際小熊貓血統登録書（ISB）的編纂・保管園。
+    # ⚠️ 原站 /import/assetmanager/ PDF 目錄 2012 年後整批下架，sources 一律走 Wayback 快照
+    # （內層 host 為 rotterdamzoo.nl，`_unwrap_wayback` 會遞迴判為官方）；原檔存 sources/isb-red-panda/。
+    "rotterdamzoo.nl", "diergaardeblijdorp.nl",
     "zoodubassindarcachon.com",  # Zoo du Bassin d'Arcachon（法國吉倫特省）
     "zoobojnice.sk",  # Národná zoologická záhrada Bojnice（斯洛伐克國立動物園，環境部所屬）
     "zoo.si",  # ZOO Ljubljana（斯洛維尼亞；盧布爾雅那市立）

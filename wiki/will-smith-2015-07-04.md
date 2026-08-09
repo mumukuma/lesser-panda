@@ -9,6 +9,7 @@ zoos:
   - Happy Hollow Park & Zoo (2016-04-27 – 2025-04-21)
 rpf_id: 169
 rpf_url: https://redpandafinder.com/#profile/169
+studbook_id: "1542"
 tags: [fulgens, male, deceased, zoo:Happy Hollow Park & Zoo]
 sources:
   - https://redpandafinder.com/#profile/169

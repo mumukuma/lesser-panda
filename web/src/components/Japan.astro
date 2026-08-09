@@ -3,8 +3,8 @@
    桌機有子選單可直接跳家系圖／搬園紀錄，但點群組本身一定要落到有內容的一頁——
    手機沒有 hover、子選單直接攤平，這頁也是觸控使用者的第一站。
    數字全部建置期算（JP_SUMMARY／japanTreeData／MOVES），零客戶端 JS。 */
-import { i18n, JP_SUMMARY, MOVES, japanTreeData } from '../lib/data.js';
-import { pageUrl } from '../lib/links.js';
+import { i18n, JP_SUMMARY, MOVES, JP_TREND, japanTreeData, zooName, zooSlugById } from '../lib/data.js';
+import { pageUrl, zooUrl } from '../lib/links.js';
 
 const { locale } = Astro.props;
 const T = i18n[locale];
@@ -30,7 +30,70 @@ const cards = [
   },
 ];
 
+// ── 族群變化：兩張建置期算好的純 CSS 圖 ──────────────────────────────
+// 圖一（出生／死亡）刻意讓上下用**同一個像素比例**，兩邊才可以直接比高度。
+// 圖二把「12 歲以上」疊在總數上：一張圖同時看得到族群大小與高齡化。
+const TR = JP_TREND.rows;
+const bdMax = Math.max(...TR.map((r) => Math.max(r.births, r.deaths)), 1);
+const BD_UNIT = 74 / bdMax;                       // px per 隻，出生與死亡共用
+const popMax = Math.max(...TR.map((r) => r.living), 1);
+const POP_H = 116;
+const cmpYear = TR.find((r) => r.y === JP_TREND.last.y - 10) || TR[0];
+const trendNote = T.jp_trend_note
+  .replace('{py}', JP_TREND.peak.y).replace('{pn}', num(JP_TREND.peak.living))
+  .replace('{ln}', num(JP_TREND.last.living))
+  .replace('{y0}', cmpYear.y).replace('{m0}', cmpYear.median).replace('{m1}', JP_TREND.last.median)
+  .replace('{o0}', cmpYear.oldPct).replace('{o1}', JP_TREND.last.oldPct);
+// 「柱子變矮、紅色變厚」那句話：只在**高峰以來總數確實減少、且減少全出在年輕那半、
+// 高齡那半反而增加**時才顯示——這是目前的形狀，但資料會長大，形狀反轉時這句話就會錯，
+// 所以條件不成立就整句不渲染，而不是硬寫死。
+const pk = JP_TREND.peak, lt = JP_TREND.last;
+const dTotal = pk.living - lt.living;
+const dYoung = pk.young - lt.young;
+const dOld = lt.old - pk.old;
+const showShape = dTotal > 0 && dYoung > 0 && dOld > 0;
+const shapeNote = showShape ? T.jp_trend_shape
+  .replaceAll('{py}', pk.y).replaceAll('{d}', num(dTotal))
+  .replaceAll('{dy}', num(dYoung)).replaceAll('{do}', num(dOld))
+  .replaceAll('{age}', JP_TREND.senior.age) : '';
+
+// 與物種介紹頁互連：文字重用對方的節標題 i18n key，各語不必再翻一份標籤。
+const spLink = (hash, label) =>
+  `<a class="text-rust hover:underline" href="${pageUrl(base, locale, 'species')}#${hash}">${label}</a>`;
+const why12 = T.jp_why_12
+  .replaceAll('{age}', JP_TREND.senior.age)
+  .replaceAll('{mm}', JP_TREND.senior.momMedian)
+  .replaceAll('{m}', JP_TREND.senior.momPct)
+  .replaceAll('{f}', JP_TREND.senior.dadPct)
+  .replaceAll('{breeding}', spLink('breeding', T.sp_breed_title));
+const caveat = T.jp_trend_caveat.replaceAll('{health}', spLink('health', T.sp_health_title));
+
+// ── 亞種分布 ──────────────────────────────────────────────────────
+// 日本現居個體幾乎全是中華小熊貓；指名亞種極少。措辭依資料決定：只集中在一座園時
+// 才敢說「唯一看得到的地方」，哪天分散到多園就自動改用列表版本。
+const SP = JP_SUMMARY.species;
+const spTotal = SP.styani + SP.fulgens + SP.unknown;
+const fZoos = JP_SUMMARY.fulgensZoos;
+const zLink = (id) =>
+  `<a class="text-rust hover:underline" href="${zooUrl(base, locale, zooSlugById[id])}">${zooName(id, null, locale)}</a>`;
+const subLink = (hash, label) =>
+  `<a class="text-rust hover:underline" href="${pageUrl(base, locale, 'species')}#${hash}">${label}</a>`;
+const subIntro = T.jp_sub_intro
+  .replaceAll('{n}', num(spTotal))
+  .replaceAll('{s}', num(SP.styani)).replaceAll('{sn}', subLink('styani', T.subspecies_styani))
+  .replaceAll('{f}', num(SP.fulgens)).replaceAll('{fn}', subLink('fulgens', T.subspecies_fulgens));
+const subWhere = !fZoos.length ? ''
+  : (fZoos.length === 1 ? T.jp_sub_one : T.jp_sub_many)
+      .replaceAll('{fn}', subLink('fulgens', T.subspecies_fulgens))
+      .replaceAll('{f}', num(SP.fulgens))
+      .replaceAll('{zoo}', zLink(fZoos[0].id))
+      .replaceAll('{zoos}', fZoos.map((z) => `${zLink(z.id)}（${z.n}）`).join('、'));
+
+const yearLabel = (y) => (y % 5 === 0 ? y : '');
+const COL = 15;
+
 const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';
+const CARD = 'card-soft p-[18px_20px]';
 ---
 <h1 class="font-display text-3xl font-semibold mt-6 mb-1">{T.nav_japan}</h1>
 <p class="text-ink-soft text-[.95rem] mb-5">{T.jp_intro}</p>
@@ -44,6 +107,23 @@ const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber
   ))}
 </div>
 <p class="text-ink-soft text-[.82rem] -mt-2 mb-6">{T.jp_stat_note.replace('{n}', num(JP_SUMMARY.zoosWithLiving))}</p>
+
+<!-- 亞種分布 -->
+<section class="reveal">
+  <h2 id="subspecies" class={`${H2} scroll-mt-20`}>{T.jp_sec_subspecies}</h2>
+  <div class={CARD}>
+    <div class="flex justify-between gap-2 text-[.85rem] mb-1.5">
+      <span class="text-rust font-medium"><span class="inline-block w-2.5 h-2.5 rounded-full align-[-1px] mr-1" style="background:var(--rust)"></span>{T.subspecies_styani}（{num(SP.styani)}）</span>
+      <span class="text-rust font-medium text-right"><span class="inline-block w-2.5 h-2.5 rounded-full align-[-1px] mr-1" style="background:var(--amber)"></span>{T.subspecies_fulgens}（{num(SP.fulgens)}）</span>
+    </div>
+    <div class="flex h-3.5 rounded-full bg-cream overflow-hidden">
+      <div class="h-full" style={`width:${(SP.styani / spTotal) * 100}%;background:var(--rust)`}></div>
+      <div class="h-full" style={`width:${Math.max((SP.fulgens / spTotal) * 100, 1.5)}%;background:var(--amber)`}></div>
+    </div>
+    <p class="text-[.9rem] mt-3 mb-0 leading-relaxed" set:html={subIntro} />
+    {subWhere && <p class="text-[.9rem] mt-2 mb-0 leading-relaxed" set:html={subWhere} />}
+  </div>
+</section>
 
 <section class="reveal">
   <h2 class={H2}>{T.jp_sec_pages}</h2>
@@ -61,7 +141,72 @@ const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber
   </div>
 </section>
 
+<!-- 族群變化 -->
+<section class="reveal">
+  <h2 class={H2}>{T.jp_sec_trend}</h2>
+  <p class="text-ink-soft text-[.9rem] mb-3">{T.jp_trend_intro}</p>
+
+  <div class={CARD}>
+    <h3 class="font-display text-base mt-0 mb-3 font-semibold text-rust-dark">{T.jp_chart_bd}</h3>
+    <div class="flex flex-wrap gap-x-4 gap-y-1 text-[.82rem] mb-2">
+      <span class="text-ink-soft"><span class="inline-block w-2.5 h-2.5 rounded-full align-[-1px] mr-1" style="background:var(--leaf)"></span>{T.jp_legend_births}</span>
+      <span class="text-ink-soft"><span class="inline-block w-2.5 h-2.5 rounded-full align-[-1px] mr-1" style="background:var(--rust)"></span>{T.jp_legend_deaths}</span>
+    </div>
+    <div class="overflow-x-auto pb-1 chart-scroll">
+      <div class="flex items-stretch gap-[3px]" style={`min-width:${TR.length * COL}px`}>
+        {TR.map((r) => (
+          <div class="flex-1 flex flex-col items-center min-w-0" title={`${r.y}｜${T.jp_legend_births} ${r.births}｜${T.jp_legend_deaths} ${r.deaths}`}>
+            <div class="w-full flex flex-col justify-end items-center" style="height:76px">
+              <div class="w-full max-w-[11px] rounded-t" style={`height:${Math.max(Math.round(r.births * BD_UNIT), r.births ? 2 : 0)}px;background:var(--leaf)`}></div>
+            </div>
+            <div class="w-full h-px" style="background:var(--line)"></div>
+            <div class="w-full flex flex-col justify-start items-center" style="height:58px">
+              <div class="w-full max-w-[11px] rounded-b" style={`height:${Math.max(Math.round(r.deaths * BD_UNIT), r.deaths ? 2 : 0)}px;background:var(--rust)`}></div>
+            </div>
+            <span class="text-[.6rem] text-ink-soft mt-1 h-9" style="writing-mode:vertical-rl">{yearLabel(r.y)}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class={`${CARD} mt-3`}>
+    <h3 class="font-display text-base mt-0 mb-3 font-semibold text-rust-dark">{T.jp_chart_pop}</h3>
+    <div class="flex flex-wrap gap-x-4 gap-y-1 text-[.82rem] mb-2">
+      <span class="text-ink-soft"><span class="inline-block w-2.5 h-2.5 rounded-full align-[-1px] mr-1" style="background:var(--rust)"></span>{T.jp_legend_old}</span>
+      <span class="text-ink-soft"><span class="inline-block w-2.5 h-2.5 rounded-full align-[-1px] mr-1" style="background:var(--leaf)"></span>{T.jp_legend_young}</span>
+    </div>
+    <div class="overflow-x-auto pb-1 chart-scroll">
+      <div class="flex items-end gap-[3px]" style={`min-width:${TR.length * COL}px`}>
+        {TR.map((r) => (
+          <div class="flex-1 flex flex-col items-center min-w-0" title={`${r.y}｜${r.living}（${T.jp_legend_old} ${r.old}）`}>
+            <div class="w-full max-w-[11px] flex flex-col justify-end" style={`height:${POP_H}px`}>
+              <div class="w-full rounded-t" style={`height:${Math.round((r.old / popMax) * POP_H)}px;background:var(--rust)`}></div>
+              <div class="w-full" style={`height:${Math.round((r.young / popMax) * POP_H)}px;background:var(--leaf)`}></div>
+            </div>
+            <span class="text-[.6rem] text-ink-soft mt-1 h-9" style="writing-mode:vertical-rl">{yearLabel(r.y)}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+    <p class="text-[.88rem] mt-3 mb-0 leading-relaxed">{trendNote}</p>
+    {shapeNote && <p class="text-[.88rem] mt-2 mb-0 leading-relaxed">{shapeNote}</p>}
+    <p class="text-ink-soft text-[.82rem] mt-2 mb-0 leading-relaxed" set:html={why12} />
+  </div>
+
+  <p class="text-ink-soft text-[.82rem] mt-2 leading-relaxed">
+    {T.jp_trend_partial.replace('{y}', JP_TREND.last.y)}　<Fragment set:html={caveat} />
+  </p>
+</section>
+
 <p class="text-ink-soft text-[.85rem] mt-6" set:html={T.jp_global_note
   .replace('{stats}', `<a class="text-rust no-underline hover:underline" href="${pageUrl(base, locale, 'stats')}">${T.nav_stats}</a>`)
   .replace('{zoos}', `<a class="text-rust no-underline hover:underline" href="${pageUrl(base, locale, 'zoos')}">${T.nav_zoos}</a>`)
   .replace('{search}', `<a class="text-rust no-underline hover:underline" href="${pageUrl(base, locale, 'pandas')}">${T.nav_search}</a>`)} />
+
+<style>
+  /* 年度圖在窄螢幕要橫向捲動，預設停在最左邊（1996 年）——但要看的是最近幾年。
+     direction:rtl 讓捲軸初始位置落在最右端，內層再轉回 ltr 維持年份由左至右。 */
+  .chart-scroll { direction: rtl; }
+  .chart-scroll > * { direction: ltr; }
+</style>

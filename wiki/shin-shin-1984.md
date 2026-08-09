@@ -3,15 +3,18 @@ name: Shin-Shin
 japanese: 真真, シンシン
 english_variants: [Shinshin]
 sex: male
-born: 1986
+born: 1984
 died: 1994-11-01
 species: Ailurus fulgens styani
 zoos:
   - 市川市動植物園 (1986-11-01 – 1994-11-01)
+birth_zoo: unknown
 rpf_id: 746
 rpf_url: https://redpandafinder.com/#profile/746
+studbook_id: "8639"
 tags: [styani, male, deceased]
 sources:
+  - https://web.archive.org/web/20120128200628/http://www.rotterdamzoo.nl/import/assetmanager/2/6732/Red%20Panda%20Studbook.pdf
   - https://redpandafinder.com/#profile/746
 extra_sources:
   - http://blog.livedoor.jp/maiaitsuki/archives/1070532051.html  # レッサーパンダに会いに行く「市川②～お宝写真満載『大人のための動物講座』」（2018-03-27）：市川市動植物園 30 週年展板轉述，記真真×誠誠 1986-11-01 來園及子女生日
@@ -20,14 +23,14 @@ extra_sources:
 # Shin-Shin 🪽（真真 / シンシン）
 
 > **小熊貓** ♂ | Ailurus fulgens styani
-> 生年：約 1986 年（生年不詳・野生捕獲，以抵日年份為近似）　歿日：1994 年 11 月 1 日
+> 生年：約 1984 年（生年不詳・野生捕獲，依國際血統登録書推定）　歿日：1994 年 11 月 1 日
 > 終居：市川市動植物園（日本千葉縣市川市）🇯🇵
 
 > ⚠️ **注意同名**：wiki 內另有 [[shin-shin-1988-07-14]] 🪽（1988 生，真真、安佐→姫路セントラル母獸）、[[shin-shin-2000-06-30]] 🪽（2000 生，晨星）、[[shin-shin-2003-07-15]] 🪽（2003 生，心心）、[[shin-shin-2010-06-24]] 🪽（2010 生），均為不同個體。
 
-[[non-non-2003-06-16]] 🪽（暢暢）之祖父——[[yuu-yuu-1990-06-25]] 🪽 之父。原為中國野生捕獲個體，1986 年起居於市川市動植物園。與 Sei-Sei 🪽 育有 7 隻子女。
+[[non-non-2003-06-16]] 🪽（暢暢）之祖父——[[yuu-yuu-1990-06-25]] 🪽 之父。原為中國野生捕獲個體，1986 年 11 月起居於市川市動植物園。與 Sei-Sei 🪽 育有 7 隻子女。
 
-> 🚧 生年不詳：RPF 未載生日，本條目以最早記錄年份為近似生年。
+> ✅ **生年 2026-08-09 依國際血統登録書由 1986 改為 1984**：ISB（*International Red Panda Studbook*，Rotterdam Zoo 編，血統書番號 8639）記本隻為**中國野生捕獲、推定 `~1984` 年生**，1986-11-01 移入 ICHIKAWA（市川市動植物園）——**來園日與本條目原有記載完全一致**。原值 1986 是本 wiki 以抵日年份當近似生年的產物，並非生年；今改採血統登録書的推定值，slug 亦同步由 `shin-shin-1984` 更名為 `shin-shin-1984`。生年仍為推定（`~`），非確定生日。同時補 `birth_zoo: unknown`，居住史首站不再誤標 🐣（本隻並非生於市川）。
 
 ---
 
@@ -37,7 +40,7 @@ extra_sources:
 
 | 期間 | 動物園 | 地點 |
 |------|--------|------|
-| 1986-11-01 – 1994-11-01 | 市川市動植物園 🐣 | 日本 千葉縣市川市 🇯🇵 |
+| 1986-11-01 – 1994-11-01 | 市川市動植物園 | 日本 千葉縣市川市 🇯🇵 |
 ---
 
 ## 家族

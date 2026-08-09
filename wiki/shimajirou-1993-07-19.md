@@ -11,6 +11,7 @@ zoos:
   - 長崎バイオパーク (1999-03-30 – 2003-03-10)
 rpf_id: 840
 rpf_url: https://redpandafinder.com/#profile/840
+studbook_id: "93110"
 tags: [styani, male, deceased]
 sources:
   - https://redpandafinder.com/#profile/840

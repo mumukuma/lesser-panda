@@ -1,7 +1,7 @@
 # 小熊貓圖鑑 — 願望池 & 路線規劃
 
 > 想法備忘與優先序。分層依據：① 是否吃現有資料 ② 是否只動前端 ③ 是否需後端。
-> 最後更新：2026-08-08
+> 最後更新：2026-08-09
 
 ## 定位（決定優先序的依據）
 
@@ -124,6 +124,7 @@
 - **limited-profile 巡查**：不定期 `grep -l "limited-profile" wiki/*.md` 搜園方微信新目擊／死訊，更新 `last_seen`
 - **內嵌日期表續期**：`closed.js` 祝日表 2030 年內續期（jpholiday 重產）；`season.js` 節氣表 2035 前擇機（CLAUDE.md 注意事項有做法）
 - **log.md 換月封存**：換月後擇機搬移至 `wiki/log-archive/`
+- **靠日日 push 維持「與今天有關」的數字**：站上所有數字都在**建置時**現算（CI 每次 push 重跑 `build_db`＋`export_json`＋astro build，`pipeline/data/*.json` 不進版控、必定重生），所以新增條目 push 完就是最新——**但**現存頭數、年齡、年齡中位數、12 歲以上占比、`/japan/` 族群變化最右邊那一欄、`/stats/` 年齡分布與在世最年長、頁尾「資料更新於」（`new Date()`）都是**建置那一刻**的快照，沒 push 就不會自己前進。目前維護節奏是每日更新，故不另加排程（見下方技術升級）；若哪天停更超過一週、或跨年時剛好沒動，記得手動跑一次 Actions 的 `workflow_dispatch`
 
 ### 之後
 
@@ -140,4 +141,16 @@
 
 ### 技術升級（無急迫性）
 
+- **deploy.yml 加排程重建**（2026-08-09 提出，**維護者裁定先不做**：目前日日更新、沒有必要）：`deploy.yml` 現在只有 `push` 與 `workflow_dispatch`，沒有 `schedule`。若日後更新頻率下降，加三行即可讓時間相關的數字自己保鮮：
+
+  ```yaml
+  on:
+    push:
+      branches: [main]
+    workflow_dispatch:
+    schedule:
+      - cron: "0 22 * * 0"   # 每週一台北 06:00（UTC 週日 22:00）
+  ```
+
+  一次建置約 2 分鐘。注意 GitHub 規則：repo 連續 60 天無 commit 會自動停用排程（會寄信通知）。最容易踩到的情境是**跨年**——1/1 之後若沒人 push，`/japan/` 圖表最右仍停在去年，在世個體年齡也都少一歲
 - **Astro 5/6 + Tailwind 4**：等有需求再一次處理（`@tailwindcss/vite` + CSS-first 設定，需重測）

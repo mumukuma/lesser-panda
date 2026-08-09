@@ -18,7 +18,9 @@ const link = (s) => s
   .replace('{tree}', a('jptree', T.nav_family))
   .replace('{longevity}', a('stats', T.stats_sec_longevity))
   .replace('{newborns}', a('', T.home_newborns))
-  .replace('{stats}', a('stats', T.stats_sec_years));
+  .replace('{stats}', a('stats', T.stats_sec_years))
+  .replace('{japan}', a('japan', T.jp_sec_trend))
+  .replace('{japanSub}', `<a class="text-rust hover:underline" href="${pageUrl(base, locale, 'japan')}#subspecies">${T.jp_sec_subspecies}</a>`);
 
 const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';
 
@@ -61,6 +63,7 @@ const ROWS = ['range', 'face', 'tail', 'coat', 'size'];
 <h2 id="fulgens" class={`${H2} scroll-mt-20`}>{T.subspecies_fulgens}<span class="ml-2 text-ink-soft text-[.86rem] font-normal align-middle"><i>{LATIN.fulgens}</i></span></h2>
 <p class="leading-relaxed mb-3" set:html={T.sp_fulgens_p1} />
 <p class="leading-relaxed mb-3" set:html={T.sp_fulgens_p2} />
+<p class="leading-relaxed mb-3" set:html={link(T.sp_fulgens_p3)} />
 
 <h2 id="styani" class={`${H2} scroll-mt-20`}>{T.subspecies_styani}<span class="ml-2 text-ink-soft text-[.86rem] font-normal align-middle"><i>{LATIN.styani}</i></span></h2>
 <p class="leading-relaxed mb-3" set:html={T.sp_styani_p1} />
@@ -97,13 +100,14 @@ const ROWS = ['range', 'face', 'tail', 'coat', 'size'];
 <p class="leading-relaxed mb-3" set:html={link(T.sp_breed_p4)} />
 <p class="leading-relaxed mb-3" set:html={link(T.sp_breed_p5)} />
 
-<h2 class={H2}>{T.sp_consv_title}</h2>
+<h2 id="conservation" class={`${H2} scroll-mt-20`}>{T.sp_consv_title}</h2>
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p1} />
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p2} />
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p3} />
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p4} />
+<p class="leading-relaxed mb-3" set:html={link(T.sp_consv_p5)} />
 
-<h2 class={H2}>{T.sp_health_title}</h2>
+<h2 id="health" class={`${H2} scroll-mt-20`}>{T.sp_health_title}</h2>
 <p class="leading-relaxed mb-3" set:html={T.sp_health_p1} />
 <p class="leading-relaxed mb-3" set:html={T.sp_health_p2} />
 <p class="leading-relaxed mb-3" set:html={T.sp_health_p2b} />

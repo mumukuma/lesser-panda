@@ -10,6 +10,7 @@ japanese: 緑之介
 sex: male
 rpf_id: 171
 rpf_url: https://redpandafinder.com/#profile/171
+studbook_id: "9998"
 tags: [taofa-family, styani, male, deceased]
 sources:
   - https://redpandafinder.com/#profile/171

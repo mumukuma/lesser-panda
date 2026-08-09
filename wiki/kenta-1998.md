@@ -10,6 +10,7 @@ zoos:
 tags: [styani, male, deceased]
 rpf_id: 851
 rpf_url: https://redpandafinder.com/#profile/851
+studbook_id: "98026"
 sources:
   - https://redpandafinder.com/#profile/851
   - 維護者提供（2026-07-28：家系與生年 1998、姫路セントラル居住、人工哺育）

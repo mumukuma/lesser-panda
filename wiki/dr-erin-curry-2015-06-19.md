@@ -9,6 +9,7 @@ zoos:
   - Milwaukee County Zoo (2016-03-15 – 現在)
 rpf_id: 392
 rpf_url: https://redpandafinder.com/#profile/392
+studbook_id: "1518"
 tags: [styani, female, zoo:Milwaukee County Zoo]
 sources:
   - https://cincinnatizoo.org/red-panda-cubs-born-at-cincinnati-zoo/

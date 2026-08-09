@@ -47,6 +47,7 @@ siblings:                  # 選填：維護者確認為兄弟姊妹、但共同
   - 對方-slug
 rpf_id: RedPandaFinder 的 profile ID
 rpf_url: https://redpandafinder.com/#profile/XXX
+studbook_id: "94102"      # 選填（2026-08-09 起）：RPF 資料集 `/export/redpanda.json` 的 `studbook.id` 欄位（RPF 網頁 UI 不顯示）。**號碼本身已證實即國際血統登録書（ISB）番號**（2026-08-09，以 8935／8936、9177、9441／9442 三組錨點交叉驗證；ISB 2008 年版原檔存 `sources/isb-red-panda/`，對帳見 `docs/ISB-2008-對帳-2026-08-09.md`）。RPF 欄位本身仍只是索引，**佐證一律引 ISB 原檔、不引 RPF**；網站不顯示此欄。一律加引號（有前導零，如 `"0992"`）。規律：番號前兩碼＝出生年後兩碼（887 筆中 884 筆吻合）；**但野生捕獲／海外引進個體是登録年、不是出生年**（如 `taisyu-1987`／`rin-rin-1987` 為連號 8935／8936＝1989 入園年，ISB 記其生年為 `~1987`），推定生年時只能當「不晚於該年出生」的下限
 tags: [標籤]
 instagram:                # 選填：同好的公開 IG 貼文連結，網站以官方 embed 展示（自動署名、連回原貼文）
   - https://www.instagram.com/帳號/p/XXXXXXXXX/ 2025-06-01   # 建議用含「帳號」的完整形式；可在連結後加貼文日期，網站依日期新到舊排序；超過 6 篇自動「顯示更多」

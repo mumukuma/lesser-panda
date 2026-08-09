@@ -9,6 +9,7 @@ zoos:
   - 高知県立のいち動物公園 (2016-04-25 – 現在)
 rpf_id: 282
 rpf_url: https://redpandafinder.com/#profile/282
+studbook_id: "13159"
 tags: [styani, female, zoo:Noichi Zoological Park]
 sources:
   - https://redpandafinder.com/#profile/282

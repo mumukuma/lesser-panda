@@ -10,6 +10,7 @@ zoos:
   - 福知山市動物園 (2015-02-16 – 現在)
 rpf_id: 285
 rpf_url: https://redpandafinder.com/#profile/285
+studbook_id: "13158"
 tags: [styani, female, zoo:Fukuchiyama Zoo]
 sources:
   - https://redpandafinder.com/#profile/285

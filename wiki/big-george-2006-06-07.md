@@ -13,6 +13,7 @@ zoos:
   - Assiniboine Park Zoo (2013-09-11 – 2014-05-25)
 rpf_id: 1403
 rpf_url: https://redpandafinder.com/#profile/1403
+studbook_id: "0604"
 tags: [styani, male, deceased, zoo:Assiniboine Park Zoo]
 sources:
   - https://redpandafinder.com/#profile/1403
