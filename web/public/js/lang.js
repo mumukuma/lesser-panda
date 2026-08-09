@@ -27,8 +27,9 @@
     }
     return null;
   }
+  /* 轉址保留 query 與 hash（?today= 本機預覽、UTM 參數等），只換語系路徑 */
   function go(pref) {
-    if (pref && pref !== cur && urls[pref]) { location.replace(urls[pref]); return true; }
+    if (pref && pref !== cur && urls[pref]) { location.replace(urls[pref] + location.search + location.hash); return true; }
     return false;
   }
   function cachedCountry() {
@@ -86,7 +87,7 @@
     sel.value = cur;
     sel.addEventListener('change', function () {
       try { localStorage.setItem(KEY, sel.value); } catch (e) {}
-      if (urls[sel.value]) location.href = urls[sel.value];
+      if (urls[sel.value]) location.href = urls[sel.value] + location.search + location.hash;
     });
   });
 })();

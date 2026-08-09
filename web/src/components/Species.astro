@@ -43,7 +43,9 @@ const REFS = [
   { label: 'Li, X., Glaser, D. et al. (2009). Analyses of sweet receptor gene (Tas1r2) and preference for sweet stimuli in species of Carnivora. Journal of Heredity, 100(S1), S90–S100.', url: 'https://doi.org/10.1093/jhered/esp015' },
   { label: 'Gastric dilatation and volvulus in a red panda (Ailurus fulgens). Veterinary Surgery, 43(6) (2014).', url: 'https://doi.org/10.1111/j.1532-950X.2014.12135.x' },
   { label: '天王寺動物園 — レッサーパンダのメルについて（2025・腸重積の訃報）', url: 'https://www.tennojizoo.jp/blog/33693/' },
-  { label: 'Glatston, A. R. (comp.). International Red Panda Studbook (Ailurus fulgens), data current as of 31 December 2008. Rotterdam Zoo.（原始網址已失效，本站留存於 sources/isb-red-panda/）', url: '' },
+  // ISB 血統書：原始 PDF 網址已失效（Rotterdam Zoo 改版下架）、無連結顯示突兀，
+  // 網站隱藏此筆（2026-08-09）；正本 red-panda-intro.md 仍列存底，原檔留存於 sources/isb-red-panda/。
+  // { label: 'Glatston, A. R. (comp.). International Red Panda Studbook (Ailurus fulgens), data current as of 31 December 2008. Rotterdam Zoo.', url: '' },
 ];
 
 // 比較表列：i18n key 後綴 _f（喜馬拉雅）／_s（中華）
@@ -117,7 +119,7 @@ const ROWS = ['range', 'face', 'tail', 'coat', 'size'];
 <p class="leading-relaxed mb-3" set:html={T.sp_health_p4} />
 
 <h2 class={H2}>{T.sp_faq_title}</h2>
-{[1, 2, 3, 4, 5, 6].map((n) => (
+{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => (
   <div class="mb-4">
     <h3 class="font-display font-semibold mb-1">Q. {T['sp_faq_q' + n]}</h3>
     <p class="leading-relaxed text-[.95rem]" set:html={T['sp_faq_a' + n]} />

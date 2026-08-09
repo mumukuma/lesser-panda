@@ -86,6 +86,22 @@ const leaves = [
   </div>
 </section>
 
+<!-- ── 國際小熊貓日倒數（每年 9 月第三個週六）：每年 8/16 起由 today.js 依訪客
+     當下日期揭示並填字，當天加 .is-today 慶祝樣式，隔天自動收起。
+     比照 #newborns-season：預設 hidden、不加 reveal；no-JS 保持隱藏。 -->
+<section id="irpd-banner" class="irpd-banner my-6 px-5 py-3.5 text-center" hidden>
+  <div class="flex items-center justify-center gap-2">
+    <p id="irpd-text" class="font-display font-semibold text-rust-dark text-[1.08rem] m-0"></p>
+    <!-- logo 尾巴（同 header 品牌 icon）：flex 排版跟在標題字尾，五語寬度自動適應、
+         絕不壓字；左右翻轉＝外層 span scaleX、內層 img 跑 anim-bob（兩層 transform
+         才不互蓋）；節奏與 header 錯開，見 .irpd-tail -->
+    <span class="irpd-tail" aria-hidden="true">
+      <img src={`${base}icon.svg`} alt="" width="29" height="30" loading="lazy" class="anim-bob" />
+    </span>
+  </div>
+  <p id="irpd-sub" class="text-ink-soft text-[.82rem] m-0 mt-1"></p>
+</section>
+
 <!-- ── 數字徽章 ─────────────────────────────────────────────── -->
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-6">
   {stats.map(([icon, n, l, href]) => (

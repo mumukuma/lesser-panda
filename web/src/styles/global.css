@@ -308,6 +308,62 @@ h1, h2, h3 { letter-spacing: .005em; }
 .pop:hover { transform: translateY(-3px); box-shadow: var(--shadow-pop); }
 .pop:active { transform: translateY(-1px) scale(.99); }
 
+/* ── 首頁「國際小熊貓日」倒數橫幅（#irpd-banner；today.js 每年 8/16–活動日揭示）──
+   配色吃季節變數（--sky-2／--leaf 隨四季主題自動變，夏天＝清爽天空綠、不突兀）；
+   活動當天 .is-today 才切琥珀慶祝色（9 月中站上已入秋、色調相合）。
+   歡樂感：兩側彩色紙屑圓點（::before 疊層，中段留白給文字）＋右側 logo 尾巴
+   （左右翻轉、節奏與 header 錯開）＋倒數天數 .irpd-n 放大強調（today.js 包 span）。 */
+.irpd-banner {
+  position: relative; overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--leaf) 30%, var(--line));
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow);
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--sky-2) 62%, var(--bg-card)),
+    var(--bg-card) 32%, var(--bg-card) 68%,
+    color-mix(in srgb, var(--sky-2) 62%, var(--bg-card)));
+}
+/* 紙屑圓點：疊層共用（平時/當天同一組），只調透明度；用季節綠＋品牌琥珀點綴 */
+.irpd-banner::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .7;
+  background:
+    radial-gradient(circle at 4% 24%,  color-mix(in srgb, var(--leaf) 90%, transparent) 0 3px,   transparent 4px),
+    radial-gradient(circle at 9% 72%,  color-mix(in srgb, var(--amber) 70%, transparent) 0 2.5px, transparent 3.5px),
+    radial-gradient(circle at 14% 32%, color-mix(in srgb, var(--leaf-deep) 75%, transparent) 0 2px, transparent 3px),
+    radial-gradient(circle at 19% 80%, color-mix(in srgb, var(--rust) 45%, transparent) 0 2px,   transparent 3px),
+    radial-gradient(circle at 24% 20%, color-mix(in srgb, var(--amber) 55%, transparent) 0 1.8px, transparent 2.8px),
+    radial-gradient(circle at 74% 26%, color-mix(in srgb, var(--rust) 45%, transparent) 0 1.8px, transparent 2.8px),
+    radial-gradient(circle at 79% 74%, color-mix(in srgb, var(--leaf) 85%, transparent) 0 2px,   transparent 3px),
+    radial-gradient(circle at 85% 22%, color-mix(in srgb, var(--amber) 70%, transparent) 0 2.5px, transparent 3.5px),
+    radial-gradient(circle at 92% 76%, color-mix(in srgb, var(--leaf-deep) 70%, transparent) 0 2px, transparent 3px);
+}
+/* logo 尾巴：flex 排版跟在標題字尾（Home.astro），寬度隨五語文字自動適應。
+   外層 span 管 scaleX(-1)（左右翻轉），內層 img 跑 anim-bob 的 rotate
+   （transform 分兩層才不互蓋）；時長 3.4s＋負延遲，與 header 的 2.6s 錯開節奏 */
+.irpd-tail { flex-shrink: 0; width: 27px; height: 28px; transform: scaleX(-1); }
+.irpd-tail img { display: block; width: 100%; height: 100%; animation-duration: 3.4s; animation-delay: -1.3s; }
+@media (min-width: 640px) { .irpd-tail { width: 31px; height: 32px; } }
+/* 倒數天數：放大＋主色（today.js 把 {n} 包進 span.irpd-n） */
+.irpd-n { font-size: 1.35em; line-height: 1; color: var(--rust); padding: 0 .06em; }
+.irpd-banner.is-today {
+  border-color: var(--amber);
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--amber) 40%, var(--bg-card)),
+    color-mix(in srgb, var(--rust) 14%, var(--bg-card)) 50%,
+    color-mix(in srgb, var(--amber) 40%, var(--bg-card)));
+}
+.irpd-banner.is-today::before { opacity: 1; }
+.irpd-banner.is-today .irpd-tail img { animation-duration: 1.4s; }
+.irpd-banner.is-today #irpd-text { animation: irpd-pop .6s cubic-bezier(.34,1.56,.64,1) both; }
+@keyframes irpd-pop {
+  0%   { transform: scale(.9); opacity: 0; }
+  60%  { transform: scale(1.06); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .irpd-banner.is-today #irpd-text { animation: none; }
+}
+
 /* 首頁統計按鈕：無邊框，仍是可按 button；hover 時整張上浮、圖示彈跳搖擺 */
 .stat-card {
   display: block; text-align: center; text-decoration: none; color: inherit;
