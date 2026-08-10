@@ -47,6 +47,10 @@ from wiki_io import parse_frontmatter  # noqa: E402
 OFFICIAL_HOSTS = {
     # 日本園方官網／營運協會
     "tokyo-zoo.net", "nhdzoo.jp", "tohoku-safaripark.co.jp", "tobezoo.com",
+    # 公益財団法人静岡市動物園協会（日本平動物園的營運協會；機關誌《ズーしずおか》PDF 掛在此域）。
+    # ⚠️ 該批 PDF 為掃描件、無文字層，沙盒 proxy 亦回 403；線上核對要用維護者的 Chrome
+    #    在同源頁跑 pdf.js 渲染成 canvas 再讀（見 sources/isb-red-panda 以外的作業備忘）。
+    "szga.jp",
     "asazoo.jp", "omutacityzoo.org", "hama-midorinokyokai.or.jp",
     "kobe-ojizoo.jp", "ojizoo.jp",  # 神戸市立王子動物園（現行官網＋舊官方網域）
     "tennojizoo.jp",  # 天王寺動物園（含園報《なきごえ》/nakigoe/ 與 ZOO DIARY，官方一手）
@@ -74,6 +78,7 @@ OFFICIAL_HOSTS = {
     "shanghaizoo.cn", "nbzoo.com", "shwzoo.com", "enjoyland.cn",
     "swap-shendi.com", "lyhylj.liuzhou.gov.cn", "mp.weixin.qq.com",
     "wuhanzoo.com.cn",
+    "xianzoo.com",  # 西安秦嶺野生動物園（西安旅遊集團營運；2004-05-01 開園，承接原西安動物園整體遷入的動物）
     # 小紅書：園方官方帳號亦於此發布（如柳州動物園）。與微信同為共用平台、整域列入，
     # ⚠️ sources 只放官方帳號貼文；粉絲轉載請勿放 sources（會被誤判官方）。xhslink 為短連結轉址域。
     "xiaohongshu.com", "xhslink.com",

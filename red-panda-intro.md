@@ -63,9 +63,19 @@
 
 IUCN 紅色名錄將小熊貓列為**瀕危（Endangered）**：野外成熟個體估計不到一萬隻、也可能低至數千，近數十年估計已減少四到五成，趨勢仍在下降。國際貿易受 **CITES 附錄一**管制，禁止商業性國際交易。
 
+不過老實說，沒有人真的知道野外還剩多少隻。小熊貓晨昏出沒、住在偏遠的高山森林，從來沒有過涵蓋整個分布範圍的普查——IUCN 說不足一萬隻，TRAFFIC 估一萬四千多隻。連 IUCN 自己那份評估都停在 2015 年，官網至今仍標著「需要更新」。
+
+法律其實沒有缺席。五個分布國都把小熊貓寫進國內法——尼泊爾、印度、不丹列在最高等級的保護名單，緬甸列為完全保護，中國列國家二級；國際上也早在 1995 年就從 CITES 附錄二升到禁止商業交易的附錄一。難的從來不是立法，而是讓這些條文在人跡罕至的高山森林裡真的生效。
+
 主要威脅是**棲地喪失與破碎化**（伐木、農地與道路把竹林切成一座座孤島）、**盜獵毛皮**，以及為其他動物設下的**陷阱誤捕**；流浪犬帶來的犬瘟熱在部分地區也是致命威脅。
 
+棲地被切得多碎，從保護區的覆蓋率看得最清楚。一份以氣候條件推估小熊貓潛在分布的研究，把全球潛在棲地估在約 13.5 萬平方公里（中國約六成，尼泊爾一成五，緬甸與不丹各約一成，印度約半成），其中只有約 28% 落在既有保護區內，作者因此認為現行的保護區網絡並不足夠。東喜馬拉雅的實地研究更具體：畫出的核心棲地約 1.2 萬平方公里，真正在保護區裡的只有 443 平方公里，而色拉山口（Sela Pass）與 Siang、Dibang、Lohit 幾條大河，把族群切成彼此往來困難的區塊。
+
+盜獵的樣貌也不只毛皮。TRAFFIC 整理中國 2005 到 2017 年的查獲紀錄共 13 起，其中十起（約 77%）來源指向四川；2005 到 2016 年的十起就涉及 35 隻活體與 7 隻死體，活體的收購價平均約四千人民幣——也就是說，除了毛皮，活體寵物交易同樣存在。要提醒的是，查獲數只是被攔下來的那一部分，不能直接當成實際的盜獵規模。
+
 保育工作包括棲地與保護區的維護、社區型保育（如尼泊爾的森林守護員制度），以及動物園的**域外保種**——各國動物園依血統書進行計畫性配對，維持健康的備援族群。你在本圖鑑看到的居住史與家系，其實就是這套國際合作的縮影。
+
+尼泊爾的森林守護員（Forest Guardian）制度是社區型保育最具體的例子。Red Panda Network 目前有 156 位守護員（其中 20 位是女性），照看 78 座社區林；他們每季帶著 GPS 與紅外線相機巡護、記錄小熊貓與同域物種、拆除獸夾、植樹並在村裡做推廣。2024 年 8 月劃設的 Puwamajhuwa 社區小熊貓保護區共 116 公頃，是尼泊爾第一個由社區自己管理的小熊貓保護區。
 
 以歐洲為例：1979 年成立**國際血統書**時，圈養族群小而不穩、繁殖成績不佳；1985 年啟動 **EEP（歐洲瀕危物種保育計畫）**後，隨著飼育技術改良，族群才逐步穩定成長，到 2019 年底已有 **407 隻分養於 182 家機構**，並回頭支援野外的保育工作。
 
@@ -128,6 +138,13 @@ IUCN 紅色名錄將小熊貓列為**瀕危（Endangered）**：野外成熟個�
 - IUCN Red List — *Ailurus fulgens*. https://www.iucnredlist.org/species/714/110023718
 - Smithsonian's National Zoo & Conservation Biology Institute — Red Panda. https://nationalzoo.si.edu/animals/red-panda
 - Red Panda Network — About Red Pandas. https://redpandanetwork.org/
+- TRAFFIC — Red Panda briefing (market research). https://www.traffic.org/site/assets/files/10540/red-panda-briefing-en.pdf
+- Thapa, A. et al. (2018). Predicting the potential distribution of the endangered red panda across its entire range using MaxEnt modeling. *Ecology and Evolution*, 8(21), 10542–10554. https://doi.org/10.1002/ece3.4526
+- Dalui, S., Sharma, L. K. & Thakur, M. (2024). Barriers and corridors: Assessment of gene flow and movement among red panda populations in eastern Himalayas. *Science of the Total Environment*, 931, 172523. https://doi.org/10.1016/j.scitotenv.2024.172523
+- Red Panda Network — The Ranger Revolution: Forest Guardians on the Frontlines of Red Panda Conservation. https://redpandanetwork.org/post/the-ranger-revolution-forest-guardians-on-the-frontlines-of-red-panda-conservation
+- 國家林業和草原局、農業農村部公告 2021 年第 3 號《國家重點保護野生動物名錄》. https://www.forestry.gov.cn/c/www/lczc/90131.jhtml
+  <!-- ⚠️ 正式名錄 PDF 為掃描檔無文字層、未能直讀「小熊貓 二級」該列；佐證為官方徵求意見稿對照表（明寫「二級／未變」）＋官方解讀（升一級的 65 種不含小熊貓）。上線前建議人工目視確認 -->
+- CITES CoP9 Prop. 11 — Transfer of *Ailurus fulgens* from Appendix II to Appendix I（1994 年通過，1995-02-16 生效）. https://cites.org/sites/default/files/eng/cop/09/prop/E09-Prop-11_Ailurus.PDF
 - 桐生が岡動物園 — レッサーパンダの換毛事情. https://www.city.kiryu.lg.jp/zoo/yomoyama/1022284/1022730.html
 - Retrospective analysis of mortality in the North American captive red panda (*Ailurus fulgens*) population, 1992–2012. *Journal of Zoo and Wildlife Medicine*, 46(4) (2015). https://doi.org/10.1638/2014-0166.1
 - Mortality analysis of captive red panda cubs within Chengdu, China. *BMC Veterinary Research*, 18 (2022). https://doi.org/10.1186/s12917-022-03170-2

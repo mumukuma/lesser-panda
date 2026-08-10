@@ -34,6 +34,12 @@ const REFS = [
   { label: 'IUCN Red List — Ailurus fulgens', url: 'https://www.iucnredlist.org/species/714/110023718' },
   { label: "Smithsonian's National Zoo & Conservation Biology Institute — Red Panda", url: 'https://nationalzoo.si.edu/animals/red-panda' },
   { label: 'Red Panda Network — About Red Pandas', url: 'https://redpandanetwork.org/' },
+  { label: 'TRAFFIC — Red Panda briefing (market research)', url: 'https://www.traffic.org/site/assets/files/10540/red-panda-briefing-en.pdf' },
+  { label: 'Thapa, A. et al. (2018). Predicting the potential distribution of the endangered red panda across its entire range using MaxEnt modeling. Ecology and Evolution, 8(21), 10542–10554.', url: 'https://doi.org/10.1002/ece3.4526' },
+  { label: 'Dalui, S., Sharma, L. K. & Thakur, M. (2024). Barriers and corridors: Assessment of gene flow and movement among red panda populations in eastern Himalayas. Science of the Total Environment, 931, 172523.', url: 'https://doi.org/10.1016/j.scitotenv.2024.172523' },
+  { label: 'Red Panda Network — The Ranger Revolution: Forest Guardians on the Frontlines of Red Panda Conservation', url: 'https://redpandanetwork.org/post/the-ranger-revolution-forest-guardians-on-the-frontlines-of-red-panda-conservation' },
+  { label: '国家林业和草原局、农业农村部公告 2021 年第 3 号《国家重点保护野生动物名录》', url: 'https://www.forestry.gov.cn/c/www/lczc/90131.jhtml' },
+  { label: 'CITES CoP9 Prop. 11 — Transfer of Ailurus fulgens from Appendix II to Appendix I (1994; in force 16 February 1995)', url: 'https://cites.org/sites/default/files/eng/cop/09/prop/E09-Prop-11_Ailurus.PDF' },
   { label: '桐生が岡動物園 — レッサーパンダの換毛事情', url: 'https://www.city.kiryu.lg.jp/zoo/yomoyama/1022284/1022730.html' },
   { label: 'Retrospective analysis of mortality in the North American captive red panda (Ailurus fulgens) population, 1992–2012. Journal of Zoo and Wildlife Medicine, 46(4) (2015).', url: 'https://doi.org/10.1638/2014-0166.1' },
   { label: 'Mortality analysis of captive red panda cubs within Chengdu, China. BMC Veterinary Research, 18 (2022).', url: 'https://doi.org/10.1186/s12917-022-03170-2' },
@@ -106,8 +112,13 @@ const ROWS = ['range', 'face', 'tail', 'coat', 'size'];
 
 <h2 id="conservation" class={`${H2} scroll-mt-20`}>{T.sp_consv_title}</h2>
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p1} />
+<p class="leading-relaxed mb-3" set:html={T.sp_consv_p1c} />
+<p class="leading-relaxed mb-3" set:html={T.sp_consv_p1d} />
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p2} />
+<p class="leading-relaxed mb-3" set:html={T.sp_consv_p2b} />
+<p class="leading-relaxed mb-3" set:html={T.sp_consv_p2c} />
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p3} />
+<p class="leading-relaxed mb-3" set:html={T.sp_consv_p3b} />
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p4} />
 <p class="leading-relaxed mb-3" set:html={link(T.sp_consv_p5)} />
 
