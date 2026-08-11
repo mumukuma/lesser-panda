@@ -6,6 +6,36 @@
 
 ---
 
+## 2026-08-11 ・ 來源分類器新增第三類：官方但不對外呈現（ISB）
+
+維護者裁定：ISB《International Red Panda Studbook》（Rotterdam Zoo／Diergaarde Blijdorp 編）
+**是官方來源、佐證權重很高**，但**不要呈現在網頁上**——原檔 2012 年已由園方下架，
+公開可指的只剩 Wayback 快照。原本（2026-08-09）把 `rotterdamzoo.nl` 加進 `OFFICIAL_HOSTS`
+之後，該連結會直接出現在 24 筆條目的「來源」區塊，本次修正。
+
+- `tools/build_db.py` 新增 `NON_PUBLIC_HOSTS`（`rotterdamzoo.nl`／`diergaardeblijdorp.nl`）
+  與 `is_public_source()`／`split_sources()`：官方來源拆成「可公開展示」與「官方但不公開」兩份。
+  Wayback 形式比對**內層 host**，與 `is_official_source` 同一套拆法。
+- `tools/schema.sql` 的 `pandas` 新增 `sources_private` 欄；`sources` 欄自此只放可公開展示者。
+- `pipeline/scripts/export_json.py`：`sources` 照舊輸出（已不含 ISB），
+  **`sources_private` 刻意不匯出**（`pandas.json` 隨網站一起發佈，連結進了 JSON 就等於上站），
+  但 `has_official_source` 改取**兩者聯集**——ISB 權重不變，
+  僅以 ISB 佐證的 18 筆條目**不會**因此被標成「維護者提供・未經官方佐證」。
+- ⚠️ **`rotterdamzoo.nl` 仍留在 `OFFICIAL_HOSTS`**，不可移除：「官方但不公開」與「非官方」
+  是兩件事，移除會讓 `audit.py` 把它列為非官方 host、也會讓那 18 筆掉旗標。
+- 驗證：重建後 `pipeline/data/pandas.json` 全文 `rotterdamzoo` 出現 **0 次**、`sources_private` 未匯出；
+  24 筆 ISB 條目 `has_official_source` 全為 `true`；`tools/verify.sh` 通過（🔴 0）。
+- 政策同步寫進 `SCHEMA.md`〈sources 與 extra_sources 的分工〉與 `CLAUDE.md`「官方來源可直接採用」段。
+
+## 2026-08-11 ・ 來源分類器：池田動物園進白名單
+
+- `tools/build_db.py` 的 `OFFICIAL_HOSTS` 新增 `ikedazoo.jp`（池田動物園，岡山市；訃報等公告發於 `/news/`），
+  `OFFICIAL_X_ACCOUNTS`／`OFFICIAL_IG_ACCOUNTS` 新增 `love_ikedazoo`（官網頁尾社群連結指向此二帳號）。
+- ⚠️ **該園舊訃報會自站上下架**：`陸`（RPF #139）那篇 2024-04-27 發布，2025-01-11 的 Wayback 快照已是 404，
+  `/news/` 六頁列表也翻不到；站內搜尋 `?s=` 回空 body、`wp-json` 回 403。故該園的 `sources` 一律走
+  Wayback 快照（`_unwrap_wayback` 會遞迴判內層 host 為官方，比照茶臼山與 rotterdamzoo 的做法）。
+  查該園個體的可行路徑：X 搜日期區間找官方公告推文 → 拿推文附的 URL 去 Wayback。
+
 ## 2026-08-09 ・ 首頁「國際小熊貓日」倒數橫幅
 
 - 首頁數字徽章上方新增倒數橫幅（`Home.astro` 的 `#irpd-banner`）：每年 **8/16 起**顯示

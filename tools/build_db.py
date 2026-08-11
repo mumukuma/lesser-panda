@@ -44,6 +44,7 @@ from wiki_io import parse_frontmatter  # noqa: E402
 #
 # 判定＝白名單 host（精確比對，去掉開頭 www.）＋政府網域 pattern。名單外一律非官方。
 # ⚠️ 日後新增園方官網時，把 host 補進 OFFICIAL_HOSTS 即會自動顯示。
+# ⚠️ 另有「是官方、但不對外呈現連結」的第三類，見下方 NON_PUBLIC_HOSTS（目前只有 ISB）。
 OFFICIAL_HOSTS = {
     # 日本園方官網／營運協會
     "tokyo-zoo.net", "nhdzoo.jp", "tohoku-safaripark.co.jp", "tobezoo.com",
@@ -62,7 +63,15 @@ OFFICIAL_HOSTS = {
     # sources/chausuyama-zukan/；要驗證請走 Wayback（見下方 _WAYBACK_HOSTS）。
     "chausuyama.com",
     "hirakawazoo.jp",  # 鹿児島市平川動物公園（含園方「飼育員の日記」等 staff blog）
+    # アドベンチャーワールド（和歌山県白浜町／株式会社アワーズ）。園方公告發於
+    # /topics/detail?id=… ，新聞稿 PDF 在 /pressrelease/pdf/YYMMDD.pdf。
+    # ⚠️ PDF 為全形數字排版，沙盒的文字擷取會把「２８」讀成「１８」之類，日期一律以
+    #    HTML topics 頁核對（維護者 Chrome 實讀），勿只信 PDF 抽取結果。
+    "aws-s.com",
     "hamurazoo.jp",  # 羽村市動物公園（園方 /news/ 公告）
+    # 池田動物園（岡山市；訃報等公告發於 /news/）。⚠️ 舊訃報會自站上下架（如 2024-04-27
+    #    「レッサーパンダの「陸」が亡くなりました」2025 年初已 404），既有 sources 走 Wayback 快照。
+    "ikedazoo.jp",
     "ishikawazoo.jp",  # いしかわ動物園（含《開園10周年記念誌》等園方 PDF）
     # 鹿児島市広報課「鹿児島市広報デジタルアーカイブ」（廣報紙《かごしま市民のひろば》
     # 等的官方 PDF 封存站；非 .lg.jp 網域故需個別列入）
@@ -89,6 +98,7 @@ OFFICIAL_HOSTS = {
     # Diergaarde Blijdorp／Rotterdam Zoo（荷蘭）：國際小熊貓血統登録書（ISB）的編纂・保管園。
     # ⚠️ 原站 /import/assetmanager/ PDF 目錄 2012 年後整批下架，sources 一律走 Wayback 快照
     # （內層 host 為 rotterdamzoo.nl，`_unwrap_wayback` 會遞迴判為官方）；原檔存 sources/isb-red-panda/。
+    # ⚠️ 官方歸官方，但**不對外呈現連結**（維護者裁定 2026-08-11）：同時列於 NON_PUBLIC_HOSTS。
     "rotterdamzoo.nl", "diergaardeblijdorp.nl",
     "zoodubassindarcachon.com",  # Zoo du Bassin d'Arcachon（法國吉倫特省）
     "zoobojnice.sk",  # Národná zoologická záhrada Bojnice（斯洛伐克國立動物園，環境部所屬）
@@ -154,6 +164,7 @@ OFFICIAL_X_ACCOUNTS = {
     "kumamotocityzoo",  # 熊本市動植物園（ezooko.jp）
     "cincinnatizoo",    # Cincinnati Zoo & Botanical Garden（同 cincinnatizoo.org）
     "ooshimashicho",    # 東京都大島支庁（大島公園動物園）
+    "love_ikedazoo",    # 池田動物園（官網頁尾 X 連結指向此帳號；訃報公告發於此）
 }
 _X_HOSTS = {"x.com", "twitter.com", "mobile.twitter.com", "mobile.x.com"}
 
@@ -198,6 +209,7 @@ OFFICIAL_IG_ACCOUNTS = {
     "woburn_safari",  # Woburn Safari Park（英國；官網 woburnsafari.co.uk 頁尾 Instagram 連結指向此帳號；到園公告發於此）
     "pueblozoo",  # Pueblo Zoo（同 pueblozoo.org；幼獸健檢等公告發於此）
     "buffalo_zoo",  # Buffalo Zoo（同 buffalozoo.org；抵園公告發於此）
+    "love_ikedazoo",  # 池田動物園（官網頁尾 Instagram 連結指向此帳號）
 }
 _IG_HOSTS = {"instagram.com", "m.instagram.com"}
 _IG_NON_ACCOUNT_SEGS = {"p", "reel", "reels", "tv", "stories", "explore"}
@@ -288,6 +300,30 @@ def official_sources(sources_raw) -> list[str]:
         if u and is_official_source(u) and u not in seen:
             seen.add(u); out.append(u)
     return out
+
+
+# ── 官方但不對外呈現的來源 ───────────────────────────────────
+# 維護者裁定 2026-08-11：ISB（國際小熊貓血統登録書，Rotterdam Zoo／Diergaarde Blijdorp 編）
+# **仍是官方一手來源、佐證權重照舊**（`has_official_source` 不受影響、🚧 判定照舊），
+# 但**不在網站個體頁列出連結**——原檔 2012 年已由園方下架，公開可指的只剩 Wayback 快照，
+# 不宜對外呈現。連結原封不動留在 frontmatter `sources:` 供校訂稽核，原檔存 sources/isb-red-panda/。
+# ⚠️ 這裡放的是「官方但不公開展示」，與「非官方」是兩回事，勿從 OFFICIAL_HOSTS 移除。
+NON_PUBLIC_HOSTS = {"rotterdamzoo.nl", "diergaardeblijdorp.nl"}
+
+def is_public_source(url: str) -> bool:
+    """官方來源是否可在個體頁公開列出（Wayback 快照比對其內層 host）。"""
+    host = _host(url)
+    if host in _WAYBACK_HOSTS:
+        inner = _unwrap_wayback(url)
+        if inner:
+            host = _host(inner)
+    return host not in NON_PUBLIC_HOSTS
+
+
+def split_sources(sources_raw) -> tuple[list[str], list[str]]:
+    """回傳 (公開展示的官方來源, 官方但不公開展示的來源)；兩者皆計入官方佐證。"""
+    off = official_sources(sources_raw)
+    return [u for u in off if is_public_source(u)], [u for u in off if not is_public_source(u)]
 
 
 # ── Wikilink 抽取 ─────────────────────────────────────────────
@@ -511,6 +547,10 @@ def build_db():
             extra_sources = [extra_sources]
         extra_sources = [_strip_yaml_comment(s) for s in extra_sources]
 
+        # 官方來源拆兩份：公開展示的進 sources、官方但不公開展示的（ISB）進 sources_private。
+        # 兩者任一非空即代表有官方佐證（export_json 的 has_official_source 取兩者聯集）。
+        src_public, src_private = split_sources(fm.get("sources"))
+
         # 韓文名可為單值或多值（list）；正規化為以逗號分隔的字串（比照 japanese 多值寫法）
         korean = fm.get("korean")
         if isinstance(korean, list):
@@ -535,7 +575,8 @@ def build_db():
             "instagram":        json.dumps(instagram, ensure_ascii=False) if instagram else None,
             "youtube":          json.dumps(youtube, ensure_ascii=False) if youtube else None,
             "is_alive":         0 if fm.get("died") else 1,
-            "sources":          json.dumps(official_sources(fm.get("sources")), ensure_ascii=False),
+            "sources":          json.dumps(src_public, ensure_ascii=False),
+            "sources_private":  json.dumps(src_private, ensure_ascii=False) if src_private else None,
             "extra_sources":    json.dumps(extra_sources, ensure_ascii=False) if extra_sources else None,
         }
         panda_rows.append((slug, body, row))
@@ -551,10 +592,10 @@ def build_db():
     cur.executemany("""
         INSERT OR REPLACE INTO pandas
           (slug, name, japanese, korean, chinese, nicknames, english_variants,
-           sex, born, died, last_seen, species, rpf_id, rpf_url, tags, instagram, youtube, is_alive, sources, extra_sources)
+           sex, born, died, last_seen, species, rpf_id, rpf_url, tags, instagram, youtube, is_alive, sources, sources_private, extra_sources)
         VALUES
           (:slug,:name,:japanese,:korean,:chinese,:nicknames,:english_variants,
-           :sex,:born,:died,:last_seen,:species,:rpf_id,:rpf_url,:tags,:instagram,:youtube,:is_alive,:sources,:extra_sources)
+           :sex,:born,:died,:last_seen,:species,:rpf_id,:rpf_url,:tags,:instagram,:youtube,:is_alive,:sources,:sources_private,:extra_sources)
     """, [r for _, _, r in panda_rows])
     conn.commit()
     print(f"  ✅ 插入 {len(panda_rows)} 筆個體資料")

@@ -34,7 +34,8 @@ CREATE TABLE IF NOT EXISTS pandas (
     instagram   TEXT,               -- JSON array，公開 IG 貼文連結（curate，官方 embed 展示）
     youtube     TEXT,               -- JSON array，公開 YouTube 影片連結（curate，個體頁「照片與影片」影片分頁 embed 展示）
     is_alive    INTEGER,  -- 0=已歿, 1=現存（由 build_db.py 填入）
-    sources     TEXT,               -- JSON array，僅官方來源（園方/政府/園報/官方微信）；個體頁「來源」區塊用
+    sources     TEXT,               -- JSON array，官方來源中「可公開展示」者；個體頁「來源」區塊用
+    sources_private TEXT,           -- JSON array，官方但不對外呈現的來源（ISB 國際血統登録書，見 build_db.NON_PUBLIC_HOSTS）；計入 has_official_source，但不匯出 JSON、網站不顯示
     extra_sources TEXT              -- JSON array，其他補充資料（展牌實拍等一手但非官方鏈結的佐證；網站另區塊顯示，待實作）
 );
 

@@ -95,6 +95,7 @@ extra_sources:           # 選填：其他參考資料——非官方但值得�
 | `extra_sources` | **其他參考資料**：同好部落格、YouTube 影片（佐證用）、新聞報導、fan wiki 等非官方鏈結。**只放 URL**。值得展示的 YT 影片改放 `youtube:` 欄位（見上） | 個體頁「其他參考資料」區塊（列在「來源」下方，並註明非官方）；非 URL 項目一律過濾不顯示 |
 | （條目內文／`## 備注`） | **無法線上核對的一手佐證**：讀者實拍展牌、實體園報掃描等。連同原文引述寫成敘述（2026-08-05 起，取代舊的「在 `extra_sources` 寫純文字說明」做法） | 隨內文顯示 |
 
+- **官方但不對外呈現的來源（2026-08-11 維護者裁定）**：ISB《International Red Panda Studbook》（Rotterdam Zoo／Diergaarde Blijdorp 編）**是官方一手來源、佐證權重照舊**（`has_official_source` 照算、🚧 解除照舊），但**個體頁不列出連結**——原檔 2012 年已由園方下架，公開可指的只剩 Wayback 快照，不宜對外呈現。連結原封不動留在 frontmatter `sources:` 供校訂稽核，原檔存 `sources/isb-red-panda/`。實作：`tools/build_db.py` 的 `NON_PUBLIC_HOSTS`（比對 Wayback 內層 host）→ 拆進 DB 的 `sources_private` 欄，`export_json.py` **刻意不匯出**該欄（`pandas.json` 隨網站發佈，連結進了 JSON 就等於上站），只把它併入 `has_official_source`。⚠️ 這是「官方但不公開」，與「非官方」是兩回事，**勿把 `rotterdamzoo.nl` 從 `OFFICIAL_HOSTS` 移除**。
 - **部落格／影片等非官方連結一律進 `extra_sources`、不進 `sources`**，避免污染官方來源判定。
 - **`extra_sources` 只列 URL**（2026-08-05 起）：純文字佐證說明不列在此，改寫進條目內文／`## 備注`。網站個體頁的「其他參考資料」區塊只呈現連結。
 - 由這類來源帶入、無官方佐證的關鍵資料（生卒日、家系）仍照 `CLAUDE.md` 標 `🚧 待查證`；把連結留在 `extra_sources` 是為了讓讀者能自行追溯，不等於採信。

@@ -232,12 +232,18 @@ def main():
             "instagram": json.loads(r["instagram"] or "[]"),
             # 展示用 YouTube 影片（個體頁「照片與影片」影片分頁）；佐證用 YT 連結仍在 extra_sources
             "youtube": json.loads(r["youtube"] or "[]"),
-            # 僅官方來源（園方/政府/園報/官方微信）；分類於 build_db.official_sources
+            # 僅官方來源（園方/政府/園報/官方微信）中**可公開展示**者；分類於 build_db.split_sources。
+            # ⚠️ 官方但不對外呈現者（ISB，見 build_db.NON_PUBLIC_HOSTS）刻意不匯出——
+            #    pandas.json 會隨網站一起發佈，連結進了 JSON 就等於上站。
             "sources": json.loads(r["sources"] or "[]"),
             # 佐證軸（自動推導，非手動 tag）：官方來源清單非空 → 有官方背書。
             # 為空（如僅「維護者提供（…）」無 host）→ 網站顯示「維護者提供・未經官方佐證」標記。
             # 補進官方來源後自動轉 true、標記自動消失。與在世軸 unverified 獨立、勿混用。
-            "has_official_source": bool(json.loads(r["sources"] or "[]")),
+            # ⚠️ 取「公開＋不公開」聯集：ISB 是官方一手、權重照舊，只是連結不對外呈現，
+            #    僅以 ISB 佐證的條目不可因此被標成「未經官方佐證」。
+            "has_official_source": bool(
+                json.loads(r["sources"] or "[]") or json.loads(r["sources_private"] or "[]")
+            ),
             # 其他補充資料（展牌實拍等一手非官方鏈結佐證；網站另區塊顯示，待實作）
             "extra_sources": json.loads(r["extra_sources"] or "[]"),
             "residences": [],

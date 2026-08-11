@@ -289,6 +289,8 @@ log 格式：
 >
 > **非官方連結一律留存為「其他參考資料」（2026-08-02 起）**：同好部落格、YouTube 影片、新聞報導等雖不可作為 `sources`，但**不要丟掉**——放進 frontmatter 的 `extra_sources`，網站個體頁會在「來源」下方以「其他參考資料」區塊顯示（並註明非官方）。連結行末以 YAML 註解記標題與日期。判準：**能佐證即進 `sources`，只能參考就進 `extra_sources`，兩者都不是才丟棄。** 詳見 `SCHEMA.md`〈sources 與 extra_sources 的分工〉。
 >
+> **ISB 是官方來源，但不對外呈現連結（2026-08-11 維護者裁定）**：國際血統登録書（Rotterdam Zoo 編）**仍算官方一手、權重很高**，據以解除 `🚧` 照舊；但個體頁的「來源」區塊**不列出該連結**，`pandas.json` 也不匯出。照常寫進 frontmatter `sources:` 即可，過濾由 `tools/build_db.py` 的 `NON_PUBLIC_HOSTS` 自動處理。詳見 `SCHEMA.md`〈sources 與 extra_sources 的分工〉。
+>
 > **`extra_sources` 只放 URL（2026-08-05 起，覆蓋舊做法）**：無法線上核對的一手佐證（讀者實拍展牌、實體園報掃描、園內公告牌等）**不再以純文字列進 `extra_sources`**，改寫在條目內文或 `## 備注`（可直接引述展牌原文），並在 `sources` 記 `維護者提供（YYYY-MM-DD：…）`。個體頁的「其他參考資料」區塊只呈現連結，非 URL 項目已由 `web/src/components/Panda.astro` 過濾掉、不會顯示。
 
 注意事項：
