@@ -12,6 +12,7 @@ import JpTree from '../components/JpTree.astro';
 import Species from '../components/Species.astro';
 import Moves from '../components/Moves.astro';
 import Japan from '../components/Japan.astro';
+import Terms from '../components/Terms.astro';
 import { pandas, zoos, zoosListed, LOCALES, searchDataFor, closedDataFor, subGraph, placeholderMotherName, zooName, japanTreeData } from '../lib/data.js';
 
 export function getStaticPaths() {
@@ -28,6 +29,7 @@ export function getStaticPaths() {
     out.push({ params: { path: path('japan') }, props: { locale: l.code, kind: 'japan', relPath: 'japan' } });
     out.push({ params: { path: path('feedback') }, props: { locale: l.code, kind: 'feedback', relPath: 'feedback' } });
     out.push({ params: { path: path('thanks') }, props: { locale: l.code, kind: 'thanks', relPath: 'thanks' } });
+    out.push({ params: { path: path('terms') }, props: { locale: l.code, kind: 'terms', relPath: 'terms' } });
     for (const p of Object.values(pandas)) {
       out.push({ params: { path: path('p/' + p.urlId) }, props: { locale: l.code, kind: 'panda', slug: p.slug, relPath: 'p/' + p.urlId } });
     }
@@ -52,6 +54,7 @@ const titles = {
   japan: (await import('../lib/data.js')).i18n[locale].nav_japan,
   feedback: (await import('../lib/data.js')).i18n[locale].nav_feedback,
   thanks: (await import('../lib/data.js')).i18n[locale].about_title,
+  terms: (await import('../lib/data.js')).i18n[locale].terms_title,
   panda: kind === 'panda' ? placeholderMotherName(pandas[slug], locale) : undefined,
   zoo: kind === 'zoo' ? zooName(zoos.find((z) => z.slug === slug)?.id, null, locale) : undefined,
 };
@@ -74,6 +77,7 @@ const graph = p ? subGraph(slug, locale) : null;
   {kind === 'japan' && <Japan locale={locale} />}
   {kind === 'feedback' && <Feedback locale={locale} />}
   {kind === 'thanks' && <Thanks locale={locale} />}
+  {kind === 'terms' && <Terms locale={locale} />}
   {kind === 'panda' && <Panda locale={locale} slug={slug} />}
   {kind === 'zoo' && <Zoo locale={locale} slug={slug} />}
 

@@ -53,6 +53,8 @@ OFFICIAL_HOSTS = {
     #    在同源頁跑 pdf.js 渲染成 canvas 再讀（見 sources/isb-red-panda 以外的作業備忘）。
     "szga.jp",
     "asazoo.jp", "omutacityzoo.org", "hama-midorinokyokai.or.jp",
+    # 名古屋市東山動植物園（/news/ 公告與 /blog/ 官方部落格皆為官方一手）
+    "higashiyama.city.nagoya.jp",
     "kobe-ojizoo.jp", "ojizoo.jp",  # 神戸市立王子動物園（現行官網＋舊官方網域）
     "tennojizoo.jp",  # 天王寺動物園（含園報《なきごえ》/nakigoe/ 與 ZOO DIARY，官方一手）
     # 到津の森公園（北九州市；含公園だより「動物たちのおはなし」staff blog 與開園周年特設頁）

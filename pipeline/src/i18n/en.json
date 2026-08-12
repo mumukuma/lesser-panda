@@ -395,5 +395,20 @@
   "stats_sec_dam_age": "Age of dams at birth",
   "stats_dam_age_note": "{n} births from {d} dams; youngest {min}, median {med}, oldest {max} years. Counted only where both the dam’s and the cub’s birth dates are known.",
   "stats_sec_death_age": "Age at death",
-  "stats_death_age_note": "{n} individuals with a known date of death; the median age at death is {med} years — {p3}% died at 15–19, {p2}% at 10–14 and {p4}% at 20 or over. Cubs that die before their first birthday are mostly never catalogued here, so this shows how long red pandas live once they have grown up; it is not a survival rate."
+  "stats_death_age_note": "{n} individuals with a known date of death; the median age at death is {med} years — {p3}% died at 15–19, {p2}% at 10–14 and {p4}% at 20 or over. Cubs that die before their first birthday are mostly never catalogued here, so this shows how long red pandas live once they have grown up; it is not a survival rate.",
+  "terms_footer_link": "Terms of Use",
+  "terms_title": "Terms of Use",
+  "terms_p1": "The entry texts, family-tree research, source notes and database compilation on this site are the result of the maintainer's long-term manual research and verification. Unless otherwise noted, all rights reserved; please do not use the site's data beyond what these terms allow without prior permission.",
+  "terms_ok_title": "You are welcome to",
+  "terms_ok_p1": "Browse freely and share links to any page, and quote small portions of individual entries in articles, posts or reports — please credit “Red Panda Encyclopedia (ressapanda.com)” and link to the page you quote.",
+  "terms_no_title": "Please do not, without permission",
+  "terms_no_1": "Bulk-extract, download or redistribute the site's data (including automated scraping of the site or its data files).",
+  "terms_no_2": "Republish or mirror the content, or include it in other websites, databases or datasets.",
+  "terms_no_3": "Use it for any commercial purpose.",
+  "terms_research_title": "Research & analysis",
+  "terms_research_p1": "Would you like to use the data for research, statistical analysis or another project? Please contact the maintainer first via the {feedback}report form{/feedback}, describing your purpose and scope; once agreed, you are welcome to use it. Please credit this site when publishing results.",
+  "terms_embed_title": "Photos & videos",
+  "terms_embed_p1": "Instagram/YouTube content embedded on this site belongs to its original publishers (zoos and contributors) and is not covered by these terms; please contact them directly for permission.",
+  "terms_src_p1": "The information here is compiled from public sources such as zoos' official announcements, newsletters and studbooks, credited on each entry. These terms protect this site's selection, arrangement and wording — not the underlying facts.",
+  "terms_updated": "These terms apply from 2026-08-12 and may be updated without notice."
 }
