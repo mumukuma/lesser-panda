@@ -169,10 +169,8 @@ const ogLocale = { 'zh-TW': 'zh_TW', 'zh-CN': 'zh_CN', ja: 'ja_JP', en: 'en_US',
         <a href={url(cur.dir, 'feedback')} class="text-rust no-underline hover:underline">🐾 {T.feedback_footer_link}</a>
         <span aria-hidden="true" class="opacity-40">·</span>
         <a href={url(cur.dir, 'thanks')} class="text-rust no-underline hover:underline">{T.thanks_footer_link}</a>
-        {/* 資料使用條款連結：維護者審核中，先不露出（頁面 /terms/ 仍會建置，可直接開網址預覽）
         <span aria-hidden="true" class="opacity-40">·</span>
         <a href={url(cur.dir, 'terms')} class="text-rust no-underline hover:underline">{T.terms_footer_link}</a>
-        */}
       </div>
       <div class="mt-1.5" set:html={T.footer_note}></div>
       <div class="mt-0.5 opacity-80">{T.data_note} {new Date().toISOString().slice(0, 10)}</div>
