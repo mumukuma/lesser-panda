@@ -558,6 +558,14 @@ def build_db():
         if isinstance(korean, list):
             korean = ", ".join(str(x) for x in korean) if korean else None
 
+        # 出身（選填）：wild=野生出身（含野捕／救護）｜confiscated=走私查獲。園內出生者留空。
+        # 白名單外的值一律視同留空——schema.sql 對此欄有 CHECK 約束，直接寫入會讓整次建置中止。
+        origin = (fm.get("origin") or "").strip().lower() or None
+        if origin not in ("wild", "confiscated"):
+            if origin:
+                print(f"  ⚠️  {slug}: origin 值 `{origin}` 不在白名單（wild／confiscated），已忽略")
+            origin = None
+
         row = {
             "slug":             slug,
             "name":             fm.get("name", ""),
@@ -571,6 +579,9 @@ def build_db():
             "died":             fm.get("died"),
             "last_seen":        fm.get("last_seen"),
             "species":          species_short(fm.get("species")),
+            # 出身（選填）：wild=野生出身（含野捕／救護）｜confiscated=走私查獲。
+            # 園內出生者一律留空；未知值視同留空（不寫入，避免 CHECK 約束擋掉整次建置）。
+            "origin":           origin,
             "rpf_id":           int(fm["rpf_id"]) if fm.get("rpf_id") else None,
             "rpf_url":          fm.get("rpf_url"),
             "tags":             json.dumps(tags_raw, ensure_ascii=False),
@@ -594,10 +605,10 @@ def build_db():
     cur.executemany("""
         INSERT OR REPLACE INTO pandas
           (slug, name, japanese, korean, chinese, nicknames, english_variants,
-           sex, born, died, last_seen, species, rpf_id, rpf_url, tags, instagram, youtube, is_alive, sources, sources_private, extra_sources)
+           sex, born, died, last_seen, species, origin, rpf_id, rpf_url, tags, instagram, youtube, is_alive, sources, sources_private, extra_sources)
         VALUES
           (:slug,:name,:japanese,:korean,:chinese,:nicknames,:english_variants,
-           :sex,:born,:died,:last_seen,:species,:rpf_id,:rpf_url,:tags,:instagram,:youtube,:is_alive,:sources,:sources_private,:extra_sources)
+           :sex,:born,:died,:last_seen,:species,:origin,:rpf_id,:rpf_url,:tags,:instagram,:youtube,:is_alive,:sources,:sources_private,:extra_sources)
     """, [r for _, _, r in panda_rows])
     conn.commit()
     print(f"  ✅ 插入 {len(panda_rows)} 筆個體資料")

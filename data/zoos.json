@@ -4648,21 +4648,6 @@
   "aliases": []
  },
  {
-  "canonical": "River Wonders",
-  "lineage_id": 205,
-  "en": "River Wonders",
-  "zh": null,
-  "country": "Singapore",
-  "location_ja": null,
-  "location_en": "Singapore",
-  "lat": 1.4043485,
-  "lng": 103.793023,
-  "map": "https://goo.gl/maps/YC9SowJPvw5XBHtY7",
-  "website": "https://www.wrs.com.sg/en/singapore-zoo.html",
-  "logo": null,
-  "aliases": []
- },
- {
   "canonical": "Riverside Discovery Center",
   "lineage_id": 185,
   "en": "Riverside Discovery Center",
@@ -6224,7 +6209,7 @@
  },
  {
   "canonical": "河川生態園",
-  "lineage_id": null,
+  "lineage_id": 205,
   "en": "River Wonders",
   "zh": "河川生態園",
   "country": "Singapore",

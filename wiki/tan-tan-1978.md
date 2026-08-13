@@ -5,6 +5,7 @@ sex: male
 born: 1978
 died: 1986-11-07
 species: Ailurus fulgens styani
+origin: wild
 zoos:
   - 西安秦嶺野生動物園 ( – 1980-09-16)
   - 静岡市立日本平動物園 (1980-09-16 – 1986-11-07)

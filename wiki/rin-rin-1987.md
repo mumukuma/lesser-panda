@@ -6,6 +6,7 @@ sex: female
 born: 1987
 died: 2008-11-21
 species: Ailurus fulgens styani
+origin: wild
 zoos:
   - 到津の森公園 (1989-10-11 – 2008-11-21)
 birth_zoo: unknown

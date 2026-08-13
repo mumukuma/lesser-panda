@@ -4,6 +4,7 @@ chinese: 球球
 sex: female
 born:
 died: 2014
+origin: confiscated
 last_seen: 2014
 zoos:
   - 壽山動物園 (2001-02-01 – 2014)

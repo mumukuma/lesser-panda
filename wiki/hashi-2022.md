@@ -3,6 +3,7 @@ name: Hashi
 english_variants: [Hachi]
 sex: male
 born: 2022
+origin: confiscated
 zoos:
   - Khao Kheow Open Zoo (2024 – 現在)
 tags: [male, thailand, rescue]

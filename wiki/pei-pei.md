@@ -3,6 +3,7 @@ name: Pei Pei
 chinese: 霈霈
 sex: female
 species: Ailurus fulgens styani
+origin: wild
 died: 2026-07-27
 birth_zoo: unknown
 zoos:

@@ -118,11 +118,18 @@ const speciesCell = (() => {
   return (T.species_fmt || '{name}（{latin}）').replace('{name}', named).replace('{latin}', latin);
 })();
 
+// 出身（#origin）：非園內出生者才顯示。值→i18n key 對照，缺 key 就不顯示（勿吐出 undefined）。
+const ORIGIN_KEY = { wild: 'origin_wild', confiscated: 'origin_confiscated' };
+const originCell = p.origin && T[ORIGIN_KEY[p.origin]] ? T[ORIGIN_KEY[p.origin]] : null;
+
 const facts = [
   [T.field_sex, `<span class="inline-block text-[.76rem] px-2 py-px rounded-full ${p.sex === 'female' ? 'bg-[#f7e3df] text-female' : p.sex === 'male' ? 'bg-[#dfeef2] text-male' : 'bg-cream text-rust-dark'}">${sexTxt}</span>`],
   [T.field_born, bornCell],
   p.died ? [T.field_died, `${p.died}${deceasedHtml(locale)}`] : null,
   [T.field_species, speciesCell],
+  // 出身：僅非園內出生者有值（wild=野生出身、含野捕／救護；confiscated=走私查獲）。
+  // 園內出生者 origin 為 null，整列不出現。未知值不顯示（build_db 已擋在白名單外）。
+  originCell ? [T.field_origin, originCell] : null,
   curZoo ? [T.field_zoo, curZoo] : null,
 ].filter(Boolean);
 

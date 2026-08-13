@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS pandas (
     died        TEXT,               -- NULL = 現存
     last_seen   TEXT,               -- 檔案卡：最後確認在世／在園日期（YYYY[-MM[-DD]]；動向不明個體用）
     species     TEXT,               -- "styani" | "fulgens"
+    origin      TEXT CHECK(origin IN ('wild','confiscated')),  -- 選填：非園內出生的出身。wild=野生出身（含野捕／救護）｜confiscated=走私查獲；個體頁「出身」列用
     rpf_id      INTEGER,            -- Red Panda Finder profile ID
     rpf_url     TEXT,
     tags        TEXT,               -- JSON array，原始 tags
