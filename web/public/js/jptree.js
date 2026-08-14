@@ -15,7 +15,8 @@
   const tt = (s, m) => (s || '').replace(/\{(\w+)\}/g, (_, k) => (k in m ? m[k] : '{' + k + '}'));
   // 節點只顯示第一個讀音（如「愛愛, アイアイ」→「愛愛」），與個體頁家系圖一致
   const shortName = (s) => s ? String(s).split(/[,、，/／（(]/)[0].trim() : s;
-  // node: [urlId,name,sex,born,died,gen,x,y,zooIds,placeholder]（placeholder=1：蘋果籽佔位，尚未命名的寶寶）
+  // node: [urlId,name,sex,born,died,gen,x,y,zooIds,placeholder,overseas]
+  //   placeholder=1：蘋果籽佔位，尚未命名的寶寶／overseas=1：沒住過日本的脈絡節點（接起繞出日本的祖先線）
   const N = D.nodes, E = D.edges, ROWH = 170, NW = 80, NH = 48;
   const parents = N.map(() => []), children = N.map(() => []);
   E.forEach(([c, p]) => { parents[c].push(p); children[p].push(c); });
@@ -59,7 +60,7 @@
   // ── nodes ──
   const nodeEls = N.map((n, i) => {
     const g = document.createElementNS(NS, 'g');
-    g.setAttribute('class', 'ft-node ' + (n[4] ? 'dead' : 'alive') + (n[2] === 'f' ? ' f' : n[2] === 'm' ? ' m' : ''));
+    g.setAttribute('class', 'ft-node ' + (n[4] ? 'dead' : 'alive') + (n[2] === 'f' ? ' f' : n[2] === 'm' ? ' m' : '') + (n[10] ? ' os' : ''));
     g.setAttribute('transform', `translate(${n[6]} ${n[7]})`);
     g.dataset.i = i;
     // 全圖近 450 個節點：不逐一納入 Tab 序（否則鍵盤使用者要按數百次才能離開圖），
@@ -354,8 +355,10 @@
   const coachX = document.getElementById('ft-coach-x');
   if (coachX) coachX.onclick = () => { hideCoach(); picking = false; };
   const stat = document.getElementById('ft-stat');
+  // 隻數／在世只算日本個體（與介紹文的 {n} 一致）；海外節點是脈絡不計入。
+  const JPN = N.filter((n) => !n[10]);
   if (stat) stat.textContent = tt(T.ft_stat || '{n} 隻 · {g} 世代 · 在世 {a}',
-    { n: N.length, g: D.maxg + 1, a: N.filter((n) => !n[4]).length });
+    { n: JPN.length, g: D.maxg + 1, a: JPN.filter((n) => !n[4]).length });
 
   requestAnimationFrame(fit);
   window.addEventListener('resize', () => {

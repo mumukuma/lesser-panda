@@ -215,10 +215,17 @@ for (const p of Object.values(pandas)) {
   (p.children || []).forEach((c) => sibs.delete(c));
   [p.mother, p.father].filter(Boolean).forEach((par) => sibs.delete(par));
   p.full_siblings = []; p.half_siblings = [];
+  // 親代識別碼：有條目就用 slug；沒有條目但身分已確認者用 frontmatter 的
+  // mother_ref/father_ref（`isb:<番號>`／`rpf:<id>`，見 SCHEMA.md〈幽靈親代〉）。
+  // 少了這一步，父（或母）終生未命名而無條目的家族，全血緣手足會因為
+  // `undefined === undefined` 為偽而全數被誤判成 ½（2026-08-14 修，當時全庫 58 組受影響）。
+  const mk = (x) => x.mother || x.mother_ref || null;
+  const fk = (x) => x.father || x.father_ref || null;
+  const pm = mk(p), pf = fk(p);
   for (const s of sibs) {
     const q = pandas[s];
-    const shareM = p.mother && q.mother === p.mother;
-    const shareF = p.father && q.father === p.father;
+    const shareM = pm && mk(q) === pm;
+    const shareF = pf && fk(q) === pf;
     (shareM && shareF ? p.full_siblings : p.half_siblings).push(s);
   }
   const byBorn = (a, b) => ((pandas[a].born || '9999') < (pandas[b].born || '9999') ? -1 : 1);
@@ -336,27 +343,32 @@ export function japanTreeData(locale = 'zh-TW') {
   for (const p of Object.values(pandas)) isJP[p.slug] = _jpZooIds(p).length > 0;
   const adj = {}, parents = {}, children = {};
   const link = (a, b) => { (adj[a] = adj[a] || new Set()).add(b); (adj[b] = adj[b] || new Set()).add(a); };
+  // ⚠️ 血緣邊建在「全部個體」上，**不先砍掉非日本個體**（2026-08-14 修）。
+  // 舊版只在「親代也住過日本」時才建邊，祖先線一旦繞出日本就整條斷掉——
+  // 例：Franken（2012 生於 Calgary、2016 來多摩）之父 Zeyar 只住過 Calgary，
+  // 於是 森森 → ポンタ → Zeyar → Franken 這條真血緣在圖上消失，關係卡顯示「無已知血緣」。
+  // 現在海外祖先照樣進圖，只是標記 overseas（節點索引 10）、以弱化樣式呈現。
   for (const p of Object.values(pandas)) {
-    if (!isJP[p.slug]) continue;
     for (const m of [p.mother, p.father]) {
-      if (m && isJP[m] && pandas[m]) {
+      if (m && pandas[m]) {
         link(p.slug, m);
         (parents[p.slug] = parents[p.slug] || []).push(m);
         (children[m] = children[m] || []).push(p.slug);
       }
     }
   }
-  for (const [a, b] of family.twins) if (isJP[a] && isJP[b]) link(a, b);
-  // 最大連通元件
-  const seen = new Set(); let best = [];
+  for (const [a, b] of family.twins) link(a, b);
+  // 取「日本個體最多」的連通元件（不是節點最多——否則可能挑到與日本無關的純海外大群）
+  const seen = new Set(); let best = [], bestJP = -1;
   for (const s of Object.keys(isJP)) {
-    if (!isJP[s] || seen.has(s)) continue;
+    if (seen.has(s)) continue;
     const stack = [s], comp = [];
     while (stack.length) {
       const x = stack.pop(); if (seen.has(x)) continue; seen.add(x); comp.push(x);
       if (adj[x]) for (const y of adj[x]) if (!seen.has(y)) stack.push(y);
     }
-    if (comp.length > best.length) best = comp;
+    const njp = comp.reduce((a, x) => a + (isJP[x] ? 1 : 0), 0);
+    if (njp > bestJP) { bestJP = njp; best = comp; }
   }
   const inSet = new Set(best);
   // 世代（元件內最長祖先路徑）
@@ -398,7 +410,7 @@ export function japanTreeData(locale = 'zh-TW') {
     return [p.urlId, displayName(p, locale),
       p.sex === 'female' ? 'f' : p.sex === 'male' ? 'm' : 'u',
       p.born ? p.born.slice(0, 4) : '', p.died ? p.died.slice(0, 4) : '',
-      G[s], x, G[s] * ROWH, _jpZooIds(p), p.placeholder ? 1 : 0];
+      G[s], x, G[s] * ROWH, _jpZooIds(p), p.placeholder ? 1 : 0, isJP[s] ? 0 : 1];
   });
   const edges = [];
   for (const s of best) for (const m of parents[s] || []) if (inSet.has(m)) edges.push([idx[s], idx[m]]);
@@ -408,7 +420,8 @@ export function japanTreeData(locale = 'zh-TW') {
   for (const s of best) for (const z of _jpZooIds(pandas[s])) zc[z] = (zc[z] || 0) + 1;
   const zooList = Object.keys(zc).map(Number).sort((a, b) => zc[b] - zc[a])
     .map((z) => [z, zooName(z, null, locale), zc[z]]);
-  return { nodes, edges, twins, maxg, zoos: zooList };
+  // jpCount＝元件內的日本個體數（介紹文與 /japan/ 卡片的「{n} 隻」用它，海外祖先只是脈絡不計入）
+  return { nodes, edges, twins, maxg, zoos: zooList, jpCount: bestJP };
 }
 
 // ── 搬園統計（#moves）：由居住史相鄰兩段推得「園間移動」──────────────

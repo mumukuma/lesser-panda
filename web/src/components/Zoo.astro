@@ -1,8 +1,11 @@
 ---
-/* 動物園個別頁（#18）：現居名單、歷代居住個體、該園出生紀錄。
-   全部建置期由 pandas.json residences 計算，零 client JS（同 #16/#17 模式）。 */
-import { pandas, i18n, displayName, zooName, zooLocation, zooBySlug, deceasedHtml } from '../lib/data.js';
-import { pandaUrl, pageUrl } from '../lib/links.js';
+/* 動物園個別頁（#18）：現居名單、歷代居住個體（時間軸＋資料表）、該園出生紀錄。
+   全部建置期由 pandas.json residences 計算，零 client JS（同 #16/#17 模式）。
+   時間軸（2026-08-14）：一列一隻、橫軸年份，顏色沿用全站 --female/--male；
+   上方細條＝該園逐年在園頭數。互動只用 title tooltip；窄螢幕沿用 /japan/ 的
+   rtl 捲軸技巧初始停在最右（今天），名字欄 sticky 不會捲掉。 */
+import { pandas, i18n, displayName, zooName, zooLocation, zooBySlug, zooSlugById, deceasedHtml } from '../lib/data.js';
+import { pandaUrl, pageUrl, zooUrl } from '../lib/links.js';
 
 const { locale, slug } = Astro.props;
 const T = i18n[locale];
@@ -21,17 +24,55 @@ const link = (p) =>
 // 現居：pipeline 已依 zoos.json residents 排序好
 const residents = z.residents.map((s) => pandas[s]).filter(Boolean);
 
-// 歷代居住個體：任一段居住史在此園者（含現居），列出在此園的各段期間
-const bornKey = (p) => p.born || '9999';
+// ── 歷代居住個體 ─────────────────────────────────────────────────────
+// 日期解析：容忍只有年（YYYY）或年月（YYYY-MM）的值，缺月日補年中／月初，
+// 只用於畫圖定位；顯示一律用原始字串，tooltip 看得出精度。
+const pdate = (s) => {
+  const m = String(s || '').match(/^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?/);
+  return m ? Date.UTC(+m[1], m[2] ? +m[2] - 1 : 6, m[3] ? +m[3] : 1) : null;
+};
+const today = Date.now();
+const thisYear = new Date().getUTCFullYear();
+const YEAR_MS = 365.25 * 86400000;
+
+// 每隻在此園的各段居住史，連同前後段推得「從哪來／去了哪」與生歿旗標。
+// bornHere＝第一段居住史（與下方 births 的 🐣 同一定義）；
+// current＝最後一段、在世且訖日缺值；diedHere＝最後一段在此園且個體已故。
+const segInfo = (p) => {
+  const res = p.residences || [];
+  return res
+    .map((r, i) => ({ r, i }))
+    .filter(({ r }) => r.zoo_id === z.id)
+    .map(({ r, i }) => {
+      const prev = i > 0 ? res[i - 1] : null;
+      const next = i + 1 < res.length ? res[i + 1] : null;
+      const isLast = i === res.length - 1;
+      return {
+        start: pdate(r.start), end: pdate(r.end), rawS: r.start, rawE: r.end,
+        bornHere: i === 0,
+        diedHere: !!p.died && isLast,
+        current: isLast && !p.died && !r.end,
+        from: prev ? zooName(prev.zoo_id, prev.zoo_raw, locale) || prev.zoo_raw : null,
+        fromSlug: prev && prev.zoo_id != null ? zooSlugById[prev.zoo_id] : null,
+        to: next ? zooName(next.zoo_id, next.zoo_raw, locale) || next.zoo_raw : null,
+        toSlug: next && next.zoo_id != null ? zooSlugById[next.zoo_id] : null,
+      };
+    });
+};
+
+// 時間軸由上而下＝舊到新（時間軸左上往右下流動較順；與 /japan/ 圖表同讀向）。
+// 起日不詳者以訖日、再以生日代位排序，都沒有就排最後。
+const sortKey = (h) => h.info[0].rawS || h.info[0].rawE || h.p.born || '9999';
 const history = Object.values(pandas)
   .map((p) => {
-    const segs = (p.residences || []).filter((r) => r.zoo_id === z.id);
-    return segs.length ? { p, segs, first: segs[0].start || '9999' } : null;
+    const info = segInfo(p);
+    return info.length ? { p, info } : null;
   })
-  .filter(Boolean)
-  .sort((a, b) => b.first.localeCompare(a.first)); // 新到舊
+  .filter(Boolean);
+history.sort((a, b) => sortKey(a).localeCompare(sortKey(b)));
 
 // 該園出生：第一段居住史＝出生地（gen_residence 的 🐣 同一定義）
+const bornKey = (p) => p.born || '9999';
 const births = Object.values(pandas)
   .filter((p) => (p.residences || [])[0]?.zoo_id === z.id)
   .sort((a, b) => bornKey(b).localeCompare(bornKey(a))); // 新到舊
@@ -42,10 +83,76 @@ const summary = [
   [T.zoo_sec_births, births.length],
 ];
 
+// ── 時間軸座標：橫軸＝最早有日期的起日那年 → 今年（含）───────────────
+// 全部段落都沒有可解析的起日（極少數只有 raw 園名的老紀錄）就不畫圖、只出表格。
+const startTs = history.flatMap((h) => h.info.map((s) => s.start)).filter((t) => t !== null);
+const hasTimeline = startTs.length > 0;
+const Y0 = hasTimeline ? new Date(Math.min(...startTs)).getUTCFullYear() : 0;
+const SPAN = Date.UTC(thisYear + 1, 0, 1) - Date.UTC(Y0, 0, 1);
+const fx = (t) => Math.max(0, Math.min(100, ((t - Date.UTC(Y0, 0, 1)) / SPAN) * 100));
+const nowX = fx(today);
+const COL = 15; // px／年（同 /japan/ 年度圖）
+
+// 年份格線每 5 年一條；貼近「今天」線的年份標籤讓位（用像素算，短年距的園
+// 用百分比會失準——壽山那種 25 年跨距曾出現 2025 疊「今天」）
+const gridYears = [];
+const spanPx = (thisYear + 1 - Y0) * COL;
+for (let Y = Y0 + ((5 - (Y0 % 5)) % 5); Y <= thisYear; Y += 5) {
+  const x = fx(Date.UTC(Y, 0, 1));
+  gridYears.push({ x, label: ((nowX - x) / 100) * spanPx > 32 ? Y : '' });
+}
+
+// 在園頭數細條：每年年底（最後一年＝今天）仍在此園的頭數。只計有起日的段落；
+// 訖日不詳且非現居（如歿日只知年份）只算到起日當年，不無限延伸灌水。
+const pop = [];
+for (let Y = Y0; hasTimeline && Y <= thisYear; Y++) {
+  const t = Math.min(Date.UTC(Y, 11, 31), today);
+  let n = 0;
+  for (const h of history) {
+    if (h.info.some((s) => s.start !== null && s.start <= t && t <= (s.end ?? (s.current ? today : s.start)))) n++;
+  }
+  pop.push({ y: Y, n });
+}
+const popMax = Math.max(...pop.map((r) => r.n), 1);
+const popPeak = pop.reduce((a, b) => (b.n > a.n ? b : a), pop[0] || { y: 0, n: 0 });
+
+// 每段的畫圖幾何與 tooltip：起／訖不詳用淡出漸層表示，不畫實線硬撐
+const sexLabel = (p) => (p.sex === 'female' ? T.sex_f : p.sex === 'male' ? T.sex_m : T.sex_unknown);
+const sexColor = (p) => (p.sex === 'female' ? 'var(--female)' : p.sex === 'male' ? 'var(--male)' : 'var(--ink-soft)');
+const segTitle = (p, s) => {
+  const bits = [
+    `${displayName(p, locale)}（${sexLabel(p)}）`,
+    `${s.rawS || '?'} ~ ${s.rawE || (s.current ? T.present : '?')}`,
+  ];
+  if (s.start !== null && (s.end !== null || s.current)) {
+    bits.push(T.zoo_tl_stay.replace('{n}', (((s.end ?? today) - s.start) / YEAR_MS).toFixed(1)));
+  }
+  bits.push(s.bornHere ? '🐣 ' + T.zoo_tl_born : s.from ? T.zoo_tl_from.replace('{z}', s.from) : T.zoo_tl_src_unknown);
+  if (s.diedHere) bits.push('🪽 ' + (p.died || ''));
+  else if (s.to) bits.push('→ ' + T.zoo_tl_to.replace('{z}', s.to));
+  else if (s.current) bits.push(T.zoo_tl_current);
+  return bits.join('｜');
+};
+const segGeom = (p, s) => {
+  let a = s.start, b = s.end ?? (s.current ? today : null);
+  const unkA = a === null, unkB = b === null;
+  if (unkA) a = pdate(p.born) ?? Date.UTC(Y0, 0, 1); // 起日不詳：從生日（再不行從圖首）淡入
+  if (unkB) b = a + YEAR_MS;                          // 訖日不詳：畫一小段淡出
+  const l = fx(a);
+  const w = Math.max(fx(Math.min(b, today)) - l, 0.55);
+  return { l, w, unkA, unkB };
+};
+
+// 資料表（新到舊，與現居/出生表同讀向）：時間軸放不下的精確日期與來源去向連結
+const tableRows = [...history].reverse();
+const zLink = (slugZ, label) =>
+  slugZ ? `<a class="text-rust no-underline hover:underline" href="${zooUrl(base, locale, slugZ)}">${label}</a>` : label;
+
 const zoosHref = pageUrl(base, locale, 'zoos');
 const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';
 const CARD = 'card-soft p-[18px_20px]';
 const pill = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem] no-underline';
+const CHIP = 'inline-block bg-cream rounded-full px-2.5 py-px text-[.78rem] whitespace-nowrap';
 ---
 <p class="mt-5"><a class="text-rust hover:underline" href={zoosHref}>← {T.nav_zoos}</a></p>
 
@@ -91,27 +198,109 @@ const pill = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem] no
   </div>
 </section>
 
-<!-- 歷代居住個體 -->
+<!-- 歷代居住個體：時間軸＋完整資料表 -->
 {history.length > 0 && (
   <section class="reveal">
     <h2 class={H2}>{T.zoo_sec_history}（{history.length}）</h2>
-    <div class={CARD}>
-      <table class="w-full text-[.93rem] scroll-x">
-        <caption class="sr-only">{T.zoo_sec_history}</caption>
-        <thead>
-          <tr class="text-left text-ink-soft text-[.84rem]"><th scope="col" class="p-2">{T.th_name}</th><th scope="col" class="p-2">{T.th_period}</th></tr>
-        </thead>
-        <tbody>
-        {history.map(({ p, segs }) => (
-          <tr class="border-t border-line">
-            <td class="p-2" set:html={link(p)} />
-            {/* 訖日缺值：只有「最後一段居所且個體在世」才顯示現在，其餘顯示 ? */}
-            <td class="p-2 text-[.88rem]">{segs.map((r) => `${r.start || '?'} ~ ${r.end || (r === p.residences[p.residences.length - 1] && !p.died ? T.present : '?')}`).join('、')}</td>
-          </tr>
-        ))}
-        </tbody>
-      </table>
-    </div>
+
+    {hasTimeline && (
+      <div class={CARD}>
+        <div class="flex flex-wrap gap-x-4 gap-y-1 text-[.8rem] text-ink-soft mb-2">
+          <span><i class="lg-sw" style="background:var(--female)"></i>{T.sex_f}</span>
+          <span><i class="lg-sw" style="background:var(--male)"></i>{T.sex_m}</span>
+          <span>🐣 {T.zoo_tl_born}</span>
+          <span>🪽 {T.zoo_tl_died}</span>
+          <span><i class="lg-sw lg-fade"></i>{T.zoo_tl_fade}</span>
+        </div>
+        <div class="tl-scroll overflow-x-auto pb-1">
+          <div class="tl" style={`min-width:${(thisYear + 1 - Y0) * COL + 118}px`}>
+            <div class="pop-strip">
+              <div class="text-[.72rem] text-ink-soft mb-0.5">{T.zoo_tl_pop}（{T.zoo_tl_peak.replace('{y}', popPeak.y).replace('{n}', popPeak.n)}）</div>
+              <div class="pop-row">
+                {pop.map((r) => (
+                  <div class="pop-c" title={`${r.y}｜${r.n}`}><div class="pop-b" style={`height:${Math.max(Math.round((r.n / popMax) * 46), r.n ? 2 : 0)}px`}></div></div>
+                ))}
+              </div>
+            </div>
+            <div class="chart">
+              <div class="overlay" aria-hidden="true">
+                {gridYears.map((g) => (
+                  <div class="grid-l" style={`left:${g.x.toFixed(2)}%`}>{g.label && <span>{g.label}</span>}</div>
+                ))}
+                <div class="now-l" style={`left:${nowX.toFixed(2)}%`}><span>{T.zoo_tl_today}</span></div>
+              </div>
+              {history.map(({ p, info }) => (
+                <div class="row">
+                  <div class="nm" set:html={link(p)} />
+                  <div class="lane">
+                    {info.map((s) => {
+                      const g = segGeom(p, s);
+                      return (
+                        <div class={'seg' + (g.unkA ? ' fade-l' : '') + (g.unkB ? ' fade-r' : '')}
+                          style={`left:${g.l.toFixed(2)}%;width:${g.w.toFixed(2)}%;background:${sexColor(p)}`}
+                          title={segTitle(p, s)}>
+                          {s.bornHere && <span class="mk mk-l" aria-hidden="true">🐣</span>}
+                          {s.diedHere && <span class="mk mk-r" aria-hidden="true">🪽</span>}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+
+    <details class="mt-3" open={!hasTimeline}>
+      <summary class="cursor-pointer text-rust text-[.9rem] select-none">{T.zoo_tbl_more}</summary>
+      <div class={`${CARD} mt-2`}>
+        <table class="w-full text-[.93rem] scroll-x">
+          <caption class="sr-only">{T.zoo_sec_history}</caption>
+          <thead>
+            <tr class="text-left text-ink-soft text-[.84rem]">
+              <th scope="col" class="p-2">{T.th_name}</th>
+              <th scope="col" class="p-2">{T.th_period}</th>
+              <th scope="col" class="p-2">{T.th_from}</th>
+              <th scope="col" class="p-2">{T.th_to}</th>
+            </tr>
+          </thead>
+          <tbody>
+          {tableRows.map(({ p, info }) => {
+            const first = info[0], last = info[info.length - 1];
+            const stay = first.start !== null && (last.end !== null || last.current)
+              ? T.zoo_tl_stay.replace('{n}', (((last.end ?? today) - first.start) / YEAR_MS).toFixed(1)) : '';
+            return (
+              <tr class="border-t border-line">
+                <td class="p-2" set:html={link(p)} />
+                <td class="p-2 text-[.88rem]">
+                  {info.map((s) => `${s.rawS || '?'} ~ ${s.rawE || (s.current ? T.present : '?')}`).join('、')}
+                  {stay && <span class="block text-ink-soft text-[.76rem]">{stay}</span>}
+                </td>
+                <td class="p-2">
+                  {first.bornHere
+                    ? <span class={CHIP}>🐣 {T.zoo_tl_born}</span>
+                    : first.from
+                      ? <span class={CHIP} set:html={zLink(first.fromSlug, first.from) + ' →'} />
+                      : <span class="text-ink-soft text-[.82rem]">{T.zoo_tl_src_unknown}</span>}
+                </td>
+                <td class="p-2">
+                  {last.diedHere
+                    ? <span class={CHIP}>🪽 {p.died}</span>
+                    : last.to
+                      ? <span class={CHIP} set:html={'→ ' + zLink(last.toSlug, last.to)} />
+                      : last.current
+                        ? <span class={CHIP}>{T.zoo_tl_current}</span>
+                        : ''}
+                </td>
+              </tr>
+            );
+          })}
+          </tbody>
+        </table>
+      </div>
+    </details>
   </section>
 )}
 
@@ -137,3 +326,40 @@ const pill = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem] no
     </div>
   </section>
 )}
+
+<style>
+  /* 時間軸（歷代居住個體）。長年份在窄螢幕要橫向捲動，direction:rtl 讓捲軸
+     初始停在最右端（今天），內層轉回 ltr 維持年份由左至右——同 /japan/ 的招。 */
+  .tl-scroll { direction: rtl; }
+  .tl { direction: ltr; position: relative; }
+  .lg-sw { display: inline-block; width: 14px; height: 8px; border-radius: 4px; vertical-align: -1px; margin-right: 5px; }
+  .lg-fade { background: linear-gradient(90deg, var(--ink-soft), transparent); }
+  .pop-strip { margin-left: 118px; border-bottom: 1px solid var(--line); padding-bottom: 2px; margin-bottom: 6px; }
+  .pop-row { display: flex; align-items: flex-end; height: 48px; }
+  .pop-c { flex: 1; display: flex; align-items: flex-end; justify-content: center; }
+  .pop-b { width: 70%; max-width: 9px; border-radius: 2px 2px 0 0; background: color-mix(in srgb, var(--amber) 55%, var(--cream)); }
+  .chart { position: relative; padding-top: 16px; }
+  .overlay { position: absolute; top: 0; bottom: 0; left: 118px; right: 0; }
+  .grid-l { position: absolute; top: 0; bottom: 0; width: 0; border-left: 1px dashed var(--line); }
+  .grid-l span { position: absolute; top: -2px; left: 2px; font-size: .66rem; color: var(--ink-soft); }
+  .now-l { position: absolute; top: 0; bottom: 0; border-left: 2px solid color-mix(in srgb, var(--rust) 45%, transparent); }
+  .now-l span { position: absolute; top: -2px; right: 3px; font-size: .66rem; color: var(--rust); white-space: nowrap; }
+  .row { display: flex; align-items: center; height: 21px; position: relative; }
+  .row:hover { background: color-mix(in srgb, var(--cream) 45%, transparent); }
+  /* 名字欄 sticky：手機初始捲在最右（近年）時名字不能跟著捲走 */
+  .nm { position: sticky; left: 0; z-index: 2; flex: none; width: 112px; padding-right: 6px;
+    font-size: .8rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: right;
+    background: linear-gradient(90deg, var(--bg-card) 88%, transparent); }
+  .lane { position: relative; flex: 1; height: 100%; }
+  .seg { position: absolute; top: 5px; height: 11px; border-radius: 5px; min-width: 5px; box-shadow: 0 0 0 2px var(--bg-card); }
+  .seg.fade-r { mask-image: linear-gradient(90deg, #000 60%, transparent); border-radius: 5px 0 0 5px; }
+  .seg.fade-l { mask-image: linear-gradient(270deg, #000 60%, transparent); border-radius: 0 5px 5px 0; }
+  .mk { position: absolute; top: -4px; font-size: .72rem; line-height: 1; }
+  .mk-l { left: -7px; }
+  .mk-r { right: -8px; }
+  @media (max-width: 640px) {
+    .nm { width: 88px; }
+    .pop-strip { margin-left: 94px; }
+    .overlay { left: 94px; }
+  }
+</style>

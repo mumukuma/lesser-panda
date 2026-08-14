@@ -43,6 +43,9 @@ from wiki_io import parse_frontmatter  # noqa: E402
 # 供校訂與稽核，只是不對外呈現）。
 #
 # 判定＝白名單 host（精確比對，去掉開頭 www.）＋政府網域 pattern。名單外一律非官方。
+# 幽靈親代識別碼格式（frontmatter mother_ref / father_ref）：`isb:<番號>` 優先、`rpf:<id>` 備用。
+_PARENT_REF_RE = re.compile(r"(?:isb|rpf):[A-Za-z0-9]+")
+
 # ⚠️ 日後新增園方官網時，把 host 補進 OFFICIAL_HOSTS 即會自動顯示。
 # ⚠️ 另有「是官方、但不對外呈現連結」的第三類，見下方 NON_PUBLIC_HOSTS（目前只有 ISB）。
 OFFICIAL_HOSTS = {
@@ -65,6 +68,9 @@ OFFICIAL_HOSTS = {
     # sources/chausuyama-zukan/；要驗證請走 Wayback（見下方 _WAYBACK_HOSTS）。
     "chausuyama.com",
     "hirakawazoo.jp",  # 鹿児島市平川動物公園（含園方「飼育員の日記」等 staff blog）
+    # 長崎バイオパーク（長崎県西海市／株式会社長崎バイオパーク）。公式ブログ
+    # “Como esta! BIO PARK” /staff/YYYY/MM/post_N.html 為官方一手（訃報等發於此）。
+    "biopark.co.jp",
     # アドベンチャーワールド（和歌山県白浜町／株式会社アワーズ）。園方公告發於
     # /topics/detail?id=… ，新聞稿 PDF 在 /pressrelease/pdf/YYMMDD.pdf。
     # ⚠️ PDF 為全形數字排版，沙盒的文字擷取會把「２８」讀成「１８」之類，日期一律以
@@ -566,6 +572,23 @@ def build_db():
                 print(f"  ⚠️  {slug}: origin 值 `{origin}` 不在白名單（wild／confiscated），已忽略")
             origin = None
 
+        # 幽靈親代（選填）：親代已確認身分但無條目（終生未命名等）。格式 `isb:<番號>` 或 `rpf:<id>`。
+        # 只影響網站的全血／半血判定，不建個體、不進 parent_child、不上家系圖。
+        def _parent_ref(key: str) -> str | None:
+            v = fm.get(key)
+            if v is None:
+                return None
+            v = str(v).strip()
+            if not v:
+                return None
+            if not _PARENT_REF_RE.fullmatch(v):
+                print(f"  ⚠️  {slug}: {key} 值 `{v}` 格式不合（需 isb:<番號> 或 rpf:<id>），已忽略")
+                return None
+            return v
+
+        mother_ref = _parent_ref("mother_ref")
+        father_ref = _parent_ref("father_ref")
+
         row = {
             "slug":             slug,
             "name":             fm.get("name", ""),
@@ -582,6 +605,8 @@ def build_db():
             # 出身（選填）：wild=野生出身（含野捕／救護）｜confiscated=走私查獲。
             # 園內出生者一律留空；未知值視同留空（不寫入，避免 CHECK 約束擋掉整次建置）。
             "origin":           origin,
+            "mother_ref":       mother_ref,
+            "father_ref":       father_ref,
             "rpf_id":           int(fm["rpf_id"]) if fm.get("rpf_id") else None,
             "rpf_url":          fm.get("rpf_url"),
             "tags":             json.dumps(tags_raw, ensure_ascii=False),
@@ -605,10 +630,10 @@ def build_db():
     cur.executemany("""
         INSERT OR REPLACE INTO pandas
           (slug, name, japanese, korean, chinese, nicknames, english_variants,
-           sex, born, died, last_seen, species, origin, rpf_id, rpf_url, tags, instagram, youtube, is_alive, sources, sources_private, extra_sources)
+           sex, born, died, last_seen, species, origin, mother_ref, father_ref, rpf_id, rpf_url, tags, instagram, youtube, is_alive, sources, sources_private, extra_sources)
         VALUES
           (:slug,:name,:japanese,:korean,:chinese,:nicknames,:english_variants,
-           :sex,:born,:died,:last_seen,:species,:origin,:rpf_id,:rpf_url,:tags,:instagram,:youtube,:is_alive,:sources,:sources_private,:extra_sources)
+           :sex,:born,:died,:last_seen,:species,:origin,:mother_ref,:father_ref,:rpf_id,:rpf_url,:tags,:instagram,:youtube,:is_alive,:sources,:sources_private,:extra_sources)
     """, [r for _, _, r in panda_rows])
     conn.commit()
     print(f"  ✅ 插入 {len(panda_rows)} 筆個體資料")

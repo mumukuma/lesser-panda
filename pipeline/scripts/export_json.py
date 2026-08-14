@@ -254,6 +254,10 @@ def main():
             "current_zoo_raw": None,
             "mother": None,
             "father": None,
+            # 幽靈親代（選填）：親代身分已確認但無條目（終生未命名等），值為 `isb:<番號>`／`rpf:<id>`。
+            # 網站判全血／半血時當作親代識別碼使用（見 web/src/lib/data.js）；不建節點、不上家系圖。
+            "mother_ref": r["mother_ref"],
+            "father_ref": r["father_ref"],
             "twins": [],
             "children": [],
             # 已宣告手足（父母不詳、無法由共同父母推導）；網站顯示為未分血緣度的「兄弟姊妹」列

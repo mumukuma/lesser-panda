@@ -2395,14 +2395,15 @@
   "en": "Africam Safari, Puebla",
   "zh": null,
   "country": "Mexico",
-  "location_ja": null,
+  "location_ja": "メキシコ・プエブラ",
   "location_en": "Puebla, Mexico",
   "lat": 18.9372057,
   "lng": -98.1368914,
   "map": "https://goo.gl/maps/UwKu7TQZFUm",
   "website": "http://www.africamsafari.com/",
   "logo": null,
-  "aliases": []
+  "aliases": [],
+  "location_zh": "墨西哥普埃布拉州"
  },
  {
   "canonical": "Akron Zoological Park",
