@@ -2,7 +2,7 @@
 
 本資料夾是一個依 [llm-wiki 模式](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)運作的 Obsidian wiki：**LLM 負責撰寫與維護所有頁面，使用者負責提供資料來源與問問題**。
 
-主題：小熊貓（red panda）個體檔案，目前 900+ 條目（精確數以 `wiki/index.md` 頁首為準），多為日本（及部分海外）動物園個體。
+主題：小熊貓（red panda）個體檔案，目前 1,000+ 條目（精確數以 `wiki/index.md` 頁首為準），多為日本（及部分海外）動物園個體。
 
 ## ⚠️ 資料來源原則（重要）
 
@@ -75,7 +75,7 @@ red-panda-wiki/
 `gen_residence.py` **以 frontmatter `zoos:` 為居住史唯一來源**（2026-06-29 起）：有 `zoos:` 就以它為準（解析完整日期），內文「## 居住史」表格純為衍生、自動重生。守門以 frontmatter 園集合為基準自我比對，重生後若掉了任何園（如解析失敗）就中止；故**更正／更換居住地只需改 `zoos:` 一處**再重建，不用動內文表格。（早期版本曾以內文表格為來源，已修正。）
 網站本身由 GitHub Actions 自動建置部署；本地預覽見 `web/README.md`。
 
-**網站語系（2026-07-05 起五語）**：介面支援 `zh-TW`／`zh-CN`（簡體）／`ja`／`en`／`ko`（韓語）。語系定義集中在 `web/src/lib/data.js` 的 `LOCALES` 與 `i18n`；每語一份 `pipeline/src/i18n/<code>.json`，五份 key 必須一致（新增字串要五份都補）。加語系＝新增一份 json＋在 `data.js` 註冊＋`web/public/js/lang.js` 加瀏覽器偵測。因網站為資料驅動、個體頁無敘述文，加語系只翻 UI 字串、不必翻 900+ 條目。韓語的設計取捨：**動物園名暫用英文**（`data/zoos.json` 已預留 `ko_name` 欄，補了即自動生效）、**個體名走羅馬拼音**、**回報表單維持三語**（下方表單章節；ko 自動 fallback 到三語表單）。簡體的設計取捨（2026-07-05）：**純顯示層轉換、資料正本一律維持繁體**——個體中文名、園中文名於建置時用 `opencc-js`（繁→簡，`data.js` 的 `toHans`）轉換，前端內嵌資料（SEARCH_DATA 的 `k`、GRAPH_DATA 的 `d[5]`、ZOOS_DATA 的 `name_zh_hans`）也在建置時預轉，客戶端不帶 OpenCC；UI 字串為手工翻譯的 `zh-CN.json`（用語照大陸慣例：搜索／链接／帖子…）；**回報表單 fallback 到三語表單**；語言偵測 IP=CN→zh-CN、瀏覽器 zh-cn/zh-sg/zh-my/zh-hans→zh-CN、其餘 zh→zh-TW。
+**網站語系（2026-07-05 起五語）**：介面支援 `zh-TW`／`zh-CN`（簡體）／`ja`／`en`／`ko`（韓語）。語系定義集中在 `web/src/lib/data.js` 的 `LOCALES` 與 `i18n`；每語一份 `pipeline/src/i18n/<code>.json`，五份 key 必須一致（新增字串要五份都補）。加語系＝新增一份 json＋在 `data.js` 註冊＋`web/public/js/lang.js` 加瀏覽器偵測。因網站為資料驅動、個體頁無敘述文，加語系只翻 UI 字串、不必翻 1,000+ 條目。韓語的設計取捨：**動物園名暫用英文**（`data/zoos.json` 已預留 `ko_name` 欄，補了即自動生效）、**個體名走羅馬拼音**、**回報表單維持三語**（下方表單章節；ko 自動 fallback 到三語表單）。簡體的設計取捨（2026-07-05）：**純顯示層轉換、資料正本一律維持繁體**——個體中文名、園中文名於建置時用 `opencc-js`（繁→簡，`data.js` 的 `toHans`）轉換，前端內嵌資料（SEARCH_DATA 的 `k`、GRAPH_DATA 的 `d[5]`、ZOOS_DATA 的 `name_zh_hans`）也在建置時預轉，客戶端不帶 OpenCC；UI 字串為手工翻譯的 `zh-CN.json`（用語照大陸慣例：搜索／链接／帖子…）；**回報表單 fallback 到三語表單**；語言偵測 IP=CN→zh-CN、瀏覽器 zh-cn/zh-sg/zh-my/zh-hans→zh-CN、其餘 zh→zh-TW。
 
 **push 前驗證（單一關卡，2026-06-29 起；2026-07-14 簡化；2026-08-08 進 CI）**：`bash tools/verify.sh` 依序跑「`audit.py --strict` → `check_twins.py`」（不再抓取／比對 lineage；要比對請手動 `python3 tools/audit.py --lineage`）。已掛 `.git/hooks/pre-push`，**push 前自動跑、未通過即中止 push**。擋關原則符合資料來源原則：只有「真正的 wiki 整合性錯誤」會擋（`audit` 的 `rpf_id` 重複、**`index.md` 對帳錯誤**〔index 連到不存在的條目／條目未列入 index／頁首總數不符，2026-08-08 起〕、`check_twins` 的 E 級——連錯隻／同生群生日差>±1天／群過大）；缺欄位、單邊缺父母等只列提示、**永不擋**。緊急要略過：`git push --no-verify`。注意 hook 在 `.git/hooks/` 內、**不進版控**，換機器需重裝（`verify.sh` 本身有進版控）。**CI 亦有同一道關卡（2026-08-08 起）**：`deploy.yml` 於建置前跑 `verify.sh`＋`tools/check_i18n.py`（五語 key 一致性）＋`node web/tests/closed.test.mjs`，未通過即不部署——沒裝 hook 的機器（或 `--no-verify`）push 壞資料也會被擋在上線前。
 

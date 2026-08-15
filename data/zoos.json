@@ -1,2365 +1,5 @@
 [
  {
-  "canonical": "Assiniboine Park Zoo",
-  "lineage_id": 76,
-  "en": "Assiniboine Park Zoo",
-  "zh": "阿西尼博因公園動物園",
-  "country": "Canada",
-  "location_ja": null,
-  "location_zh": "曼尼托巴省溫尼伯",
-  "location_en": "Winnipeg, Manitoba, Canada",
-  "lat": 49.8683537,
-  "lng": -97.2406139,
-  "map": "https://goo.gl/maps/yA6s5Fk3SZx",
-  "website": "http://www.assiniboineparkzoo.ca/",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Batu Secret Zoo",
-  "lineage_id": 316,
-  "en": "Batu Secret Zoo",
-  "zh": "巴圖秘密動物園",
-  "country": "Indonesia",
-  "location_ja": null,
-  "location_zh": "東爪哇",
-  "location_en": "East Java, Indonesia",
-  "lat": -7.8893819,
-  "lng": 112.5282242,
-  "map": "https://maps.app.goo.gl/sMz4KzPSUVcR67hTA",
-  "website": "https://batusecretzoo.com/",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Buin Zoo",
-  "lineage_id": 147,
-  "en": "Buin Zoo",
-  "zh": "布因動物園",
-  "country": "Chile",
-  "location_ja": "チリレヒオン・メトロポリターナ州ブイン",
-  "location_en": "Buin, Región Metropolitana, Chile",
-  "lat": -33.7161945,
-  "lng": -70.7269228,
-  "map": "https://goo.gl/maps/ha3XcnX29eA2",
-  "website": "https://www.buinzoo.cl/",
-  "logo": null,
-  "aliases": [],
-  "location_zh": "智利首都大區布因"
- },
- {
-  "canonical": "Calgary Zoo",
-  "lineage_id": 51,
-  "en": "Calgary Zoo",
-  "zh": "卡加利動物園",
-  "country": "Canada",
-  "location_ja": null,
-  "location_zh": "亞伯達省卡加利",
-  "location_en": "Calgary, Alberta, Canada",
-  "lat": 51.0459004,
-  "lng": -114.0236738,
-  "map": "https://goo.gl/maps/gXaumYRHucJ2",
-  "website": "https://www.calgaryzoo.com/",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Chilean National Zoo",
-  "lineage_id": 56,
-  "en": "Chilean National Zoo",
-  "zh": "智利國家動物園",
-  "country": "Chile",
-  "location_ja": null,
-  "location_zh": "聖地牙哥",
-  "location_en": "Santiago, Chile",
-  "lat": -33.4298624,
-  "lng": -70.6340909,
-  "map": "https://goo.gl/maps/CtRXBeoUgYF2",
-  "website": "http://www.parquemet.cl/",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Chongqing Zoo",
-  "lineage_id": 5,
-  "en": "Chongqing Zoo",
-  "zh": "重慶動物園",
-  "country": "China",
-  "location_ja": "重慶市九龍坡区",
-  "location_zh": "重慶市九龍坡區",
-  "location_en": "Jiulongpo Qu, China",
-  "lat": 29.5035617,
-  "lng": 106.5037493,
-  "map": "https://goo.gl/maps/rsck5UV8B552",
-  "website": "http://www.cqzoo.com",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Cincinnati Zoo and Botanical Garden",
-  "lineage_id": 65,
-  "en": "Cincinnati Zoo and Botanical Garden",
-  "zh": "辛辛那提動物園與植物園",
-  "country": "USA",
-  "location_ja": null,
-  "location_zh": "俄亥俄州辛辛那提",
-  "location_en": "Cincinnati, OH, USA",
-  "lat": 39.144573,
-  "lng": -84.508617,
-  "map": "https://goo.gl/maps/N3XtwSMHnx22",
-  "website": "http://cincinnatizoo.org/",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Columbus Zoo and Aquarium",
-  "lineage_id": 43,
-  "en": "Columbus Zoo and Aquarium",
-  "zh": "哥倫布動物園與水族館",
-  "country": "USA",
-  "location_ja": null,
-  "location_zh": "俄亥俄州哥倫布",
-  "location_en": "Powell, Liberty Township, Delaware County, Ohio, USA",
-  "lat": 40.1560789,
-  "lng": -83.1183042,
-  "map": "https://goo.gl/maps/CWVYiPe7c3S2",
-  "website": "https://www.columbuszoo.org/",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Edmonton Valley Zoo",
-  "lineage_id": 82,
-  "en": "Edmonton Valley Zoo",
-  "zh": "艾德蒙頓谷動物園",
-  "country": "Canada",
-  "location_ja": null,
-  "location_zh": "亞伯達省艾德蒙頓",
-  "location_en": "Edmonton, Alberta, Canada",
-  "lat": 53.5109055,
-  "lng": -113.5535637,
-  "map": "https://goo.gl/maps/34HUM7tYy542",
-  "website": "https://www.edmonton.ca/attractions_events/edmonton-valley-zoo.aspx",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Everland Zoological Gardens",
-  "lineage_id": 62,
-  "en": "Everland Zoological Gardens",
-  "zh": "愛寶樂園動物園",
-  "country": "South Korea",
-  "location_ja": "京畿道龍仁市",
-  "location_zh": "京畿道龍仁市",
-  "location_en": "Yongin City, Gyeonggi Province, South Korea",
-  "lat": 37.2939104,
-  "lng": 127.2025664,
-  "map": "https://goo.gl/maps/e4tvYMRSY7z",
-  "website": "http://www.everland.com/",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Henry Vilas Zoo",
-  "lineage_id": 77,
-  "en": "Henry Vilas Zoo",
-  "zh": "亨利維拉斯動物園",
-  "country": "USA",
-  "location_ja": null,
-  "location_zh": "威斯康辛州麥迪遜",
-  "location_en": "Madison, Wisconsin, USA",
-  "lat": 43.0606104,
-  "lng": -89.4100349,
-  "map": "https://goo.gl/maps/eNq2cY1kKNu",
-  "website": "http://www.vilaszoo.org/",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Lincoln Children's Zoo",
-  "lineage_id": 80,
-  "en": "Lincoln Children's Zoo",
-  "zh": "林肯兒童動物園",
-  "country": "USA",
-  "location_ja": null,
-  "location_zh": "內布拉斯加州林肯",
-  "location_en": "Lincoln, NE, USA",
-  "lat": 40.8005726,
-  "lng": -96.6795449,
-  "map": "https://goo.gl/maps/5kHk6aS6A2R2",
-  "website": "https://www.lincolnzoo.org/",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Mogo Zoo",
-  "lineage_id": 210,
-  "en": "Mogo Zoo",
-  "zh": "莫戈動物園",
-  "country": "Australia",
-  "location_ja": null,
-  "location_zh": "新南威爾斯",
-  "location_en": "Mogo, New South Wales, Australia",
-  "lat": -35.7953737,
-  "lng": 150.1593786,
-  "map": "https://goo.gl/maps/73JeSnC4UNabbXTT7",
-  "website": "https://mogozoo.com.au/",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Northeastern Wisconsin Zoo",
-  "lineage_id": 44,
-  "en": "Northeastern Wisconsin Zoo",
-  "zh": "威斯康辛東北動物園",
-  "country": "USA",
-  "location_ja": null,
-  "location_zh": "威斯康辛州綠灣",
-  "location_en": "Green Bay, Wisconsin, USA",
-  "lat": 44.6603403,
-  "lng": -88.0893326,
-  "map": "https://goo.gl/maps/Wi6pMXofB6w",
-  "website": "https://newzoo.org",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Perth Zoo",
-  "lineage_id": 217,
-  "en": "Perth Zoo",
-  "zh": "伯斯動物園",
-  "country": "Australia",
-  "location_ja": null,
-  "location_zh": "珀斯",
-  "location_en": "Perth, Australia",
-  "lat": -31.9755308,
-  "lng": 115.8500678,
-  "map": "https://g.page/perth-zoo-south-perth?share",
-  "website": "https://perthzoo.wa.gov.au/",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Pittsburgh Zoo and PPG Aquarium",
-  "lineage_id": 91,
-  "en": "Pittsburgh Zoo and PPG Aquarium",
-  "zh": "匹茲堡動物園與水族館",
-  "country": "USA",
-  "location_ja": null,
-  "location_zh": "賓州匹茲堡",
-  "location_en": "Pittsburgh, Pennsylvania, USA",
-  "lat": 40.4831718,
-  "lng": -79.9213382,
-  "map": "https://goo.gl/maps/wKD5UXtTWh42",
-  "website": "https://www.pittsburghzoo.org/",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Red River Zoo",
-  "lineage_id": 83,
-  "en": "Red River Zoo",
-  "zh": "紅河動物園",
-  "country": "USA",
-  "location_ja": null,
-  "location_zh": "北達科他州法戈",
-  "location_en": "Fargo, North Dakota, USA",
-  "lat": 46.84463,
-  "lng": -96.855021,
-  "map": "https://goo.gl/maps/iDn5ZuFrH4U2",
-  "website": "https://redriverzoo.org/",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Ross Park Zoo",
-  "lineage_id": 89,
-  "en": "Ross Park Zoo",
-  "zh": "羅斯公園動物園",
-  "country": "USA",
-  "location_ja": null,
-  "location_zh": "紐約州賓漢頓",
-  "location_en": "Binghamton, NY, USA",
-  "lat": 42.0749919,
-  "lng": -75.9069758,
-  "map": "https://goo.gl/maps/BoeUeTysCJy",
-  "website": "https://rossparkzoo.org/",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Rotterdam Zoo",
-  "lineage_id": 72,
-  "en": "Rotterdam Zoo",
-  "zh": "鹿特丹動物園",
-  "country": "Netherlands",
-  "location_ja": null,
-  "location_zh": "鹿特丹",
-  "location_en": "Rotterdam, Netherlands",
-  "lat": 51.928158,
-  "lng": 4.444026,
-  "map": "https://goo.gl/maps/yFbttoQZrP82",
-  "website": "https://www.diergaardeblijdorp.nl/",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "いしかわ動物園",
-  "lineage_id": 31,
-  "en": "Ishikawa Zoo",
-  "ja_kana": "いしかわどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "石川県能美市",
-  "location_zh": "石川縣能美市",
-  "closed_ja": "毎週火曜日（祝日の場合は翌平日）、12月29日〜1月1日 ※春・夏休み期間は無休",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "tue"
-    ],
-    "holiday": "next_weekday",
-    "suspend": [
-     {
-      "from": "03-25",
-      "to": "04-07",
-      "note": "春休み期間は無休（慣例窗，非官方日期）"
-     },
-     {
-      "from": "07-20",
-      "to": "08-31",
-      "note": "夏休み期間は無休（慣例窗，非官方日期）"
-     }
-    ]
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Nomi, Ishikawa, Japan",
-  "lat": 36.433759,
-  "lng": 136.545712,
-  "map": "https://goo.gl/maps/45d7ga53bG62",
-  "website": "http://www.ishikawazoo.jp/",
-  "logo": null,
-  "aliases": [
-   "Ishikawa Zoo",
-   "石川動物園"
-  ]
- },
- {
-  "canonical": "とくしま動物園",
-  "lineage_id": 35,
-  "en": "Tokushima Zoo",
-  "ja_kana": "とくしまどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "徳島県徳島市",
-  "location_zh": "德島縣德島市",
-  "closed_ja": "毎週月曜日（祝日の場合は翌日）、12月29日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "next_day"
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Tokushima City, Tokushima Prefecture, Japan",
-  "lat": 34.013748,
-  "lng": 134.521375,
-  "map": "https://goo.gl/maps/d7LpHftgkFq",
-  "website": "http://www.city.tokushima.tokushima.jp/zoo/",
-  "logo": null,
-  "aliases": [
-   "Tokushima Zoo"
-  ]
- },
- {
-  "canonical": "ひらかたパーク",
-  "lineage_id": 52,
-  "en": "Hirakata Park (Wonder Garden)",
-  "ja_kana": "ひらかたぱーく",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "大阪府枚方市",
-  "location_zh": "大阪府枚方市",
-  "closed_ja": "不定休（営業カレンダーで告知）",
-  "location_en": "Hirakata, Osaka Prefecture, Japan",
-  "lat": 34.8082552,
-  "lng": 135.639672,
-  "map": "https://goo.gl/maps/Uz15oJH5U7U2",
-  "website": "http://www.hirakatapark.co.jp/",
-  "logo": null,
-  "aliases": [
-   "Hirakata Park",
-   "Hirakata Park (Wonder Garden)",
-   "ひらかたパーク Wonder Garden",
-   "ひらかたパーク ワンダーガーデン",
-   "ひらかたパークワンダーガーデン"
-  ]
- },
- {
-  "canonical": "みさき公園",
-  "lineage_id": 50,
-  "en": "Misaki Park",
-  "ja_kana": "みさきこうえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "大阪府泉南郡岬町",
-  "location_zh": "大阪府泉南郡岬町",
-  "location_en": "Misaki Town, Osaka Prefecture, Japan",
-  "lat": 34.327444,
-  "lng": 135.161493,
-  "map": "https://goo.gl/maps/13D4TFarwv12",
-  "website": "http://www.nankai.co.jp/misaki/",
-  "logo": null,
-  "aliases": [
-   "Misaki Park"
-  ]
- },
- {
-  "canonical": "よこはま動物園ズーラシア",
-  "lineage_id": 12,
-  "en": "Yokohama Zoo \"Zoorasia\"",
-  "ja_kana": "よこはまどうぶつえんずーらしあ",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "神奈川県横浜市",
-  "location_zh": "神奈川縣橫濱市",
-  "closed_ja": "毎週火曜日（祝日の場合は翌日）、12月29日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "tue"
-    ],
-    "holiday": "next_day"
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Yokohama, Kanagawa Prefecture, Japan",
-  "lat": 35.4948645,
-  "lng": 139.5265098,
-  "map": "https://goo.gl/maps/j23gm6VW4Zo",
-  "website": "http://www.hama-midorinokyokai.or.jp/zoo/zoorasia/",
-  "logo": null,
-  "aliases": [
-   "Yokohama Zoo \"Zoorasia\""
-  ]
- },
- {
-  "canonical": "アドベンチャーワールド",
-  "lineage_id": 29,
-  "en": "Adventure World",
-  "ja_kana": "あどべんちゃーわーるど",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "和歌山県白浜町",
-  "location_zh": "和歌山縣白濱町",
-  "closed_ja": "不定休（主に水曜日、公式営業カレンダーで告知）",
-  "location_en": "Shirahama, Wakayama Prefecture, Japan",
-  "lat": 33.6678415,
-  "lng": 135.3760055,
-  "map": "https://goo.gl/maps/Z2vDjBgTPAG2",
-  "website": "http://www.aws-s.com/",
-  "logo": null,
-  "aliases": [
-   "Adventure World"
-  ]
- },
- {
-  "canonical": "ソウル大公園動物園",
-  "lineage_id": 78,
-  "en": "Seoul Zoo",
-  "zh": "首爾動物園",
-  "country": "South Korea",
-  "location_ja": "京畿道",
-  "location_zh": "京畿道",
-  "location_en": "Gyeonggi-do, South Korea",
-  "lat": 37.4214978,
-  "lng": 127.0264967,
-  "map": "https://goo.gl/maps/HU9yotcVBXQ2",
-  "website": "http://grandpark.seoul.go.kr",
-  "logo": null,
-  "aliases": [
-   "Seoul Zoo"
-  ]
- },
- {
-  "canonical": "ネオパークオキナワ",
-  "lineage_id": 292,
-  "en": "Neo Park Okinawa",
-  "ja_kana": "ねおぱーくおきなわ",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "沖縄県名護市",
-  "location_zh": "沖繩縣名護市",
-  "closed_ja": "年中無休",
-  "location_en": "Nago, Okinawa, Japan",
-  "lat": 26.6106854,
-  "lng": 127.9914627,
-  "map": "https://goo.gl/maps/kc4f8PN3xCefmg936",
-  "website": "https://www.neopark.co.jp/",
-  "logo": null,
-  "aliases": [
-   "Neo Park Okinawa"
-  ]
- },
- {
-  "canonical": "三島市立公園 楽寿園",
-  "lineage_id": 27,
-  "en": "Mishima Rakujuen Park",
-  "ja_kana": "みしましりつこうえん らくじゅえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "静岡県三島市",
-  "location_zh": "靜岡縣三島市",
-  "closed_ja": "毎週月曜日（祝日・振替休日の場合は直後の平日）、12月27日〜1月2日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "next_weekday"
-   },
-   {
-    "type": "range",
-    "from": "12-27",
-    "to": "01-02"
-   }
-  ],
-  "location_en": "Mishima, Shizuoka Prefecture, Japan",
-  "lat": 35.1248742,
-  "lng": 138.9109075,
-  "map": "https://goo.gl/maps/y26QhbPcexm",
-  "website": "https://www.city.mishima.shizuoka.jp/rakujyu/",
-  "logo": null,
-  "aliases": [
-   "Mishima Rakujuen Park",
-   "三島市楽寿園"
-  ]
- },
- {
-  "canonical": "九十九島動植物園森きらら",
-  "lineage_id": 19,
-  "en": "Kujukushima Zoological and Botanical Garden Morikirara",
-  "ja_kana": "くじゅうくしまどうしょくぶつえんもりきらら",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "長崎県佐世保市",
-  "location_zh": "長崎縣佐世保市",
-  "closed_ja": "年中無休",
-  "location_en": "Sasebo, Nagasaki Prefecture, Japan",
-  "lat": 33.151226,
-  "lng": 129.689491,
-  "map": "https://goo.gl/maps/1pRgFW9fo9v",
-  "website": "https://www.morikirara.jp/",
-  "logo": null,
-  "aliases": [
-   "Kujukushima Zoological and Botanical Garden Morikirara",
-   "西海国立公園九十九島動植物園"
-  ]
- },
- {
-  "canonical": "京都市動物園",
-  "lineage_id": 2,
-  "en": "Kyoto City Zoo",
-  "ja_kana": "きょうとしどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "京都府京都市左京区",
-  "location_zh": "京都府京都市左京區",
-  "closed_ja": "毎週月曜日（祝日の場合は翌平日）、12月28日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "next_weekday"
-   },
-   {
-    "type": "range",
-    "from": "12-28",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Kyoto City, Kyoto Prefecture, Sakyo Ward, Japan",
-  "lat": 35.0126991,
-  "lng": 135.7839212,
-  "map": "https://goo.gl/maps/BzPvCJ64eiB2",
-  "website": "http://www5.city.kyoto.jp/zoo/",
-  "logo": null,
-  "aliases": [
-   "Kyoto City Zoo"
-  ]
- },
- {
-  "canonical": "仙台市八木山動物公園",
-  "lineage_id": 45,
-  "en": "Selcohome Zoo Paradise Yagiyama",
-  "ja_kana": "せんだいしやぎやまどうぶつこうえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "宮城県仙台市",
-  "location_zh": "宮城縣仙台市",
-  "closed_ja": "毎週水曜日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "wed"
-    ]
-   }
-  ],
-  "location_en": "Taihaku Ward, Sendai, Miyagi Prefecture, Japan",
-  "lat": 38.2455968,
-  "lng": 140.8468,
-  "map": "https://goo.gl/maps/S4dSPcsEcH62",
-  "website": "http://www.city.sendai.jp/zoo/index.html",
-  "logo": null,
-  "aliases": [
-   "Selcohome Zoo Paradise Yagiyama",
-   "セルコホーム ズーパラダイス八木山",
-   "八木山動物公園 フォレスタ"
-  ]
- },
- {
-  "canonical": "伊豆シャボテン動物公園",
-  "lineage_id": 143,
-  "en": "Izu Shaboten Zoo",
-  "ja_kana": "いずしゃぼてんどうぶつこうえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "静岡県伊東市",
-  "location_zh": "靜岡縣伊東市",
-  "closed_ja": "年中無休",
-  "location_en": "Itō, Shizuoka Prefecture, Japan",
-  "lat": 34.907101,
-  "lng": 139.10118,
-  "map": "https://goo.gl/maps/iTyrJWJe9HU2",
-  "website": "https://izushaboten.com/",
-  "logo": null,
-  "aliases": [
-   "Izu Shaboten Zoo"
-  ]
- },
- {
-  "canonical": "到津の森公園",
-  "lineage_id": 41,
-  "en": "Itozu no Mori Zoological Park",
-  "ja_kana": "いとうづのもりこうえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "福岡県北九州市",
-  "location_zh": "福岡縣北九州市",
-  "closed_ja": "毎週火曜日（祝日の場合は開園し翌日休園）、年末年始 ※年始・春休み・夏休み等は開園する場合あり",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "tue"
-    ],
-    "holiday": "next_day",
-    "note": "「年末年始」具体日付未確認のため未編碼；年始・春休み・夏休み等の臨時開園は含まず"
-   }
-  ],
-  "location_en": "Kitakyushu, Fukuoka Prefecture, Japan",
-  "address_ja": "〒803-0845 福岡県北九州市小倉北区上到津4-1-8",
-  "lat": 33.873863,
-  "lng": 130.846594,
-  "map": "https://goo.gl/maps/a4z75hLhZ692",
-  "website": "http://www.itozu-zoo.jp/",
-  "logo": null,
-  "aliases": [
-   "Itozu no Mori Zoological Park",
-   "いのちのたび博物館附属動物園"
-  ]
- },
- {
-  "canonical": "千葉市動物公園",
-  "lineage_id": 8,
-  "en": "Chiba Zoological Park",
-  "ja_kana": "ちばしどうぶつこうえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "千葉県千葉市",
-  "location_zh": "千葉縣千葉市",
-  "closed_ja": "毎週水曜日（休日の場合は翌日）、12月29日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "wed"
-    ],
-    "holiday": "next_day"
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Chiba Prefecture, Japan",
-  "lat": 35.6449037,
-  "lng": 140.1250899,
-  "map": "https://goo.gl/maps/14c7BwdSTkr",
-  "website": "https://www.city.chiba.jp/zoo/",
-  "logo": null,
-  "aliases": [
-   "Chiba Zoological Park"
-  ]
- },
- {
-  "canonical": "台北市立動物園",
-  "lineage_id": 55,
-  "en": "Taipei Zoo",
-  "zh": "臺北市立動物園",
-  "country": "Taiwan",
-  "location_ja": "台北市",
-  "location_zh": "台北市",
-  "location_en": "Taipei City, Taiwan",
-  "lat": 24.9971583,
-  "lng": 121.5851509,
-  "map": "https://goo.gl/maps/9vr6Usew49x",
-  "website": "https://www.zoo.gov.taipei/Default.aspx",
-  "logo": null,
-  "aliases": [
-   "Taipei Zoo"
-  ]
- },
- {
-  "canonical": "壽山動物園",
-  "lineage_id": null,
-  "en": "Shou Shan Zoo",
-  "zh": "高雄市壽山動物園",
-  "country": "Taiwan",
-  "location_ja": "高雄市鼓山区",
-  "location_zh": "高雄市鼓山區",
-  "location_en": "Kaohsiung City, Taiwan",
-  "closed_ja": "星期一及除夕休園，如星期一遇國定假日則照常開園",
-  "address_ja": "804006 高雄市鼓山區萬壽路350號",
-  "lat": 22.6345573,
-  "lng": 120.2751711,
-  "map": "https://www.google.com/maps/place/%E5%A3%BD%E5%B1%B1%E5%8B%95%E7%89%A9%E5%9C%92/@22.6345573,120.2751711,17z/",
-  "website": "https://zoo.kcg.gov.tw/",
-  "logo": null,
-  "aliases": [
-   "Shou Shan Zoo",
-   "Shoushan Zoo",
-   "Kaohsiung Shoushan Zoo",
-   "高雄市壽山動物園"
-  ]
- },
- {
-  "canonical": "周南市徳山動物園",
-  "lineage_id": 6,
-  "en": "Tokuyama Zoo",
-  "ja_kana": "しゅうなんしとくやまどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "山口県周南市",
-  "location_zh": "山口縣周南市",
-  "closed_ja": "毎週火曜日（祝日の場合は翌日）、12月29日〜31日 ※冬期に臨時休園あり",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "tue"
-    ],
-    "holiday": "next_day"
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "12-31",
-    "note": "冬期臨時休園は日付不定のため未編碼"
-   }
-  ],
-  "location_en": "Shūnan, Yamaguchi Prefecture, Japan",
-  "lat": 34.061274,
-  "lng": 131.8129122,
-  "map": "https://goo.gl/maps/bMAGo54PQxq",
-  "website": "http://www.city.shunan.lg.jp/site/zoo/",
-  "logo": null,
-  "aliases": [
-   "Tokuyama Zoo",
-   "徳山動物園"
-  ]
- },
- {
-  "canonical": "埼玉県こども動物自然公園",
-  "lineage_id": 9,
-  "en": "Saitama Children's Zoo",
-  "ja_kana": "さいたまけんこどもどうぶつしぜんこうえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "埼玉県東松山市",
-  "location_zh": "埼玉縣東松山市",
-  "closed_ja": "毎週月曜日（祝日の場合は開園）、12月30日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "open"
-   },
-   {
-    "type": "range",
-    "from": "12-30",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Highashimatsuyama, Saitama Prefecture, Japan",
-  "lat": 35.9993544,
-  "lng": 139.375002,
-  "map": "https://goo.gl/maps/C8F9LtGktcH2",
-  "website": "http://www.parks.or.jp/sczoo/",
-  "logo": null,
-  "aliases": [
-   "Saitama Children's Zoo"
-  ]
- },
- {
-  "canonical": "多摩動物公園",
-  "lineage_id": 17,
-  "en": "Tama Zoological Park",
-  "ja_kana": "たまどうぶつこうえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "東京都日野市",
-  "location_zh": "東京都日野市",
-  "closed_ja": "毎週水曜日（祝日・振替休日の場合は翌日）、12月29日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "wed"
-    ],
-    "holiday": "next_day"
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Hino, Tokyo, Japan",
-  "lat": 35.6495179,
-  "lng": 139.4022561,
-  "map": "https://goo.gl/maps/Emr9wdQYAm22",
-  "website": "http://www.tokyo-zoo.net/zoo/tama/",
-  "logo": null,
-  "aliases": [
-   "Tama Zoological Park"
-  ]
- },
- {
-  "canonical": "大牟田市動物園",
-  "lineage_id": 21,
-  "en": "Omuta City Zoo",
-  "ja_kana": "おおむたしどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "福岡県大牟田市",
-  "location_zh": "福岡縣大牟田市",
-  "closed_ja": "毎月第2・第4月曜日（祝日・振替休日の場合は翌日）、12月29日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "nth_weekly",
-    "dow": "mon",
-    "nth": [
-     2,
-     4
-    ],
-    "holiday": "next_day"
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Omuta, Fukuoka Prefecture, Japan",
-  "lat": 33.019018,
-  "lng": 130.444538,
-  "map": "https://goo.gl/maps/LwmybsWdhww",
-  "website": "https://omutacityzoo.org/",
-  "logo": null,
-  "aliases": [
-   "Omuta City Zoo"
-  ]
- },
- {
-  "canonical": "天王寺動物園",
-  "lineage_id": 22,
-  "en": "Osaka Tennōji Zoo",
-  "ja_kana": "てんのうじどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "大阪府大阪市",
-  "location_zh": "大阪府大阪市",
-  "closed_ja": "毎週月曜日（休日の場合は翌日）、年末年始（12月29日〜1月1日）※臨時開園日は営業日カレンダー参照",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "next_day"
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Tennōji-ku, Osaka, Japan",
-  "lat": 34.650526,
-  "lng": 135.5084522,
-  "map": "https://goo.gl/maps/jgQy9DYiBJJ2",
-  "website": "https://www.tennojizoo.jp/",
-  "logo": null,
-  "aliases": [
-   "Osaka Tennōji Zoo"
-  ]
- },
- {
-  "canonical": "姫路セントラルパーク",
-  "lineage_id": 14,
-  "en": "Himeji Central Park",
-  "ja_kana": "ひめじせんとらるぱーく",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "兵庫県姫路市",
-  "location_zh": "兵庫縣姬路市",
-  "closed_ja": "不定休（営業カレンダーで告知）",
-  "location_en": "Himeji, Hyōgo Prefecture, Japan",
-  "lat": 34.871029,
-  "lng": 134.764362,
-  "map": "https://goo.gl/maps/QLH8LsUtgm42",
-  "website": "http://www.central-park.co.jp/",
-  "logo": null,
-  "aliases": [
-   "Himeji Central Park"
-  ]
- },
- {
-  "canonical": "姫路市立動物園",
-  "lineage_id": 70,
-  "en": "Himeji Municipal Zoo",
-  "ja_kana": "ひめじしりつどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "兵庫県姫路市",
-  "location_zh": "兵庫縣姬路市",
-  "closed_ja": "12月29日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Himeji, Hyōgo Prefecture, Japan",
-  "lat": 34.8372067,
-  "lng": 134.6943529,
-  "map": "https://goo.gl/maps/Em6HbHWwLHC2",
-  "website": "http://www.city.himeji.lg.jp/dobutuen/",
-  "logo": null,
-  "aliases": [
-   "Himeji Municipal Zoo"
-  ]
- },
- {
-  "canonical": "宮崎市フェニックス自然動物園",
-  "lineage_id": 30,
-  "en": "Miyazaki City Phoenix Zoo",
-  "ja_kana": "みやざきしふぇにっくすしぜんどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "宮崎県宮崎市",
-  "location_zh": "宮崎縣宮崎市",
-  "closed_ja": "毎週水曜日、12月31日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "wed"
-    ]
-   },
-   {
-    "type": "date",
-    "on": "12-31"
-   }
-  ],
-  "location_en": "Miyazaki City, Miyazaki Prefecture, Japan",
-  "address_ja": "〒880-0122 宮崎県宮崎市大字塩路字浜山3083-42",
-  "lat": 31.98289,
-  "lng": 131.476107,
-  "map": "https://goo.gl/maps/Gm2Rjx3mpP72",
-  "website": "http://www.miyazaki-city-zoo.jp/index.html",
-  "logo": null,
-  "aliases": [
-   "Miyazaki City Phoenix Zoo"
-  ]
- },
- {
-  "canonical": "富士サファリパーク",
-  "lineage_id": 23,
-  "en": "Fuji Safari Park",
-  "ja_kana": "ふじさふぁりぱーく",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "静岡県裾野市",
-  "location_zh": "靜岡縣裾野市",
-  "closed_ja": "年中無休（悪天候時は休園の場合あり）",
-  "location_en": "Susuno, Shizuoka Prefecture, Japan",
-  "lat": 35.2587757,
-  "lng": 138.8098362,
-  "map": "https://goo.gl/maps/PLj4TTrSWVN2",
-  "website": "https://www.fujisafari.co.jp/",
-  "logo": null,
-  "aliases": [
-   "Fuji Safari Park",
-   "富士サファリパーク"
-  ]
- },
- {
-  "canonical": "富山市ファミリーパーク",
-  "lineage_id": 63,
-  "en": "Toyama Municipal Family Park Zoo",
-  "ja_kana": "とやましふぁみりーぱーく",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "富山県富山市",
-  "location_zh": "富山縣富山市",
-  "closed_ja": "毎月第1・第3火曜日（祝祭日を除く）、2月24日〜3月14日、12月28日〜1月4日",
-  "closed_rule": [
-   {
-    "type": "nth_weekly",
-    "dow": "tue",
-    "nth": [
-     1,
-     3
-    ],
-    "holiday": "open"
-   },
-   {
-    "type": "range",
-    "from": "02-24",
-    "to": "03-14"
-   },
-   {
-    "type": "range",
-    "from": "12-28",
-    "to": "01-04"
-   }
-  ],
-  "location_en": "Toyama, Toyama Prefecture, Japan",
-  "lat": 36.690898,
-  "lng": 137.148238,
-  "map": "https://goo.gl/maps/v3zCNrq2igs",
-  "website": "http://www.toyama-familypark.jp/",
-  "logo": null,
-  "aliases": [
-   "Toyama Municipal Family Park Zoo"
-  ]
- },
- {
-  "canonical": "川崎市夢見ヶ崎動物公園",
-  "lineage_id": 4,
-  "en": "Yumemigasaki Zoological Park",
-  "ja_kana": "かわさきしゆめみがさきどうぶつこうえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "神奈川県川崎市",
-  "location_zh": "神奈川縣川崎市",
-  "closed_ja": "年中無休",
-  "location_en": "Kawasaki, Kanagawa Prefecture, Japan",
-  "lat": 35.5491319,
-  "lng": 139.6630574,
-  "map": "https://goo.gl/maps/kfMhVjS52Gs",
-  "website": "http://www.city.kawasaki.jp/saiwai/page/0000045037.html",
-  "logo": null,
-  "aliases": [
-   "Yumemigasaki Zoological Park"
-  ]
- },
- {
-  "canonical": "市原ぞうの国",
-  "lineage_id": 33,
-  "en": "Ichihara Elephant Kingdom",
-  "ja_kana": "いちはらぞうのくに",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "千葉県市原市",
-  "location_zh": "千葉縣市原市",
-  "closed_ja": "不定休（営業日カレンダーで告知）",
-  "location_en": "Ichihara, Chiba Prefecture, Japan",
-  "lat": 35.3547927,
-  "lng": 140.182322,
-  "map": "https://goo.gl/maps/t6TwYSxU2dT2",
-  "website": "https://zounokuni.com/red-panda/",
-  "logo": null,
-  "aliases": [
-   "Ichihara Elephant Kingdom"
-  ]
- },
- {
-  "canonical": "市川市動植物園",
-  "lineage_id": 1,
-  "en": "Ichikawa Zoological & Botanical Gardens",
-  "ja_kana": "いちかわしどうしょくぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "千葉県市川市",
-  "location_zh": "千葉縣市川市",
-  "closed_ja": "毎週月曜日（祝日の場合は翌日）、年末年始",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "next_day",
-    "note": "「年末年始」具体日付未確認のため未編碼"
-   }
-  ],
-  "location_en": "Ichikawa, Chiba Prefecture, Japan",
-  "lat": 35.7642063,
-  "lng": 139.9638014,
-  "map": "https://goo.gl/maps/WSyNu7HFhH42",
-  "website": "http://www.city.ichikawa.lg.jp/zoo/index.html",
-  "logo": null,
-  "aliases": [
-   "Ichikawa Zoological & Botanical Gardens"
-  ]
- },
- {
-  "canonical": "広島市安佐動物公園",
-  "lineage_id": 40,
-  "en": "Hiroshima City Asa Zoological Park",
-  "ja_kana": "ひろしましあさどうぶつこうえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "広島県",
-  "location_zh": "廣島縣",
-  "closed_ja": "毎週木曜日（祝日は開園）、12月29日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "thu"
-    ],
-    "holiday": "open"
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Hiroshima Prefecture, Japan",
-  "lat": 34.4982694,
-  "lng": 132.4408293,
-  "map": "https://goo.gl/maps/6RKGqYpdxew",
-  "website": "http://www.asazoo.jp/",
-  "logo": null,
-  "aliases": [
-   "Hiroshima City Asa Zoological Park"
-  ]
- },
- {
-  "canonical": "恩賜上野動物園",
-  "lineage_id": 54,
-  "en": "Ueno Zoological Gardens",
-  "ja_kana": "おんしうえのどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "東京都台東区",
-  "location_zh": "東京都台東區",
-  "closed_ja": "毎週月曜日（祝日・振替休日の場合は翌日）、12月29日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "next_day"
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Taitō, Tokyo, Japan",
-  "lat": 35.7164535,
-  "lng": 139.7713177,
-  "map": "https://goo.gl/maps/o6BBZkWDuv32",
-  "website": "http://www.tokyo-zoo.net/zoo/ueno/",
-  "logo": null,
-  "aliases": [
-   "Ueno Zoological Gardens",
-   "上野動物園"
-  ]
- },
- {
-  "canonical": "愛媛県立とべ動物園",
-  "lineage_id": 46,
-  "en": "Tobe Zoo",
-  "ja_kana": "えひめけんりつとべどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "愛媛県伊予郡砥部町",
-  "location_zh": "愛媛縣伊予郡砥部町",
-  "closed_ja": "毎週月曜日（祝日の場合は翌平日）、12月29日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "next_weekday"
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Tobe, Ehime Prefecture, Shikoku, Japan",
-  "lat": 33.7640286,
-  "lng": 132.7920585,
-  "map": "https://maps.app.goo.gl/xWU7Mo1FhRCyf7PW7",
-  "website": "https://www.tobezoo.com/",
-  "logo": null,
-  "aliases": [
-   "Tobe Zoo",
-   "Tobe Zoological Park",
-   "とべ動物園"
-  ]
- },
- {
-  "canonical": "日立市かみね動物園",
-  "lineage_id": 25,
-  "en": "Hitachi Kamine Zoo",
-  "ja_kana": "ひたちしかみねどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "茨城県日立市",
-  "location_zh": "茨城縣日立市",
-  "closed_ja": "月曜日を中心に月ごとに指定（祝日の場合は翌日等、7月下旬〜8月は無休）※公式サイト参照",
-  "location_en": "Hitachi, Ibaraki Prefecture, Japan",
-  "lat": 36.6067369,
-  "lng": 140.658187,
-  "map": "https://goo.gl/maps/tBaGy6Ap8DP2",
-  "website": "http://www.city.hitachi.lg.jp/zoo/",
-  "logo": null,
-  "aliases": [
-   "Hitachi Kamine Zoo",
-   "日立かみね動物園"
-  ]
- },
- {
-  "canonical": "旭川市旭山動物園",
-  "lineage_id": 37,
-  "en": "Asahiyama Zoo",
-  "ja_kana": "あさひかわしあさひやまどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "北海道旭川市",
-  "location_zh": "北海道旭川市",
-  "closed_ja": "夏期・冬期開園制、期間切替時（11月上旬・4月）に休園期間あり（公式開園カレンダーで告知）",
-  "location_en": "Asahikawa, Hokkaido, Japan",
-  "lat": 43.768425,
-  "lng": 142.48008,
-  "map": "https://goo.gl/maps/pRRcmyyfEUF2",
-  "website": "http://www.city.asahikawa.hokkaido.jp/asahiyamazoo/",
-  "logo": null,
-  "aliases": [
-   "Asahiyama Zoo",
-   "旭山動物園"
-  ]
- },
- {
-  "canonical": "札幌市円山動物園",
-  "lineage_id": 7,
-  "en": "Sapporo Maruyama Zoo",
-  "ja_kana": "さっぽろしまるやまどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "北海道札幌市",
-  "location_zh": "北海道札幌市",
-  "closed_ja": "第2・第4水曜日（8月は第1・第4、祝日の場合は翌日）、4月・11月の第2水曜日を含む週の平日、12月29日〜31日",
-  "closed_rule": [
-   {
-    "type": "nth_weekly",
-    "dow": "wed",
-    "nth": [
-     2,
-     4
-    ],
-    "holiday": "next_day",
-    "months": [
-     1,
-     2,
-     3,
-     4,
-     5,
-     6,
-     7,
-     9,
-     10,
-     11,
-     12
-    ]
-   },
-   {
-    "type": "nth_weekly",
-    "dow": "wed",
-    "nth": [
-     1,
-     4
-    ],
-    "holiday": "next_day",
-    "months": [
-     8
-    ]
-   },
-   {
-    "type": "week_of_nth_dow",
-    "dow": "wed",
-    "nth": 2,
-    "months": [
-     4,
-     11
-    ],
-    "days": "mon-fri"
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "12-31"
-   }
-  ],
-  "location_en": "Sapporo, Hokkaido, Japan",
-  "lat": 43.051468,
-  "lng": 141.3056561,
-  "map": "https://goo.gl/maps/EY3uZRXNWNr",
-  "website": "http://www.city.sapporo.jp/zoo/index.html",
-  "logo": null,
-  "aliases": [
-   "Sapporo Maruyama Zoo"
-  ]
- },
- {
-  "canonical": "東京都立大島公園動物園",
-  "lineage_id": 64,
-  "en": "Tokyo Toritsu Oshima Park",
-  "ja_kana": "とうきょうとりつおおしまこうえんどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "東京都大島町",
-  "location_zh": "東京都大島町",
-  "closed_ja": "年中無休",
-  "location_en": "Ōshima, Tokyo, Japan",
-  "lat": 34.7607405,
-  "lng": 139.4355033,
-  "map": "https://goo.gl/maps/ygjtnJ59iXw",
-  "website": "http://www.soumu.metro.tokyo.jp/11osima/park/www/htdocs/parkindex.html",
-  "logo": null,
-  "aliases": [
-   "Tokyo Toritsu Oshima Park",
-   "東京都立大島公園"
-  ]
- },
- {
-  "canonical": "東北サファリパーク",
-  "lineage_id": 34,
-  "en": "Tohoku Safari Park",
-  "ja_kana": "とうほくさふぁりぱーく",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "福島県二本松市",
-  "location_zh": "福島縣二本松市",
-  "closed_ja": "不定休（公式サイトの休園日カレンダーで告知）",
-  "location_en": "Nihonmatsu, Fukushima Prefecture, Japan",
-  "lat": 37.6386187,
-  "lng": 140.3666067,
-  "map": "https://goo.gl/maps/TQwcwc8PpyL2",
-  "website": "http://tohoku-safaripark.co.jp/",
-  "logo": null,
-  "aliases": [
-   "Tohoku Safari Park"
-  ]
- },
- {
-  "canonical": "東山動植物園",
-  "lineage_id": 264,
-  "en": "Higashiyama Zoo and Botanical Gardens",
-  "ja_kana": "ひがしやまどうしょくぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "愛知県名古屋市",
-  "location_zh": "愛知縣名古屋市",
-  "closed_ja": "毎週月曜日（祝日・振替休日の場合は直後の平日）、12月29日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "next_weekday"
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Chikusa-ku, Nagoya, Japan",
-  "lat": 35.1554125,
-  "lng": 136.981182,
-  "map": "https://goo.gl/maps/uGmgLy5w5PCy2Vzn6",
-  "website": "http://www.higashiyama.city.nagoya.jp/",
-  "logo": null,
-  "aliases": [
-   "Higashiyama Zoo",
-   "Higashiyama Zoo and Botanical Gardens"
-  ]
- },
- {
-  "canonical": "東武動物公園",
-  "lineage_id": 18,
-  "en": "Tobu Zoo",
-  "ja_kana": "とうぶどうぶつこうえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "埼玉県南埼玉郡宮代町",
-  "location_zh": "埼玉縣南埼玉郡宮代町",
-  "closed_ja": "元日、1月・2月の火・水曜日、6月の水曜日、7月の第1〜第3水曜日",
-  "closed_rule": [
-   {
-    "type": "date",
-    "on": "01-01"
-   },
-   {
-    "type": "weekly",
-    "dow": [
-     "tue",
-     "wed"
-    ],
-    "months": [
-     1,
-     2
-    ]
-   },
-   {
-    "type": "weekly",
-    "dow": [
-     "wed"
-    ],
-    "months": [
-     6
-    ]
-   },
-   {
-    "type": "nth_weekly",
-    "dow": "wed",
-    "nth": [
-     1,
-     2,
-     3
-    ],
-    "months": [
-     7
-    ]
-   }
-  ],
-  "location_en": "Miyashiro, Minamisaitama, Saitama Prefecture, Japan",
-  "lat": 36.0196866,
-  "lng": 139.7196678,
-  "map": "https://goo.gl/maps/74vbDPHR5DK2",
-  "website": "http://www.tobuzoo.com/park/",
-  "logo": null,
-  "aliases": [
-   "Tobu Zoo"
-  ]
- },
- {
-  "canonical": "桐生が岡動物園",
-  "lineage_id": 289,
-  "en": "Kiryugaoka Zoo",
-  "ja_kana": "きりゅうがおかどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "群馬県桐生市",
-  "location_zh": "群馬縣桐生市",
-  "closed_ja": "月ごとに指定（主に火曜日、公式サイトで告知）",
-  "location_en": "Kiryu, Gunma Prefecture, Japan",
-  "lat": 36.4211084,
-  "lng": 139.3403121,
-  "map": "https://goo.gl/maps/vd74wUJnUA7cyL7x7",
-  "website": "https://www.city.kiryu.lg.jp/zoo/",
-  "logo": null,
-  "aliases": [
-   "Kiryugaoka Zoo"
-  ]
- },
- {
-  "canonical": "横浜・八景島シーパラダイス",
-  "lineage_id": 190,
-  "en": "Hakkeijima Sea Paradise",
-  "ja_kana": "よこはまはっけいじましーぱらだいす",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "神奈川県横浜市",
-  "location_zh": "神奈川縣橫濱市",
-  "closed_ja": "年中無休",
-  "location_en": "Hakkeijima, Yokohama, Kanagawa Prefecture, Japan",
-  "lat": 35.3373771,
-  "lng": 139.6458968,
-  "map": "https://goo.gl/maps/xFgBvqMLqdrmcvSp7",
-  "website": "http://www.seaparadise.co.jp/",
-  "logo": null,
-  "aliases": [
-   "Hakkeijima Sea Paradise"
-  ]
- },
- {
-  "canonical": "横浜市立野毛山動物園",
-  "lineage_id": 38,
-  "en": "Nogeyama Zoo",
-  "ja_kana": "よこはましりつのげやまどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "神奈川県横浜市",
-  "location_zh": "神奈川縣橫濱市",
-  "closed_ja": "毎週月曜日（祝日の場合は翌日、5月は無休）、12月29日〜1月1日 ※2027年1月7日からリニューアル工事のため長期休園予定",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "next_day",
-    "months": [
-     1,
-     2,
-     3,
-     4,
-     6,
-     7,
-     8,
-     9,
-     10,
-     11,
-     12
-    ],
-    "note": "5月は無休"
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   },
-   {
-    "type": "range_abs",
-    "from": "2027-01-07",
-    "note": "リニューアル工事のため長期休園予定"
-   }
-  ],
-  "location_en": "Nishi Ward, Yokohama, Japan",
-  "lat": 35.447282,
-  "lng": 139.622712,
-  "map": "https://goo.gl/maps/TbqkYpePr5P2",
-  "website": "http://www.hama-midorinokyokai.or.jp/zoo/nogeyama/",
-  "logo": null,
-  "aliases": [
-   "Nogeyama Zoo",
-   "野毛山動物園"
-  ]
- },
- {
-  "canonical": "江戸川区自然動物園",
-  "lineage_id": 73,
-  "en": "Edogawa City Natural Zoo",
-  "ja_kana": "えどがわくしぜんどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "東京都江戸川区",
-  "location_zh": "東京都江戶川區",
-  "closed_ja": "毎週月曜日（祝日の場合は翌日）、年末年始",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "next_day",
-    "note": "「年末年始」具体日付未確認のため未編碼"
-   }
-  ],
-  "location_en": "Edogawa, Tokyo Prefecture, Japan",
-  "lat": 35.6710488,
-  "lng": 139.8584021,
-  "map": "https://goo.gl/maps/tDgbZr73HuQ2",
-  "website": "http://edogawa-kankyozaidan.jp/zoo/",
-  "logo": null,
-  "aliases": [
-   "Edogawa City Natural Zoo"
-  ]
- },
- {
-  "canonical": "池田動物園",
-  "lineage_id": 15,
-  "en": "Ikeda Zoo",
-  "ja_kana": "いけだどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "岡山県岡山市",
-  "location_zh": "岡山縣岡山市",
-  "closed_ja": "水曜日中心の不定休（公式サイトの営業カレンダーで告知）",
-  "location_en": "Okayama, Okayama Prefecture, Chugoku Region, Japan",
-  "lat": 34.6746463,
-  "lng": 133.9062001,
-  "map": "https://goo.gl/maps/2bjmzYUBiqk",
-  "website": "https://ikedazoo.jp/",
-  "logo": null,
-  "aliases": [
-   "Ikeda Zoo"
-  ]
- },
- {
-  "canonical": "浜松市動物園",
-  "lineage_id": 24,
-  "en": "Hamamatsu Municipal Zoo",
-  "ja_kana": "はままつしどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "静岡県浜松市",
-  "location_zh": "靜岡縣濱松市",
-  "closed_ja": "12月29日〜31日",
-  "closed_rule": [
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "12-31"
-   }
-  ],
-  "location_en": "Hamamatsu, Shizuoka Prefecture, Japan",
-  "lat": 34.7658439,
-  "lng": 137.6323722,
-  "map": "https://goo.gl/maps/oXmmXnkH1h52",
-  "website": "http://www.hamazoo.net/",
-  "logo": null,
-  "aliases": [
-   "Hamamatsu Municipal Zoo"
-  ]
- },
- {
-  "canonical": "熊本市動植物園",
-  "lineage_id": 306,
-  "en": "Kumamoto City Zoological and Botanical Gardens",
-  "ja_kana": "くまもとしどうしょくぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "熊本県熊本市東区",
-  "location_zh": "熊本縣熊本市東區",
-  "closed_ja": "毎週月曜日（祝日の場合は次の平日、第4月曜は開園し翌日休園）、12月30日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "next_weekday",
-    "skip_nth": [
-     4
-    ]
-   },
-   {
-    "type": "nth_weekly",
-    "dow": "mon",
-    "nth": [
-     4
-    ],
-    "shift": "next_day",
-    "note": "第4月曜は開園し翌日休園"
-   },
-   {
-    "type": "range",
-    "from": "12-30",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Higashi Ward, Kumamoto, Japan",
-  "lat": 32.7746249,
-  "lng": 130.7477163,
-  "map": "https://goo.gl/maps/Aveudmjy2829ox8Z6",
-  "website": "https://www.ezooko.jp/",
-  "logo": null,
-  "aliases": [
-   "Kumamoto City Zoological and Botanical Gardens"
-  ]
- },
- {
-  "canonical": "熱川バナナワニ園",
-  "lineage_id": 59,
-  "en": "Atagawa Tropical & Alligator Garden",
-  "ja_kana": "あたがわばななわにえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "静岡県東伊豆町",
-  "location_zh": "靜岡縣東伊豆町",
-  "closed_ja": "年中無休",
-  "location_en": "Higashiizu-cho, Kamo, Shizuoka Prefecture, Japan",
-  "lat": 34.8161592,
-  "lng": 139.0678742,
-  "map": "https://goo.gl/maps/H7nX1JM8hAv",
-  "website": "http://bananawani.jp/",
-  "logo": null,
-  "aliases": [
-   "Atagawa Tropical & Alligator Garden"
-  ]
- },
- {
-  "canonical": "甲府市遊亀公園附属動物園",
-  "lineage_id": 28,
-  "en": "Yuki Zoo",
-  "ja_kana": "こうふしゆうきこうえんふぞくどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "山梨県甲府市",
-  "location_zh": "山梨縣甲府市",
-  "closed_ja": "整備工事のため休園中（2027年3月末まで予定）",
-  "closed_rule": [
-   {
-    "type": "range_abs",
-    "to": "2027-03-31",
-    "note": "整備工事のため休園中"
-   }
-  ],
-  "location_en": "Kōfu City, Yamanashi Prefecture, Japan",
-  "lat": 35.651361,
-  "lng": 138.5716761,
-  "map": "https://goo.gl/maps/qpxjKiF6SCu",
-  "website": "https://www.city.kofu.yamanashi.jp/zoo/",
-  "logo": null,
-  "aliases": [
-   "Yuki Zoo"
-  ]
- },
- {
-  "canonical": "神戸どうぶつ王国",
-  "lineage_id": 58,
-  "en": "Kobe Animal Kingdom",
-  "ja_kana": "こうべどうぶつおうこく",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "兵庫県神戸市",
-  "location_zh": "兵庫縣神戶市",
-  "closed_ja": "木曜日中心の不定休（営業カレンダーで告知、祝日・夏休み等の木曜は営業）",
-  "location_en": "Port Island, Chūō-ku, Kobe, Japan",
-  "lat": 34.6546416,
-  "lng": 135.2225468,
-  "map": "https://goo.gl/maps/eD1oUBUky182",
-  "website": "https://www.kobe-oukoku.com/",
-  "logo": null,
-  "aliases": [
-   "Kobe Animal Kingdom"
-  ]
- },
- {
-  "canonical": "神戸市立王子動物園",
-  "lineage_id": 36,
-  "en": "Kobe Oji Zoo",
-  "ja_kana": "こうべしりつおうじどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "兵庫県神戸市灘区",
-  "location_zh": "兵庫縣神戶市灘區",
-  "closed_ja": "毎週水曜日（祝日は開園）、12月29日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "wed"
-    ],
-    "holiday": "open"
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Nada Ward, Kobe, Japan",
-  "lat": 34.7099976,
-  "lng": 135.2148788,
-  "map": "https://goo.gl/maps/8P5cFSjECns",
-  "website": "http://www.kobe-ojizoo.jp/",
-  "logo": null,
-  "aliases": [
-   "Kobe Oji Zoo",
-   "王子動物園"
-  ]
- },
- {
-  "canonical": "福岡市動植物園",
-  "lineage_id": 32,
-  "en": "Fukuoka Municipal Zoo and Botanical Garden",
-  "ja_kana": "ふくおかしどうしょくぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "福岡県福岡市",
-  "location_zh": "福岡縣福岡市",
-  "closed_ja": "毎週月曜日（祝日の場合は翌日）、12月29日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "next_day"
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Chuo-ku, Fukuoka City, Fukuoka Prefecture, Japan",
-  "address_ja": "〒810-0037 福岡市中央区南公園1番1号",
-  "lat": 33.5728036,
-  "lng": 130.3910108,
-  "map": "https://maps.app.goo.gl/3JCS3z2aXcArdc577",
-  "website": "http://zoo.city.fukuoka.lg.jp/",
-  "logo": null,
-  "aliases": [
-   "Fukuoka Municipal Zoo and Botanical Garden",
-   "Fukuoka Municipal Zoological and Botanical Garden",
-   "福岡市動物園"
-  ]
- },
- {
-  "canonical": "福州大熊猫研究中心",
-  "lineage_id": 291,
-  "en": "Fuzhou Giant Panda Research Center",
-  "zh": "福州熊貓世界",
-  "country": "China",
-  "location_ja": "福建省福州市",
-  "location_zh": "福建省福州市",
-  "location_en": "Fuzhou City, Fujian Province, China",
-  "lat": 26.0882994,
-  "lng": 119.2856472,
-  "map": "https://goo.gl/maps/UcJ4p1eoeawuHYJTA",
-  "website": "https://www.fuzhou.gov.cn/zwgk/zdlyxxgk/chxjs/cxjsdt/202111/t20211130_4256928.htm",
-  "logo": null,
-  "aliases": [
-   "Fuzhou Giant Panda Research Center"
-  ]
- },
- {
-  "canonical": "福知山市動物園",
-  "lineage_id": 61,
-  "en": "Fukuchiyama Zoo",
-  "ja_kana": "ふくちやましどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "京都府福知山市",
-  "location_zh": "京都府福知山市",
-  "closed_ja": "毎週水曜日（祝日の場合は翌日）",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "wed"
-    ],
-    "holiday": "next_day"
-   }
-  ],
-  "location_en": "Fukuchiyama, Japan",
-  "lat": 35.310662,
-  "lng": 135.138731,
-  "map": "https://goo.gl/maps/XZvhpftc9L72",
-  "website": "https://fukuchiyamazoo.jp/",
-  "logo": null,
-  "aliases": [
-   "Fukuchiyama Zoo"
-  ]
- },
- {
-  "canonical": "秋吉台自然動物公園サファリランド",
-  "lineage_id": 42,
-  "en": "Akiyoshidai Safari Land",
-  "ja_kana": "あきよしだいしぜんどうぶつこうえんさふぁりらんど",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "山口県美祢市",
-  "location_zh": "山口縣美祢市",
-  "closed_ja": "年中無休（点検・悪天候等で臨時休園あり）",
-  "location_en": "Mine, Yamaguchi Prefecture, Japan",
-  "lat": 34.2825743,
-  "lng": 131.3321221,
-  "map": "https://goo.gl/maps/UT1Be9m6ukw",
-  "website": "http://www.safariland.jp/",
-  "logo": null,
-  "aliases": [
-   "Akiyoshidai Safari Land",
-   "秋吉台サファリランド"
-  ]
- },
- {
-  "canonical": "秋田市大森山動物園ミルヴェ",
-  "lineage_id": 26,
-  "en": "Akita Oomoriyama Zoo \"Milve\"",
-  "ja_kana": "あきたしおおもりやまどうぶつえんみるゔぇ",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "秋田県秋田市",
-  "location_zh": "秋田縣秋田市",
-  "closed_ja": "冬季休園（12月1日〜1月8日・3月1日〜19日）、1月・2月は土日祝のみ開園",
-  "closed_rule": [
-   {
-    "type": "range",
-    "from": "12-01",
-    "to": "01-08"
-   },
-   {
-    "type": "range",
-    "from": "03-01",
-    "to": "03-19"
-   },
-   {
-    "type": "weekly",
-    "dow": [
-     "mon",
-     "tue",
-     "wed",
-     "thu",
-     "fri"
-    ],
-    "months": [
-     1,
-     2
-    ],
-    "holiday": "open",
-    "note": "1月・2月は土日祝のみ開園"
-   }
-  ],
-  "location_en": "Akita City, Akita Prefecture, Japan",
-  "lat": 39.6717189,
-  "lng": 140.0762953,
-  "map": "https://goo.gl/maps/6xoxQ1KCS3Q2",
-  "website": "https://www.city.akita.lg.jp/zoo/",
-  "logo": null,
-  "aliases": [
-   "Akita Oomoriyama Zoo \"Milve\""
-  ]
- },
- {
-  "canonical": "群馬サファリパーク",
-  "lineage_id": 57,
-  "en": "Gunma Safari Park",
-  "ja_kana": "ぐんまさふぁりぱーく",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "群馬県",
-  "location_zh": "群馬縣",
-  "closed_ja": "毎週水曜日（祝日・春休み・GW・夏休み・年末年始〈1月1日を除く〉は無休）",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "wed"
-    ],
-    "holiday": "open",
-    "suspend": [
-     {
-      "from": "03-25",
-      "to": "04-07",
-      "note": "春休みは無休（慣例窗，非官方日期）"
-     },
-     {
-      "from": "04-29",
-      "to": "05-05",
-      "note": "GWは無休"
-     },
-     {
-      "from": "07-20",
-      "to": "08-31",
-      "note": "夏休みは無休（慣例窗，非官方日期）"
-     },
-     {
-      "from": "12-28",
-      "to": "01-04",
-      "note": "年末年始は無休（慣例窗，非官方日期）"
-     }
-    ]
-   },
-   {
-    "type": "date",
-    "on": "01-01"
-   }
-  ],
-  "location_en": "Gunma Prefecture, Japan",
-  "lat": 36.2271907,
-  "lng": 138.8871332,
-  "map": "https://goo.gl/maps/at8sz15RscJ2",
-  "website": "http://www.safari.co.jp/",
-  "logo": null,
-  "aliases": [
-   "Gunma Safari Park"
-  ]
- },
- {
-  "canonical": "羽村市動物公園",
-  "lineage_id": 69,
-  "en": "Hamura Zoo",
-  "ja_kana": "はむらしどうぶつこうえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "東京都羽村市",
-  "location_zh": "東京都羽村市",
-  "closed_ja": "毎週月曜日（祝日・繁忙期は開園）、1月1日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "open",
-    "suspend": [
-     {
-      "from": "03-25",
-      "to": "04-07",
-      "note": "繁忙期は開園（慣例窗，非官方日期）"
-     },
-     {
-      "from": "04-29",
-      "to": "05-05",
-      "note": "繁忙期は開園（慣例窗，非官方日期）"
-     },
-     {
-      "from": "07-20",
-      "to": "08-31",
-      "note": "繁忙期は開園（慣例窗，非官方日期）"
-     }
-    ]
-   },
-   {
-    "type": "date",
-    "on": "01-01"
-   }
-  ],
-  "location_en": "Hamura, Tokyo, Japan",
-  "lat": 35.7673915,
-  "lng": 139.3288145,
-  "map": "https://goo.gl/maps/EwC6VTy9MEp",
-  "website": "http://www.t-net.ne.jp/~hamura-z/",
-  "logo": null,
-  "aliases": [
-   "Hamura Zoo"
-  ]
- },
- {
-  "canonical": "豊橋総合動植物公園",
-  "lineage_id": 235,
-  "en": "Non Hoi Park",
-  "ja_kana": "とよはしそうごうどうしょくぶつこうえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "愛知県豊橋市",
-  "location_zh": "愛知縣豐橋市",
-  "closed_ja": "毎週月曜日（祝日の場合は翌平日）",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "next_weekday"
-   }
-  ],
-  "location_en": "Toyohashi, Aichi, Japan",
-  "lat": 34.7202041,
-  "lng": 137.4324435,
-  "map": "https://goo.gl/maps/a4FaTjTWQLBZDVEK9",
-  "website": "https://www.nonhoi.jp/",
-  "logo": null,
-  "aliases": [
-   "Non Hoi Park",
-   "のんほいパーク"
-  ]
- },
- {
-  "canonical": "那須どうぶつ王国",
-  "lineage_id": 53,
-  "en": "Nasu Animal Kingdom",
-  "ja_kana": "なすどうぶつおうこく",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "栃木県那須郡",
-  "location_zh": "栃木縣那須郡",
-  "closed_ja": "不定休（主に水曜日、公式営業カレンダーで告知）、夏休み期間は無休",
-  "location_en": "Nasu District, Tochigi Prefecture, Japan",
-  "lat": 37.129025,
-  "lng": 140.037143,
-  "map": "https://goo.gl/maps/32qL3cSPkwP2",
-  "website": "http://www.nasu-oukoku.com/",
-  "logo": null,
-  "aliases": [
-   "Nasu Animal Kingdom"
-  ]
- },
- {
-  "canonical": "釧路市動物園",
-  "lineage_id": 11,
-  "en": "Kushiro City Zoo",
-  "ja_kana": "くしろしどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "北海道釧路市",
-  "location_zh": "北海道釧路市",
-  "closed_ja": "12月〜2月の水曜日、12月29日〜1月2日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "wed"
-    ],
-    "months": [
-     12,
-     1,
-     2
-    ]
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-02"
-   }
-  ],
-  "location_en": "Kushiro, Kushiro Subprefecture, Hokkaido, Japan",
-  "lat": 43.081258,
-  "lng": 144.2365564,
-  "map": "https://goo.gl/maps/8JVH1ftPJHm",
-  "website": "http://www.city.kushiro.lg.jp/zoo/",
-  "logo": null,
-  "aliases": [
-   "Kushiro City Zoo"
-  ]
- },
- {
-  "canonical": "長崎バイオパーク",
-  "lineage_id": 3,
-  "en": "Nagasaki Bio Park",
-  "ja_kana": "ながさきばいおぱーく",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "長崎県西海市",
-  "location_zh": "長崎縣西海市",
-  "closed_ja": "年中無休（悪天候時は臨時休園あり）",
-  "location_en": "Nagasaki Prefecture, Japan",
-  "lat": 32.9884125,
-  "lng": 129.7810003,
-  "map": "https://goo.gl/maps/L1wXjRmYYeo",
-  "website": "http://www.biopark.co.jp",
-  "logo": null,
-  "aliases": [
-   "Nagasaki Bio Park"
-  ]
- },
- {
-  "canonical": "長野市茶臼山動物園",
-  "lineage_id": 10,
-  "en": "Nagano Chausuyama Zoo",
-  "ja_kana": "ながのしちゃうすやまどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "長野県長野市",
-  "location_zh": "長野縣長野市",
-  "closed_ja": "12月〜2月の毎週月曜日（休日の場合は翌日）、12月29日〜31日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "next_day",
-    "months": [
-     12,
-     1,
-     2
-    ]
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "12-31"
-   }
-  ],
-  "location_en": "Nagano, Nagano Prefecture, Japan",
-  "lat": 36.586724,
-  "lng": 138.115462,
-  "map": "https://goo.gl/maps/3sQ2w9qjTdS2",
-  "website": "http://www.chausuyama.com/",
-  "logo": null,
-  "aliases": [
-   "Nagano Chausuyama Zoo",
-   "茶臼山動物園"
-  ]
- },
- {
-  "canonical": "静岡市立日本平動物園",
-  "lineage_id": 16,
-  "en": "Shizuoka Municipal Nihondaira Zoo",
-  "ja_kana": "しずおかしりつにほんだいらどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "静岡県静岡市",
-  "location_zh": "靜岡縣靜岡市",
-  "closed_ja": "毎週月曜日（祝日・振替休日の場合は翌平日）、12月29日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "next_weekday"
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Shizuoka, Shizuoka Prefecture, Japan",
-  "address_ja": "〒422-8005 静岡市駿河区池田1767-6",
-  "lat": 34.9799007,
-  "lng": 138.4394655,
-  "map": "https://goo.gl/maps/wFRiaNci3Qu",
-  "website": "http://www.nhdzoo.jp/",
-  "logo": null,
-  "aliases": [
-   "Nihondaira Zoo",
-   "Shizuoka Municipal Nihondaira Zoo"
-  ]
- },
- {
-  "canonical": "高知県立のいち動物公園",
-  "lineage_id": 60,
-  "en": "Noichi Zoological Park of Kochi Prefecture",
-  "ja_kana": "こうちけんりつのいちどうぶつこうえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "高知県香南市",
-  "location_zh": "高知縣香南市",
-  "closed_ja": "毎週月曜日（祝日の場合は翌日）、12月29日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "next_day"
-   },
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Konan, Kōchi Prefecture, Japan",
-  "lat": 33.5700513,
-  "lng": 133.7074112,
-  "map": "https://goo.gl/maps/4p2bfiBPbGL2",
-  "website": "http://www.noichizoo.or.jp/",
-  "logo": null,
-  "aliases": [
-   "Noichi Zoological Park",
-   "Noichi Zoological Park of Kochi Prefecture",
-   "のいち動物公園"
-  ]
- },
- {
-  "canonical": "鯖江市西山動物園",
-  "lineage_id": 13,
-  "en": "Nishiyama Zoo",
-  "ja_kana": "さばえしにしやまどうぶつえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "福井県鯖江市",
-  "location_zh": "福井縣鯖江市",
-  "closed_ja": "毎週月曜日（祝日の場合は翌日）",
-  "closed_rule": [
-   {
-    "type": "weekly",
-    "dow": [
-     "mon"
-    ],
-    "holiday": "next_day"
-   }
-  ],
-  "location_en": "Sabae, Fukui Prefecture, Japan",
-  "lat": 35.9506206,
-  "lng": 136.1809232,
-  "map": "https://goo.gl/maps/vVxLDci5HeE2",
-  "website": "https://www.city.sabae.fukui.jp/nishiyama_zoo/",
-  "logo": null,
-  "aliases": [
-   "Nishiyama Zoo",
-   "西山動物公園"
-  ]
- },
- {
-  "canonical": "鹿児島市平川動物公園",
-  "lineage_id": 20,
-  "en": "Hirakawa Zoo",
-  "ja_kana": "かごしましひらかわどうぶつこうえん",
-  "zh": null,
-  "country": "Japan",
-  "location_ja": "鹿児島県鹿児島市平川町",
-  "location_zh": "鹿兒島縣鹿兒島市平川町",
-  "closed_ja": "12月29日〜1月1日",
-  "closed_rule": [
-   {
-    "type": "range",
-    "from": "12-29",
-    "to": "01-01"
-   }
-  ],
-  "location_en": "Hirakawacho, Kagoshima, Kagoshima Prefecture, Japan",
-  "lat": 31.4631175,
-  "lng": 130.5017959,
-  "map": "https://www.google.com/maps/search/?api=1&query=31.4631175,130.5017959",
-  "website": "http://hirakawazoo.jp/",
-  "logo": null,
-  "aliases": [
-   "Hirakawa Zoo",
-   "平川動物公園"
-  ]
- },
- {
   "canonical": "ABQ BioPark - Zoo",
   "lineage_id": 189,
   "en": "ABQ BioPark - Zoo",
@@ -2482,6 +122,22 @@
   "aliases": []
  },
  {
+  "canonical": "Assiniboine Park Zoo",
+  "lineage_id": 76,
+  "en": "Assiniboine Park Zoo",
+  "zh": "阿西尼博因公園動物園",
+  "country": "Canada",
+  "location_ja": null,
+  "location_zh": "曼尼托巴省溫尼伯",
+  "location_en": "Winnipeg, Manitoba, Canada",
+  "lat": 49.8683537,
+  "lng": -97.2406139,
+  "map": "https://goo.gl/maps/yA6s5Fk3SZx",
+  "website": "http://www.assiniboineparkzoo.ca/",
+  "logo": null,
+  "aliases": []
+ },
+ {
   "canonical": "Auckland Zoo",
   "lineage_id": 203,
   "en": "Auckland Zoo",
@@ -2539,6 +195,22 @@
   "lng": 2.1875575,
   "map": "https://g.page/zoo-de-barcelona-barcelona?share",
   "website": "https://www.zoobarcelona.cat/",
+  "logo": null,
+  "aliases": []
+ },
+ {
+  "canonical": "Batu Secret Zoo",
+  "lineage_id": 316,
+  "en": "Batu Secret Zoo",
+  "zh": "巴圖秘密動物園",
+  "country": "Indonesia",
+  "location_ja": null,
+  "location_zh": "東爪哇",
+  "location_en": "East Java, Indonesia",
+  "lat": -7.8893819,
+  "lng": 112.5282242,
+  "map": "https://maps.app.goo.gl/sMz4KzPSUVcR67hTA",
+  "website": "https://batusecretzoo.com/",
   "logo": null,
   "aliases": []
  },
@@ -2820,6 +492,22 @@
   "aliases": []
  },
  {
+  "canonical": "Buin Zoo",
+  "lineage_id": 147,
+  "en": "Buin Zoo",
+  "zh": "布因動物園",
+  "country": "Chile",
+  "location_ja": "チリレヒオン・メトロポリターナ州ブイン",
+  "location_en": "Buin, Región Metropolitana, Chile",
+  "lat": -33.7161945,
+  "lng": -70.7269228,
+  "map": "https://goo.gl/maps/ha3XcnX29eA2",
+  "website": "https://www.buinzoo.cl/",
+  "logo": null,
+  "aliases": [],
+  "location_zh": "智利首都大區布因"
+ },
+ {
   "canonical": "Buttonwood Park Zoo",
   "lineage_id": 148,
   "en": "Buttonwood Park Zoo",
@@ -2831,6 +519,22 @@
   "lng": -70.9516449,
   "map": "https://goo.gl/maps/wYU9QHq3FvS2",
   "website": "https://www.bpzoo.org/",
+  "logo": null,
+  "aliases": []
+ },
+ {
+  "canonical": "Calgary Zoo",
+  "lineage_id": 51,
+  "en": "Calgary Zoo",
+  "zh": "卡加利動物園",
+  "country": "Canada",
+  "location_ja": null,
+  "location_zh": "亞伯達省卡加利",
+  "location_en": "Calgary, Alberta, Canada",
+  "lat": 51.0459004,
+  "lng": -114.0236738,
+  "map": "https://goo.gl/maps/gXaumYRHucJ2",
+  "website": "https://www.calgaryzoo.com/",
   "logo": null,
   "aliases": []
  },
@@ -2935,27 +639,6 @@
   ]
  },
  {
-  "canonical": "澳門石排灣郊野公園",
-  "lineage_id": null,
-  "en": "Seac Pai Van Park",
-  "zh": "澳門石排灣郊野公園",
-  "country": "Macau",
-  "location_ja": "澳門路環",
-  "location_zh": "澳門路環",
-  "location_en": "Coloane, Macau",
-  "lat": 22.1286997,
-  "lng": 113.5617924,
-  "map": "https://maps.app.goo.gl/2bTs8m1n8m9bq9hM7",
-  "website": "https://www.macaotourism.gov.mo/en/sightseeing/gardens/seac-pai-van-park",
-  "logo": null,
-  "aliases": [
-   "Seac Pai Van Park",
-   "Macao Giant Panda Pavilion",
-   "Macau Seac Pai Van Park",
-   "石排灣郊野公園"
-  ]
- },
- {
   "canonical": "Chester Zoo",
   "lineage_id": 271,
   "en": "Chester Zoo",
@@ -2972,6 +655,38 @@
   "aliases": []
  },
  {
+  "canonical": "Chiang Mai Zoo",
+  "lineage_id": null,
+  "en": "Chiang Mai Zoo",
+  "zh": "清邁動物園",
+  "country": "Thailand",
+  "location_ja": null,
+  "location_en": "Mueang Chiang Mai, Chiang Mai, Thailand",
+  "lat": null,
+  "lng": null,
+  "map": null,
+  "website": "https://chiangmai.zoothailand.org/",
+  "logo": null,
+  "aliases": [],
+  "location_zh": "清邁府清邁市"
+ },
+ {
+  "canonical": "Chilean National Zoo",
+  "lineage_id": 56,
+  "en": "Chilean National Zoo",
+  "zh": "智利國家動物園",
+  "country": "Chile",
+  "location_ja": null,
+  "location_zh": "聖地牙哥",
+  "location_en": "Santiago, Chile",
+  "lat": -33.4298624,
+  "lng": -70.6340909,
+  "map": "https://goo.gl/maps/CtRXBeoUgYF2",
+  "website": "http://www.parquemet.cl/",
+  "logo": null,
+  "aliases": []
+ },
+ {
   "canonical": "Chomutov Zoo",
   "lineage_id": 216,
   "en": "Chomutov Zoo",
@@ -2983,6 +698,38 @@
   "lng": 13.4202785,
   "map": "https://goo.gl/maps/bWdg8R2K2iGDbv48A",
   "website": "https://zoopark.cz/",
+  "logo": null,
+  "aliases": []
+ },
+ {
+  "canonical": "Chongqing Zoo",
+  "lineage_id": 5,
+  "en": "Chongqing Zoo",
+  "zh": "重慶動物園",
+  "country": "China",
+  "location_ja": "重慶市九龍坡区",
+  "location_zh": "重慶市九龍坡區",
+  "location_en": "Jiulongpo Qu, China",
+  "lat": 29.5035617,
+  "lng": 106.5037493,
+  "map": "https://goo.gl/maps/rsck5UV8B552",
+  "website": "http://www.cqzoo.com",
+  "logo": null,
+  "aliases": []
+ },
+ {
+  "canonical": "Cincinnati Zoo and Botanical Garden",
+  "lineage_id": 65,
+  "en": "Cincinnati Zoo and Botanical Garden",
+  "zh": "辛辛那提動物園與植物園",
+  "country": "USA",
+  "location_ja": null,
+  "location_zh": "俄亥俄州辛辛那提",
+  "location_en": "Cincinnati, OH, USA",
+  "lat": 39.144573,
+  "lng": -84.508617,
+  "map": "https://goo.gl/maps/N3XtwSMHnx22",
+  "website": "http://cincinnatizoo.org/",
   "logo": null,
   "aliases": []
  },
@@ -3029,6 +776,22 @@
   "lng": 6.9739506,
   "map": "https://goo.gl/maps/9v8LQTCipUadTzrm8",
   "website": "https://www.koelnerzoo.de/",
+  "logo": null,
+  "aliases": []
+ },
+ {
+  "canonical": "Columbus Zoo and Aquarium",
+  "lineage_id": 43,
+  "en": "Columbus Zoo and Aquarium",
+  "zh": "哥倫布動物園與水族館",
+  "country": "USA",
+  "location_ja": null,
+  "location_zh": "俄亥俄州哥倫布",
+  "location_en": "Powell, Liberty Township, Delaware County, Ohio, USA",
+  "lat": 40.1560789,
+  "lng": -83.1183042,
+  "map": "https://goo.gl/maps/CWVYiPe7c3S2",
+  "website": "https://www.columbuszoo.org/",
   "logo": null,
   "aliases": []
  },
@@ -3232,6 +995,22 @@
   "aliases": []
  },
  {
+  "canonical": "Edmonton Valley Zoo",
+  "lineage_id": 82,
+  "en": "Edmonton Valley Zoo",
+  "zh": "艾德蒙頓谷動物園",
+  "country": "Canada",
+  "location_ja": null,
+  "location_zh": "亞伯達省艾德蒙頓",
+  "location_en": "Edmonton, Alberta, Canada",
+  "lat": 53.5109055,
+  "lng": -113.5535637,
+  "map": "https://goo.gl/maps/34HUM7tYy542",
+  "website": "https://www.edmonton.ca/attractions_events/edmonton-valley-zoo.aspx",
+  "logo": null,
+  "aliases": []
+ },
+ {
   "canonical": "Elmwood Park Zoo",
   "lineage_id": 132,
   "en": "Elmwood Park Zoo",
@@ -3260,6 +1039,22 @@
   "lng": -80.0756549,
   "map": "https://goo.gl/maps/2JCNCyxMFZ32",
   "website": "https://www.eriezoo.org/",
+  "logo": null,
+  "aliases": []
+ },
+ {
+  "canonical": "Everland Zoological Gardens",
+  "lineage_id": 62,
+  "en": "Everland Zoological Gardens",
+  "zh": "愛寶樂園動物園",
+  "country": "South Korea",
+  "location_ja": "京畿道龍仁市",
+  "location_zh": "京畿道龍仁市",
+  "location_en": "Yongin City, Gyeonggi Province, South Korea",
+  "lat": 37.2939104,
+  "lng": 127.2025664,
+  "map": "https://goo.gl/maps/e4tvYMRSY7z",
+  "website": "http://www.everland.com/",
   "logo": null,
   "aliases": []
  },
@@ -3434,26 +1229,6 @@
   "aliases": []
  },
  {
-  "canonical": "廣州動物園",
-  "lineage_id": 297,
-  "en": "Guangzhou Zoo",
-  "zh": "广州动物园",
-  "country": "China",
-  "location_ja": "広東省広州市越秀区",
-  "location_en": "Yuexiu, Guangzhou, Guangdong, China",
-  "location_zh": "廣東省廣州市越秀區",
-  "lat": 23.143569,
-  "lng": 113.303453,
-  "map": "https://goo.gl/maps/b2Uh3e25cz1iz1eZ8",
-  "website": "https://www.gzzoo.com/",
-  "logo": null,
-  "aliases": [
-   "Guangzhou Zoo",
-   "广州动物园",
-   "廣州動物園"
-  ]
- },
- {
   "canonical": "Görlitz Zoo",
   "lineage_id": 138,
   "en": "Görlitz Zoo",
@@ -3498,27 +1273,6 @@
   "website": "https://hamiltonzoo.co.nz/",
   "logo": null,
   "aliases": []
- },
- {
-  "canonical": "杭州動物園",
-  "lineage_id": 236,
-  "en": "Hangzhou Zoo",
-  "zh": "杭州动物园",
-  "country": "China",
-  "location_ja": "浙江省杭州市",
-  "location_en": "Hangzhou, Zhejiang, China",
-  "location_zh": "浙江省杭州市",
-  "lat": 30.213737,
-  "lng": 120.133669,
-  "map": "https://goo.gl/maps/UTyFC8HCPycgveWz6",
-  "website": "http://www.hzzoo.com/",
-  "logo": null,
-  "aliases": [
-   "Hangzhou Zoo",
-   "杭州动物园",
-   "杭州市動物園",
-   "杭州市动物园"
-  ]
  },
  {
   "canonical": "Hanover Adventure Zoo",
@@ -3598,6 +1352,22 @@
   "aliases": []
  },
  {
+  "canonical": "Henry Vilas Zoo",
+  "lineage_id": 77,
+  "en": "Henry Vilas Zoo",
+  "zh": "亨利維拉斯動物園",
+  "country": "USA",
+  "location_ja": null,
+  "location_zh": "威斯康辛州麥迪遜",
+  "location_en": "Madison, Wisconsin, USA",
+  "lat": 43.0606104,
+  "lng": -89.4100349,
+  "map": "https://goo.gl/maps/eNq2cY1kKNu",
+  "website": "http://www.vilaszoo.org/",
+  "logo": null,
+  "aliases": []
+ },
+ {
   "canonical": "Hertfordshire Zoo",
   "lineage_id": 214,
   "en": "Hertfordshire Zoo",
@@ -3646,30 +1416,6 @@
   "website": "https://www.hoglezoo.org",
   "logo": null,
   "aliases": []
- },
- {
-  "canonical": "南京市紅山森林動物園",
-  "lineage_id": 302,
-  "en": "Nanjing Hongshan Forest Zoo",
-  "zh": "南京市红山森林动物园",
-  "country": "China",
-  "location_ja": "江蘇省南京市玄武区",
-  "location_en": "Xuanwu, Nanjing, Jiangsu, China",
-  "location_zh": "江蘇省南京市玄武區",
-  "lat": 32.091625,
-  "lng": 118.802027,
-  "map": "https://goo.gl/maps/WeoipsC5itJNqJQe7",
-  "website": "https://www.njhszoo.com/",
-  "logo": null,
-  "aliases": [
-   "Hongshan Forest Zoo",
-   "Nanjing Hongshan Forest Zoo",
-   "南京市红山森林动物园",
-   "南京红山森林动物园",
-   "红山森林动物园",
-   "紅山森林動物園",
-   "南京紅山森林動物園"
-  ]
  },
  {
   "canonical": "Houston Zoo",
@@ -3811,22 +1557,6 @@
   "aliases": []
  },
  {
-  "canonical": "Chiang Mai Zoo",
-  "lineage_id": null,
-  "en": "Chiang Mai Zoo",
-  "zh": "清邁動物園",
-  "country": "Thailand",
-  "location_ja": null,
-  "location_en": "Mueang Chiang Mai, Chiang Mai, Thailand",
-  "lat": null,
-  "lng": null,
-  "map": null,
-  "website": "https://chiangmai.zoothailand.org/",
-  "logo": null,
-  "aliases": [],
-  "location_zh": "清邁府清邁市"
- },
- {
   "canonical": "Khao Kheow Open Zoo",
   "lineage_id": 100,
   "en": "Khao Kheow Open Zoo",
@@ -3900,6 +1630,22 @@
   "lng": 15.0810931,
   "map": "https://goo.gl/maps/mi1tghpUJXYGJQcr7",
   "website": "https://www.zooliberec.cz/",
+  "logo": null,
+  "aliases": []
+ },
+ {
+  "canonical": "Lincoln Children's Zoo",
+  "lineage_id": 80,
+  "en": "Lincoln Children's Zoo",
+  "zh": "林肯兒童動物園",
+  "country": "USA",
+  "location_ja": null,
+  "location_zh": "內布拉斯加州林肯",
+  "location_en": "Lincoln, NE, USA",
+  "lat": 40.8005726,
+  "lng": -96.6795449,
+  "map": "https://goo.gl/maps/5kHk6aS6A2R2",
+  "website": "https://www.lincolnzoo.org/",
   "logo": null,
   "aliases": []
  },
@@ -4134,6 +1880,22 @@
   "aliases": []
  },
  {
+  "canonical": "Mogo Zoo",
+  "lineage_id": 210,
+  "en": "Mogo Zoo",
+  "zh": "莫戈動物園",
+  "country": "Australia",
+  "location_ja": null,
+  "location_zh": "新南威爾斯",
+  "location_en": "Mogo, New South Wales, Australia",
+  "lat": -35.7953737,
+  "lng": 150.1593786,
+  "map": "https://goo.gl/maps/73JeSnC4UNabbXTT7",
+  "website": "https://mogozoo.com.au/",
+  "logo": null,
+  "aliases": []
+ },
+ {
   "canonical": "Moscow Zoo",
   "lineage_id": 149,
   "en": "Moscow Zoo",
@@ -4227,6 +1989,52 @@
   "aliases": []
  },
  {
+  "canonical": "Nordens Ark Zoo",
+  "lineage_id": 266,
+  "en": "Nordens Ark Zoo",
+  "zh": null,
+  "country": "Sweden",
+  "location_ja": null,
+  "location_en": "Hunnebostrand, Sweden",
+  "lat": 58.4416852,
+  "lng": 11.4366063,
+  "map": "https://goo.gl/maps/zhMg7XWZzRs9vsz96",
+  "website": "https://en.nordensark.se/",
+  "logo": null,
+  "aliases": []
+ },
+ {
+  "canonical": "Northeastern Wisconsin Zoo",
+  "lineage_id": 44,
+  "en": "Northeastern Wisconsin Zoo",
+  "zh": "威斯康辛東北動物園",
+  "country": "USA",
+  "location_ja": null,
+  "location_zh": "威斯康辛州綠灣",
+  "location_en": "Green Bay, Wisconsin, USA",
+  "lat": 44.6603403,
+  "lng": -88.0893326,
+  "map": "https://goo.gl/maps/Wi6pMXofB6w",
+  "website": "https://newzoo.org",
+  "logo": null,
+  "aliases": []
+ },
+ {
+  "canonical": "Nyiregyhaza Animal Park",
+  "lineage_id": 172,
+  "en": "Nyiregyhaza Animal Park",
+  "zh": null,
+  "country": "Hungary",
+  "location_ja": null,
+  "location_en": "Sóstó, Nyíregyháza, Hungary",
+  "lat": 48.0015172,
+  "lng": 21.7232184,
+  "map": "https://goo.gl/maps/tkNhRWbQbuK2",
+  "website": "https://www.sostozoo.hu/",
+  "logo": null,
+  "aliases": []
+ },
+ {
   "canonical": "Národná zoologická záhrada Bojnice",
   "lineage_id": null,
   "en": "Bojnice Zoo",
@@ -4248,36 +2056,6 @@
    "Slovak National Zoo Bojnice",
    "Narodna zoologicka zahrada Bojnice"
   ]
- },
- {
-  "canonical": "Nordens Ark Zoo",
-  "lineage_id": 266,
-  "en": "Nordens Ark Zoo",
-  "zh": null,
-  "country": "Sweden",
-  "location_ja": null,
-  "location_en": "Hunnebostrand, Sweden",
-  "lat": 58.4416852,
-  "lng": 11.4366063,
-  "map": "https://goo.gl/maps/zhMg7XWZzRs9vsz96",
-  "website": "https://en.nordensark.se/",
-  "logo": null,
-  "aliases": []
- },
- {
-  "canonical": "Nyiregyhaza Animal Park",
-  "lineage_id": 172,
-  "en": "Nyiregyhaza Animal Park",
-  "zh": null,
-  "country": "Hungary",
-  "location_ja": null,
-  "location_en": "Sóstó, Nyíregyháza, Hungary",
-  "lat": 48.0015172,
-  "lng": 21.7232184,
-  "map": "https://goo.gl/maps/tkNhRWbQbuK2",
-  "website": "https://www.sostozoo.hu/",
-  "logo": null,
-  "aliases": []
  },
  {
   "canonical": "Oakhill Center for Rare and Endangered Species",
@@ -4539,6 +2317,22 @@
   "aliases": []
  },
  {
+  "canonical": "Perth Zoo",
+  "lineage_id": 217,
+  "en": "Perth Zoo",
+  "zh": "伯斯動物園",
+  "country": "Australia",
+  "location_ja": null,
+  "location_zh": "珀斯",
+  "location_en": "Perth, Australia",
+  "lat": -31.9755308,
+  "lng": 115.8500678,
+  "map": "https://g.page/perth-zoo-south-perth?share",
+  "website": "https://perthzoo.wa.gov.au/",
+  "logo": null,
+  "aliases": []
+ },
+ {
   "canonical": "Philadelphia Zoo",
   "lineage_id": 81,
   "en": "Philadelphia Zoo",
@@ -4551,6 +2345,22 @@
   "lng": -75.1950196,
   "map": "https://goo.gl/maps/wE2icXwnpcN2",
   "website": "https://www.philadelphiazoo.org/",
+  "logo": null,
+  "aliases": []
+ },
+ {
+  "canonical": "Pittsburgh Zoo and PPG Aquarium",
+  "lineage_id": 91,
+  "en": "Pittsburgh Zoo and PPG Aquarium",
+  "zh": "匹茲堡動物園與水族館",
+  "country": "USA",
+  "location_ja": null,
+  "location_zh": "賓州匹茲堡",
+  "location_en": "Pittsburgh, Pennsylvania, USA",
+  "lat": 40.4831718,
+  "lng": -79.9213382,
+  "map": "https://goo.gl/maps/wKD5UXtTWh42",
+  "website": "https://www.pittsburghzoo.org/",
   "logo": null,
   "aliases": []
  },
@@ -4615,6 +2425,22 @@
   "lng": -104.6570935,
   "map": "https://goo.gl/maps/sAm9JQGw7HG2",
   "website": "https://www.pueblozoo.org",
+  "logo": null,
+  "aliases": []
+ },
+ {
+  "canonical": "Red River Zoo",
+  "lineage_id": 83,
+  "en": "Red River Zoo",
+  "zh": "紅河動物園",
+  "country": "USA",
+  "location_ja": null,
+  "location_zh": "北達科他州法戈",
+  "location_en": "Fargo, North Dakota, USA",
+  "lat": 46.84463,
+  "lng": -96.855021,
+  "map": "https://goo.gl/maps/iDn5ZuFrH4U2",
+  "website": "https://redriverzoo.org/",
   "logo": null,
   "aliases": []
  },
@@ -4707,6 +2533,38 @@
   "lng": -76.181289,
   "map": "https://goo.gl/maps/ghur2zM8qwp",
   "website": "https://www.rosamondgiffordzoo.org/",
+  "logo": null,
+  "aliases": []
+ },
+ {
+  "canonical": "Ross Park Zoo",
+  "lineage_id": 89,
+  "en": "Ross Park Zoo",
+  "zh": "羅斯公園動物園",
+  "country": "USA",
+  "location_ja": null,
+  "location_zh": "紐約州賓漢頓",
+  "location_en": "Binghamton, NY, USA",
+  "lat": 42.0749919,
+  "lng": -75.9069758,
+  "map": "https://goo.gl/maps/BoeUeTysCJy",
+  "website": "https://rossparkzoo.org/",
+  "logo": null,
+  "aliases": []
+ },
+ {
+  "canonical": "Rotterdam Zoo",
+  "lineage_id": 72,
+  "en": "Rotterdam Zoo",
+  "zh": "鹿特丹動物園",
+  "country": "Netherlands",
+  "location_ja": null,
+  "location_zh": "鹿特丹",
+  "location_en": "Rotterdam, Netherlands",
+  "lat": 51.928158,
+  "lng": 4.444026,
+  "map": "https://goo.gl/maps/yFbttoQZrP82",
+  "website": "https://www.diergaardeblijdorp.nl/",
   "logo": null,
   "aliases": []
  },
@@ -5423,29 +3281,6 @@
   "aliases": []
  },
  {
-  "canonical": "常州淹城野生動物世界",
-  "lineage_id": 301,
-  "en": "Yancheng Wild Animal World",
-  "zh": "常州淹城野生动物世界",
-  "country": "China",
-  "location_ja": "江蘇省常州市武進区",
-  "location_en": "Wujin, Changzhou, Jiangsu, China",
-  "location_zh": "江蘇省常州市武進區",
-  "lat": 31.699325,
-  "lng": 119.9261083,
-  "map": "https://goo.gl/maps/S7jZZrRv4qMqv4dq7",
-  "website": "https://www.yczoo.com/",
-  "logo": null,
-  "aliases": [
-   "Yancheng Wild Animal World",
-   "淹城野生動物世界",
-   "淹城野生动物世界",
-   "常州淹城野生动物世界",
-   "常州淹城野生動物園",
-   "常州淹城野生动物园"
-  ]
- },
- {
   "canonical": "Yorkshire Wildlife Park",
   "lineage_id": 261,
   "en": "Yorkshire Wildlife Park",
@@ -5506,29 +3341,6 @@
   "aliases": []
  },
  {
-  "canonical": "中山市紫馬嶺動物園",
-  "lineage_id": 300,
-  "en": "Zhongshan Zimaling Zoo",
-  "zh": "中山市紫马岭动物园",
-  "country": "China",
-  "location_ja": "広東省中山市東区",
-  "location_en": "Zhongshan, Guangdong, China",
-  "location_zh": "廣東省中山市東區",
-  "lat": 22.5159499,
-  "lng": 113.3926,
-  "map": "https://goo.gl/maps/N9RFTcYVp3tZp1R69",
-  "website": null,
-  "wechat": "中山市紫马岭动物园",
-  "logo": null,
-  "aliases": [
-   "Zhongshan ZiMaLing Zoo",
-   "Zimaling Zoo",
-   "紫馬嶺動物園",
-   "紫马岭动物园",
-   "中山市紫马岭动物园"
-  ]
- },
- {
   "canonical": "Zlin Zoo",
   "lineage_id": 225,
   "en": "Zlin Zoo",
@@ -5542,25 +3354,6 @@
   "website": "https://www.zoozlin.eu/",
   "logo": null,
   "aliases": []
- },
- {
-  "canonical": "Zoo du Bassin d'Arcachon",
-  "lineage_id": 249,
-  "en": "Zoo du Bassin d'Arcachon",
-  "zh": "阿卡雄灣動物園",
-  "country": "France",
-  "location_ja": null,
-  "location_zh": "吉倫特省拉泰斯特德比施",
-  "location_en": "La Teste-de-Buch, Gironde, France",
-  "lat": 44.585923,
-  "lng": -1.136578,
-  "map": "https://goo.gl/maps/Ui2zkKEFvjqBL58o7",
-  "website": "https://zoodubassindarcachon.com/",
-  "logo": null,
-  "aliases": [
-   "Zoo Arcachon Basin",
-   "Zoo du Bassin Arcachon La Teste"
-  ]
  },
  {
   "canonical": "Zoo Atlanta",
@@ -5873,6 +3666,25 @@
   "aliases": []
  },
  {
+  "canonical": "Zoo du Bassin d'Arcachon",
+  "lineage_id": 249,
+  "en": "Zoo du Bassin d'Arcachon",
+  "zh": "阿卡雄灣動物園",
+  "country": "France",
+  "location_ja": null,
+  "location_zh": "吉倫特省拉泰斯特德比施",
+  "location_en": "La Teste-de-Buch, Gironde, France",
+  "lat": 44.585923,
+  "lng": -1.136578,
+  "map": "https://goo.gl/maps/Ui2zkKEFvjqBL58o7",
+  "website": "https://zoodubassindarcachon.com/",
+  "logo": null,
+  "aliases": [
+   "Zoo Arcachon Basin",
+   "Zoo du Bassin Arcachon La Teste"
+  ]
+ },
+ {
   "canonical": "ZooParc Overloon",
   "lineage_id": 287,
   "en": "ZooParc Overloon",
@@ -5963,6 +3775,184 @@
   "aliases": []
  },
  {
+  "canonical": "いしかわ動物園",
+  "lineage_id": 31,
+  "en": "Ishikawa Zoo",
+  "ja_kana": "いしかわどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "石川県能美市",
+  "location_zh": "石川縣能美市",
+  "closed_ja": "毎週火曜日（祝日の場合は翌平日）、12月29日〜1月1日 ※春・夏休み期間は無休",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "tue"
+    ],
+    "holiday": "next_weekday",
+    "suspend": [
+     {
+      "from": "03-25",
+      "to": "04-07",
+      "note": "春休み期間は無休（慣例窗，非官方日期）"
+     },
+     {
+      "from": "07-20",
+      "to": "08-31",
+      "note": "夏休み期間は無休（慣例窗，非官方日期）"
+     }
+    ]
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Nomi, Ishikawa, Japan",
+  "lat": 36.433759,
+  "lng": 136.545712,
+  "map": "https://goo.gl/maps/45d7ga53bG62",
+  "website": "http://www.ishikawazoo.jp/",
+  "logo": null,
+  "aliases": [
+   "Ishikawa Zoo",
+   "石川動物園"
+  ]
+ },
+ {
+  "canonical": "とくしま動物園",
+  "lineage_id": 35,
+  "en": "Tokushima Zoo",
+  "ja_kana": "とくしまどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "徳島県徳島市",
+  "location_zh": "德島縣德島市",
+  "closed_ja": "毎週月曜日（祝日の場合は翌日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Tokushima City, Tokushima Prefecture, Japan",
+  "lat": 34.013748,
+  "lng": 134.521375,
+  "map": "https://goo.gl/maps/d7LpHftgkFq",
+  "website": "http://www.city.tokushima.tokushima.jp/zoo/",
+  "logo": null,
+  "aliases": [
+   "Tokushima Zoo"
+  ]
+ },
+ {
+  "canonical": "ひらかたパーク",
+  "lineage_id": 52,
+  "en": "Hirakata Park (Wonder Garden)",
+  "ja_kana": "ひらかたぱーく",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "大阪府枚方市",
+  "location_zh": "大阪府枚方市",
+  "closed_ja": "不定休（営業カレンダーで告知）",
+  "location_en": "Hirakata, Osaka Prefecture, Japan",
+  "lat": 34.8082552,
+  "lng": 135.639672,
+  "map": "https://goo.gl/maps/Uz15oJH5U7U2",
+  "website": "http://www.hirakatapark.co.jp/",
+  "logo": null,
+  "aliases": [
+   "Hirakata Park",
+   "Hirakata Park (Wonder Garden)",
+   "ひらかたパーク Wonder Garden",
+   "ひらかたパーク ワンダーガーデン",
+   "ひらかたパークワンダーガーデン"
+  ]
+ },
+ {
+  "canonical": "みさき公園",
+  "lineage_id": 50,
+  "en": "Misaki Park",
+  "ja_kana": "みさきこうえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "大阪府泉南郡岬町",
+  "location_zh": "大阪府泉南郡岬町",
+  "location_en": "Misaki Town, Osaka Prefecture, Japan",
+  "lat": 34.327444,
+  "lng": 135.161493,
+  "map": "https://goo.gl/maps/13D4TFarwv12",
+  "website": "http://www.nankai.co.jp/misaki/",
+  "logo": null,
+  "aliases": [
+   "Misaki Park"
+  ]
+ },
+ {
+  "canonical": "よこはま動物園ズーラシア",
+  "lineage_id": 12,
+  "en": "Yokohama Zoo \"Zoorasia\"",
+  "ja_kana": "よこはまどうぶつえんずーらしあ",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "神奈川県横浜市",
+  "location_zh": "神奈川縣橫濱市",
+  "closed_ja": "毎週火曜日（祝日の場合は翌日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "tue"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Yokohama, Kanagawa Prefecture, Japan",
+  "lat": 35.4948645,
+  "lng": 139.5265098,
+  "map": "https://goo.gl/maps/j23gm6VW4Zo",
+  "website": "http://www.hama-midorinokyokai.or.jp/zoo/zoorasia/",
+  "logo": null,
+  "aliases": [
+   "Yokohama Zoo \"Zoorasia\""
+  ]
+ },
+ {
+  "canonical": "アドベンチャーワールド",
+  "lineage_id": 29,
+  "en": "Adventure World",
+  "ja_kana": "あどべんちゃーわーるど",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "和歌山県白浜町",
+  "location_zh": "和歌山縣白濱町",
+  "closed_ja": "不定休（主に水曜日、公式営業カレンダーで告知）",
+  "location_en": "Shirahama, Wakayama Prefecture, Japan",
+  "lat": 33.6678415,
+  "lng": 135.3760055,
+  "map": "https://goo.gl/maps/Z2vDjBgTPAG2",
+  "website": "http://www.aws-s.com/",
+  "logo": null,
+  "aliases": [
+   "Adventure World"
+  ]
+ },
+ {
   "canonical": "サンディエゴ動物園",
   "lineage_id": 95,
   "en": "San Diego Zoo",
@@ -5996,6 +3986,124 @@
   "logo": null,
   "aliases": [
    "Central Park Zoo"
+  ]
+ },
+ {
+  "canonical": "ソウル大公園動物園",
+  "lineage_id": 78,
+  "en": "Seoul Zoo",
+  "zh": "首爾動物園",
+  "country": "South Korea",
+  "location_ja": "京畿道",
+  "location_zh": "京畿道",
+  "location_en": "Gyeonggi-do, South Korea",
+  "lat": 37.4214978,
+  "lng": 127.0264967,
+  "map": "https://goo.gl/maps/HU9yotcVBXQ2",
+  "website": "http://grandpark.seoul.go.kr",
+  "logo": null,
+  "aliases": [
+   "Seoul Zoo"
+  ]
+ },
+ {
+  "canonical": "チャプルテペック動物園",
+  "lineage_id": 66,
+  "en": "Chapultepec Zoo",
+  "zh": "查普爾特佩克動物園",
+  "country": "Mexico",
+  "location_ja": "メキシコ・メキシコシティ",
+  "location_en": "Mexico City, Mexico",
+  "lat": 19.4206,
+  "lng": -99.2075,
+  "map": "https://goo.gl/maps/FcdpEYXAYB12",
+  "website": "https://mexicocity.cdmx.gob.mx/venues/chapultepec-zoo/",
+  "logo": null,
+  "aliases": [
+   "Chapultepec Zoo",
+   "Zoológico de Chapultepec",
+   "Zoológico de Chapultepec Alfonso L. Herrera",
+   "查普爾特佩克動物園",
+   "チャプルテペック動物園"
+  ],
+  "location_zh": "墨西哥墨西哥城"
+ },
+ {
+  "canonical": "ネオパークオキナワ",
+  "lineage_id": 292,
+  "en": "Neo Park Okinawa",
+  "ja_kana": "ねおぱーくおきなわ",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "沖縄県名護市",
+  "location_zh": "沖繩縣名護市",
+  "closed_ja": "年中無休",
+  "location_en": "Nago, Okinawa, Japan",
+  "lat": 26.6106854,
+  "lng": 127.9914627,
+  "map": "https://goo.gl/maps/kc4f8PN3xCefmg936",
+  "website": "https://www.neopark.co.jp/",
+  "logo": null,
+  "aliases": [
+   "Neo Park Okinawa"
+  ]
+ },
+ {
+  "canonical": "レオマワールド",
+  "lineage_id": null,
+  "en": "Reoma World",
+  "ja_kana": "れおまわーるど",
+  "zh": "雷歐瑪世界",
+  "country": "Japan",
+  "location_ja": "香川県丸亀市綾歌町",
+  "location_zh": "香川縣丸龜市綾歌町",
+  "location_en": "Ayauta, Marugame, Kagawa Prefecture, Japan",
+  "lat": 34.2361,
+  "lng": 133.8544,
+  "map": null,
+  "website": null,
+  "logo": null,
+  "aliases": [
+   "Reoma World",
+   "NEWレオマワールド",
+   "ニューレオマワールド",
+   "New Reoma World",
+   "レオマリゾート"
+  ]
+ },
+ {
+  "canonical": "三島市立公園 楽寿園",
+  "lineage_id": 27,
+  "en": "Mishima Rakujuen Park",
+  "ja_kana": "みしましりつこうえん らくじゅえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "静岡県三島市",
+  "location_zh": "靜岡縣三島市",
+  "closed_ja": "毎週月曜日（祝日・振替休日の場合は直後の平日）、12月27日〜1月2日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_weekday"
+   },
+   {
+    "type": "range",
+    "from": "12-27",
+    "to": "01-02"
+   }
+  ],
+  "location_en": "Mishima, Shizuoka Prefecture, Japan",
+  "lat": 35.1248742,
+  "lng": 138.9109075,
+  "map": "https://goo.gl/maps/y26QhbPcexm",
+  "website": "https://www.city.mishima.shizuoka.jp/rakujyu/",
+  "logo": null,
+  "aliases": [
+   "Mishima Rakujuen Park",
+   "三島市楽寿園"
   ]
  },
  {
@@ -6037,6 +4145,50 @@
   ]
  },
  {
+  "canonical": "中山市紫馬嶺動物園",
+  "lineage_id": 300,
+  "en": "Zhongshan Zimaling Zoo",
+  "zh": "中山市紫马岭动物园",
+  "country": "China",
+  "location_ja": "広東省中山市東区",
+  "location_en": "Zhongshan, Guangdong, China",
+  "location_zh": "廣東省中山市東區",
+  "lat": 22.5159499,
+  "lng": 113.3926,
+  "map": "https://goo.gl/maps/N9RFTcYVp3tZp1R69",
+  "website": null,
+  "wechat": "中山市紫马岭动物园",
+  "logo": null,
+  "aliases": [
+   "Zhongshan ZiMaLing Zoo",
+   "Zimaling Zoo",
+   "紫馬嶺動物園",
+   "紫马岭动物园",
+   "中山市紫马岭动物园"
+  ]
+ },
+ {
+  "canonical": "九十九島動植物園森きらら",
+  "lineage_id": 19,
+  "en": "Kujukushima Zoological and Botanical Garden Morikirara",
+  "ja_kana": "くじゅうくしまどうしょくぶつえんもりきらら",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "長崎県佐世保市",
+  "location_zh": "長崎縣佐世保市",
+  "closed_ja": "年中無休",
+  "location_en": "Sasebo, Nagasaki Prefecture, Japan",
+  "lat": 33.151226,
+  "lng": 129.689491,
+  "map": "https://goo.gl/maps/1pRgFW9fo9v",
+  "website": "https://www.morikirara.jp/",
+  "logo": null,
+  "aliases": [
+   "Kujukushima Zoological and Botanical Garden Morikirara",
+   "西海国立公園九十九島動植物園"
+  ]
+ },
+ {
   "canonical": "五月山動物園",
   "lineage_id": 171,
   "en": "Satsukiyama Zoo",
@@ -6053,6 +4205,371 @@
   "logo": null,
   "aliases": [
    "Satsukiyama Zoo"
+  ]
+ },
+ {
+  "canonical": "京都市動物園",
+  "lineage_id": 2,
+  "en": "Kyoto City Zoo",
+  "ja_kana": "きょうとしどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "京都府京都市左京区",
+  "location_zh": "京都府京都市左京區",
+  "closed_ja": "毎週月曜日（祝日の場合は翌平日）、12月28日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_weekday"
+   },
+   {
+    "type": "range",
+    "from": "12-28",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Kyoto City, Kyoto Prefecture, Sakyo Ward, Japan",
+  "lat": 35.0126991,
+  "lng": 135.7839212,
+  "map": "https://goo.gl/maps/BzPvCJ64eiB2",
+  "website": "http://www5.city.kyoto.jp/zoo/",
+  "logo": null,
+  "aliases": [
+   "Kyoto City Zoo"
+  ]
+ },
+ {
+  "canonical": "仙台市八木山動物公園",
+  "lineage_id": 45,
+  "en": "Selcohome Zoo Paradise Yagiyama",
+  "ja_kana": "せんだいしやぎやまどうぶつこうえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "宮城県仙台市",
+  "location_zh": "宮城縣仙台市",
+  "closed_ja": "毎週水曜日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ]
+   }
+  ],
+  "location_en": "Taihaku Ward, Sendai, Miyagi Prefecture, Japan",
+  "lat": 38.2455968,
+  "lng": 140.8468,
+  "map": "https://goo.gl/maps/S4dSPcsEcH62",
+  "website": "http://www.city.sendai.jp/zoo/index.html",
+  "logo": null,
+  "aliases": [
+   "Selcohome Zoo Paradise Yagiyama",
+   "セルコホーム ズーパラダイス八木山",
+   "八木山動物公園 フォレスタ"
+  ]
+ },
+ {
+  "canonical": "伊豆シャボテン動物公園",
+  "lineage_id": 143,
+  "en": "Izu Shaboten Zoo",
+  "ja_kana": "いずしゃぼてんどうぶつこうえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "静岡県伊東市",
+  "location_zh": "靜岡縣伊東市",
+  "closed_ja": "年中無休",
+  "location_en": "Itō, Shizuoka Prefecture, Japan",
+  "lat": 34.907101,
+  "lng": 139.10118,
+  "map": "https://goo.gl/maps/iTyrJWJe9HU2",
+  "website": "https://izushaboten.com/",
+  "logo": null,
+  "aliases": [
+   "Izu Shaboten Zoo"
+  ]
+ },
+ {
+  "canonical": "到津の森公園",
+  "lineage_id": 41,
+  "en": "Itozu no Mori Zoological Park",
+  "ja_kana": "いとうづのもりこうえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "福岡県北九州市",
+  "location_zh": "福岡縣北九州市",
+  "closed_ja": "毎週火曜日（祝日の場合は開園し翌日休園）、年末年始 ※年始・春休み・夏休み等は開園する場合あり",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "tue"
+    ],
+    "holiday": "next_day",
+    "note": "「年末年始」具体日付未確認のため未編碼；年始・春休み・夏休み等の臨時開園は含まず"
+   }
+  ],
+  "location_en": "Kitakyushu, Fukuoka Prefecture, Japan",
+  "address_ja": "〒803-0845 福岡県北九州市小倉北区上到津4-1-8",
+  "lat": 33.873863,
+  "lng": 130.846594,
+  "map": "https://goo.gl/maps/a4z75hLhZ692",
+  "website": "http://www.itozu-zoo.jp/",
+  "logo": null,
+  "aliases": [
+   "Itozu no Mori Zoological Park",
+   "いのちのたび博物館附属動物園"
+  ]
+ },
+ {
+  "canonical": "北京動物園",
+  "lineage_id": null,
+  "en": "Beijing Zoo",
+  "zh": "北京动物园",
+  "country": "China",
+  "location_ja": "北京市西城区",
+  "location_en": "Xicheng, Beijing, China",
+  "location_zh": "北京市西城區",
+  "lat": 39.9398,
+  "lng": 116.3389,
+  "map": null,
+  "website": "http://www.bjzoo.com",
+  "logo": null,
+  "aliases": [
+   "Beijing Zoo",
+   "北京动物园",
+   "北京動物園"
+  ]
+ },
+ {
+  "canonical": "千葉市動物公園",
+  "lineage_id": 8,
+  "en": "Chiba Zoological Park",
+  "ja_kana": "ちばしどうぶつこうえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "千葉県千葉市",
+  "location_zh": "千葉縣千葉市",
+  "closed_ja": "毎週水曜日（休日の場合は翌日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Chiba Prefecture, Japan",
+  "lat": 35.6449037,
+  "lng": 140.1250899,
+  "map": "https://goo.gl/maps/14c7BwdSTkr",
+  "website": "https://www.city.chiba.jp/zoo/",
+  "logo": null,
+  "aliases": [
+   "Chiba Zoological Park"
+  ]
+ },
+ {
+  "canonical": "南京市紅山森林動物園",
+  "lineage_id": 302,
+  "en": "Nanjing Hongshan Forest Zoo",
+  "zh": "南京市红山森林动物园",
+  "country": "China",
+  "location_ja": "江蘇省南京市玄武区",
+  "location_en": "Xuanwu, Nanjing, Jiangsu, China",
+  "location_zh": "江蘇省南京市玄武區",
+  "lat": 32.091625,
+  "lng": 118.802027,
+  "map": "https://goo.gl/maps/WeoipsC5itJNqJQe7",
+  "website": "https://www.njhszoo.com/",
+  "logo": null,
+  "aliases": [
+   "Hongshan Forest Zoo",
+   "Nanjing Hongshan Forest Zoo",
+   "南京市红山森林动物园",
+   "南京红山森林动物园",
+   "红山森林动物园",
+   "紅山森林動物園",
+   "南京紅山森林動物園"
+  ]
+ },
+ {
+  "canonical": "南京金牛湖野生動物王國",
+  "lineage_id": null,
+  "en": "Nanjing Jinniu Lake Wildlife Kingdom",
+  "zh": "南京金牛湖野生动物王国",
+  "country": "China",
+  "location_ja": "江蘇省南京市六合区",
+  "location_en": "Liuhe, Nanjing, Jiangsu, China",
+  "location_zh": "江蘇省南京市六合區",
+  "lat": null,
+  "lng": null,
+  "map": null,
+  "website": "https://www.zoojnh.cn/",
+  "logo": null,
+  "aliases": [
+   "Nanjing Jinniu Lake Wildlife Kingdom",
+   "Jinniu Lake Wildlife Kingdom",
+   "南京金牛湖野生动物王国",
+   "金牛湖野生動物王國",
+   "金牛湖野生动物王国",
+   "南京金牛湖野生動物世界",
+   "南京金牛湖野生动物世界",
+   "金牛湖野生動物園",
+   "金牛湖野生动物园"
+  ]
+ },
+ {
+  "canonical": "台北市立動物園",
+  "lineage_id": 55,
+  "en": "Taipei Zoo",
+  "zh": "臺北市立動物園",
+  "country": "Taiwan",
+  "location_ja": "台北市",
+  "location_zh": "台北市",
+  "location_en": "Taipei City, Taiwan",
+  "lat": 24.9971583,
+  "lng": 121.5851509,
+  "map": "https://goo.gl/maps/9vr6Usew49x",
+  "website": "https://www.zoo.gov.taipei/Default.aspx",
+  "logo": null,
+  "aliases": [
+   "Taipei Zoo"
+  ]
+ },
+ {
+  "canonical": "周南市徳山動物園",
+  "lineage_id": 6,
+  "en": "Tokuyama Zoo",
+  "ja_kana": "しゅうなんしとくやまどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "山口県周南市",
+  "location_zh": "山口縣周南市",
+  "closed_ja": "毎週火曜日（祝日の場合は翌日）、12月29日〜31日 ※冬期に臨時休園あり",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "tue"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "12-31",
+    "note": "冬期臨時休園は日付不定のため未編碼"
+   }
+  ],
+  "location_en": "Shūnan, Yamaguchi Prefecture, Japan",
+  "lat": 34.061274,
+  "lng": 131.8129122,
+  "map": "https://goo.gl/maps/bMAGo54PQxq",
+  "website": "http://www.city.shunan.lg.jp/site/zoo/",
+  "logo": null,
+  "aliases": [
+   "Tokuyama Zoo",
+   "徳山動物園"
+  ]
+ },
+ {
+  "canonical": "埼玉県こども動物自然公園",
+  "lineage_id": 9,
+  "en": "Saitama Children's Zoo",
+  "ja_kana": "さいたまけんこどもどうぶつしぜんこうえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "埼玉県東松山市",
+  "location_zh": "埼玉縣東松山市",
+  "closed_ja": "毎週月曜日（祝日の場合は開園）、12月30日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "open"
+   },
+   {
+    "type": "range",
+    "from": "12-30",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Highashimatsuyama, Saitama Prefecture, Japan",
+  "lat": 35.9993544,
+  "lng": 139.375002,
+  "map": "https://goo.gl/maps/C8F9LtGktcH2",
+  "website": "http://www.parks.or.jp/sczoo/",
+  "logo": null,
+  "aliases": [
+   "Saitama Children's Zoo"
+  ]
+ },
+ {
+  "canonical": "壽山動物園",
+  "lineage_id": null,
+  "en": "Shou Shan Zoo",
+  "zh": "高雄市壽山動物園",
+  "country": "Taiwan",
+  "location_ja": "高雄市鼓山区",
+  "location_zh": "高雄市鼓山區",
+  "location_en": "Kaohsiung City, Taiwan",
+  "closed_ja": "星期一及除夕休園，如星期一遇國定假日則照常開園",
+  "address_ja": "804006 高雄市鼓山區萬壽路350號",
+  "lat": 22.6345573,
+  "lng": 120.2751711,
+  "map": "https://www.google.com/maps/place/%E5%A3%BD%E5%B1%B1%E5%8B%95%E7%89%A9%E5%9C%92/@22.6345573,120.2751711,17z/",
+  "website": "https://zoo.kcg.gov.tw/",
+  "logo": null,
+  "aliases": [
+   "Shou Shan Zoo",
+   "Shoushan Zoo",
+   "Kaohsiung Shoushan Zoo",
+   "高雄市壽山動物園"
+  ]
+ },
+ {
+  "canonical": "多摩動物公園",
+  "lineage_id": 17,
+  "en": "Tama Zoological Park",
+  "ja_kana": "たまどうぶつこうえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "東京都日野市",
+  "location_zh": "東京都日野市",
+  "closed_ja": "毎週水曜日（祝日・振替休日の場合は翌日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Hino, Tokyo, Japan",
+  "lat": 35.6495179,
+  "lng": 139.4022561,
+  "map": "https://goo.gl/maps/Emr9wdQYAm22",
+  "website": "http://www.tokyo-zoo.net/zoo/tama/",
+  "logo": null,
+  "aliases": [
+   "Tama Zoological Park"
   ]
  },
  {
@@ -6090,6 +4607,936 @@
   ]
  },
  {
+  "canonical": "大牟田市動物園",
+  "lineage_id": 21,
+  "en": "Omuta City Zoo",
+  "ja_kana": "おおむたしどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "福岡県大牟田市",
+  "location_zh": "福岡縣大牟田市",
+  "closed_ja": "毎月第2・第4月曜日（祝日・振替休日の場合は翌日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "nth_weekly",
+    "dow": "mon",
+    "nth": [
+     2,
+     4
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Omuta, Fukuoka Prefecture, Japan",
+  "lat": 33.019018,
+  "lng": 130.444538,
+  "map": "https://goo.gl/maps/LwmybsWdhww",
+  "website": "https://omutacityzoo.org/",
+  "logo": null,
+  "aliases": [
+   "Omuta City Zoo"
+  ]
+ },
+ {
+  "canonical": "大連森林動物園",
+  "lineage_id": null,
+  "en": "Dalian Forest Zoo",
+  "zh": "大连森林动物园",
+  "country": "China",
+  "location_ja": "遼寧省大連市西崗区",
+  "location_en": "Xigang, Dalian, Liaoning, China",
+  "location_zh": "遼寧省大連市西崗區",
+  "lat": 38.8816,
+  "lng": 121.6072,
+  "map": "https://maps.app.goo.gl/gv22TY7ijZcPdBM66",
+  "website": "https://www.dlzoo.com/",
+  "logo": null,
+  "aliases": [
+   "Dalian Forest Zoo",
+   "大连森林动物园",
+   "大連森林動物園",
+   "大連市動物園"
+  ]
+ },
+ {
+  "canonical": "天津動物園",
+  "lineage_id": null,
+  "en": "Tianjin Zoo",
+  "zh": "天津动物园",
+  "country": "China",
+  "location_ja": "天津市南開区",
+  "location_en": "Nankai, Tianjin, China",
+  "location_zh": "天津市南開區",
+  "lat": 39.0855,
+  "lng": 117.1683,
+  "map": null,
+  "website": null,
+  "logo": null,
+  "aliases": [
+   "天津动物园",
+   "Tianjin Zoo"
+  ]
+ },
+ {
+  "canonical": "天王寺動物園",
+  "lineage_id": 22,
+  "en": "Osaka Tennōji Zoo",
+  "ja_kana": "てんのうじどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "大阪府大阪市",
+  "location_zh": "大阪府大阪市",
+  "closed_ja": "毎週月曜日（休日の場合は翌日）、年末年始（12月29日〜1月1日）※臨時開園日は営業日カレンダー参照",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Tennōji-ku, Osaka, Japan",
+  "lat": 34.650526,
+  "lng": 135.5084522,
+  "map": "https://goo.gl/maps/jgQy9DYiBJJ2",
+  "website": "https://www.tennojizoo.jp/",
+  "logo": null,
+  "aliases": [
+   "Osaka Tennōji Zoo"
+  ]
+ },
+ {
+  "canonical": "姫路セントラルパーク",
+  "lineage_id": 14,
+  "en": "Himeji Central Park",
+  "ja_kana": "ひめじせんとらるぱーく",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "兵庫県姫路市",
+  "location_zh": "兵庫縣姬路市",
+  "closed_ja": "不定休（営業カレンダーで告知）",
+  "location_en": "Himeji, Hyōgo Prefecture, Japan",
+  "lat": 34.871029,
+  "lng": 134.764362,
+  "map": "https://goo.gl/maps/QLH8LsUtgm42",
+  "website": "http://www.central-park.co.jp/",
+  "logo": null,
+  "aliases": [
+   "Himeji Central Park"
+  ]
+ },
+ {
+  "canonical": "姫路市立動物園",
+  "lineage_id": 70,
+  "en": "Himeji Municipal Zoo",
+  "ja_kana": "ひめじしりつどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "兵庫県姫路市",
+  "location_zh": "兵庫縣姬路市",
+  "closed_ja": "12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Himeji, Hyōgo Prefecture, Japan",
+  "lat": 34.8372067,
+  "lng": 134.6943529,
+  "map": "https://goo.gl/maps/Em6HbHWwLHC2",
+  "website": "http://www.city.himeji.lg.jp/dobutuen/",
+  "logo": null,
+  "aliases": [
+   "Himeji Municipal Zoo"
+  ]
+ },
+ {
+  "canonical": "宜興隱龍谷君瀾度假酒店",
+  "lineage_id": null,
+  "en": "Yixing Inlong Narada Resort Hotel",
+  "zh": "宜兴隐龙谷君澜度假酒店",
+  "country": "China",
+  "location_ja": "江蘇省無錫市宜興市",
+  "location_en": "Yixing, Wuxi, Jiangsu, China",
+  "location_zh": "江蘇省無錫市宜興市",
+  "lat": 31.226,
+  "lng": 119.755,
+  "map": "https://www.google.com/maps/search/?api=1&query=31.226,119.755",
+  "website": null,
+  "logo": null,
+  "aliases": [
+   "宜興隱龍谷酒店",
+   "宜興隱龍谷",
+   "隱龍谷",
+   "Yixing Inlong Narada Resort Hotel",
+   "宜兴隐龙谷君澜度假酒店",
+   "宜兴隐龙谷酒店",
+   "隐龙谷"
+  ]
+ },
+ {
+  "canonical": "宝塚ファミリーランド",
+  "lineage_id": null,
+  "en": "Takarazuka Familyland",
+  "ja_kana": "たからづかふぁみりーらんど",
+  "zh": "寶塚家庭樂園",
+  "country": "Japan",
+  "location_ja": "兵庫県宝塚市",
+  "location_zh": "兵庫縣寶塚市",
+  "location_en": "Takarazuka, Hyogo Prefecture, Japan",
+  "lat": 34.8065,
+  "lng": 135.3415,
+  "map": null,
+  "website": null,
+  "logo": null,
+  "aliases": [
+   "Takarazuka Familyland",
+   "宝塚植物園",
+   "宝塚ファミリーランド動物園"
+  ]
+ },
+ {
+  "canonical": "宮崎市フェニックス自然動物園",
+  "lineage_id": 30,
+  "en": "Miyazaki City Phoenix Zoo",
+  "ja_kana": "みやざきしふぇにっくすしぜんどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "宮崎県宮崎市",
+  "location_zh": "宮崎縣宮崎市",
+  "closed_ja": "毎週水曜日、12月31日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ]
+   },
+   {
+    "type": "date",
+    "on": "12-31"
+   }
+  ],
+  "location_en": "Miyazaki City, Miyazaki Prefecture, Japan",
+  "address_ja": "〒880-0122 宮崎県宮崎市大字塩路字浜山3083-42",
+  "lat": 31.98289,
+  "lng": 131.476107,
+  "map": "https://goo.gl/maps/Gm2Rjx3mpP72",
+  "website": "http://www.miyazaki-city-zoo.jp/index.html",
+  "logo": null,
+  "aliases": [
+   "Miyazaki City Phoenix Zoo"
+  ]
+ },
+ {
+  "canonical": "富士サファリパーク",
+  "lineage_id": 23,
+  "en": "Fuji Safari Park",
+  "ja_kana": "ふじさふぁりぱーく",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "静岡県裾野市",
+  "location_zh": "靜岡縣裾野市",
+  "closed_ja": "年中無休（悪天候時は休園の場合あり）",
+  "location_en": "Susuno, Shizuoka Prefecture, Japan",
+  "lat": 35.2587757,
+  "lng": 138.8098362,
+  "map": "https://goo.gl/maps/PLj4TTrSWVN2",
+  "website": "https://www.fujisafari.co.jp/",
+  "logo": null,
+  "aliases": [
+   "Fuji Safari Park",
+   "富士サファリパーク"
+  ]
+ },
+ {
+  "canonical": "富山市ファミリーパーク",
+  "lineage_id": 63,
+  "en": "Toyama Municipal Family Park Zoo",
+  "ja_kana": "とやましふぁみりーぱーく",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "富山県富山市",
+  "location_zh": "富山縣富山市",
+  "closed_ja": "毎月第1・第3火曜日（祝祭日を除く）、2月24日〜3月14日、12月28日〜1月4日",
+  "closed_rule": [
+   {
+    "type": "nth_weekly",
+    "dow": "tue",
+    "nth": [
+     1,
+     3
+    ],
+    "holiday": "open"
+   },
+   {
+    "type": "range",
+    "from": "02-24",
+    "to": "03-14"
+   },
+   {
+    "type": "range",
+    "from": "12-28",
+    "to": "01-04"
+   }
+  ],
+  "location_en": "Toyama, Toyama Prefecture, Japan",
+  "lat": 36.690898,
+  "lng": 137.148238,
+  "map": "https://goo.gl/maps/v3zCNrq2igs",
+  "website": "http://www.toyama-familypark.jp/",
+  "logo": null,
+  "aliases": [
+   "Toyama Municipal Family Park Zoo"
+  ]
+ },
+ {
+  "canonical": "寧波野生動物園",
+  "lineage_id": null,
+  "en": "Ningbo Wildlife Park",
+  "zh": "宁波野生动物园",
+  "country": "China",
+  "location_ja": "浙江省寧波市鄞州区東銭湖",
+  "location_en": "Dongqianhu, Yinzhou, Ningbo, Zhejiang, China",
+  "location_zh": "浙江省寧波市鄞州區東錢湖",
+  "lat": null,
+  "lng": null,
+  "map": null,
+  "website": "http://www.nbzoo.com/",
+  "logo": null,
+  "aliases": [
+   "Ningbo Youngor Zoo",
+   "宁波野生动物园",
+   "寧波野生動物園",
+   "宁波雅戈尔动物园",
+   "寧波雅戈爾動物園"
+  ]
+ },
+ {
+  "canonical": "川崎市夢見ヶ崎動物公園",
+  "lineage_id": 4,
+  "en": "Yumemigasaki Zoological Park",
+  "ja_kana": "かわさきしゆめみがさきどうぶつこうえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "神奈川県川崎市",
+  "location_zh": "神奈川縣川崎市",
+  "closed_ja": "年中無休",
+  "location_en": "Kawasaki, Kanagawa Prefecture, Japan",
+  "lat": 35.5491319,
+  "lng": 139.6630574,
+  "map": "https://goo.gl/maps/kfMhVjS52Gs",
+  "website": "http://www.city.kawasaki.jp/saiwai/page/0000045037.html",
+  "logo": null,
+  "aliases": [
+   "Yumemigasaki Zoological Park"
+  ]
+ },
+ {
+  "canonical": "市原ぞうの国",
+  "lineage_id": 33,
+  "en": "Ichihara Elephant Kingdom",
+  "ja_kana": "いちはらぞうのくに",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "千葉県市原市",
+  "location_zh": "千葉縣市原市",
+  "closed_ja": "不定休（営業日カレンダーで告知）",
+  "location_en": "Ichihara, Chiba Prefecture, Japan",
+  "lat": 35.3547927,
+  "lng": 140.182322,
+  "map": "https://goo.gl/maps/t6TwYSxU2dT2",
+  "website": "https://zounokuni.com/red-panda/",
+  "logo": null,
+  "aliases": [
+   "Ichihara Elephant Kingdom"
+  ]
+ },
+ {
+  "canonical": "市川市動植物園",
+  "lineage_id": 1,
+  "en": "Ichikawa Zoological & Botanical Gardens",
+  "ja_kana": "いちかわしどうしょくぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "千葉県市川市",
+  "location_zh": "千葉縣市川市",
+  "closed_ja": "毎週月曜日（祝日の場合は翌日）、年末年始",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day",
+    "note": "「年末年始」具体日付未確認のため未編碼"
+   }
+  ],
+  "location_en": "Ichikawa, Chiba Prefecture, Japan",
+  "lat": 35.7642063,
+  "lng": 139.9638014,
+  "map": "https://goo.gl/maps/WSyNu7HFhH42",
+  "website": "http://www.city.ichikawa.lg.jp/zoo/index.html",
+  "logo": null,
+  "aliases": [
+   "Ichikawa Zoological & Botanical Gardens"
+  ]
+ },
+ {
+  "canonical": "常州淹城野生動物世界",
+  "lineage_id": 301,
+  "en": "Yancheng Wild Animal World",
+  "zh": "常州淹城野生动物世界",
+  "country": "China",
+  "location_ja": "江蘇省常州市武進区",
+  "location_en": "Wujin, Changzhou, Jiangsu, China",
+  "location_zh": "江蘇省常州市武進區",
+  "lat": 31.699325,
+  "lng": 119.9261083,
+  "map": "https://goo.gl/maps/S7jZZrRv4qMqv4dq7",
+  "website": "https://www.yczoo.com/",
+  "logo": null,
+  "aliases": [
+   "Yancheng Wild Animal World",
+   "淹城野生動物世界",
+   "淹城野生动物世界",
+   "常州淹城野生动物世界",
+   "常州淹城野生動物園",
+   "常州淹城野生动物园"
+  ]
+ },
+ {
+  "canonical": "広島市安佐動物公園",
+  "lineage_id": 40,
+  "en": "Hiroshima City Asa Zoological Park",
+  "ja_kana": "ひろしましあさどうぶつこうえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "広島県",
+  "location_zh": "廣島縣",
+  "closed_ja": "毎週木曜日（祝日は開園）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "thu"
+    ],
+    "holiday": "open"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Hiroshima Prefecture, Japan",
+  "lat": 34.4982694,
+  "lng": 132.4408293,
+  "map": "https://goo.gl/maps/6RKGqYpdxew",
+  "website": "http://www.asazoo.jp/",
+  "logo": null,
+  "aliases": [
+   "Hiroshima City Asa Zoological Park"
+  ]
+ },
+ {
+  "canonical": "廈門靈玲動物王國",
+  "lineage_id": null,
+  "en": "Xiamen Lingling Animal Kingdom",
+  "zh": "厦门灵玲动物王国",
+  "country": "China",
+  "location_ja": "福建省廈門市集美区",
+  "location_en": "Jimei, Xiamen, Fujian, China",
+  "location_zh": "福建省廈門市集美區",
+  "lat": 24.5896,
+  "lng": 118.0479,
+  "map": "https://share.google/XLmBedcPhiyhSuUYd",
+  "website": "http://www.llcircus.com/",
+  "logo": null,
+  "aliases": [
+   "厦门灵玲动物王国",
+   "灵玲动物王国",
+   "灵玲国际马戏城",
+   "Xiamen Lingling Animal Kingdom"
+  ]
+ },
+ {
+  "canonical": "廣州動物園",
+  "lineage_id": 297,
+  "en": "Guangzhou Zoo",
+  "zh": "广州动物园",
+  "country": "China",
+  "location_ja": "広東省広州市越秀区",
+  "location_en": "Yuexiu, Guangzhou, Guangdong, China",
+  "location_zh": "廣東省廣州市越秀區",
+  "lat": 23.143569,
+  "lng": 113.303453,
+  "map": "https://goo.gl/maps/b2Uh3e25cz1iz1eZ8",
+  "website": "https://www.gzzoo.com/",
+  "logo": null,
+  "aliases": [
+   "Guangzhou Zoo",
+   "广州动物园",
+   "廣州動物園"
+  ]
+ },
+ {
+  "canonical": "恩賜上野動物園",
+  "lineage_id": 54,
+  "en": "Ueno Zoological Gardens",
+  "ja_kana": "おんしうえのどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "東京都台東区",
+  "location_zh": "東京都台東區",
+  "closed_ja": "毎週月曜日（祝日・振替休日の場合は翌日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Taitō, Tokyo, Japan",
+  "lat": 35.7164535,
+  "lng": 139.7713177,
+  "map": "https://goo.gl/maps/o6BBZkWDuv32",
+  "website": "http://www.tokyo-zoo.net/zoo/ueno/",
+  "logo": null,
+  "aliases": [
+   "Ueno Zoological Gardens",
+   "上野動物園"
+  ]
+ },
+ {
+  "canonical": "愛媛県立とべ動物園",
+  "lineage_id": 46,
+  "en": "Tobe Zoo",
+  "ja_kana": "えひめけんりつとべどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "愛媛県伊予郡砥部町",
+  "location_zh": "愛媛縣伊予郡砥部町",
+  "closed_ja": "毎週月曜日（祝日の場合は翌平日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_weekday"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Tobe, Ehime Prefecture, Shikoku, Japan",
+  "lat": 33.7640286,
+  "lng": 132.7920585,
+  "map": "https://maps.app.goo.gl/xWU7Mo1FhRCyf7PW7",
+  "website": "https://www.tobezoo.com/",
+  "logo": null,
+  "aliases": [
+   "Tobe Zoo",
+   "Tobe Zoological Park",
+   "とべ動物園"
+  ]
+ },
+ {
+  "canonical": "成都動物園",
+  "lineage_id": null,
+  "en": "Chengdu Zoo",
+  "zh": "成都动物园",
+  "country": "China",
+  "location_ja": "四川省成都市成華区",
+  "location_en": "Chenghua, Chengdu, Sichuan, China",
+  "location_zh": "四川省成都市成華區",
+  "lat": 30.6989,
+  "lng": 104.0986,
+  "map": "https://www.google.com/maps/search/?api=1&query=30.6989,104.0986",
+  "website": "http://www.cdzoo.com.cn/",
+  "logo": null,
+  "aliases": [
+   "Chengdu Zoo",
+   "成都动物园",
+   "成都動物園",
+   "成都市動物園"
+  ]
+ },
+ {
+  "canonical": "新加坡動物園",
+  "lineage_id": null,
+  "en": "Singapore Zoo",
+  "zh": "新加坡動物園",
+  "country": "Singapore",
+  "location_ja": "シンガポール",
+  "location_zh": "新加坡",
+  "location_en": "Singapore",
+  "lat": 1.4043,
+  "lng": 103.793,
+  "map": null,
+  "website": "https://www.mandai.com/en/singapore-zoo.html",
+  "logo": null,
+  "aliases": [
+   "Singapore Zoo"
+  ]
+ },
+ {
+  "canonical": "日立市かみね動物園",
+  "lineage_id": 25,
+  "en": "Hitachi Kamine Zoo",
+  "ja_kana": "ひたちしかみねどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "茨城県日立市",
+  "location_zh": "茨城縣日立市",
+  "closed_ja": "月曜日を中心に月ごとに指定（祝日の場合は翌日等、7月下旬〜8月は無休）※公式サイト参照",
+  "location_en": "Hitachi, Ibaraki Prefecture, Japan",
+  "lat": 36.6067369,
+  "lng": 140.658187,
+  "map": "https://goo.gl/maps/tBaGy6Ap8DP2",
+  "website": "http://www.city.hitachi.lg.jp/zoo/",
+  "logo": null,
+  "aliases": [
+   "Hitachi Kamine Zoo",
+   "日立かみね動物園"
+  ]
+ },
+ {
+  "canonical": "旭川市旭山動物園",
+  "lineage_id": 37,
+  "en": "Asahiyama Zoo",
+  "ja_kana": "あさひかわしあさひやまどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "北海道旭川市",
+  "location_zh": "北海道旭川市",
+  "closed_ja": "夏期・冬期開園制、期間切替時（11月上旬・4月）に休園期間あり（公式開園カレンダーで告知）",
+  "location_en": "Asahikawa, Hokkaido, Japan",
+  "lat": 43.768425,
+  "lng": 142.48008,
+  "map": "https://goo.gl/maps/pRRcmyyfEUF2",
+  "website": "http://www.city.asahikawa.hokkaido.jp/asahiyamazoo/",
+  "logo": null,
+  "aliases": [
+   "Asahiyama Zoo",
+   "旭山動物園"
+  ]
+ },
+ {
+  "canonical": "札幌市円山動物園",
+  "lineage_id": 7,
+  "en": "Sapporo Maruyama Zoo",
+  "ja_kana": "さっぽろしまるやまどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "北海道札幌市",
+  "location_zh": "北海道札幌市",
+  "closed_ja": "第2・第4水曜日（8月は第1・第4、祝日の場合は翌日）、4月・11月の第2水曜日を含む週の平日、12月29日〜31日",
+  "closed_rule": [
+   {
+    "type": "nth_weekly",
+    "dow": "wed",
+    "nth": [
+     2,
+     4
+    ],
+    "holiday": "next_day",
+    "months": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     9,
+     10,
+     11,
+     12
+    ]
+   },
+   {
+    "type": "nth_weekly",
+    "dow": "wed",
+    "nth": [
+     1,
+     4
+    ],
+    "holiday": "next_day",
+    "months": [
+     8
+    ]
+   },
+   {
+    "type": "week_of_nth_dow",
+    "dow": "wed",
+    "nth": 2,
+    "months": [
+     4,
+     11
+    ],
+    "days": "mon-fri"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "12-31"
+   }
+  ],
+  "location_en": "Sapporo, Hokkaido, Japan",
+  "lat": 43.051468,
+  "lng": 141.3056561,
+  "map": "https://goo.gl/maps/EY3uZRXNWNr",
+  "website": "http://www.city.sapporo.jp/zoo/index.html",
+  "logo": null,
+  "aliases": [
+   "Sapporo Maruyama Zoo"
+  ]
+ },
+ {
+  "canonical": "杭州動物園",
+  "lineage_id": 236,
+  "en": "Hangzhou Zoo",
+  "zh": "杭州动物园",
+  "country": "China",
+  "location_ja": "浙江省杭州市",
+  "location_en": "Hangzhou, Zhejiang, China",
+  "location_zh": "浙江省杭州市",
+  "lat": 30.213737,
+  "lng": 120.133669,
+  "map": "https://goo.gl/maps/UTyFC8HCPycgveWz6",
+  "website": "http://www.hzzoo.com/",
+  "logo": null,
+  "aliases": [
+   "Hangzhou Zoo",
+   "杭州动物园",
+   "杭州市動物園",
+   "杭州市动物园"
+  ]
+ },
+ {
+  "canonical": "杭州少年兒童公園",
+  "lineage_id": null,
+  "en": "Hangzhou Children's Park",
+  "zh": "杭州少年儿童公园",
+  "country": "China",
+  "location_ja": "浙江省杭州市西湖区",
+  "location_en": "Xihu, Hangzhou, Zhejiang, China",
+  "location_zh": "浙江省杭州市西湖區",
+  "lat": null,
+  "lng": null,
+  "map": null,
+  "website": "https://www.hzzoo.com/segyjs.html",
+  "logo": null,
+  "aliases": [
+   "Hangzhou Children's Park",
+   "Hangzhou Youth and Children's Park",
+   "杭州少年儿童公园",
+   "杭州少兒公園",
+   "杭州少儿公园",
+   "少年兒童公園",
+   "少年儿童公园"
+  ]
+ },
+ {
+  "canonical": "東京都立大島公園動物園",
+  "lineage_id": 64,
+  "en": "Tokyo Toritsu Oshima Park",
+  "ja_kana": "とうきょうとりつおおしまこうえんどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "東京都大島町",
+  "location_zh": "東京都大島町",
+  "closed_ja": "年中無休",
+  "location_en": "Ōshima, Tokyo, Japan",
+  "lat": 34.7607405,
+  "lng": 139.4355033,
+  "map": "https://goo.gl/maps/ygjtnJ59iXw",
+  "website": "http://www.soumu.metro.tokyo.jp/11osima/park/www/htdocs/parkindex.html",
+  "logo": null,
+  "aliases": [
+   "Tokyo Toritsu Oshima Park",
+   "東京都立大島公園"
+  ]
+ },
+ {
+  "canonical": "東北サファリパーク",
+  "lineage_id": 34,
+  "en": "Tohoku Safari Park",
+  "ja_kana": "とうほくさふぁりぱーく",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "福島県二本松市",
+  "location_zh": "福島縣二本松市",
+  "closed_ja": "不定休（公式サイトの休園日カレンダーで告知）",
+  "location_en": "Nihonmatsu, Fukushima Prefecture, Japan",
+  "lat": 37.6386187,
+  "lng": 140.3666067,
+  "map": "https://goo.gl/maps/TQwcwc8PpyL2",
+  "website": "http://tohoku-safaripark.co.jp/",
+  "logo": null,
+  "aliases": [
+   "Tohoku Safari Park"
+  ]
+ },
+ {
+  "canonical": "東山動植物園",
+  "lineage_id": 264,
+  "en": "Higashiyama Zoo and Botanical Gardens",
+  "ja_kana": "ひがしやまどうしょくぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "愛知県名古屋市",
+  "location_zh": "愛知縣名古屋市",
+  "closed_ja": "毎週月曜日（祝日・振替休日の場合は直後の平日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_weekday"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Chikusa-ku, Nagoya, Japan",
+  "lat": 35.1554125,
+  "lng": 136.981182,
+  "map": "https://goo.gl/maps/uGmgLy5w5PCy2Vzn6",
+  "website": "http://www.higashiyama.city.nagoya.jp/",
+  "logo": null,
+  "aliases": [
+   "Higashiyama Zoo",
+   "Higashiyama Zoo and Botanical Gardens"
+  ]
+ },
+ {
+  "canonical": "東武動物公園",
+  "lineage_id": 18,
+  "en": "Tobu Zoo",
+  "ja_kana": "とうぶどうぶつこうえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "埼玉県南埼玉郡宮代町",
+  "location_zh": "埼玉縣南埼玉郡宮代町",
+  "closed_ja": "元日、1月・2月の火・水曜日、6月の水曜日、7月の第1〜第3水曜日",
+  "closed_rule": [
+   {
+    "type": "date",
+    "on": "01-01"
+   },
+   {
+    "type": "weekly",
+    "dow": [
+     "tue",
+     "wed"
+    ],
+    "months": [
+     1,
+     2
+    ]
+   },
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ],
+    "months": [
+     6
+    ]
+   },
+   {
+    "type": "nth_weekly",
+    "dow": "wed",
+    "nth": [
+     1,
+     2,
+     3
+    ],
+    "months": [
+     7
+    ]
+   }
+  ],
+  "location_en": "Miyashiro, Minamisaitama, Saitama Prefecture, Japan",
+  "lat": 36.0196866,
+  "lng": 139.7196678,
+  "map": "https://goo.gl/maps/74vbDPHR5DK2",
+  "website": "http://www.tobuzoo.com/park/",
+  "logo": null,
+  "aliases": [
+   "Tobu Zoo"
+  ]
+ },
+ {
+  "canonical": "柳州市動物園",
+  "lineage_id": null,
+  "en": "Liuzhou Zoo",
+  "zh": "柳州市动物园",
+  "country": "China",
+  "location_ja": "広西チワン族自治区柳州市柳南区",
+  "location_en": "Liunan, Liuzhou, Guangxi, China",
+  "location_zh": "廣西壯族自治區柳州市柳南區",
+  "lat": 24.26456,
+  "lng": 109.39997,
+  "map": "https://maps.app.goo.gl/eWdTCj59vftWdJfz9",
+  "website": null,
+  "logo": null,
+  "aliases": [
+   "Liuzhou Zoo",
+   "柳州动物园",
+   "柳州動物園",
+   "柳州市动物园"
+  ]
+ },
+ {
+  "canonical": "桐生が岡動物園",
+  "lineage_id": 289,
+  "en": "Kiryugaoka Zoo",
+  "ja_kana": "きりゅうがおかどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "群馬県桐生市",
+  "location_zh": "群馬縣桐生市",
+  "closed_ja": "月ごとに指定（主に火曜日、公式サイトで告知）",
+  "location_en": "Kiryu, Gunma Prefecture, Japan",
+  "lat": 36.4211084,
+  "lng": 139.3403121,
+  "map": "https://goo.gl/maps/vd74wUJnUA7cyL7x7",
+  "website": "https://www.city.kiryu.lg.jp/zoo/",
+  "logo": null,
+  "aliases": [
+   "Kiryugaoka Zoo"
+  ]
+ },
+ {
   "canonical": "森林公園動物園",
   "lineage_id": 67,
   "en": "Woodland Park Zoo",
@@ -6105,6 +5552,80 @@
   "logo": null,
   "aliases": [
    "Woodland Park Zoo"
+  ]
+ },
+ {
+  "canonical": "横浜・八景島シーパラダイス",
+  "lineage_id": 190,
+  "en": "Hakkeijima Sea Paradise",
+  "ja_kana": "よこはまはっけいじましーぱらだいす",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "神奈川県横浜市",
+  "location_zh": "神奈川縣橫濱市",
+  "closed_ja": "年中無休",
+  "location_en": "Hakkeijima, Yokohama, Kanagawa Prefecture, Japan",
+  "lat": 35.3373771,
+  "lng": 139.6458968,
+  "map": "https://goo.gl/maps/xFgBvqMLqdrmcvSp7",
+  "website": "http://www.seaparadise.co.jp/",
+  "logo": null,
+  "aliases": [
+   "Hakkeijima Sea Paradise"
+  ]
+ },
+ {
+  "canonical": "横浜市立野毛山動物園",
+  "lineage_id": 38,
+  "en": "Nogeyama Zoo",
+  "ja_kana": "よこはましりつのげやまどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "神奈川県横浜市",
+  "location_zh": "神奈川縣橫濱市",
+  "closed_ja": "毎週月曜日（祝日の場合は翌日、5月は無休）、12月29日〜1月1日 ※2027年1月7日からリニューアル工事のため長期休園予定",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day",
+    "months": [
+     1,
+     2,
+     3,
+     4,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12
+    ],
+    "note": "5月は無休"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   },
+   {
+    "type": "range_abs",
+    "from": "2027-01-07",
+    "note": "リニューアル工事のため長期休園予定"
+   }
+  ],
+  "location_en": "Nishi Ward, Yokohama, Japan",
+  "lat": 35.447282,
+  "lng": 139.622712,
+  "map": "https://goo.gl/maps/TbqkYpePr5P2",
+  "website": "http://www.hama-midorinokyokai.or.jp/zoo/nogeyama/",
+  "logo": null,
+  "aliases": [
+   "Nogeyama Zoo",
+   "野毛山動物園"
   ]
  },
  {
@@ -6126,6 +5647,728 @@
   ]
  },
  {
+  "canonical": "武漢動物園",
+  "lineage_id": null,
+  "en": "Wuhan Zoo",
+  "zh": "武汉动物园",
+  "country": "China",
+  "location_ja": "湖北省武漢市漢陽区",
+  "location_en": "Hanyang, Wuhan, Hubei, China",
+  "location_zh": "湖北省武漢市漢陽區",
+  "lat": 30.5468,
+  "lng": 114.227,
+  "map": "https://www.google.com/maps/search/?api=1&query=30.5468,114.227",
+  "website": "https://www.wuhanzoo.com.cn/",
+  "logo": null,
+  "aliases": [
+   "Wuhan Zoo",
+   "武汉动物园",
+   "武漢市動物園",
+   "武汉市动物园",
+   "武漢市陸生野生動物收容救護中心",
+   "武汉市陆生野生动物收容救护中心"
+  ]
+ },
+ {
+  "canonical": "江戸川区自然動物園",
+  "lineage_id": 73,
+  "en": "Edogawa City Natural Zoo",
+  "ja_kana": "えどがわくしぜんどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "東京都江戸川区",
+  "location_zh": "東京都江戶川區",
+  "closed_ja": "毎週月曜日（祝日の場合は翌日）、年末年始",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day",
+    "note": "「年末年始」具体日付未確認のため未編碼"
+   }
+  ],
+  "location_en": "Edogawa, Tokyo Prefecture, Japan",
+  "lat": 35.6710488,
+  "lng": 139.8584021,
+  "map": "https://goo.gl/maps/tDgbZr73HuQ2",
+  "website": "http://edogawa-kankyozaidan.jp/zoo/",
+  "logo": null,
+  "aliases": [
+   "Edogawa City Natural Zoo"
+  ]
+ },
+ {
+  "canonical": "池田動物園",
+  "lineage_id": 15,
+  "en": "Ikeda Zoo",
+  "ja_kana": "いけだどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "岡山県岡山市",
+  "location_zh": "岡山縣岡山市",
+  "closed_ja": "水曜日中心の不定休（公式サイトの営業カレンダーで告知）",
+  "location_en": "Okayama, Okayama Prefecture, Chugoku Region, Japan",
+  "lat": 34.6746463,
+  "lng": 133.9062001,
+  "map": "https://goo.gl/maps/2bjmzYUBiqk",
+  "website": "https://ikedazoo.jp/",
+  "logo": null,
+  "aliases": [
+   "Ikeda Zoo"
+  ]
+ },
+ {
+  "canonical": "河川生態園",
+  "lineage_id": 205,
+  "en": "River Wonders",
+  "zh": "河川生態園",
+  "country": "Singapore",
+  "location_ja": "シンガポール",
+  "location_zh": "新加坡",
+  "location_en": "Singapore",
+  "lat": 1.4045,
+  "lng": 103.7905,
+  "map": null,
+  "website": "https://www.mandai.com/en/river-wonders.html",
+  "logo": null,
+  "aliases": [
+   "River Wonders",
+   "River Safari",
+   "Mandai Wildlife Reserve",
+   "萬態野生動物世界",
+   "萬禮野生動物保護區"
+  ]
+ },
+ {
+  "canonical": "浜松市動物園",
+  "lineage_id": 24,
+  "en": "Hamamatsu Municipal Zoo",
+  "ja_kana": "はままつしどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "静岡県浜松市",
+  "location_zh": "靜岡縣濱松市",
+  "closed_ja": "12月29日〜31日",
+  "closed_rule": [
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "12-31"
+   }
+  ],
+  "location_en": "Hamamatsu, Shizuoka Prefecture, Japan",
+  "lat": 34.7658439,
+  "lng": 137.6323722,
+  "map": "https://goo.gl/maps/oXmmXnkH1h52",
+  "website": "http://www.hamazoo.net/",
+  "logo": null,
+  "aliases": [
+   "Hamamatsu Municipal Zoo"
+  ]
+ },
+ {
+  "canonical": "深圳野生動物園",
+  "lineage_id": null,
+  "en": "Shenzhen Safari Park",
+  "zh": "深圳野生动物园",
+  "country": "China",
+  "location_ja": "広東省深圳市南山区",
+  "location_en": "Nanshan, Shenzhen, Guangdong, China",
+  "location_zh": "廣東省深圳市南山區",
+  "lat": 22.5847,
+  "lng": 113.9846,
+  "map": null,
+  "website": null,
+  "logo": null,
+  "wechat": "深圳野生动物园",
+  "aliases": [
+   "Shenzhen Safari Park",
+   "Shenzhen Wildlife Park",
+   "Shenzhen Zoo",
+   "深圳市野生動物園",
+   "深圳市野生动物园",
+   "深圳野生动物园",
+   "深圳动物园"
+  ]
+ },
+ {
+  "canonical": "清遠長隆森林王國",
+  "lineage_id": null,
+  "en": "Chimelong Forest Kingdom",
+  "zh": "清远长隆森林王国",
+  "country": "China",
+  "location_ja": "広東省清遠市清城区",
+  "location_en": "Qingcheng, Qingyuan, Guangdong, China",
+  "location_zh": "廣東省清遠市清城區",
+  "lat": null,
+  "lng": null,
+  "map": null,
+  "website": "https://www.chimelong.com/qy/forestkingdom/",
+  "logo": null,
+  "aliases": [
+   "Chimelong Forest Kingdom",
+   "Qingyuan Chimelong Forest Kingdom",
+   "清远长隆森林王国",
+   "清遠長隆森林王國",
+   "长隆森林王国",
+   "長隆森林王國",
+   "清远长隆",
+   "清遠長隆"
+  ]
+ },
+ {
+  "canonical": "澳門石排灣郊野公園",
+  "lineage_id": null,
+  "en": "Seac Pai Van Park",
+  "zh": "澳門石排灣郊野公園",
+  "country": "Macau",
+  "location_ja": "澳門路環",
+  "location_zh": "澳門路環",
+  "location_en": "Coloane, Macau",
+  "lat": 22.1286997,
+  "lng": 113.5617924,
+  "map": "https://maps.app.goo.gl/2bTs8m1n8m9bq9hM7",
+  "website": "https://www.macaotourism.gov.mo/en/sightseeing/gardens/seac-pai-van-park",
+  "logo": null,
+  "aliases": [
+   "Seac Pai Van Park",
+   "Macao Giant Panda Pavilion",
+   "Macau Seac Pai Van Park",
+   "石排灣郊野公園"
+  ]
+ },
+ {
+  "canonical": "瀋陽森林動物園",
+  "lineage_id": null,
+  "en": "Shenyang Forest Zoo",
+  "zh": "沈阳森林动物园",
+  "country": "China",
+  "location_ja": "遼寧省瀋陽市渾南区棋盤山",
+  "location_en": "Qipanshan, Hunnan, Shenyang, Liaoning, China",
+  "location_zh": "遼寧省瀋陽市渾南區棋盤山",
+  "lat": 41.9286,
+  "lng": 123.6147,
+  "map": null,
+  "website": "http://www.syslzoo.com/",
+  "logo": null,
+  "aliases": [
+   "Shenyang Forest Zoo",
+   "Shenyang Forest Zoological Garden",
+   "沈阳森林动物园",
+   "瀋陽森林動物園"
+  ]
+ },
+ {
+  "canonical": "無錫動物園",
+  "lineage_id": null,
+  "en": "Wuxi Zoo",
+  "zh": "无锡动物园",
+  "country": "China",
+  "location_ja": "江蘇省無錫市浜湖区",
+  "location_en": "Binhu, Wuxi, Jiangsu, China",
+  "location_zh": "江蘇省無錫市濱湖區",
+  "lat": 31.533,
+  "lng": 120.259,
+  "map": "https://www.google.com/maps/search/?api=1&query=31.533,120.259",
+  "website": "https://www.wxzoo.com.cn/",
+  "logo": null,
+  "aliases": [
+   "Wuxi Zoo",
+   "無錫市動物園",
+   "無錫動物園·太湖歡樂園",
+   "太湖歡樂園",
+   "无锡动物园",
+   "无锡市动物园",
+   "无锡动物园·太湖欢乐园"
+  ]
+ },
+ {
+  "canonical": "熊本市動植物園",
+  "lineage_id": 306,
+  "en": "Kumamoto City Zoological and Botanical Gardens",
+  "ja_kana": "くまもとしどうしょくぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "熊本県熊本市東区",
+  "location_zh": "熊本縣熊本市東區",
+  "closed_ja": "毎週月曜日（祝日の場合は次の平日、第4月曜は開園し翌日休園）、12月30日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_weekday",
+    "skip_nth": [
+     4
+    ]
+   },
+   {
+    "type": "nth_weekly",
+    "dow": "mon",
+    "nth": [
+     4
+    ],
+    "shift": "next_day",
+    "note": "第4月曜は開園し翌日休園"
+   },
+   {
+    "type": "range",
+    "from": "12-30",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Higashi Ward, Kumamoto, Japan",
+  "lat": 32.7746249,
+  "lng": 130.7477163,
+  "map": "https://goo.gl/maps/Aveudmjy2829ox8Z6",
+  "website": "https://www.ezooko.jp/",
+  "logo": null,
+  "aliases": [
+   "Kumamoto City Zoological and Botanical Gardens"
+  ]
+ },
+ {
+  "canonical": "熱川バナナワニ園",
+  "lineage_id": 59,
+  "en": "Atagawa Tropical & Alligator Garden",
+  "ja_kana": "あたがわばななわにえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "静岡県東伊豆町",
+  "location_zh": "靜岡縣東伊豆町",
+  "closed_ja": "年中無休",
+  "location_en": "Higashiizu-cho, Kamo, Shizuoka Prefecture, Japan",
+  "lat": 34.8161592,
+  "lng": 139.0678742,
+  "map": "https://goo.gl/maps/H7nX1JM8hAv",
+  "website": "http://bananawani.jp/",
+  "logo": null,
+  "aliases": [
+   "Atagawa Tropical & Alligator Garden"
+  ]
+ },
+ {
+  "canonical": "甲府市遊亀公園附属動物園",
+  "lineage_id": 28,
+  "en": "Yuki Zoo",
+  "ja_kana": "こうふしゆうきこうえんふぞくどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "山梨県甲府市",
+  "location_zh": "山梨縣甲府市",
+  "closed_ja": "整備工事のため休園中（2027年3月末まで予定）",
+  "closed_rule": [
+   {
+    "type": "range_abs",
+    "to": "2027-03-31",
+    "note": "整備工事のため休園中"
+   }
+  ],
+  "location_en": "Kōfu City, Yamanashi Prefecture, Japan",
+  "lat": 35.651361,
+  "lng": 138.5716761,
+  "map": "https://goo.gl/maps/qpxjKiF6SCu",
+  "website": "https://www.city.kofu.yamanashi.jp/zoo/",
+  "logo": null,
+  "aliases": [
+   "Yuki Zoo"
+  ]
+ },
+ {
+  "canonical": "石家莊市動物園",
+  "lineage_id": null,
+  "en": "Shijiazhuang Zoo",
+  "zh": "石家庄市动物园",
+  "country": "China",
+  "location_ja": "河北省石家荘市鹿泉区",
+  "location_en": "Luquan, Shijiazhuang, Hebei, China",
+  "location_zh": "河北省石家莊市鹿泉區",
+  "lat": 38.085,
+  "lng": 114.3,
+  "map": null,
+  "website": "https://ylj.sjz.gov.cn/sjzszoo/",
+  "logo": null,
+  "aliases": [
+   "Shijiazhuang Zoo",
+   "石家庄市动物园",
+   "石家莊市動物園"
+  ]
+ },
+ {
+  "canonical": "神戸どうぶつ王国",
+  "lineage_id": 58,
+  "en": "Kobe Animal Kingdom",
+  "ja_kana": "こうべどうぶつおうこく",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "兵庫県神戸市",
+  "location_zh": "兵庫縣神戶市",
+  "closed_ja": "木曜日中心の不定休（営業カレンダーで告知、祝日・夏休み等の木曜は営業）",
+  "location_en": "Port Island, Chūō-ku, Kobe, Japan",
+  "lat": 34.6546416,
+  "lng": 135.2225468,
+  "map": "https://goo.gl/maps/eD1oUBUky182",
+  "website": "https://www.kobe-oukoku.com/",
+  "logo": null,
+  "aliases": [
+   "Kobe Animal Kingdom"
+  ]
+ },
+ {
+  "canonical": "神戸市立王子動物園",
+  "lineage_id": 36,
+  "en": "Kobe Oji Zoo",
+  "ja_kana": "こうべしりつおうじどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "兵庫県神戸市灘区",
+  "location_zh": "兵庫縣神戶市灘區",
+  "closed_ja": "毎週水曜日（祝日は開園）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ],
+    "holiday": "open"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Nada Ward, Kobe, Japan",
+  "lat": 34.7099976,
+  "lng": 135.2148788,
+  "map": "https://goo.gl/maps/8P5cFSjECns",
+  "website": "http://www.kobe-ojizoo.jp/",
+  "logo": null,
+  "aliases": [
+   "Kobe Oji Zoo",
+   "王子動物園"
+  ]
+ },
+ {
+  "canonical": "福岡市動植物園",
+  "lineage_id": 32,
+  "en": "Fukuoka Municipal Zoo and Botanical Garden",
+  "ja_kana": "ふくおかしどうしょくぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "福岡県福岡市",
+  "location_zh": "福岡縣福岡市",
+  "closed_ja": "毎週月曜日（祝日の場合は翌日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Chuo-ku, Fukuoka City, Fukuoka Prefecture, Japan",
+  "address_ja": "〒810-0037 福岡市中央区南公園1番1号",
+  "lat": 33.5728036,
+  "lng": 130.3910108,
+  "map": "https://maps.app.goo.gl/3JCS3z2aXcArdc577",
+  "website": "http://zoo.city.fukuoka.lg.jp/",
+  "logo": null,
+  "aliases": [
+   "Fukuoka Municipal Zoo and Botanical Garden",
+   "Fukuoka Municipal Zoological and Botanical Garden",
+   "福岡市動物園"
+  ]
+ },
+ {
+  "canonical": "福州大熊猫研究中心",
+  "lineage_id": 291,
+  "en": "Fuzhou Giant Panda Research Center",
+  "zh": "福州熊貓世界",
+  "country": "China",
+  "location_ja": "福建省福州市",
+  "location_zh": "福建省福州市",
+  "location_en": "Fuzhou City, Fujian Province, China",
+  "lat": 26.0882994,
+  "lng": 119.2856472,
+  "map": "https://goo.gl/maps/UcJ4p1eoeawuHYJTA",
+  "website": "https://www.fuzhou.gov.cn/zwgk/zdlyxxgk/chxjs/cxjsdt/202111/t20211130_4256928.htm",
+  "logo": null,
+  "aliases": [
+   "Fuzhou Giant Panda Research Center"
+  ]
+ },
+ {
+  "canonical": "福知山市動物園",
+  "lineage_id": 61,
+  "en": "Fukuchiyama Zoo",
+  "ja_kana": "ふくちやましどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "京都府福知山市",
+  "location_zh": "京都府福知山市",
+  "closed_ja": "毎週水曜日（祝日の場合は翌日）",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ],
+    "holiday": "next_day"
+   }
+  ],
+  "location_en": "Fukuchiyama, Japan",
+  "lat": 35.310662,
+  "lng": 135.138731,
+  "map": "https://goo.gl/maps/XZvhpftc9L72",
+  "website": "https://fukuchiyamazoo.jp/",
+  "logo": null,
+  "aliases": [
+   "Fukuchiyama Zoo"
+  ]
+ },
+ {
+  "canonical": "秋吉台自然動物公園サファリランド",
+  "lineage_id": 42,
+  "en": "Akiyoshidai Safari Land",
+  "ja_kana": "あきよしだいしぜんどうぶつこうえんさふぁりらんど",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "山口県美祢市",
+  "location_zh": "山口縣美祢市",
+  "closed_ja": "年中無休（点検・悪天候等で臨時休園あり）",
+  "location_en": "Mine, Yamaguchi Prefecture, Japan",
+  "lat": 34.2825743,
+  "lng": 131.3321221,
+  "map": "https://goo.gl/maps/UT1Be9m6ukw",
+  "website": "http://www.safariland.jp/",
+  "logo": null,
+  "aliases": [
+   "Akiyoshidai Safari Land",
+   "秋吉台サファリランド"
+  ]
+ },
+ {
+  "canonical": "秋田市大森山動物園ミルヴェ",
+  "lineage_id": 26,
+  "en": "Akita Oomoriyama Zoo \"Milve\"",
+  "ja_kana": "あきたしおおもりやまどうぶつえんみるゔぇ",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "秋田県秋田市",
+  "location_zh": "秋田縣秋田市",
+  "closed_ja": "冬季休園（12月1日〜1月8日・3月1日〜19日）、1月・2月は土日祝のみ開園",
+  "closed_rule": [
+   {
+    "type": "range",
+    "from": "12-01",
+    "to": "01-08"
+   },
+   {
+    "type": "range",
+    "from": "03-01",
+    "to": "03-19"
+   },
+   {
+    "type": "weekly",
+    "dow": [
+     "mon",
+     "tue",
+     "wed",
+     "thu",
+     "fri"
+    ],
+    "months": [
+     1,
+     2
+    ],
+    "holiday": "open",
+    "note": "1月・2月は土日祝のみ開園"
+   }
+  ],
+  "location_en": "Akita City, Akita Prefecture, Japan",
+  "lat": 39.6717189,
+  "lng": 140.0762953,
+  "map": "https://goo.gl/maps/6xoxQ1KCS3Q2",
+  "website": "https://www.city.akita.lg.jp/zoo/",
+  "logo": null,
+  "aliases": [
+   "Akita Oomoriyama Zoo \"Milve\""
+  ]
+ },
+ {
+  "canonical": "群馬サファリパーク",
+  "lineage_id": 57,
+  "en": "Gunma Safari Park",
+  "ja_kana": "ぐんまさふぁりぱーく",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "群馬県",
+  "location_zh": "群馬縣",
+  "closed_ja": "毎週水曜日（祝日・春休み・GW・夏休み・年末年始〈1月1日を除く〉は無休）",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ],
+    "holiday": "open",
+    "suspend": [
+     {
+      "from": "03-25",
+      "to": "04-07",
+      "note": "春休みは無休（慣例窗，非官方日期）"
+     },
+     {
+      "from": "04-29",
+      "to": "05-05",
+      "note": "GWは無休"
+     },
+     {
+      "from": "07-20",
+      "to": "08-31",
+      "note": "夏休みは無休（慣例窗，非官方日期）"
+     },
+     {
+      "from": "12-28",
+      "to": "01-04",
+      "note": "年末年始は無休（慣例窗，非官方日期）"
+     }
+    ]
+   },
+   {
+    "type": "date",
+    "on": "01-01"
+   }
+  ],
+  "location_en": "Gunma Prefecture, Japan",
+  "lat": 36.2271907,
+  "lng": 138.8871332,
+  "map": "https://goo.gl/maps/at8sz15RscJ2",
+  "website": "http://www.safari.co.jp/",
+  "logo": null,
+  "aliases": [
+   "Gunma Safari Park"
+  ]
+ },
+ {
+  "canonical": "羽村市動物公園",
+  "lineage_id": 69,
+  "en": "Hamura Zoo",
+  "ja_kana": "はむらしどうぶつこうえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "東京都羽村市",
+  "location_zh": "東京都羽村市",
+  "closed_ja": "毎週月曜日（祝日・繁忙期は開園）、1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "open",
+    "suspend": [
+     {
+      "from": "03-25",
+      "to": "04-07",
+      "note": "繁忙期は開園（慣例窗，非官方日期）"
+     },
+     {
+      "from": "04-29",
+      "to": "05-05",
+      "note": "繁忙期は開園（慣例窗，非官方日期）"
+     },
+     {
+      "from": "07-20",
+      "to": "08-31",
+      "note": "繁忙期は開園（慣例窗，非官方日期）"
+     }
+    ]
+   },
+   {
+    "type": "date",
+    "on": "01-01"
+   }
+  ],
+  "location_en": "Hamura, Tokyo, Japan",
+  "lat": 35.7673915,
+  "lng": 139.3288145,
+  "map": "https://goo.gl/maps/EwC6VTy9MEp",
+  "website": "http://www.t-net.ne.jp/~hamura-z/",
+  "logo": null,
+  "aliases": [
+   "Hamura Zoo"
+  ]
+ },
+ {
+  "canonical": "西安秦嶺野生動物園",
+  "lineage_id": null,
+  "en": "Xi'an Qinling Wildlife Park",
+  "zh": "西安秦岭野生动物园",
+  "country": "China",
+  "location_ja": "陝西省西安市長安区",
+  "location_en": "Chang'an District, Xi'an, Shaanxi, China",
+  "location_zh": "陝西省西安市長安區",
+  "address_ja": "西安市长安区滦镇街道西安秦岭野生动物园行政办公楼",
+  "lat": 34.0488269,
+  "lng": 108.8651073,
+  "map": "https://www.google.com/maps/search/?api=1&query=34.0488269,108.8651073",
+  "website": "https://www.xianzoo.com/",
+  "logo": null,
+  "aliases": [
+   "Xi'an Qinling Wildlife Park",
+   "西安秦岭野生动物园",
+   "西安秦嶺野生動物園",
+   "秦嶺野生動物園",
+   "秦岭野生动物园",
+   "西安動物園",
+   "西安动物园",
+   "西安市動物園",
+   "西安市动物园",
+   "Xi'an Zoo"
+  ]
+ },
+ {
+  "canonical": "豊橋総合動植物公園",
+  "lineage_id": 235,
+  "en": "Non Hoi Park",
+  "ja_kana": "とよはしそうごうどうしょくぶつこうえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "愛知県豊橋市",
+  "location_zh": "愛知縣豐橋市",
+  "closed_ja": "毎週月曜日（祝日の場合は翌平日）",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_weekday"
+   }
+  ],
+  "location_en": "Toyohashi, Aichi, Japan",
+  "lat": 34.7202041,
+  "lng": 137.4324435,
+  "map": "https://goo.gl/maps/a4FaTjTWQLBZDVEK9",
+  "website": "https://www.nonhoi.jp/",
+  "logo": null,
+  "aliases": [
+   "Non Hoi Park",
+   "のんほいパーク"
+  ]
+ },
+ {
   "canonical": "近鉄あやめ池遊園地",
   "lineage_id": 290,
   "en": "Kintetsu Ayameike Amusement Park",
@@ -6142,6 +6385,26 @@
   "logo": null,
   "aliases": [
    "Kintetsu Ayameike Amusement Park"
+  ]
+ },
+ {
+  "canonical": "那須どうぶつ王国",
+  "lineage_id": 53,
+  "en": "Nasu Animal Kingdom",
+  "ja_kana": "なすどうぶつおうこく",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "栃木県那須郡",
+  "location_zh": "栃木縣那須郡",
+  "closed_ja": "不定休（主に水曜日、公式営業カレンダーで告知）、夏休み期間は無休",
+  "location_en": "Nasu District, Tochigi Prefecture, Japan",
+  "lat": 37.129025,
+  "lng": 140.037143,
+  "map": "https://goo.gl/maps/32qL3cSPkwP2",
+  "website": "http://www.nasu-oukoku.com/",
+  "logo": null,
+  "aliases": [
+   "Nasu Animal Kingdom"
   ]
  },
  {
@@ -6191,360 +6454,26 @@
   ]
  },
  {
-  "canonical": "新加坡動物園",
+  "canonical": "都江堰小熊貓森林公園",
   "lineage_id": null,
-  "en": "Singapore Zoo",
-  "zh": "新加坡動物園",
-  "country": "Singapore",
-  "location_ja": "シンガポール",
-  "location_zh": "新加坡",
-  "location_en": "Singapore",
-  "lat": 1.4043,
-  "lng": 103.793,
-  "map": null,
-  "website": "https://www.mandai.com/en/singapore-zoo.html",
-  "logo": null,
-  "aliases": [
-   "Singapore Zoo"
-  ]
- },
- {
-  "canonical": "河川生態園",
-  "lineage_id": 205,
-  "en": "River Wonders",
-  "zh": "河川生態園",
-  "country": "Singapore",
-  "location_ja": "シンガポール",
-  "location_zh": "新加坡",
-  "location_en": "Singapore",
-  "lat": 1.4045,
-  "lng": 103.7905,
-  "map": null,
-  "website": "https://www.mandai.com/en/river-wonders.html",
-  "logo": null,
-  "aliases": [
-   "River Wonders",
-   "River Safari",
-   "Mandai Wildlife Reserve",
-   "萬態野生動物世界",
-   "萬禮野生動物保護區"
-  ]
- },
- {
-  "canonical": "北京動物園",
-  "lineage_id": null,
-  "en": "Beijing Zoo",
-  "zh": "北京动物园",
+  "en": "Dujiangyan Red Panda Forest Park",
+  "zh": "都江堰小熊猫森林公园",
   "country": "China",
-  "location_ja": "北京市西城区",
-  "location_en": "Xicheng, Beijing, China",
-  "location_zh": "北京市西城區",
-  "lat": 39.9398,
-  "lng": 116.3389,
-  "map": null,
-  "website": "http://www.bjzoo.com",
-  "logo": null,
-  "aliases": [
-   "Beijing Zoo",
-   "北京动物园",
-   "北京動物園"
-  ]
- },
- {
-  "canonical": "大連森林動物園",
-  "lineage_id": null,
-  "en": "Dalian Forest Zoo",
-  "zh": "大连森林动物园",
-  "country": "China",
-  "location_ja": "遼寧省大連市西崗区",
-  "location_en": "Xigang, Dalian, Liaoning, China",
-  "location_zh": "遼寧省大連市西崗區",
-  "lat": 38.8816,
-  "lng": 121.6072,
-  "map": "https://maps.app.goo.gl/gv22TY7ijZcPdBM66",
-  "website": "https://www.dlzoo.com/",
-  "logo": null,
-  "aliases": [
-   "Dalian Forest Zoo",
-   "大连森林动物园",
-   "大連森林動物園",
-   "大連市動物園"
-  ]
- },
- {
-  "canonical": "石家莊市動物園",
-  "lineage_id": null,
-  "en": "Shijiazhuang Zoo",
-  "zh": "石家庄市动物园",
-  "country": "China",
-  "location_ja": "河北省石家荘市鹿泉区",
-  "location_en": "Luquan, Shijiazhuang, Hebei, China",
-  "location_zh": "河北省石家莊市鹿泉區",
-  "lat": 38.085,
-  "lng": 114.3,
-  "map": null,
-  "website": "https://ylj.sjz.gov.cn/sjzszoo/",
-  "logo": null,
-  "aliases": [
-   "Shijiazhuang Zoo",
-   "石家庄市动物园",
-   "石家莊市動物園"
-  ]
- },
- {
-  "canonical": "長沙生態動物園",
-  "lineage_id": null,
-  "en": "Changsha Ecological Zoo",
-  "zh": "长沙生态动物园",
-  "country": "China",
-  "location_ja": "湖南省長沙市天心区暮雲",
-  "location_en": "Muyun, Changsha, Hunan, China",
-  "location_zh": "湖南省長沙市天心區暮雲",
-  "lat": 28.039034,
-  "lng": 113.010648,
-  "map": null,
-  "website": "http://www.cszoo.com.cn",
-  "logo": null,
-  "aliases": [
-   "Changsha Ecological Zoo",
-   "长沙生态动物园",
-   "長沙生態動物園",
-   "長沙市動物園"
-  ]
- },
- {
-  "canonical": "青島動物園",
-  "lineage_id": null,
-  "en": "Qingdao Zoo",
-  "zh": "青岛动物园",
-  "country": "China",
-  "location_ja": "山東省青島市市南区",
-  "location_en": "Shinan, Qingdao, Shandong, China",
-  "location_zh": "山東省青島市市南區",
-  "lat": 36.0625,
-  "lng": 120.349,
-  "map": null,
+  "location_ja": "四川省成都市都江堰市蒲陽街道",
+  "location_en": "Huaxi Community, Puyang, Dujiangyan, Chengdu, Sichuan, China",
+  "location_zh": "四川省成都市都江堰市蒲陽街道花溪社區（蓮花湖公路）",
+  "lat": 31.048185,
+  "lng": 103.722069,
+  "map": "https://www.google.com/maps/search/?api=1&query=31.048185,103.722069",
   "website": null,
   "logo": null,
   "aliases": [
-   "Qingdao Zoo",
-   "青岛动物园",
-   "青島動物園",
-   "青島市動物園"
-  ]
- },
- {
-  "canonical": "長春動植物公園",
-  "lineage_id": null,
-  "en": "Changchun Zoological and Botanical Garden",
-  "zh": "长春动植物公园",
-  "country": "China",
-  "location_ja": "吉林省長春市南関区自由大路2121号",
-  "location_en": "Nanguan, Changchun, Jilin, China",
-  "location_zh": "吉林省長春市南關區自由大路2121號",
-  "lat": 43.8657,
-  "lng": 125.3456,
-  "map": null,
-  "website": null,
-  "logo": null,
-  "aliases": [
-   "Changchun Zoological and Botanical Garden",
-   "Changchun Zoo and Botanical Garden",
-   "长春动植物公园",
-   "長春動植物公園"
-  ]
- },
- {
-  "canonical": "瀋陽森林動物園",
-  "lineage_id": null,
-  "en": "Shenyang Forest Zoo",
-  "zh": "沈阳森林动物园",
-  "country": "China",
-  "location_ja": "遼寧省瀋陽市渾南区棋盤山",
-  "location_en": "Qipanshan, Hunnan, Shenyang, Liaoning, China",
-  "location_zh": "遼寧省瀋陽市渾南區棋盤山",
-  "lat": 41.9286,
-  "lng": 123.6147,
-  "map": null,
-  "website": "http://www.syslzoo.com/",
-  "logo": null,
-  "aliases": [
-   "Shenyang Forest Zoo",
-   "Shenyang Forest Zoological Garden",
-   "沈阳森林动物园",
-   "瀋陽森林動物園"
-  ]
- },
- {
-  "canonical": "チャプルテペック動物園",
-  "lineage_id": 66,
-  "en": "Chapultepec Zoo",
-  "zh": "查普爾特佩克動物園",
-  "country": "Mexico",
-  "location_ja": "メキシコ・メキシコシティ",
-  "location_en": "Mexico City, Mexico",
-  "lat": 19.4206,
-  "lng": -99.2075,
-  "map": "https://goo.gl/maps/FcdpEYXAYB12",
-  "website": "https://mexicocity.cdmx.gob.mx/venues/chapultepec-zoo/",
-  "logo": null,
-  "aliases": [
-   "Chapultepec Zoo",
-   "Zoológico de Chapultepec",
-   "Zoológico de Chapultepec Alfonso L. Herrera",
-   "查普爾特佩克動物園",
-   "チャプルテペック動物園"
-  ],
-  "location_zh": "墨西哥墨西哥城"
- },
- {
-  "canonical": "宝塚ファミリーランド",
-  "lineage_id": null,
-  "en": "Takarazuka Familyland",
-  "ja_kana": "たからづかふぁみりーらんど",
-  "zh": "寶塚家庭樂園",
-  "country": "Japan",
-  "location_ja": "兵庫県宝塚市",
-  "location_zh": "兵庫縣寶塚市",
-  "location_en": "Takarazuka, Hyogo Prefecture, Japan",
-  "lat": 34.8065,
-  "lng": 135.3415,
-  "map": null,
-  "website": null,
-  "logo": null,
-  "aliases": [
-   "Takarazuka Familyland",
-   "宝塚植物園",
-   "宝塚ファミリーランド動物園"
-  ]
- },
- {
-  "canonical": "柳州市動物園",
-  "lineage_id": null,
-  "en": "Liuzhou Zoo",
-  "zh": "柳州市动物园",
-  "country": "China",
-  "location_ja": "広西チワン族自治区柳州市柳南区",
-  "location_en": "Liunan, Liuzhou, Guangxi, China",
-  "location_zh": "廣西壯族自治區柳州市柳南區",
-  "lat": 24.26456,
-  "lng": 109.39997,
-  "map": "https://maps.app.goo.gl/eWdTCj59vftWdJfz9",
-  "website": null,
-  "logo": null,
-  "aliases": [
-   "Liuzhou Zoo",
-   "柳州动物园",
-   "柳州動物園",
-   "柳州市动物园"
-  ]
- },
- {
-  "canonical": "深圳野生動物園",
-  "lineage_id": null,
-  "en": "Shenzhen Safari Park",
-  "zh": "深圳野生动物园",
-  "country": "China",
-  "location_ja": "広東省深圳市南山区",
-  "location_en": "Nanshan, Shenzhen, Guangdong, China",
-  "location_zh": "廣東省深圳市南山區",
-  "lat": 22.5847,
-  "lng": 113.9846,
-  "map": null,
-  "website": null,
-  "logo": null,
-  "wechat": "深圳野生动物园",
-  "aliases": [
-   "Shenzhen Safari Park",
-   "Shenzhen Wildlife Park",
-   "Shenzhen Zoo",
-   "深圳市野生動物園",
-   "深圳市野生动物园",
-   "深圳野生动物园",
-   "深圳动物园"
-  ]
- },
- {
-  "canonical": "銀基動物王國",
-  "lineage_id": null,
-  "en": "Yinji Kingdom of Animals",
-  "zh": "银基动物王国",
-  "country": "China",
-  "location_ja": "河南省鄭州市新鄭市龍湖鎮",
-  "location_en": "Longhu, Xinzheng, Zhengzhou, Henan, China",
-  "location_zh": "河南省鄭州市新鄭市龍湖鎮",
-  "lat": null,
-  "lng": null,
-  "map": null,
-  "website": "https://www.enjoyland.cn/AnimalKingdom.html",
-  "logo": null,
-  "aliases": [
-   "Yinji Animal Kingdom",
-   "银基动物王国",
-   "銀基動物王國",
-   "郑州银基动物王国"
-  ]
- },
- {
-  "canonical": "寧波野生動物園",
-  "lineage_id": null,
-  "en": "Ningbo Wildlife Park",
-  "zh": "宁波野生动物园",
-  "country": "China",
-  "location_ja": "浙江省寧波市鄞州区東銭湖",
-  "location_en": "Dongqianhu, Yinzhou, Ningbo, Zhejiang, China",
-  "location_zh": "浙江省寧波市鄞州區東錢湖",
-  "lat": null,
-  "lng": null,
-  "map": null,
-  "website": "http://www.nbzoo.com/",
-  "logo": null,
-  "aliases": [
-   "Ningbo Youngor Zoo",
-   "宁波野生动物园",
-   "寧波野生動物園",
-   "宁波雅戈尔动物园",
-   "寧波雅戈爾動物園"
-  ]
- },
- {
-  "canonical": "天津動物園",
-  "lineage_id": null,
-  "en": "Tianjin Zoo",
-  "zh": "天津动物园",
-  "country": "China",
-  "location_ja": "天津市南開区",
-  "location_en": "Nankai, Tianjin, China",
-  "location_zh": "天津市南開區",
-  "lat": 39.0855,
-  "lng": 117.1683,
-  "map": null,
-  "website": null,
-  "logo": null,
-  "aliases": [
-   "天津动物园",
-   "Tianjin Zoo"
-  ]
- },
- {
-  "canonical": "廈門靈玲動物王國",
-  "lineage_id": null,
-  "en": "Xiamen Lingling Animal Kingdom",
-  "zh": "厦门灵玲动物王国",
-  "country": "China",
-  "location_ja": "福建省廈門市集美区",
-  "location_en": "Jimei, Xiamen, Fujian, China",
-  "location_zh": "福建省廈門市集美區",
-  "lat": 24.5896,
-  "lng": 118.0479,
-  "map": "https://share.google/XLmBedcPhiyhSuUYd",
-  "website": "http://www.llcircus.com/",
-  "logo": null,
-  "aliases": [
-   "厦门灵玲动物王国",
-   "灵玲动物王国",
-   "灵玲国际马戏城",
-   "Xiamen Lingling Animal Kingdom"
+   "Dujiangyan Red Panda Forest Park",
+   "Red Panda Forest Park",
+   "小熊猫森林公园",
+   "小熊貓森林公園",
+   "都江堰小熊猫森林公园",
+   "都江堰小熊貓森林公園"
   ]
  },
  {
@@ -6574,221 +6503,315 @@
   ]
  },
  {
-  "canonical": "無錫動物園",
-  "lineage_id": null,
-  "en": "Wuxi Zoo",
-  "zh": "无锡动物园",
-  "country": "China",
-  "location_ja": "江蘇省無錫市浜湖区",
-  "location_en": "Binhu, Wuxi, Jiangsu, China",
-  "location_zh": "江蘇省無錫市濱湖區",
-  "lat": 31.533,
-  "lng": 120.259,
-  "map": "https://www.google.com/maps/search/?api=1&query=31.533,120.259",
-  "website": "https://www.wxzoo.com.cn/",
+  "canonical": "釧路市動物園",
+  "lineage_id": 11,
+  "en": "Kushiro City Zoo",
+  "ja_kana": "くしろしどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "北海道釧路市",
+  "location_zh": "北海道釧路市",
+  "closed_ja": "12月〜2月の水曜日、12月29日〜1月2日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "wed"
+    ],
+    "months": [
+     12,
+     1,
+     2
+    ]
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-02"
+   }
+  ],
+  "location_en": "Kushiro, Kushiro Subprefecture, Hokkaido, Japan",
+  "lat": 43.081258,
+  "lng": 144.2365564,
+  "map": "https://goo.gl/maps/8JVH1ftPJHm",
+  "website": "http://www.city.kushiro.lg.jp/zoo/",
   "logo": null,
   "aliases": [
-   "Wuxi Zoo",
-   "無錫市動物園",
-   "無錫動物園·太湖歡樂園",
-   "太湖歡樂園",
-   "无锡动物园",
-   "无锡市动物园",
-   "无锡动物园·太湖欢乐园"
+   "Kushiro City Zoo"
   ]
  },
  {
-  "canonical": "宜興隱龍谷君瀾度假酒店",
+  "canonical": "銀基動物王國",
   "lineage_id": null,
-  "en": "Yixing Inlong Narada Resort Hotel",
-  "zh": "宜兴隐龙谷君澜度假酒店",
+  "en": "Yinji Kingdom of Animals",
+  "zh": "银基动物王国",
   "country": "China",
-  "location_ja": "江蘇省無錫市宜興市",
-  "location_en": "Yixing, Wuxi, Jiangsu, China",
-  "location_zh": "江蘇省無錫市宜興市",
-  "lat": 31.226,
-  "lng": 119.755,
-  "map": "https://www.google.com/maps/search/?api=1&query=31.226,119.755",
+  "location_ja": "河南省鄭州市新鄭市龍湖鎮",
+  "location_en": "Longhu, Xinzheng, Zhengzhou, Henan, China",
+  "location_zh": "河南省鄭州市新鄭市龍湖鎮",
+  "lat": null,
+  "lng": null,
+  "map": null,
+  "website": "https://www.enjoyland.cn/AnimalKingdom.html",
+  "logo": null,
+  "aliases": [
+   "Yinji Animal Kingdom",
+   "银基动物王国",
+   "銀基動物王國",
+   "郑州银基动物王国"
+  ]
+ },
+ {
+  "canonical": "長崎バイオパーク",
+  "lineage_id": 3,
+  "en": "Nagasaki Bio Park",
+  "ja_kana": "ながさきばいおぱーく",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "長崎県西海市",
+  "location_zh": "長崎縣西海市",
+  "closed_ja": "年中無休（悪天候時は臨時休園あり）",
+  "location_en": "Nagasaki Prefecture, Japan",
+  "lat": 32.9884125,
+  "lng": 129.7810003,
+  "map": "https://goo.gl/maps/L1wXjRmYYeo",
+  "website": "http://www.biopark.co.jp",
+  "logo": null,
+  "aliases": [
+   "Nagasaki Bio Park"
+  ]
+ },
+ {
+  "canonical": "長春動植物公園",
+  "lineage_id": null,
+  "en": "Changchun Zoological and Botanical Garden",
+  "zh": "长春动植物公园",
+  "country": "China",
+  "location_ja": "吉林省長春市南関区自由大路2121号",
+  "location_en": "Nanguan, Changchun, Jilin, China",
+  "location_zh": "吉林省長春市南關區自由大路2121號",
+  "lat": 43.8657,
+  "lng": 125.3456,
+  "map": null,
   "website": null,
   "logo": null,
   "aliases": [
-   "宜興隱龍谷酒店",
-   "宜興隱龍谷",
-   "隱龍谷",
-   "Yixing Inlong Narada Resort Hotel",
-   "宜兴隐龙谷君澜度假酒店",
-   "宜兴隐龙谷酒店",
-   "隐龙谷"
+   "Changchun Zoological and Botanical Garden",
+   "Changchun Zoo and Botanical Garden",
+   "长春动植物公园",
+   "長春動植物公園"
   ]
  },
  {
-  "canonical": "成都動物園",
+  "canonical": "長沙生態動物園",
   "lineage_id": null,
-  "en": "Chengdu Zoo",
-  "zh": "成都动物园",
+  "en": "Changsha Ecological Zoo",
+  "zh": "长沙生态动物园",
   "country": "China",
-  "location_ja": "四川省成都市成華区",
-  "location_en": "Chenghua, Chengdu, Sichuan, China",
-  "location_zh": "四川省成都市成華區",
-  "lat": 30.6989,
-  "lng": 104.0986,
-  "map": "https://www.google.com/maps/search/?api=1&query=30.6989,104.0986",
-  "website": "http://www.cdzoo.com.cn/",
-  "logo": null,
-  "aliases": [
-   "Chengdu Zoo",
-   "成都动物园",
-   "成都動物園",
-   "成都市動物園"
-  ]
- },
- {
-  "canonical": "清遠長隆森林王國",
-  "lineage_id": null,
-  "en": "Chimelong Forest Kingdom",
-  "zh": "清远长隆森林王国",
-  "country": "China",
-  "location_ja": "広東省清遠市清城区",
-  "location_en": "Qingcheng, Qingyuan, Guangdong, China",
-  "location_zh": "廣東省清遠市清城區",
-  "lat": null,
-  "lng": null,
+  "location_ja": "湖南省長沙市天心区暮雲",
+  "location_en": "Muyun, Changsha, Hunan, China",
+  "location_zh": "湖南省長沙市天心區暮雲",
+  "lat": 28.039034,
+  "lng": 113.010648,
   "map": null,
-  "website": "https://www.chimelong.com/qy/forestkingdom/",
+  "website": "http://www.cszoo.com.cn",
   "logo": null,
   "aliases": [
-   "Chimelong Forest Kingdom",
-   "Qingyuan Chimelong Forest Kingdom",
-   "清远长隆森林王国",
-   "清遠長隆森林王國",
-   "长隆森林王国",
-   "長隆森林王國",
-   "清远长隆",
-   "清遠長隆"
+   "Changsha Ecological Zoo",
+   "长沙生态动物园",
+   "長沙生態動物園",
+   "長沙市動物園"
   ]
  },
  {
-  "canonical": "南京金牛湖野生動物王國",
+  "canonical": "長野市茶臼山動物園",
+  "lineage_id": 10,
+  "en": "Nagano Chausuyama Zoo",
+  "ja_kana": "ながのしちゃうすやまどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "長野県長野市",
+  "location_zh": "長野縣長野市",
+  "closed_ja": "12月〜2月の毎週月曜日（休日の場合は翌日）、12月29日〜31日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day",
+    "months": [
+     12,
+     1,
+     2
+    ]
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "12-31"
+   }
+  ],
+  "location_en": "Nagano, Nagano Prefecture, Japan",
+  "lat": 36.586724,
+  "lng": 138.115462,
+  "map": "https://goo.gl/maps/3sQ2w9qjTdS2",
+  "website": "http://www.chausuyama.com/",
+  "logo": null,
+  "aliases": [
+   "Nagano Chausuyama Zoo",
+   "茶臼山動物園"
+  ]
+ },
+ {
+  "canonical": "青島動物園",
   "lineage_id": null,
-  "en": "Nanjing Jinniu Lake Wildlife Kingdom",
-  "zh": "南京金牛湖野生动物王国",
+  "en": "Qingdao Zoo",
+  "zh": "青岛动物园",
   "country": "China",
-  "location_ja": "江蘇省南京市六合区",
-  "location_en": "Liuhe, Nanjing, Jiangsu, China",
-  "location_zh": "江蘇省南京市六合區",
-  "lat": null,
-  "lng": null,
+  "location_ja": "山東省青島市市南区",
+  "location_en": "Shinan, Qingdao, Shandong, China",
+  "location_zh": "山東省青島市市南區",
+  "lat": 36.0625,
+  "lng": 120.349,
   "map": null,
-  "website": "https://www.zoojnh.cn/",
-  "logo": null,
-  "aliases": [
-   "Nanjing Jinniu Lake Wildlife Kingdom",
-   "Jinniu Lake Wildlife Kingdom",
-   "南京金牛湖野生动物王国",
-   "金牛湖野生動物王國",
-   "金牛湖野生动物王国",
-   "南京金牛湖野生動物世界",
-   "南京金牛湖野生动物世界",
-   "金牛湖野生動物園",
-   "金牛湖野生动物园"
-  ]
- },
- {
-  "canonical": "杭州少年兒童公園",
-  "lineage_id": null,
-  "en": "Hangzhou Children's Park",
-  "zh": "杭州少年儿童公园",
-  "country": "China",
-  "location_ja": "浙江省杭州市西湖区",
-  "location_en": "Xihu, Hangzhou, Zhejiang, China",
-  "location_zh": "浙江省杭州市西湖區",
-  "lat": null,
-  "lng": null,
-  "map": null,
-  "website": "https://www.hzzoo.com/segyjs.html",
-  "logo": null,
-  "aliases": [
-   "Hangzhou Children's Park",
-   "Hangzhou Youth and Children's Park",
-   "杭州少年儿童公园",
-   "杭州少兒公園",
-   "杭州少儿公园",
-   "少年兒童公園",
-   "少年儿童公园"
-  ]
- },
- {
-  "canonical": "武漢動物園",
-  "lineage_id": null,
-  "en": "Wuhan Zoo",
-  "zh": "武汉动物园",
-  "country": "China",
-  "location_ja": "湖北省武漢市漢陽区",
-  "location_en": "Hanyang, Wuhan, Hubei, China",
-  "location_zh": "湖北省武漢市漢陽區",
-  "lat": 30.5468,
-  "lng": 114.227,
-  "map": "https://www.google.com/maps/search/?api=1&query=30.5468,114.227",
-  "website": "https://www.wuhanzoo.com.cn/",
-  "logo": null,
-  "aliases": [
-   "Wuhan Zoo",
-   "武汉动物园",
-   "武漢市動物園",
-   "武汉市动物园",
-   "武漢市陸生野生動物收容救護中心",
-   "武汉市陆生野生动物收容救护中心"
-  ]
- },
- {
-  "canonical": "都江堰小熊貓森林公園",
-  "lineage_id": null,
-  "en": "Dujiangyan Red Panda Forest Park",
-  "zh": "都江堰小熊猫森林公园",
-  "country": "China",
-  "location_ja": "四川省成都市都江堰市蒲陽街道",
-  "location_en": "Huaxi Community, Puyang, Dujiangyan, Chengdu, Sichuan, China",
-  "location_zh": "四川省成都市都江堰市蒲陽街道花溪社區（蓮花湖公路）",
-  "lat": 31.048185,
-  "lng": 103.722069,
-  "map": "https://www.google.com/maps/search/?api=1&query=31.048185,103.722069",
   "website": null,
   "logo": null,
   "aliases": [
-   "Dujiangyan Red Panda Forest Park",
-   "Red Panda Forest Park",
-   "小熊猫森林公园",
-   "小熊貓森林公園",
-   "都江堰小熊猫森林公园",
-   "都江堰小熊貓森林公園"
+   "Qingdao Zoo",
+   "青岛动物园",
+   "青島動物園",
+   "青島市動物園"
   ]
  },
  {
-  "canonical": "西安秦嶺野生動物園",
-  "lineage_id": null,
-  "en": "Xi'an Qinling Wildlife Park",
-  "zh": "西安秦岭野生动物园",
-  "country": "China",
-  "location_ja": "陝西省西安市長安区",
-  "location_en": "Chang'an District, Xi'an, Shaanxi, China",
-  "location_zh": "陝西省西安市長安區",
-  "address_ja": "西安市长安区滦镇街道西安秦岭野生动物园行政办公楼",
-  "lat": 34.0488269,
-  "lng": 108.8651073,
-  "map": "https://www.google.com/maps/search/?api=1&query=34.0488269,108.8651073",
-  "website": "https://www.xianzoo.com/",
+  "canonical": "静岡市立日本平動物園",
+  "lineage_id": 16,
+  "en": "Shizuoka Municipal Nihondaira Zoo",
+  "ja_kana": "しずおかしりつにほんだいらどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "静岡県静岡市",
+  "location_zh": "靜岡縣靜岡市",
+  "closed_ja": "毎週月曜日（祝日・振替休日の場合は翌平日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_weekday"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Shizuoka, Shizuoka Prefecture, Japan",
+  "address_ja": "〒422-8005 静岡市駿河区池田1767-6",
+  "lat": 34.9799007,
+  "lng": 138.4394655,
+  "map": "https://goo.gl/maps/wFRiaNci3Qu",
+  "website": "http://www.nhdzoo.jp/",
   "logo": null,
   "aliases": [
-   "Xi'an Qinling Wildlife Park",
-   "西安秦岭野生动物园",
-   "西安秦嶺野生動物園",
-   "秦嶺野生動物園",
-   "秦岭野生动物园",
-   "西安動物園",
-   "西安动物园",
-   "西安市動物園",
-   "西安市动物园",
-   "Xi'an Zoo"
+   "Nihondaira Zoo",
+   "Shizuoka Municipal Nihondaira Zoo"
+  ]
+ },
+ {
+  "canonical": "高知県立のいち動物公園",
+  "lineage_id": 60,
+  "en": "Noichi Zoological Park of Kochi Prefecture",
+  "ja_kana": "こうちけんりつのいちどうぶつこうえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "高知県香南市",
+  "location_zh": "高知縣香南市",
+  "closed_ja": "毎週月曜日（祝日の場合は翌日）、12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day"
+   },
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Konan, Kōchi Prefecture, Japan",
+  "lat": 33.5700513,
+  "lng": 133.7074112,
+  "map": "https://goo.gl/maps/4p2bfiBPbGL2",
+  "website": "http://www.noichizoo.or.jp/",
+  "logo": null,
+  "aliases": [
+   "Noichi Zoological Park",
+   "Noichi Zoological Park of Kochi Prefecture",
+   "のいち動物公園"
+  ]
+ },
+ {
+  "canonical": "鯖江市西山動物園",
+  "lineage_id": 13,
+  "en": "Nishiyama Zoo",
+  "ja_kana": "さばえしにしやまどうぶつえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "福井県鯖江市",
+  "location_zh": "福井縣鯖江市",
+  "closed_ja": "毎週月曜日（祝日の場合は翌日）",
+  "closed_rule": [
+   {
+    "type": "weekly",
+    "dow": [
+     "mon"
+    ],
+    "holiday": "next_day"
+   }
+  ],
+  "location_en": "Sabae, Fukui Prefecture, Japan",
+  "lat": 35.9506206,
+  "lng": 136.1809232,
+  "map": "https://goo.gl/maps/vVxLDci5HeE2",
+  "website": "https://www.city.sabae.fukui.jp/nishiyama_zoo/",
+  "logo": null,
+  "aliases": [
+   "Nishiyama Zoo",
+   "西山動物公園"
+  ]
+ },
+ {
+  "canonical": "鹿児島市平川動物公園",
+  "lineage_id": 20,
+  "en": "Hirakawa Zoo",
+  "ja_kana": "かごしましひらかわどうぶつこうえん",
+  "zh": null,
+  "country": "Japan",
+  "location_ja": "鹿児島県鹿児島市平川町",
+  "location_zh": "鹿兒島縣鹿兒島市平川町",
+  "closed_ja": "12月29日〜1月1日",
+  "closed_rule": [
+   {
+    "type": "range",
+    "from": "12-29",
+    "to": "01-01"
+   }
+  ],
+  "location_en": "Hirakawacho, Kagoshima, Kagoshima Prefecture, Japan",
+  "lat": 31.4631175,
+  "lng": 130.5017959,
+  "map": "https://www.google.com/maps/search/?api=1&query=31.4631175,130.5017959",
+  "website": "http://hirakawazoo.jp/",
+  "logo": null,
+  "aliases": [
+   "Hirakawa Zoo",
+   "平川動物公園"
   ]
  }
 ]

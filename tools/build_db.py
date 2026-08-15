@@ -232,6 +232,11 @@ OFFICIAL_URLS = {
     "https://prtimes.jp/main/html/rd/p/000000321.000011571.html",
     # 東北サファリパーク 園內製作家系圖之照片（作者確認為官方資訊忠實轉載）
     "https://mamepandaworld.blog.fc2.com/blog-entry-1311.html",
+    # 仙台市八木山動物公園 学芸員 阿部敏計〈仙台市八木山動物公園の愛すべき長寿動物について〉
+    # （2010-02-03）。載於「仙台・宮城ミュージアムアライアンス（SMMA）」，園方學藝員署名執筆、
+    # 視同園方一手（維護者裁定 2026-08-15）。⚠️ 只認這一篇 URL，不整域列 smma.jp——該站另收
+    # 多家館所的隨筆，整域列入會把非園方內容一併誤判為官方。
+    "https://www.smma.jp/essay/%E4%BB%99%E5%8F%B0%E5%B8%82%E5%85%AB%E6%9C%A8%E5%B1%B1%E5%8B%95%E7%89%A9%E5%85%AC%E5%9C%92%E3%81%AE%E6%84%9B%E3%81%99%E3%81%B9%E3%81%8D%E9%95%B7%E5%AF%BF%E5%8B%95%E7%89%A9%E3%81%AB%E3%81%A4%E3%81%84-2/",
 }
 
 _WAYBACK_HOSTS = {"web.archive.org", "archive.org"}
