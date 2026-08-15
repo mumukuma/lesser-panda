@@ -160,6 +160,7 @@ OFFICIAL_FB_PAGES = {
     "cincinnatizoo",   # Cincinnati Zoo & Botanical Garden 官方專頁（同 cincinnatizoo.org）
     "columbuszoo",     # Columbus Zoo and Aquarium 官方專頁（官網頁尾 Facebook 連結指向此專頁）
     "pueblozoo",       # Pueblo Zoo 官方專頁（同 pueblozoo.org；出生・命名公告發於此）
+    "saitamazoo",      # 埼玉県こども動物自然公園 官方專頁（parks.or.jp/sczoo 頁尾 SNS 連結指向此）
 }
 _FB_HOSTS = {"facebook.com", "m.facebook.com", "web.facebook.com", "fb.com"}
 

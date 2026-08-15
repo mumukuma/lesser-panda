@@ -13,7 +13,8 @@ import Species from '../components/Species.astro';
 import Moves from '../components/Moves.astro';
 import Japan from '../components/Japan.astro';
 import Terms from '../components/Terms.astro';
-import { pandas, zoos, zoosListed, LOCALES, searchDataFor, closedDataFor, subGraph, placeholderMotherName, zooName, japanTreeData } from '../lib/data.js';
+import Review from '../components/Review.astro';
+import { pandas, zoos, zoosListed, LOCALES, searchDataFor, closedDataFor, subGraph, placeholderMotherName, zooName, japanTreeData, REVIEW, SHOW_REVIEW } from '../lib/data.js';
 
 export function getStaticPaths() {
   const out = [];
@@ -30,6 +31,14 @@ export function getStaticPaths() {
     out.push({ params: { path: path('feedback') }, props: { locale: l.code, kind: 'feedback', relPath: 'feedback' } });
     out.push({ params: { path: path('thanks') }, props: { locale: l.code, kind: 'thanks', relPath: 'thanks' } });
     out.push({ params: { path: path('terms') }, props: { locale: l.code, kind: 'terms', relPath: 'terms' } });
+    // 年度回顧：索引＋每個有事件的年份一頁（REVIEW 建置期算好，見 data.js）。
+    // SHOW_REVIEW 關閉時（正式 build）整組路由不生成——Q3/Q4 公開前只在 dev 預覽。
+    if (SHOW_REVIEW) {
+      out.push({ params: { path: path('review') }, props: { locale: l.code, kind: 'review', relPath: 'review' } });
+      for (const r of REVIEW.years) {
+        out.push({ params: { path: path('review/' + r.y) }, props: { locale: l.code, kind: 'reviewYear', year: r.y, relPath: 'review/' + r.y } });
+      }
+    }
     for (const p of Object.values(pandas)) {
       out.push({ params: { path: path('p/' + p.urlId) }, props: { locale: l.code, kind: 'panda', slug: p.slug, relPath: 'p/' + p.urlId } });
     }
@@ -40,7 +49,7 @@ export function getStaticPaths() {
   return out;
 }
 
-const { locale, kind, slug, relPath } = Astro.props;
+const { locale, kind, slug, year, relPath } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
 const titles = {
@@ -55,10 +64,12 @@ const titles = {
   feedback: (await import('../lib/data.js')).i18n[locale].nav_feedback,
   thanks: (await import('../lib/data.js')).i18n[locale].about_title,
   terms: (await import('../lib/data.js')).i18n[locale].terms_title,
+  review: (await import('../lib/data.js')).i18n[locale].rv_title,
+  reviewYear: kind === 'reviewYear' ? (await import('../lib/data.js')).i18n[locale].rv_title_year.replace('{y}', year) : undefined,
   panda: kind === 'panda' ? placeholderMotherName(pandas[slug], locale) : undefined,
   zoo: kind === 'zoo' ? zooName(zoos.find((z) => z.slug === slug)?.id, null, locale) : undefined,
 };
-const active = kind === 'home' ? 'home' : kind === 'zoo' ? 'zoos' : kind;
+const active = kind === 'home' ? 'home' : kind === 'zoo' ? 'zoos' : kind === 'reviewYear' ? 'review' : kind;
 
 const p = kind === 'panda' ? pandas[slug] : null;
 const graph = p ? subGraph(slug, locale) : null;
@@ -78,6 +89,8 @@ const graph = p ? subGraph(slug, locale) : null;
   {kind === 'feedback' && <Feedback locale={locale} />}
   {kind === 'thanks' && <Thanks locale={locale} />}
   {kind === 'terms' && <Terms locale={locale} />}
+  {kind === 'review' && <Review locale={locale} />}
+  {kind === 'reviewYear' && <Review locale={locale} year={year} />}
   {kind === 'panda' && <Panda locale={locale} slug={slug} />}
   {kind === 'zoo' && <Zoo locale={locale} slug={slug} />}
 

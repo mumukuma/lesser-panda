@@ -1,0 +1,220 @@
+---
+/* 年度回顧（/review/）：索引＋年頁共用一個元件（year 有值＝年頁）。
+   全部建置期由 data.js 的 REVIEW 算好（全球範圍：出生／去了小熊星球／搬家含跨國），
+   零 client JS，同 /moves/ 模式。只生成有事件的年份；當年度標「進行中」。
+   「去了小熊星球」措辭對齊首頁 today_rainbow 與園頁 zoo_tl_star。 */
+import { pandas, i18n, displayName, placeholderMotherName, zooName, zooSlugById, deceasedHtml, REVIEW } from '../lib/data.js';
+import { pandaUrl, pageUrl, zooUrl } from '../lib/links.js';
+
+const { locale, year } = Astro.props;
+const T = i18n[locale];
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+
+const R = REVIEW;
+const isIndex = year == null;
+const r = isIndex ? null : R.years.find((x) => x.y === year);
+const partial = !isIndex && year === R.nowYear;
+const idx = isIndex ? -1 : R.years.indexOf(r);
+const newer = idx > 0 ? R.years[idx - 1] : null;          // years 新→舊
+const older = idx >= 0 && idx < R.years.length - 1 ? R.years[idx + 1] : null;
+
+const num = (n) => n.toLocaleString('en-US');
+const seedIcon = ' <span role="img" title="' + T.placeholder_badge + '" aria-label="' + T.placeholder_badge + '">🍎</span>';
+const link = (slug) => {
+  const p = pandas[slug];
+  if (!p) return slug;
+  return `<a class="text-rust no-underline hover:underline" href="${pandaUrl(base, locale, p.urlId)}">${displayName(p, locale)}${p.died ? deceasedHtml(locale) : ''}${p.placeholder ? seedIcon : ''}</a>`;
+};
+const zLink = (id) =>
+  id != null && zooSlugById[id]
+    ? `<a class="text-rust no-underline hover:underline" href="${zooUrl(base, locale, zooSlugById[id])}">${zooName(id, null, locale)}</a>`
+    : null;
+// 日期短版（出生 chip）：完整日期取 MM/DD（同首頁新生 chip），只有年／年月則原樣
+const shortDate = (d) => (d && d.length >= 8 ? d.slice(5).replace('-', '/') : d || '');
+
+// ── 年頁資料 ─────────────────────────────────────────────────
+// 出生依園分組（隻數多→少；園不詳排最後）
+const birthGroups = [];
+if (r) {
+  const g = new Map();
+  for (const b of r.births) {
+    const k = b.zoo ?? -1;
+    if (!g.has(k)) g.set(k, []);
+    g.get(k).push(b);
+  }
+  for (const [zoo, list] of g) birthGroups.push({ zoo: zoo === -1 ? null : zoo, list });
+  birthGroups.sort((a, b) => b.list.length - a.list.length || (a.zoo ?? 1e9) - (b.zoo ?? 1e9));
+}
+// 小紀錄：最遠搬家／最多寶寶的園／陪伴最久的孩子——有資料才出現
+const highlights = [];
+if (r) {
+  const far = r.moves.filter((m) => m.km != null).sort((a, b) => b.km - a.km)[0];
+  if (far) highlights.push(T.rv_hl_longest
+    .replace('{p}', link(far.slug))
+    .replace('{km}', T.mv_km.replace('{n}', num(Math.round(far.km)))));
+  const topZoo = birthGroups.find((g) => g.zoo != null);
+  if (topZoo && topZoo.list.length >= 2) highlights.push(T.rv_hl_topzoo
+    .replace('{z}', zLink(topZoo.zoo))
+    .replace('{n}', topZoo.list.length));
+  const oldest = r.stars.filter((s) => s.age != null).sort((a, b) => b.age - a.age)[0];
+  if (oldest) highlights.push(T.rv_hl_oldest
+    .replace('{p}', link(oldest.slug))
+    .replace('{n}', oldest.age));
+}
+
+const summary = r ? [
+  [T.rv_sum_births, r.births.length],
+  [T.rv_sum_stars, r.stars.length],
+  [T.rv_sum_moves, r.moves.length],
+  [T.rv_sum_pop, r.pop],
+] : [];
+
+const reviewHref = pageUrl(base, locale, 'review');
+const yearHref = (y) => pageUrl(base, locale, 'review/' + y);
+const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';
+const CARD = 'card-soft p-[18px_20px]';
+const BADGE = 'inline-block align-middle bg-cream text-rust rounded-full px-2.5 py-px text-[.72rem] ml-2';
+const TH = 'p-2 text-left text-ink-soft text-[.84rem] font-normal';
+---
+{isIndex ? (
+  <Fragment>
+    <h1 class="font-display text-3xl font-semibold mt-6 mb-1">{T.rv_title}</h1>
+    <p class="text-ink-soft text-[.95rem] mb-5">{T.rv_intro}</p>
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 my-5">
+      {R.years.map((y) => (
+        <a href={yearHref(y.y)} class="stat-card py-4 px-2">
+          <div class="text-2xl sm:text-3xl font-display font-semibold text-rust leading-none">
+            {y.y}{y.y === R.nowYear && <span class={BADGE}>{T.rv_partial}</span>}
+          </div>
+          <div class="text-[.82rem] text-ink-soft mt-1.5">
+            <span class="whitespace-nowrap" title={T.rv_sum_births}>🐣 {y.births.length}</span>
+            <span class="whitespace-nowrap ml-2" title={T.rv_sum_stars}>🪐 {y.stars.length}</span>
+            <span class="whitespace-nowrap ml-2" title={T.rv_sum_moves}>🚚 {y.moves.length}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </Fragment>
+) : (
+  <Fragment>
+    <p class="mt-5"><a class="text-rust hover:underline" href={reviewHref}>← {T.rv_title}</a></p>
+    <h1 class="font-display text-3xl font-semibold mt-2 mb-1">
+      {T.rv_title_year.replace('{y}', year)}{partial && <span class={BADGE}>{T.rv_partial}</span>}
+    </h1>
+    {partial && <p class="text-ink-soft text-[.88rem] mt-1 mb-0">{T.rv_partial_note}</p>}
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-5">
+      {summary.map(([l, n]) => (
+        <div class="stat-card py-4 px-2">
+          <div class="text-2xl sm:text-3xl font-display font-semibold text-rust leading-none">{num(n)}</div>
+          <div class="text-[.82rem] text-ink-soft mt-1.5">{l}</div>
+        </div>
+      ))}
+    </div>
+
+    {r.births.length > 0 && (
+      <section class="reveal">
+        <h2 class={H2}>🐣 {T.rv_sec_births}（{r.births.length}）</h2>
+        <div class={CARD}>
+          {birthGroups.map((g) => (
+            <div class="mt-4 first:mt-0">
+              <h3 class="font-display text-base mb-2 text-rust-dark">
+                {g.zoo != null ? <Fragment set:html={zLink(g.zoo)} /> : T.rv_zoo_unknown}
+                <span class="text-ink-soft font-normal text-[.85rem]">（{g.list.length}）</span>
+              </h3>
+              <p class="flex flex-wrap gap-2 m-0">
+                {g.list.map((b) => {
+                  const p = pandas[b.slug];
+                  return (
+                    <a href={pandaUrl(base, locale, p.urlId)}
+                       class="pop inline-flex items-baseline gap-1.5 bg-cream border border-line rounded-full px-4 py-2 text-[.94rem] no-underline hover:border-amber">
+                      <span class="font-display font-semibold">{p.placeholder && <span aria-hidden="true">🍎 </span>}{placeholderMotherName(p, locale)}{p.died && <span role="img" aria-label={T.deceased} class="ml-1">{T.deceased_mark}</span>}</span>
+                      {shortDate(b.date) && <span class="text-[.8rem] text-ink-soft">{shortDate(b.date)}</span>}
+                    </a>
+                  );
+                })}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {r.stars.length > 0 && (
+      <section class="reveal">
+        <h2 class={H2}>🪐 {T.rv_sec_stars}（{r.stars.length}）</h2>
+        <div class={CARD}>
+          <table class="w-full text-[.93rem] scroll-x">
+            <caption class="sr-only">{T.rv_sec_stars}</caption>
+            <thead>
+              <tr>
+                <th scope="col" class={TH}>{T.th_name}</th>
+                <th scope="col" class={TH}>{T.rv_th_date}</th>
+                <th scope="col" class={TH}>{T.rv_th_zoo}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {r.stars.map((s) => (
+                <tr class="border-t border-line">
+                  <td class="p-2" set:html={link(s.slug)} />
+                  <td class="p-2 whitespace-nowrap">
+                    {s.date}
+                    {s.age != null && <span class="block text-ink-soft text-[.76rem]">{T.rv_age.replace('{n}', s.age)}</span>}
+                  </td>
+                  <td class="p-2">{zLink(s.zoo) ? <Fragment set:html={zLink(s.zoo)} /> : <span class="text-ink-soft">-</span>}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    )}
+
+    {r.moves.length > 0 && (
+      <section class="reveal">
+        <h2 class={H2}>🚚 {T.rv_sec_moves}（{r.moves.length}）</h2>
+        <div class={CARD}>
+          <table class="w-full text-[.93rem] scroll-x">
+            <caption class="sr-only">{T.rv_sec_moves}</caption>
+            <thead>
+              <tr>
+                <th scope="col" class={TH}>{T.th_name}</th>
+                <th scope="col" class={TH}>{T.rv_th_date}</th>
+                <th scope="col" class={TH}>{T.th_from}</th>
+                <th scope="col" class={TH}>{T.th_to}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {r.moves.map((m) => (
+                <tr class="border-t border-line">
+                  <td class="p-2" set:html={link(m.slug)} />
+                  <td class="p-2 whitespace-nowrap">{m.date}</td>
+                  <td class="p-2" set:html={zLink(m.from)} />
+                  <td class="p-2"><Fragment set:html={'→ ' + zLink(m.to)} />{m.intl && <span aria-hidden="true"> ✈️</span>}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    )}
+
+    {highlights.length > 0 && (
+      <section class="reveal">
+        <h2 class={H2}>✨ {T.rv_sec_hl}</h2>
+        <div class={CARD}>
+          <ul class="list-none p-0 m-0">
+            {highlights.map((h) => (
+              <li class="py-1.5 border-t border-line first:border-t-0 text-[.93rem]" set:html={h} />
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+
+    <div class="flex justify-between gap-3 mt-9 text-[.9rem]">
+      <span>{older && <a class="text-rust no-underline hover:underline" href={yearHref(older.y)}>← {T.rv_title_year.replace('{y}', older.y)}</a>}</span>
+      <span>{newer && <a class="text-rust no-underline hover:underline" href={yearHref(newer.y)}>{T.rv_title_year.replace('{y}', newer.y)} →</a>}</span>
+    </div>
+  </Fragment>
+)}

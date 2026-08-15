@@ -668,3 +668,80 @@ export const JP_TREND = (() => {
   };
   return { rows, peak, senior, first: rows[0], last: rows[rows.length - 1] };
 })();
+
+// ── 年度回顧（/review/）：逐年（全球）出生／去了小熊星球／搬家，建置期算 ──────
+// 出生＝born 年、第一段居住史＝出生園（含蘋果籽佔位）；星球＝died 年、最後居住園
+//（與 pandaRegionKey 同認定）；搬家＝居住史相鄰兩段、兩端皆對應註冊表的園——
+// 含跨國移動，比 MOVES 的日本限定放寬。日期容忍只有年／年月。
+// 存疑（unverified）個體一律不計（與統計頁同原則）。只回傳「有事件的年份」，
+// 當年度（nowYear）由頁面標「進行中」。
+// ⚠️ 年度回顧公開開關（2026-08-15 維護者裁定）：先只在開發模式（pnpm dev）預覽，
+// 預計 2026 Q3/Q4 公開。公開時把下行改成 `export const SHOW_REVIEW = true;` 即可——
+// 路由（[...path].astro）與兩個入口（首頁紀念日卡、/stats/ 頁尾）都掛在這一個旗標上。
+// typeof 防呆：純 node 跑（tests/、工具腳本）沒有 import.meta.env，一律視為關。
+export const SHOW_REVIEW =
+  typeof import.meta.env !== 'undefined' && !!import.meta.env.DEV;
+
+export const REVIEW = (() => {
+  const all = Object.values(pandas).filter((p) => !p.unverified);
+  const nowYear = new Date().getFullYear();
+  const today = Date.now();
+  const yr = (s) => { const m = String(s || '').match(/^(\d{4})/); return m ? +m[1] : null; };
+  // 畫位用時間戳（同 Zoo.astro pdate）：缺月補年中、缺日補月初
+  const ts = (s) => {
+    const m = String(s || '').match(/^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?/);
+    return m ? Date.UTC(+m[1], m[2] ? +m[2] - 1 : 6, m[3] ? +m[3] : 1) : null;
+  };
+  const years = new Map();
+  const at = (Y) => {
+    if (!years.has(Y)) years.set(Y, { y: Y, births: [], stars: [], moves: [] });
+    return years.get(Y);
+  };
+  for (const p of all) {
+    const bY = yr(p.born);
+    if (bY) at(bY).births.push({ slug: p.slug, zoo: _birthZooId(p), date: p.born });
+    const dY = yr(p.died);
+    if (dY) {
+      const last = (p.residences || [])[(p.residences || []).length - 1];
+      // 享年：生歿皆完整日期才算（年精度會有 ±1 誤差，不硬算）
+      const age = _isFullDate(p.born) && _isFullDate(p.died)
+        ? Math.floor((Date.parse(p.died) - Date.parse(p.born)) / DAY / 365.25) : null;
+      at(dY).stars.push({ slug: p.slug, zoo: last ? last.zoo_id : null, date: p.died, age });
+    }
+    const rs = p.residences || [];
+    for (let i = 0; i < rs.length - 1; i++) {
+      const a = rs[i], b = rs[i + 1];
+      if (a.zoo_id == null || b.zoo_id == null || a.zoo_id === b.zoo_id) continue;
+      const date = b.start || a.end || null;
+      const Y = yr(date);
+      if (!Y) continue;
+      at(Y).moves.push({
+        slug: p.slug, from: a.zoo_id, to: b.zoo_id, date,
+        km: _haversine(_zooLL[a.zoo_id], _zooLL[b.zoo_id]),
+        intl: _zooCountry[a.zoo_id] !== _zooCountry[b.zoo_id],
+      });
+    }
+  }
+  const rows = [...years.values()].sort((a, b) => a.y - b.y);
+  // 年底在園頭數（全球、全部收錄個體）：訖日不詳且非現居只算到起日當年，
+  // 不無限延伸灌水（同 Zoo.astro pop 細條的原則）
+  for (const r of rows) {
+    const t = Math.min(Date.UTC(r.y, 11, 31), today);
+    let n = 0;
+    for (const p of all) {
+      const rs = p.residences || [];
+      const hit = rs.some((seg, i) => {
+        const s = ts(seg.start);
+        if (s === null || s > t) return false;
+        const current = i === rs.length - 1 && !p.died && !seg.end;
+        const e = seg.end != null ? ts(seg.end) : current ? today : Date.UTC(+seg.start.slice(0, 4), 11, 31);
+        return e !== null && t <= e;
+      });
+      if (hit) n++;
+    }
+    r.pop = n;
+  }
+  const asc = (a, b) => ((a.date || '') < (b.date || '') ? -1 : 1);
+  for (const r of rows) { r.births.sort(asc); r.stars.sort(asc); r.moves.sort(asc); }
+  return { years: [...rows].reverse(), nowYear }; // 新→舊（索引頁讀向）
+})();

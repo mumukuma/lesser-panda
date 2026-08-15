@@ -1,5 +1,5 @@
 ---
-import { pandas, zoos, family, i18n, placeholderMotherName } from '../lib/data.js';
+import { pandas, zoos, family, i18n, placeholderMotherName, SHOW_REVIEW } from '../lib/data.js';
 import { pandaUrl, pageUrl } from '../lib/links.js';
 
 const { locale } = Astro.props;
@@ -145,6 +145,11 @@ const leaves = [
     <div id="today-birthdays" class="flex flex-wrap gap-2 mb-4"></div>
     <h3 class="font-display text-base mb-2.5 text-rust-dark">{T.today_rainbow}</h3>
     <div id="today-rainbow" class="flex flex-wrap gap-2"></div>
+    <!-- 年度回顧入口（top-level nav 已滿，見 nav-japan-group 裁定；從紀念日卡連過去最順）。
+         SHOW_REVIEW：公開前只在 dev 顯示（見 data.js 開關註解） -->
+    {SHOW_REVIEW && (
+      <p class="text-[.88rem] mt-4 mb-0"><a class="text-rust font-semibold no-underline hover:underline" href={pageUrl(base, locale, 'review')}>🪐 {T.rv_title} →</a></p>
+    )}
   </div>
 </section>
 

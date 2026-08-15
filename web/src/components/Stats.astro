@@ -1,7 +1,7 @@
 ---
 /* 統計儀表板（#17）：全部由 pipeline/data 於建置期計算，純 HTML/CSS 長條圖、零 JS 零圖表庫。
    顏色一律走主題 CSS 變數 → 深色模式自動成立。僅統計日期已知的個體（見頁尾註）。 */
-import { pandas, i18n, displayName, zooName, zooSlugById, deceasedHtml } from '../lib/data.js';
+import { pandas, i18n, displayName, zooName, zooSlugById, deceasedHtml, SHOW_REVIEW } from '../lib/data.js';
 import { pandaUrl, pageUrl, zooUrl } from '../lib/links.js';
 
 const { locale } = Astro.props;
@@ -22,13 +22,32 @@ const toDate = (s) => {
 };
 const yearsBetween = (a, b) => (b - a) / 31557600000;
 
-// ── 每年出生數 ─────────────────────────────────────────
+// ── 每年出生數（2026-08-15 起依性別、♀ 左 ♂ 右金字塔）────────
+// 第一版做成堆疊直條，維護者當日改判「難讀」→ 改與「年齡分布」同一套讀法：
+// 一年一列、年份置中、數字標兩側，最近年在最上（與各排行的新→舊同讀向），
+// 手機不必橫向捲。性別待確認（全庫 15 筆）不入圖，tooltip＋註腳交代。
 const byYear = {};
-for (const p of all) if (p.born) byYear[+p.born.slice(0, 4)] = (byYear[+p.born.slice(0, 4)] || 0) + 1;
+for (const p of all) if (p.born) {
+  const y = +p.born.slice(0, 4);
+  const e = byYear[y] || (byYear[y] = { f: 0, m: 0, u: 0 });
+  e[p.sex === 'female' ? 'f' : p.sex === 'male' ? 'm' : 'u']++;
+}
 const yrs = Object.keys(byYear).map(Number);
-const yearSeries = [];
-for (let y = Math.min(...yrs); y <= Math.max(...yrs); y++) yearSeries.push([y, byYear[y] || 0]);
-const yearMax = Math.max(...yearSeries.map(([, n]) => n), 1);
+const yearSeries = []; // [y, ♀, ♂, 待確認, 合計]（新→舊）
+for (let y = Math.max(...yrs); y >= Math.min(...yrs); y--) {
+  const e = byYear[y] || { f: 0, m: 0, u: 0 };
+  yearSeries.push([y, e.f, e.m, e.u, e.f + e.m + e.u]);
+}
+const yearBandMax = Math.max(...yearSeries.map((r) => Math.max(r[1], r[2])), 1);
+const birthTot = yearSeries.reduce((s, r) => ({ f: s.f + r[1], m: s.m + r[2], u: s.u + r[3] }), { f: 0, m: 0, u: 0 });
+// 49 列太長（2026-08-15 維護者裁定）：預設只列近 20 年，更早收進原生 <details>（零 JS，
+// 同園頁完整資料表的作法）。兩段共用同一個 yearBandMax，展開後長條比例才可直接互比。
+const RECENT_YEARS = 20;
+const yearRecent = yearSeries.slice(0, RECENT_YEARS);
+const yearEarlier = yearSeries.slice(RECENT_YEARS);
+const earlierTot = yearEarlier.reduce((s, r) => s + r[4], 0);
+const yearTip = (y, f, m, u, tt) =>
+  `${y}｜${tt}（${T.sex_f} ${f}・${T.sex_m} ${m}${u ? '・' + T.sex_unknown + ' ' + u : ''}）`;
 
 // ── 排行截斷：取前 N 名，與第 N 名同數者一併列入（不讓並列被任意切掉），
 //    並給競賽式名次（同數同名次）。回傳 [item, rank] 陣列。
@@ -113,43 +132,74 @@ for (const p of all) {
   const a = yearsBetween(mb, b);
   if (a > 0 && a < 30) { damAges.push(a); damSet.add(p.mother); }
 }
-const damBins = [];
-for (const a of damAges) {
-  const i = Math.floor(a);
-  while (damBins.length <= i) damBins.push(0);
-  damBins[i]++;
-}
-const damSeries = damBins.map((n, i) => [i, n]).filter(([i]) => i >= 1);
+const ageBins = (ages) => {
+  const bins = [];
+  for (const a of ages) {
+    const i = Math.floor(a);
+    while (bins.length <= i) bins.push(0);
+    bins[i]++;
+  }
+  return bins.map((n, i) => [i, n]).filter(([i]) => i >= 1);
+};
+const damSeries = ageBins(damAges);
 const damPeak = Math.max(...damSeries.map(([, n]) => n), 1);
 const damNote = damAges.length ? T.stats_dam_age_note
   .replace('{n}', damAges.length).replace('{d}', damSet.size)
   .replace('{min}', f1(Math.min(...damAges))).replace('{med}', f1(_med(damAges)))
   .replace('{max}', f1(Math.max(...damAges))) : '';
 
+// ── 父獸產仔年齡（2026-08-15 新增，與母獸並排；同樣雙方生日已知才計）────
+const sireAges = [];
+const sireSet = new Set();
+for (const p of all) {
+  if (!p.father) continue;
+  const s = pandas[p.father];
+  if (!s || s.unverified) continue;
+  const b = toDate(p.born), sb = toDate(s.born);
+  if (!b || !sb) continue;
+  const a = yearsBetween(sb, b);
+  if (a > 0 && a < 30) { sireAges.push(a); sireSet.add(p.father); }
+}
+const sireSeries = ageBins(sireAges);
+const sirePeak = Math.max(...sireSeries.map(([, n]) => n), 1);
+const sireNote = sireAges.length ? T.stats_sire_age_note
+  .replace('{n}', sireAges.length).replace('{d}', sireSet.size)
+  .replace('{min}', f1(Math.min(...sireAges))).replace('{med}', f1(_med(sireAges)))
+  .replace('{max}', f1(Math.max(...sireAges))) : '';
+
 // ── 歿齡分布（已故且生日／歿日皆已知者）──────────────────
 //    ⚠️ 這是「歿齡組成」不是存活率：未滿一歲夭折者多半沒有條目（國際血統書裡約四分之一
 //    的幼獸活不過第一年，本站只有 2% 上下），註腳已說明，勿改寫成「壽命／存活率」。
+//    2026-08-15 起分性別：♀ 左 ♂ 右金字塔（與上方年齡分布同讀法），2 歲一格、24+ 併格。
+//    全庫歿日已知者性別已知率 100%（實測 0 隻不明），故金字塔不漏樣本；註腳補兩性中位數。
 const deathAges = [];
+const dBands = []; // [label, ♀, ♂]
+const dSex = { f: [], m: [] };
 for (const p of all) {
   if (!p.died) continue;
   const b = toDate(p.born), d = toDate(p.died);
   if (!b || !d) continue;
   const a = yearsBetween(b, d);
-  if (a >= 0 && a < 40) deathAges.push(a);
+  if (a < 0 || a >= 40) continue;
+  deathAges.push(a);
+  if (p.sex !== 'female' && p.sex !== 'male') continue;
+  const bi = Math.min(Math.floor(a / BAND), 12);
+  while (dBands.length <= bi) {
+    const lo = dBands.length * BAND;
+    dBands.push([dBands.length >= 12 ? '24+' : `${lo}–${lo + BAND - 1}`, 0, 0]);
+  }
+  dBands[bi][p.sex === 'female' ? 1 : 2]++;
+  dSex[p.sex === 'female' ? 'f' : 'm'].push(a);
 }
-const deathBins = [];
-for (const a of deathAges) {
-  const i = Math.floor(a);
-  while (deathBins.length <= i) deathBins.push(0);
-  deathBins[i]++;
-}
-const deathSeries = deathBins.map((n, i) => [i, n]);
-const deathPeak = Math.max(...deathSeries.map(([, n]) => n), 1);
+const dBandMax = Math.max(...dBands.map(([, f, m]) => Math.max(f, m)), 1);
 const deathTotal = Math.max(deathAges.length, 1);
 const pctBand = (lo, hi) => Math.round((deathAges.filter((a) => a >= lo && a < hi).length / deathTotal) * 100);
 const deathNote = deathAges.length ? T.stats_death_age_note
   .replace('{n}', deathAges.length).replace('{med}', f1(_med(deathAges)))
   .replace('{p2}', pctBand(10, 15)).replace('{p3}', pctBand(15, 20)).replace('{p4}', pctBand(20, 99)) : '';
+const deathNoteSex = dSex.f.length && dSex.m.length ? T.stats_death_by_sex
+  .replace('{fn}', dSex.f.length).replace('{fmed}', f1(_med(dSex.f)))
+  .replace('{mn}', dSex.m.length).replace('{mmed}', f1(_med(dSex.m))) : '';
 
 // ── 長壽排行（年紀顯示到「N 歲 M 個月」）─────────────────
 const link = (p) =>
@@ -324,20 +374,53 @@ const ageUnit = T.stats_age_unit;
   </div>
 </section>
 
-<!-- 每年出生數 -->
+<!-- 每年出生數：♀ 左 ♂ 右、年份置中（與年齡分布同讀法；一年一列、最近年在最上） -->
 <section class="reveal">
   <h2 class={H2}>{T.stats_sec_years}</h2>
   <div class={CARD}>
-    <div class="overflow-x-auto pb-1">
-      <div class="flex items-end gap-[3px]" style={`min-width:${yearSeries.length * 16}px`}>
-        {yearSeries.map(([y, n]) => (
-          <div class="flex-1 flex flex-col items-center" title={`${y}: ${n}`}>
-            <div class="w-full max-w-[13px] rounded-t bg-amber" style={`height:${Math.max(Math.round((n / yearMax) * 110), n ? 3 : 0)}px`}></div>
-            <span class="text-[.62rem] text-ink-soft mt-1 h-9" style="writing-mode:vertical-rl">{y % 5 === 0 ? y : ''}</span>
+    <div class="flex justify-between text-[.8rem] mb-1.5">
+      <span class="text-female font-medium">{T.sex_f}（{birthTot.f}）</span>
+      <span class="text-male font-medium">{T.sex_m}（{birthTot.m}）</span>
+    </div>
+    {yearRecent.map(([y, fN, mN, uN, tt]) => (
+      <div class="flex items-center gap-1.5 py-px text-[.72rem]" title={yearTip(y, fN, mN, uN, tt)}>
+        <span class="w-6 text-right text-ink-soft tabular-nums">{fN || ''}</span>
+        <div class="flex-1 flex justify-end">
+          <div class="h-2.5 rounded-l-full" style={`width:${(fN / yearBandMax) * 100}%;background:var(--female);min-width:${fN ? 3 : 0}px`}></div>
+        </div>
+        <span class="w-9 text-center text-ink-soft tabular-nums shrink-0">{y}</span>
+        <div class="flex-1">
+          <div class="h-2.5 rounded-r-full" style={`width:${(mN / yearBandMax) * 100}%;background:var(--male);min-width:${mN ? 3 : 0}px`}></div>
+        </div>
+        <span class="w-6 text-ink-soft tabular-nums">{mN || ''}</span>
+      </div>
+    ))}
+    {yearEarlier.length > 0 && (
+      <details class="mt-1.5">
+        <summary class="cursor-pointer text-rust text-[.85rem] select-none py-1">
+          {T.stats_years_earlier
+            .replace('{a}', yearEarlier[yearEarlier.length - 1][0])
+            .replace('{b}', yearEarlier[0][0])
+            .replace('{n}', earlierTot)}
+        </summary>
+        {yearEarlier.map(([y, fN, mN, uN, tt]) => (
+          <div class="flex items-center gap-1.5 py-px text-[.72rem]" title={yearTip(y, fN, mN, uN, tt)}>
+            <span class="w-6 text-right text-ink-soft tabular-nums">{fN || ''}</span>
+            <div class="flex-1 flex justify-end">
+              <div class="h-2.5 rounded-l-full" style={`width:${(fN / yearBandMax) * 100}%;background:var(--female);min-width:${fN ? 3 : 0}px`}></div>
+            </div>
+            <span class="w-9 text-center text-ink-soft tabular-nums shrink-0">{y}</span>
+            <div class="flex-1">
+              <div class="h-2.5 rounded-r-full" style={`width:${(mN / yearBandMax) * 100}%;background:var(--male);min-width:${mN ? 3 : 0}px`}></div>
+            </div>
+            <span class="w-6 text-ink-soft tabular-nums">{mN || ''}</span>
           </div>
         ))}
-      </div>
-    </div>
+      </details>
+    )}
+    {birthTot.u > 0 && (
+      <p class="text-ink-soft text-[.8rem] mt-2.5 mb-0">{T.stats_years_unknown_note.replace('{n}', birthTot.u)}</p>
+    )}
   </div>
 </section>
 
@@ -365,23 +448,29 @@ const ageUnit = T.stats_age_unit;
   </div>
 </section>
 
-<!-- 母獸產仔年齡 -->
+<!-- 產仔年齡：母獸／父獸並排（2026-08-15 起） -->
 <section class="reveal">
-  <h2 class={H2}>{T.stats_sec_dam_age}</h2>
-  <div class={CARD}>
-    <div class="flex items-end gap-[3px] h-[118px]">
-      {damSeries.map(([a, n]) => (
-        <div class="flex-1 h-full flex flex-col justify-end items-center" title={`${a} ${ageUnit}：${n}`}>
-          <div class="w-full max-w-[18px] rounded-t" style={`height:${Math.max(Math.round((n / damPeak) * 110), n ? 3 : 0)}px;background:var(--female)`}></div>
+  <h2 class={H2}>{T.stats_sec_parent_age}</h2>
+  <div class="grid sm:grid-cols-2 gap-3">
+    {[[T.stats_sec_dam_age, damSeries, damPeak, 'var(--female)', damNote, 'text-female'],
+      [T.stats_sec_sire_age, sireSeries, sirePeak, 'var(--male)', sireNote, 'text-male']].map(([title, series, peak, color, note, cls]) => (
+      <div class={`${CARD} min-w-0`}>
+        <h3 class={`font-display text-base mt-0 mb-2 font-semibold ${cls}`}>{title}</h3>
+        <div class="flex items-end gap-[3px] h-[118px]">
+          {series.map(([a, n]) => (
+            <div class="flex-1 h-full flex flex-col justify-end items-center" title={`${a} ${ageUnit}：${n}`}>
+              <div class="w-full max-w-[18px] rounded-t" style={`height:${Math.max(Math.round((n / peak) * 110), n ? 3 : 0)}px;background:${color}`}></div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-    <div class="flex gap-[3px] mt-1">
-      {damSeries.map(([a]) => (
-        <span class="flex-1 text-center text-[.62rem] text-ink-soft tabular-nums">{a % 2 === 1 ? a : ''}</span>
-      ))}
-    </div>
-    <p class="text-ink-soft text-[.8rem] mt-2.5 mb-0">{damNote}</p>
+        <div class="flex gap-[3px] mt-1">
+          {series.map(([a]) => (
+            <span class="flex-1 text-center text-[.62rem] text-ink-soft tabular-nums">{a % 2 === 1 ? a : ''}</span>
+          ))}
+        </div>
+        <p class="text-ink-soft text-[.8rem] mt-2.5 mb-0">{note}</p>
+      </div>
+    ))}
   </div>
 </section>
 
@@ -406,23 +495,28 @@ const ageUnit = T.stats_age_unit;
   </div>
 </section>
 
-<!-- 歿齡分布：⚠️ 歿齡組成，非存活率（見註腳） -->
+<!-- 歿齡分布：♀ 左 ♂ 右金字塔（2026-08-15 起分性別）。⚠️ 歿齡組成，非存活率（見註腳） -->
 <section class="reveal">
   <h2 class={H2}>{T.stats_sec_death_age}</h2>
   <div class={CARD}>
-    <div class="flex items-end gap-[2px] h-[118px]">
-      {deathSeries.map(([a, n]) => (
-        <div class="flex-1 h-full flex flex-col justify-end items-center" title={`${a} ${ageUnit}：${n}（${Math.round((n / deathTotal) * 1000) / 10}%）`}>
-          <div class="w-full max-w-[16px] rounded-t" style={`height:${Math.max(Math.round((n / deathPeak) * 110), n ? 3 : 0)}px;background:var(--rust)`}></div>
+    <div class="flex justify-between text-[.8rem] mb-1.5">
+      <span class="text-female font-medium">{T.sex_f}（{dSex.f.length}）</span>
+      <span class="text-male font-medium">{T.sex_m}（{dSex.m.length}）</span>
+    </div>
+    {[...dBands].reverse().map(([label, fN, mN]) => (
+      <div class="flex items-center gap-1.5 py-[3px] text-[.78rem]">
+        <span class="w-6 text-right text-ink-soft tabular-nums">{fN || ''}</span>
+        <div class="flex-1 flex justify-end">
+          <div class="h-3.5 rounded-l-full" style={`width:${(fN / dBandMax) * 100}%;background:var(--female);min-width:${fN ? 3 : 0}px`}></div>
         </div>
-      ))}
-    </div>
-    <div class="flex gap-[2px] mt-1">
-      {deathSeries.map(([a]) => (
-        <span class="flex-1 text-center text-[.62rem] text-ink-soft tabular-nums">{a % 5 === 0 ? a : ''}</span>
-      ))}
-    </div>
-    <p class="text-ink-soft text-[.8rem] mt-2.5 mb-0">{deathNote}</p>
+        <span class="w-14 text-center text-ink-soft whitespace-nowrap shrink-0">{label} {ageUnit}</span>
+        <div class="flex-1">
+          <div class="h-3.5 rounded-r-full" style={`width:${(mN / dBandMax) * 100}%;background:var(--male);min-width:${mN ? 3 : 0}px`}></div>
+        </div>
+        <span class="w-6 text-ink-soft tabular-nums">{mN || ''}</span>
+      </div>
+    ))}
+    <p class="text-ink-soft text-[.8rem] mt-2.5 mb-0">{deathNote} {deathNoteSex}</p>
   </div>
 </section>
 
@@ -486,4 +580,6 @@ const ageUnit = T.stats_age_unit;
 </section>
 
 <p class="text-ink-soft text-[.82rem] mt-6">{T.stats_note}</p>
-<p class="text-[.85rem] mt-2"><a class="text-rust no-underline hover:underline" href={pageUrl(base, locale, 'moves')}>{T.nav_moves} →</a></p>
+<p class="text-[.85rem] mt-2"><a class="text-rust no-underline hover:underline" href={pageUrl(base, locale, 'moves')}>{T.nav_moves} →</a>{SHOW_REVIEW && (
+  <Fragment><span class="text-ink-soft mx-2">·</span><a class="text-rust no-underline hover:underline" href={pageUrl(base, locale, 'review')}>{T.rv_title} →</a></Fragment>
+)}</p>

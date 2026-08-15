@@ -3,7 +3,9 @@
    全部建置期由 pandas.json residences 計算，零 client JS（同 #16/#17 模式）。
    時間軸（2026-08-14）：一列一隻、橫軸年份，顏色沿用全站 --female/--male；
    上方細條＝該園逐年在園頭數。互動只用 title tooltip；窄螢幕沿用 /japan/ 的
-   rtl 捲軸技巧初始停在最右（今天），名字欄 sticky 不會捲掉。 */
+   rtl 捲軸技巧初始停在最右（今天），名字欄 sticky 不會捲掉。
+   在此園過世的個體，「去了哪」一律顯示「去了小熊星球」暖語（i18n zoo_tl_star，
+   對齊首頁 today_rainbow 的既有措辭）＋歿日小字；aria 與資料欄位維持事實描述。 */
 import { pandas, i18n, displayName, zooName, zooLocation, zooBySlug, zooSlugById, deceasedHtml } from '../lib/data.js';
 import { pandaUrl, pageUrl, zooUrl } from '../lib/links.js';
 
@@ -128,7 +130,8 @@ const segTitle = (p, s) => {
     bits.push(T.zoo_tl_stay.replace('{n}', (((s.end ?? today) - s.start) / YEAR_MS).toFixed(1)));
   }
   bits.push(s.bornHere ? '🐣 ' + T.zoo_tl_born : s.from ? T.zoo_tl_from.replace('{z}', s.from) : T.zoo_tl_src_unknown);
-  if (s.diedHere) bits.push('🪽 ' + (p.died || ''));
+  // 在此園過世＝「去了小熊星球」（2026-08-15 維護者裁定的暖語；日期照留，資訊不遺失）
+  if (s.diedHere) bits.push('🪽 ' + (p.died ? T.zoo_tl_star_date.replace('{d}', p.died) : T.zoo_tl_star));
   else if (s.to) bits.push('→ ' + T.zoo_tl_to.replace('{z}', s.to));
   else if (s.current) bits.push(T.zoo_tl_current);
   return bits.join('｜');
@@ -209,7 +212,7 @@ const CHIP = 'inline-block bg-cream rounded-full px-2.5 py-px text-[.78rem] whit
           <span><i class="lg-sw" style="background:var(--female)"></i>{T.sex_f}</span>
           <span><i class="lg-sw" style="background:var(--male)"></i>{T.sex_m}</span>
           <span>🐣 {T.zoo_tl_born}</span>
-          <span>🪽 {T.zoo_tl_died}</span>
+          <span>🪽 {T.zoo_tl_star}</span>
           <span><i class="lg-sw lg-fade"></i>{T.zoo_tl_fade}</span>
         </div>
         <div class="tl-scroll overflow-x-auto pb-1">
@@ -287,7 +290,10 @@ const CHIP = 'inline-block bg-cream rounded-full px-2.5 py-px text-[.78rem] whit
                 </td>
                 <td class="p-2">
                   {last.diedHere
-                    ? <span class={CHIP}>🪽 {p.died}</span>
+                    ? <Fragment>
+                        <span class={CHIP}>🪽 {T.zoo_tl_star}</span>
+                        {p.died && <span class="block text-ink-soft text-[.76rem] mt-0.5">{p.died}</span>}
+                      </Fragment>
                     : last.to
                       ? <span class={CHIP} set:html={'→ ' + zLink(last.toSlug, last.to)} />
                       : last.current
