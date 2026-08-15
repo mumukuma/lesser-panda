@@ -77,6 +77,8 @@ OFFICIAL_HOSTS = {
     #    HTML topics 頁核對（維護者 Chrome 實讀），勿只信 PDF 抽取結果。
     "aws-s.com",
     "hamurazoo.jp",  # 羽村市動物公園（園方 /news/ 公告）
+    # 福知山市動物園（京都府福知山市立；個體訃報等公告發於 /lesserpanda-<name>/ 等單頁）
+    "fukuchiyamazoo.jp",
     # 池田動物園（岡山市；訃報等公告發於 /news/）。⚠️ 舊訃報會自站上下架（如 2024-04-27
     #    「レッサーパンダの「陸」が亡くなりました」2025 年初已 404），既有 sources 走 Wayback 快照。
     "ikedazoo.jp",
