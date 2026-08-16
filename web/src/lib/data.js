@@ -443,7 +443,20 @@ const _median = (arr) => {
   const m = a.length >> 1;
   return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2;
 };
-const _birthZooId = (p) => { const r0 = (p.residences || [])[0]; return r0 ? r0.zoo_id : null; };
+// 出生園判定（全站唯一定義，與 tools/gen_residence.py 的 🐣 規則一致）：
+// 居住史第一段的園＝出生園，但要同時滿足——
+//   ① frontmatter 沒標 `birth_zoo: unknown`（明示首站不是出生園，如中國野生輸入個體）
+//   ② 首站起始日不詳，或起始年＝生年（1985 年入園的 1983 年生個體顯然不是生在該園）
+// ⚠️ 2026-08-16 修正：此前園頁／統計頁一律把首站當出生園，56 隻野生輸入・來源不明個體
+// 被誤標成「在此出生」（如甲府的成都贈與四隻）。改動勿只改一處，一律用本函式。
+export const bornAtFirstZoo = (p) => {
+  const r0 = (p.residences || [])[0];
+  if (!r0) return false;
+  if (String(p.birth_zoo || '').toLowerCase() === 'unknown') return false;
+  const sy = String(r0.start || '').slice(0, 4);
+  return !sy || sy === String(p.born || '').slice(0, 4);
+};
+const _birthZooId = (p) => { const r0 = (p.residences || [])[0]; return r0 && bornAtFirstZoo(p) ? r0.zoo_id : null; };
 const _isJPZoo = (id) => id != null && _zooCountry[id] === 'Japan';
 const DAY = 86400000;
 

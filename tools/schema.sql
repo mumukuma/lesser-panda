@@ -29,6 +29,8 @@ CREATE TABLE IF NOT EXISTS pandas (
     last_seen   TEXT,               -- 檔案卡：最後確認在世／在園日期（YYYY[-MM[-DD]]；動向不明個體用）
     species     TEXT,               -- "styani" | "fulgens"
     origin      TEXT CHECK(origin IN ('wild','confiscated')),  -- 選填：非園內出生的出身。wild=野生出身（含野捕／救護）｜confiscated=走私查獲；個體頁「出身」列用
+    birth_zoo   TEXT,        -- 選填：值只有 'unknown'。明示「居住史首站不是出生園」；
+                            -- gen_residence.py 的 🐣 與網站的「該園出生」判定都用它退出（見 data.js bornAtFirstZoo）
     -- 幽靈親代（2026-08-14 起，選填）：親代身分已確認、但依收錄原則不建條目（多為終生未命名者）。
     -- 值為穩定識別碼 `isb:<番號>`（優先）或 `rpf:<id>`。**不是 slug、不進 parent_child、不上家系圖**，
     -- 唯一用途是讓網站判血緣度時知道「這兩隻的父（母）是同一隻」，避免全血緣手足被誤判成 ½。

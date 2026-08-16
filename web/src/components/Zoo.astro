@@ -6,7 +6,7 @@
    rtl 捲軸技巧初始停在最右（今天），名字欄 sticky 不會捲掉。
    在此園過世的個體，「去了哪」一律顯示「去了小熊星球」暖語（i18n zoo_tl_star，
    對齊首頁 today_rainbow 的既有措辭）＋歿日小字；aria 與資料欄位維持事實描述。 */
-import { pandas, i18n, displayName, zooName, zooLocation, zooBySlug, zooSlugById, deceasedHtml } from '../lib/data.js';
+import { pandas, i18n, displayName, zooName, zooLocation, zooBySlug, zooSlugById, deceasedHtml, bornAtFirstZoo } from '../lib/data.js';
 import { pandaUrl, pageUrl, zooUrl } from '../lib/links.js';
 
 const { locale, slug } = Astro.props;
@@ -38,7 +38,8 @@ const thisYear = new Date().getUTCFullYear();
 const YEAR_MS = 365.25 * 86400000;
 
 // 每隻在此園的各段居住史，連同前後段推得「從哪來／去了哪」與生歿旗標。
-// bornHere＝第一段居住史（與下方 births 的 🐣 同一定義）；
+// bornHere＝第一段居住史**且**確為出生園（data.js 的 bornAtFirstZoo，與 gen_residence 的 🐣 同一定義）；
+// ⚠️ 不可只看 i===0——中國野生輸入等個體的首站是「來日後的第一座園」，不是出生地；
 // current＝最後一段、在世且訖日缺值；diedHere＝最後一段在此園且個體已故。
 const segInfo = (p) => {
   const res = p.residences || [];
@@ -51,7 +52,7 @@ const segInfo = (p) => {
       const isLast = i === res.length - 1;
       return {
         start: pdate(r.start), end: pdate(r.end), rawS: r.start, rawE: r.end,
-        bornHere: i === 0,
+        bornHere: i === 0 && bornAtFirstZoo(p),
         diedHere: !!p.died && isLast,
         current: isLast && !p.died && !r.end,
         from: prev ? zooName(prev.zoo_id, prev.zoo_raw, locale) || prev.zoo_raw : null,
@@ -73,10 +74,10 @@ const history = Object.values(pandas)
   .filter(Boolean);
 history.sort((a, b) => sortKey(a).localeCompare(sortKey(b)));
 
-// 該園出生：第一段居住史＝出生地（gen_residence 的 🐣 同一定義）
+// 該園出生：第一段居住史＝出生地（data.js 的 bornAtFirstZoo，與 gen_residence 的 🐣 同一定義）
 const bornKey = (p) => p.born || '9999';
 const births = Object.values(pandas)
-  .filter((p) => (p.residences || [])[0]?.zoo_id === z.id)
+  .filter((p) => (p.residences || [])[0]?.zoo_id === z.id && bornAtFirstZoo(p))
   .sort((a, b) => bornKey(b).localeCompare(bornKey(a))); // 新到舊
 
 const summary = [
@@ -121,6 +122,9 @@ const popPeak = pop.reduce((a, b) => (b.n > a.n ? b : a), pop[0] || { y: 0, n: 0
 // 每段的畫圖幾何與 tooltip：起／訖不詳用淡出漸層表示，不畫實線硬撐
 const sexLabel = (p) => (p.sex === 'female' ? T.sex_f : p.sex === 'male' ? T.sex_m : T.sex_unknown);
 const sexColor = (p) => (p.sex === 'female' ? 'var(--female)' : p.sex === 'male' ? 'var(--male)' : 'var(--ink-soft)');
+// 首站但非出生園（野生輸入／走私查獲／來源不詳）時的「從哪來」標示。
+// origin 已是五語 i18n 既有 key，不必新增字串。
+const srcLabel = (p) => (p.origin === 'wild' ? T.origin_wild : p.origin === 'confiscated' ? T.origin_confiscated : T.zoo_tl_src_unknown);
 const segTitle = (p, s) => {
   const bits = [
     `${displayName(p, locale)}（${sexLabel(p)}）`,
@@ -129,7 +133,7 @@ const segTitle = (p, s) => {
   if (s.start !== null && (s.end !== null || s.current)) {
     bits.push(T.zoo_tl_stay.replace('{n}', (((s.end ?? today) - s.start) / YEAR_MS).toFixed(1)));
   }
-  bits.push(s.bornHere ? '🐣 ' + T.zoo_tl_born : s.from ? T.zoo_tl_from.replace('{z}', s.from) : T.zoo_tl_src_unknown);
+  bits.push(s.bornHere ? '🐣 ' + T.zoo_tl_born : s.from ? T.zoo_tl_from.replace('{z}', s.from) : srcLabel(p));
   // 在此園過世＝「去了小熊星球」（2026-08-15 維護者裁定的暖語；日期照留，資訊不遺失）
   if (s.diedHere) bits.push('🪽 ' + (p.died ? T.zoo_tl_star_date.replace('{d}', p.died) : T.zoo_tl_star));
   else if (s.to) bits.push('→ ' + T.zoo_tl_to.replace('{z}', s.to));
@@ -286,7 +290,7 @@ const CHIP = 'inline-block bg-cream rounded-full px-2.5 py-px text-[.78rem] whit
                     ? <span class={CHIP}>🐣 {T.zoo_tl_born}</span>
                     : first.from
                       ? <span class={CHIP} set:html={zLink(first.fromSlug, first.from) + ' →'} />
-                      : <span class="text-ink-soft text-[.82rem]">{T.zoo_tl_src_unknown}</span>}
+                      : <span class="text-ink-soft text-[.82rem]">{srcLabel(p)}</span>}
                 </td>
                 <td class="p-2">
                   {last.diedHere

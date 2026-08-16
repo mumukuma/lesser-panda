@@ -230,6 +230,7 @@ def main():
             # 出身（非園內出生者才有值）：wild=野生出身（含野捕／救護）｜confiscated=走私查獲。
             # 個體頁在「物種」與「現居」之間多一列顯示；園內出生者為 None、該列不出現。
             "origin": r["origin"],
+            "birth_zoo": r["birth_zoo"],
             "rpf_id": r["rpf_id"],
             "rpf_url": r["rpf_url"],
             "instagram": json.loads(r["instagram"] or "[]"),

@@ -1,7 +1,7 @@
 ---
 /* 統計儀表板（#17）：全部由 pipeline/data 於建置期計算，純 HTML/CSS 長條圖、零 JS 零圖表庫。
    顏色一律走主題 CSS 變數 → 深色模式自動成立。僅統計日期已知的個體（見頁尾註）。 */
-import { pandas, i18n, displayName, zooName, zooSlugById, deceasedHtml, SHOW_REVIEW } from '../lib/data.js';
+import { pandas, i18n, displayName, zooName, zooSlugById, deceasedHtml, SHOW_REVIEW, bornAtFirstZoo } from '../lib/data.js';
 import { pandaUrl, pageUrl, zooUrl } from '../lib/links.js';
 
 const { locale } = Astro.props;
@@ -68,11 +68,12 @@ const rankCut = (arr, n, val) => {
 };
 
 // ── 出生寶寶數最多的動物園（前 15 名，同數並列一併列入）──────
-// 出生地＝第一段居住史的園（gen_residence 的 🐣 同一定義）
+// 出生地＝第一段居住史的園，且該首站確為出生園（data.js 的 bornAtFirstZoo，與 gen_residence 的 🐣 同一定義）
+// ⚠️ 野生輸入／來源不明個體的首站只是「來日後的第一座園」，不可計入該園的出生數。
 const birthCount = new Map();
 for (const p of all) {
   const r0 = (p.residences || [])[0];
-  if (!r0) continue;
+  if (!r0 || !bornAtFirstZoo(p)) continue;
   const key = r0.zoo_id ?? (r0.zoo_raw || null);
   if (key !== null) birthCount.set(key, (birthCount.get(key) || 0) + 1);
 }

@@ -6,6 +6,32 @@
 
 ---
 
+## 2026-08-16 ・修正：野生輸入個體被誤標成「在此出生」
+
+維護者在甲府市遊亀公園附属動物園頁指出——1985／1992 年由中國成都市贈送的四隻明明是野生輸入，
+園頁卻顯示成「在此出生」。追下去是**判定不一致**：`tools/gen_residence.py` 的 🐣 規則是
+「首站 **且**（起始日不詳 **或** 起始年＝生年）**且** frontmatter 未標 `birth_zoo: unknown`」，
+但網站端 `Zoo.astro` 只寫 `bornHere: i === 0`——把首站一律當出生園。`birth_zoo` 欄根本沒進 DB、
+也沒匯出，網站想判也判不了。
+
+- **`birth_zoo` 打通到網站**：`schema.sql` 加欄、`build_db.py` 讀 frontmatter（非 `unknown` 的值
+  會警告並忽略）、`export_json.py` 匯出。全庫 39 筆標了 `birth_zoo: unknown`。
+- **全站唯一判定 `bornAtFirstZoo(p)`**（`web/src/lib/data.js` 匯出），逐條對齊 gen_residence 的
+  🐣 規則。`Zoo.astro` 的時間軸 `bornHere`、園頁「該園出生」名單、`Stats.astro` 的
+  「最多寶寶出生的動物園」與 `data.js` 內部的 `_birthZooId`（餵 `/japan/` 逐年出生數、
+  出生月分布等）全部改用它。
+- **「從哪來」欄不再一律寫「來源不詳」**：首站但非出生園時，依 `origin` 顯示「野生出身」／
+  「走私查獲」，兩者都是既有 i18n key，**無需新增字串**（check_i18n 仍為 5×457）。
+
+**影響範圍：全庫 56 隻**（其中 39 隻標了 `birth_zoo: unknown`、28 隻 `origin: wild`），
+散在約 32 座園——多為 1980–90 年代由中國輸入的初代個體（甲府 4、西安秦嶺 3、Chongqing Zoo 3、
+野毛山 4、南京紅山 4…）。這些園的「該園出生」數與 `/stats/` 出生排行都會下修，屬**修正而非退步**。
+
+驗收：6,162 頁 build ✅、甲府頁截圖確認四隻改顯示「野生出身」且「在此出生的個體 0」、
+西山（53 筆真實出生）不受影響 ✅、`verify.sh` ✅、check_i18n 5×457 ✅、closed.test 68 pass ✅。
+
+---
+
 ## 2026-08-15 ・官方來源分類器：埼玉県こども動物自然公園 FB
 
 `build_db.py` 的 `OFFICIAL_FB_PAGES` 新增 `saitamazoo`——`facebook.com/saitamazoo` 由官網
