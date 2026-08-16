@@ -1235,13 +1235,17 @@
   "zh": null,
   "country": "Germany",
   "location_ja": null,
-  "location_en": "Gorlitz, Germany",
+  "location_en": "Görlitz, Saxony, Germany",
   "lat": 51.142518,
   "lng": 14.9788116,
   "map": "https://goo.gl/maps/xgBoW6RyMht",
   "website": "https://www.tierpark-goerlitz.de/de/",
   "logo": null,
-  "aliases": []
+  "aliases": [
+   "Naturschutz-Tierpark Görlitz-Zgorzelec",
+   "Tierpark Görlitz"
+  ],
+  "location_zh": "薩克森邦格爾利茨"
  },
  {
   "canonical": "Halls Gap Zoo",
@@ -3139,7 +3143,10 @@
   "map": "https://g.page/vogelpark-avifauna-240?share",
   "website": "https://www.avifauna.nl/home/",
   "logo": null,
-  "aliases": []
+  "aliases": [
+   "Zoo Alphen"
+  ],
+  "location_zh": "南荷蘭省阿爾芬安登賴恩"
  },
  {
   "canonical": "Warsaw Zoo",

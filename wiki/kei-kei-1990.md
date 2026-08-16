@@ -13,7 +13,7 @@ studbook_id: "9284"
 tags: [styani, female, deceased]
 sources:
   - https://web.archive.org/web/20120128200628/http://www.rotterdamzoo.nl/import/assetmanager/2/6732/Red%20Panda%20Studbook.pdf
-  - 維護者提供（2026-08-16：甲府市年報「平成4年10月16日　友好都市・成都市よりレッサーパンダ“川川”“佳佳”寄贈」）
+  - https://www.city.kofu.yamanashi.jp/somu-somu/shise/toke/documents/r6toukeisyo.pdf
 ---
 
 # Kei-Kei 🪽（佳佳 / ケイケイ）
@@ -56,9 +56,9 @@ sources:
 - **ISB 對帳（2026-08-16 建檔）**：ISB 2008 年版 `9284` 記 ♀／`~ 1990`／sire・dam 皆 `WILD`／
   `CHINA ???? NONE Capture`／Name 欄 `KEI-KEI`／`YUKI 14 Oct 1992 Transfer`（JAZGA 210C）／
   `17 Feb 1998 Death`（死因分類 `Unknown means`）。
-- ℹ️ **名字直接對上**：ISB 的 Name 欄 `KEI-KEI` 即「佳佳」的日文音讀，與甲府市年報所記的個體名一致
+- ℹ️ **名字直接對上**：ISB 的 Name 欄 `KEI-KEI` 即「佳佳」的日文音讀，與**甲府市統計書〈沿革〉**「平成4年10月16日　友好都市・成都市よりレッサーパンダ“川川”“佳佳”寄贈」所記的個體名一致
   （同批的 `SEN-SEN`＝川川 亦然）。⚠️ 兩者皆為**音讀**而非官話拼音（若照拼音應為 Jia-Jia／Chuan-Chuan）。
-- 🚧 **入園日 10-14 vs 年報的 10-16**：ISB 記 `14 Oct 1992` 到著；甲府市年報記「平成4年10月16日　寄贈」，
+- 🚧 **入園日 10-14 vs 年報的 10-16**：ISB 記 `14 Oct 1992` 到著；甲府市統計書〈沿革〉記「平成4年10月16日　友好都市・成都市よりレッサーパンダ“川川”“佳佳”寄贈」，
   相差 2 天，推測為**到著日**與**贈與式／公開日**之別。`zoos:` 採 ISB 的到著日。
 - **番號前兩碼是登録年、不是出生年**：`9283`／`9284` 為 1992 年入園的連號，生年 `~1990` 為推定值。
 - ℹ️ **成都出處在 ISB 上查不到**：ISB 對中國野捕個體的捕獲列只填到國別 `CHINA`、無中間機構。

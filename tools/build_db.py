@@ -88,6 +88,12 @@ OFFICIAL_HOSTS = {
     "kagoshima-hiroba.jp",
     # 日本自治體（園區隸屬市府）
     "city.ichikawa.lg.jp", "city.asahikawa.hokkaido.jp", "city.kawasaki.jp",
+    # 甲府市（遊亀公園附属動物園為市營）。園方公告在 /zoo/news/；另有兩份市府刊物載小熊貓沿革：
+    #   ・甲府市統計書〈沿革〉 /somu-somu/shise/toke/documents/r6toukeisyo.pdf
+    #   ・広報こうふ 2024-09-28 号「成都×甲府 友好都市締結40周年」 /shise/koho/kohoshi/r6/documents/20240928.pdf
+    # ⚠️ 兩份 PDF 皆為直排，文字層抽取會把同一行的區段順序前後顛倒（如「（トト、ヨーヨー）」
+    #    被抽成「）ヨーヨー、トト（」），引用列名順序前務必回頭核對版面。
+    "city.kofu.yamanashi.jp",
     "soumu.metro.tokyo.lg.jp", "city.sapporo.jp",  # 札幌市円山動物園
     "city.sabae.fukui.jp",  # 鯖江市西山動物園（園頁掛在市府站 /nishiyama_zoo/）
     # 台灣／港澳
@@ -105,6 +111,10 @@ OFFICIAL_HOSTS = {
     "drusillas.co.uk", "witheverland.com", "chiangmai.zoothailand.org", "sriayuthayalionpark.com",
     "hertfordshirezoo.com",  # Hertfordshire Zoo（英國；舊名 Paradise Wildlife Park）
     "woburnsafari.co.uk",  # Woburn Safari Park（英國貝德福德郡；含 /news-and-events/ 園方報導）
+    # Naturschutz-Tierpark Görlitz-Zgorzelec（德國薩克森邦；園方新聞 /de/news/detail/NNN-Titel，
+    # 舊連結不含 /de/ 亦可用。註冊表 canonical 為 Görlitz Zoo）
+    "tierpark-goerlitz.de", "www.tierpark-goerlitz.de",
+    "zoobudapest.com",  # Fővárosi Állat- és Növénykert 布達佩斯動物園（匈牙利；Görlitz 出身的 Dhaya 移居於此）
     # Diergaarde Blijdorp／Rotterdam Zoo（荷蘭）：國際小熊貓血統登録書（ISB）的編纂・保管園。
     # ⚠️ 原站 /import/assetmanager/ PDF 目錄 2012 年後整批下架，sources 一律走 Wayback 快照
     # （內層 host 為 rotterdamzoo.nl，`_unwrap_wayback` 會遞迴判為官方）；原檔存 sources/isb-red-panda/。
@@ -221,6 +231,7 @@ OFFICIAL_IG_ACCOUNTS = {
     "pueblozoo",  # Pueblo Zoo（同 pueblozoo.org；幼獸健檢等公告發於此）
     "buffalo_zoo",  # Buffalo Zoo（同 buffalozoo.org；抵園公告發於此）
     "love_ikedazoo",  # 池田動物園（官網頁尾 Instagram 連結指向此帳號）
+    "zoogoerlitz",  # Naturschutz-Tierpark Görlitz-Zgorzelec（官網 tierpark-goerlitz.de 頁尾 Instagram 連結指向此帳號；出生・健檢公告發於此）
 }
 _IG_HOSTS = {"instagram.com", "m.instagram.com"}
 _IG_NON_ACCOUNT_SEGS = {"p", "reel", "reels", "tv", "stories", "explore"}
@@ -247,6 +258,9 @@ OFFICIAL_URLS = {
     # 故 exblog 版視同園方一手（2026-08-16 認列，待維護者複核）。⚠️ 只認個別 URL，不整域列 exblog.jp——
     # 該平台同好部落格極多（如 mihorinh.exblog.jp「レサパン日和」），整域列入會把粉絲文誤判官方。
     "https://hcityzoo.exblog.jp/14894060/",
+    # 同上（姫Ｚｏｏぶろぐ exblog 版）：2009-06-30〈梅雨本番〉——レッサーパンダ フウフウ 的誕生日
+    # （6/29）與「１８才のおじいちゃん」，園方一手佐證 fuu-fuu-1991-06-29 的生日與在籍姫路市立動物園。
+    "https://hcityzoo.exblog.jp/8528084/",
 }
 
 _WAYBACK_HOSTS = {"web.archive.org", "archive.org"}
