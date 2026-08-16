@@ -16,10 +16,13 @@ tags: [styani, male, deceased, 待查證]
 sources:
   - https://web.archive.org/web/20120128200628/http://www.rotterdamzoo.nl/import/assetmanager/2/6732/Red%20Panda%20Studbook.pdf
   - 「西山まとめ」Google Sheet（gid=1439000613）
-  - 作者提供（生年）
+  - 維護者提供（生年）
 ---
 
 # Kei-Kei 🪽（慶慶, ケイケイ）
+
+> ⚠️ **注意同名**：甲府市遊亀公園附属動物園另有 [[kei-kei-1990]] 🪽（**佳佳** ケイケイ，♀ 約 1990 年生，
+> 1992 年成都市贈與，ISB `9284`），漢字不同但羅馬拼音與讀音相同，為**不同個體**。
 
 > **小熊貓** ♂ | Ailurus fulgens styani
 > 生日：1982　歿日：1990-11-24

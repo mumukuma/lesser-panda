@@ -240,6 +240,13 @@ OFFICIAL_URLS = {
     # 視同園方一手（維護者裁定 2026-08-15）。⚠️ 只認這一篇 URL，不整域列 smma.jp——該站另收
     # 多家館所的隨筆，整域列入會把非園方內容一併誤判為官方。
     "https://www.smma.jp/essay/%E4%BB%99%E5%8F%B0%E5%B8%82%E5%85%AB%E6%9C%A8%E5%B1%B1%E5%8B%95%E7%89%A9%E5%85%AC%E5%9C%92%E3%81%AE%E6%84%9B%E3%81%99%E3%81%B9%E3%81%8D%E9%95%B7%E5%AF%BF%E5%8B%95%E7%89%A9%E3%81%AB%E3%81%A4%E3%81%84-2/",
+
+    # 姫路市立動物園 公式ブログ「姫Ｚｏｏぶろぐ」的舊址（exblog 版，投稿者 `dobutuen`，
+    # 副標「姫路市立動物園での『あんなこと』『こんなこと』を紹介します」）。該部落格後來搬到市府網域
+    # https://www.city.himeji.lg.jp/hcityzoo/（同名同路徑名 hcityzoo，站上仍留「ブログのお引越しのお知らせ。」一文），
+    # 故 exblog 版視同園方一手（2026-08-16 認列，待維護者複核）。⚠️ 只認個別 URL，不整域列 exblog.jp——
+    # 該平台同好部落格極多（如 mihorinh.exblog.jp「レサパン日和」），整域列入會把粉絲文誤判官方。
+    "https://hcityzoo.exblog.jp/14894060/",
 }
 
 _WAYBACK_HOSTS = {"web.archive.org", "archive.org"}
