@@ -6,6 +6,7 @@ born: 1984
 died: 2006-12-04
 species: Ailurus fulgens styani
 origin: wild
+origin_place: cn
 zoos:
   - 池田動物園 (1986-12-16 – 2006-12-04)
 studbook_id: "8643"

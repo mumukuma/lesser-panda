@@ -6,6 +6,7 @@ born: 1992
 died: 2009-07-20
 species: Ailurus fulgens styani
 origin: wild
+origin_place: cn
 zoos:
   - 長崎バイオパーク (1994-04-02 – 2009-07-20)
 birth_zoo: unknown

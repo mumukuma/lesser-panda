@@ -230,9 +230,21 @@ def main():
             # 出身（非園內出生者才有值）：wild=野生出身（含野捕／救護）｜confiscated=走私查獲。
             # 個體頁在「物種」與「現居」之間多一列顯示；園內出生者為 None、該列不出現。
             "origin": r["origin"],
+            # 出身地（選填）：受控詞彙、只到國別／地區。個體頁併進「出身」列顯示成「野生出身（中國）」；
+            # 沒有值就只印出身本身。i18n key 為 origin_place_<值，連字號換底線>。
+            "origin_place": r["origin_place"],
+            # 來自（選填）：市級來源地＋年＋方式，個體頁「出身」與「現居」之間多一列。
+            "origin_from": r["origin_from"],
+            "origin_from_year": r["origin_from_year"],
+            "origin_from_kind": r["origin_from_kind"],
             "birth_zoo": r["birth_zoo"],
             "rpf_id": r["rpf_id"],
             "rpf_url": r["rpf_url"],
+            # ISB 番號：個體頁「編號」列用，該列以 import.meta.env.DEV 包住＝只在 pnpm dev 顯示。
+            # 匯出到 pandas.json 是安全的——pandas.json 只在建置期由 data.js 讀（node fs），
+            # 不會被複製進 web/dist、也沒有任何元件把它內嵌進 HTML。
+            # ⚠️ 但**別把它加進 searchDataFor／ZOOS_DATA 之類的內嵌資料**，那才是真的會上站。
+            "studbook_id": r["studbook_id"],
             "instagram": json.loads(r["instagram"] or "[]"),
             # 展示用 YouTube 影片（個體頁「照片與影片」影片分頁）；佐證用 YT 連結仍在 extra_sources
             "youtube": json.loads(r["youtube"] or "[]"),

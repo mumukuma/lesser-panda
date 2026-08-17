@@ -41,6 +41,10 @@ died: YYYY-MM-DD   # 若健在則省略
 last_seen: YYYY-MM-DD  # 選填（檔案卡用）：最後一次由來源「確認在世／在園」的日期，粒度隨來源（YYYY-MM-DD／YYYY-MM／YYYY）。動向不明個體以此誠實記錄，不猜 died
 species: Ailurus fulgens styani | Ailurus fulgens fulgens   # 亞種不詳（如走私查獲個體）→ 整行省略此欄；勿寫種名層級的 `Ailurus fulgens`，build_db 的字串比對會判成 fulgens 亞種
 origin: wild | confiscated  # 選填（2026-08-13 起）：非園內出生的出身。`wild`＝野生出身（含野生捕獲與野生救護）｜`confiscated`＝走私查獲。**個體頁會在「物種」與「現居」之間多一列「出身」顯示**；園內出生者一律省略此欄、該列不出現。白名單外的值 build_db 會警告並忽略。內文措辭仍照下方〈野生／來源不明出身個體〉的三級分寸寫，不因本欄只有兩個值而放寬
+origin_place: cn           # 選填（2026-08-17 起）：出身地，**只在 origin 有值時有意義**（單獨填會被 build_db 忽略）。**受控詞彙、粒度只到國別／地區**：`cn`（中國）｜`np`（尼泊爾）｜`in`（印度）｜`in-sikkim`（印度錫金）｜`in-darjeeling`（印度大吉嶺）｜`bt`（不丹）｜`mm`（緬甸）——比照 ISB 的 locality code。個體頁併進「出身」列顯示成「野生出身（中國）」。**市級來源地（如「1985 年成都市贈與」）是輸出地而非出身地，寫內文、不進本欄**；白名單外的值 build_db 會警告並忽略
+origin_from: cn-chengdu    # 選填三欄一組（2026-08-17 起）：官方寫得出「哪個市贈與／交換」、但**指不出是哪一座園**時用（如甲府市統計書〈沿革〉「友好都市・成都市よりレッサーパンダ寄贈」）。受控詞彙：`cn-chengdu`／`cn-xian`／`cn-beijing`／`cn-chongqing`／`cn-shenyang`／`cn-harbin`／`cn-guangzhou`。**⚠️ 來源園指名得出來就記進 `zoos:` 首站、不要填這裡**（居住史表本來就會顯示地點，重複會變兩處講同一件事）
+origin_from_year: 1985     # 選填：官方記載的贈與／交換／移入年
+origin_from_kind: gift     # 選填：`gift`＝贈與｜`exchange`＝動物交換｜`transfer`＝移入。查不到方式就整行省略，只顯示地點＋年
 zoos:                      # 居住史唯一來源（frontmatter 為準）；內文「## 居住史」表格純衍生，由 tools/gen_residence.py 自動生成、勿手改
   - 動物園名稱 (起 – 訖)     # 園名須為 data/zoos.json 註冊表 canonical（未登記 build 報錯）；起訖可用 YYYY-MM-DD / YYYY / 現居留空。更正居住地只改這裡再重建；地點欄由 data/zoos.json 的 location_ja 自動帶入
 birth_zoo: unknown         # 選填：明示「首站不是出生園／出生園不詳」。居住史首站起始日不詳時本來一律被標 🐣 出生地，來源若明寫「出自不明」（如多摩個體名單的華華・中中）標了就與來源矛盾，填 unknown 即不標 🐣。查到出生園後移除此欄
@@ -51,7 +55,7 @@ siblings:                  # 選填：維護者確認為兄弟姊妹、但共同
   - 對方-slug
 rpf_id: RedPandaFinder 的 profile ID
 rpf_url: https://redpandafinder.com/#profile/XXX
-studbook_id: "94102"      # 選填（2026-08-09 起）：RPF 資料集 `/export/redpanda.json` 的 `studbook.id` 欄位（RPF 網頁 UI 不顯示）。**號碼本身已證實即國際血統登録書（ISB）番號**（2026-08-09，以 8935／8936、9177、9441／9442 三組錨點交叉驗證；ISB 2008 年版原檔存 `sources/isb-red-panda/`，對帳見 `docs/ISB-2008-對帳-2026-08-09.md`）。RPF 欄位本身仍只是索引，**佐證一律引 ISB 原檔、不引 RPF**；網站不顯示此欄。一律加引號（有前導零，如 `"0992"`）。規律：番號前兩碼＝出生年後兩碼（887 筆中 884 筆吻合）；**但野生捕獲／海外引進個體是登録年、不是出生年**（如 `taisyu-1987`／`rin-rin-1987` 為連號 8935／8936＝1989 入園年，ISB 記其生年為 `~1987`），推定生年時只能當「不晚於該年出生」的下限
+studbook_id: "94102"      # 選填（2026-08-09 起）：RPF 資料集 `/export/redpanda.json` 的 `studbook.id` 欄位（RPF 網頁 UI 不顯示）。**號碼本身已證實即國際血統登録書（ISB）番號**（2026-08-09，以 8935／8936、9177、9441／9442 三組錨點交叉驗證；ISB 2008 年版原檔存 `sources/isb-red-panda/`，對帳見 `docs/ISB-2008-對帳-2026-08-09.md`）。RPF 欄位本身仍只是索引，**佐證一律引 ISB 原檔、不引 RPF**；網站**正式站**不顯示此欄；`pnpm dev` 的個體頁多一列「編號」顯示 `ISB <番號> · RPF #<id>`（`Panda.astro` 以 `import.meta.env.DEV` 包住，正式 build 連 HTML 都不產生），沒有番號時印 `ISB —` 佔位，用來一眼看出哪些還沒對過 ISB。一律加引號（有前導零，如 `"0992"`）。規律：番號前兩碼＝出生年後兩碼（887 筆中 884 筆吻合）；**但野生捕獲／海外引進個體是登録年、不是出生年**（如 `taisyu-1987`／`rin-rin-1987` 為連號 8935／8936＝1989 入園年，ISB 記其生年為 `~1987`），推定生年時只能當「不晚於該年出生」的下限
 tags: [標籤]
 instagram:                # 選填：同好的公開 IG 貼文連結，網站以官方 embed 展示（自動署名、連回原貼文）
   - https://www.instagram.com/帳號/p/XXXXXXXXX/ 2025-06-01   # 建議用含「帳號」的完整形式；可在連結後加貼文日期，網站依日期新到舊排序；超過 6 篇自動「顯示更多」
@@ -94,6 +98,8 @@ ISB 的 `sire`／`dam` 只有兩種非數字值，含義完全不同：
 ### 逐欄寫法
 
 - **`origin:`**（上站用）：`wild`＝野生出身（含野生捕獲與野生救護）／`confiscated`＝走私查獲。個體頁的「出身」列由此欄驅動（`field_origin`／`origin_wild`／`origin_confiscated`，五語）。**只有兩個值是刻意的**——頁面上不區分「野捕／雙親無登録／救護」，那層分寸留在內文措辭；ISB 判為 `UNK`、或出身純屬不詳者**不填此欄**（頁面不出現該列，「不詳」由父母行表達）。⚠️ `hana-2023`／`hashi-2022`／`qiu-qiu-kaohsiung` 另有早期的 `rescue` tag，該 tag 未接進任何管線、純為 grep 標記，`origin:` 才是正本。
+- **`origin_place:`**（上站用，2026-08-17 起）：出身地，值為受控詞彙 `cn`／`np`／`in`／`in-sikkim`／`in-darjeeling`／`bt`／`mm`。個體頁把它併進「出身」列顯示成「**野生出身（中國）**」（i18n `origin_fmt` ＋ `origin_place_*`，五語）。**粒度只到國別／地區**，理由有二：① 五語站點，自由文字地名在 ja／en／ko 頁會露出中文；② ISB 的 locality 本來就只記到 `CHINA`／`NEPAL`／`GANGTOK`／`DARJEELIN` 這個層級。**⚠️ 輸出地 ≠ 出身地**：「1985 年由成都市贈與」「1982 年經北京動物園輸日」講的是**輸出／中轉地**（小熊貓也不分布於成都市區或北京），這類資訊寫內文——來源園有一手佐證就照下面 `zoos:` 的規則記成首站——**不可**拿來當出身地的細粒度值。連來源國都判不出來（如 `dong-dong-1985`／`tien-tien-1984-07-21` 只知經動物商 `FERNDALE`、走私查獲的三隻來源不明）就**整欄省略**：出身列照樣顯示「野生出身」，只是不帶地名。
+- **`origin_from:` / `origin_from_year:` / `origin_from_kind:`**（上站用，2026-08-17 起）：個體頁在「出身」與「現居」之間多一列「**來自**」，顯示成「**中國四川省成都市・1985 年贈與**」（ja「中国四川省成都市・1985 年寄贈」／en「Chengdu, Sichuan, China · gift, 1985」）。**用途是補「官方有贈與紀錄、但指不出來源園」這一格資訊**——個體頁是資料驅動、不吃 wiki 內文，寫在內文的贈與經緯在網站上是看不到的。三欄一組：地點必填、年與方式選填（只有地點就只印地點；有年無方式印「…・1985 年」）。**⚠️ 與 `zoos:` 首站互斥**：來源園指名得出來（北京動物園、Chongqing Zoo、西安秦嶺野生動物園…）就照上面的規則記成首站，由居住史表呈現，**不要再填 `origin_from`**，否則同一件事會在頁面上出現兩次。與 `origin_place` 的分工：`origin_place`＝**出身**（國別／地區，牠是哪裡的個體），`origin_from`＝**來自**（市級，牠怎麼、何時到這座園的）。
 - **`born:`**：只採 ISB 的 `~ YYYY` 年份、**永不補月日**；slug 用該年（如 `taisyu-1987`）。引言固定寫「生年：約 YYYY 年（生年不詳・野生出身，依國際血統登録書推定）」。備注順帶記「番號前兩碼＝登録年非出生年」，避免日後由番號反推錯生年（8935 ≠ 1989 年生）。
 - **`birth_zoo: unknown`**：**必填**。否則 `gen_residence.py` 會把居住史首站標成 🐣 出生地。
 - **`zoos:`** 依佐證決定首站：

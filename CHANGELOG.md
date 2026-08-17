@@ -6,6 +6,54 @@
 
 ---
 
+## 2026-08-17 ・個體頁「出身」列可帶出身地：新增 `origin_place`
+
+維護者問「列了野生出身的個體，來源處（例：中國成都）該怎麼顯示」。原本 `origin:` 只有兩個值、
+頁面就只印「野生出身」，來源地全埋在內文。新增選填 frontmatter `origin_place:` 併進同一列，
+顯示成「**野生出身（中國）**」。
+
+- **受控詞彙、粒度只到國別／地區**：`cn`／`np`／`in`／`in-sikkim`／`in-darjeeling`／`bt`／`mm`，
+  比照 ISB 的 locality code（`CHINA` 100／`DARJEELIN` 58／`GANGTOK` 22／`INDIA` 21／`NEPAL` 8…）。
+  不收自由文字地名——五語站點，中文地名會直接露在 ja／en／ko 頁上。
+- **⚠️ 輸出地 ≠ 出身地**：「1985 年成都市贈與」「經北京動物園輸日」是輸出／中轉地（小熊貓也不分布於
+  成都市區或北京），仍寫內文、來源園有佐證就照舊記成 `zoos:` 首站，**不進本欄**。
+- 管線比照 `origin:`：`tools/schema.sql` 加欄＋CHECK →`build_db.py`白名單（`ORIGIN_PLACES`）外警告並忽略、
+  **有 `origin_place` 但無 `origin` 也忽略**（沒有出身列可掛）→ `export_json.py` 匯出 →
+  `web/src/components/Panda.astro` 的 `originCell`（地名或 `origin_fmt` 缺就退回只印出身本身）。
+- i18n 新增 8 key×5 語（`origin_fmt` ＋ 7 個 `origin_place_*`），check_i18n 由 5×458 → **5×466**。
+- **回填 30 隻**（全庫 37 隻有 `origin` 者）：26 隻 ISB 有 `CHINA` 捕獲列、
+  `kei-kei-1982`（首站北京動物園）、`tan-tan-1978`／`yui-yui-1980`（園報記中國西安市贈與）、
+  `pei-pei`（廣州野生救護）。其餘 7 隻來源國判不出來，刻意留空：
+  `nana-1978`／`sei-sei-1978`（ISB 只記入園）、`dong-dong-1985`／`tien-tien-1984-07-21`（經動物商 `FERNDALE`）、
+  走私查獲的 `hana-2023`／`hashi-2022`／`qiu-qiu-kaohsiung`。
+
+### 追加：官方贈與資訊上站——「來自」列（`origin_from` 三欄）
+
+維護者追問「有些有官方贈與資訊，我應該如何顯示」。個體頁是資料驅動、**不吃 wiki 內文**，
+所以「1985 年成都市贈與」寫在內文等於不會顯示。維護者裁定（2026-08-17）：出身列維持國別、
+**另開一列「來自」**帶市級來源地＋年＋方式。
+
+- 三欄一組：`origin_from`（受控詞彙 `cn-chengdu`／`cn-xian`／`cn-beijing`／`cn-chongqing`／
+  `cn-shenyang`／`cn-harbin`／`cn-guangzhou`）、`origin_from_year`、`origin_from_kind`
+  （`gift` 贈與／`exchange` 動物交換／`transfer` 移入；查不到就留空只印地點＋年）。
+- 顯示：zh「中國四川省成都市・1985 年贈與」／ja「中国四川省成都市・1985 年寄贈」／
+  en「Chengdu, Sichuan, China · gift, 1985」／ko「중국 쓰촨성 청두시 · 1985년 기증」。
+  列標籤 `field_origin_from`＝來自／来自／来園元／Came from／도입 출처（不能沿用「來源」，
+  那四個字已是下方 sources 區塊的標題 `sec_sources`）。
+- **⚠️ 與 `zoos:` 首站互斥**：來源園指名得出來就記成首站（北京動物園、Chongqing Zoo、
+  西安秦嶺野生動物園），居住史表本來就會顯示地點；`origin_from` 只補「官方只寫到市級」那一格。
+- i18n 再加 13 key×5 語，check_i18n **5×466 → 5×479**。
+- 回填 8 隻：甲府 `to-to-1983`／`you-you-1983`（1985 成都市寄贈）與 `sen-sen-1990`／`kei-kei-1990`
+  （1992 成都市寄贈）——兩批皆出自甲府市統計書〈沿革〉；夢見ヶ崎 `you-you-1991`／`sen-sen-1991`
+  （1992 瀋陽市贈與，出自園方掲示轉錄）；多摩 `hana-hana`／`naka-naka`（ISB 記 1987 經 `HARBIN` 移入，
+  **方式無佐證故留空**）。西山 3・安佐 2・日本平 2 已有來源園首站，依互斥原則不填。
+
+**順帶更正三處措辭**（詳見 `wiki/log.md`）：`kei-kei-1982` 的備注原稱 ISB `8528` 有 `CHINA ???? NONE Capture`，
+實際該筆**只有** `SABAE 2 Apr 1985 Transfer`、無捕獲列（有捕獲列的是同批的 `8426` 胖胖・`8427` 秀秀）；
+`tan-tan-1978`／`yui-yui-1980` 同樣無捕獲列，卻寫成「野生捕獲」——三隻依〈用詞三級〉都只能寫「野生出身」。
+
+---
+
 ## 2026-08-16 ・修正：野生輸入個體被誤標成「在此出生」
 
 維護者在甲府市遊亀公園附属動物園頁指出——1985／1992 年由中國成都市贈送的四隻明明是野生輸入，

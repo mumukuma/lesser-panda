@@ -7,16 +7,19 @@ born: 1983
 died: 1998-09-28
 species: Ailurus fulgens styani
 origin: wild
+origin_place: cn
 zoos:
-  - 北京動物園 (1983 – 1985-04-02)
+  - 北京動物園 ( – 1985-04-02)
   - 鯖江市西山動物園 (1985-04-02 – 1998-09-28)
+birth_zoo: unknown
 rpf_id:
 studbook_id: "8426"
 tags: [styani, female, deceased, 待查證]
 sources:
   - https://web.archive.org/web/20120128200628/http://www.rotterdamzoo.nl/import/assetmanager/2/6732/Red%20Panda%20Studbook.pdf
+  - https://www.city.sabae.fukui.jp/nishiyama_zoo/info/history.html
   - 「西山まとめ」Google Sheet（gid=1439000613）
-  - 作者提供（生年）
+  - 維護者提供（生年）
 ---
 
 # Pan-Pan 🪽（胖胖, パンパン）
@@ -38,7 +41,7 @@ sources:
 | 期間 | 動物園 | 地點 |
 |------|--------|------|
 | 1985-04-02 – 1998-09-28 | 鯖江市西山動物園 | 日本 福井縣鯖江市 🇯🇵 |
-| 1983 – 1985-04-02 | 北京動物園 🐣 | 中國 北京市西城區 🇨🇳 |
+| ? – 1985-04-02 | 北京動物園 | 中國 北京市西城區 🇨🇳 |
 ---
 
 ## 家族
@@ -59,6 +62,12 @@ sources:
 
 ## 備注
 
+- **北京動物園：官方沿革佐證、ISB 無紀錄（2026-08-17 查證）**：鯖江市西山動物園〈沿革〉（官方一手）記
+  昭和59年11月「第1次動物交流　北京動物園よりレッサーパンダ2頭・キジ類が来園」、昭和60年3月「市制30周年記念により
+  レッサーパンダ1頭来園」。ISB 本筆只記 `CHINA` 捕獲與入 SABAE，**無 `BEIJING` 中繼列**——但輸日的中國個體 ISB
+  一律不記中間機構，不可反推「沒住過」。詳細比對見 `kei-kei-1982` 的備注。
+  仍非出生園（ISB `sire`／`dam` 皆 `WILD`）：2026-08-17 補 `birth_zoo: unknown`、首站起始年（原為推定生年）改留空。
+- 🚧 **入園日待裁定**：ISB 的 `2 Apr 1985`／`2 Apr 1986` 疑為開園日／登録日，官方沿革記動物昭和59年11月・昭和60年3月即來園。
 - **血統番號 `8426`、中國野生捕獲（2026-08-15 補）**：ISB `8426`（♀，推定 `~1982` 生，
   `CHINA ???? NONE Capture`，1985-04-02 入 SABAE）。認定依據是**子女完全對得上**：
   ISB 記 `8426` 有三子 `8626`（遊遊）・`8627`（鈴鈴）・`8838`（愛愛），

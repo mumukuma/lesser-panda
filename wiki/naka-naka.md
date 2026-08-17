@@ -5,6 +5,9 @@ sex: male
 born: 1985
 died: 1995-02-06
 origin: wild
+origin_place: cn
+origin_from: cn-harbin
+origin_from_year: 1987
 species: Ailurus fulgens styani
 zoos:
   - 多摩動物公園 (1987-12-09 – 1995-02-06)

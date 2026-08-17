@@ -119,8 +119,47 @@ const speciesCell = (() => {
 })();
 
 // 出身（#origin）：非園內出生者才顯示。值→i18n key 對照，缺 key 就不顯示（勿吐出 undefined）。
+// 出身地（origin_place，選填）有值就併進同一列：「野生出身（中國）」。地名 i18n key 為
+// origin_place_<值，連字號換底線>；地名或格式字缺就退回只印出身本身，永不吐出代碼或 undefined。
 const ORIGIN_KEY = { wild: 'origin_wild', confiscated: 'origin_confiscated' };
-const originCell = p.origin && T[ORIGIN_KEY[p.origin]] ? T[ORIGIN_KEY[p.origin]] : null;
+const originCell = (() => {
+  const label = p.origin && T[ORIGIN_KEY[p.origin]] ? T[ORIGIN_KEY[p.origin]] : null;
+  if (!label) return null;
+  const place = p.origin_place ? T['origin_place_' + p.origin_place.replace(/-/g, '_')] : null;
+  if (!place) return label;
+  return (T.origin_fmt || '{origin}（{place}）').replace('{origin}', label).replace('{place}', place);
+})();
+
+// 來自（#origin_from）：官方只寫得出「哪個市贈與／交換」、指不出是哪一座園時才有值
+//（指名得出來源園的一律走 zoos: 首站，由居住史表呈現，不在這裡重複）。
+// 地點必填，年與方式選填：三者齊 →「中國四川省成都市・1985 年贈與」；只有年 →「…・1985 年」；
+// 只有地點 → 只印地點。地名 key 缺就整列不出現，永不吐出代碼。
+const fromCell = (() => {
+  if (!p.origin_from) return null;
+  const place = T['origin_from_' + p.origin_from.replace(/-/g, '_')];
+  if (!place) return null;
+  if (!p.origin_from_year) return place;
+  const kind = p.origin_from_kind ? T['origin_from_kind_' + p.origin_from_kind] : null;
+  const fmt = kind
+    ? (T.origin_from_fmt_year_kind || '{place}・{year} 年{kind}')
+    : (T.origin_from_fmt_year || '{place}・{year} 年');
+  return fmt.replace('{place}', place).replace('{year}', p.origin_from_year).replace('{kind}', kind || '');
+})();
+
+// ── 編號列（僅 dev；見下方 facts 的 import.meta.env.DEV 註解）────────────────
+// ISB 番號是字串（前導零，如 0085），照原樣印；沒有就印 em dash 佔位。
+// RPF 有 rpf_url 就做成連結，方便直接開原始 profile 覆核。
+const idsCell = (() => {
+  const isb = p.studbook_id
+    ? `ISB <span class="font-mono">${p.studbook_id}</span>`
+    : `ISB <span class="text-ink-soft/60">—</span>`;
+  const rpf = p.rpf_id
+    ? (p.rpf_url
+        ? ` · <a class="text-rust hover:underline font-mono" href="${p.rpf_url}" rel="noopener noreferrer" target="_blank">RPF #${p.rpf_id}</a>`
+        : ` · <span class="font-mono">RPF #${p.rpf_id}</span>`)
+    : '';
+  return `<span class="text-[.84rem] text-ink-soft">${isb}${rpf}</span>`;
+})();
 
 const facts = [
   [T.field_sex, `<span class="inline-block text-[.76rem] px-2 py-px rounded-full ${p.sex === 'female' ? 'bg-[#f7e3df] text-female' : p.sex === 'male' ? 'bg-[#dfeef2] text-male' : 'bg-cream text-rust-dark'}">${sexTxt}</span>`],
@@ -130,7 +169,14 @@ const facts = [
   // 出身：僅非園內出生者有值（wild=野生出身、含野捕／救護；confiscated=走私查獲）。
   // 園內出生者 origin 為 null，整列不出現。未知值不顯示（build_db 已擋在白名單外）。
   originCell ? [T.field_origin, originCell] : null,
+  // 來自：市級來源地（＋年、方式）。沒有 origin 也可以有這一列（園內出生但由某市贈與者）。
+  fromCell ? [T.field_origin_from, fromCell] : null,
   curZoo ? [T.field_zoo, curZoo] : null,
+  // 編號（僅開發模式）：ISB 血統番號 + RPF profile ID，用來一眼看出這隻對過帳沒有。
+  // ⚠️ import.meta.env.DEV 為真才進 facts —— 正式 build 這一列連 HTML 都不會產生
+  //   （同 Layout.astro 季節切換鈕、data.js SHOW_REVIEW 的作法）。
+  // ISB 沒有值時**故意留佔位「—」**而不是整列消失：空號本身就是「這隻還沒對 ISB」的訊號。
+  import.meta.env.DEV ? [T.field_ids, idsCell] : null,
 ].filter(Boolean);
 
 // 蘋果籽佔位（尚未命名的寶寶）標記 🍎，掛在名字後（role=img+aria-label：SR 念「蘋果籽」而非「紅蘋果」）

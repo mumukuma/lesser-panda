@@ -7,16 +7,19 @@ born: 1981
 died: 1988-02-27
 species: Ailurus fulgens styani
 origin: wild
+origin_place: cn
 zoos:
-  - 北京動物園 (1981 – 1986-04-02)
+  - 北京動物園 ( – 1986-04-02)
   - 鯖江市西山動物園 (1986-04-02 – 1988-02-27)
+birth_zoo: unknown
 rpf_id:
 studbook_id: "8427"
 tags: [styani, female, deceased, 待查證]
 sources:
   - https://web.archive.org/web/20120128200628/http://www.rotterdamzoo.nl/import/assetmanager/2/6732/Red%20Panda%20Studbook.pdf
+  - https://www.city.sabae.fukui.jp/nishiyama_zoo/info/history.html
   - 「西山まとめ」Google Sheet（gid=1439000613）
-  - 作者提供（生年）
+  - 維護者提供（生年）
 ---
 
 # Shuu-Shuu 🪽（秀秀, シュウシュウ）
@@ -36,7 +39,7 @@ sources:
 | 期間 | 動物園 | 地點 |
 |------|--------|------|
 | 1986-04-02 – 1988-02-27 | 鯖江市西山動物園 | 日本 福井縣鯖江市 🇯🇵 |
-| 1981 – 1986-04-02 | 北京動物園 🐣 | 中國 北京市西城區 🇨🇳 |
+| ? – 1986-04-02 | 北京動物園 | 中國 北京市西城區 🇨🇳 |
 ---
 
 ## 家族
@@ -58,6 +61,12 @@ sources:
 
 ## 備注
 
+- **北京動物園：官方沿革佐證、ISB 無紀錄（2026-08-17 查證）**：鯖江市西山動物園〈沿革〉（官方一手）記
+  昭和59年11月「第1次動物交流　北京動物園よりレッサーパンダ2頭・キジ類が来園」、昭和60年3月「市制30周年記念により
+  レッサーパンダ1頭来園」。ISB 本筆只記 `CHINA` 捕獲與入 SABAE，**無 `BEIJING` 中繼列**——但輸日的中國個體 ISB
+  一律不記中間機構，不可反推「沒住過」。詳細比對見 `kei-kei-1982` 的備注。
+  仍非出生園（ISB `sire`／`dam` 皆 `WILD`）：2026-08-17 補 `birth_zoo: unknown`、首站起始年（原為推定生年）改留空。
+- 🚧 **入園日待裁定**：ISB 的 `2 Apr 1985`／`2 Apr 1986` 疑為開園日／登録日，官方沿革記動物昭和59年11月・昭和60年3月即來園。
 - **血統番號 `8427`、中國野生捕獲（2026-08-15 補）**：ISB `8427`（♀，生日欄 `????`，
   `CHINA ???? NONE Capture`，歿 **1988-02-27**）——歿日與本條目**逐日吻合**。
   ⚠️ 該筆生日欄是 `????`，`sources/isb-red-panda/ISB-2008-register.csv` 的解析會整筆丟掉，

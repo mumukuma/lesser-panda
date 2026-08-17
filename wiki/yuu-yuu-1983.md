@@ -7,6 +7,7 @@ born: 1983
 died: 2003-12-31
 species: Ailurus fulgens styani
 origin: wild
+origin_place: cn
 birth_zoo: unknown
 zoos:
   - Chongqing Zoo ( – 1987-07-12)

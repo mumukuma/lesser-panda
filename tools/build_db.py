@@ -46,6 +46,18 @@ from wiki_io import parse_frontmatter  # noqa: E402
 # 幽靈親代識別碼格式（frontmatter mother_ref / father_ref）：`isb:<番號>` 優先、`rpf:<id>` 備用。
 _PARENT_REF_RE = re.compile(r"(?:isb|rpf):[A-Za-z0-9]+")
 
+# 出身地（frontmatter origin_place）白名單。**只到國別／地區**，粒度比照 ISB 的 locality code
+# （CHINA／NEPAL／INDIA／SIKKIM＝錫金／GANGTOK＝錫金首府／DARJEELIN＝大吉嶺／BHUTAN／BURMA）。
+# 市級來源地（如「成都市贈與」）是輸出地而非出身地，寫內文即可、不進本欄。
+# ⚠️ 新增值時要同步：tools/schema.sql 的 CHECK、五份 pipeline/src/i18n/*.json 的 origin_place_* key。
+ORIGIN_PLACES = ("cn", "np", "in", "in-sikkim", "in-darjeeling", "bt", "mm")
+
+# 來自（frontmatter origin_from）白名單：市級來源地。用於「官方只寫到市級、指不出是哪一座園」的個體
+# （如甲府市統計書〈沿革〉的「友好都市・成都市より寄贈」）。⚠️ 指名得出來源園就記進 zoos: 首站，別重複填。
+# 新增值時要同步：tools/schema.sql 的 CHECK、五份 i18n 的 origin_from_<值，連字號換底線> key。
+ORIGIN_FROMS = ("cn-chengdu", "cn-xian", "cn-beijing", "cn-chongqing", "cn-shenyang", "cn-harbin", "cn-guangzhou")
+ORIGIN_FROM_KINDS = ("gift", "exchange", "transfer")   # 贈與／動物交換／移入
+
 # ⚠️ 日後新增園方官網時，把 host 補進 OFFICIAL_HOSTS 即會自動顯示。
 # ⚠️ 另有「是官方、但不對外呈現連結」的第三類，見下方 NON_PUBLIC_HOSTS（目前只有 ISB）。
 OFFICIAL_HOSTS = {
@@ -171,6 +183,7 @@ OFFICIAL_FB_PAGES = {
     "columbuszoo",     # Columbus Zoo and Aquarium 官方專頁（官網頁尾 Facebook 連結指向此專頁）
     "pueblozoo",       # Pueblo Zoo 官方專頁（同 pueblozoo.org；出生・命名公告發於此）
     "saitamazoo",      # 埼玉県こども動物自然公園 官方專頁（parks.or.jp/sczoo 頁尾 SNS 連結指向此）
+    "zoobojnice",      # ZOO BOJNICE 官方專頁（page id 100064523241079；出生日等細節只發於此，官網 /tag/panda-cervena/ 未收）
 }
 _FB_HOSTS = {"facebook.com", "m.facebook.com", "web.facebook.com", "fb.com"}
 
@@ -601,6 +614,37 @@ def build_db():
                 print(f"  ⚠️  {slug}: origin 值 `{origin}` 不在白名單（wild／confiscated），已忽略")
             origin = None
 
+        # 出身地（選填，2026-08-17 起）：受控詞彙、只到國別／地區（粒度比照 ISB locality code）。
+        # 市級來源地（如「1985 年成都市贈與」）是輸出地而非出身地，寫內文、不進本欄。
+        # 沒有 origin 就沒有「出身」列可掛，單獨填 origin_place 一律忽略（避免資料看得見卻永不顯示）。
+        origin_place = (str(fm.get("origin_place") or "").strip().lower() or None)
+        if origin_place and origin_place not in ORIGIN_PLACES:
+            print(f"  ⚠️  {slug}: origin_place 值 `{origin_place}` 不在白名單（{'／'.join(ORIGIN_PLACES)}），已忽略")
+            origin_place = None
+        if origin_place and not origin:
+            print(f"  ⚠️  {slug}: 有 origin_place 但無 origin，已忽略（出身列不會出現）")
+            origin_place = None
+
+        # 來自（選填三欄一組，2026-08-17 起）：市級來源地＋年＋方式。獨立於 origin——
+        # 園內出生但由某市贈與的個體也適用。年與方式都依附 origin_from，沒有地點就一併忽略。
+        origin_from = (str(fm.get("origin_from") or "").strip().lower() or None)
+        if origin_from and origin_from not in ORIGIN_FROMS:
+            print(f"  ⚠️  {slug}: origin_from 值 `{origin_from}` 不在白名單，已忽略")
+            origin_from = None
+        origin_from_kind = (str(fm.get("origin_from_kind") or "").strip().lower() or None)
+        if origin_from_kind and origin_from_kind not in ORIGIN_FROM_KINDS:
+            print(f"  ⚠️  {slug}: origin_from_kind 值 `{origin_from_kind}` 不在白名單（gift／exchange／transfer），已忽略")
+            origin_from_kind = None
+        origin_from_year = fm.get("origin_from_year")
+        try:
+            origin_from_year = int(str(origin_from_year).strip()) if origin_from_year not in (None, "") else None
+        except ValueError:
+            print(f"  ⚠️  {slug}: origin_from_year 值 `{origin_from_year}` 非年份，已忽略")
+            origin_from_year = None
+        if not origin_from and (origin_from_year or origin_from_kind):
+            print(f"  ⚠️  {slug}: 有 origin_from_year／kind 但無 origin_from，已忽略（來自列不會出現）")
+            origin_from_year = origin_from_kind = None
+
         # 幽靈親代（選填）：親代已確認身分但無條目（終生未命名等）。格式 `isb:<番號>` 或 `rpf:<id>`。
         # 只影響網站的全血／半血判定，不建個體、不進 parent_child、不上家系圖。
         def _parent_ref(key: str) -> str | None:
@@ -642,11 +686,17 @@ def build_db():
             # 出身（選填）：wild=野生出身（含野捕／救護）｜confiscated=走私查獲。
             # 園內出生者一律留空；未知值視同留空（不寫入，避免 CHECK 約束擋掉整次建置）。
             "origin":           origin,
+            "origin_place":     origin_place,
+            "origin_from":      origin_from,
+            "origin_from_year": origin_from_year,
+            "origin_from_kind": origin_from_kind,
             "birth_zoo":        birth_zoo,
             "mother_ref":       mother_ref,
             "father_ref":       father_ref,
             "rpf_id":           int(fm["rpf_id"]) if fm.get("rpf_id") else None,
             "rpf_url":          fm.get("rpf_url"),
+            # ISB 番號：frontmatter 一律加引號存字串（前導零），這裡原樣帶過不轉型
+            "studbook_id":      str(fm["studbook_id"]).strip() if fm.get("studbook_id") else None,
             "tags":             json.dumps(tags_raw, ensure_ascii=False),
             "instagram":        json.dumps(instagram, ensure_ascii=False) if instagram else None,
             "youtube":          json.dumps(youtube, ensure_ascii=False) if youtube else None,
@@ -668,10 +718,10 @@ def build_db():
     cur.executemany("""
         INSERT OR REPLACE INTO pandas
           (slug, name, japanese, korean, chinese, nicknames, english_variants,
-           sex, born, died, last_seen, species, origin, birth_zoo, mother_ref, father_ref, rpf_id, rpf_url, tags, instagram, youtube, is_alive, sources, sources_private, extra_sources)
+           sex, born, died, last_seen, species, origin, origin_place, origin_from, origin_from_year, origin_from_kind, birth_zoo, mother_ref, father_ref, rpf_id, rpf_url, studbook_id, tags, instagram, youtube, is_alive, sources, sources_private, extra_sources)
         VALUES
           (:slug,:name,:japanese,:korean,:chinese,:nicknames,:english_variants,
-           :sex,:born,:died,:last_seen,:species,:origin,:birth_zoo,:mother_ref,:father_ref,:rpf_id,:rpf_url,:tags,:instagram,:youtube,:is_alive,:sources,:sources_private,:extra_sources)
+           :sex,:born,:died,:last_seen,:species,:origin,:origin_place,:origin_from,:origin_from_year,:origin_from_kind,:birth_zoo,:mother_ref,:father_ref,:rpf_id,:rpf_url,:studbook_id,:tags,:instagram,:youtube,:is_alive,:sources,:sources_private,:extra_sources)
     """, [r for _, _, r in panda_rows])
     conn.commit()
     print(f"  ✅ 插入 {len(panda_rows)} 筆個體資料")

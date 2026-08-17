@@ -29,6 +29,16 @@ CREATE TABLE IF NOT EXISTS pandas (
     last_seen   TEXT,               -- 檔案卡：最後確認在世／在園日期（YYYY[-MM[-DD]]；動向不明個體用）
     species     TEXT,               -- "styani" | "fulgens"
     origin      TEXT CHECK(origin IN ('wild','confiscated')),  -- 選填：非園內出生的出身。wild=野生出身（含野捕／救護）｜confiscated=走私查獲；個體頁「出身」列用
+    -- 選填（2026-08-17 起）：出身地，僅在 origin 有值時有意義。**受控詞彙、只到國別／地區**
+    -- （粒度比照 ISB locality code：CHINA／NEPAL／INDIA／SIKKIM／GANGTOK／DARJEELIN／BHUTAN／BURMA）。
+    -- 市級來源地（如「成都市贈與」）屬輸出地而非出身地，寫內文、不進本欄。
+    origin_place TEXT CHECK(origin_place IN ('cn','np','in','in-sikkim','in-darjeeling','bt','mm')),
+    -- 來自（2026-08-17 起，選填三欄一組）：官方寫得出「哪個市贈與／交換」但指不出是哪一座園時用。
+    -- 個體頁在「出身」與「現居」之間多一列「來自」：「中國四川省成都市・1985 年贈與」。
+    -- ⚠️ 來源園指名得出來就記進 zoos: 首站（居住史自然顯示地點），不要重複填這裡。
+    origin_from      TEXT CHECK(origin_from IN ('cn-chengdu','cn-xian','cn-beijing','cn-chongqing','cn-shenyang','cn-harbin','cn-guangzhou')),
+    origin_from_year INTEGER,   -- 官方記載的贈與／交換／移入年
+    origin_from_kind TEXT CHECK(origin_from_kind IN ('gift','exchange','transfer')),  -- 贈與／動物交換／移入；查不到就留空
     birth_zoo   TEXT,        -- 選填：值只有 'unknown'。明示「居住史首站不是出生園」；
                             -- gen_residence.py 的 🐣 與網站的「該園出生」判定都用它退出（見 data.js bornAtFirstZoo）
     -- 幽靈親代（2026-08-14 起，選填）：親代身分已確認、但依收錄原則不建條目（多為終生未命名者）。
@@ -39,6 +49,9 @@ CREATE TABLE IF NOT EXISTS pandas (
     father_ref  TEXT,
     rpf_id      INTEGER,            -- Red Panda Finder profile ID
     rpf_url     TEXT,
+    -- 國際血統登録書（ISB 2008 年版）番號。存 TEXT 不存 INTEGER：番號有前導零（如 "0085"），
+    -- 轉數字會掉。**有值＝這隻已與 ISB 逐欄對過帳**，個體頁的「編號」列（僅 dev 可見）據此顯示。
+    studbook_id TEXT,
     tags        TEXT,               -- JSON array，原始 tags
     instagram   TEXT,               -- JSON array，公開 IG 貼文連結（curate，官方 embed 展示）
     youtube     TEXT,               -- JSON array，公開 YouTube 影片連結（curate，個體頁「照片與影片」影片分頁 embed 展示）

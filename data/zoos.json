@@ -2433,6 +2433,28 @@
   "aliases": []
  },
  {
+  "canonical": "Pécs Zoo",
+  "lineage_id": null,
+  "en": "Pécs Zoo",
+  "zh": null,
+  "country": "Hungary",
+  "location_ja": null,
+  "location_zh": "巴蘭尼亞州佩奇",
+  "location_en": "Pécs, Baranya County, Hungary",
+  "lat": 46.0936665,
+  "lng": 18.2257789,
+  "map": "https://www.google.com/maps/search/?api=1&query=46.0936665,18.2257789",
+  "website": "https://pecszoo.hu/",
+  "logo": null,
+  "aliases": [
+   "Pécs ZOO",
+   "Pecs Zoo",
+   "Pécsi Állatkert",
+   "Pécsi Állatkert és Akvárium-Terrárium",
+   "Pecsi Allatkert"
+  ]
+ },
+ {
   "canonical": "Red River Zoo",
   "lineage_id": 83,
   "en": "Red River Zoo",
@@ -3301,6 +3323,27 @@
   "website": "https://www.yorkshirewildlifepark.com/",
   "logo": null,
   "aliases": []
+ },
+ {
+  "canonical": "ZOOM Erlebniswelt",
+  "lineage_id": null,
+  "en": "ZOOM Erlebniswelt Gelsenkirchen",
+  "zh": null,
+  "country": "Germany",
+  "location_ja": null,
+  "location_zh": "北萊茵-西發利亞邦蓋爾森基興",
+  "location_en": "Gelsenkirchen, North Rhine-Westphalia, Germany",
+  "lat": 51.5421227,
+  "lng": 7.1103561,
+  "map": "https://www.google.com/maps/search/?api=1&query=51.5421227,7.1103561",
+  "website": "https://www.zoom-erlebniswelt.de/",
+  "logo": null,
+  "aliases": [
+   "ZOOM Erlebniswelt Gelsenkirchen",
+   "Zoom Erlebniswelt",
+   "ZOOM Gelsenkirchen",
+   "Ruhr Zoo Gelsenkirchen"
+  ]
  },
  {
   "canonical": "ZSL London Zoo",

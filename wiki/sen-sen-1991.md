@@ -6,6 +6,10 @@ born: 1991
 died: 1999-10-06
 species: Ailurus fulgens styani
 origin: wild
+origin_place: cn
+origin_from: cn-shenyang
+origin_from_year: 1992
+origin_from_kind: gift
 birth_zoo: unknown
 zoos:
   - 川崎市夢見ヶ崎動物公園 (1992-10-12 – 1999-10-06)

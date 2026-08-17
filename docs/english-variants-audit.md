@@ -74,7 +74,7 @@
 - [ ] `rera-2021-07-31` Réra（レラ）：**Rera**
 - [ ] `rii-rii-2013-06-20` Rii-Rii（リーリー（日暦））：**Riirii**
 - [ ] `rin-rin-1986-07-05` Rin-Rin（鈴鈴, リンリン）：**Rinrin**
-- [ ] `rin-rin-1989-06-21` Rin-Rin（怜怜, リンリン）：**Rinrin**
+- [ ] `rin-rin-1989-06-21` Rin-Rin（鈴々, リンリン）：**Rinrin**
 - [ ] `rin-rin-1989` Rin-Rin（リンリン）：**Rinrin**
 - [ ] `rin-rin-2001-06-19` Rin-Rin（玲玲, リンリン）：**Rinrin**
 - [ ] `rin-rin-2007-06-21` Rin-Rin（凌凌, りんりん, リンリン）：**Rinrin**
