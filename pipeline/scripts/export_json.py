@@ -227,6 +227,9 @@ def main():
             # 「維護者提供・未經官方佐證」標記——避免誤觸大量以 RPF 為來源、本就無官方的一般條目
             "limited_profile": "limited-profile" in tags,
             "species": r["species"],
+            # 混種回報（tags 含 hybrid-reported）：有讀者／維護者回報為兩亞種混種但未證實；
+            # 個體頁物種欄照常顯示登錄亞種，另加一行 🚧 待查證註記。證實後改 species 並拿掉此 tag。
+            "hybrid_reported": "hybrid-reported" in tags,
             # 出身（非園內出生者才有值）：wild=野生出身（含野捕／救護）｜confiscated=走私查獲。
             # 個體頁在「物種」與「現居」之間多一列顯示；園內出生者為 None、該列不出現。
             "origin": r["origin"],

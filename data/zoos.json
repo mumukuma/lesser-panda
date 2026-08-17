@@ -1999,6 +1999,7 @@
   "zh": null,
   "country": "Sweden",
   "location_ja": null,
+  "location_zh": "西約塔蘭省胡訥博斯特蘭",
   "location_en": "Hunnebostrand, Sweden",
   "lat": 58.4416852,
   "lng": 11.4366063,
@@ -2122,6 +2123,30 @@
   "website": "https://oglebay.com/good-zoo/",
   "logo": null,
   "aliases": []
+ },
+ {
+  "canonical": "Ogród Zoologiczny w Poznaniu",
+  "lineage_id": null,
+  "en": "Poznań Zoo",
+  "zh": null,
+  "country": "Poland",
+  "location_ja": null,
+  "location_zh": "大波蘭省波茲南",
+  "location_en": "Poznań, Greater Poland Voivodeship, Poland",
+  "lat": 52.4004629,
+  "lng": 16.9945012,
+  "map": "https://www.google.com/maps/search/?api=1&query=52.4004629,16.9945012",
+  "website": "https://zoo.poznan.pl/",
+  "logo": null,
+  "aliases": [
+   "Zoo Poznań",
+   "Zoo Poznan",
+   "Poznań Zoo",
+   "Poznan Zoo",
+   "Nowe Zoo",
+   "Nowe Zoo w Poznaniu",
+   "Ogrod Zoologiczny w Poznaniu"
+  ]
  },
  {
   "canonical": "Oklahoma City Zoo",
@@ -3467,6 +3492,27 @@
   "aliases": []
  },
  {
+  "canonical": "Zoo Jihlava",
+  "lineage_id": null,
+  "en": "Zoo Jihlava",
+  "zh": null,
+  "country": "Czechia",
+  "location_ja": null,
+  "location_zh": "維索基納州伊赫拉瓦",
+  "location_en": "Jihlava, Vysočina Region, Czechia",
+  "lat": 49.3967314,
+  "lng": 15.5995437,
+  "map": "https://www.google.com/maps/search/?api=1&query=49.3967314,15.5995437",
+  "website": "https://www.zoojihlava.cz/",
+  "logo": null,
+  "aliases": [
+   "Zoologická zahrada Jihlava",
+   "ZOO Jihlava",
+   "Jihlava Zoo",
+   "Zoologicka zahrada Jihlava"
+  ]
+ },
+ {
   "canonical": "Zoo Knoxville",
   "lineage_id": 108,
   "en": "Zoo Knoxville",
@@ -3816,6 +3862,7 @@
   "zh": null,
   "country": "Czechia",
   "location_ja": null,
+  "location_zh": "烏斯提州拉貝河畔烏斯提",
   "location_en": "Usti nad Labem, Czechia",
   "lat": 50.6641324,
   "lng": 14.0612477,

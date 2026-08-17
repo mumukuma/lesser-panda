@@ -109,13 +109,18 @@ const curZoo = !p.died && (p.current_zoo || p.current_zoo_raw)
 // 亞種：學名 + 各語亞種俗名（i18n subspecies_<亞種>）。亞種不詳（species 為 null）只出「-」，
 // 俗名或格式字缺就退回純學名，永不吐出 undefined。括號全／半形由 species_fmt 各語自行決定。
 const speciesCell = (() => {
-  if (!p.species) return '-';
+  // 混種回報（hybrid_reported）：登錄亞種照常顯示，下方加一行 🚧 註記（未證實、待查證）。
+  // 註記掛在所有分支（含亞種不詳「-」）——回報本身與登錄值是否存在無關。
+  const note = p.hybrid_reported
+    ? `<br><span class="text-[.84rem] text-ink-soft">🚧 ${T.species_hybrid_note}</span>`
+    : '';
+  if (!p.species) return '-' + note;
   const latin = `<i>Ailurus fulgens ${p.species}</i>`;
   const zh = T['subspecies_' + p.species];
-  if (!zh) return latin;
+  if (!zh) return latin + note;
   // 亞種俗名連到物種介紹頁的對應段落（#fulgens／#styani），讓讀者查兩亞種差別
   const named = `<a class="text-rust hover:underline" href="${pageUrl(base, locale, 'species')}#${p.species}">${zh}</a>`;
-  return (T.species_fmt || '{name}（{latin}）').replace('{name}', named).replace('{latin}', latin);
+  return (T.species_fmt || '{name}（{latin}）').replace('{name}', named).replace('{latin}', latin) + note;
 })();
 
 // 出身（#origin）：非園內出生者才顯示。值→i18n key 對照，缺 key 就不顯示（勿吐出 undefined）。

@@ -3,14 +3,16 @@
 `instagram:` frontmatter list. Deliberately conservative:
 
   * Only writes items from findings["to_add"] (unmarked + missing = clean gap).
-  * HOLDS (never writes, only lists) any shortcode that is flagged for review:
-      - dup b) same code across different wiki pages
-      - dup d) same code submitted to different slugs
-    plus everything the audit already parked outside to_add: anomaly, data
-    issues, missing-file, and "可補標" (wiki already has it).
+  * HOLDS (never writes, only lists) any shortcode still flagged for review
+    in findings["dupes"] b)/d). NOTE: audit.py has already auto-cleared
+    litter-mates (同生群) and log-related groups per the 2026-08-07 ruling,
+    so those are backfilled normally — only real cross-individual hits are
+    held here. Anomalies / data issues / missing files stay parked too.
   * Never touches the Google Sheet, never git-commits.
-  * Only edits a file when the `instagram:` block list can be located cleanly;
-    anything ambiguous is reported for manual handling instead of guessed at.
+  * Only edits a file when the `instagram:` block list can be located cleanly.
+    An inline empty list (`instagram: []`) is converted to a block list; any
+    other inline value (including `|` / `>` block scalars) is reported for
+    manual handling instead of guessed at.
 
 Consumes the findings JSON produced by `audit.py --json-out`.
 """
@@ -29,7 +31,8 @@ ITEM_RE = re.compile(r"^(\s*)-\s+\S")
 
 
 def review_held_codes(findings):
-    """Shortcodes we must NOT auto-write because they need a human look."""
+    """Shortcodes we must NOT auto-write because they need a human look.
+    (audit.py already filtered out litter/log groups.)"""
     held = set()
     for x in findings["dupes"]["b_cross_page"]:
         held.add(x["shortcode"])
@@ -49,7 +52,8 @@ def frontmatter_bounds(lines):
 
 
 def insert_into_instagram(text, urls):
-    """Return (new_text, status). status is 'written' | 'no-key' | 'inline'."""
+    """Return (new_text, status). status is 'written' | 'no-key' | 'inline'
+    | 'no-frontmatter'."""
     lines = text.split("\n")
     b = frontmatter_bounds(lines)
     if b is None:
@@ -67,8 +71,13 @@ def insert_into_instagram(text, urls):
 
     if key_idx is None:
         return text, "no-key"
-    # An inline list (instagram: [..]) or inline scalar we won't rewrite blindly.
-    if inline_val and inline_val not in ("|", ">", "[]"):
+    # `instagram: []` is an empty inline list — safe to convert to a block.
+    if inline_val == "[]":
+        lines[key_idx] = f"{key_indent}instagram:"
+        inline_val = ""
+    # Any other inline value (list, scalar, or a `|`/`>` block scalar —
+    # those are strings, NOT lists) is not something we rewrite blindly.
+    if inline_val:
         return text, "inline"
 
     # Find contiguous list items following the key.
@@ -133,7 +142,7 @@ def backfill(findings, wiki_dir, dry_run):
         elif status == "no-key":
             problems.append(f"`{slug}`：frontmatter 無 `instagram:` 欄位，需手動新增後再補")
         elif status == "inline":
-            problems.append(f"`{slug}`：`instagram:` 為行內格式，未動，請手動補：" + "、".join(urls))
+            problems.append(f"`{slug}`：`instagram:` 為行內值/區塊純量，未動，請手動補：" + "、".join(urls))
         else:
             problems.append(f"`{slug}`：frontmatter 格式異常（{status}），未動")
 
@@ -160,7 +169,7 @@ def render(written, held, problems, findings, dry_run):
         L.append("（無）")
     else:
         for slug, codes in held.items():
-            L.append(f"- `{slug}`：{ '、'.join(codes) } — 該碼跨頁/跨隻，疑一圖兩隻或投錯隻，請人工判斷")
+            L.append(f"- `{slug}`：{ '、'.join(codes) } — 該碼跨頁/跨隻（非同生群），疑投錯隻，請人工判斷")
         for it in findings["anomaly"]:
             L.append(f"- `{it['slug']}`（submission {it['submission_id']}）："
                      f"I 欄已標但 wiki 缺 {'、'.join(it['missing'])} — 疑投錯隻，未動")

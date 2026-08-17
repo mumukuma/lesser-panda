@@ -30,6 +30,8 @@ const LATIN = { fulgens: 'Ailurus fulgens fulgens', styani: 'Ailurus fulgens sty
 // 參考資料：語系無關（題名照原文），標籤用 i18n 的 sp_refs_title
 const REFS = [
   { label: 'Hu, Y. et al. (2020). Genomic evidence for two phylogenetic species and long-term population bottlenecks in red pandas. Science Advances, 6(9), eaax5751.', url: 'https://doi.org/10.1126/sciadv.aax5751' },
+  { label: 'Dueck, L. A. (2025). Bridging the gap: midrange samples link the mitochondrial phylogeography and conservation of endangered red pandas as one species, Ailurus fulgens. Mammalian Biology (2025).', url: 'https://doi.org/10.1007/s42991-025-00519-6' },
+  { label: 'Wei, F., Li, M., Fang, S., Rao, G. & Feng, Z. (1999). Subspecies recognition in red panda by DNA fingerprinting. In: Glatston, A. R. (comp.), International Red Panda Studbook No. 11, pp. 5\u20139.' },
   { label: 'Glatston, A. R. (ed.) (2021). Red Panda: Biology and Conservation of the First Panda (2nd ed.). Academic Press.', url: 'https://www.sciencedirect.com/book/9780128237533/red-panda' },
   { label: 'IUCN Red List — Ailurus fulgens', url: 'https://www.iucnredlist.org/species/714/110023718' },
   { label: "Smithsonian's National Zoo & Conservation Biology Institute — Red Panda", url: 'https://nationalzoo.si.edu/animals/red-panda' },
@@ -68,6 +70,7 @@ const ROWS = ['range', 'face', 'tail', 'coat', 'size'];
 <p class="leading-relaxed mb-3" set:html={T.sp_two_p1} />
 <p class="leading-relaxed mb-3" set:html={T.sp_two_p2} />
 <p class="leading-relaxed mb-3" set:html={T.sp_two_p3} />
+<p class="leading-relaxed mb-3" set:html={T.sp_two_p4} />
 
 <h2 id="fulgens" class={`${H2} scroll-mt-20`}>{T.subspecies_fulgens}<span class="ml-2 text-ink-soft text-[.86rem] font-normal align-middle"><i>{LATIN.fulgens}</i></span></h2>
 <p class="leading-relaxed mb-3" set:html={T.sp_fulgens_p1} />

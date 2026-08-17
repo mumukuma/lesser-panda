@@ -1,6 +1,6 @@
 # Wiki 目錄 Index
 
-> 最後更新：2026-08-17 | 條目總數：1042（另有 6 筆條目暫存 wiki/_hidden/，不計入、不上站）
+> 最後更新：2026-08-17 | 條目總數：1045（另有 6 筆條目暫存 wiki/_hidden/，不計入、不上站）
 
 ---
 
@@ -2903,6 +2903,18 @@ Dusk（RPF #447）2004 年生於溫尼伯 Assiniboine Park Zoo，經 Granby Zoo�
 | [[nisha-2026-06-23]] | Nisha — [[kiran-2026-06-23]] 雙胞胎；園方另寫作 Nischa，生日與性別對應皆為推定 🚧 | ♀ | 2026– | Görlitz Zoo 🇩🇪 |
 | [[zayah-2020]] | Zayah — Kiran・Nisha 之母，2020 年荷蘭 Avifauna 生、2021-03 移入；已產五胎 | ♀ | 2020– | Görlitz Zoo 🇩🇪 |
 | [[metok-goerlitz]] | Metok — Kiran・Nisha 之父，2017-09 自法國移入；生日不詳、近況待查證 🚧 | ♂ | 不詳 | Görlitz Zoo 🇩🇪 |
+
+---
+
+## 海外個體（波蘭 Ogród Zoologiczny w Poznaniu → 捷克 Ústí nad Labem）
+
+波茲南動物園（Nowe Zoo）2023 年自瑞典 Nordens Ark 引進雌獸 Indira，與來自捷克 Zoo Jihlava 的雄獸 Toshi 配對，2024 年 6 月中旬產下 Kumari——該園 20 年來第一隻出生的小熊貓（上一次是 2001 年）。Kumari 2025-02-24 因獸舍防護遭第三方破壞而溜出展區，在波茲南市區「散步」半天後於一處醫院停車場尋回，成為波蘭家喻戶曉的「逃脫大師」；同年 5 月 27 日依 EEP 移居捷克 Ústí nad Labem Zoo，讓該園得以重啟小熊貓繁殖與世代更替。Indira × Toshi 2026 年 6 月底再產下雙胞胎（未命名、性別未定、無完整生日，未建條目）。父母兩隻的生日與家系園方均未公布（檔案卡級）。
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[kumari-2024]] | Kumari — 波茲南 20 年來首隻出生的小熊貓，2025-02 脫逃事件的主角；2025-05 依 EEP 移居捷克 | ♀ | 2024– | Ústí nad Labem Zoo 🇨🇿 |
+| [[indira-poznan]] | Indira — Kumari 之母，2023 年自瑞典 Nordens Ark 來園；2026 年再產雙胞胎；生日不詳 | ♀ | 不詳 | Ogród Zoologiczny w Poznaniu 🇵🇱 |
+| [[toshi-poznan]] | Toshi（波蘭語多拼作 Toszi）— Kumari 之父，自捷克 Zoo Jihlava 來園；生日不詳 | ♂ | 不詳 | Ogród Zoologiczny w Poznaniu 🇵🇱 |
 
 ---
 

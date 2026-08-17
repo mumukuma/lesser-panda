@@ -19,6 +19,8 @@
 
 兩物種說目前仍在學界討論中，IUCN 等機構暫仍以「單一物種、兩亞種」處理。這不只是命名之爭——主張兩物種的同一批學者也指出，若真的成立兩個物種，兩者的受脅程度就必須**分別評估**、不能再合併看待。**本圖鑑沿用亞種寫法**：個體頁「物種」欄的 *Ailurus fulgens fulgens*／*Ailurus fulgens styani*，即對應本頁的喜馬拉雅小熊貓／中華小熊貓。
 
+那麼，兩者之間有生殖隔離嗎？目前沒有證據顯示有。圈養紀錄中確實出現過亞種間雜交並生下後代的例子——1999 年一份 DNA 指紋研究的中國圈養樣本裡，就包含兩組亞種間配對，親代各自的遺傳特徵都能在後代身上驗出。也正因為雜交做得到，主張兩物種的研究團隊才特別呼籲：圈養族群應該分開建立譜系、避免互交。另一方面，2025 年有學者補上了過去研究缺少的分布中段（不丹一帶）資料，主張兩邊的差異是連續漸變、應維持單一物種——這場辯論還沒有結束。
+
 ## 喜馬拉雅小熊貓（*Ailurus fulgens fulgens*）
 
 分布於**尼泊爾、印度（錫金、西孟加拉一帶）、不丹與西藏南部**，即雅魯藏布江以西的喜馬拉雅山區。
@@ -134,6 +136,9 @@ IUCN 紅色名錄將小熊貓列為**瀕危（Endangered）**：野外成熟個�
 ## 參考資料
 
 - Hu, Y. et al. (2020). Genomic evidence for two phylogenetic species and long-term population bottlenecks in red pandas. *Science Advances*, 6(9), eaax5751. https://doi.org/10.1126/sciadv.aax5751
+- Dueck, L. A. (2025). Bridging the gap: midrange samples link the mitochondrial phylogeography and conservation of endangered red pandas as one species, *Ailurus fulgens*. *Mammalian Biology*. https://doi.org/10.1007/s42991-025-00519-6
+- Wei, F., Li, M., Fang, S., Rao, G. & Feng, Z. (1999). Subspecies recognition in red panda by DNA fingerprinting. In: Glatston, A. R. (comp.), *International Red Panda Studbook* No. 11, pp. 5–9.
+  <!-- ⚠️ Wei et al. 1999 原文刊於 Studbook No. 11、無線上版本；「兩組亞種間配對＋後代帶雙方特徵帶」內容係經 Dueck 2024 bioRxiv 預印本（doi:10.1101/2024.08.27.609966）轉引確認，未實開原文。F1 是否可育查無文獻，正文刻意不提。 -->
 - Glatston, A. R. (ed.) (2021). *Red Panda: Biology and Conservation of the First Panda* (2nd ed.). Academic Press. https://www.sciencedirect.com/book/9780128237533/red-panda
 - IUCN Red List — *Ailurus fulgens*. https://www.iucnredlist.org/species/714/110023718
 - Smithsonian's National Zoo & Conservation Biology Institute — Red Panda. https://nationalzoo.si.edu/animals/red-panda

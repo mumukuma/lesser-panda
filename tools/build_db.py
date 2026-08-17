@@ -133,6 +133,9 @@ OFFICIAL_HOSTS = {
     # ⚠️ 官方歸官方，但**不對外呈現連結**（維護者裁定 2026-08-11）：同時列於 NON_PUBLIC_HOSTS。
     "rotterdamzoo.nl", "diergaardeblijdorp.nl",
     "zoodubassindarcachon.com",  # Zoo du Bassin d'Arcachon（法國吉倫特省）
+    # ZOO Ústí nad Labem（捷克烏斯提州；含年度報告 PDF /data/clanky/…/vyrocni-zprava-YYYY.pdf，
+    # 園方自行編纂、記載各物種收支與繁殖，視同園報）
+    "zoousti.cz", "www.zoousti.cz",
     "zoobojnice.sk",  # Národná zoologická záhrada Bojnice（斯洛伐克國立動物園，環境部所屬）
     "zoo.si",  # ZOO Ljubljana（斯洛維尼亞；盧布爾雅那市立）
     "pairidaiza.eu",  # Pairi Daiza（比利時）
@@ -245,6 +248,7 @@ OFFICIAL_IG_ACCOUNTS = {
     "buffalo_zoo",  # Buffalo Zoo（同 buffalozoo.org；抵園公告發於此）
     "love_ikedazoo",  # 池田動物園（官網頁尾 Instagram 連結指向此帳號）
     "zoogoerlitz",  # Naturschutz-Tierpark Görlitz-Zgorzelec（官網 tierpark-goerlitz.de 頁尾 Instagram 連結指向此帳號；出生・健檢公告發於此）
+    "zoopoznan",  # Ogród Zoologiczny w Poznaniu（官網 zoo.poznan.pl 的 Instagram 連結指向此帳號；出生・脫逃・搬園公告發於此）
 }
 _IG_HOSTS = {"instagram.com", "m.instagram.com"}
 _IG_NON_ACCOUNT_SEGS = {"p", "reel", "reels", "tv", "stories", "explore"}

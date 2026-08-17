@@ -10298,3 +10298,53 @@ RPF `/export/redpanda.json` 交叉檢查後，**4 隻具備名字與完整生歿
 - Cuky／Luky 的抵園確切日期兩園均未公布（媒體只寫「4 月中」「上週」）；`zoos:` 原填 `2026-04`，`gen_residence.py`
   會把 `YYYY-MM` 正規化成 `YYYY`，故落地為 `2026`，月份留在內文敘述。
 
+## [2026-08-17] add | 波蘭 Poznań：Kumari（脫逃成名、已移居捷克 Ústí）＋父母 Indira／Toshi
+
+維護者回報一筆波蘭波茲南動物園出生的雌獸 Kumari，附園方 IG 與 TVP World 報導。查證後建 3 筆條目：
+Kumari 本尊，以及依「自動補齊直系親屬」建父母 `indira-poznan`／`toshi-poznan`（兩隻皆無生日、家系不明，
+以檔案卡級 `limited-profile` 建檔）。
+
+**來源**：
+- https://www.instagram.com/zoopoznan/p/DKOuDBusMMx/ （園方官方 IG，2025-05-27；**唯一載明搬園日的來源**「pojechała dziś」）
+- https://www.instagram.com/zoopoznan/reel/DBgbi5mtc0M/ （2024-10-24，「4 個月前出生」）
+- https://www.instagram.com/zoopoznan/p/DGdNXTbt93K/ ／ https://www.instagram.com/zoopoznan/p/DGgBWQHt_kK/ （2025-02-24／25，脫逃與尋回）
+- https://www.zoousti.cz/data/clanky/10631/soubory/vyrocni-zprava-2025.pdf （ZOO Ústí nad Labem 2025 年報 p.13：「Nová samice k nám přijela ze Zoo Poznan」）
+- 非官方（進 `extra_sources`）：tvn24 2024-08-05／2025-05-30、Radio Poznań 2024-08-05、eska 2024-08-27、interia 2025-04-19、wpoznaniu 2026-08-04、TVP World
+
+**新增條目**：
+- `kumari-2024.md` — Kumari ♀，2024 年 6 月中旬生於 Ogród Zoologiczny w Poznaniu，2025-05-27 移居 Ústí nad Labem Zoo
+- `indira-poznan.md` — Indira ♀（檔案卡），2023 年自 Nordens Ark 來園，Kumari 之母
+- `toshi-poznan.md` — Toshi ♂（檔案卡），自 Zoo Jihlava 來園，Kumari 之父
+
+**更新條目**：
+- `index.md` — 新增章節「海外個體（波蘭 Ogród Zoologiczny w Poznaniu → 捷克 Ústí nad Labem）」共 3 列；
+  條目總數 1042 → 1045
+- `data/zoos.json` — 新登記 `Ogród Zoologiczny w Poznaniu`（波蘭大波蘭省波茲南，座標取自 Google Maps 圖釘
+  `!3d52.4004629!4d16.9945012`）與 `Zoo Jihlava`（捷克維索基納州，`!3d49.3967314!4d15.5995437`）；
+  `Ústí nad Labem Zoo` 補 `location_zh: 烏斯提州拉貝河畔烏斯提`
+- `tools/build_db.py` — `OFFICIAL_IG_ACCOUNTS` 加 `zoopoznan`（官網 zoo.poznan.pl 的 IG 連結指向此帳號，
+  出生・脫逃・搬園公告只發在 IG／FB）；`OFFICIAL_HOSTS` 加 `zoousti.cz`（年報 PDF 視同園報）
+- `tools/gen_residence.py` — `CFLAG`／`_COUNTRY_WORDS` 補 `Poland` 波蘭 🇵🇱、`Czechia` 捷克 🇨🇿、
+  `Hungary` 匈牙利 🇭🇺、`Sweden` 瑞典 🇸🇪。⚠️ 沒有這筆的話，居住史表格的地點欄只會印出「大波蘭省波茲南」
+  這種沒有國別與國旗的殘缺值（匈牙利是 2026-08-17 之前就存在的同類漏洞，`Pécs Zoo` 一直少了 🇭🇺，一併補上）
+- `data/zoos.json` — `Nordens Ark Zoo` 補 `location_zh: 西約塔蘭省胡訥博斯特蘭`（因 Indira 的居住史首站
+  引用到該園，原本中文表格會印出英文 `Hunnebostrand, Sweden`）
+
+**裁定與備注**：
+- **生日只記到年（`born: 2024`、slug `kumari-2024`）**：園方從未公布日期。飼育組協調人 Maja Szymańska 只說
+  「dokładnie w połowie czerwca」（正好 6 月中）；tvn24 2024-08-05 記「7 tygodni temu」（回推約 06-17）、
+  園方 IG 2024-10-24 記「4 miesiące temu」（回推約 06-24）。兩個回推值差一週，皆非公布值，故不填月日。
+- **搬園日採官方 2025-05-27，非回報值 2025-05-29**：園方 IG 當日貼文寫「今天出發」；tvn24 是 05-30 的後續
+  報導且文中未載日期。捷克方面抵園日兩園均未公布（年報只寫「新雌獸自 Zoo Poznan 抵園」）。
+- **父母標 🚧**：Indira × Toshi 見於四家波蘭媒體，內容均具名引述園方人員（Remigiusz Koziński、
+  Maja Szymańska），但**園方自己的公告未點名雙親**，依〈官方來源可直接採用〉的判準仍屬非官方 → 標待查證。
+  兩隻的建檔依據記為 `維護者提供（2026-08-17）`，故 `has_official_source` 為 false（符合兩軸分工：
+  佐證軸 false、在世軸**不掛** `unverified`——2026-08-04 園方受訪確認兩隻都在園且正在育幼）。
+- **2026 胎雙胞胎不建蘋果籽**：園方 2026-08-04 公布時只說「pod koniec czerwca」（6 月底），**無完整生日**，
+  不符蘋果籽資格第 2 項；性別亦未定。僅寫進三隻的 `## 家族` 敘述，待園方公布生日／名字再建。
+- **同園雄性 Aki 不建條目**：2025-04 依 EEP 移居 Zoo Dresden，與 Kumari 無親緣（該園 2001–2024 無繁殖
+  紀錄，且 2015 年後一度「只有雄性」）。
+- **RPF 整條家系零覆蓋**：`/export/redpanda.json`（2255 筆）逐筆掃過，查無 Kumari 本隻、查無 Toshi，
+  也查無 Poznań／Jihlava 兩座園，故三隻 `rpf_id` 全部留空。⚠️ RPF 上另有同名的 Kumari（#1100，クマリ，
+  2002-12-24 – 2014-12-29，Wellington → Knoxville）與 Indira（#989，2005 年生，澳洲 Melbourne／Mogo／
+  Symbio），**都不是本批這兩隻**，日後對帳勿誤植。
