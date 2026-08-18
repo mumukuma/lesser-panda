@@ -10881,3 +10881,103 @@ Nordens Ark／生日 2020-06-14）**全部與園方官網一致**，屬官方一
 - `birth_zoo: unknown` 已存在，首段不會被誤標 🐣。
 - `CWCA`（中國野生動物保護協會）與 `N S TRADE`（動物商代碼）仍**不**列入 `zoos:`——兩者非動物園、未登記於 `data/zoos.json`，與檢疫段是不同理由。
 - ⚠️ 若日後要統一標示「此段為檢疫」，應設計成全庫機制（欄位或記號），不要再在個別條目開特例。
+
+## [2026-08-18] update | `dr-wallace-2025-06-03` 補別名 Wally
+
+**來源**：
+- https://www.instagram.com/capemaycountyzoo/p/DZH3niNDK4i/ （Cape May County Park & Zoo 官方 IG 到園公告，文中以 Wally 稱之；該連結原已列於 `sources`）
+
+**更新條目**：
+- `dr-wallace-2025-06-03.md` — frontmatter 新增 `nicknames: [Wally]`（個體頁「別名」欄即顯示）；內文亮相段補一句「園方 IG 暱稱他 **Wally**」
+
+## [2026-08-18] add | 讀者回報第 4 筆結案：`amaya-2016-06-27` 的兩胎共 4 筆（`gizmo`／`stevie-nicks`／`benjamin`／`david-bowie`）
+
+**本筆即 2026-08-18「讀者回報 2 筆」那段末尾記為「待維護者裁定、本次未處理」的第 4 筆。**
+維護者當日已提供關鍵來源（CBS 2019-06-07 出生報導），`gizmo` 生日 2019-06-06 定案，該「待裁定」狀態解除。
+
+**來源**：
+- https://www.cbsnews.com/gooddaysacramento/news/red-panda-cub-sacramento-zoo/ （CBS Good Day Sacramento 2019-06-07：「A red panda cub was born at the Sacramento Zoo on Thursday」，點名母 Amaya、父 Benjamin）
+- https://www.cbsnews.com/gooddaysacramento/news/sacramento-zoo-reveals-name-of-baby-red-panda/ （同站 2019-07-30：命名「Gizmo」、♂、取自《Gremlins》、六週大 661 g）
+- https://www.cbsnews.com/sacramento/news/sacramento-zoo-red-panda-gizmo/ （同站 2019-11-13：首度展出）
+- https://www.saczoo.org/imported-blog/posts/endangered-red-panda-born-at-sacramento-zoo （Sacramento Zoo 官方部落格 2020-07-13：第二胎 2020-06-24 雙胞胎、一隻夭折；父 David Bowie）
+- https://www.facebook.com/BirminghamZoo/photos/a.10151884122739680/10159543011474680/ （Birmingham Zoo 官方 FB：Gizmo「arrived at the Birmingham Zoo on December 2, 2020 from Sacramento Zoo」）
+- https://www.birminghamzoo.com/2023/07/01/the-birmingham-zoo-welcomes-two-red-panda-cubs/ （Birmingham Zoo 官網 2023-07-01：Gizmo × Kodo 於 2023-05-31 產下兩隻雄仔）
+- https://www.nbcphiladelphia.com/critter-corner/red-panda-dies-cape-may-county-zoo-new-jersey/4073458/ ・ https://6abc.com/post/cape-may-zoos-red-panda-named-david-bowie-dies-mesenteric-torsion-keepers-announce/15786173/ （David Bowie 訃報：2025-01-09 歿、死因腸繫膜扭轉）
+
+**新建條目**：
+- `gizmo-2019-06-06.md` — ♂，Amaya × Benjamin 之子；Sacramento 生、2020-12-02 移居 Birmingham Zoo；子女表列 2023-05-31 與 Kodo 的雙胞胎（未命名，暫不建條目）
+- `stevie-nicks-2020-06-24.md` — ♀，Amaya × David Bowie 之女；雙胞胎中存活的一隻
+- `benjamin-2015-06-26.md` — ♂，`betsy-2015-06-26` 的雙胞胎兄；費城生 → Sacramento → Cape May → Oklahoma City
+- `david-bowie-2018-06-30.md` — ♂ 🪽，Sunset Zoo 生 → Sacramento → Cape May；2025-01-09 歿
+
+**更新條目**：
+- `amaya-2016-06-27.md` — 內文補兩胎繁殖經歷；`## 家族` 增配偶兩隻與子女表三列（含夭折的未命名仔）；🚧 段改寫（在園佐證下限由 RPF 2017 推到官方 2020-07-13）；`sources` 增列園方部落格、`extra_sources` 增列 CBS 兩篇
+- `betsy-2015-06-26.md` — 內文與「雙胞胎」行的 Benjamin 由純文字改為 wikilink；備注補 Spark／Basil 生卒
+- `index.md` — 新增「Amaya 一家（Sacramento Zoo → Birmingham Zoo）」一節四列；Amaya 在 Doofah × Sisu 一節的說明補「育有兩胎三仔」；條目總數 1066 → 1070
+- `data/zoos.json` — 補 `Birmingham Zoo`（阿拉巴馬州伯明罕）與 `Oklahoma City Zoo`（奧克拉荷馬州奧克拉荷馬市）的 `location_zh`
+- `tools/build_db.py` — `OFFICIAL_HOSTS` 增列 `birminghamzoo.com`；`OFFICIAL_FB_PAGES` 增列 `birminghamzoo`（官網頁尾 FB 連結指向此專頁）
+
+**查證與裁定**：
+- **`gizmo` 生日採 2019-06-06、不採 RPF #990 的 2019-06-07**：CBS 原文寫 born「on Thursday」、發稿日 2019-06-07（星期五），2019-06-06 確為星期四。RPF 記的是發稿日，經典 off-by-one。
+- ⚠️ **園方 2020-07-13 公告那句「On June 24」是第二胎、不是 Gizmo 的生日**。原文「the Sacramento Zoo's one year-old red panda, Gizmo, became a big brother!」——摘要工具極易讀成「Gizmo 生於 2020-06-24」，本專案已誤讀過一次。
+- **`david-bowie` 歿日採 2025-01-09、不採 RPF #1059 的 2024-12-30**：NBC10（2025-01-09 發稿）明載該日、6abc 隔日寫「died on Thursday」，2025-01-09 為星期四，兩者相符；RPF 值與三家媒體及園方公告時序皆不合，研判為 RPF 端錯值。
+- **Gizmo 在 Birmingham 的兩隻幼獸暫不建條目**：園方 2023-09 開放公眾票選命名（候選「Ajax／Kai」與「Cosmo／Meeko」，投票至 09-16 截止），但官網與媒體皆未見公布結果，名字未定故只列在 Gizmo 的子女表。配偶 Kodo 同樣暫不建條目。
+- **`stevie-nicks` 的名字、性別與現況全部只有 RPF 佐證**：園方出生公告未命名、未提性別，已在條目標 🚧。
+- **`benjamin` 另有一子 Kiran**（RPF #1439，2023-07-20 生於 Oklahoma City Zoo、2023-12-25 夭折，母 Khyana RPF #877），僅 RPF 佐證且未命名以外的資料皆缺，列入 Benjamin 的子女表、母子皆不建條目。
+- 回報者未留暱稱，`data/contributors.json` 不動。
+
+## [2026-08-18] update | `dr-wallace-2025-06-03` 補全名變體 Dr. Stephen Wallace ＋抵園日來源交代
+
+**來源**：
+- https://www.instagram.com/capemaycountyzoo/p/DZH3niNDK4i/ （Cape May County Park & Zoo 官方 IG 到園公告；維護者 2026-08-18 核對原文）
+
+**更新條目**：
+- `dr-wallace-2025-06-03.md` — 新增 `english_variants: [Dr. Stephen Wallace]`；命名段補「⚠️ 全名拼法兩派」；🚧 抵園日備注改寫
+
+**裁定與說明**：
+- **拼法**：Cape May 官方 IG 作 **Dr. Stephen Wallace**（-ph-），ETSU News 與 Zoo Knoxville 命名公告作 **Steven C. Wallace**（-v-，受紀念者本人拼法）。兩者皆屬官方，**不逕自更正**：`name` 維持出生園的 `Dr. Wallace`，Cape May 長名進 `english_variants:`（非 `nicknames:`——它是全名變體、不是暱稱）。
+- **抵園日**：`zoos:` 的 `2026-06-03` **無來源直接支持**，它是上述官方到園公告的**發文日**，依 2026-08-04 為 [[ember-2025-06-16]] 立的「抵園日不明時採官方公告日」慣例填入。原文只寫「5 月底自 Zoo Knoxville 抵園」，故實際抵園日早於此值；`zoos:` 語法不吃 `YYYY-MM`，無法寫 `2026-05`。備注原記為「5 月」，本次依原文更正為「5 月底」。
+- ⚠️ 若日後要讓 `zoos:` 能誠實表達「僅知年月」，應是**全庫層級**支援 `YYYY-MM` 的改動，不要在個別條目編造日期。
+
+## [2026-08-18] fix | 更正 `dr-wallace-2025-06-03` 抵園日：2026-06-03 → 2026-05-31（誤用公告日慣例）
+
+**維護者指正**：上一筆（本日 update）沿用「抵園日不明時採官方公告日」把抵園日記為 `2026-06-03`，但**來源明說是 5 月抵園**，6/3 落在來源給的區間之外。應先窮盡查找確切日期，查無再取**來源區間內最晚的可能日**。
+
+**查證（2026-08-18，六家來源全數只給月份、無一載日）**：
+- Cape May County Zoo 官方 IG `DZH3niNDK4i`：**5 月底**自 Zoo Knoxville 抵園
+- 郡府新聞稿 https://capemaycountynj.gov/m/newsflash/Home/Detail/1641 （該園為郡營，屬官方）
+- NBC10：「arrived at the zoo back in May from Zoo Knoxville」
+- WHYY：「arrived in May from Zoo Knoxville」
+- NJ 101.5：「arrived from the Knoxville Zoo just last month」（2026-06 發稿）
+- Press of Atlantic City；Zoo Knoxville 側查無送別公告
+
+**更新條目**：
+- `dr-wallace-2025-06-03.md` — `zoos:` 兩段接點 `2026-06-03` → `2026-05-31`；🚧 備注改寫（明說 5/31 是**上界**不是查得的日期，並記下本次誤用與更正）；`sources` 增郡府新聞稿，`extra_sources` 增 NBC10／NJ 101.5／WBIR
+- `index.md` — 該列 🚧 括號同步；補「Cape May 端作 Dr. Stephen Wallace、暱稱 Wally」
+- 已重跑 `gen_residence.py`（居住史表已更新）
+
+**規則（新立，凡居住史日期不明者一律適用）**：
+1. **先查**：官方公告／郡府或市府新聞稿／地方媒體／送出園送別公告，窮盡後才談推定。
+2. 來源若給了時間範圍（「5 月」「本月稍早」「上個月」），取**該範圍內最晚的可能日**當上界。
+3. 只有在來源完全沒給範圍、僅能斷定「不晚於公告日」時，才退回採公告日。
+4. 不論採哪一種，🚧 註記必須寫明「此日為上界／非查得日期」，不得只寫「暫採公告日」。
+- ⚠️ 既有 5 筆採公告日的條目（`ember-2025-06-16`、`joy-2025-06-15`、`mogwai-2021-06-18`、`momo-2021-06-18`、`mr-darcy-2025-06-03`）逐一檢查過：其來源措辭為 recently／earlier this month／仍在檢疫中，**公告日皆為有效上界、不與來源矛盾**，本次不動。惟依規則 4，🚧 措辭仍待統一。
+- ⚠️ 本規則目前只寫在本 log 與各條目註記，**`CLAUDE.md`／`SCHEMA.md` 皆未收錄**——「採公告日」從 2026-08-04 起就只是條目註記裡的口耳慣例，這正是本次誤用的溫床，待維護者裁定後補進 `CLAUDE.md`。
+
+## [2026-08-18] fix | 撤掉上一段四筆新條目的 `japanese:` 欄（違反「ja.name 僅日本個體」規則）
+
+**更新條目**：`gizmo-2019-06-06`、`stevie-nicks-2020-06-24`、`benjamin-2015-06-26`、`david-bowie-2018-06-30` — 移除 `japanese:` 欄（原誤抄 RPF 的 `ja.name`：ギズモ／スティーヴィー・ニックス／ベンジャミン／デビッド・ボウイ）
+
+**理由**：維護者指出。CLAUDE.md〈資料來源原則〉與 2026-07-13 起的工具 guard 已定：RPF／lineage 對**每一隻**個體都機械附一個 `ja.name`（由英文名的羅馬字回寫、長音還會脫落），**只有 `zoos:` 含 `country == "Japan"` 的園、即有日本居住史的個體**才可採用為 `japanese`。這四隻的居住史全在美國（Sacramento／Birmingham／Philadelphia／Cape May／Oklahoma City／Sunset），一段日本都沒有，不該有日文名。手動建歐美個體條目時同樣不得抄 `ja.name`。
+
+**順帶全庫掃描**：以 `data/zoos.json` 的 `country` 反查「有 `japanese:` 欄但居住史無任何日本園」的條目，**0 筆**，確認只有本輪這四筆踩到、無舊債。
+
+**未處理、待維護者裁定**：`benjamin-2015-06-26` 的 `nicknames: [Ben]` 同樣抄自 RPF（`nicknames.en`），非官方來源佐證。本次未動，維護者示意即可移除。
+
+## [2026-08-18] fix | 撤掉 `benjamin-2015-06-26` 的 `nicknames: [Ben]`（同為 RPF 機械欄位、無官方佐證）
+
+**更新條目**：`benjamin-2015-06-26` — 移除 `nicknames:` 欄
+
+**理由**：維護者裁定。該值抄自 RPF #616 的 `nicknames.en`，與前一段撤掉的 `japanese:`（RPF `name.ja`）同屬「RPF export 的機械欄位」，非官方或一手佐證。依〈RPF/lineage 降為線索〉的原則，這類欄位要進條目須另有佐證，或經維護者確認。
+
+**未做全庫清理**：全庫另有 74 筆條目帶 `nicknames:` 欄，其中多數看來是維護者校訂過的暱稱（園方愛稱、中文／日文暱稱、韓文轉寫等），性質與本筆不同，**本次一律不動**。若日後要盤點「哪些 `nicknames` 純粹來自 RPF」，需逐筆比對 RPF export 的 `nicknames` 欄，不可用欄位存在與否一刀切。

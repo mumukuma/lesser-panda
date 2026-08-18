@@ -171,6 +171,8 @@ OFFICIAL_HOSTS = {
     # 出生・命名・訃報公告多發於官網文章與官方 X／FB）
     "cincinnatizoo.org",
     "saczoo.org",  # Sacramento Zoo（美國加州；含 /imported-blog/ 舊園方部落格，出生・命名紀錄）
+    # Birmingham Zoo（美國阿拉巴馬州；出生公告發於官網 /YYYY/MM/DD/ 文章與官方 FB）
+    "birminghamzoo.com",
     "sfzoo.org",  # San Francisco Zoo & Gardens（美國加州）
     # Columbus Zoo and Aquarium（美國俄亥俄州；出生・命名公告發於官網 /news/ 與官方 FB／IG）
     "columbuszoo.org",
@@ -194,6 +196,7 @@ OFFICIAL_FB_PAGES = {
     "pueblozoo",       # Pueblo Zoo 官方專頁（同 pueblozoo.org；出生・命名公告發於此）
     "saitamazoo",      # 埼玉県こども動物自然公園 官方專頁（parks.or.jp/sczoo 頁尾 SNS 連結指向此）
     "zoobojnice",      # ZOO BOJNICE 官方專頁（page id 100064523241079；出生日等細節只發於此，官網 /tag/panda-cervena/ 未收）
+    "birminghamzoo",   # The Birmingham Zoo 官方專頁（官網頁尾 Facebook 連結指向此專頁；Gizmo 抵園日只發於此）
 }
 _FB_HOSTS = {"facebook.com", "m.facebook.com", "web.facebook.com", "fb.com"}
 

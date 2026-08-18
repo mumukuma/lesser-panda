@@ -1,6 +1,6 @@
 # Wiki 目錄 Index
 
-> 最後更新：2026-08-18 | 條目總數：1066（另有 6 筆條目暫存 wiki/_hidden/，不計入、不上站）
+> 最後更新：2026-08-18 | 條目總數：1070（另有 6 筆條目暫存 wiki/_hidden/，不計入、不上站）
 
 ---
 
@@ -2638,7 +2638,7 @@
 |------|------|------|------|--------|
 | [[doofah-2018-06-21]] | Doofah — Sisu 之配偶；Rosamond Gifford 生、經 Potter Park 於 2021 移入（RPF #1224；官方 IG 拼作 Doofa） | ♂ | 2018– | Zoo Knoxville 🇺🇸 |
 | [[sisu-2021-06-17]] | Sisu — Doofah 之配偶；Potawatomi 生，2024 依 SSP 移入（RPF #1303；🚧 抵園日不明，暫採公告日 2024-03-22） | ♀ | 2021– | Zoo Knoxville 🇺🇸 |
-| [[dr-wallace-2025-06-03]] | Dr. Wallace — Sisu × Doofah 初胎雙胞胎之一；名字紀念 ETSU 教授 Steven C. Wallace；2026 年 5 月移居 Cape May 與 Ember 配對（🚧 抵園日不明，暫採公告日 2026-06-03） | ♂ | 2025– | Cape May County Park & Zoo 🇺🇸 |
+| [[dr-wallace-2025-06-03]] | Dr. Wallace — Sisu × Doofah 初胎雙胞胎之一；名字紀念 ETSU 教授 Steven C. Wallace（Cape May 端作 Dr. Stephen Wallace、暱稱 Wally）；2026 年 5 月移居 Cape May 與 Ember 配對（🚧 抵園日只知在 5 月，取月末 2026-05-31 為上界） | ♂ | 2025– | Cape May County Park & Zoo 🇺🇸 |
 | [[mr-darcy-2025-06-03]] | Mr. Darcy — Dr. Wallace 雙胞胎兄弟；長得像爸爸；2026-05 移居 Pueblo Zoo | ♂ | 2025– | Pueblo Zoo 🇺🇸 |
 | [[apple-seed-1-sisu-2026-06-07]] | 蘋果籽1號（Apple Seed 1）— 2026 第二胎雙胞胎之一；尚未命名（佔位條目） | ♂ | 2026– | Zoo Knoxville 🇺🇸 |
 | [[apple-seed-2-sisu-2026-06-07]] | 蘋果籽2號（Apple Seed 2）— 同胎另一隻；尚未命名（佔位條目） | ♂ | 2026– | Zoo Knoxville 🇺🇸 |
@@ -2649,10 +2649,23 @@
 | [[rohan-2015-06-25]] | Rohan — Tabei × Ketu 首胎雙胞胎之一 🪽（RPF #343） | ♂ | 2015–2022 🪽 | セントラルパーク動物園 🇺🇸 |
 | [[pumori-2015-06-25]] | Pumori — Rohan 雙胞胎兄弟（RPF #617；2016 後動向待查證 🚧） | ♂ | 2015– | Erie Zoological Gardens 🇺🇸 |
 | [[ravi-2016-06-27]] | Ravi — Tabei × Ketu 次胎雙胞胎之一（RPF #854；⚠️ 另有兩隻同名） | ♂ | 2016– | Detroit Zoological Society 🇺🇸 |
-| [[amaya-2016-06-27]] | Amaya — Ravi 雙胞胎姊妹；六隻子女中唯一雌性（RPF #855） | ♀ | 2016– | Sacramento Zoo 🇺🇸 |
+| [[amaya-2016-06-27]] | Amaya — Ravi 雙胞胎姊妹；六隻子女中唯一雌性；在 Sacramento Zoo 育有兩胎三仔，見下節（RPF #855） | ♀ | 2016– | Sacramento Zoo 🇺🇸 |
 | [[maiya-2014-06-26]] | Maiya — Sisu・Raya 之母（RPF #553；⚠️ 另有同名個體） | ♀ | 2014– | Potawatomi Zoo 🇺🇸 |
 | [[justin-2012-07-01]] | Justin — Sisu・Raya 之父（RPF #820；⚠️ 另有同名個體） | ♂ | 2012– | Potawatomi Zoo 🇺🇸 |
 | [[raya-2021-06-17]] | Raya — Sisu 雙胞胎姊妹；人工哺育，仍留在出生園（RPF #1302） | ♀ | 2021– | Potawatomi Zoo 🇺🇸 |
+
+---
+
+### Amaya 一家（Sacramento Zoo → Birmingham Zoo）
+
+[[amaya-2016-06-27]]（[[tabei-2013-06-01]] × [[ketu-2011-12-09]] 之女，見上節）2017 年移居加州的 Sacramento Zoo 後產下兩胎、三隻幼獸，兩胎的父親不同。第一胎 [[gizmo-2019-06-06]] 2019-06-06 出生，父為費城動物園來的 [[benjamin-2015-06-26]]（[[betsy-2015-06-26]] 🪽 的雙胞胎兄，與 Amaya 同日入園）；名字取自《Gremlins》，2019-11-13 起首度展出。Benjamin 2019 年 9 月移出後，堪薩斯州 Sunset Zoo 來的 [[david-bowie-2018-06-30]] 🪽 接手配對，2020-06-24 產下雙胞胎，一隻發育不全夭折、留下 [[stevie-nicks-2020-06-24]]（名字與父兄同屬園方的搖滾／電影命名主題）。Gizmo 2020-12-02 依 SSP 移居阿拉巴馬州 Birmingham Zoo，2023-05-31 與該園的 Kodo 產下雙胞胎——該園史上首次成功繁殖小熊貓。David Bowie 2021 年移居 Cape May County Park & Zoo，2025-01-09 因腸繫膜扭轉過世。本家系依 2026-08-18 讀者回報（Gizmo 生日）建檔。
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[gizmo-2019-06-06]] | Gizmo — Amaya × Benjamin 之子、Amaya 頭胎獨子；名字取自《Gremlins》；2020 移居 Birmingham，2023 年與 Kodo 產下該園首胎（⚠️ RPF 記生日 2019-06-07 為發稿日，不採） | ♂ | 2019– | Birmingham Zoo 🇺🇸 |
+| [[stevie-nicks-2020-06-24]] | Stevie Nicks — Amaya × David Bowie 之女；雙胞胎中存活的一隻（🚧 名字・性別・現況僅 RPF #1192） | ♀ | 2020– | Sacramento Zoo 🇺🇸 |
+| [[benjamin-2015-06-26]] | Benjamin — Gizmo 之父、[[betsy-2015-06-26]] 🪽 的雙胞胎兄；費城生，經 Sacramento・Cape May 於 2021 移入（RPF #616；🚧 居住史僅 RPF） | ♂ | 2015– | Oklahoma City Zoo 🇺🇸 |
+| [[david-bowie-2018-06-30]] | David Bowie — Stevie Nicks 之父 🪽；Sunset Zoo 生，2021 移居 Cape May，2025-01-09 因腸繫膜扭轉過世（⚠️ RPF 記歿日 2024-12-30 與三家媒體不合，不採） | ♂ | 2018–2025 🪽 | Cape May County Park & Zoo 🇺🇸 |
 
 ---
 
