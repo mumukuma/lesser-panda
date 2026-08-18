@@ -20,6 +20,7 @@ const link = (s) => s
   .replace('{newborns}', a('', T.home_newborns))
   .replace('{stats}', a('stats', T.stats_sec_years))
   .replace('{japan}', a('japan', T.jp_sec_trend))
+  .replace('{moves}', a('moves', T.nav_moves))
   .replace('{japanSub}', `<a class="text-rust hover:underline" href="${pageUrl(base, locale, 'japan')}#subspecies">${T.jp_sec_subspecies}</a>`);
 
 const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';
@@ -120,7 +121,7 @@ const ROWS = ['range', 'face', 'tail', 'coat', 'size'];
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p2} />
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p2b} />
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p2c} />
-<p class="leading-relaxed mb-3" set:html={T.sp_consv_p3} />
+<p class="leading-relaxed mb-3" set:html={link(T.sp_consv_p3)} />
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p3b} />
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p4} />
 <p class="leading-relaxed mb-3" set:html={link(T.sp_consv_p5)} />

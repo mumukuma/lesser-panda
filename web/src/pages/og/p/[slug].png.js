@@ -24,6 +24,9 @@ const h = (type, style, ...children) =>
   ({ type, props: { style, children: children.length === 1 ? children[0] : children } });
 
 export function getStaticPaths() {
+  // 驗證用快速建置：SKIP_OG=1 時跳過 1000+ 張 OG PNG（約占 build 時間 85%）。
+  // 正式 CI 部署不帶此變數，OG 圖照常生成。
+  if (process.env.SKIP_OG) return [];
   return Object.values(pandas).map((p) => ({ params: { slug: p.urlId }, props: { slug: p.slug } }));
 }
 

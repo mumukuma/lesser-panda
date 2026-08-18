@@ -56,6 +56,7 @@ red-panda-wiki/
 │   ├── check_i18n.py    ← 五語 i18n key 一致性檢查（缺 key/多 key/重複 key/空值即非零；CI 建置前跑）
 │   ├── apply_lineage_fixes.py ← 依 lineage 保守補齊空白欄位
 │   ├── resolve_zoo.py   ← 簡稱／部分名 → 註冊表 canonical 的省核輔助 CLI（不改 wiki）
+│   ├── rename.py        ← 個體改名（slug 遷移）一鍵機械化：撞名檢查＋改檔名＋全站 wikilink／siblings＋index／log（先 --dry-run；見「檔名與消歧」）
 │   ├── schema.sql       ← SQLite schema
 │   └── art/             ← 吉祥物／sprite 圖像生成腳本（與資料管線無關，不進 rebuild）
 ├── pipeline/
@@ -113,6 +114,7 @@ red-panda-wiki/
 - 佔位名字**一律**用「名字-媽媽名-生日」，待正式命名後再改 slug。當季新生寶寶的佔位用「蘋果籽」制度（見下節）；早期少數條目用 `Baby`（如 `_hidden/` 內幼逝者），沿用不改。
 - 同名並存時，條目內仍加 `⚠️ 注意同名` 提示。
 - slug 可由 `name`+`born` 機械重建；日後若校訂某隻生日，需一併更名並修正所有 `[[wikilink]]`。
+- **改名（任何 slug 遷移，含蘋果籽轉正、生日校訂、檔案卡補生日）一律用 `tools/rename.py`，勿再手工全站替換**（2026-08-18 起）：`python3 tools/rename.py 舊slug 新slug [--name "新Name"] [--reason "…"] [--dry-run]`。機械部分一鍵完成——撞名檢查（含 `_hidden/`）、改檔名、全站 `[[wikilink]]`（含 `[[slug|別名]]`）與 frontmatter `siblings:` 同步更換、index「最後更新」日期、log.md append `rename` 記錄（backtick、禁 wikilink 照規範）。**先跑 `--dry-run` 看影響面再實跑**。工具不做編輯性工作：標題／引言／內文與其他條目敘述裡的舊「名字」文字（跑完會列出含舊 slug 純文字的檔案供人工處理）、`japanese`／`chinese`／tags 等欄位、log 記錄的脈絡補充，這些仍需人工；跑完必做 `bash rebuild.sh`。舊網址 `/p/舊slug/` 會失效（站無 redirect）。
 
 ### 當季寶寶佔位條目：蘋果籽（2026-07-14 起）
 

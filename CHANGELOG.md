@@ -6,6 +6,25 @@
 
 ---
 
+## 2026-08-18 ・官方來源白名單：Trevor-Lovejoy Zoo・Cape May County Zoo・Santa Barbara Zoo
+
+配合 Ember 一家 9 筆建檔（見 `wiki/log.md`），`tools/build_db.py` 補三處白名單，個體頁的
+「來源」區塊才顯示得出這批園方公告：
+
+- `OFFICIAL_HOSTS` ＋ **`millbrook.org`**（Trevor-Lovejoy Zoo 隸屬紐約州 Millbrook School，
+  小熊貓出生・命名公告發於 `/zoo-news-detail?pk=…`）、**`sbzoo.org`**（Santa Barbara Zoo，
+  `/zoo-animals/species/…` 個體介紹頁載生日與來源園）。
+- `OFFICIAL_IG_ACCOUNTS` ＋ **`capemaycountyzoo`**（郡府官網 `/1008/Park-Zoo` 的 Instagram
+  連結指向此帳號）、**`trevorzoomillbrook`**（`millbrook.org` 的 Trevor Zoo 首頁 Instagram
+  連結指向此帳號）。兩者的 FB 專頁（`capemaycountyparkzoo`／`trevorzoomillbrook`）目前無條目
+  引用，故暫未加入 `OFFICIAL_FB_PAGES`。
+
+另 `data/zoos.json`：Trevor Zoo At Millbrook School 補 `aliases`（園方已更名為 **Trevor-Lovejoy Zoo**，
+canonical 仍維持 lineage 名）；Santa Barbara Zoo 與 Scovill Zoo 補 `location_zh`
+（缺這欄的話居住史表格的地點欄會退回英文）。
+
+---
+
 ## 2026-08-17 ・個體頁「出身」列可帶出身地：新增 `origin_place`
 
 維護者問「列了野生出身的個體，來源處（例：中國成都）該怎麼顯示」。原本 `origin:` 只有兩個值、

@@ -8,11 +8,11 @@ zoos:
   - Ústí nad Labem Zoo (2025-05-27 – 現在)
 tags: [fulgens, female, zoo:Ústí nad Labem Zoo]
 sources:
-  - https://www.instagram.com/zoopoznan/p/DKOuDBusMMx/  # 園方 2025-05-27：「pojechała dziś」當日移居 ZOO Ústí nad Labem
-  - https://www.instagram.com/zoopoznan/reel/DBgbi5mtc0M/  # 園方 2024-10-24：「4 個月前出生」、初次到外側展區
-  - https://www.instagram.com/zoopoznan/p/DGdNXTbt93K/  # 園方 2025-02-24：脫逃通報（貼文後補 EDIT：已尋回）
-  - https://www.instagram.com/zoopoznan/p/DGgBWQHt_kK/  # 園方 2025-02-25：尋回後狀況良好
-  - https://www.zoousti.cz/data/clanky/10631/soubory/vyrocni-zprava-2025.pdf  # Ústí 2025 年報 p.13：新雌獸自 Zoo Poznan 抵園、重啟繁殖
+  - https://www.instagram.com/zoopoznan/p/DKOuDBusMMx/
+  - https://www.instagram.com/zoopoznan/reel/DBgbi5mtc0M/
+  - https://www.instagram.com/zoopoznan/p/DGdNXTbt93K/
+  - https://www.instagram.com/zoopoznan/p/DGgBWQHt_kK/
+  - https://www.zoousti.cz/data/clanky/10631/soubory/vyrocni-zprava-2025.pdf
 extra_sources:
   - https://tvn24.pl/poznan/poznanskie-zoo-powitalo-pande-ruda-to-pierwsze-takie-narodziny-od-20-lat-st8030897  # tvn24 2024-08-05：出生公布，「7 週前」、體重 750 g
   - https://radiopoznan.fm/informacje/pozostale/narodziny-w-poznanskim-zoo-na-swiat-przyszla-pandka-ruda  # Radio Poznań 2024-08-05：飼育組協調人「正好在 6 月中」
@@ -68,3 +68,9 @@ instagram:
 - **搬園日 2025-05-27**：出自園方 IG 當日貼文「pojechała **dziś** do nowego domu」。tvn24 是 2025-05-30 才報導、文中未載日期；讀者回報值為 2025-05-29，兩者皆無一手佐證，故採官方貼文日。捷克方面的抵園日兩園均未公布。
 - **同園的雄性 Aki**：2025 年 4 月依 EEP 移居德國 Zoo Dresden，媒體說明原因是 Kumari 出生後園內小熊貓群變大。Aki 與 Kumari 並無親緣關係（該園 2001 年後到 2024 年之間沒有繁殖紀錄），故未建條目。
 - **RPF 查無**：`/export/redpanda.json`（2255 筆）逐筆掃過，查無此隻、查無 Toshi，也查無 Ogród Zoologiczny w Poznaniu 與 Zoo Jihlava 兩座園。⚠️ RPF 上另有一隻同名的 Kumari（#1100，クマリ，2002-12-24 – 2014-12-29，Wellington → Zoo Knoxville），與本條目**不是同一隻**；RPF 的 Indira（#989，2005 年生，Melbourne／Mogo／Symbio）也是澳洲個體、非本條目之母。故三隻的 `rpf_id` 全部留空。
+- **各官方 IG 貼文佐證什麼**（2026-08-18 自 `sources` 行末註解移入，該處註解會被併進連結）：
+  `p/DKOuDBusMMx`（2025-05-27）「pojechała dziś」＝當日移居 ZOO Ústí nad Labem；
+  `reel/DBgbi5mtc0M`（2024-10-24）「4 個月前出生」、初次到外側展區；
+  `p/DGdNXTbt93K`（2025-02-24）脫逃通報（貼文後補 EDIT：已尋回）；
+  `p/DGgBWQHt_kK`（2025-02-25）尋回後狀況良好；
+  `zoousti.cz` 年報 PDF（Ústí 2025 年報 p.13）新雌獸自 Zoo Poznan 抵園、重啟繁殖。

@@ -10348,3 +10348,429 @@ Kumari 本尊，以及依「自動補齊直系親屬」建父母 `indira-poznan`
   也查無 Poznań／Jihlava 兩座園，故三隻 `rpf_id` 全部留空。⚠️ RPF 上另有同名的 Kumari（#1100，クマリ，
   2002-12-24 – 2014-12-29，Wellington → Knoxville）與 Indira（#989，2005 年生，澳洲 Melbourne／Mogo／
   Symbio），**都不是本批這兩隻**，日後對帳勿誤植。
+
+## [2026-08-18] add | 波蘭 Warsaw Zoo：`nanu`（瑞典 Nordens Ark 生，2021 移入配對）
+
+維護者回報一筆華沙動物園的雌獸 `Nanu`，附園方 IG 貼文與官網個體介紹頁。三項回報值（♀／出生園
+Nordens Ark／生日 2020-06-14）**全部與園方官網一致**，屬官方一手佐證，逕予採用建檔。
+
+**來源**：
+- https://zoo.waw.pl/en/visit-the-zoo/more-about-our-animals/red-pandas （園方個體介紹頁；三項事實的唯一完整出處：
+  「Nanu (female) born in 14.06.2020 in Nordens Ark, Hunnebostrand, Sweden」）
+- https://www.instagram.com/zoo_warszawa/p/DO0HQSfE66e/ （園方官方 IG，2025-09-20 國際小熊貓日；佐證♀與
+  「來自瑞典」，並確認 2025-09 時兩隻都在園。**回報附的是不含帳號的短形式 `/p/DO0HQSfE66e/`，已改存完整形式**）
+- 非官方（進 `extra_sources`）：RMF24 2021-06-16、Polsat News 2021-06-16、Nasze Miasto 2021-06-17、zootierliste（亞種判定）
+
+**新增條目**：
+- `nanu-2020-06-14.md` — Nanu ♀（RPF #1295），2020-06-14 生於 Nordens Ark Zoo（瑞典），2021 年 6 月移居 Warsaw Zoo
+
+**更新條目**：
+- `index.md` — 新增章節「海外個體（波蘭 Warsaw Zoo）」1 列；最後更新 2026-08-17 → 2026-08-18；
+  條目總數 1045 → 1046
+- `data/zoos.json` — `Warsaw Zoo` 補 `location_zh: 馬佐夫舍省華沙`（原為 null，居住史表格的地點欄會印出
+  英文 `Warsaw, Poland`）
+- `tools/build_db.py` — `OFFICIAL_HOSTS` 加 `zoo.waw.pl`（園方個體介紹頁載明各隻性別・生日・出生園，
+  視同園方一手）；`OFFICIAL_IG_ACCOUNTS` 加 `zoo_warszawa`（IG bio 自稱「Oficjalny profil Warszawskiego ZOO」
+  並連回 zoo.waw.pl，已反查確認為官方）
+
+**裁定與備注**：
+- **生日 2020-06-14 不標 🚧**：出自園方官網個體介紹頁（官方一手），且與 2021 年 6 月多家波蘭媒體引述園方的
+  「roczna」（一歲）相符。回報值與官網逐字一致。
+- **入園日只填年份 `2021`**：園方未公布日期，2021-06-16／17 的媒體一律只寫「W weekend powitaliśmy…」
+  （這個週末我們迎來了），回推約 06-12／13 但無一手佐證，故 `zoos:` 寫 `Warsaw Zoo (2021 – 現在)`，
+  月份留在內文，並在條目內標 🚧。
+- **RPF #1295 資料殘缺、不採為依據**：RPF 收有本隻（Warsaw Zoo）但**生日與性別欄皆空白**、無家系，
+  wiki 這筆比 RPF 完整；`rpf_id` 僅作索引留存。RPF 的華沙園頁記「2009 年以來園內出生 1 隻」，
+  該筆與本對無關（`Nanu` 2021 年才入園）。
+- **亞種記 fulgens**：園方未標示。zootierliste 將 Warszawa (Zoo) 列於 Westlicher Kleiner Panda
+  （*A. f. fulgens*）名下，出生園 Nordens Ark 亦屬歐洲 EEP 族群。
+- **同園雄獸 `Pabu` 未建條目**：同一頁載明 `Pabu` ♂ 2013-07-02 生於英國 Paradise Wildlife Park
+  （RPF 記父母 Tilly × Teajmunn、生日吻合），**資格與 `Nanu` 相同**，但需新登記 Paradise Wildlife Park
+  並連帶處理其父母／同胎，留待維護者裁定後另批處理。目前僅寫進 `Nanu` 的 `## 家族` 敘述與 index 說明。
+
+---
+
+## [2026-08-18] rename+update | `milk-2018-06-28` → `miruku-2018-06-28`、`cocoa-2018-06-28` → `kokoa-2018-06-28`：名字只留片假名本名
+
+維護者裁定：這兩隻的名字**只保留園方使用的片假名本名**，羅馬字改為忠實轉寫（ミルク→`Miruku`、ココア→`Kokoa`），
+`japanese` 欄其餘別名（シロ／米花／ミーファ、クロ／紅花／クーファ）與 `english_variants` 一併移除。
+`name` 變更故 slug 依「名字-生日」規則同步改名。
+
+**改名**（舊檔已移入 `_to_delete/milk-cocoa-rename-2026-08-18/`，待維護者以 git 處理）：
+
+- `milk-2018-06-28.md` → **`miruku-2018-06-28.md`** — `name: Milk` → `Miruku`；
+  `japanese: ミルク, シロ, 米花, ミーファ` → `japanese: ミルク`；刪 `english_variants: [Shiro, Mifa, Mi-Fa]`；
+  標題 `# Milk（ミルク / 米花）` → `# Miruku（ミルク）`
+- `cocoa-2018-06-28.md` → **`kokoa-2018-06-28.md`** — `name: Cocoa` → `Kokoa`；
+  `japanese: ココア, クロ, 紅花, クーファ` → `japanese: ココア`；
+  標題 `# Cocoa（ココア / 紅花）` → `# Kokoa（ココア）`
+
+**更新條目**（wikilink 與內文名稱隨改名同步；生歿・園・家系資料皆未動）：
+
+- `index.md` — 章節「Milk 家族（市川 × 長野）」→「Miruku 家族（市川 × 長野）」，該族 7 列說明改名；
+  另三處「已收錄於 Milk 家族」（`oolong-2011-06-05` ×2、`raichi-2005-06-25`）同步改。條目總數不變（1046）
+- `anko-2021-07-01.md`／`kinako-2021-07-01.md`／`miro-2025-08-04.md` — 母行
+- `yuufa-2013-06-20.md`／`mugi-2015-07-13.md` — 子女表兩列
+- `himawari-2017-07-13.md`／`hibiki-2015-07-19.md`／`mugi-2018-08-05.md`／`eisaku-2018-07-15.md` —
+  手足・配偶・同園敘述
+- `anko-2013-06-22.md`／`anko-2014-06-26.md`／`kinako-2014-06-26.md`／`yuuka-2010-06-20.md`／
+  `aqua-2010-07-06.md`／`ichimaru-2009-07-04.md` — 同名警語與親屬敘述裡的「Milk」
+- `docs/english-variants-audit.md` — Milk 的三筆（Shiro／Mifa／Mi-Fa）補勾 ✅ 已刪（2026-08-18）；
+  兩隻的 slug／名字欄同步更新為新值
+
+**順手修正**：`anko-2013-06-22.md` 原寫「Milk 🪽 之女」，誤標已故翅膀——ミルク在世（現居長野市茶臼山動物園），
+已去掉 🪽。
+
+**備注**：舊羅馬字 `Milk`／`Cocoa` 依「只留本名」的裁定**未**保留進 `english_variants`，
+故站內搜尋「Milk」「Cocoa」不再命中這兩隻。若希望保留舊拼法的搜尋命中率，回補
+`english_variants: [Milk]`／`[Cocoa]` 即可（本次刻意不做）。
+
+**來源**：維護者提供（2026-08-18：名字只留片假名本名，slug 隨之更名）
+
+---
+
+## [2026-08-18] add+update | `kiki-1997-06-18`：大崎公園第一隻小熊貓，依 ISB `9790` 定案
+
+維護者送來一筆待驗證的 ISB 資料（`kiki キキ` / 1997-06-18 長野市茶臼山動物園 / 歿 2019-11-20 /
+1999-04-21 轉大崎公園子供動物園 / 父 西山陽陽 / 母 茶臼山ミンミン），**逐欄查證後全數成立**並建檔。
+本隻原本只以「キキ 🪽｜1997｜🚧 待查證｜尚無條目」出現在 `you-you-1987-07-26` 的子女表裡。
+
+**來源**：
+- ISB 2008 年版 `9790`（`sources/isb-red-panda/ISB-2008.txt`）：`M 18 Jun 1997 sire 8713 dam 9394 styani KIKI`；
+  `NAGANO 18 Jun 1997 Birth | HIGASHI M 21 Apr 1999 Transfer`
+- https://redpandafinder.com/#profile/351 （RPF `0351_kiki`：`death: 2019/11/20`、`location.2: 74, 1999/4/21`）
+- https://redpandatravel.exblog.jp/28716061/ （週間レッサーパンダ情報 2019年11月17日～11月23日：訃報・22 歲・日本最高齢）
+- https://4travel.jp/travelogue/11257112 ／ https://4travel.jp/travelogue/11370540 （現地紀錄：生日・出生園・来園日・大崎初のレッサーパンダ）
+
+**新增條目**：
+- `kiki-1997-06-18.md` — キキ（ISB `9790`／RPF #351），♂，1997-06-18 生於長野市茶臼山動物園，
+  1999-04-21 移大崎公園並終老，2019-11-20 歿（享年 22 歲）；父 `you-you-1987-07-26`、母 `min-min-1993-06-27`、
+  雙胞胎 `ten-ten-1997-06-18`；無子女
+
+**更新條目**：
+- `min-min-1993-06-27.md` — **修正既有錯誤**：原寫「子女：無」「八年的一生沒有留下子女」，實際有 `9790` `kiki`
+  與 `9791` `ten-ten` 兩子（ISB 掃 `dam == 9394` 正好兩筆）。改為「配偶：陽陽／子女：キキ・天天（雙胞胎）」
+- `ten-ten-1997-06-18.md` — 家族段補「雙胞胎：`kiki-1997-06-18`」
+- `you-you-1987-07-26.md` — 子女表兩列補齊：`ten-ten` 與 `kiki` 的性別・生日・母（原皆為 🚧 待查證），
+  `kiki` 由「尚無條目」改為連結；ℹ️ 註記由「花花的兩個女兒」改為「三個女兒」（補 ミンミン）；
+  新增 ℹ️ 註記記下第 11 名子女＝ISB `93105`（1993-07-10 生、隔日夭折、母鈴，依幼逝寶寶收錄原則不建條目）；
+  順手把 `maho-1991-06-06` 的備注由「後居みさき公園」更正為宮崎市フェニックス自然動物園（2026-08-17 已依 ISB 裁定）
+- `index.md` — 花花家族新增「孫輩（ミンミン × 陽陽）」小節（`kiki` ＋ 已收錄他處的 `ten-ten`）；
+  `min-min-1993-06-27` 說明由「無子女」改為「キキ・天天 雙胞胎之母」；條目總數 1046 → 1047
+
+**裁定與備注**：
+- **⚠️ ISB 的園代碼 `HIGASHI M` 無法分辨兩座埼玉園**：全簿沒有 `URAWA`／`OSAKI`／`SAITA`／`KODOMO`
+  任何代碼——大崎公園在 ISB 沒有自己的機構代碼，個體被併記進字面為「東松山」的 `HIGASHI M`，
+  而該代碼同時用於埼玉県こども動物自然公園（`porin-2002-06-15`／`maguro-2002-07-02`／`toro-2004-06-29` 等）。
+  判為大崎公園的三個園外依據：① RPF 把本隻歸在 `Osaki Park Children's Zoo`（zoo 74）；
+  ② 埼玉県こども動物自然公園的小熊貓飼育 2003-11 才開始，1999 年不可能；
+  ③ 現地紀錄逐字「大崎に初めてやってきたレッサーパンダは彼なのです」。
+  同園的 `ramy-2002-07-12`（ISB `0278`，2004-03-01）也是同樣的 `HIGASHI M`↔大崎對應。
+  **與姫路那組相反**：姫路是 ISB 分得比 RPF 清楚（`HIMEJI`／`HIMEHI SH`），埼玉這組是 RPF 分得比 ISB 清楚。
+- **來園日採 1999-04-21**：ISB 與 RPF 一致；現地紀錄寫「１９９９年１月２１日」，判為月份誤植。
+- **歿日 2019-11-20 無園方公告**：さいたま市園頁與指定管理者網站都不刊個體資訊，訃報僅見於同好紀錄
+  （逐字：「さいたま市大崎公園子供動物園のキキじいちゃんが１１月２０日に天国に旅立ちました」
+  「現在、日本最高齢２２歳での大往生となりました」），與 RPF `death: 2019/11/20` 一致，故採此日、
+  比照同家族 `ten-ten-1997-06-18` 的既有做法不標 🚧。
+- **子女確認為無**：ISB 全簿無以 `9790` 為 `sire`／`dam` 的紀錄，且大崎公園的方針是不繁殖、只接收已結束繁殖的個體。
+
+## [2026-08-18] add | 英國 Hertfordshire Zoo：`pabu` 與 Tilly 一家共 8 筆（華沙 `nanu` 的伴侶一系）
+
+同日建 `nanu` 時，華沙園方個體介紹頁同頁載明其伴侶 `Pabu` 的性別・生日・出生園，維護者裁定一併建檔。
+依「新增成員流程」自動補齊直系親屬，連帶把英國 Hertfordshire Zoo（2024 年前名 Paradise Wildlife Park）
+的 Tilly 一系整批建起來，共 **8 筆**。
+
+**來源**：
+- https://zoo.waw.pl/en/visit-the-zoo/more-about-our-animals/red-pandas （華沙園方：「Pabu (male) born in
+  02. 07.2013 in Paradise Wildlife Park, Broxbourne, England」）
+- https://hertfordshirezoo.com/news/endangered-red-panda-tilly-passes-peacefully/ （2024-04-11 Tilly 訃報：
+  歿於 04-09、2012 自 Beauval 來園、**一生 5 仔**、最後一胎為 2022 年的 Tashi）
+- https://hertfordshirezoo.com/news/the-red-panda-cub-who-stole-the-hearts-of-the-world/ （2022-09-08：
+  Tilly 於 2022-07-16 產仔，父為一個月前過世的 Nam Pang）
+- https://hertfordshirezoo.com/news/little-red-gets-their-name/ （2022-12-01：命名 Tashi，尼泊爾語「好運」）
+- https://hertfordshirezoo.com/news/miracle-red-panda-cub-little-red-leaves-home/ （2023-06-29：Tashi ♂
+  移居 Marwell Zoo，「He is set to be relocated to a new home today」）
+- https://hertfordshirezoo.com/news/goodbye-nam-pang/ （2022-06-10：Nam Pang 訃報，2018 自 Highland
+  Wildlife Park 來園、伴侶為 Tilly）
+- 國際血統登録書 2008 年版 `0250`（`TEAJMIN` ♂，2002-06-29 生於 BURFORD、2003-05-08 入 DUDLEY、
+  2008-03-14 入 BROXBOURN；本地留存 sources/isb-red-panda/）
+- 非官方（進 `extra_sources`）：Super Express 2014-09-08（「roczny Pabu」自 Broxbourne 抵華沙）、
+  Nasze Miasto 2021-06-17（記 Pabu 7 月 2 日滿 8 歲）、Royston Crow 2024-04（Tilly 訃報）、
+  ITV News Anglia 2022-08-16、BBC 2023-06-29、The London Press 2022-06-10、zootierliste（亞種判定）
+
+**新增條目**：
+- `pabu-2013-07-02.md` — Pabu ♂（RPF #1166），2013-07-02 生於 Hertfordshire Zoo，2014 移居 Warsaw Zoo
+- `tilly-2011-06-22.md` — Tilly ♀ 🪽（RPF #1164），Beauval 生、2012 入園、2024-04-09 歿；Pabu 之母
+- `teajmunn-2002-06-29.md` — Teajmunn ♂ 🪽（RPF #1165／ISB `0250`），Cotswold 生、2017-12-12 歿；Pabu 之父
+- `soi-nyi-2013-07-02.md` — Soi-Nyi ♂（RPF #1167），Pabu 的雙胞胎兄弟，現居 Galloway Wildlife Conservation Park
+- `kuschbuh-2014-07-16.md` — Kuschbuh ♀（RPF #1153），2014 胎雙胞胎之一，現居 Wild World Safari Park
+- `posee-2014-07-16.md` — Posee ♀（RPF #1154），2014 胎雙胞胎之一，現居 Loro Park
+- `tashi-2022-07-16.md` — Tashi ♂（RPF #1393，暱稱 Little Red），2022-07-16 生，2023-06-29 移居 Marwell Zoo
+- `nam-pang-2017-06-14.md` — Nam Pang ♂ 🪽（RPF #1015），Highland 生、2018 入園、2022-06-10 歿；Tashi 之父
+
+**更新條目**：
+- `nanu-2020-06-14.md` — 內文與家族段的 `Pabu` 改為 wikilink，補記其 2014 年入園；備注補「2014 年 Pabu 抵園時
+  園內另有雌獸（身分未公布）」
+- `ash-hertfordshire.md` — 內文的純文字 `Tilly` 改為 wikilink，補記 Tilly 已於 2024-04-09 過世
+- `index.md` — 原「海外個體（波蘭 Warsaw Zoo）」章節改寫為「波蘭 Warsaw Zoo ＋ 英國 Hertfordshire Zoo 的
+  Tilly 一家」，拆兩張表共 9 列；條目總數 1047 → 1055
+- `data/zoos.json` — 8 座既有登記園補 `location_zh`：Cotswold Wildlife Park and Gardens（牛津郡伯福德）、
+  Dudley Zoological Gardens（西米德蘭茲郡達德利）、Galloway Wildlife Conservation Park（蘇格蘭柯庫布里）、
+  Loro Park（加那利群島特內里費島）、Marwell Zoo（漢普郡溫徹斯特）、ZooParc de Beauval（盧瓦-謝爾省聖艾尼昂）、
+  Wild World Safari Park（列日省艾瓦耶）、Highland Wildlife Park（蘇格蘭金凱格）
+- `tools/gen_residence.py` — `CFLAG` 補 `Spain`（西班牙 🇪🇸）、`_COUNTRY_WORDS` 補「西班牙」。⚠️ 沒有這筆的話
+  Posee 的居住史地點欄只會印出「加那利群島特內里費島」這種沒有國別與國旗的殘缺值（同 2026-08-17 的 Poland 教訓）
+
+**裁定與備注**：
+- **`Pabu` 的生日有雙重佐證**：華沙官網 02.07.2013 ＋ Nasze Miasto 2021-06-17「Pabu 7 月 2 日滿 8 歲」。
+  抵華沙的日期園方未公布，唯一線索是 2014-09-08 的 Super Express 報導（當時稱他一歲、剛自 Broxbourne 入住），
+  故 `zoos:` 只填年份 `2014`、條目標 🚧。
+- **ISB `0250` ＝ RPF #1165 `Teajmunn` 為本 wiki 研判**：生日（2002-06-29）、性別、三段居住史（BURFORD →
+  DUDLEY 2003-05-08 → BROXBOURN 2008-03-14）全部吻合。RPF **未載 studbook 番號**，故此對應非任一來源
+  直接聲明。ISB 拼作 `TEAJMIN`、RPF 作 `Teajmunn`（別名 `Teaj`）；園方公告從未點名他，故採 RPF 拼法為正、
+  ISB 拼法入 `english_variants`。歿日 2017-12-12 只有 RPF、標 🚧。祖父母 ISB `9558`（Nissan，1995 生於
+  COPENHAGE）／`9556`（MICRA，1995 生於 HELSINKI）不建條目，以 `father_ref`／`mother_ref` 記錄。
+- **`Tilly` 歿日採官方 2024-04-09、不採 RPF 的 04-10**；生日 2011-06-22 只有 RPF、標 🚧。
+  ⚠️ RPF 上另有一隻生日完全相同的 `Kitty`（#1012，`Nam Pang` 之母），兩筆同日或許只是巧合，但既無官方
+  佐證就不宜當定值，日後查到確切生日需一併改 slug。同胎的 `Li-Wei`（#951，現於 Colchester Zoo）不建條目。
+- **官方「5 仔」與 RPF 子女名單恰好相符**（`Pabu`／`Soi-Nyi`／`Kuschbuh`／`Posee`／`Tashi`），這是本批
+  願意收 RPF 線索級手足的關鍵理由；但**四隻早期子女的名字、生日與現居仍只有 RPF 佐證**，各條目均標 🚧，
+  且 `sources` 只放 RPF profile（非官方）→ `has_official_source` 為 false，網站會顯示「未經官方佐證」。
+- **`Soi-Nyi`／`Kuschbuh`／`Posee` 的搬園年份完全不明**：RPF 的居住史邊不帶日期、只記現居，故 `zoos:`
+  兩站交界留空（渲染為「2013-07-02 – 」與「? – 現在」）。
+- **`Tashi` 的性別靠官方代名詞定案**：出生稿與命名稿全篇用 the cub，2023-06-29 送別稿寫 `He`／`his new home`，
+  與 RPF #1393 一致。
+- **⚠️ 順手修掉 3 檔 `sources` 行末註解**（`karma-2012-12-20`、`kumari-2024`、`yaffa-2015-06-22`，共 7 行）：
+  `sources:` 的行末 `#` 註解**不會被剝掉**（`wiki_io.parse_frontmatter` 原封不動存值，`Panda.astro` 的
+  `href={u}` 直接用整串）→ 個體頁的來源連結壞掉。已改成只放裸 URL，原註解內容移進各條目 `## 備注`
+  並註明來由。⚠️ 剝註解只套在 `extra_sources`（`build_db._strip_yaml_comment`），`sources` 沒有。
+  本批新建的 8 筆一律只在 `sources:` 放裸 URL。**全庫掃過，其餘 `sources` 含 `#` 者都是 `#profile/`
+  這種真正的 fragment，無需處理。**（掃描法要逐行判斷 `sources:` 區塊；用 `(?ms)` 正則會因 DOTALL
+  讓 `.*` 跨行吃到 `extra_sources` 區塊，誤報成 190 檔——本輪踩過一次，並因此誤剝了本批 4 檔的
+  `extra_sources` 註解，已還原。）
+
+
+## [2026-08-18] rename+update | `miro-2025-08-04` → `milo-2025-08-04`：名字只留 Milo／ミロ；`mugi-2018-08-05` 暱稱整欄移除
+
+維護者裁定兩隻的名字只保留本名（比照 2026-08-18 Milk／Cocoa「只留本名」裁定）：
+
+- Miró → **Milo**（ミロ）：`english_variants: [Milo, Miro]` 整欄移除（Milo 升為 `name`、舊拼法 Miró／Miro 不保留）；`name` 變更故 slug 依「名字-生日」規則同步改名。
+- **Mugi**（麦, ムギ）：本名與 slug 不變，`nicknames` 九筆（バブ, 四男, Babu, Yon, Mugiweeb, Weebles, Mugiweeble, Mugiweebles, Oatpuff）整欄移除，引言的暱稱句一併刪去（「在網路上有龐大粉絲群」保留）。
+
+（本次改名以 `tools/rename.py` 執行，wikilink／index／log 骨架由工具產生後人工補充。）
+
+**改名**：
+
+- `miro-2025-08-04.md` → **`milo-2025-08-04.md`** — `name: Miró` → `Milo`；刪 `english_variants: [Milo, Miro]`；標題 `# Miró（ミロ）` → `# Milo（ミロ）`
+
+**更新條目**（wikilink 與內文名稱隨改名同步；生歿・園・家系資料皆未動）：
+
+- `mugi-2018-08-05.md` — 刪 `nicknames` 欄與引言暱稱句；引言與子女表 wikilink ×2
+- `miruku-2018-06-28.md` — 子女表 wikilink ×1；引言「育有一子 Miró」改為 wikilink
+- `anko-2021-07-01.md`／`kinako-2021-07-01.md` — ½ 兄弟行 wikilink 各 ×1
+- `eisaku-2018-07-15.md` — 同園敘述 wikilink ×1
+- `index.md` — 兩列說明 Miró → Milo；wikilink ×1；「最後更新」改 2026-08-18；條目總數不變（1055）
+- `docs/english-variants-audit.md` — Miró 的兩筆（Miro／Milo）補勾 ✅ 已刪；slug／名字欄同步更新為新值
+
+**備注**：舊拼法 Miró／Miro 與 Mugi 的暱稱皆**未**保留進 `english_variants`／`nicknames`（依「只留本名」裁定刻意不做），站內搜尋「Miró」「Babu」「四男」等不再命中這兩隻；若希望保留搜尋命中率，回補該欄即可。舊網址 /p/miro-2025-08-04/ 將失效。
+
+**來源**：維護者提供（2026-08-18：名字只留 Milo／ミロ、Mugi／麦／ムギ）
+
+## [2026-08-18] add | 讀者回報：Ember（Trevor-Lovejoy Zoo → Cape May County Zoo）＋ 直系親屬共 9 筆
+
+回報內容（性別♀／生日 2025-06-16／母 Lucy／父 Zhu／兩段居住史）**逐項查證屬實**，僅抵園日的解讀需修正（見下方裁定）。依「新增成員流程」一併補齊父母、同父異母兄、祖父母。
+
+**來源**：
+- https://www.millbrook.org/zoo-news-detail?pk=1654772 （Millbrook School 官方新聞稿 2025-11-06〈Passionate for Red Pandas〉：born June 16、Born to Lucy and Zhu、全篇 she/her、Lucy 初胎、該園 2014 年以來第四胎、命名募款 1,500 美元）
+- https://www.instagram.com/trevorzoomillbrook/p/DPj9qfXD5d-/ （Trevor-Lovejoy Zoo 官方 IG 2025-10-08：Ember born just this past June、her mother Lucy）
+- https://www.instagram.com/capemaycountyzoo/p/DWRQ-5DgNW3/ （Cape May County Zoo 官方 IG 2026-03-24：到園公告，She arrived earlier this month from Trevor Lovejoy Zoo at Millbrook School）
+- https://www.instagram.com/capemaycountyzoo/p/DZpV8ajDa7l/ （同上 2026-06-16：Happy 1st Birthday to Ember）
+- https://www.sbzoo.org/zoo-animals/species/red-panda （Santa Barbara Zoo 官方物種頁：Raj ♂ 2022-07-07 生、來自 Trevor Zoo）
+- RPF #862 `Lucy` / #508 `Zhu` / #342 `Betsy` / #1372 `Raj` / #687 `Lali` / #859 `Pabu` / #505 `Tushar` / #509 `Delilah`（線索）
+
+**新增條目**：
+- `ember-2025-06-16.md` — Ember ♀，2025-06-16 生於 Trevor-Lovejoy Zoo，2026-03 移居 Cape May County Park & Zoo（RPF 查無）
+- `lucy-2018-06-25.md` — Lucy ♀（RPF #862，ISB 1820），2018-06-25 生於 Scovill Zoo，2024-11 移入 Trevor；Ember 之母
+- `zhu-2013-06-18.md` — Zhu ♂（RPF #508，ISB 1325），2013-06-18 生於 Binder Park Zoo，2017-01 移入 Trevor；Ember・Raj 之父
+- `betsy-2015-06-26.md` — Betsy ♀ 🪽（RPF #342，ISB 1547），2015-06-26 – 2024-04-24；Zhu 的前一位配偶、Raj 之母
+- `raj-2022-07-07.md` — Raj ♂（RPF #1372），2022-07-07 生於 Trevor，2023 移居 Santa Barbara Zoo；Ember 之同父異母兄
+- `lali-2016-06-06.md` — Lali ♀ 🪽（RPF #687，ISB 1606），2016-06-06 – 2023-08-12；Lucy 之母
+- `pabu-2016-06-07.md` — Pabu ♂ 🪽（RPF #859，ISB 1602），2016-06-07 – 2023-08-12；Lucy 之父
+- `tushar-2008-06-19.md` — Tushar ♂（RPF #505，ISB 0820），2008-06-19 生；Zhu 之父
+- `delilah-2006-06-06.md` — Delilah ♀ 🪽（RPF #509，ISB 0601），2006-06-06 – 2014-01-28；Zhu 之母
+
+**更新條目**：
+- `mow-mow-2014-06-11.md` — 內文補一段：雙胞胎姊妹 Faith（RPF #680）1) 2015 移居丹佛、2016 產下 `lali-2016-06-06`，2) 2018 移回 Trevor、2019 在該園過世；並串起 `lucy-2018-06-25` → `ember-2025-06-16` 四代後回到同一座園
+- `index.md` — 「海外個體（美國）」下新增「Trevor-Lovejoy Zoo 一家（Millbrook School → Cape May・Santa Barbara）」一節共 9 列；條目總數 1055 → 1064
+- `data/zoos.json` — Trevor Zoo At Millbrook School 補 `aliases`（Trevor-Lovejoy Zoo／Trevor Lovejoy Zoo／Trevor Zoo，園方已更名）；Santa Barbara Zoo 補 `location_zh`「加利福尼亞州聖塔芭芭拉」；Scovill Zoo 補 `location_zh`「伊利諾州迪凱特」
+- `tools/build_db.py` — `OFFICIAL_HOSTS` 補 `millbrook.org`（Trevor-Lovejoy Zoo 隸屬 Millbrook School，小熊貓公告發於 /zoo-news-detail）與 `sbzoo.org`；`OFFICIAL_IG_ACCOUNTS` 補 `capemaycountyzoo`（郡府官網 /1008/Park-Zoo 的 IG 連結指向此）與 `trevorzoomillbrook`（millbrook.org 的 Trevor Zoo 首頁 IG 連結指向此）
+
+**裁定與備注**：
+- **回報的 2026-03-24 是官方公告日、不是抵園日**：Cape May 官方 IG 該日原文寫「She arrived **earlier this month**」，NJ 101.5（2026-03-25）亦寫「arrived at the zoo earlier this month」。官方未載確切日期，依 2026-08-04 慣例以官方報導日記入 `zoos:` 並在條目標 🚧。Trevor 側未見送別公告（IG 帳號頁未登入無法回捲至 3 月）。
+- **園名對得上、但註冊表要補 alias**：回報寫的「Trevor Lovejoy Zoo」是園方現行名稱（官網與官方 IG 顯示名皆為 **Trevor-Lovejoy Zoo**，官網另有〈A New Name and Look for the Zoo〉一文）。註冊表 canonical 仍維持 lineage 名 `Trevor Zoo At Millbrook School`，只補 aliases。
+- **⚠️ RPF 上另有兩隻 Ember**（#618 2010-06-14 – 2022-05-13、#1085 2013-07-03），都不是這隻；本隻 RPF 尚未建檔，`rpf_id` 留空。
+- **Raj 抵 Santa Barbara 的日期三說並存**：官方物種頁「arrived March 2023」、KEYT（2023-08-10）引園方「came to the Zoo in April」、RPF #1372 記 2023-04-12。四月說有兩處佐證（含 2023-04-13 的抵園報導），故採 RPF 日期並標 🚧。
+- **Raj 舊名 Sandy 為研判**：The Santa Barbara Independent 2023-04-13 的抵園報導把這隻自 Trevor Zoo 來的雄性稱作 Sandy，8 月起園方一律稱 Raj；Trevor 側 2022 出生報導載明「截稿時仍未命名」。已入 `english_variants` 並在條目標 🚧。
+- **Lali 與 Pabu 的歿日同為 2023-08-12**（皆只有 RPF），兩隻同日死亡未見任何公開說明，兩條目均標 🚧 存疑。
+- **`tushar-2008-06-19` 是否在世待查證**：RPF 未記歿日，惟已 18 歲、最後異動紀錄停在 2011 年（比照 `ralphie-2008-05-25` 的處理，只標 🚧、不掛 `unverified`）。
+- **Betsy 之外的旁系一律不建檔**：Lucy 的雙胞胎姊妹 Xena（#861）、Zhu 的五隻半血緣手足（#170／#507／#841／#842／#629）、Raj 的未命名夭折同胎手足（#1373，2022-08-01 歿）等，皆只在各條目 `## 家族` 以純文字記錄。
+- **Cape May 官方 newsflash 連結已失效**（`capemaycountynj.gov/m/newsflash/Home/Detail/1641` 現為 404），故未列入 `sources`。
+
+
+
+## [2026-08-18] rename | `koro` → `koro-1974`（依國際血統登録書（ISB 7619）補入推定生年 ~1974，slug 改為「名字-生年」）
+
+（本記錄由 tools/rename.py 產生，僅機械變更；脈絡與原因請視需要補充。）
+
+**改名**：
+
+- `koro.md` → **`koro-1974.md`**
+
+**更新條目**（wikilink／siblings 同步更換；其餘資料未動）：
+
+- `atsuko-1978.md` — wikilink ×2
+- `mimi.md` — wikilink ×2
+- `index.md` — wikilink ×3；「最後更新」改 2026-08-18；條目總數不變
+
+**備注**：舊網址 /p/koro/ 將失效。
+
+
+## [2026-08-18] rename | `mimi` → `mimi-1974`（依國際血統登録書（ISB 7618）補入推定生年 ~1974，slug 改為「名字-生年」）
+
+（本記錄由 tools/rename.py 產生，僅機械變更；脈絡與原因請視需要補充。）
+
+**改名**：
+
+- `mimi.md` → **`mimi-1974.md`**
+
+**更新條目**（wikilink／siblings 同步更換；其餘資料未動）：
+
+- `atsuko-1978.md` — wikilink ×2
+- `koro-1974.md` — wikilink ×2
+- `index.md` — wikilink ×3；「最後更新」改 2026-08-18；條目總數不變
+
+**備注**：舊網址 /p/mimi/ 將失效。
+
+
+## [2026-08-18] rename | `atsuko-1978` → `atsuko-1978-06-30`（依國際血統登録書（ISB 7820）補入完整生日 1978-06-30，slug 改為完整日期）
+
+（本記錄由 tools/rename.py 產生，僅機械變更；脈絡與原因請視需要補充。）
+
+**改名**：
+
+- `atsuko-1978.md` → **`atsuko-1978-06-30.md`**
+
+**更新條目**（wikilink／siblings 同步更換；其餘資料未動）：
+
+- `koro-1974.md` — wikilink ×2
+- `mimi-1974.md` — wikilink ×2
+- `index.md` — wikilink ×3；「最後更新」改 2026-08-18；條目總數不變
+
+**備注**：舊網址 /p/atsuko-1978/ 將失效。
+
+
+## [2026-08-18] rename | `kei` → `kei-1984-06-17`（依國際血統登録書（ISB 8431）補入生日 1984-06-17，slug 改為「名字-生日」）
+
+（本記錄由 tools/rename.py 產生，僅機械變更；脈絡與原因請視需要補充。）
+
+**改名**：
+
+- `kei.md` → **`kei-1984-06-17.md`**
+
+**更新條目**（wikilink／siblings 同步更換；其餘資料未動）：
+
+- `bou-bou.md` — wikilink ×1
+- `miya.md` — wikilink ×2
+- `sai-sai.md` — wikilink ×1
+- `index.md` — wikilink ×2；「最後更新」改 2026-08-18；條目總數不變
+
+**備注**：舊網址 /p/kei/ 將失效。
+
+
+## [2026-08-18] rename | `miya` → `miya-1985-07-03`（依國際血統登録書（ISB 8539）補入生日 1985-07-03，slug 改為「名字-生日」）
+
+（本記錄由 tools/rename.py 產生，僅機械變更；脈絡與原因請視需要補充。）
+
+**改名**：
+
+- `miya.md` → **`miya-1985-07-03.md`**
+
+**更新條目**（wikilink／siblings 同步更換；其餘資料未動）：
+
+- `bou-bou.md` — wikilink ×1
+- `kei-1984-06-17.md` — wikilink ×2
+- `sai-sai.md` — wikilink ×1
+- `index.md` — wikilink ×2；「最後更新」改 2026-08-18；條目總數不變
+
+**備注**：舊網址 /p/miya/ 將失效。
+
+
+## [2026-08-18] rename | `bou-bou` → `bou-bou-1987`（依國際血統登録書（ISB 8934）補入推定生年 ~1987，slug 改為「名字-生年」）
+
+（本記錄由 tools/rename.py 產生，僅機械變更；脈絡與原因請視需要補充。）
+
+**改名**：
+
+- `bou-bou.md` → **`bou-bou-1987.md`**
+
+**更新條目**（wikilink／siblings 同步更換；其餘資料未動）：
+
+- `sai-sai.md` — wikilink ×2
+- `index.md` — wikilink ×2；「最後更新」改 2026-08-18；條目總數不變
+
+**備注**：舊網址 /p/bou-bou/ 將失效。
+
+
+## [2026-08-18] rename | `sai-sai` → `sai-sai-1987`（依國際血統登録書（ISB 8933）補入推定生年 ~1987，slug 改為「名字-生年」）
+
+（本記錄由 tools/rename.py 產生，僅機械變更；脈絡與原因請視需要補充。）
+
+**改名**：
+
+- `sai-sai.md` → **`sai-sai-1987.md`**
+
+**更新條目**（wikilink／siblings 同步更換；其餘資料未動）：
+
+- `bou-bou-1987.md` — wikilink ×2
+- `index.md` — wikilink ×2；「最後更新」改 2026-08-18；條目總數不變
+
+**備注**：舊網址 /p/sai-sai/ 將失效。
+
+
+## [2026-08-18] add | 野毛山動物園早期個體依國際血統登録書（ISB）全面對帳：新建 2 筆、更新 9 筆
+
+維護者問「ノンノン・ライライ（1973 年自上海動物園來野毛山）ISB 有沒有可用資料」。
+結論為**結構性查無**，但同批查核把野毛山昭和～平成前期的個體資料整段補齊。
+
+**來源**：
+- https://web.archive.org/web/20120128200628/http://www.rotterdamzoo.nl/import/assetmanager/2/6732/Red%20Panda%20Studbook.pdf （ISB 2008 年版；原檔存 `sources/isb-red-panda/`）
+- https://www.hama-midorinokyokai.or.jp/zoo/nogeyama/details/post-1575.php （野毛山レッサーパンダヒストリー①昭和編）
+- https://www.hama-midorinokyokai.or.jp/zoo/nogeyama/details/post-1577.php （同②平成前編）
+
+**新增條目**：
+- `chako-1974.md` — Chako チャコ（ISB `7616`），推定生年 ~1974，1976-02-21 入野毛山、1985-02-21 歿於同園。園史完全未載，由 ISB 反查建檔
+- `koro-1975.md` — Koro コロ（ISB `7730`），推定生年 ~1975，~1977 入野毛山、1984-09-12 歿於同園。園史完全未載；⚠️ 與 `koro-1974` 在 ISB 上同名，身分待釐清
+
+**更新條目**：
+- `koro-1974.md` — 補 `born: 1974`（ISB `~1974`）、`died: 1986-07-28`、`studbook_id: 7619`、`origin: wild`、`birth_zoo: unknown`；居住史由「野毛山 1976 –」改為「野毛山 1976-01-02 – 1980」＋「多摩動物公園 1980 – 1986-07-28」（**歿地由野毛山更正為多摩**）；亞種 styani → fulgens；補子女表 2 列
+- `mimi-1974.md` — 補 `born: 1974`、`died: 1980-10-24`、`studbook_id: 7618`、`origin: wild`、`birth_zoo: unknown`；居住史訖日補實；亞種 styani → fulgens；補子女表
+- `atsuko-1978-06-30.md` — 生日由 1978 補為 **1978-06-30**、補 `died: 1984-08-29`、`studbook_id: 7820`；亞種 styani → fulgens
+- `kei-1984-06-17.md` — 補 `born: 1984-06-17`、`died: 1996-07-29`、`studbook_id: 8431`；居住史前置「上海動物園（出生園）」一站、入園日補為 1987-11-26
+- `miya-1985-07-03.md` — 補 `born: 1985-07-03`、`died: 2000-07-07`、`studbook_id: 8539`；居住史前置上海動物園、入園日 1987-11-26、移ズーラシア 補為 1998-11-24
+- `bou-bou-1987.md` — 補 `born: 1987`（ISB `~1987`）、`died: 1999-01-03`、`studbook_id: 8934`、`origin: wild`、`origin_place: cn`、`birth_zoo: unknown`（上海動物園改判為中繼、非出生園，🐣 不再誤標）
+- `sai-sai-1987.md` — 同上，`died: 1999-01-17`、`studbook_id: 8933`
+- `non-non.md`、`rai-rai.md` — 補一段說明 ISB 為何查無（見下）
+- `index.md` — 新增 `chako-1974`／`koro-1975` 兩列；上列 7 隻的生卒欄由「?–?」補實；條目總數 1064 → 1066
+
+**裁定與備注**：
+- **ISB 查無ノンノン・ライライ 是結構性的**：該版報表硬性限定 `Dates: Between 01/01/1977 and 31/12/2008`，實測全簿**無任何 1977 年前的 `Death` 事件**（最早 1977 年 11 筆），1977 年前即歿者整筆不收。園史稱兩隻「短命」，故不可能在簿上。ISB 亦無 `NOGEYAMA` 代碼，野毛山＝ `YOKOHAMA`（全簿 16 筆），該園最早事件為 `7619` 的 1976-01-02 入園。**「ISB 沒記」不等於「沒有這隻」。**（簿上的 `NON-NON` `0360`／`RAI-RAI` `0867` 是 2003 長野・2008 鯖江的同名後輩。）
+- **亞種：1976–78 那批由 styani 改採 ISB 的 fulgens（維護者裁定）**。原本的 styani 係由「1973 年那對來自上海」外推；ISB 記這批 `sire`／`dam` 皆 `WILD`、亞種 `fulgens`，而同簿上海來源的 `8431`／`8539` 確實記 `styani` → ISB 在此有區分能力、非預設值，外推的前提不成立。影響 `koro-1974`、`mimi-1974`、`atsuko-1978-06-30`、`chako-1974`、`koro-1975` 五筆。
+- **`mimi-1974` 的身分靠親子關係鎖定**：ISB `7618` 名字欄空白，但 `7820`（アツコ）的 `dam` 即 `7618`，園史載アツコ 之母為ミミ，兩者相合。
+- **`atsuko-1978-06-30` 的 ISB 名字欄記作 `TAROU`**，與園史的「アツコ」不符；其餘欄位（生日、父母番號、出生園、未滿 1 歲移多摩）全數吻合，故判為同一隻，依「命名以園方／維護者為準」沿用アツコ，標 🚧。
+- **アツコ 有一隻同胎為本次新發現**：ISB `7896` 同父母、1978-06-30 生於野毛山並**當日夭折**、從未命名 → 依〈幼逝寶寶收錄原則〉與寧々（`93107`）先例**不建條目**，只在 `koro-1974`／`mimi-1974` 的子女表列「（未命名）」一行。園史只提到アツコ 一隻。
+- **園史「約 1986 年野毛山一度沒有小熊貓」可精確化**：1976 年那批最後離世者為 `7730`（1984-09-12）與 `7616` チャコ（1985-02-21），下一批 `8431`／`8539` 於 1987-11-26 入園 → **空窗期實為 1985-02-21 至 1987-11-26**。
+- **ボウボウ／サイサイ 的上海動物園是中繼、不是出生園**：ISB 記兩隻為 `CHINA` 野生捕獲（`WILD` 雙親＋`Capture` 事件），簿上無上海一站——這與既知規則相符（ISB 對輸日的中國個體一律不記中間機構，90 筆 `CHINA` 捕獲個體皆由捕獲列直跳目的園），故與園史不衝突。上海一站依園史保留、起始年留空，並補 `birth_zoo: unknown` 以免誤標 🐣。
+- **ケイ／ミヤ 的 `sire`／`dam` 是 `UNK` 不是 `WILD`**：依〈用詞三級〉只能寫「出身不詳」，與野生無關，故兩筆不填 `origin:`；兩隻皆記為上海動物園**出生**（ISB `Birth` 事件在 `SHANGHAI`），🐣 名實相符。
+- **`koro-1975` 的同名疑義**：ISB 把 `7730` 與 `7619` 同記為 `KORO`，在園期間重疊。兩筆推定生年、入園時點、死亡地皆不同，暫依登録簿當兩隻獨立個體建檔並標 🚧；與ミミ 配對、育有アツコ 的コロ 明確是 `7619`（`7820` 的 `sire`）。
+- `chako-1974`／`koro-1975` 兩隻 RPF 皆未收錄，`rpf_id` 留空。日文名「チャコ」「コロ」係依 ISB 羅馬字推寫，標 🚧 待園方資料佐證。
+- 本次同時把 7 筆補到生日的條目依「名字-生日」規則改名（見上方 7 筆 `rename` 記錄）；舊網址 `/p/koro/`、`/p/mimi/`、`/p/atsuko-1978/`、`/p/kei/`、`/p/miya/`、`/p/bou-bou/`、`/p/sai-sai/` 將失效。

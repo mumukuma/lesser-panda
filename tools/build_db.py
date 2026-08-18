@@ -137,10 +137,17 @@ OFFICIAL_HOSTS = {
     # 園方自行編纂、記載各物種收支與繁殖，視同園報）
     "zoousti.cz", "www.zoousti.cz",
     "zoobojnice.sk",  # Národná zoologická záhrada Bojnice（斯洛伐克國立動物園，環境部所屬）
+    # Miejski Ogród Zoologiczny w Warszawie／Warsaw Zoo（波蘭華沙市立）。個體介紹頁
+    # /en/visit-the-zoo/more-about-our-animals/… 載有各隻的性別・生日・出生園，視同園方一手。
+    "zoo.waw.pl",
     "zoo.si",  # ZOO Ljubljana（斯洛維尼亞；盧布爾雅那市立）
     "pairidaiza.eu",  # Pairi Daiza（比利時）
     "torontozoo.com",  # Toronto Zoo（加拿大；含 /mediaroom/ 新聞稿）
     # 美國
+    # Millbrook School（紐約州；校內附設 Trevor-Lovejoy Zoo，舊名 Trevor Zoo）。
+    # 小熊貓出生・命名等公告發於 /zoo-news-detail?pk=… 與 /news-detail?pk=…，為園方一手。
+    "millbrook.org",
+    "sbzoo.org",  # Santa Barbara Zoo（加州；/zoo-animals/species/… 個體介紹頁載生日與來源園）
     "buffalozoo.org",  # Buffalo Zoo（紐約州；抵園・出産公告發於官網 news）
     "pueblozoo.org",  # Pueblo Zoo（科羅拉多州）
     "beardsleyzoo.org",  # Connecticut's Beardsley Zoo（康乃狄克州；/press/ 為園方新聞稿）
@@ -249,6 +256,9 @@ OFFICIAL_IG_ACCOUNTS = {
     "love_ikedazoo",  # 池田動物園（官網頁尾 Instagram 連結指向此帳號）
     "zoogoerlitz",  # Naturschutz-Tierpark Görlitz-Zgorzelec（官網 tierpark-goerlitz.de 頁尾 Instagram 連結指向此帳號；出生・健檢公告發於此）
     "zoopoznan",  # Ogród Zoologiczny w Poznaniu（官網 zoo.poznan.pl 的 Instagram 連結指向此帳號；出生・脫逃・搬園公告發於此）
+    "zoo_warszawa",  # Miejski Ogród Zoologiczny w Warszawie（同 zoo.waw.pl；IG bio 自稱「Oficjalny profil Warszawskiego ZOO」並連回官網）
+    "capemaycountyzoo",  # Cape May County Park & Zoo（美國紐澤西州郡立；郡府官網 /1008/Park-Zoo 的 Instagram 連結指向此帳號；到園公告發於此）
+    "trevorzoomillbrook",  # Trevor-Lovejoy Zoo at Millbrook School（美國紐約州；millbrook.org 的 Trevor Zoo 首頁 Instagram 連結指向此帳號）
 }
 _IG_HOSTS = {"instagram.com", "m.instagram.com"}
 _IG_NON_ACCOUNT_SEGS = {"p", "reel", "reels", "tv", "stories", "explore"}

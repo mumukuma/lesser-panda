@@ -57,7 +57,7 @@
 - [ ] `mii-mii-1992-08-07` Mii-Mii（美美）：**Miimii**
 - [ ] `min-fa-2006-06-23` Min-Fa（ミンファ）：**Minfa**
 - [ ] `min-min-2002-07-17` Min-Min（ミンミン）：**Minmin**
-- [ ] `miro-2025-08-04` Miró（ミロ）：**Miro**
+- [x] `milo-2025-08-04` Milo（ミロ）：**Miro** ✅ 已刪（2026-08-18，隨改名一併整欄移除 `english_variants`）
 - [ ] `momo-2011-06-24` Momo（モモ）：**Mo-Mo**
 - [ ] `mulan-2019-06-07` Mulan（木蓮, ムーラン）：**Mu-Lan**
 - [ ] `nyan-nyan-2001-07-09` Nyan-Nyan（娘娘, ニャンニャン）：**Nyannyan**
@@ -163,7 +163,7 @@ Hepburn↔訓令式等差異（Tyao↔Chao）。**search.js 的 romajiFold 已�
 - [ ] `luna-2015-08-23` Luna（ルナ）：**Runa**
 - [ ] `ma-ma-2005-07-07` Mā-Mā（麻麻, マーマー）：**Maa-Maa**
 - [ ] `maruru-2014-06-06` Maruru（マルル）：**Malulu**
-- [ ] `miro-2025-08-04` Miró（ミロ）：**Milo**
+- [x] `milo-2025-08-04` Milo（ミロ）：**Milo** ✅ 已刪（2026-08-18，Milo 升為本名、`english_variants` 整欄移除）
 - [ ] `mulan-2019-06-07` Mulan（木蓮, ムーラン）：**Muran**
 - [ ] `mulan-2019-06-07` Mulan（木蓮, ムーラン）：**Mu-Ran**
 - [ ] `mutan-2014-06-19` Mutan（ムータン / 牡丹）：**Muutan**
@@ -301,9 +301,9 @@ Hepburn↔訓令式等差異（Tyao↔Chao）。**search.js 的 romajiFold 已�
 - [ ] `meixiang-2017-06-29` Meixiang（めいしゃん, 梅香）：**Meixhang**
 - [ ] `mii-mii-1992-08-07` Mii-Mii（美美）：**Mei-Mei**
 - [ ] `mii-mii-1992-08-07` Mii-Mii（美美）：**Meimei**
-- [ ] `milk-2018-06-28` Milk（ミルク, シロ, 米花, ミーファ）：**Shiro**
-- [ ] `milk-2018-06-28` Milk（ミルク, シロ, 米花, ミーファ）：**Mifa**
-- [ ] `milk-2018-06-28` Milk（ミルク, シロ, 米花, ミーファ）：**Mi-Fa**
+- [x] `miruku-2018-06-28` Miruku（ミルク）：**Shiro** ✅ 已刪（2026-08-18，隨改名一併清掉 `english_variants` 與 japanese 別名）
+- [x] `miruku-2018-06-28` Miruku（ミルク）：**Mifa** ✅ 已刪（2026-08-18，同上）
+- [x] `miruku-2018-06-28` Miruku（ミルク）：**Mi-Fa** ✅ 已刪（2026-08-18，同上）
 - [ ] `mochi-2015-06-24` Mochi（モッチー）：**Moochie**
 - [ ] `mochi-2015-06-24` Mochi（モッチー）：**Mocchii**
 - [ ] `momotaro-1997-07-17` Momotaro（桃太郎, モモタロウ）：**Momotarou**
@@ -379,9 +379,9 @@ Hepburn↔訓令式等差異（Tyao↔Chao）。**search.js 的 romajiFold 已�
 - [x] `chuihowa-2010-07-10` Chuihowa（チュイホワ, 菊花）：**Chuy-Fa** ✅ 已刪（2026-07-18）
 - [x] `chuihowa-2010-07-10` Chuihowa（チュイホワ, 菊花）：**Ju-Hua** ✅ 已刪（2026-07-18）
 - [x] `chuihowa-2010-07-10` Chuihowa（チュイホワ, 菊花）：**Juhua** ✅ 已刪（2026-07-18）
-- [x] `cocoa-2018-06-28` Cocoa（ココア, クロ, 紅花, クーファ）：**Kuro** ✅ 已刪（2026-07-18）
-- [x] `cocoa-2018-06-28` Cocoa（ココア, クロ, 紅花, クーファ）：**Kufa** ✅ 已刪（2026-07-18）
-- [x] `cocoa-2018-06-28` Cocoa（ココア, クロ, 紅花, クーファ）：**Ku-Fa** ✅ 已刪（2026-07-18）
+- [x] `kokoa-2018-06-28` Kokoa（ココア）：**Kuro** ✅ 已刪（2026-07-18）
+- [x] `kokoa-2018-06-28` Kokoa（ココア）：**Kufa** ✅ 已刪（2026-07-18）
+- [x] `kokoa-2018-06-28` Kokoa（ココア）：**Ku-Fa** ✅ 已刪（2026-07-18）
 - [x] `cong-cong-2008-06-11` Cong-Cong：**Chung Chung** ✅ 已刪（2026-07-18）
 - [x] `enoki-2023-06-13` Enoki：**Debree** ✅ 已刪（2026-07-18，作者複核後定奪）
 - [x] `fin-fin-2002-06-20` Fin-Fin（フィンフィン, タンポポ）：**Tanpopo** ✅ 已刪（2026-07-18）
