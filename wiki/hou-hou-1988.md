@@ -8,6 +8,7 @@ species: Ailurus fulgens styani
 zoos:
   - 多摩動物公園 (1988-07-27 – 1999-04-04)
 studbook_id: "8846"
+isb_checked: 2026-08-14
 tags: [styani, female, deceased, zoo:多摩動物公園]
 sources:
   - https://web.archive.org/web/20120128200628/http://www.rotterdamzoo.nl/import/assetmanager/2/6732/Red%20Panda%20Studbook.pdf

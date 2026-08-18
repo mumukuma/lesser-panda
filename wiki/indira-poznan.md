@@ -9,6 +9,7 @@ zoos:
   - Ogród Zoologiczny w Poznaniu (2023 – 現在)
 tags: [fulgens, female, limited-profile, zoo:Ogród Zoologiczny w Poznaniu]
 sources:
+  - https://www.instagram.com/zoopoznan/p/DbnGmNzjL7P/
   - 維護者提供（2026-08-17：讀者回報 Kumari 資料時所附家系，經比對波蘭媒體引述園方人員的說明）
 extra_sources:
   - https://radiopoznan.fm/informacje/pozostale/narodziny-w-poznanskim-zoo-na-swiat-przyszla-pandka-ruda  # Radio Poznań 2024-08-05：「前一年引進的雌獸 Indira 的第一個孩子」
@@ -25,7 +26,7 @@ extra_sources:
 
 自瑞典 Nordens Ark 來到波蘭 Ogród Zoologiczny w Poznaniu 的雌獸，2023 年入園，與 [[toshi-poznan]] 配對。2024 年 6 月中旬產下 [[kumari-2024]]，是牠自己的第一胎，也是波茲南動物園 20 年來第一次成功繁殖小熊貓。2026 年 6 月底再產下雙胞胎，園方於 2026-08-04 公布，當時性別未定、尚未命名（名字將由波茲南 Wilda 區一處社福機構的住民選定）。
 
-> 🚧 **待查證**：生日、家系、入園確切日期園方皆未公布，本條目為檔案卡級。「2023 年入園」出自 Radio Poznań 2024-08-05 引述飼育組協調人 Maja Szymańska「Indira 是去年來的」，非園方公告；是否於 Nordens Ark 出生亦未確認，故填 `birth_zoo: unknown`、居住史首站起始留空。RPF／lineage 查無此隻（RPF #989 的 Indira 為澳洲個體、非同一隻）。
+> 🚧 **待查證**：生日、家系、入園確切日期園方皆未公布，本條目為檔案卡級。「2023 年入園」出自 Radio Poznań 2024-08-05 引述飼育組協調人 Maja Szymańska「Indira 是去年來的」，非園方公告；是否於 Nordens Ark 出生亦未確認，故填 `birth_zoo: unknown`、居住史首站起始留空。RPF／lineage 查無此隻（RPF #989 的 Indira 為澳洲個體、非同一隻）。⚠️ 2026 年這胎的園方公告（官方 IG 2026-08-04）只寫「兩隻幼獸 6 月底出生、性別要到 8 月底至 9 月初才驗得出、名字由波茲南 Niedziałkowskiego 街的 DPS 住民選定」，**全文未點名雙親**；「母為 Indira」仍出自 wpoznaniu 2026-08-04 引述園方人員。
 
 ---
 

@@ -13,6 +13,7 @@ zoos:
   - 多摩動物公園 (1987-12-09 – 1995-02-06)
 birth_zoo: unknown
 studbook_id: "8734"
+isb_checked: 2026-08-14
 tags: [styani, male, deceased, zoo:多摩動物公園]
 sources:
   - https://web.archive.org/web/20120128200628/http://www.rotterdamzoo.nl/import/assetmanager/2/6732/Red%20Panda%20Studbook.pdf

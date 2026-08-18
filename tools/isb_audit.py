@@ -208,6 +208,9 @@ def load_wiki() -> dict:
             "zoos": list(fm.get("zoos") or []),
             "fam": parse_family(body),
             "cites_isb": any(h in str(u) for u in srcs for h in ISB_HOST_HINT),
+            # 人工對帳旗標（frontmatter isb_checked）：與 A/B 層級不同——A/B 是「番號對得上」，
+            # 這欄是「有人真的逐欄對過」。見 SCHEMA.md。
+            "checked": str(fm.get("isb_checked") or "").strip() or None,
         }
     return out
 
@@ -303,6 +306,9 @@ def main():
         P("資料源：`sources/isb-red-panda/ISB-2008.txt`（收錄至 2008-12-31）")
         P("本報告由工具即時產生，勿手改；重跑即更新。\n")
 
+    # 已標記人工對帳者（frontmatter isb_checked）；A+B 只代表番號對得上，兩者刻意分開統計
+    n_checked = sum(1 for e in wiki.values() if e["checked"])
+
     if 1 in want:
         h1("§1 覆蓋率")
         rows = [
@@ -315,12 +321,14 @@ def main():
             P("| 層級 | 定義 | 筆數 |\n|---|---|---|")
             for k, d, n in rows:
                 P(f"| {k} | {d} | {n} |")
-            P(f"| | **A+B ＝ 已與 ISB 逐欄對過** | **{len(A)+len(B)}** |")
+            P(f"| | **A+B ＝ 番號對得上 ISB** | **{len(A)+len(B)}** |")
+            P(f"| | **已標記 `isb_checked`（人工逐欄對過）** | **{n_checked}** |")
             P(f"| | 條目總數 | {len(wiki)} |")
         else:
             for k, d, n in rows:
                 P(f"  {k}  {d:<46} {n:>4}")
-            P(f"      {'A+B ＝ 已與 ISB 逐欄對過':<46} {len(A)+len(B):>4}")
+            P(f"      {'A+B ＝ 番號對得上 ISB':<46} {len(A)+len(B):>4}")
+            P(f"      {'已標記 isb_checked（人工逐欄對過）':<46} {n_checked:>4}")
             P(f"      {'條目總數':<46} {len(wiki):>4}")
         P(f"\nISB 解析到 {len(isb)} 筆紀錄（ISB TOTALS 行為 2730，差 1 筆 ♀ 未定位；"
           "見本檔 docstring——主張『ISB 查無』前請回原檔確認）。")

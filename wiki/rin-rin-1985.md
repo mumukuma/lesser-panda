@@ -14,6 +14,7 @@ birth_zoo: unknown
 rpf_id: 882
 rpf_url: https://redpandafinder.com/#profile/882
 studbook_id: "8758"
+isb_checked: 2026-08-17
 tags: [styani, female, deceased]
 sources:
   - https://web.archive.org/web/20120128200628/http://www.rotterdamzoo.nl/import/assetmanager/2/6732/Red%20Panda%20Studbook.pdf

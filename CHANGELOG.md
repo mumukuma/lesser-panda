@@ -6,6 +6,28 @@
 
 ---
 
+## 2026-08-18 ・開發頁面「編號」列加 ISB 對帳標記：新增 `isb_checked`
+
+維護者問某隻的 ISB 對過帳沒有，發現**開發頁面看不出來**：「編號」列有 ISB 番號只代表 RPF 資料集
+查得到號碼，是否真的把整筆 ISB 紀錄與條目逐欄對過，得翻內文的 ✅ 註記才知道。新增選填 frontmatter
+`isb_checked: YYYY-MM-DD`（對帳日；多次對帳記最後一次），把它變成機器可讀的旗標。
+
+- **顯示**（`web/src/components/Panda.astro`，仍在 `import.meta.env.DEV` 之內）：
+  `ISB 97106 ✅2026-08-15 · RPF #591`；未對帳者維持 `ISB 97106 · RPF #591`，無番號者維持 `ISB —`。
+  正式 build 照舊連 HTML 都不產生（6492 頁 dist 搜 `ISB `／`isb_checked` 皆 0 筆）。
+- **ISB 全簿查無者也可填**（＝已查過、結論是 ISB 沒這隻，此時 `studbook_id` 留空、本欄有值）——
+  這類個體（如野毛山 1977 年前的初代）最容易被重複查一次。
+- 管線：`tools/schema.sql` 加欄 → `build_db.py` 讀寫 → `export_json.py` 匯出 `pandas.json`。
+  同步修掉 `schema.sql` 裡「有 `studbook_id` ＝已逐欄對過帳」的舊註解——那個推論就是這次要拆開的。
+- `tools/isb_audit.py` §1 覆蓋率多一行「已標記 `isb_checked`（人工逐欄對過）」，並把原本
+  「A+B ＝ 已與 ISB 逐欄對過」正名為「A+B ＝ 番號對得上 ISB」。現況：A+B 401 筆、已標記 33 筆。
+- 既有 33 筆已有內文對帳註記的條目已回填（見 `wiki/log.md`），未回填者亦列於該筆記錄。
+
+驗收：`build_db`＋`export_json`＋`verify.sh`（🔴 0）＋`check_i18n.py`（5×481 key）＋
+`closed.test.mjs`（68 passed）＋`SKIP_OG=1 astro build`（6492 頁）＋dev 三種狀態逐一 curl 確認。
+
+---
+
 ## 2026-08-18 ・官方來源白名單：Trevor-Lovejoy Zoo・Cape May County Zoo・Santa Barbara Zoo
 
 配合 Ember 一家 9 筆建檔（見 `wiki/log.md`），`tools/build_db.py` 補三處白名單，個體頁的

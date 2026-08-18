@@ -154,16 +154,21 @@ const fromCell = (() => {
 // ── 編號列（僅 dev；見下方 facts 的 import.meta.env.DEV 註解）────────────────
 // ISB 番號是字串（前導零，如 0085），照原樣印；沒有就印 em dash 佔位。
 // RPF 有 rpf_url 就做成連結，方便直接開原始 profile 覆核。
+// isb_checked 有值＝這隻的整筆 ISB 紀錄已與條目逐欄對過帳（ISB 查無者亦可有值），
+// 印 ✅＋對帳日；空白＝還沒對過。用來一眼看出哪些不必再請人／再請 Claude 驗一次。
 const idsCell = (() => {
   const isb = p.studbook_id
     ? `ISB <span class="font-mono">${p.studbook_id}</span>`
     : `ISB <span class="text-ink-soft/60">—</span>`;
+  const chk = p.isb_checked
+    ? ` <span title="已與 ISB 原檔逐欄對帳，不必重驗">✅<span class="font-mono ml-0.5">${p.isb_checked}</span></span>`
+    : '';
   const rpf = p.rpf_id
     ? (p.rpf_url
         ? ` · <a class="text-rust hover:underline font-mono" href="${p.rpf_url}" rel="noopener noreferrer" target="_blank">RPF #${p.rpf_id}</a>`
         : ` · <span class="font-mono">RPF #${p.rpf_id}</span>`)
     : '';
-  return `<span class="text-[.84rem] text-ink-soft">${isb}${rpf}</span>`;
+  return `<span class="text-[.84rem] text-ink-soft">${isb}${chk}${rpf}</span>`;
 })();
 
 const facts = [

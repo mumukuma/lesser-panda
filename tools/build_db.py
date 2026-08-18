@@ -711,6 +711,8 @@ def build_db():
             "rpf_url":          fm.get("rpf_url"),
             # ISB 番號：frontmatter 一律加引號存字串（前導零），這裡原樣帶過不轉型
             "studbook_id":      str(fm["studbook_id"]).strip() if fm.get("studbook_id") else None,
+            # ISB 對帳日：已與 ISB 原檔逐欄對過帳的日期（ISB 查無者也可填，見 SCHEMA.md）
+            "isb_checked":      str(fm["isb_checked"]).strip() if fm.get("isb_checked") else None,
             "tags":             json.dumps(tags_raw, ensure_ascii=False),
             "instagram":        json.dumps(instagram, ensure_ascii=False) if instagram else None,
             "youtube":          json.dumps(youtube, ensure_ascii=False) if youtube else None,
@@ -732,10 +734,10 @@ def build_db():
     cur.executemany("""
         INSERT OR REPLACE INTO pandas
           (slug, name, japanese, korean, chinese, nicknames, english_variants,
-           sex, born, died, last_seen, species, origin, origin_place, origin_from, origin_from_year, origin_from_kind, birth_zoo, mother_ref, father_ref, rpf_id, rpf_url, studbook_id, tags, instagram, youtube, is_alive, sources, sources_private, extra_sources)
+           sex, born, died, last_seen, species, origin, origin_place, origin_from, origin_from_year, origin_from_kind, birth_zoo, mother_ref, father_ref, rpf_id, rpf_url, studbook_id, isb_checked, tags, instagram, youtube, is_alive, sources, sources_private, extra_sources)
         VALUES
           (:slug,:name,:japanese,:korean,:chinese,:nicknames,:english_variants,
-           :sex,:born,:died,:last_seen,:species,:origin,:origin_place,:origin_from,:origin_from_year,:origin_from_kind,:birth_zoo,:mother_ref,:father_ref,:rpf_id,:rpf_url,:studbook_id,:tags,:instagram,:youtube,:is_alive,:sources,:sources_private,:extra_sources)
+           :sex,:born,:died,:last_seen,:species,:origin,:origin_place,:origin_from,:origin_from_year,:origin_from_kind,:birth_zoo,:mother_ref,:father_ref,:rpf_id,:rpf_url,:studbook_id,:isb_checked,:tags,:instagram,:youtube,:is_alive,:sources,:sources_private,:extra_sources)
     """, [r for _, _, r in panda_rows])
     conn.commit()
     print(f"  ✅ 插入 {len(panda_rows)} 筆個體資料")

@@ -248,6 +248,8 @@ def main():
             # 不會被複製進 web/dist、也沒有任何元件把它內嵌進 HTML。
             # ⚠️ 但**別把它加進 searchDataFor／ZOOS_DATA 之類的內嵌資料**，那才是真的會上站。
             "studbook_id": r["studbook_id"],
+            # ISB 對帳日：同樣只給 dev 的「編號」列用（✅ 日期＝已逐欄對過帳，不必重驗）
+            "isb_checked": r["isb_checked"],
             "instagram": json.loads(r["instagram"] or "[]"),
             # 展示用 YouTube 影片（個體頁「照片與影片」影片分頁）；佐證用 YT 連結仍在 extra_sources
             "youtube": json.loads(r["youtube"] or "[]"),

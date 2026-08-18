@@ -2046,8 +2046,8 @@
 | [[tai-tai-1990-06-26]] | Tai Tai 泰泰／タイタイ — [[shin-shin-1990-06-26]] 雙胞胎；**王子動物園首例人工哺育**（皮膚炎，25 日齡離母）、王子→釧路 🪽 | ♂ | 1990–1999 🪽 | 釧路市動物園 |
 | [[shin-shin-1988-07-14]] | Shin-Shin 真真 — [[ai-ai-1984]] × [[yuu-yuu-1983]] 之女、桃太郎／金太郎之母、育児放棄 🪽；安佐→姫路（⚠️ 勿與 [[shin-shin-1984]] 等混淆）| ♀ | 1988–2003 🪽 | 姫路セントラルパーク |
 | [[kenta-1998-06-29]] | Kenta 健太 — [[shin-shin-1990-06-26]] × [[shin-shin-1988-07-14]] 之子、[[momotaro-1997-07-17]]／[[kintarou-1997-07-17]] 之弟（晚一年）🪽；姫路セントラル（ISB `98026`；歿年 2011 🚧 非官方來源）| ♂ | 1998–2011 🪽 | 姫路セントラルパーク |
-| [[kinta-2000-06-08]] | Kinta キンタ — 上海動物園生、長壽母個體 🪽 | ♀ | 2000–2018 🪽 | 野毛山動物園 |
-| [[kaguya-2000-06-29]] | Kaguya カグヤ — 上海動物園生、[[kinta-2000-06-08]] 同批來日 🪽（歿因：心不全）| ♀ | 2000–2013 🪽 | 多摩動物公園 |
+| [[kinta-2000-06-08]] | Kinta キンタ／きんた — 上海動物園生、野毛山在園 17 年的長壽雌個體（無子女；ISB `00150`）🪽 | ♀ | 2000–2018 🪽 | 野毛山動物園 |
+| [[kaguya-2000-06-29]] | Kaguya カグヤ — 上海動物園生、[[kinta-2000-06-08]] 同批來日（兩隻皆♀；ISB `00151`）🪽（歿因：心不全）| ♀ | 2000–2013 🪽 | 多摩動物公園 |
 | [[non-non]] | Non-non ノンノン — 上海動物園來、野毛山最初的小熊貓之一（1973）、短命；[[rai-rai]] 同期 🪽 | ♀ | 1973–? 🪽 | 野毛山動物園 |
 | [[rai-rai]] | Rai-rai ライライ — 上海動物園來、野毛山最初的小熊貓之一（1973）、短命；[[non-non]] 同期 🪽 | ♂ | 1973–? 🪽 | 野毛山動物園 |
 | [[koro-1974]] | Koro コロ — [[mimi-1974]] 配偶、[[atsuko-1978-06-30]] 之父；野毛山唯一繁殖成功；1980 移多摩並終老 🪽（ISB `7619`）| ♂ | ~1974–1986 🪽 | 多摩動物公園 |
@@ -2632,13 +2632,13 @@
 
 ### Doofah × Sisu 一家（Zoo Knoxville・Potawatomi Zoo）
 
-[[doofah-2018-06-21]]（[[tabei-2013-06-01]] × [[ketu-2011-12-09]] 之子，生於紐約州 Rosamond Gifford Zoo）與 [[sisu-2021-06-17]]（[[maiya-2014-06-26]] × [[justin-2012-07-01]] 之女，生於印第安納州 Potawatomi Zoo）2024 年在 Zoo Knoxville 配對，2025-06-03 產下 [[dr-wallace-2025-06-03]] 與 [[mr-darcy-2025-06-03]]——是該園近五年首次小熊貓誕生、十餘年來第一次由母親在展區帶大幼獸；2026-06-07 再產下第二胎雙胞胎（皆雄性、尚未命名，以蘋果籽佔位）。Doofah 之父 [[ketu-2011-12-09]] 出身紐西蘭 Hamilton Zoo（[[tayla-2007-12-08]] × [[chito-2002-12-18]] 之子），母 [[tabei-2013-06-01]] 則生於 Zoo Knoxville，故 Doofah 2021 年移入該園等於回到母親的出生園。雙胞胎兄弟 [[loofah-2018-06-21]] 在堪薩斯州 Sunset Zoo 另育有一女 [[sunisa-2024-07-14]]。本家系依 2026-08-06 兩筆讀者回報建檔。
+[[doofah-2018-06-21]]（[[tabei-2013-06-01]] × [[ketu-2011-12-09]] 之子，生於紐約州 Rosamond Gifford Zoo）與 [[sisu-2021-06-17]]（[[maiya-2014-06-26]] × [[justin-2012-07-01]] 之女，生於印第安納州 Potawatomi Zoo）2024 年在 Zoo Knoxville 配對，2025-06-03 產下 [[dr-wallace-2025-06-03]] 與 [[mr-darcy-2025-06-03]]——是該園近五年首次小熊貓誕生、十餘年來第一次由母親在展區帶大幼獸；2026-06-07 再產下第二胎雙胞胎（皆雄性、尚未命名，以蘋果籽佔位）。Doofah 之父 [[ketu-2011-12-09]] 出身紐西蘭 Hamilton Zoo（[[tayla-2007-12-08]] × [[chito-2002-12-18]] 之子），母 [[tabei-2013-06-01]] 則生於 Zoo Knoxville，故 Doofah 2021 年移入該園等於回到母親的出生園。雙胞胎兄弟 [[loofah-2018-06-21]] 在堪薩斯州 Sunset Zoo 另育有一女 [[sunisa-2024-07-14]]。長子 [[dr-wallace-2025-06-03]] 2026 年 5 月依 SSP 移居紐澤西州 Cape May County Park & Zoo，與同園的 [[ember-2025-06-16]] 配對。本家系依 2026-08-06 兩筆讀者回報建檔，移居一段依 2026-08-18 回報更新。
 
 | 條目 | 說明 | 性別 | 生卒 | 動物園 |
 |------|------|------|------|--------|
 | [[doofah-2018-06-21]] | Doofah — Sisu 之配偶；Rosamond Gifford 生、經 Potter Park 於 2021 移入（RPF #1224；官方 IG 拼作 Doofa） | ♂ | 2018– | Zoo Knoxville 🇺🇸 |
 | [[sisu-2021-06-17]] | Sisu — Doofah 之配偶；Potawatomi 生，2024 依 SSP 移入（RPF #1303；🚧 抵園日不明，暫採公告日 2024-03-22） | ♀ | 2021– | Zoo Knoxville 🇺🇸 |
-| [[dr-wallace-2025-06-03]] | Dr. Wallace — Sisu × Doofah 初胎雙胞胎之一；名字紀念 ETSU 教授 Steven C. Wallace | ♂ | 2025– | Zoo Knoxville 🇺🇸 |
+| [[dr-wallace-2025-06-03]] | Dr. Wallace — Sisu × Doofah 初胎雙胞胎之一；名字紀念 ETSU 教授 Steven C. Wallace；2026 年 5 月移居 Cape May 與 Ember 配對（🚧 抵園日不明，暫採公告日 2026-06-03） | ♂ | 2025– | Cape May County Park & Zoo 🇺🇸 |
 | [[mr-darcy-2025-06-03]] | Mr. Darcy — Dr. Wallace 雙胞胎兄弟；長得像爸爸；2026-05 移居 Pueblo Zoo | ♂ | 2025– | Pueblo Zoo 🇺🇸 |
 | [[apple-seed-1-sisu-2026-06-07]] | 蘋果籽1號（Apple Seed 1）— 2026 第二胎雙胞胎之一；尚未命名（佔位條目） | ♂ | 2026– | Zoo Knoxville 🇺🇸 |
 | [[apple-seed-2-sisu-2026-06-07]] | 蘋果籽2號（Apple Seed 2）— 同胎另一隻；尚未命名（佔位條目） | ♂ | 2026– | Zoo Knoxville 🇺🇸 |
@@ -2658,11 +2658,11 @@
 
 ### Trevor-Lovejoy Zoo 一家（Millbrook School → Cape May・Santa Barbara）
 
-紐約州 Millbrook School 附設的 **Trevor-Lovejoy Zoo**（舊名 Trevor Zoo，園方近年更名）自 2014 年起繁殖小熊貓。種公 [[zhu-2013-06-18]] 2017 年自 Zoo Knoxville 移入，先與 [[betsy-2015-06-26]] 🪽 育有 2022 年雙胞胎（[[raj-2022-07-07]] 與一隻未命名夭折仔）；Betsy 2024 年 4 月過世後，園方依 AZA 物種存續計畫（SSP）於同年 11 月引進 [[lucy-2018-06-25]]，2025-06-16 生下 [[ember-2025-06-16]]——Lucy 的第一胎、也是該園自 2014 年以來的第四胎，名字由公眾捐款投票選出。Ember 2026 年 3 月移居紐澤西州 Cape May County Park & Zoo。母系可上溯至同園的 [[mow-mow-2014-06-11]] 一支：Lucy 的外祖母 [[lali-2016-06-06]] 🪽 之母 Faith 🪽 正是 Mow-Mow 的雙胞胎姊妹，故 Ember 這一支在四代之後又回到了同一座園。本家系依 2026-08-18 讀者回報建檔（回報所填抵 Cape May 日 2026-03-24 經查證為官方公告日、非實際抵園日）。
+紐約州 Millbrook School 附設的 **Trevor-Lovejoy Zoo**（舊名 Trevor Zoo，園方近年更名）自 2014 年起繁殖小熊貓。種公 [[zhu-2013-06-18]] 2017 年自 Zoo Knoxville 移入，先與 [[betsy-2015-06-26]] 🪽 育有 2022 年雙胞胎（[[raj-2022-07-07]] 與一隻未命名夭折仔）；Betsy 2024 年 4 月過世後，園方依 AZA 物種存續計畫（SSP）於同年 11 月引進 [[lucy-2018-06-25]]，2025-06-16 生下 [[ember-2025-06-16]]——Lucy 的第一胎、也是該園自 2014 年以來的第四胎，名字由公眾捐款投票選出。Ember 2026 年 3 月移居紐澤西州 Cape May County Park & Zoo，同年 5 月起與 Zoo Knoxville 來的 [[dr-wallace-2025-06-03]] 同園、依 SSP 配對。母系可上溯至同園的 [[mow-mow-2014-06-11]] 一支：Lucy 的外祖母 [[lali-2016-06-06]] 🪽 之母 Faith 🪽 正是 Mow-Mow 的雙胞胎姊妹，故 Ember 這一支在四代之後又回到了同一座園。本家系依 2026-08-18 讀者回報建檔（回報所填抵 Cape May 日 2026-03-24 經查證為官方公告日、非實際抵園日）。
 
 | 條目 | 說明 | 性別 | 生卒 | 動物園 |
 |------|------|------|------|--------|
-| [[ember-2025-06-16]] | Ember — Lucy × Zhu 之女、Lucy 初胎；2026-03 移居 Cape May（🚧 抵園日不明，暫採公告日 2026-03-24） | ♀ | 2025– | Cape May County Park & Zoo 🇺🇸 |
+| [[ember-2025-06-16]] | Ember — Lucy × Zhu 之女、Lucy 初胎；2026-03 移居 Cape May（🚧 抵園日不明，暫採公告日 2026-03-24），同年 5 月起與 [[dr-wallace-2025-06-03]] 配對 | ♀ | 2025– | Cape May County Park & Zoo 🇺🇸 |
 | [[lucy-2018-06-25]] | Lucy — Ember 之母；Scovill 生、經費城動物園於 2024-11 移入（RPF #862；🚧 居住史僅 RPF） | ♀ | 2018– | Trevor Zoo At Millbrook School 🇺🇸 |
 | [[zhu-2013-06-18]] | Zhu — Ember・Raj 之父；Binder Park 生、2017 自 Zoo Knoxville 移入（RPF #508） | ♂ | 2013– | Trevor Zoo At Millbrook School 🇺🇸 |
 | [[betsy-2015-06-26]] | Betsy — Zhu 的前一位配偶、Raj 之母 🪽（RPF #342；🚧 歿日僅 RPF） | ♀ | 2015–2024 🪽 | Trevor Zoo At Millbrook School 🇺🇸 |
@@ -3321,7 +3321,7 @@ Pabu 的英國娘家是布羅克斯本的 Hertfordshire Zoo。母獸 Tilly 2012 
 | [[tien-tien-1984-07-21]] | Tien-Tien — 1989.1.21 入園（園內編號 1023）；野生出身、中文名待查證 🪽（ISB `8971`，RPF 未收錄）| ♀ | 1984–1997 🪽 | 台北市立動物園 🇹🇼 |
 | [[dong-dong-1985]] | Dong-Dong — 與 Tien-Tien 同日入園（園內編號 1022）；野生出身、中文名待查證 🪽（ISB `8970`，RPF 未收錄）| ♂ | 約1985–1997 🪽 | 台北市立動物園 🇹🇼 |
 | [[ping-ping-1996-07-03]] | Ping-Ping — 1998 年經 CWCA →動物商→姫路セントラルパーク 轉入，在園僅約半年 🪽（ISB `T330`，RPF 未收錄；與 [[an-an-1995-06-17]] 同批同日入園）| ♂ | 1996–1999 🪽 | 台北市立動物園 🇹🇼 |
-| [[an-an-1995-06-17]] | **An-An 安安** — 與 Ping-Ping 同批、1998.6.30 同日入園（園內編號 3380）；2014 年園方新聞稿仍記其在園（19 歲），歿日待查證 🪽（ISB `T327`，RPF 未收錄）| ♀ | 1995–? 🪽 | 台北市立動物園 🇹🇼 |
+| [[an-an-1995-06-17]] | **An-An 安安** — 與 Ping-Ping 同批，1998 年經 CWCA →動物商→姫路セントラルパーク 檢疫兩月後、1998.6.30 同日入園（園內編號 3380）；2014 年園方新聞稿仍記其在園（19 歲），歿日待查證 🪽（ISB `T327`，RPF 未收錄）| ♀ | 1995–? 🪽 | 台北市立動物園 🇹🇼 |
 
 ---
 

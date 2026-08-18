@@ -12,6 +12,7 @@ zoos:
   - 横浜市立野毛山動物園 (1989-09-01 – 1999-01-17)
 birth_zoo: unknown
 studbook_id: "8933"
+isb_checked: 2026-08-18
 tags: [styani, female, deceased]
 sources:
   - https://www.hama-midorinokyokai.or.jp/zoo/nogeyama/details/post-1577.php

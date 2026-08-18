@@ -50,8 +50,13 @@ CREATE TABLE IF NOT EXISTS pandas (
     rpf_id      INTEGER,            -- Red Panda Finder profile ID
     rpf_url     TEXT,
     -- 國際血統登録書（ISB 2008 年版）番號。存 TEXT 不存 INTEGER：番號有前導零（如 "0085"），
-    -- 轉數字會掉。**有值＝這隻已與 ISB 逐欄對過帳**，個體頁的「編號」列（僅 dev 可見）據此顯示。
+    -- 轉數字會掉。有值＝ISB 查得到番號；**是否真的逐欄對過帳看 isb_checked，別再用本欄推斷**。
     studbook_id TEXT,
+    -- ISB 對帳日（選填，YYYY-MM-DD）＝「這隻的整筆 ISB 紀錄已與條目逐欄對過」的日期，
+    -- 由維護者／Claude 對帳後手填，多次對帳記最後一次。ISB 全簿查無者也可填
+    -- （＝已查過、結論是 ISB 沒這隻），此時 studbook_id 留空、本欄有值。
+    -- 個體頁「編號」列（僅 dev 可見）顯示 ✅ 日期，用來一眼看出哪些不必再驗一次。
+    isb_checked TEXT,
     tags        TEXT,               -- JSON array，原始 tags
     instagram   TEXT,               -- JSON array，公開 IG 貼文連結（curate，官方 embed 展示）
     youtube     TEXT,               -- JSON array，公開 YouTube 影片連結（curate，個體頁「照片與影片」影片分頁 embed 展示）
