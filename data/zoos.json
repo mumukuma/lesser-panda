@@ -6927,5 +6927,27 @@
    "Hirakawa Zoo",
    "平川動物公園"
   ]
+ },
+ {
+  "canonical": "済南動物園",
+  "lineage_id": null,
+  "en": "Jinan Zoo",
+  "zh": "济南动物园",
+  "country": "China",
+  "location_ja": "山東省済南市天橋区",
+  "location_zh": "山東省濟南市天橋區",
+  "location_en": "Tianqiao, Jinan, Shandong, China",
+  "lat": null,
+  "lng": null,
+  "map": null,
+  "website": null,
+  "logo": null,
+  "aliases": [
+   "Jinan Zoo",
+   "济南动物园",
+   "濟南動物園",
+   "済南市動物園",
+   "Taurus Park"
+  ]
  }
 ]
