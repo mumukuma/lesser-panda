@@ -221,6 +221,7 @@
   "zh": null,
   "country": "Netherlands",
   "location_ja": null,
+  "location_zh": "北布拉班特省希爾瓦倫貝克",
   "location_en": "Hilvarenbeek, Netherlands",
   "lat": 51.525569,
   "lng": 5.1142085,
@@ -2309,19 +2310,26 @@
   "aliases": []
  },
  {
-  "canonical": "Parc Zoologique de Fort-Mardyck",
+  "canonical": "Bio-Topia",
   "lineage_id": 285,
-  "en": "Parc Zoologique de Fort-Mardyck",
+  "en": "Bio-Topia",
   "zh": null,
   "country": "France",
   "location_ja": null,
+  "location_zh": "諾爾省敦克爾克",
   "location_en": "Dunkerque, France",
   "lat": 51.0304141,
-  "lng": 2.3073733,
-  "map": "https://g.page/zoo-fort-mardyck",
-  "website": "https://www.parc-zoologique.fr/",
+  "lng": 2.309562,
+  "map": "https://www.google.com/maps/search/?api=1&query=51.0304141,2.309562",
+  "website": "https://www.bio-topia.fr/",
   "logo": null,
-  "aliases": []
+  "aliases": [
+   "Parc Zoologique de Fort-Mardyck",
+   "Parc zoologique de Fort-Mardyck – Dunkerque",
+   "Zoo de Dunkerque",
+   "Zoo Dunkerque",
+   "Bio-Topia Fort-Mardyck"
+  ]
  },
  {
   "canonical": "Parco Zoo Punta Verde",
@@ -2337,6 +2345,24 @@
   "website": "https://www.parcozoopuntaverde.it/",
   "logo": null,
   "aliases": []
+ },
+ {
+  "canonical": "Parken Zoo",
+  "lineage_id": null,
+  "en": "Parken Zoo",
+  "zh": null,
+  "country": "Sweden",
+  "location_ja": null,
+  "location_zh": "南曼蘭省埃斯基爾斯蒂納",
+  "location_en": "Eskilstuna, Södermanland, Sweden",
+  "lat": 59.3728164,
+  "lng": 16.4822495,
+  "map": "https://www.google.com/maps/search/?api=1&query=59.3728164,16.4822495",
+  "website": "https://www.parkenzoo.se/",
+  "logo": null,
+  "aliases": [
+   "Parken Zoo Eskilstuna"
+  ]
  },
  {
   "canonical": "Peaugres Safari",
@@ -3019,6 +3045,26 @@
   "aliases": []
  },
  {
+  "canonical": "Tiergarten Kleve",
+  "lineage_id": null,
+  "en": "Tiergarten Kleve",
+  "zh": null,
+  "country": "Germany",
+  "location_ja": null,
+  "location_zh": "北萊茵-西發利亞邦克萊沃",
+  "location_en": "Kleve, North Rhine-Westphalia, Germany",
+  "lat": 51.799083,
+  "lng": 6.121861,
+  "map": "https://www.google.com/maps/search/?api=1&query=51.799083,6.121861",
+  "website": "https://tiergarten-kleve.de/",
+  "logo": null,
+  "aliases": [
+   "Zoo Kleve",
+   "Tiergarten Kleve gGmbH",
+   "Kleve Zoo"
+  ]
+ },
+ {
   "canonical": "Tierpark Berlin",
   "lineage_id": 251,
   "en": "Tierpark Berlin",
@@ -3688,6 +3734,27 @@
   "aliases": []
  },
  {
+  "canonical": "Zoo Saarbrücken",
+  "lineage_id": null,
+  "en": "Saarbrücken Zoo",
+  "zh": null,
+  "country": "Germany",
+  "location_ja": null,
+  "location_zh": "薩爾邦薩爾布呂肯",
+  "location_en": "Saarbrücken, Saarland, Germany",
+  "lat": 49.2290992,
+  "lng": 7.0399692,
+  "map": "https://www.google.com/maps/search/?api=1&query=49.2290992,7.0399692",
+  "website": "https://zoo.saarbruecken.de/",
+  "logo": null,
+  "aliases": [
+   "Zoologischer Garten Saarbrücken",
+   "Saarbrücker Zoo",
+   "Saarbrücken Zoo",
+   "Zoo Saarebruck"
+  ]
+ },
+ {
   "canonical": "Zoo Santo Inácio",
   "lineage_id": 281,
   "en": "Zoo Santo Inácio",
@@ -3716,6 +3783,27 @@
   "website": "https://www.labourbansais.com",
   "logo": null,
   "aliases": []
+ },
+ {
+  "canonical": "Zoo d'Amiens Métropole",
+  "lineage_id": null,
+  "en": "Amiens Métropole Zoo",
+  "zh": null,
+  "country": "France",
+  "location_ja": null,
+  "location_zh": "索姆省亞眠",
+  "location_en": "Amiens, Somme, France",
+  "lat": 49.898885,
+  "lng": 2.2823923,
+  "map": "https://www.google.com/maps/search/?api=1&query=49.898885,2.2823923",
+  "website": "https://www.zoo-amiens.fr/",
+  "logo": null,
+  "aliases": [
+   "Parc Zoologique d'Amiens Métropole",
+   "Zoo Amiens Métropole",
+   "Zoo d'Amiens",
+   "Zoo Amiens"
+  ]
  },
  {
   "canonical": "Zoo d'Asson",

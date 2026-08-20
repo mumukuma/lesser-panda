@@ -59,7 +59,8 @@ ORIGIN_FROMS = ("cn-chengdu", "cn-xian", "cn-beijing", "cn-chongqing", "cn-sheny
 ORIGIN_FROM_KINDS = ("gift", "exchange", "transfer")   # 贈與／動物交換／移入
 
 # ⚠️ 日後新增園方官網時，把 host 補進 OFFICIAL_HOSTS 即會自動顯示。
-# ⚠️ 另有「是官方、但不對外呈現連結」的第三類，見下方 NON_PUBLIC_HOSTS（目前只有 ISB）。
+# ⚠️ 另有「是官方、但不對外呈現連結」的第三類：NON_PUBLIC_HOSTS（ISB）＋一切 Wayback 快照
+#    （2026-08-20 起，見 is_public_source）——兩者皆只在 dev mode 的來源區塊顯示。
 OFFICIAL_HOSTS = {
     # 日本園方官網／營運協會
     "tokyo-zoo.net", "nhdzoo.jp", "tohoku-safaripark.co.jp", "tobezoo.com",
@@ -89,6 +90,13 @@ OFFICIAL_HOSTS = {
     #    HTML topics 頁核對（維護者 Chrome 實讀），勿只信 PDF 抽取結果。
     "aws-s.com",
     "hamurazoo.jp",  # 羽村市動物公園（園方 /news/ 公告）
+    # 高知県立のいち動物公園（公益財団法人高知県のいち動物公園協会）。「動物ニュース」
+    # /information/zoo-news/entry-N.html 與「飼育日誌」/blog/breeding-diary/ 為官方一手，
+    # 個體訃報發於前者（如 2023-02-03 レッサーパンダ「カイ」）。
+    "noichizoo.or.jp",
+    # 江戸川区自然動物園（公益財団法人えどがわ環境財団が運営）。/zoo/blog_detail/N/ 的
+    # 飼育員ブログ（訃報含在內）與 /zoo/introduction/ 動物紹介皆為官方一手。
+    "edogawa-kankyozaidan.jp",
     # 福知山市動物園（京都府福知山市立；個體訃報等公告發於 /lesserpanda-<name>/ 等單頁）
     "fukuchiyamazoo.jp",
     # 池田動物園（岡山市；訃報等公告發於 /news/）。⚠️ 舊訃報會自站上下架（如 2024-04-27
@@ -133,6 +141,16 @@ OFFICIAL_HOSTS = {
     # ⚠️ 官方歸官方，但**不對外呈現連結**（維護者裁定 2026-08-11）：同時列於 NON_PUBLIC_HOSTS。
     "rotterdamzoo.nl", "diergaardeblijdorp.nl",
     "zoodubassindarcachon.com",  # Zoo du Bassin d'Arcachon（法國吉倫特省）
+    # ZooParc de Beauval（法國盧瓦-謝爾省聖艾尼昂）。園方新聞站 actus.zoobeauval.com 為官方一手
+    # （出生・命名・移動公告發於此，逐隻載生日與去向），主站 /zooparc/animals/ 為現有成員名單。
+    "zoobeauval.com", "actus.zoobeauval.com",
+    # Zoo d'Amiens Métropole（法國索姆省亞眠市營）。/actualites/detail-actualite/… 為園方公告
+    "zoo-amiens.fr",
+    # Tiergarten Kleve（德國北萊茵-西發利亞邦；抵園・出生公告發於官網單頁 /標題-slug/）
+    "tiergarten-kleve.de",
+    # ZOOM Erlebniswelt（德國蓋爾森基興；新聞稿在 /presse-YYYY/…）
+    "zoom-erlebniswelt.de",
+    "zoo.saarbruecken.de", "saarbruecken.de",  # Zoo Saarbrücken（德國薩爾邦；薩爾布呂肯市營，公告發於市府網域）
     # ZOO Ústí nad Labem（捷克烏斯提州；含年度報告 PDF /data/clanky/…/vyrocni-zprava-YYYY.pdf，
     # 園方自行編纂、記載各物種收支與繁殖，視同園報）
     "zoousti.cz", "www.zoousti.cz",
@@ -197,6 +215,7 @@ OFFICIAL_FB_PAGES = {
     "saitamazoo",      # 埼玉県こども動物自然公園 官方專頁（parks.or.jp/sczoo 頁尾 SNS 連結指向此）
     "zoobojnice",      # ZOO BOJNICE 官方專頁（page id 100064523241079；出生日等細節只發於此，官網 /tag/panda-cervena/ 未收）
     "birminghamzoo",   # The Birmingham Zoo 官方專頁（官網頁尾 Facebook 連結指向此專頁；Gizmo 抵園日只發於此）
+    "zooamiens",       # Zoo d'Amiens Métropole 官方專頁（同 zoo-amiens.fr；Wilmer 的生日與出生園只發於此）
 }
 _FB_HOSTS = {"facebook.com", "m.facebook.com", "web.facebook.com", "fb.com"}
 
@@ -254,6 +273,7 @@ OFFICIAL_IG_ACCOUNTS = {
     "zooknoxville",  # Zoo Knoxville（同 zooknoxville.org；抵園・出産公告發於此）
     "potawatomizoo",  # Potawatomi Zoo（同 potawatomizoo.org；生日・送別公告發於此）
     "woburn_safari",  # Woburn Safari Park（英國；官網 woburnsafari.co.uk 頁尾 Instagram 連結指向此帳號；到園公告發於此）
+    "tiergartenkleve",  # Tiergarten Kleve（德國；同 tiergarten-kleve.de，幼獸近況只發於此）
     "pueblozoo",  # Pueblo Zoo（同 pueblozoo.org；幼獸健檢等公告發於此）
     "buffalo_zoo",  # Buffalo Zoo（同 buffalozoo.org；抵園公告發於此）
     "love_ikedazoo",  # 池田動物園（官網頁尾 Instagram 連結指向此帳號）
@@ -378,12 +398,17 @@ def official_sources(sources_raw) -> list[str]:
 NON_PUBLIC_HOSTS = {"rotterdamzoo.nl", "diergaardeblijdorp.nl"}
 
 def is_public_source(url: str) -> bool:
-    """官方來源是否可在個體頁公開列出（Wayback 快照比對其內層 host）。"""
+    """官方來源是否可在個體頁公開列出。
+
+    維護者裁定 2026-08-20：凡 Wayback 快照（web.archive.org 等）一律不公開列出，
+    改為只在 dev mode 顯示（見 Panda.astro 的 dev-only 來源區塊；資料經
+    export_json 的 sources_private 送達，pandas.json 僅建置期讀取、不進 dist）。
+    在此之前 Wayback 會拆內層 host、園方舊頁快照照樣公開；現在外層 host 是
+    Wayback 就直接判非公開。官方認定（is_official_source）仍拆內層判斷，
+    佐證權重與 has_official_source 不受影響。"""
     host = _host(url)
     if host in _WAYBACK_HOSTS:
-        inner = _unwrap_wayback(url)
-        if inner:
-            host = _host(inner)
+        return False
     return host not in NON_PUBLIC_HOSTS
 
 

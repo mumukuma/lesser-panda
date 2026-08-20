@@ -6,6 +6,33 @@
 
 ---
 
+## 2026-08-20 ・Wayback 快照來源改為僅 dev mode 顯示（`sources_dev`）
+
+維護者裁定：凡來源是 `web.archive.org` 爬回來的（Wayback 快照），正式站個體頁一律不列出連結，
+改成只在 `pnpm dev` 的「來源」卡片顯示；一併把 2026-08-11 起連 dev 都不顯示的 ISB 連結放進
+同一個 dev-only 清單（正式站照舊完全不出現，方便校對時直接點開 ISB PDF）。
+
+- `tools/build_db.py` `is_public_source()`：外層 host 是 Wayback（`_WAYBACK_HOSTS`）**直接判非公開**，
+  不再拆內層 host 放行園方舊頁快照 → 這些連結改進 DB `sources_private` 欄。原本公開顯示的
+  Wayback 連結共 11 處／9 條目（のいち×7、平川×2、静岡市×1、池田×1）。官方認定
+  （`is_official_source`）仍拆內層判斷，`has_official_source` 與 🚧 判定**不受影響**——
+  只剩 Wayback 來源的個體（如 `fuuko-1997-06-30`）不會因此被標「未經官方佐證」。
+- `pipeline/scripts/export_json.py`：`sources_private` 匯出為 `pandas.json` 的 **`sources_dev`**
+  （該檔僅建置期由 `data.js` 讀、不進 `web/dist`，同 `studbook_id` 的安全性說明；順手修正舊註解
+  「pandas.json 會隨網站發佈」的過時說法）。⚠️ 別把 `sources_dev` 加進 `searchDataFor`／
+  `ZOOS_DATA` 之類內嵌進 HTML 的資料。
+- `web/src/components/Panda.astro`：來源卡片尾端加 dev-only 清單（`import.meta.env.DEV`，
+  同「編號」列），每筆 🔒＋內層網域＋「（Wayback 快照）」＋「僅 dev 顯示」小字；只有 dev 來源的
+  個體（fuuko、riku）dev 下仍會出現來源卡片，正式站則整卡不渲染。
+- `SCHEMA.md`「官方但不對外呈現」段落改寫，涵蓋兩類（ISB＋一切 Wayback）與新資料流。
+
+驗收：`verify.sh`（🔴 0）＋`check_i18n.py`（5×481 key）＋`closed.test.mjs`（68 passed）＋
+`SKIP_OG=1 astro build`——dist 6577 頁搜 `web.archive.org`／`rotterdamzoo`／「僅 dev 顯示」皆
+0 筆，dist 內無 `pandas.json`、無 `sources_dev` 字串；dev curl 三頁（fuuko／shi-mo／ja 版
+you-you-2002）確認 🔒 清單與內層網域標籤如預期。
+
+---
+
 ## 2026-08-18 ・開發頁面「編號」列加 ISB 對帳標記：新增 `isb_checked`
 
 維護者問某隻的 ISB 對過帳沒有，發現**開發頁面看不出來**：「編號」列有 ISB 番號只代表 RPF 資料集

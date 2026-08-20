@@ -254,9 +254,12 @@ def main():
             # 展示用 YouTube 影片（個體頁「照片與影片」影片分頁）；佐證用 YT 連結仍在 extra_sources
             "youtube": json.loads(r["youtube"] or "[]"),
             # 僅官方來源（園方/政府/園報/官方微信）中**可公開展示**者；分類於 build_db.split_sources。
-            # ⚠️ 官方但不對外呈現者（ISB，見 build_db.NON_PUBLIC_HOSTS）刻意不匯出——
-            #    pandas.json 會隨網站一起發佈，連結進了 JSON 就等於上站。
             "sources": json.loads(r["sources"] or "[]"),
+            # 官方但不對外呈現者（ISB＋一切 Wayback 快照，見 build_db.is_public_source）：
+            # 供個體頁 dev-only 來源區塊顯示（import.meta.env.DEV 包住，正式 build 不輸出）。
+            # 匯出到 pandas.json 是安全的（同上方 studbook_id 的說明：建置期讀、不進 dist）。
+            # ⚠️ 別把它加進 searchDataFor／ZOOS_DATA 之類的內嵌資料，那才是真的會上站。
+            "sources_dev": json.loads(r["sources_private"] or "[]"),
             # 佐證軸（自動推導，非手動 tag）：官方來源清單非空 → 有官方背書。
             # 為空（如僅「維護者提供（…）」無 host）→ 網站顯示「維護者提供・未經官方佐證」標記。
             # 補進官方來源後自動轉 true、標記自動消失。與在世軸 unverified 獨立、勿混用。

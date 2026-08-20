@@ -75,6 +75,15 @@ const defaultTab = igPosts.length > 0 ? 'ig' : 'yt';
 // 顯示以網域為連結文字。非官方（RPF、部落格、新聞、社群）不進此清單。
 const sources = p.sources || [];
 const srcHost = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return u; } };
+// dev-only 來源：官方但不對外呈現者（ISB＋一切 Wayback 快照，見 build_db.is_public_source，
+// 維護者裁定 2026-08-20）。與「編號」列同一招 import.meta.env.DEV——正式 build 的 HTML
+// 完全不含這些網址（資料走 pandas.json 的 sources_dev，建置期讀、不進 dist）。
+const devSources = import.meta.env.DEV ? (p.sources_dev || []) : [];
+// Wayback 快照的連結文字顯示內層網域，較「web.archive.org」一目了然。標籤僅 dev 可見，硬寫中文即可。
+const devSrcLabel = (u) => {
+  const m = String(u).match(/\/web\/[^/]+\/(https?:\/\/.+)$/i);
+  return m ? `${srcHost(m[1])}（Wayback 快照）` : srcHost(u);
+};
 // 其他參考資料：同好部落格／影片等非官方鏈結。**只放可點的 URL**（2026-08-05 起，見 SCHEMA.md）——
 // 無法線上核對的一手佐證（讀者實拍展牌等）改寫在條目內文／備注，不進 extra_sources。
 // 這裡仍過濾一次非 URL 項目，避免舊資料或誤填的純文字被渲染出來。
@@ -697,7 +706,7 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
   </>
 )}
 
-{sources.length > 0 && (
+{(sources.length > 0 || devSources.length > 0) && (
   <>
     <h2 class={H3}>{T.sec_sources}</h2>
     <div class={`${CARD} reveal`}>
@@ -706,6 +715,14 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
           <li class="flex gap-2 items-baseline min-w-0">
             <span aria-hidden="true" class="shrink-0 text-rust">🔗</span>
             <a href={u} target="_blank" rel="noopener" class="text-rust hover:underline break-all min-w-0">{srcHost(u)}</a>
+          </li>
+        ))}
+        {/* dev-only：ISB＋Wayback 快照連結（正式 build 時 devSources 恆為空陣列，整段不輸出） */}
+        {devSources.map((u) => (
+          <li class="flex gap-2 items-baseline min-w-0">
+            <span aria-hidden="true" class="shrink-0">🔒</span>
+            <a href={u} target="_blank" rel="noopener" class="text-rust hover:underline break-all min-w-0">{devSrcLabel(u)}</a>
+            <span class="shrink-0 text-ink-soft text-[.75rem]">僅 dev 顯示</span>
           </li>
         ))}
       </ul>
