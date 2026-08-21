@@ -281,6 +281,7 @@ OFFICIAL_IG_ACCOUNTS = {
     "zoopoznan",  # Ogród Zoologiczny w Poznaniu（官網 zoo.poznan.pl 的 Instagram 連結指向此帳號；出生・脫逃・搬園公告發於此）
     "zoo_warszawa",  # Miejski Ogród Zoologiczny w Warszawie（同 zoo.waw.pl；IG bio 自稱「Oficjalny profil Warszawskiego ZOO」並連回官網）
     "capemaycountyzoo",  # Cape May County Park & Zoo（美國紐澤西州郡立；郡府官網 /1008/Park-Zoo 的 Instagram 連結指向此帳號；到園公告發於此）
+    "zoobeauval",  # ZooParc de Beauval（法國；同 zoobeauval.com／actus.zoobeauval.com，出生公告同步發於此）
     "trevorzoomillbrook",  # Trevor-Lovejoy Zoo at Millbrook School（美國紐約州；millbrook.org 的 Trevor Zoo 首頁 Instagram 連結指向此帳號）
 }
 _IG_HOSTS = {"instagram.com", "m.instagram.com"}
