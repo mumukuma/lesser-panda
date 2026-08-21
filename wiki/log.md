@@ -11769,3 +11769,48 @@ Kamala × Janak 2026-06-21 的雙胞胎（性別未定未命名）、Janak（202
 - https://tiergarten-kleve.de/neuer-roter-panda-im-tiergarten-kleve/
 - https://www.tiergarten-kleve.de/doppeltes-pandaglueck-im-tiergarten-kleve/
 - https://www.zoom-erlebniswelt.de/presse-2025/kleiner-panda-akeno-vergesellschaftet/
+
+## [2026-08-20] add | Beauval 一家的孫輩：亞眠 4 筆 ＋ 克萊沃 3 筆
+
+承上一則。維護者指示把孫輩一併建起來。
+
+**新增條目**：
+
+- `wilmer-2016-06-28.md` — Wilmer ♂，2016-06-28 生於瑞典 Parken Zoo，2017 年入亞眠；`mei-2020-06-10` 的配偶
+- `surya-2022-06-11.md` — Surya ♀，`yamzho-2022-06-11` 之雙胞胎
+- `yamzho-2022-06-11.md` — Yamzho ♂
+- `zhu-2025-06-24.md` — Zhu ♂，2025-09-03 命名（中文「竹」）
+- `janak-kleve.md` — Janak ♂，2024-04 底自法國 Bio-Topia 入 Kleve；生日／出生園不詳，`limited-profile`＋`birth_zoo: unknown`
+- `apple-seed-1-kamala-2026-06-21.md`／`apple-seed-2-kamala-2026-06-21.md` — Kamala × Janak 2026-06-21 雙胞胎，性別未定未命名
+
+**查證重點**：
+
+- **2022 那胎的生日是 06-11**，不是先前推的「6 月下旬–7 月初」。亞眠官網那句「2 mois et demi」講的是**幼獸待在後場的時間**、不是年齡；確切日期出自 ICI Picardie（France Bleu）2022-09-12 的命名報導，同篇也載明 Surya ♀、Yamzho ♂、出生於 2022-09-05 才公布、名字由官方 FB 票選。
+- **Wilmer 2016-06-28 生於瑞典 Parken Zoo**——只有園方官方 FB 的抵園貼文載明（貼文另記他是「跳高跳遠冠軍」，因此當時還不能與前一位預定雌獸 Lobke 合群）。該貼文看不到發文日期，抵園故只記到 2017 年。
+- **Zhu 命名日 2025-09-03**（ICI Picardie），同篇確認雄性、名字取中文「竹」。
+- **Spike 的結局有了**：園方 2024-01-27 年度盤點寫「2023 年初過世」。⚠️ 他與 Kamala **從未合群過**——2022 年 6 月她抵園時獸舍還在改建。未建條目。
+- **Janak 不是 Bio-Topia 2023 年那胎**（該胎兩隻雄仔叫 Jinpa／Kitsi），出生資料在任何公開來源皆查無。
+- **Kleve 雙胞胎仍在世**：官方 IG 2026-08-16 貼文（shortcode 回推）說兩隻已會從產箱探頭，仍未做健檢與性別鑑定、仍未命名。
+
+**更新條目**：
+
+- `mei-2020-06-10.md` — 內文與家族段補配偶／三名子女 wikilink；備注改寫（「2 mois et demi」的誤解已釐清）
+- `kamala-2021-06-14.md` — 補配偶 `janak-kleve` 與兩隻蘋果籽；Spike 段改寫（歿於 2023 年初、從未合群）；sources 補年度盤點與官方 IG
+- `zhu-2013-06-18.md` — 新增「## 備注」與 ⚠️ 注意同名（對 `zhu-2025-06-24`）
+- `data/zoos.json` — 新增 `Parken Zoo`（瑞典埃斯基爾斯蒂納，59.3728164/16.4822495）；
+  `Parc Zoologique de Fort-Mardyck` 依 2022-04 官方改名改 canonical 為 `Bio-Topia`（舊名進 aliases、補 location_zh、經度依 Google 圖釘修正為 2.309562）；
+  `Zoo Saarbrücken` 補座標 49.2290992／7.0399692（維護者提供地址後由 Google 圖釘取得）
+- `tools/build_db.py` — `OFFICIAL_IG_ACCOUNTS` 加 `tiergartenkleve`；`OFFICIAL_FB_PAGES` 加 `zooamiens`
+- `index.md` — Beauval 一家段下新增「亞眠的孫輩」「克萊沃的孫輩」兩個子段；條目總數更新為 1096
+
+**來源**：
+
+- https://www.facebook.com/zooamiens/videos/815041845322098/
+- https://www.zoo-amiens.fr/actualites/detail-actualite/pandas-roux
+- https://www.ici.fr/infos/culture-loisirs/zoo-d-amiens-les-pandas-roux-prenommes-surya-et-yamzho-1662997787
+- https://www.ici.fr/hauts-de-france/somme-80/amiens/le-petit-panda-roux-ne-cet-ete-au-zoo-d-amiens-metropole-baptise-zhu-2156873
+- https://www.radio6.fr/article-73561-naissance-d-un-bebe-panda-roux-au-zoo-d-amiens.html
+- https://tiergarten-kleve.de/neuer-roter-panda-im-tiergarten-kleve/
+- https://tiergarten-kleve.de/tierische-inventur-2/
+- https://www.tiergarten-kleve.de/doppeltes-pandaglueck-im-tiergarten-kleve/
+- https://www.instagram.com/tiergartenkleve/p/DcFqYOnjEiO/

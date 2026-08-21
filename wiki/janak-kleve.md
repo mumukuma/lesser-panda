@@ -6,6 +6,7 @@ birth_zoo: unknown
 zoos:
   - Bio-Topia ( – 2024)
   - Tiergarten Kleve (2024 – 現在)
+last_seen: 2026-07-30
 tags: [fulgens, male, limited-profile, zoo:Tiergarten Kleve]
 sources:
   - https://tiergarten-kleve.de/neuer-roter-panda-im-tiergarten-kleve/

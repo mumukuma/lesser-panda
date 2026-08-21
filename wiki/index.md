@@ -1,6 +1,6 @@
 # Wiki 目錄 Index
 
-> 最後更新：2026-08-20 | 條目總數：1089（另有 6 筆條目暫存 wiki/_hidden/，不計入、不上站）
+> 最後更新：2026-08-20 | 條目總數：1096（另有 6 筆條目暫存 wiki/_hidden/，不計入、不上站）
 
 ---
 
@@ -2965,6 +2965,27 @@ Dusk（RPF #447）2004 年生於溫尼伯 Assiniboine Park Zoo，經 Granby Zoo�
 | [[mushu-2024-06-21]] | Mushu — [[aksou-2024-06-21]] 雙胞胎兄弟，毛色較紅、性格較大膽 | ♂ | 2024– | ZooParc de Beauval 🇫🇷 |
 | [[aksou-2024-06-21]] | Aksou — [[mushu-2024-06-21]] 雙胞胎兄弟，毛色較淡、性格較謹慎 | ♂ | 2024– | ZooParc de Beauval 🇫🇷 |
 | [[kyra-2025-07-06]] | Kyra — 第七仔，名字由 2025-09 官方投票選出 | ♀ | 2025– | ZooParc de Beauval 🇫🇷 |
+
+### 亞眠的孫輩（Meï × Wilmer）
+
+Meï 2021 年移居亞眠後與瑞典出身的種公 Wilmer 配對，2022 與 2025 年各產一胎共三仔。2022 那胎自 2022 年 9 月之後再無任何消息，依 EEP 慣例應已移出，但園方未公告，兩隻皆掛待查證 🚧。
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[wilmer-2016-06-28]] | Wilmer — Meï 的配偶，2016 年生於瑞典 Parken Zoo、2017 年入園 | ♂ | 2016– | Zoo d'Amiens Métropole 🇫🇷 |
+| [[surya-2022-06-11]] | Surya — [[yamzho-2022-06-11]] 雙胞胎；名字為尼泊爾語「太陽」；2022-09 後動向不明 🚧 | ♀ | 2022– | Zoo d'Amiens Métropole 🇫🇷 |
+| [[yamzho-2022-06-11]] | Yamzho — [[surya-2022-06-11]] 雙胞胎；名字取自西藏羊卓雍錯；2022-09 後動向不明 🚧 | ♂ | 2022– | Zoo d'Amiens Métropole 🇫🇷 |
+| [[zhu-2025-06-24]] | Zhu — 名字取中文「竹」之意，2025-09-03 命名 | ♂ | 2025– | Zoo d'Amiens Métropole 🇫🇷 |
+
+### 克萊沃的孫輩（Kamala × Janak）
+
+Kamala 2022 年移居克萊沃，原定配偶 Spike 2023 年初過世（兩隻從未合群），2024 年 4 月自法國 Bio-Topia 引進的 Janak 接手，2026 年 6 月產下該園多年來第一胎小熊貓。
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[janak-kleve]] | Janak — Kamala 的配偶，2024-04 自法國 Bio-Topia 來園；生日與出生園不詳 🚧 | ♂ | 不詳 | Tiergarten Kleve 🇩🇪 |
+| [[apple-seed-1-kamala-2026-06-21]] | 蘋果籽1號 — Kamala 頭胎雙胞胎之一，性別待確認 | 不詳 | 2026– | Tiergarten Kleve 🇩🇪 |
+| [[apple-seed-2-kamala-2026-06-21]] | 蘋果籽2號 — Kamala 頭胎雙胞胎之一，性別待確認 | 不詳 | 2026– | Tiergarten Kleve 🇩🇪 |
 
 ---
 
