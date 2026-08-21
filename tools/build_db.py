@@ -90,6 +90,9 @@ OFFICIAL_HOSTS = {
     #    HTML topics 頁核對（維護者 Chrome 實讀），勿只信 PDF 抽取結果。
     "aws-s.com",
     "hamurazoo.jp",  # 羽村市動物公園（園方 /news/ 公告）
+    # 富山市ファミリーパーク（富山市／公益財団法人富山市ファミリーパーク公社）。
+    # 園方公告發於官網單頁 /NNNN（如訃報 /11653），文末列出該物種現存頭數。
+    "toyama-familypark.jp",
     # 高知県立のいち動物公園（公益財団法人高知県のいち動物公園協会）。「動物ニュース」
     # /information/zoo-news/entry-N.html 與「飼育日誌」/blog/breeding-diary/ 為官方一手，
     # 個體訃報發於前者（如 2023-02-03 レッサーパンダ「カイ」）。
