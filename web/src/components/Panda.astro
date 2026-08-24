@@ -457,7 +457,12 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
         </span>
       </div>
       <div id="tree-box" data-slug={slug}></div>
-      <p class="text-[.82rem] text-ink-soft mt-2">{T.tree_hint}</p>
+      {/* 圖例沿用日本家系圖的 ft_alive / ft_dead 字串（五語皆有），毋須新增 i18n 鍵 */}
+      <p class="flex flex-wrap items-center gap-x-4 gap-y-1 text-[.82rem] text-ink-soft mt-2">
+        <span class="tree-leg"><i></i>{T.ft_alive}</span>
+        <span class="tree-leg gone"><i></i>{T.ft_dead}</span>
+        <span>{T.tree_hint}</span>
+      </p>
     </div>
 </>
 

@@ -276,7 +276,8 @@
     const T = window.T || {};
     const nodeSvg = (n) => {
       const d = G.nodes[n.slug];
-      const cls = `tree-node ${d[2] === 'f' ? 'f' : d[2] === 'm' ? 'm' : ''} ${n.slug === CENTER ? 'center' : ''}`;
+      // 已歿（d[4] 有歿年）加 dead class：虛線框＋略淡（樣式在 global.css，比照日本家系圖 .ft-node.dead）
+      const cls = `tree-node ${d[2] === 'f' ? 'f' : d[2] === 'm' ? 'm' : ''} ${d[4] ? 'dead' : ''} ${n.slug === CENTER ? 'center' : ''}`;
       const primary = nameByLoc(d);
       const alt = [d[0], jaShort(d)].find(x => x && x !== primary) || '';
       const dead = d[4] ? ' ' + (T.deceased_mark || '🪽') : '';

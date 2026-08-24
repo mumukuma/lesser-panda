@@ -9,6 +9,8 @@
   E3 同生群大小 2–4（≥5 視為錯誤，通常是誤連擴散）
   W1 單邊缺父或缺母（資料待補，警告）
   W2 條目寫「雙／三／四胞胎」字面與實際連到的人數不符（警告，多為漏連或對方無條目）
+     例外：家族段有「- 同胎…未建條目」行者（依〈幼逝寶寶收錄原則〉刻意不建的
+     夭折同胎），每行計入 1 名額，補足字面人數即不報（如 taichi/kai 2005 的 ISB 0564）
 
 說明：此工具「只讀、只報」，不會更動任何資料；認雙胞胎一律以條目標註為準，
 生日只用來抓可疑連結，永不據此排除既有關係。
@@ -27,6 +29,8 @@ WIKI = os.path.join(ROOT, "wiki")
 # 字面 → 預期同生群人數
 WORD_N = {"二": 2, "兩": 2, "雙": 2, "三": 3, "四": 4, "五": 5, "六": 6}
 LINE_RE = re.compile(r"^-\s*([二兩雙三四五六])胞胎[^：:]{0,4}[：:]", re.M)
+# 「已知同胎、但依收錄原則刻意不建條目」的註記行（幼逝寶寶）；每行折抵 W2b 一個名額
+UNBUILT_RE = re.compile(r"^-\s*同胎[^\n]*未建條目", re.M)
 
 
 def _d(s):
@@ -38,7 +42,7 @@ def _d(s):
 
 
 def main():
-    born, parents, label_n, raw_tw = {}, {}, {}, {}
+    born, parents, label_n, raw_tw, unbuilt_n = {}, {}, {}, {}, {}
     twin_pairs = set()
     slugs = set()
 
@@ -57,6 +61,7 @@ def main():
         m = LINE_RE.search(body)
         if m:
             label_n[slug] = WORD_N[m.group(1)]
+        unbuilt_n[slug] = len(UNBUILT_RE.findall(body))
 
     # 只保留兩端都存在條目的配對
     for slug in slugs:
@@ -117,12 +122,15 @@ def main():
         for t in bad:
             warns.append(f"W2a {slug} 的多胞胎行連到不存在的條目 [[{t}]]（slug 可能打錯）")
 
-    # W2b 已在同生群內、但字面人數 > 實際群大小（群內缺一名已建檔成員）
+    # W2b 已在同生群內、但字面人數 > 實際群大小（群內缺一名已建檔成員）。
+    # 「- 同胎…未建條目」註記行（依收錄原則刻意不建的夭折同胎）每行折抵 1 名額。
     size_of = {s: len(g) for g in groups for s in g}
     for slug, n in label_n.items():
         actual = size_of.get(slug, 1)
-        if actual >= 2 and n > actual:
-            warns.append(f"W2b {slug} 標「{n}胞胎」但群內只有 {actual} 隻已建檔成員（疑似缺連或對方無條目）")
+        noted = unbuilt_n.get(slug, 0)
+        if actual >= 2 and n > actual + noted:
+            extra = f"＋{noted} 隻已註記未建" if noted else ""
+            warns.append(f"W2b {slug} 標「{n}胞胎」但群內只有 {actual} 隻已建檔成員{extra}（疑似缺連或對方無條目）")
 
     print(f"同生群：{len(groups)} 組（雙胞胎 {sum(1 for g in groups if len(g)==2)}、"
           f"三胞胎 {sum(1 for g in groups if len(g)==3)}、"

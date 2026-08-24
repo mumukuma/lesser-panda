@@ -671,6 +671,10 @@ h1, h2, h3 { letter-spacing: .005em; }
 .tree-node rect { fill: var(--bg-card); stroke: var(--line); stroke-width: 1.2; }
 .tree-node.f rect { stroke: var(--female); }
 .tree-node.m rect { stroke: var(--male); }
+/* 已歿個體：虛線框＋整體略淡（比照日本家系圖 .ft-node.dead），性別框色保留；
+   中心節點已歿時同樣套用——琥珀底與光暈仍在，只是框轉虛線 */
+.tree-node.dead { opacity: .8; }
+.tree-node.dead rect { stroke-dasharray: 3 2.5; }
 /* 本熊（中心節點）：琥珀底＋光暈＋粗框醒目；框色不覆蓋雌雄色（.center.f / .center.m 特異度較高會勝出），
    性別不明時才退回琥珀框 */
 .tree-node.center rect {
@@ -691,6 +695,10 @@ h1, h2, h3 { letter-spacing: .005em; }
 /* 近親迴圈連線：同一隻既是此路徑親屬、又經另一路徑相連（如既是父又是外祖父） */
 .tree-link.loop { stroke: #c0698f; stroke-dasharray: 5 3; stroke-width: 1.6; opacity: .85; }
 :root[data-theme="dark"] .tree-link.loop { stroke: #cf7fa1; }
+/* 家系圖提示列的小圖例：在世＝實線框、已故＝虛線框（與節點樣式一致，比照日本頁 .ft-legend） */
+.tree-leg { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.tree-leg i { width: 12px; height: 12px; border-radius: 3px; background: var(--bg-card); border: 1px solid var(--ink-soft); }
+.tree-leg.gone i { border-style: dashed; opacity: .8; }
 
 /* Leaflet 地圖容器 */
 #map { height: 360px; border-radius: var(--r-card); border: 1px solid var(--line); box-shadow: var(--shadow); z-index: 1; }
