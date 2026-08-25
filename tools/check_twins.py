@@ -8,6 +8,9 @@
   E2 同生群成員須同父同母（雙方都有父母卻不同 → 錯誤）
   E3 同生群大小 2–4（≥5 視為錯誤，通常是誤連擴散）
   W1 單邊缺父或缺母（資料待補，警告）
+  E4 同父同母且生日相差 ≤1 天，卻不在同一同生群 → 錯誤（同一隻母獸不可能隔一天生兩胎，
+     故必為漏標／標籤寫法沒被解析到。2026-08-25 新增：在此之前「同胎手足：」「同胎：」
+     這類標籤 build_db 完全不解析，四對雙胞胎因此在網站上憑空消失且無人察覺）
   W2 條目寫「雙／三／四胞胎」字面與實際連到的人數不符（警告，多為漏連或對方無條目）
      例外：家族段有「- 同胎…未建條目」行者（依〈幼逝寶寶收錄原則〉刻意不建的
      夭折同胎），每行計入 1 名額，補足字面人數即不報（如 taichi/kai 2005 的 ISB 0564）
@@ -115,6 +118,34 @@ def main():
             errors.append(f"E2 同生群父不同：" + ", ".join(f"{s}父={ps[s][1]}" for s in g))
         elif None in dads and any(dads - {None}):
             warns.append(f"W1 同生群單邊缺父：" + ", ".join(f"{s}父={ps[s][1]}" for s in g))
+
+    # E4 同父同母＋生日 ±1 天卻不同群（漏標／標籤沒被解析）
+    def _group_of(x):
+        seen, st = set(), [x]
+        while st:
+            y = st.pop()
+            if y in seen:
+                continue
+            seen.add(y); st += list(adj.get(y, set()) - seen)
+        return seen
+
+    by_parents = {}
+    for slug in slugs:
+        mo, fa = parents[slug]
+        bd = _d(born.get(slug) or "")
+        if mo and fa and bd:
+            by_parents.setdefault((mo, fa), []).append((slug, bd))
+    for (mo, fa), members in by_parents.items():
+        members.sort()
+        for i in range(len(members)):
+            for j in range(i + 1, len(members)):
+                a, da = members[i]; b, db = members[j]
+                if abs((da - db).days) <= 1 and b not in _group_of(a):
+                    errors.append(
+                        f"E4 {a}（{born[a]}）與 {b}（{born[b]}）同父同母、生日相差 "
+                        f"{abs((da - db).days)} 天，卻未建立同胎關係"
+                        f"（父={fa}／母={mo}）——請在雙方家族段補「- 同胎手足：[[對方]]」"
+                    )
 
     # W2a 多胞胎行連到「不存在的條目」（slug 打錯或對方頁面已改名）
     for slug in sorted(slugs):

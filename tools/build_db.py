@@ -195,6 +195,10 @@ OFFICIAL_HOSTS = {
     # Birmingham Zoo（美國阿拉巴馬州；出生公告發於官網 /YYYY/MM/DD/ 文章與官方 FB）
     "birminghamzoo.com",
     "sfzoo.org",  # San Francisco Zoo & Gardens（美國加州）
+    # San Diego Zoo Wildlife Alliance（經營 San Diego Zoo 與 Safari Park）。
+    # /pr/… 為園方新聞稿（Pavitra 的出生・命名公告發於此）。
+    "sandiegozoowildlifealliance.org", "zoo.sandiegozoo.org",
+    "zoomontana.org",  # ZooMontana（美國蒙大拿州比靈斯；/animals/… 個體介紹頁載生日與來源園）
     # Columbus Zoo and Aquarium（美國俄亥俄州；出生・命名公告發於官網 /news/ 與官方 FB／IG）
     "columbuszoo.org",
     # Zoo sauvage de Saint-Félicien（加拿大魁北克；到園・個體介紹公告發於官方 IG @zoosauvageofficiel）
@@ -285,7 +289,8 @@ OFFICIAL_IG_ACCOUNTS = {
     "zoo_warszawa",  # Miejski Ogród Zoologiczny w Warszawie（同 zoo.waw.pl；IG bio 自稱「Oficjalny profil Warszawskiego ZOO」並連回官網）
     "capemaycountyzoo",  # Cape May County Park & Zoo（美國紐澤西州郡立；郡府官網 /1008/Park-Zoo 的 Instagram 連結指向此帳號；到園公告發於此）
     "zoobeauval",  # ZooParc de Beauval（法國；同 zoobeauval.com／actus.zoobeauval.com，出生公告同步發於此）
-    "trevorzoomillbrook",  # Trevor-Lovejoy Zoo at Millbrook School（美國紐約州；millbrook.org 的 Trevor Zoo 首頁 Instagram 連結指向此帳號）
+    "trevorzoomillbrook",
+    "zoomontana",  # ZooMontana（美國蒙大拿州比靈斯；官網 zoomontana.org 頁首／頁尾 Instagram 連結指向此帳號；到園公告發於此）  # Trevor-Lovejoy Zoo at Millbrook School（美國紐約州；millbrook.org 的 Trevor Zoo 首頁 Instagram 連結指向此帳號）
 }
 _IG_HOSTS = {"instagram.com", "m.instagram.com"}
 _IG_NON_ACCOUNT_SEGS = {"p", "reel", "reels", "tv", "stories", "explore"}
@@ -502,9 +507,14 @@ def parse_family(body: str) -> dict:
 
         # 多胞胎（雙胞胎／三胞胎／四胞胎…，可能有多人，取所有 wikilinks）
         # 也匹配「雙胞胎姊妹：」「三胞胎兄弟：」「三胞胎妹妹：」等變體
+        # ⚠️ 2026-08-25 補上「同胎…：」系列（同胎／同胎手足／同胎兄弟／同胎第三隻…）——
+        #    這批標籤在此之前完全不被辨識，`banana-1996-08-09`×`lala-1996-08-09`、
+        #    `pandora-2025-06-25`×`petunia-2025-06-25`、`ran-ran-1987-07-26`×`you-you-1987-07-26`
+        #    三對雙胞胎因此從未進 twins 表（個體頁不顯示、家系圖也沒有那條邊）。
+        #    無 wikilink 的註記行（「同胎手足：無」「同胎第三隻：（無名）…未建條目」）照樣抓不到東西，無副作用。
         # 同一資料模型存為兩兩配對；網站再依同生群人數決定顯示「雙胞胎／三胞胎…」
         # 數字開頭者（如「2013 雙胞胎：」）屬「子女」區描述其子女的同生群，不算本人的，故排除
-        if re.match(r"^-\s*[二兩雙三四五六]胞胎[^：:]{0,4}[：:]", stripped):
+        if re.match(r"^-\s*(?:[二兩雙三四五六]胞胎|同胎)[^：:]{0,6}[：:]", stripped):
             # 先去除消歧義／警語註記裡的 wikilink（如「⚠️ 非 [[X]] 亦非 [[Y]]」），
             # 那是在說明「不是這幾隻」，不可當成同生群成員
             cleaned = re.sub(r"[（(][^（）()]*[非⚠][^（）()]*[）)]", "", stripped)
