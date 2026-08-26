@@ -13,7 +13,7 @@ instagram:
   - https://www.instagram.com/zooknoxville/p/DOo_zVRDfXd/ 2025-09-16
   - https://www.instagram.com/capemaycountyzoo/p/DZH3niNDK4i/ 2026-06-03
 sources:
-  - https://capemaycountynj.gov/m/newsflash/Home/Detail/1641  # Cape May County 郡府新聞稿（該園為郡營）：Cape May County Zoo Debuts New Red Panda
+  - https://capemaycountynj.gov/m/newsflash/Home/Detail/1641
   - https://www.zooknoxville.org/animals/red-panda-cubs/
   - https://www.zooknoxville.org/habitats/red-panda-village/
   - https://www.instagram.com/zooknoxville/p/DOo_zVRDfXd/
@@ -70,3 +70,11 @@ extra_sources:
 - 同父母弟弟：[[apple-seed-1-sisu-2026-06-07]]、[[apple-seed-2-sisu-2026-06-07]]（2026，皆未命名）
 - 祖父母（母方）：[[maiya-2014-06-26]]、[[justin-2012-07-01]]——均居 Potawatomi Zoo
 - 祖父母（父方）：[[tabei-2013-06-01]]、[[ketu-2011-12-09]]
+
+---
+
+## 備注
+
+- **`sources` 第一條的來源性質**：`capemaycountynj.gov/m/newsflash/Home/Detail/1641` 為 **Cape May County 郡府新聞稿**
+  〈Cape May County Zoo Debuts New Red Panda〉——該園為郡營，郡府官網即園方一手（`build_db.py` 的 `.gov` 規則自動判為官方）。
+  （原本這段說明寫在 `sources` 行末的 YAML 註解裡，會連著 URL 一起被當成連結、使個體頁該筆來源點不開，2026-08-26 移到此處。）
