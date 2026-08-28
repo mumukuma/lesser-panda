@@ -1,12 +1,15 @@
 # 國際小熊貓日
 
 > 本頁為網站「國際小熊貓日」頁（`/irpd/`）的中文正本（規劃見 `docs/irpd-page-PLAN.md`）。
-> 網站版在 `web/src/components/Irpd.astro`（內容字串在 `pipeline/src/i18n/*.json` 的 `irpd_*` key）。
-> 首頁的 IRPD 倒數橫幅（每年 8/16 起顯示）即連到本頁。
+> 網站版在 `web/src/components/Irpd.astro`（內容字串在 `pipeline/src/i18n/*.json` 的 `irpd_*` key，
+> 39 鍵 × 5 語；2026-08-28 五語公開）。
+> 入口有兩個：首頁的 IRPD 倒數橫幅（每年 8/16 起顯示至活動日）與 `/species/` 保育現況段末的常設連結。
+> ⚠️ 活動日期、當年出生數、蘋果籽數在網站版一律走 token（`{date}`／`{year}`／`{n}`／`{seeds}`，
+> 由 `data.js` 的 `IRPD` 建置期算），本正本寫出實際數字只是為了讀稿，改文案時別把數字寫死進 i18n。
 
 ## 這是什麼日子
 
-今年的國際小熊貓日是 9 月 19 日，由保育組織 [Red Panda Network](https://redpandanetwork.org/)（另開）提倡，用意是拿來做環境教育與啟蒙。
+國際小熊貓日是每年 9 月的第三個週六，2026 年是 9/19。這天由保育組織 [Red Panda Network](https://redpandanetwork.org/)（另開）提倡，用意是拿來做環境教育與啟蒙。
 
 這時節剛好是今年的蘋果籽陸續亮相的時候。本站收錄了 40 隻 2026 年出生的小熊貓，其中 31 隻還掛著「蘋果籽」的佔位名；各園的命名徵集多半落在這幾個月，通常會陸陸續續在國際小熊貓日前後舉行命名式。
 

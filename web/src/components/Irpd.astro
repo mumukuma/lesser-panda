@@ -2,19 +2,22 @@
 /* 國際小熊貓日（/irpd/）：這天的由來、日本各園的過法、Red Panda Network 介紹。
    規劃見 docs/irpd-page-PLAN.md，中文正本為 repo 根的 irpd-intro.md。
 
-   ⚠️ 內容字串暫放 lib/irpd-content.js（只有 zh-TW），不在 i18n——check_i18n 要求
-   五語 key 齊全，只加 zh-TW 會擋 CI。四語譯稿到齊後整包搬進 irpd_* key、本檔改讀
-   T.irpd_*，並把 data.js 的 SHOW_IRPD 改 true 即公開（現為 dev-only）。
+   內容字串全在 i18n 的 irpd_* key（五語，2026-08-28 從 lib/irpd-content.js 搬入並公開）；
+   本檔只放版面與語系無關的常數（園 id、官方連結）。日文引用一律逐字，中／英／韓語版
+   包在 <span lang="ja"> 裡（字型依 lang 切換），ja 版則直接寫在句中。
+
+   ⚠️ 活動日期與當年出生數一律走 {date}／{year}／{n}／{seeds} token（data.js 的 IRPD 建置期算），
+   不可寫死在文案裡，否則跨年即錯。
 
    季節段（今年的寶寶）預設 hidden，由 public/js/irpd.js 依訪客當下日期揭示，
-   同首頁 #newborns-season 的理由：deploy 無 cron，建置期判斷會過期。 */
+   同首頁 #newborns-season 的理由：deploy 無 cron，建置期判斷會過期。
+
+   增補代表例＝EXAMPLES 加一筆（zoo＝zoos.json 的 id）＋五語各補一組 irpd_zoo_<id> 描述句。 */
 import { i18n, IRPD, zooName, zooSlugById } from '../lib/data.js';
-import { IRPD_ZH } from '../lib/irpd-content.js';
 import { pageUrl, zooUrl } from '../lib/links.js';
 
 const { locale } = Astro.props;
 const T = i18n[locale];
-const C = IRPD_ZH;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
 const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';
@@ -24,67 +27,82 @@ const A = 'text-rust hover:underline';
 const a = (rp, label) => `<a class="${A}" href="${pageUrl(base, locale, rp)}">${label}</a>`;
 const ext = (url, label) => `<a class="${A}" href="${url}" target="_blank" rel="noopener">${label}</a>`;
 
-// 站內連結／建置期數字 placeholder（同 Species.astro 的 link() 模式）
-const link = (s) => s
-  .replace('{species}', a('species', T.nav_species))
-  .replace('{zoos}', a('zoos', T.nav_zoos))
-  .replace('{feedback}', a('feedback', T.nav_feedback))
-  .replace('{getinvolved}', ext('https://redpandanetwork.org/get-involved', 'Get Involved'))
-  .replace('{rpn}', ext('https://redpandanetwork.org/', 'Red Panda Network'))
-  .replace('{rpnig}', ext('https://www.instagram.com/redpandanetwork/', 'Red Panda Network'))
-  .replace('{n}', String(IRPD.n))
-  .replace('{seeds}', String(IRPD.seeds))
-  .replace('{year}', String(IRPD.year));
+// 代表例：語系無關（園名由 zooName() 依語系帶出、描述句走 irpd_zoo_<id>）
+const EXAMPLES = [
+  { zoo: 45, url: 'https://www.city.sendai.jp/zoo/' },
+  { zoo: 12, url: 'https://www.hama-midorinokyokai.or.jp/zoo/zoorasia/' },
+  { zoo: 26, url: 'https://www.city.akita.lg.jp/zoo/news/1008854/1053175.html' },
+];
 
-const NAV_LABEL = { zoos: T.nav_zoos, species: T.nav_species, feedback: T.nav_feedback };
+// 站內連結／建置期數字 placeholder（同 Species.astro 的 link() 模式，但一次掃完所有 token——
+// String.replace 吃字串只換第一個，{year} 在同段出現兩次時會漏）
+const TOK = {
+  species: a('species', T.nav_species),
+  zoos: a('zoos', T.nav_zoos),
+  feedback: a('feedback', T.nav_feedback),
+  getinvolved: ext('https://redpandanetwork.org/get-involved', 'Get Involved'),
+  rpn: ext('https://redpandanetwork.org/', 'Red Panda Network'),
+  rpnig: ext('https://www.instagram.com/redpandanetwork/', 'Red Panda Network'),
+  yagiyama: zooName(45, null, locale),      // s2_p3 引仙台市八木山動物公園的官方說法
+  t1: '<code>#InternationalRedPandaDay</code>',
+  t2: '<code lang="ja">#国際レッサーパンダデー</code>',
+  n: String(IRPD.n),
+  seeds: String(IRPD.seeds),
+  year: String(IRPD.year),
+  date: IRPD.date,
+};
+const link = (s) => String(s).replace(/\{(\w+)\}/g, (m, k) => (k in TOK ? TOK[k] : m));
+
+const LIST = [1, 2, 3, 4, 5];
+const RELATED = [['zoos', T.nav_zoos, T.irpd_s5_zoos], ['species', T.nav_species, T.irpd_s5_species], ['feedback', T.nav_feedback, T.irpd_s5_feedback]];
 ---
-<h1 class="font-display text-3xl font-semibold mt-6 mb-1">{C.title}</h1>
+<h1 class="font-display text-3xl font-semibold mt-6 mb-1">{T.irpd_title}</h1>
 
-<h2 class={H2}>{C.s1_title}</h2>
-<p class="leading-relaxed mb-3" set:html={link(C.s1_p1)} />
-<p id="irpd-season" class="leading-relaxed mb-3" data-seeds={IRPD.seeds} hidden set:html={link(C.s1_season)} />
+<h2 class={H2}>{T.irpd_s1_title}</h2>
+<p class="leading-relaxed mb-3" set:html={link(T.irpd_s1_p1)} />
+<p id="irpd-season" class="leading-relaxed mb-3" data-seeds={IRPD.seeds} hidden set:html={link(T.irpd_s1_season)} />
 
-<h2 class={H2}>{C.s2_title}</h2>
-<p class="leading-relaxed mb-3" set:html={link(C.s2_p1)} />
-<p class="leading-relaxed mb-3" set:html={link(C.s2_p2)} />
-<p class="leading-relaxed mb-3" set:html={link(C.s2_p3)} />
+<h2 class={H2}>{T.irpd_s2_title}</h2>
+<p class="leading-relaxed mb-3" set:html={link(T.irpd_s2_p1)} />
+<p class="leading-relaxed mb-3" set:html={link(T.irpd_s2_p2)} />
+<p class="leading-relaxed mb-3" set:html={link(T.irpd_s2_p3)} />
 
-<h2 class={H2}>{C.s3_title}</h2>
-<p class="leading-relaxed mb-3" set:html={link(C.s3_p1)} />
+<h2 class={H2}>{T.irpd_s3_title}</h2>
+<p class="leading-relaxed mb-3" set:html={link(T.irpd_s3_p1)} />
 <ol class="list-decimal pl-5 leading-relaxed mb-3">
-  {C.s3_list.map(([label, body]) => (
-    <li class="mb-2"><strong>{label}</strong> — <span set:html={body} /></li>
+  {LIST.map((i) => (
+    <li class="mb-2"><strong>{T['irpd_s3_l' + i + '_label']}</strong> — <span set:html={link(T['irpd_s3_l' + i + '_body'])} /></li>
   ))}
 </ol>
-<p class="leading-relaxed mb-3" set:html={link(C.s3_note)} />
+<p class="leading-relaxed mb-3" set:html={link(T.irpd_s3_note)} />
 
-<h3 class={H3}>{C.s3_examples_title}</h3>
-{C.s3_examples.map((e) => (
+<h3 class={H3}>{T.irpd_s3_ex_title}</h3>
+{EXAMPLES.map((e) => (
   <p class="leading-relaxed mb-3">
     <strong><a class={A} href={zooUrl(base, locale, zooSlugById[e.zoo])}>{zooName(e.zoo, null, locale)}</a></strong>
     <span class="text-ink-soft text-[.86rem]"> （<a class={A} href={e.url} target="_blank" rel="noopener">{T.zoo_website}</a>）</span>
-    <span> — </span><span set:html={link(e.text)} />
+    <span> — </span><span set:html={link(T['irpd_zoo_' + e.zoo])} />
   </p>
 ))}
 
-<p class="leading-relaxed mb-3" set:html={link(C.s3_examples_cta)} />
+<p class="leading-relaxed mb-3" set:html={link(T.irpd_s3_cta)} />
 
-<h2 class={H2}>{C.s4_title}</h2>
-<p class="leading-relaxed mb-3" set:html={link(C.s4_p1)} />
-<p class="leading-relaxed mb-3" set:html={link(C.s4_p2)} />
-<p class="leading-relaxed mb-3" set:html={link(C.s4_p3)} />
-<p class="leading-relaxed mb-3" set:html={link(C.s4_p4)} />
+<h2 class={H2}>{T.irpd_s4_title}</h2>
+<p class="leading-relaxed mb-3" set:html={link(T.irpd_s4_p1)} />
+<p class="leading-relaxed mb-3" set:html={link(T.irpd_s4_p2)} />
+<p class="leading-relaxed mb-3" set:html={link(T.irpd_s4_p3)} />
+<p class="leading-relaxed mb-3" set:html={link(T.irpd_s4_p4)} />
 
-<h3 class={H3}>{C.s4_support_title}</h3>
-<p class="leading-relaxed mb-3" set:html={link(C.s4_support_p)} />
-<p class="card-soft p-4 text-ink-soft text-[.9rem] leading-relaxed">{C.s4_disclaimer}</p>
+<h3 class={H3}>{T.irpd_s4_support_title}</h3>
+<p class="leading-relaxed mb-3" set:html={link(T.irpd_s4_support_p)} />
+<p class="card-soft p-4 text-ink-soft text-[.9rem] leading-relaxed">{T.irpd_s4_disclaimer}</p>
 
-<h2 class={H2}>{C.s5_title}</h2>
+<h2 class={H2}>{T.irpd_s5_title}</h2>
 <ul class="list-disc pl-5 leading-relaxed">
-  {C.s5_links.map(([rp, desc]) => (
+  {RELATED.map(([rp, label, desc]) => (
     <li class="mb-1.5">
-      <a class={A} href={pageUrl(base, locale, rp)}>{NAV_LABEL[rp]}</a> — {desc}
+      <a class={A} href={pageUrl(base, locale, rp)}>{label}</a> — {desc}
     </li>
   ))}
-  <li class="mb-1.5">標籤：<code>#InternationalRedPandaDay</code>、<code lang="ja">#国際レッサーパンダデー</code></li>
+  <li class="mb-1.5" set:html={link(T.irpd_s5_tags)} />
 </ul>

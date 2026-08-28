@@ -760,19 +760,26 @@ export const REVIEW = (() => {
 })();
 
 // ── 國際小熊貓日（/irpd/）─────────────────────────────────────
-// ⚠️ 公開開關：內容目前只有 zh-TW（見 lib/irpd-content.js），四語譯稿到齊前
-// 只在開發模式（pnpm dev）預覽。公開時把下行改成 `export const SHOW_IRPD = true;`——
-// 路由（[...path].astro）與首頁 IRPD 倒數橫幅的連結都掛在這一個旗標上。
-// typeof 防呆：純 node 跑（tests/、工具腳本）沒有 import.meta.env，一律視為關。
-export const SHOW_IRPD =
-  typeof import.meta.env !== 'undefined' && !!import.meta.env.DEV;
+// 2026-08-28 公開：五語 irpd_* 譯稿到齊、內容已搬進 i18n（暫存的 lib/irpd-content.js 退役）。
+// 旗標保留：路由（[...path].astro）、首頁 IRPD 倒數橫幅的連結、導覽列子項都掛在這一行上，
+// 要臨時整頁下架改 false 即可（改 false 時記得 Layout 的導覽列子項也會一併消失）。
+export const SHOW_IRPD = true;
 
 // 當年出生的收錄數與其中仍掛蘋果籽佔位者（建置期算，同統計頁原則排除存疑個體）。
 // /irpd/ 的季節段用；數字不可寫死在文案裡，否則跨年即錯。
 export const IRPD = (() => {
   const year = new Date().getFullYear();
+  // 活動日＝9 月第三個週六（與首頁橫幅 public/js/today.js 同一算法）。
+  // 頁面文案吃 {date} token，日期不寫死在 i18n 裡，跨年重建即自動更新。
+  const sep1 = new Date(year, 8, 1).getDay();
+  const day = new Date(year, 8, 1 + ((6 - sep1 + 7) % 7) + 14);
   const born = Object.values(pandas).filter(
     (p) => !p.unverified && String(p.born || '').startsWith(String(year)),
   );
-  return { year, n: born.length, seeds: born.filter((p) => p.placeholder).length };
+  return {
+    year,
+    n: born.length,
+    seeds: born.filter((p) => p.placeholder).length,
+    date: `${day.getMonth() + 1}/${day.getDate()}`,
+  };
 })();

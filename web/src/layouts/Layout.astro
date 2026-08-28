@@ -18,6 +18,9 @@ const page = url(cur.dir, '');                    // 當前語系根，給前端
 // /japan/ 落地頁（手機與觸控裝置沒有 hover，點下去一定要落到有內容的一頁），
 // 桌機再以 hover／focus-within 展開子項；手機不浮出、子項直接縮排列在下面。
 // 第三個元素存在即視為群組（見下方 nav.map 與 global.css 的 .nav-sub）。
+// ⚠️ /irpd/ 曾試過掛在「物種介紹」下當子項，但那個「▾」在 896px 就把站名擠掉一行
+// （en/ko 實測：896px 站名 1→2 行、768px 2→3 行）——頂層真的沒空位了。
+// 入口改走首頁 IRPD 橫幅（8/16–活動日）＋ /species/ 保育現況段末的 sp_irpd_cta 連結。
 const nav = [
   ['', T.nav_home],
   ['pandas', T.nav_search],

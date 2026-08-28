@@ -3,7 +3,7 @@
    內容字串全在 i18n 的 sp_* key（五語，zh-TW 正本為 repo 根的 red-panda-intro.md）；
    本檔只放版面與語系無關的常數（學名、參考文獻連結）。
    個體頁「物種」欄連到本頁的 #fulgens／#styani 錨點（Panda.astro speciesCell）。 */
-import { i18n } from '../lib/data.js';
+import { i18n, SHOW_IRPD } from '../lib/data.js';
 import { pageUrl } from '../lib/links.js';
 
 const { locale } = Astro.props;
@@ -21,6 +21,7 @@ const link = (s) => s
   .replace('{stats}', a('stats', T.stats_sec_years))
   .replace('{japan}', a('japan', T.jp_sec_trend))
   .replace('{moves}', a('moves', T.nav_moves))
+  .replace('{irpd}', a('irpd', T.irpd_title))
   .replace('{japanSub}', `<a class="text-rust hover:underline" href="${pageUrl(base, locale, 'japan')}#subspecies">${T.jp_sec_subspecies}</a>`);
 
 const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';
@@ -125,6 +126,8 @@ const ROWS = ['range', 'face', 'tail', 'coat', 'size'];
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p3b} />
 <p class="leading-relaxed mb-3" set:html={T.sp_consv_p4} />
 <p class="leading-relaxed mb-3" set:html={link(T.sp_consv_p5)} />
+<!-- /irpd/ 的常設入口（首頁橫幅只在 8/16–活動日出現）；SHOW_IRPD 關掉時一併消失 -->
+{SHOW_IRPD && <p class="leading-relaxed mb-3" set:html={link(T.sp_irpd_cta)} />}
 
 <h2 id="health" class={`${H2} scroll-mt-20`}>{T.sp_health_title}</h2>
 <p class="leading-relaxed mb-3" set:html={T.sp_health_p1} />

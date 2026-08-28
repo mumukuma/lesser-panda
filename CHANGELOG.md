@@ -6,6 +6,36 @@
 
 ---
 
+## 2026-08-28 ・國際小熊貓日頁 `/irpd/` 五語公開
+
+首頁的 IRPD 倒數橫幅（2026-08-09 上線）原本點不下去。這輪把落地頁做完並公開：
+規劃 `docs/irpd-page-PLAN.md`、中文正本 `irpd-intro.md`、版面 `web/src/components/Irpd.astro`。
+
+**① 內容進 i18n（39 鍵 × 5 語）。** 暫存的 `web/src/lib/irpd-content.js`（只有 zh-TW，為避開
+`check_i18n.py` 的「五語齊全」關卡而生）已退役、移進 `_to_delete/`；元件改讀 `T.irpd_*`。
+ja／en／ko 為新譯稿，zh-CN 走 `opencc-js`（與站內 `toHans` 同設定）再套術語表校過
+（保育→保护、飼育員→饲养员、檔期→活动期间、志工→志愿者…）。
+⚠️ **日文引用一律逐字保留**：轉換器會把 `保全活動を展開して` 改成 `保全活动を展开して`，
+故 zh-CN 的轉換腳本以 `<span lang="ja">…</span>` 切段，日文段整段不進轉換器。
+
+**② 活動日期不再寫死。** 原稿「今年的國際小熊貓日是 9 月 19 日」跨年即錯。
+`data.js` 的 `IRPD` 加 `date`（9 月第三個週六，與首頁 `today.js` 同一算法），文案走 `{date}`／`{year}`
+token；當年出生數與蘋果籽數本來就是 `{n}`／`{seeds}`。元件的 placeholder 換成一次掃完的
+regex（`String.replace` 吃字串只換第一個，`{year}` 在同段出現兩次時會漏）。
+
+**③ 公開開關。** `SHOW_IRPD` 改 `true`、`[...path].astro` 拿掉 `l.code === 'zh-TW'`（五語各一條路由）、
+首頁橫幅 `irpdLink` 不再限 zh-TW。要臨時整頁下架，改回 `SHOW_IRPD = false` 一行即可。
+
+**④ ⚠️ 導覽列放不進去（實測結論）。** 曾把 `/irpd/` 掛成「物種介紹 ▾」的子項，但那個「▾」
+（約 17px）在 en／ko 就把站名擠掉一行：**896px 站名 1→2 行、768px 2→3 行**（zh-TW 未受影響）。
+頂層 896px 上限是真的沒空位了，故撤回。常設入口改放 `/species/` 保育現況段末（`sp_irpd_cta`，
+一句帶連結），季節性入口仍是首頁橫幅。
+
+驗證：`check_i18n.py`（521 鍵 × 5 語）、`verify.sh`、`closed.test.mjs` 68 passed、
+容器 `SKIP_OG=1 astro build` 6,817 頁，五語 `/irpd/` 逐頁截圖確認無殘留 token。
+
+---
+
 ## 2026-08-28 ・`OFFICIAL_HOSTS` 補兩座美國園；記一次 `sources:` 行末註解的坑
 
 建辛辛那提 `Marcy` × `Zuko` × `Penny` 三筆時發現的兩件事。
