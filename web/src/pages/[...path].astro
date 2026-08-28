@@ -14,7 +14,9 @@ import Moves from '../components/Moves.astro';
 import Japan from '../components/Japan.astro';
 import Terms from '../components/Terms.astro';
 import Review from '../components/Review.astro';
-import { pandas, zoos, zoosListed, LOCALES, searchDataFor, closedDataFor, subGraph, placeholderMotherName, zooName, japanTreeData, REVIEW, SHOW_REVIEW } from '../lib/data.js';
+import Irpd from '../components/Irpd.astro';
+import { pandas, zoos, zoosListed, LOCALES, searchDataFor, closedDataFor, subGraph, placeholderMotherName, zooName, japanTreeData, REVIEW, SHOW_REVIEW, SHOW_IRPD } from '../lib/data.js';
+import { IRPD_ZH } from '../lib/irpd-content.js';
 
 export function getStaticPaths() {
   const out = [];
@@ -31,6 +33,11 @@ export function getStaticPaths() {
     out.push({ params: { path: path('feedback') }, props: { locale: l.code, kind: 'feedback', relPath: 'feedback' } });
     out.push({ params: { path: path('thanks') }, props: { locale: l.code, kind: 'thanks', relPath: 'thanks' } });
     out.push({ params: { path: path('terms') }, props: { locale: l.code, kind: 'terms', relPath: 'terms' } });
+    // 國際小熊貓日：內容目前只有 zh-TW（lib/irpd-content.js），故只生成中文一條路由；
+    // 四語譯稿到齊後把此處的語系判斷拿掉、SHOW_IRPD 改 true 即五語同時公開。
+    if (SHOW_IRPD && l.code === 'zh-TW') {
+      out.push({ params: { path: path('irpd') }, props: { locale: l.code, kind: 'irpd', relPath: 'irpd' } });
+    }
     // 年度回顧：索引＋每個有事件的年份一頁（REVIEW 建置期算好，見 data.js）。
     // SHOW_REVIEW 關閉時（正式 build）整組路由不生成——Q3/Q4 公開前只在 dev 預覽。
     if (SHOW_REVIEW) {
@@ -65,6 +72,7 @@ const titles = {
   thanks: (await import('../lib/data.js')).i18n[locale].about_title,
   terms: (await import('../lib/data.js')).i18n[locale].terms_title,
   review: (await import('../lib/data.js')).i18n[locale].rv_title,
+  irpd: IRPD_ZH.title,
   reviewYear: kind === 'reviewYear' ? (await import('../lib/data.js')).i18n[locale].rv_title_year.replace('{y}', year) : undefined,
   panda: kind === 'panda' ? placeholderMotherName(pandas[slug], locale) : undefined,
   zoo: kind === 'zoo' ? zooName(zoos.find((z) => z.slug === slug)?.id, null, locale) : undefined,
@@ -90,6 +98,7 @@ const graph = p ? subGraph(slug, locale) : null;
   {kind === 'thanks' && <Thanks locale={locale} />}
   {kind === 'terms' && <Terms locale={locale} />}
   {kind === 'review' && <Review locale={locale} />}
+  {kind === 'irpd' && <Irpd locale={locale} />}
   {kind === 'reviewYear' && <Review locale={locale} year={year} />}
   {kind === 'panda' && <Panda locale={locale} slug={slug} />}
   {kind === 'zoo' && <Zoo locale={locale} slug={slug} />}
@@ -131,6 +140,11 @@ const graph = p ? subGraph(slug, locale) : null;
     <Fragment slot="scripts">
       <script is:inline define:vars={{ data: japanTreeData(locale) }}>window.JPTREE_DATA = data;</script>
       <script is:inline src={`${base}js/jptree.js`}></script>
+    </Fragment>
+  )}
+  {kind === 'irpd' && (
+    <Fragment slot="scripts">
+      <script is:inline src={`${base}js/irpd.js`}></script>
     </Fragment>
   )}
 </Layout>

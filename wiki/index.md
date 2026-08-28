@@ -1,6 +1,6 @@
 # Wiki 目錄 Index
 
-> 最後更新：2026-08-27 | 條目總數：1111（另有 6 筆條目暫存 wiki/_hidden/，不計入、不上站）
+> 最後更新：2026-08-28 | 條目總數：1119（另有 6 筆條目暫存 wiki/_hidden/，不計入、不上站）
 
 ---
 
@@ -2663,8 +2663,8 @@
 | [[sisu-2021-06-17]] | Sisu — Doofah 之配偶；Potawatomi 生，2024 依 SSP 移入（RPF #1303；🚧 抵園日不明，暫採公告日 2024-03-22） | ♀ | 2021– | Zoo Knoxville 🇺🇸 |
 | [[dr-wallace-2025-06-03]] | Dr. Wallace — Sisu × Doofah 初胎雙胞胎之一；名字紀念 ETSU 教授 Steven C. Wallace（Cape May 端作 Dr. Stephen Wallace、暱稱 Wally）；2026 年 5 月移居 Cape May 與 Ember 配對（🚧 抵園日只知在 5 月，取月末 2026-05-31 為上界） | ♂ | 2025– | Cape May County Park & Zoo 🇺🇸 |
 | [[mr-darcy-2025-06-03]] | Mr. Darcy — Dr. Wallace 雙胞胎兄弟；長得像爸爸；2026-05 移居 Pueblo Zoo | ♂ | 2025– | Pueblo Zoo 🇺🇸 |
-| [[apple-seed-1-sisu-2026-06-07]] | 蘋果籽1號（Apple Seed 1）— 2026 第二胎雙胞胎之一；尚未命名（佔位條目） | ♂ | 2026– | Zoo Knoxville 🇺🇸 |
-| [[apple-seed-2-sisu-2026-06-07]] | 蘋果籽2號（Apple Seed 2）— 同胎另一隻；尚未命名（佔位條目） | ♂ | 2026– | Zoo Knoxville 🇺🇸 |
+| [[jerry-2026-06-07]] | Jerry — Sisu × Doofah 2026 第二胎雙胞胎之一；2026-08-27 園方命名比賽揭名（原蘋果籽1號；🚧 兩隻與名字的對應園方未指明） | ♂ | 2026– | Zoo Knoxville 🇺🇸 |
+| [[ruckus-2026-06-07]] | Ruckus — Jerry 之雙胞胎兄弟；同日揭名（原蘋果籽2號） | ♂ | 2026– | Zoo Knoxville 🇺🇸 |
 | [[loofah-2018-06-21]] | Loofah — Doofah 雙胞胎兄弟；2019 移居 Sunset Zoo（RPF #1225） | ♂ | 2018– | Sunset Zoo 🇺🇸 |
 | [[sunisa-2024-07-14]] | Sunisa — 暱稱 Suni；Loofah 之女、人工哺育；母 Simone 身分待確認 🚧 | ♀ | 2024– | Sunset Zoo 🇺🇸 |
 | [[tabei-2013-06-01]] | Tabei — Doofah・Loofah 之母；Zoo Knoxville 生，2021 移居加州（RPF #912） | ♀ | 2013– | Charles Paddock Zoo 🇺🇸 |
@@ -2812,7 +2812,7 @@ Dusk（RPF #447）2004 年生於溫尼伯 Assiniboine Park Zoo，經 Granby Zoo�
 
 ## Lin 家族（辛辛那提繁殖群 → 全美各園）
 
-[[lin-2013-06-16]] 🪽（RPF #390）是 Cincinnati Zoo and Botanical Garden 2010 年代後期的主力母獸：2013 年生於該園、終身未離開，2024-02 以 10 歲辭世時園方訃告稱她「went on to have 10 offspring of her own」——這 10 隻的名單與 RPF 記錄數量完全相符（可互為佐證），本節全數收錄。四位配偶分別是 [[rover-2005-05-16]] 🪽（2015）、[[harold-2004-06-08]] 🪽（2016，母系待查證 🚧）、[[kendji-2015-06-22]]（2017・2020・2021）與 [[kola-2015-08-24]]（2018・2019）；母親 [[bailey-2008-06-01]] 🪽 與 Rover・Harold 見上一節。子女中 [[hazel-2016-06-14]] 已收錄於 Memphis 一節、[[linus-2018-06-23]] 見下一節，故本表不重複列出。辛辛那提是全球中華小熊貓亞種繁殖數第一的機構（2026-06 誕生第 100 隻）。
+[[lin-2013-06-16]] 🪽（RPF #390）是 Cincinnati Zoo and Botanical Garden 2010 年代後期的主力母獸：2013 年生於該園、終身未離開，2024-02 以 10 歲辭世時園方訃告稱她「went on to have 10 offspring of her own」——這 10 隻的名單與 RPF 記錄數量完全相符（可互為佐證），本節全數收錄。四位配偶分別是 [[rover-2005-05-16]] 🪽（2015）、[[harold-2004-06-08]] 🪽（2016，母系待查證 🚧）、[[kendji-2015-06-22]]（2017・2020・2021）與 [[kola-2015-08-24]]（2018・2019）；母親 [[bailey-2008-06-01]] 🪽 與 Rover・Harold 見上一節。子女中 [[hazel-2016-06-14]] 已收錄於 Memphis 一節、[[linus-2018-06-23]] 見下一節，故本表不重複列出。辛辛那提是全球中華小熊貓亞種繁殖數第一的機構——2026-06-22 誕生的第 100 隻即 [[penny-2026-06-22]]，屬另一支繁殖組合，見下方「Marcy × Zuko」一節。
 
 | 條目 | 說明 | 性別 | 生卒 | 動物園 |
 |------|------|------|------|--------|
@@ -2825,6 +2825,32 @@ Dusk（RPF #447）2004 年生於溫尼伯 Assiniboine Park Zoo，經 Granby Zoo�
 | [[lenore-2019-07-05]] | Lenore — 父 [[kola-2015-08-24]]；[[audra-2019-07-05]] 雙胞胎；至今仍居出生園（RPF #1002） | ♀ | 2019– | Cincinnati Zoo and Botanical Garden 🇺🇸 |
 | [[lucas-2020-06-23]] | Lucas — 父 [[kendji-2015-06-22]]；2021 移居聖地牙哥，2023 與 [[adira-2020-07-14]] 育有一女 [[pavitra-2023-06-09]]（RPF #1191） | ♂ | 2020– | サンディエゴ動物園 🇺🇸 |
 | [[shenmi-2021-07-16]] | Shenmi — 父 [[kendji-2015-06-22]]；Lin 最後一胎、流產後同年再受孕的紀錄個案；2022 移居 Ross Park（RPF #1304；中文名待確認 🚧） | ♀ | 2021– | Ross Park Zoo 🇺🇸 |
+
+---
+
+## 海外個體（美國・辛辛那提 Marcy × Zuko 一家）
+
+Lin 一脈之後，Cincinnati Zoo and Botanical Garden 的繁殖棒子交到一對新配對手上：[[marcy-2021-07-11]]（Red River Zoo 出生、經 Pittsburgh 於 2025 年 11 月轉入）與 [[zuko-2023-05-26]]（[[usha-2015-07-15]] 之子，Greensboro Science Center 出生、2024 年轉入）。兩隻皆由 AZA 物種存續計畫（SSP）依遺傳配對，2026-06-22 產下的女兒 [[penny-2026-06-22]] 是該園自 1980 年代初開展繁殖以來的**第 100 隻小熊貓**（同胎另一隻未能存活、未命名）。依園方公告與官方 X 建檔（2026-08-28）。
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[marcy-2021-07-11]] | Marcy — [[pepper-2017-07-23]] 之女；Red River → Pittsburgh → 辛辛那提，2026 首次生產（RPF #1311） | ♀ | 2021– | Cincinnati Zoo and Botanical Garden 🇺🇸 |
+| [[zuko-2023-05-26]] | Zuko — [[usha-2015-07-15]] × Tai 之子、Azula 雙胞胎；人工哺育，2024 移居辛辛那提（RPF #1422） | ♂ | 2023– | Cincinnati Zoo and Botanical Garden 🇺🇸 |
+| [[penny-2026-06-22]] | Penny — 辛辛那提第 100 隻小熊貓；2026-08-27 園方公布性別與名字（尚無 RPF） | ♀ | 2026– | Cincinnati Zoo and Botanical Garden 🇺🇸 |
+
+---
+
+## 海外個體（美國・Red River Zoo・Chang × Tsaka 一家）
+
+[[chang-1998-06-27]] 🪽（辛辛那提出生，1999 年移居 Red River Zoo）與 [[tsaka-1996-06-28]]（Calgary Zoo 出生，1998 年經辛辛那提轉入）是 Red River Zoo 2000 年代初的繁殖組合，2000–2002 年間留下四仔。長女 [[liwu-2000-06-28]] 🪽 輾轉四園後於 2007 年入住 Cincinnati Zoo and Botanical Garden，在該園度過最後十年——她本人未曾產仔，卻是園內一代代幼獸的同居陪伴者，並且是**第一隻學會自願接受超音波檢查的小熊貓**（園方訃告原文 the first red panda to master this behavior，未指明全球或園內），這項訓練成為辛辛那提 CREW 判讀小熊貓妊娠的關鍵工具。2002 年的雙胞胎 [[jiang-2002-06-26]] 🪽 與 [[mei-lin-2002-06-26]] 🪽 則分頭走向哥倫布與布魯克林一線。另有 2001 年一隻生後 4 日夭折、終生未命名的女兒（ISB `01134`），依〈幼逝寶寶收錄原則〉不建條目。依 Cincinnati Zoo 訃告與國際血統登録書（ISB 2008 年版）建檔（2026-08-28）。
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[liwu-2000-06-28]] | Liwu — 本節主角；辛辛那提的繪畫募款與自願超音波受檢先驅，無子女 🪽（RPF #388、ISB `0022`；園方訃告） | ♀ | 2000–2017 🪽 | Cincinnati Zoo and Botanical Garden 🇺🇸 |
+| [[chang-1998-06-27]] | Chang — [[liwu-2000-06-28]] 🪽 之父；辛辛那提出生的 Red River 種公 🪽（ISB `9822`；RPF 查無） | ♂ | 1998–2004 🪽 | Red River Zoo 🇺🇸 |
+| [[tsaka-1996-06-28]] | Tsaka — [[liwu-2000-06-28]] 🪽 之母；Calgary 出生，2004 年轉入 Nashville 後動向不明（ISB `9630`；RPF 查無） | ♀ | 1996– ？ | Nashville Zoo at Grassmere 🇺🇸 |
+| [[jiang-2002-06-26]] | Jiang — [[mei-lin-2002-06-26]] 🪽 雙胞胎；Staten Island → 哥倫布 → Roger Williams → Ross Park → 哥倫布 🪽（RPF #407、ISB `0220`；2008 年後居住史與歿日待查證 🚧） | ♂ | 2002–2021 🪽 | Columbus Zoo and Aquarium 🇺🇸 |
+| [[mei-lin-2002-06-26]] | Mei-Lin — [[jiang-2002-06-26]] 🪽 雙胞胎；Prospect Park 兩度進出，2011 年移居費城 🪽（RPF #385、ISB `0221`；2008 年後居住史與歿日待查證 🚧） | ♀ | 2002–2017 🪽 | Philadelphia Zoo 🇺🇸 |
 
 ---
 
@@ -2894,7 +2920,7 @@ Dusk（RPF #447）2004 年生於溫尼伯 Assiniboine Park Zoo，經 Granby Zoo�
 | [[tae-bo-1998-06-27]] | Tae-Bo — Kalden 之父 🪽；享年 17 歲（RPF #482；🚧 父母不詳） | ♂ | 1998–2015 🪽 | Northeastern Wisconsin Zoo 🇺🇸 |
 | [[kola-2015-08-24]] | Kola — Kalden × [[pip-2008-05-26]] 🪽 之子；[[willow-2015-08-24]] 雙胞胎（RPF #434） | ♂ | 2015– | サンディエゴ動物園 🇺🇸 |
 | [[willow-2015-08-24]] | Willow — [[kola-2015-08-24]] 雙胞胎（RPF #481；⚠️ Zoo Knoxville 另有同名個體） | ♀ | 2015– | Houston Zoo 🇺🇸 |
-| [[pepper-2017-07-23]] | Pepper — [[paprika-2017-07-23]] 雙胞胎；2019 移居外祖母娘家 Red River Zoo（RPF #485） | ♀ | 2017– | Red River Zoo 🇺🇸 |
+| [[pepper-2017-07-23]] | Pepper — [[paprika-2017-07-23]] 雙胞胎；2019 移居外祖母娘家 Red River Zoo；2021 產下 [[marcy-2021-07-11]]（RPF #485） | ♀ | 2017– | Red River Zoo 🇺🇸 |
 | [[paprika-2017-07-23]] | Paprika — [[pepper-2017-07-23]] 雙胞胎；經 Toronto 於 2023 移居溫哥華（RPF #486） | ♀ | 2017– | Greater Vancouver Zoo 🇨🇦 |
 
 ---

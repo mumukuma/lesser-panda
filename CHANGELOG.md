@@ -6,6 +6,29 @@
 
 ---
 
+## 2026-08-28 ・`OFFICIAL_HOSTS` 補兩座美國園；記一次 `sources:` 行末註解的坑
+
+建辛辛那提 `Marcy` × `Zuko` × `Penny` 三筆時發現的兩件事。
+
+**① 兩座園的官方網域未登記。** `tools/build_db.py` 的 `OFFICIAL_HOSTS` 補：
+
+- `greensborosciencecenter.wordpress.com`＋`greensboroscience.org` — Greensboro Science Center
+  （北卡）。該園**新聞稿就發在官方 WordPress 部落格**，官網只是入口；`Zuko`／`Azula` 那胎的出生公告
+  （2023-06-14，載明生日 2023-05-26、父 Tai 母 Usha、一公一母、人工哺育）即發於此。
+- `pittsburghzoo.org` — Pittsburgh Zoo & Aquarium（賓州）。到園公告發於官網單頁
+  （`/new-red-panda-arrives/` 記 `Marcy` 2023-10-24 自 Red River Zoo 抵園、時年兩歲、中華亞種）。
+
+**② ⚠️ `sources:` 的行末 YAML 註解不會被剝掉，會整串進 DB。**
+`build_db.py` 的 `_strip_yaml_comment()` **只套用在 `extra_sources` 與 `youtube`**，
+`sources` 走的是 `split_sources()`／`official_sources()`，不做註解剝除——
+於是 `- https://…/  # 說明` 會原封不動存進 `sources` 欄位、上站變成壞連結
+（host 仍解析得出來，所以 `has_official_source` 照樣為真，**不會被任何檢查擋下**，只有肉眼看得出來）。
+本次三筆已改回純 URL、說明改寫進 `wiki/log.md` 與各頁 `## 備注`。
+`CLAUDE.md`／`SCHEMA.md` 說「連結行末可加 YAML 註解」時指的是 `extra_sources`——
+**`sources:` 要註解，請寫在 `## 備注` 或 log**。
+
+---
+
 ## 2026-08-25 ・建檔流程補兩條缺口：`born` 先釘死、親屬展開設上限
 
 建 ZooMontana 一家時暴露的兩個結構性缺口，都不在資料層而在流程規則本身。

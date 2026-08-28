@@ -6,6 +6,14 @@
 
 ---
 
+## [2026-08-28] update | 接受 IG 投稿：`Crepe`、`Kexin`、`Keyue`、`Ke Song`、`Yaffa`、`Mirai`、`Marumi`、`Light`、`Tian-Tian`、`Ranmaru`、`Le-Le`、`Anshu`
+
+讀者照片投稿收件匣 14 筆（2026-08-27～28），共 26 個 IG 貼文連結，全部為待補、無需複查項，
+已回填至 12 隻的 `instagram:` 欄位。其中 `anshu-2023-06-18`、`marumi-2016-06-15` 原本沒有
+`instagram:` 欄位，依慣例於 `tags:` 後新增。
+
+`Anshu` 那筆為非本人投稿，投稿者已勾選「已取得原作者同意」。
+
 ## [2026-08-24] update | 航航 ISB `0370` 逐欄對帳：該胎其實是四胞胎
 
 維護者要求核對 `kou-kou-2003-07-15` 的 ISB。本隻＝ISB `0370`，`M`／`15 Jul 2003`／
@@ -13169,3 +13177,103 @@ https://www.tobezoo.com/shiiku_diary/keeper/article/200904-000788.html
 **アイアイ 恰好猜對、ジンジン 是錯的**。若當時照抄，ジンジン 會推翻 ISB 的 `KEI-KEI`、
 觸發全站 slug 遷移。**半數猜對的幻覺比全錯更難察覺**——
 日文的假名、漢字、日期一律以逐字原文或維護者為準，摘要模式產出的細節視同未經佐證。
+
+
+## [2026-08-28] rename | 蘋果籽轉正：Sisu × Doofah 2026 雙胞胎定名 `Jerry`・`Ruckus`（Zoo Knoxville 揭名）
+
+**來源**：
+- https://www.instagram.com/zooknoxville/p/DcjDOevoDBH/ （Zoo Knoxville 官方 Instagram，2026-08-27：「Say hello to Jerry and Ruckus!」——命名募款活動結果公布，款項用於小熊貓保育；兩隻仍在育幼室，於 Boyd Family Red Panda Village 的小熊貓直播可見，即將到戶外亮相）
+
+**改名**（`tools/rename.py`，維護者提供貼文連結）：
+
+- `apple-seed-1-sisu-2026-06-07.md` → **`jerry-2026-06-07.md`**（`name:` Apple Seed 1 → Jerry）
+- `apple-seed-2-sisu-2026-06-07.md` → **`ruckus-2026-06-07.md`**（`name:` Apple Seed 2 → Ruckus）
+
+兩頁依轉正流程改寫：移除 `chinese: 蘋果籽N號` 與 `apple-seed` tag、去掉佔位提示與「1號／2號僅為暫編序號」註記，
+標題改為正式名、引言補命名經過，`instagram:` 與 `sources` 各補該則官方貼文（`zooknoxville` 已在 `OFFICIAL_IG_ACCOUNTS`，
+於個體頁顯示為官方來源）。性別 ♂ 早於 7 月由園方公布，本次無變動。
+
+**更新條目**：
+
+- `sisu-2021-06-17.md`・`doofah-2018-06-21.md` — 子女表兩列備注由「未命名（蘋果籽佔位）」改為揭名日；Sisu 引言的「（皆雄性，尚未命名）」改寫為定名並補上兩隻 wikilink
+- `dr-wallace-2025-06-03.md`・`mr-darcy-2025-06-03.md` — 「同父母弟弟」行去掉「皆未命名」
+- `index.md` — 兩列說明欄改為正式名與揭名日；「最後更新」改 2026-08-28；條目總數不變（1111）
+
+**🚧 哪一隻是 Jerry、哪一隻是 Ruckus，園方未指明**：公告只寫「Jerry and Ruckus」，
+沒有出生順序、體徵或 RPF ID 可對應到兩隻幼崽。依 CLAUDE.md 蘋果籽章節「序號依園方公布順序」，
+把原蘋果籽1號定為 `Jerry`、2號定為 `Ruckus`，兩頁均留 🚧 註記；日後園方若載明對應關係再互換。
+
+**備注**：舊網址 /p/apple-seed-1-sisu-2026-06-07/、/p/apple-seed-2-sisu-2026-06-07/ 將失效（站無 redirect）。
+本季 Zoo Knoxville 這兩隻轉正後，`grep -l "apple-seed" wiki/*.md` 的季末盤點名單少兩隻。
+
+
+## [2026-08-28] add | 辛辛那提第 100 隻小熊貓 `Penny` 定名，母 `Marcy`、父 `Zuko` 一併建檔
+
+**來源**：
+
+- https://cincinnatizoo.org/100th-red-panda-born-at-the-cincinnati-zoo/ （辛辛那提動物園，2026-06-26：「A red panda cub born Monday morning… to first-time mom Marcy」＝2026-06-22 生，園史第 100 隻；Marcy 懷雙胞胎僅一隻存活；父為三歲的 Zuko，SSP「sent Marcy here last November」）
+- https://x.com/CincinnatiZoo/status/2092960431795040274 （官方 X，2026-08-27：「It's a girl! Meet Penny!」——公布性別與名字，母女仍多在巢箱，預計數週內外出）
+- https://greensborosciencecenter.wordpress.com/2023/06/14/double-the-excitement-two-red-panda-cubs-bornat-the-greensboro-science-center/ （Greensboro Science Center 官方部落格，2023-06-14：`Zuko` 生日 2023-05-26、父 Tai 母 Usha、一公一母雙胞胎、人工哺育）
+- https://www.pittsburghzoo.org/new-red-panda-arrives/ （Pittsburgh Zoo & Aquarium 官網：`Marcy` 2023-10-24 自 Red River Zoo 抵園、時年兩歲、中華亞種）
+- https://redpandafinder.com/#profile/1311 (Marcy) ・ https://redpandafinder.com/#profile/1422 (Zuko)
+
+**新增條目**：
+
+- `penny-2026-06-22.md` — Penny ♀，生於 2026-06-22，現居 Cincinnati Zoo and Botanical Garden；辛辛那提園史第 100 隻小熊貓（尚無 RPF profile）
+- `marcy-2021-07-11.md` — Marcy ♀（RPF #1311），生於 2021-07-11 Red River Zoo，Red River → Pittsburgh（2023-10-24）→ 辛辛那提（2025-11）
+- `zuko-2023-05-26.md` — Zuko ♂（RPF #1422），生於 2023-05-26 Greensboro Science Center，2024-04-17 移居辛辛那提
+
+**更新條目**：
+
+- `pepper-2017-07-23.md` — 補「子女」表（`marcy-2021-07-11`）與引言一句；Marcy 是 Pepper 首胎
+- `usha-2015-07-15.md` — 子女表 Zuko 一列改為連結、補雙胞胎與移園說明；引言補父獸 Tai（RPF 記 Taiji，#461）與孫女 `penny-2026-06-22`
+- `index.md` — 新增一節「海外個體（美國・辛辛那提 Marcy × Zuko 一家）」；Lin 家族節末句改指向 `penny-2026-06-22`；Pepper 一列補子女；條目總數更新為 1114
+
+**工具**：
+
+- `tools/build_db.py` — `OFFICIAL_HOSTS` 補 `greensborosciencecenter.wordpress.com`／`greensboroscience.org`（Greensboro Science Center 的官方部落格即其新聞稿發布管道）與 `pittsburghzoo.org`
+
+**🚧 留待查證**：
+
+- `Marcy` 生日 2021-07-11：RPF #1311 記此日，Valley News Live（2021-07-14）引 Red River Zoo 說法「Pepper 首次生產、7/11 產下兩仔」日期相符，Pittsburgh Zoo 官網記她 2023-10 抵園時兩歲亦相符；惟 Red River Zoo 未見公布名字的官方公告，**「兩仔中哪一隻是 Marcy」與同胎另一隻的名字去向仍缺**
+- `Marcy` 轉入辛辛那提只知「2025 年 11 月」（園方原文 last November），`zoos:` 暫記到年份
+- `Zuko` 2024-04-17 移居辛辛那提僅 RPF 為據，且 RPF 自記 `uncertainty: location.2 exact day`
+- `Penny` 同胎另一隻出生後未存活、園方未公布性別與名字，依〈幼逝寶寶收錄原則〉不建條目
+- **範圍外、未建**（回報維護者）：Marcy 之父 `Bo`（#470）、Zuko 之父 `Tai`／`Taiji`（#461）、Zuko 之妹 `Azula`（#1421）、Usha 長子 `Ravi`（#1378）——皆為主角外一圈以上，本次只寫純文字
+
+
+## [2026-08-28] add | Cincinnati Zoo 訃告個體 `Liwu` 建檔，父母 `Chang`／`Tsaka` 與雙胞胎弟妹 `Jiang`／`Mei-Lin` 一併補齊
+
+**來源**：
+
+- https://cincinnatizoo.org/remembering-liwu/ （辛辛那提動物園，2017-08-23，飼育員 Lissa Browning 撰：`Liwu` 歿於 2017-08-10、享年 17 歲、2007 年入園、「She never had any offspring of her own but was a companion for many of the cubs that stayed with her.」、「She was the first red panda to master this behavior」＝第一隻學會自願接受超音波檢查的小熊貓，原文未指明全球或園內、2011 年起作畫為保育募款）
+- https://web.archive.org/web/20120128200628/http://www.rotterdamzoo.nl/import/assetmanager/2/6732/Red%20Panda%20Studbook.pdf （國際血統登録書 2008 年版；本次逐欄對帳 `0022`／`9822`／`9630`／`0220`／`0221`／`01134`）
+- https://redpandafinder.com/#profile/388 (Liwu) ・ https://redpandafinder.com/#profile/407 (Jiang) ・ https://redpandafinder.com/#profile/385 (Mei-Lin)
+
+**新增條目**：
+
+- `liwu-2000-06-28.md` — Liwu ♀（RPF #388、ISB `0022`），生於 2000-06-28 Red River Zoo，經 Potawatomi・Columbus・Binder Park，2007-10-24 入辛辛那提，2017-08-10 歿
+- `chang-1998-06-27.md` — Chang ♂（ISB `9822`；RPF 查無），生於 1998-06-27 辛辛那提，1999-04-21 移居 Red River Zoo，2004-02-06 歿
+- `tsaka-1996-06-28.md` — Tsaka ♀（ISB `9630`；RPF 查無），生於 1996-06-28 Calgary Zoo，1998 年經辛辛那提入 Red River Zoo，2004-12-20 轉入 Nashville 後動向不明（`last_seen: 2008-12-31`＋`unverified`）
+- `jiang-2002-06-26.md` — Jiang ♂（RPF #407、ISB `0220`），生於 2002-06-26 Red River Zoo，終居 Columbus Zoo and Aquarium，2021-08-01 歿 🚧
+- `mei-lin-2002-06-26.md` — Mei-Lin ♀（RPF #385、ISB `0221`），生於 2002-06-26 Red River Zoo，終居 Philadelphia Zoo，2017-04-05 歿 🚧
+
+**更新條目**：
+
+- `index.md` — 新增一節「海外個體（美國・Red River Zoo・Chang × Tsaka 一家）」；條目總數更新為 1119
+
+**資料**：
+
+- `data/zoos.json` — Staten Island Zoo 補 `location_zh: 紐約州史泰登島`（原缺，居住史表格會退回英文）
+
+**⭐ 本次發現**：
+
+- **Liwu 的雙親是表兄妹**：父 `Chang` 之母 Aisha（ISB `9380`）與母 `Tsaka` 之父 Hun-Ho（ISB `91100`）的 sire／dam 同為 `8701`／`8621`，即兩隻是全血緣手足。
+- **ISB 與 RPF 在 2008 年前逐日吻合**：三隻有 RPF 的個體（#388／#407／#385），其 `location.*` 日期與 ISB 的 Transfer 列**一天不差**，可互為佐證；ISB 收錄止於 2008-12-31，其後的居住史與歿日則只有 RPF 一個來源。
+
+**🚧 留待查證**：
+
+- `Jiang` 歿日 2021-08-01（RPF 自記誤差約一週）與 2008 年後居住史（Roger Williams → Ross Park → Columbus）僅 RPF 為據；搜 Columbus Zoo and Aquarium 官方訃報一輪未果（搜到的是該園另一隻 Rinzen，2022 年歿）
+- `Mei-Lin` 歿日 2017-04-05 與 2011 年移居 Philadelphia Zoo 僅 RPF 為據；搜 Philadelphia Zoo 官方訃報一輪未果（該園公開的小熊貓訃告是 2023 年的 Khumbie）
+- `Tsaka` 2008 年後動向不明：ISB 該版無死亡列只能推出「至少活過 2008-12-31」，不猜 `died`；搜 Nashville Zoo at Grassmere 一輪未果
+- **範圍外、未建**（回報維護者）：`Chang` 之父母 Bubba（ISB `9381`）／Aisha（`9380`）、`Tsaka` 之父母 Hun-Ho（`91100`）／Shomao（`9196`）——皆為祖父母層，依〈親屬展開一圈〉只寫純文字

@@ -758,3 +758,21 @@ export const REVIEW = (() => {
   for (const r of rows) { r.births.sort(asc); r.stars.sort(asc); r.moves.sort(asc); }
   return { years: [...rows].reverse(), nowYear }; // 新→舊（索引頁讀向）
 })();
+
+// ── 國際小熊貓日（/irpd/）─────────────────────────────────────
+// ⚠️ 公開開關：內容目前只有 zh-TW（見 lib/irpd-content.js），四語譯稿到齊前
+// 只在開發模式（pnpm dev）預覽。公開時把下行改成 `export const SHOW_IRPD = true;`——
+// 路由（[...path].astro）與首頁 IRPD 倒數橫幅的連結都掛在這一個旗標上。
+// typeof 防呆：純 node 跑（tests/、工具腳本）沒有 import.meta.env，一律視為關。
+export const SHOW_IRPD =
+  typeof import.meta.env !== 'undefined' && !!import.meta.env.DEV;
+
+// 當年出生的收錄數與其中仍掛蘋果籽佔位者（建置期算，同統計頁原則排除存疑個體）。
+// /irpd/ 的季節段用；數字不可寫死在文案裡，否則跨年即錯。
+export const IRPD = (() => {
+  const year = new Date().getFullYear();
+  const born = Object.values(pandas).filter(
+    (p) => !p.unverified && String(p.born || '').startsWith(String(year)),
+  );
+  return { year, n: born.length, seeds: born.filter((p) => p.placeholder).length };
+})();

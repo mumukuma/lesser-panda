@@ -191,6 +191,11 @@ OFFICIAL_HOSTS = {
     # Cincinnati Zoo & Botanical Garden（美國俄亥俄州；全球 styani 亞種繁殖數第一，
     # 出生・命名・訃報公告多發於官網文章與官方 X／FB）
     "cincinnatizoo.org",
+    # Greensboro Science Center（美國北卡羅萊納州）。園方新聞稿發於官方 WordPress 部落格
+    # greensborosciencecenter.wordpress.com（官網 greensboroscience.org 的 blog 連結指向此），
+    # 小熊貓出生公告即發於此（2023-06-14 Zuko／Azula 那胎）。
+    "greensborosciencecenter.wordpress.com", "greensboroscience.org",
+    "pittsburghzoo.org",  # Pittsburgh Zoo & Aquarium（美國賓州；到園公告發於官網單頁，如 /new-red-panda-arrives/）
     "saczoo.org",  # Sacramento Zoo（美國加州；含 /imported-blog/ 舊園方部落格，出生・命名紀錄）
     # Birmingham Zoo（美國阿拉巴馬州；出生公告發於官網 /YYYY/MM/DD/ 文章與官方 FB）
     "birminghamzoo.com",
