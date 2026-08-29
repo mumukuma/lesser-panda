@@ -13277,3 +13277,112 @@ https://www.tobezoo.com/shiiku_diary/keeper/article/200904-000788.html
 - `Mei-Lin` 歿日 2017-04-05 與 2011 年移居 Philadelphia Zoo 僅 RPF 為據；搜 Philadelphia Zoo 官方訃報一輪未果（該園公開的小熊貓訃告是 2023 年的 Khumbie）
 - `Tsaka` 2008 年後動向不明：ISB 該版無死亡列只能推出「至少活過 2008-12-31」，不猜 `died`；搜 Nashville Zoo at Grassmere 一輪未果
 - **範圍外、未建**（回報維護者）：`Chang` 之父母 Bubba（ISB `9381`）／Aisha（`9380`）、`Tsaka` 之父母 Hun-Ho（`91100`）／Shomao（`9196`）——皆為祖父母層，依〈親屬展開一圈〉只寫純文字
+
+
+## [2026-08-28] add | Cleveland Metroparks Zoo `Leela` 建檔，雙親 `Poppy`／`Willie` 以檔案卡補齊
+
+**來源**：
+
+- https://x.com/clemetzoo/status/1965441399181996361 （Cleveland Metroparks Zoo 官方 X，2025-09-09：「Born to mother Poppy and father Willie on July 3, this baby red panda is just over 2 months old and is healthy, curious and already stealing the hearts of our animal care team」）
+- https://www.facebook.com/ClevelandMetroparksZoo/posts/its-a-girl-red-panda-mom-poppy-has-named-her-cub-meet-leela-the-newest-red-panda/865531149149168/ （官方 Facebook，2025-09-13：「IT'S A GIRL 🎀 Red panda mom, Poppy, has named her cub... meet Leela」）
+- https://spectrumnews1.com/oh/columbus/news/2025/09/13/cleveland-zoo-red-panda-cub （Spectrum News 1，2025-09-13：♀、生於 2025-07-03、「Leela is the first offspring of mom, Poppy and dad, Willie」、園方擺三個標名水盤讓 Poppy 挑、公布時 1.5 磅、尚未能自行走動）
+- https://www.news5cleveland.com/news/local-news/cleveland-metroparks-zoo-welcomes-baby-red-panda ・ https://www.cleveland19.com/2025/09/09/cleveland-metroparks-zoo-welcomes-baby-red-panda/ ・ https://coolcleveland.com/2025/09/cleveland-zoo-is-enveloped-in-cuteness-as-new-baby-animals-are-born/ （出生公告轉載）
+
+**新增條目**：
+
+- `leela-2025-07-03.md` — Leela ♀，2025-07-03 生於 Cleveland Metroparks Zoo（Asian Highlands 展區），`poppy-cleveland` × `willie-cleveland` 的第一胎
+- `poppy-cleveland.md` — Poppy ♀（檔案卡；生日／出生園／抵園日皆未公布，`last_seen: 2025-09-13`）
+- `willie-cleveland.md` — Willie ♂（檔案卡；同上）
+
+**更新條目**：
+
+- `poppy-2024-06-13.md` — 同名提示補上 Cleveland 的 Poppy
+- `index.md` — 新增一節「海外個體（美國・Cleveland Metroparks Zoo・Poppy × Willie 一家）」；條目總數更新為 1122
+
+**工具**：
+
+- `tools/build_db.py` — Cleveland Metroparks Zoo 的官方管道登記白名單：`OFFICIAL_HOSTS` 加 `clevelandmetroparks.com`、`OFFICIAL_FB_PAGES` 加 `clevelandmetroparkszoo`、`OFFICIAL_X_ACCOUNTS` 與 `OFFICIAL_IG_ACCOUNTS` 各加 `clemetzoo`（三個帳號皆由官網〈Connect with Cleveland Metroparks〉頁面列為園方官方帳號）
+
+**🚧 留待查證**：
+
+- `Poppy`／`Willie` 的生日、出生園與抵園日期：園方官網無小熊貓相關新聞稿（/news-press/ 只發到 Amur leopard）、官方 X／FB 公告與五家當地新聞都只寫「母 Poppy、父 Willie」；RPF 該園名下僅 Xue-Li／Ruskan／Firecracker／Gordi／Rohan／Piercy／Lino，兩隻皆查無。查到生日後走 `tools/rename.py` 改回 `名字-生日` slug
+- `Willie` 與 RPF #555（2015-06-21 生於 Greenville Zoo，2020 年起記於 Seneca Park Zoo，ISB `1520`，別名 Willie Nelson／William）是否為同一隻無從判斷——RPF 未記他移入 Cleveland，其 2021 年的兩仔亦生於 Seneca；未併入條目，只在內文註記
+- `Leela` 的亞種未公布，`species` 欄依規範整行省略；她 2025-09 之後的近況與是否仍在園內未再查證
+
+## [2026-08-28] add | Cleveland Metroparks Zoo `Bungee` 建檔（`Poppy` × `Willie` 2026 年的女兒）
+
+維護者提供園方官方 IG 的命名貼文與性別貼文。本隻＝2026-06-21 生的雌性幼獸，
+`poppy-cleveland` × `willie-cleveland` 的第二胎、`leela-2025-07-03` 之妹。
+
+**來源**：
+
+- https://www.facebook.com/ClevelandMetroparksZoo/posts/our-newest-resident-is-a-red-panda-cub-this-little-one-was-born-on-june-21-2026-/1105283951840552/ （官方 Facebook，2026-07-10：「This little one was born on June 21, 2026 to mother Poppy and father Willie.」）
+- https://www.instagram.com/clemetzoo/p/DcQttCLnydf/ （官方 IG，2026-08-20：「It's a GIRL！ Our adorable red panda cub is a girl…her name will be revealed soon」）
+- https://www.instagram.com/clemetzoo/p/DclpdLJFXZl/ （官方 IG，2026-08-28：「Our newest cub's name was chosen to reflect…an energetic tendency to bounce through her habitat…Meet Bungee!」）
+- https://www.wkyc.com/article/life/animals/cleveland-metroparks-zoo-red-panda-cub/95-cff831b3-2845-468b-a5c1-2f1bb6e84d44 （WKYC 2026-07-10：園方 FB 公告轉載，記為 `extra_sources`）
+
+**新增條目**：
+
+- `bungee-2026-06-21.md` — Bungee ♀，2026-06-21 生於 Cleveland Metroparks Zoo；`instagram:` 收上列兩則官方貼文
+
+**更新條目**：
+
+- `leela-2025-07-03.md`／`poppy-cleveland.md`／`willie-cleveland.md` — 補 2026 年這一胎（子女表、妹妹行、內文）；三頁 `sources` 補園方官方 X 的出生公告；雙親 `last_seen` 由 2025-09-13 改為 2026-07-10（2026 出生公告點名兩隻）
+- `index.md` — 併入既有的「海外個體（美國・Cleveland Metroparks Zoo・Poppy × Willie 一家）」一節：敘述補 2026 這一胎、表格加 `bungee-2026-06-21` 一列；條目總數 1122 → 1123
+
+**⚠️ 同一天兩個 session 撞在同一家**：本輪開工時 `leela`／`poppy-cleveland`／`willie-cleveland`
+三檔尚不存在，寫完才發現另一 session 已於同日建好同一家（見上一筆 log）。三個檔案以本輪版本為準
+（內容等價、另補 2026 這一胎），`index.md` 我方多開的「### Poppy × Willie 一家」小節已刪除、
+改併入對方那一節；`tools/build_db.py` 兩邊各加了一次白名單，重複行已清掉，
+現況為 `OFFICIAL_HOSTS` `clevelandmetroparks.com`、`OFFICIAL_FB_PAGES` `clevelandmetroparkszoo`、
+`OFFICIAL_X_ACCOUNTS`／`OFFICIAL_IG_ACCOUNTS` 各一個 `clemetzoo`，各一行不重複。
+
+**🚧 留待查證**：
+
+- `Bungee` 的亞種園方未公布，`species` 欄依規範整行省略
+- 雙親 `Poppy`／`Willie` 的生日、出生園與抵園日期仍未公布（詳見上一筆 log 的同名條目）
+
+## [2026-08-28] add | Virginia Zoological Park `Masu` × `Timur` 一家七隻建檔（RPF #1175 `Piercy` 起）
+
+維護者給的起點是 RPF #1175 `Piercy`（Cleveland Metroparks Zoo），依「親屬只展開一圈」建至
+父・母・同胎手足・非同胎兄弟姊妹，共七隻。三胞胎的生日與雙親有園方一手佐證（Wayback 快照）。
+
+**來源**：
+
+- https://web.archive.org/web/20191016065504/https://virginiazoo.org/2019/08/thrice-the-cuteness/ （Virginia Zoo 官方 blog，2019-08-19〈Thrice the Cuteness〉：「The cubs, two males and one female, were born off-exhibit at the Zoo's Animal Wellness Campus on June 18.」母 Masu 3 歲、父 Timur 4 歲；獸醫 Colleen Clabbers 稱三胞胎為 unique situation；園長 Greg Bockheim 提到 2018 年第一胎也是同樣的待產安排）
+- https://web.archive.org/web/20191016065414/https://virginiazoo.org/2019/09/red-panda-triplets-names/ （同上，2019-09-16〈Red Panda Triplets Have Names〉：「Males, Piercy and Lino (pronounced Leeno) and female, Chris-Anne」；命名權競標 72 小時售罄、每名 2,500 美元、共 7,500 美元捐給 Red Panda Network）
+- https://www.facebook.com/ClevelandMetroparksZoo/posts/welcome-red-panda-brothers-piercy-and-lino-born-june-18-2019-at-the-virginia-zoo/10164307642105002/ （Cleveland Metroparks Zoo 官方 Facebook，2020-10-01：「Born June 18, 2019 at the Virginia Zoo, the brothers joined Cleveland Metroparks Zoo last week.」並記辨識法「Piercy's lighter face, and Lino's darker markings」）
+- https://nationalzoo.si.edu/animals/news/meet-red-pandas-asa-and-chris-anne （史密森尼國立動物園官方，2021-12-03：Chris-Anne 在 Asia Trail、與 Asa 同居、「has lived at the Zoo for a little over a year」）
+- https://nationalzoo.si.edu/center-species-survival/news/meet-new-red-pandas （同上，2022-07-01：明確把 Chris-Anne 歸在華府本園、非 Front Royal 的 SCBI）
+- https://redpandafinder.com/#profile/1175 ほか（RPF #577／#579／#1173／#1174／#1176／#1177，居住史日期與亞種的線索）
+- https://www.wtkr.com/2018/09/15/625062 ・ https://kpic.com/news/local/meet-remi-and-freddie-red-pandas-find-a-new-home-at-wildlife-safari-in-winston ・ https://www.wavy.com/news/local-news/norfolk/virginia-zoo-mourns-the-loss-of-red-panda-timur/ （非官方報導，記入各條目 `extra_sources`）
+- https://www.youtube.com/watch?v=rXiol5lmxN4 （訪客頻道 Larry's Animal Safari，2022-08-28：Cleveland 的 Asian Highlands 拍到兩兄弟，記入 `piercy`／`lino` 的 `youtube:`；維護者提供）
+
+**新增條目**：
+
+- `piercy-2019-06-18.md` — Piercy ♂（RPF #1175），2019-06-18 生於 Virginia Zoological Park，2020-09 移居 Cleveland Metroparks Zoo
+- `lino-2019-06-18.md` — Lino ♂（RPF #1176），`piercy` 的同胎兄弟，同時移居 Cleveland
+- `chris-anne-2019-06-18.md` — Chris-Anne ♀（RPF #1177），三胞胎中唯一的雌性，2020 年起居 National Zoological Park
+- `remi-2018-06-20.md` — Remi ♂（RPF #1173），`masu` 的第一胎，2020-05 移居 Wildlife Safari
+- `freddie-2018-06-20.md` — Freddie ♂（RPF #1174），`remi` 的同胎兄弟
+- `masu-2016-06-06.md` — Masu ♀（RPF #579，ISB `1605`），上列五隻之母；丹佛生、`lali-2016-06-06`🪽 的雙胞胎
+- `timur-2015-06-07.md` — Timur ♂🪽（RPF #577，ISB `1506`），上列五隻之父；SCBI 生，2022-01-12 歿
+
+**更新條目**：
+
+- `lali-2016-06-06.md` — 內文與家族的「雙胞胎 Masu（尚無條目）」改為 `masu-2016-06-06` 的 wikilink
+- `index.md` — 新增一節「海外個體（美國・Virginia Zoological Park・Masu × Timur 一家）」；條目總數 1123 → 1130
+
+**工具／註冊表**：
+
+- `tools/build_db.py` — `OFFICIAL_HOSTS` 加 `virginiazoo.org`（園方 blog `/YYYY/MM/slug/`；舊文已隨改版下架，sources 走 Wayback 快照，由 `_unwrap_wayback` 遞迴判為官方）
+- `data/zoos.json` — 補 `location_zh`：Virginia Zoological Park「維吉尼亞州諾福克」、Wildlife Safari「俄勒岡州溫斯頓」（原本兩欄皆空，居住史表格會退回英文）
+
+**🚧 留待查證**：
+
+- `remi`／`freddie` 的生日 `2018-06-20`：只有 RPF 佐證。園方 2018 年的出生公告已從官網下架、Wayback 查無快照（試過 `/2018/09/` 下的候選 slug 與 `/news/` 索引皆無），WTKR 2018-09-15 的轉載只寫到「6 月出生、兩隻皆雄、母 Masu 父 Timur」。日則若日後查到官方記載，須走 `tools/rename.py` 遷移 slug
+- 各隻的移園日（`2020-09-24` Cleveland、`2020-05-29` Wildlife Safari、`2016-04-05`／`2017-04-19` Virginia、Chris-Anne 只記到 `2020`）皆出自 RPF；Cleveland 那筆與園方「上週抵園」的貼文時序相符，其餘無官方佐證
+- `timur` 的歿日 `2022-01-12` 出自 RPF；WAVY 報導只說 2022 年 1 月，且另稱得年 8 歲、抵園年 2017，與 2015 年生・2016 年抵園的記載矛盾，未採用該兩項
+- `masu` 於 `timur` 2022 年過世後的動向園方未公告，暫記為續居 Virginia Zoological Park
+- 七隻的亞種皆依 RPF 記 `fulgens`，園方公告未提
+- **範圍外、未建檔**：Cleveland Metroparks Zoo 的年長雄性 `Ruskan`（RPF #532，2009-07-09 生，丹佛 → #129 → 2018-03-07 抵 Cleveland）——維護者提供的訪客影片說明寫作 Ruskin，稱他因與兩兄弟年齡差距過大而單獨飼育於大猩猩展區附近。與 `piercy` 無血緣，未展開；另 `timur` 的父 Rocco（RPF #1114）、同胎手足 Kate（#559）、`masu` 的父母 Faith🪽（#680）／Hamlet（#652）皆為第二圈，一律純文字未建。是否要補建請維護者裁示

@@ -1,6 +1,6 @@
 # Wiki 目錄 Index
 
-> 最後更新：2026-08-28 | 條目總數：1119（另有 6 筆條目暫存 wiki/_hidden/，不計入、不上站）
+> 最後更新：2026-08-28 | 條目總數：1130（另有 6 筆條目暫存 wiki/_hidden/，不計入、不上站）
 
 ---
 
@@ -2878,6 +2878,35 @@ Lin 一脈之後，Cincinnati Zoo and Botanical Garden 的繁殖棒子交到一�
 | [[gen-tso-2013-06-22]] | Gen Tso — [[qin-2005-06-23]] 🪽 × [[beilei-2010-06-14]] 之子；Santi・Bandit 之父；別名 General Tso（RPF #394；居住史 🚧） | ♂ | 2013– | Northeastern Wisconsin Zoo 🇺🇸 |
 | [[santi-2020-06-13]] | Santi — [[bandit-2020-06-13]] 雙胞胎；名取尼泊爾語「和平」（RPF #1185） | ♀ | 2020– | Columbus Zoo and Aquarium 🇺🇸 |
 | [[bandit-2020-06-13]] | Bandit — [[santi-2020-06-13]] 雙胞胎；名取自臉上如面罩的深色斑紋（RPF #1186；移園日 🚧） | ♂ | 2020– | Henry Vilas Zoo 🇺🇸 |
+
+---
+
+## 海外個體（美國・Cleveland Metroparks Zoo・Poppy × Willie 一家）
+
+Cleveland Metroparks Zoo 的 Asian Highlands 展區於 2025-07-03 誕下一隻雌性幼獸 [[leela-2025-07-03]]，是 [[poppy-cleveland]] 與 [[willie-cleveland]] 的第一胎。園方等到幼獸滿兩個月大才於 2025-09-09 公布出生，9 月 13 日再公布性別與名字——名字由母親 Poppy 從三個各標一個候選名的水盤中自己選出。雙親的生日、出生園與抵園日期園方均未公布、RPF 亦查無，故兩隻以檔案卡建檔。依園方官方 X／Facebook 與當地新聞建檔（2026-08-28）。這對配偶連兩年各產一仔：2026-06-21 再生下 [[bungee-2026-06-21]]，園方 7 月 10 日在官方 Facebook 公布出生、8 月 20 日在 IG 公布是女孩、8 月 28 日揭曉名字——Bungee 取自她愛在展場裡彈跳的習慣。
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[bungee-2026-06-21]] | Bungee — [[poppy-cleveland]] × [[willie-cleveland]] 2026 年的女兒、[[leela-2025-07-03]] 之妹；名字取自愛彈跳的習慣（2026-08-28 命名） | ♀ | 2026– | Cleveland Metroparks Zoo 🇺🇸 |
+| [[leela-2025-07-03]] | Leela — [[poppy-cleveland]] × [[willie-cleveland]] 之女；名字由母親挑水盤選出 | ♀ | 2025– | Cleveland Metroparks Zoo 🇺🇸 |
+| [[poppy-cleveland]] | Poppy — [[leela-2025-07-03]] 之母；生日與來歷園方未公布（檔案卡；⚠️ 注意同名，與 Toronto 的 [[poppy-2024-06-13]] 為不同個體） | ♀ | ?– | Cleveland Metroparks Zoo 🇺🇸 |
+| [[willie-cleveland]] | Willie — [[leela-2025-07-03]] 之父；生日與來歷園方未公布（檔案卡；RPF #555 的同名個體無法確認是否同一隻） | ♂ | ?– | Cleveland Metroparks Zoo 🇺🇸 |
+
+---
+
+## 海外個體（美國・Virginia Zoological Park・Masu × Timur 一家）
+
+維吉尼亞州諾福克的 Virginia Zoological Park 於 2017 年把丹佛出生的 [[masu-2016-06-06]]（[[lali-2016-06-06]] 🪽 的雙胞胎姊妹）與 SCBI 出生的 [[timur-2015-06-07]] 🪽 配成一對，連兩年產仔：2018-06-20 的 [[remi-2018-06-20]]・[[freddie-2018-06-20]] 兩兄弟，以及 2019-06-18 的**三胞胎** [[piercy-2019-06-18]]・[[lino-2019-06-18]]・[[chris-anne-2019-06-18]]。兩胎都是園方先把懷孕的 Masu 移到非展示的 Animal Wellness Campus 待產。三胞胎的名字以**命名權競標**售出，72 小時內三個名字各以上限 2,500 美元售罄，7,500 美元全數捐給 Red Panda Network。五隻幼獸日後分往三園：兩兄弟 2020-05 赴俄勒岡州 Wildlife Safari，Piercy 與 Lino 2020-09 赴 Cleveland Metroparks Zoo 的 Asian Highlands，Chris-Anne 則於 2020 年入住華盛頓特區國立動物園的 Asia Trail。父親 Timur 2022-01-12 因癲癇發作過世。依園方 2019 年出生・命名公告（Wayback 快照）、Cleveland 官方 Facebook 與史密森尼官方頁建檔（2026-08-28）。
+
+| 條目 | 說明 | 性別 | 生卒 | 動物園 |
+|------|------|------|------|--------|
+| [[piercy-2019-06-18]] | Piercy — [[masu-2016-06-06]] × [[timur-2015-06-07]] 🪽 三胞胎之一；臉色較淺（RPF #1175） | ♂ | 2019– | Cleveland Metroparks Zoo 🇺🇸 |
+| [[lino-2019-06-18]] | Lino — [[piercy-2019-06-18]] 的同胎兄弟；讀作「Leeno」、斑紋較深（RPF #1176） | ♂ | 2019– | Cleveland Metroparks Zoo 🇺🇸 |
+| [[chris-anne-2019-06-18]] | Chris-Anne — 三胞胎中唯一的雌性；2020 年入住 Asia Trail，與 Asa 同居（RPF #1177） | ♀ | 2019– | National Zoological Park 🇺🇸 |
+| [[remi-2018-06-20]] | Remi — [[masu-2016-06-06]] 的第一胎、[[freddie-2018-06-20]] 同胎（RPF #1173；生日 🚧） | ♂ | 2018– | Wildlife Safari 🇺🇸 |
+| [[freddie-2018-06-20]] | Freddie — [[remi-2018-06-20]] 的同胎兄弟（RPF #1174；生日 🚧） | ♂ | 2018– | Wildlife Safari 🇺🇸 |
+| [[masu-2016-06-06]] | Masu — 上列五隻之母；丹佛生、[[lali-2016-06-06]] 🪽 雙胞胎（RPF #579） | ♀ | 2016– | Virginia Zoological Park 🇺🇸 |
+| [[timur-2015-06-07]] | Timur — 上列五隻之父；SCBI 生，2022 年因癲癇過世 🪽（RPF #577） | ♂ | 2015–2022 🪽 | Virginia Zoological Park 🇺🇸 |
 
 ---
 

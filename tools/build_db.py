@@ -203,9 +203,16 @@ OFFICIAL_HOSTS = {
     # San Diego Zoo Wildlife Alliance（經營 San Diego Zoo 與 Safari Park）。
     # /pr/… 為園方新聞稿（Pavitra 的出生・命名公告發於此）。
     "sandiegozoowildlifealliance.org", "zoo.sandiegozoo.org",
+    # Virginia Zoological Park（美國維吉尼亞州諾福克市營）。園方 blog /YYYY/MM/slug/ 為官方一手
+    # （小熊貓的出生・命名公告發於此）。⚠️ 2019 年前後的舊文已隨官網改版整批下架，
+    # 既有 sources 走 Wayback 快照（`_unwrap_wayback` 會遞迴判為官方）。
+    "virginiazoo.org",
     "zoomontana.org",  # ZooMontana（美國蒙大拿州比靈斯；/animals/… 個體介紹頁載生日與來源園）
     # Columbus Zoo and Aquarium（美國俄亥俄州；出生・命名公告發於官網 /news/ 與官方 FB／IG）
     "columbuszoo.org",
+    # Cleveland Metroparks Zoo（美國俄亥俄州；園區為 Cleveland Metroparks 所屬，故 host 是母機構網域。
+    # ⚠️ 小熊貓的出生・命名公告未發於官網 /news-press/，只發在官方 X／Facebook／Instagram。）
+    "clevelandmetroparks.com",
     # Zoo sauvage de Saint-Félicien（加拿大魁北克；到園・個體介紹公告發於官方 IG @zoosauvageofficiel）
     "zoosauvage.org",
     "mandai.com",  # Mandai Wildlife Group（新加坡；Singapore Zoo／River Wonders 營運方）
@@ -228,6 +235,7 @@ OFFICIAL_FB_PAGES = {
     "zoobojnice",      # ZOO BOJNICE 官方專頁（page id 100064523241079；出生日等細節只發於此，官網 /tag/panda-cervena/ 未收）
     "birminghamzoo",   # The Birmingham Zoo 官方專頁（官網頁尾 Facebook 連結指向此專頁；Gizmo 抵園日只發於此）
     "zooamiens",       # Zoo d'Amiens Métropole 官方專頁（同 zoo-amiens.fr；Wilmer 的生日與出生園只發於此）
+    "clevelandmetroparkszoo",  # Cleveland Metroparks Zoo 官方專頁（官網〈Connect with Cleveland Metroparks〉列為園方帳號；Leela 的性別・命名公告發於此）
 }
 _FB_HOSTS = {"facebook.com", "m.facebook.com", "web.facebook.com", "fb.com"}
 
@@ -243,6 +251,7 @@ OFFICIAL_X_ACCOUNTS = {
     "cincinnatizoo",    # Cincinnati Zoo & Botanical Garden（同 cincinnatizoo.org）
     "ooshimashicho",    # 東京都大島支庁（大島公園動物園）
     "love_ikedazoo",    # 池田動物園（官網頁尾 X 連結指向此帳號；訃報公告發於此）
+    "clemetzoo",        # Cleveland Metroparks Zoo（官網〈Connect with Cleveland Metroparks〉列為園方帳號；出生公告發於此）
 }
 _X_HOSTS = {"x.com", "twitter.com", "mobile.twitter.com", "mobile.x.com"}
 
@@ -295,6 +304,7 @@ OFFICIAL_IG_ACCOUNTS = {
     "capemaycountyzoo",  # Cape May County Park & Zoo（美國紐澤西州郡立；郡府官網 /1008/Park-Zoo 的 Instagram 連結指向此帳號；到園公告發於此）
     "zoobeauval",  # ZooParc de Beauval（法國；同 zoobeauval.com／actus.zoobeauval.com，出生公告同步發於此）
     "trevorzoomillbrook",
+    "clemetzoo",  # Cleveland Metroparks Zoo（官網〈Connect with Cleveland Metroparks〉列為園方帳號；同 X 帳號）
     "zoomontana",  # ZooMontana（美國蒙大拿州比靈斯；官網 zoomontana.org 頁首／頁尾 Instagram 連結指向此帳號；到園公告發於此）  # Trevor-Lovejoy Zoo at Millbrook School（美國紐約州；millbrook.org 的 Trevor Zoo 首頁 Instagram 連結指向此帳號）
 }
 _IG_HOSTS = {"instagram.com", "m.instagram.com"}
