@@ -102,6 +102,9 @@ OFFICIAL_HOSTS = {
     "edogawa-kankyozaidan.jp",
     # 福知山市動物園（京都府福知山市立；個體訃報等公告發於 /lesserpanda-<name>/ 等單頁）
     "fukuchiyamazoo.jp",
+    # 熊本市動植物園（熊本市営）。園方公告發於「園からのお知らせ」
+    # /kiji/pub/detail.aspx?c_id=3&type=top&id=N（頁面載「最終更新日」，即公告日）
+    "ezooko.jp",
     # 池田動物園（岡山市；訃報等公告發於 /news/）。⚠️ 舊訃報會自站上下架（如 2024-04-27
     #    「レッサーパンダの「陸」が亡くなりました」2025 年初已 404），既有 sources 走 Wayback 快照。
     "ikedazoo.jp",
@@ -186,6 +189,9 @@ OFFICIAL_HOSTS = {
     "potterparkzoo.org",
     # Potawatomi Zoo（美國印第安納州；出生公告發於官網與官方 IG @potawatomizoo）
     "potawatomizoo.org",
+    # Indianapolis Zoo（美國印第安納州；個體資訊主要發社群，官網文章偶爾點名個體，
+    # 如 /national-veterinary-technician-week/ 提到 Nyima）
+    "indianapoliszoo.com",
     # Rosamond Gifford Zoo at Burnet Park（美國紐約州雪城）
     "rosamondgiffordzoo.org", "www.rosamondgiffordzoo.org",
     # Cincinnati Zoo & Botanical Garden（美國俄亥俄州；全球 styani 亞種繁殖數第一，
@@ -235,6 +241,9 @@ OFFICIAL_FB_PAGES = {
     "zoobojnice",      # ZOO BOJNICE 官方專頁（page id 100064523241079；出生日等細節只發於此，官網 /tag/panda-cervena/ 未收）
     "birminghamzoo",   # The Birmingham Zoo 官方專頁（官網頁尾 Facebook 連結指向此專頁；Gizmo 抵園日只發於此）
     "zooamiens",       # Zoo d'Amiens Métropole 官方專頁（同 zoo-amiens.fr；Wilmer 的生日與出生園只發於此）
+    "zooboise",  # Zoo Boise（美國愛達荷州；官網 zooboise.org 頁尾 Facebook 連結指向此專頁；Natasha 移居 Virginia 的公告發於此）
+    "epzoo",  # Elmwood Park Zoo（美國賓州諾里斯敦；官網 elmwoodparkzoo.org 頁尾 Facebook 連結指向 /EPZoo；Amaya 訃告發於此）
+    "indianapoliszoo",  # Indianapolis Zoo 官方專頁（官網 indianapoliszoo.com 頁尾 Facebook 連結指向此專頁；Maiya 抵園公告發於此）
     "clevelandmetroparkszoo",  # Cleveland Metroparks Zoo 官方專頁（官網〈Connect with Cleveland Metroparks〉列為園方帳號；Leela 的性別・命名公告發於此）
 }
 _FB_HOSTS = {"facebook.com", "m.facebook.com", "web.facebook.com", "fb.com"}
@@ -303,6 +312,7 @@ OFFICIAL_IG_ACCOUNTS = {
     "zoo_warszawa",  # Miejski Ogród Zoologiczny w Warszawie（同 zoo.waw.pl；IG bio 自稱「Oficjalny profil Warszawskiego ZOO」並連回官網）
     "capemaycountyzoo",  # Cape May County Park & Zoo（美國紐澤西州郡立；郡府官網 /1008/Park-Zoo 的 Instagram 連結指向此帳號；到園公告發於此）
     "zoobeauval",  # ZooParc de Beauval（法國；同 zoobeauval.com／actus.zoobeauval.com，出生公告同步發於此）
+    "indianapoliszoo",  # Indianapolis Zoo（官網 indianapoliszoo.com 頁尾 Instagram 連結指向此帳號；Randall 訃報發於此）
     "trevorzoomillbrook",
     "clemetzoo",  # Cleveland Metroparks Zoo（官網〈Connect with Cleveland Metroparks〉列為園方帳號；同 X 帳號）
     "zoomontana",  # ZooMontana（美國蒙大拿州比靈斯；官網 zoomontana.org 頁首／頁尾 Instagram 連結指向此帳號；到園公告發於此）  # Trevor-Lovejoy Zoo at Millbrook School（美國紐約州；millbrook.org 的 Trevor Zoo 首頁 Instagram 連結指向此帳號）
@@ -335,6 +345,12 @@ OFFICIAL_URLS = {
     # 同上（姫Ｚｏｏぶろぐ exblog 版）：2009-06-30〈梅雨本番〉——レッサーパンダ フウフウ 的誕生日
     # （6/29）與「１８才のおじいちゃん」，園方一手佐證 fuu-fuu-1991-06-29 的生日與在籍姫路市立動物園。
     "https://hcityzoo.exblog.jp/8528084/",
+
+    # Potawatomi Zoological Society 園報《UPROAR》2021 年秋號（園方紀錄管理員 Anna Pelc 撰寫的
+    # 種公 Ty 訃念文，載生日・安樂死日・三位配偶・10 隻子女・Linus 之母為 Rusty）。歷年 UPROAR 由
+    # 園方官網 https://potawatomizoo.org/zoo-updates/ 以 Heyzine 翻頁書形式提供，PDF 實體託管在
+    # cdn.heyzine.com。⚠️ 只認這一支 URL，不整域列 cdn.heyzine.com——該站是通用的 PDF 託管服務。
+    "https://cdn.heyzine.com/files/uploaded/v3/e49475ba054d733eea2d3acdfea00943c7e5eab9.pdf",
 }
 
 _WAYBACK_HOSTS = {"web.archive.org", "archive.org"}

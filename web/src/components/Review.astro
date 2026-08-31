@@ -43,7 +43,17 @@ if (r) {
     g.get(k).push(b);
   }
   for (const [zoo, list] of g) birthGroups.push({ zoo: zoo === -1 ? null : zoo, list });
-  birthGroups.sort((a, b) => b.list.length - a.list.length || (a.zoo ?? 1e9) - (b.zoo ?? 1e9));
+  // 園與園之間依「該園今年第一隻寶寶的生日」由早到晚（r.births 本身已日期升冪，
+  // 故 list[0] 即該園最早）。2026-08-31 由「隻數多→少」改為時間順序：分組是為了看得出
+  // 哪座園有寶寶潮，但整區失去時間軸會讀不懂；隻數多寡改由上方的排行橫條呈現。
+  // 「出生園不詳」不是真的一座園，一律殿後，免得中間插進一個沒有時序意義的標題。
+  // 同 data.js 的 dkey：粒度不齊的日期補 '99'，只知年份的園排到該年最後。
+  const firstDate = (x) => {
+    const m = String(x.list[0]?.date || '').match(/^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?/);
+    return m ? `${m[1]}-${m[2] || '99'}-${m[3] || '99'}` : '9999-99-99';
+  };
+  birthGroups.sort((a, b) =>
+    (a.zoo == null) - (b.zoo == null) || (firstDate(a) < firstDate(b) ? -1 : 1));
 }
 // 小紀錄：最遠搬家／最多寶寶的園／陪伴最久的孩子——有資料才出現
 const highlights = [];
@@ -62,12 +72,32 @@ if (r) {
     .replace('{n}', oldest.age));
 }
 
+// 名字清單：串成一行連結，比 chips 省版面（第一次當媽媽一年可能十幾隻）
+const nameList = (slugs) => slugs.map(link).join('、');
+// 「現在怎麼樣了」只對已經結束的年份成立；當年還在進行中，講存活率沒有意義
+const showNow = r && !partial && r.now.n > 0;
+const busyMax = r && r.busy.length ? r.busy[0].n : 1;
+
 const summary = r ? [
   [T.rv_sum_births, r.births.length],
   [T.rv_sum_stars, r.stars.length],
   [T.rv_sum_moves, r.moves.length],
   [T.rv_sum_pop, r.pop],
 ] : [];
+
+// ── 索引頁圖表（純 CSS、零 client JS，沿用 /japan/ 族群變化那組畫法）─────────
+// TR 是連續年份（data.js REVIEW.trend，沒事件的年份補 0），故年份軸不會跳號。
+// 出生／星球刻意共用同一個像素比例 BD_UNIT，上下兩半才可以直接比高度。
+const TR = R.trend;
+const COL = 15;                                    // 每年最小欄寬（決定捲動寬度）
+const bdMax = Math.max(...TR.map((t) => Math.max(t.births, t.stars)), 1);
+const BD_UNIT = 74 / bdMax;                        // px per 隻，出生與星球共用
+const popMax = Math.max(...TR.map((t) => t.pop), 1);
+const POP_H = 104;
+const mvMax = Math.max(...TR.map((t) => t.moves), 1);
+const MV_H = 62;
+const yearLabel = (y) => (y % 5 === 0 ? y : '');
+const barH = (n, unit) => Math.max(Math.round(n * unit), n ? 2 : 0);
 
 const reviewHref = pageUrl(base, locale, 'review');
 const yearHref = (y) => pageUrl(base, locale, 'review/' + y);
@@ -80,20 +110,95 @@ const TH = 'p-2 text-left text-ink-soft text-[.84rem] font-normal';
   <Fragment>
     <h1 class="font-display text-3xl font-semibold mt-6 mb-1">{T.rv_title}</h1>
     <p class="text-ink-soft text-[.95rem] mb-5">{T.rv_intro}</p>
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 my-5">
-      {R.years.map((y) => (
-        <a href={yearHref(y.y)} class="stat-card py-4 px-2">
-          <div class="text-2xl sm:text-3xl font-display font-semibold text-rust leading-none">
-            {y.y}{y.y === R.nowYear && <span class={BADGE}>{T.rv_partial}</span>}
+
+    <!-- 歷年變化：三張建置期算好的純 CSS 圖，柱子本身就是年頁入口 -->
+    <section class="reveal">
+      <h2 class={H2}>{T.rv_sec_trend}</h2>
+      <p class="text-ink-soft text-[.9rem] mb-3">{T.rv_trend_intro}</p>
+
+      <div class={CARD}>
+        <h3 class="font-display text-base mt-0 mb-3 font-semibold text-rust-dark">{T.rv_chart_bd}</h3>
+        <div class="flex flex-wrap gap-x-4 gap-y-1 text-[.82rem] mb-2">
+          <span class="text-ink-soft"><span class="inline-block w-2.5 h-2.5 rounded-full align-[-1px] mr-1" style="background:var(--leaf)"></span>🐣 {T.rv_sum_births}</span>
+          <span class="text-ink-soft"><span class="inline-block w-2.5 h-2.5 rounded-full align-[-1px] mr-1" style="background:var(--rust)"></span>🪐 {T.rv_sum_stars}</span>
+        </div>
+        <div class="overflow-x-auto pb-1 chart-scroll">
+          <div class="flex items-stretch gap-[3px]" style={`min-width:${TR.length * COL}px`}>
+            {TR.map((t) => (
+              <a href={t.has ? yearHref(t.y) : undefined}
+                 class="flex-1 flex flex-col items-center min-w-0 no-underline hover:opacity-75"
+                 title={`${t.y}｜${T.rv_sum_births} ${t.births}｜${T.rv_sum_stars} ${t.stars}`}>
+                <div class="w-full flex flex-col justify-end items-center" style="height:76px">
+                  <div class="w-full max-w-[11px] rounded-t" style={`height:${barH(t.births, BD_UNIT)}px;background:var(--leaf)`}></div>
+                </div>
+                <div class="w-full h-px" style="background:var(--line)"></div>
+                <div class="w-full flex flex-col justify-start items-center" style="height:58px">
+                  <div class="w-full max-w-[11px] rounded-b" style={`height:${barH(t.stars, BD_UNIT)}px;background:var(--rust)`}></div>
+                </div>
+                <span class="text-[.6rem] text-ink-soft mt-1 h-9" style="writing-mode:vertical-rl">{yearLabel(t.y)}</span>
+              </a>
+            ))}
           </div>
-          <div class="text-[.82rem] text-ink-soft mt-1.5">
-            <span class="whitespace-nowrap" title={T.rv_sum_births}>🐣 {y.births.length}</span>
-            <span class="whitespace-nowrap ml-2" title={T.rv_sum_stars}>🪐 {y.stars.length}</span>
-            <span class="whitespace-nowrap ml-2" title={T.rv_sum_moves}>🚚 {y.moves.length}</span>
+        </div>
+      </div>
+
+      <div class={`${CARD} mt-3`}>
+        <h3 class="font-display text-base mt-0 mb-3 font-semibold text-rust-dark">{T.rv_chart_pop}</h3>
+        <div class="overflow-x-auto pb-1 chart-scroll">
+          <div class="flex items-end gap-[3px]" style={`min-width:${TR.length * COL}px`}>
+            {TR.map((t) => (
+              <a href={t.has ? yearHref(t.y) : undefined}
+                 class="flex-1 flex flex-col items-center min-w-0 no-underline hover:opacity-75"
+                 title={`${t.y}｜${T.rv_sum_pop} ${num(t.pop)}`}>
+                <div class="w-full max-w-[11px] flex flex-col justify-end" style={`height:${POP_H}px`}>
+                  <div class="w-full rounded-t" style={`height:${barH(t.pop, POP_H / popMax)}px;background:var(--rust)`}></div>
+                </div>
+                <span class="text-[.6rem] text-ink-soft mt-1 h-9" style="writing-mode:vertical-rl">{yearLabel(t.y)}</span>
+              </a>
+            ))}
           </div>
-        </a>
-      ))}
-    </div>
+        </div>
+      </div>
+
+      <div class={`${CARD} mt-3`}>
+        <h3 class="font-display text-base mt-0 mb-3 font-semibold text-rust-dark">{T.rv_chart_moves}</h3>
+        <div class="overflow-x-auto pb-1 chart-scroll">
+          <div class="flex items-end gap-[3px]" style={`min-width:${TR.length * COL}px`}>
+            {TR.map((t) => (
+              <a href={t.has ? yearHref(t.y) : undefined}
+                 class="flex-1 flex flex-col items-center min-w-0 no-underline hover:opacity-75"
+                 title={`${t.y}｜${T.rv_sum_moves} ${num(t.moves)}`}>
+                <div class="w-full max-w-[11px] flex flex-col justify-end" style={`height:${MV_H}px`}>
+                  <div class="w-full rounded-t" style={`height:${barH(t.moves, MV_H / mvMax)}px;background:var(--amber)`}></div>
+                </div>
+                <span class="text-[.6rem] text-ink-soft mt-1 h-9" style="writing-mode:vertical-rl">{yearLabel(t.y)}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <p class="text-ink-soft text-[.82rem] mt-2 leading-relaxed">{T.rv_chart_tip}</p>
+    </section>
+
+    <!-- 逐年回顧：圖表之後的無障礙後備，也是主要入口 -->
+    <section class="reveal">
+      <h2 class={H2}>{T.rv_sec_years}</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 my-5">
+        {R.years.map((y) => (
+          <a href={yearHref(y.y)} class="stat-card py-4 px-2">
+            <div class="text-2xl sm:text-3xl font-display font-semibold text-rust leading-none">
+              {y.y}{y.y === R.nowYear && <span class={BADGE}>{T.rv_partial}</span>}
+            </div>
+            <div class="text-[.82rem] text-ink-soft mt-1.5">
+              <span class="whitespace-nowrap" title={T.rv_sum_births}>🐣 {y.births.length}</span>
+              <span class="whitespace-nowrap ml-2" title={T.rv_sum_stars}>🪐 {y.stars.length}</span>
+              <span class="whitespace-nowrap ml-2" title={T.rv_sum_moves}>🚚 {y.moves.length}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
   </Fragment>
 ) : (
   <Fragment>
@@ -136,6 +241,34 @@ const TH = 'p-2 text-left text-ink-soft text-[.84rem] font-normal';
               </p>
             </div>
           ))}
+        </div>
+      </section>
+    )}
+
+    {(r.newMoms.length > 0 || r.newDads.length > 0 || r.newGrands.length > 0) && (
+      <section class="reveal">
+        <h2 class={H2}>🍼 {T.rv_sec_parents}</h2>
+        <div class={CARD}>
+          <ul class="list-none p-0 m-0">
+            {r.newMoms.length > 0 && (
+              <li class="py-2 border-t border-line first:border-t-0 text-[.93rem] leading-relaxed">
+                <span class="text-ink-soft">{T.rv_parents_mom}（{r.newMoms.length}）</span><br />
+                <Fragment set:html={nameList(r.newMoms)} />
+              </li>
+            )}
+            {r.newDads.length > 0 && (
+              <li class="py-2 border-t border-line first:border-t-0 text-[.93rem] leading-relaxed">
+                <span class="text-ink-soft">{T.rv_parents_dad}（{r.newDads.length}）</span><br />
+                <Fragment set:html={nameList(r.newDads)} />
+              </li>
+            )}
+            {r.newGrands.length > 0 && (
+              <li class="py-2 border-t border-line first:border-t-0 text-[.93rem] leading-relaxed">
+                <span class="text-ink-soft">{T.rv_parents_grand}（{r.newGrands.length}）</span><br />
+                <Fragment set:html={nameList(r.newGrands)} />
+              </li>
+            )}
+          </ul>
         </div>
       </section>
     )}
@@ -199,6 +332,56 @@ const TH = 'p-2 text-left text-ink-soft text-[.84rem] font-normal';
       </section>
     )}
 
+    {r.busy.length > 0 && (
+      <section class="reveal">
+        <h2 class={H2}>🏡 {T.rv_sec_busy}</h2>
+        <div class={CARD}>
+          <div class="flex flex-wrap gap-x-4 gap-y-1 text-[.82rem] mb-3">
+            <span class="text-ink-soft"><span class="inline-block w-2.5 h-2.5 rounded-full align-[-1px] mr-1" style="background:var(--leaf)"></span>🐣 {T.rv_sum_births}</span>
+            <span class="text-ink-soft"><span class="inline-block w-2.5 h-2.5 rounded-full align-[-1px] mr-1" style="background:var(--amber)"></span>🚚 {T.rv_sum_moves}</span>
+          </div>
+          {r.busy.map((z) => (
+            <div class="mt-3 first:mt-0">
+              <div class="flex justify-between gap-2 items-baseline text-[.9rem]">
+                <span set:html={zLink(z.zoo) || T.rv_zoo_unknown} />
+                <span class="text-ink-soft text-[.78rem] whitespace-nowrap">
+                  {z.born > 0 && <span>🐣 {z.born}</span>}
+                  {z.in > 0 && <span>{z.born > 0 && '・'}{T.rv_busy_in} {z.in}</span>}
+                  {z.out > 0 && <span>{(z.born > 0 || z.in > 0) && '・'}{T.rv_busy_out} {z.out}</span>}
+                </span>
+              </div>
+              <div class="flex h-2.5 rounded-full bg-cream overflow-hidden mt-1">
+                <div class="h-full" style={`width:${(z.born / busyMax) * 100}%;background:var(--leaf)`}></div>
+                <div class="h-full" style={`width:${((z.in + z.out) / busyMax) * 100}%;background:var(--amber)`}></div>
+              </div>
+            </div>
+          ))}
+          <p class="text-ink-soft text-[.8rem] mt-3 mb-0 leading-relaxed">{T.rv_busy_note}</p>
+        </div>
+      </section>
+    )}
+
+    {showNow && (
+      <section class="reveal">
+        <h2 class={H2}>🌱 {T.rv_sec_now}</h2>
+        <div class={CARD}>
+          {r.now.alive > 0 && (
+            <div class="flex h-3.5 rounded-full bg-cream overflow-hidden mb-3">
+              <div class="h-full" style={`width:${(r.now.alive / r.now.n) * 100}%;background:var(--leaf)`}></div>
+            </div>
+          )}
+          <p class="text-[.93rem] mt-0 mb-0 leading-relaxed">
+            {r.now.alive === 0
+              ? T.rv_now_none.replace('{n}', num(r.now.n))
+              : T.rv_now_alive.replace('{n}', num(r.now.n)).replace('{a}', num(r.now.alive))}
+            {r.now.alive > 0 && r.now.zoos > 0 &&
+              ' ' + T.rv_now_where.replace('{z}', num(r.now.zoos)).replace('{c}', num(r.now.countries))}
+          </p>
+          {r.now.alive > 0 && <p class="text-ink-soft text-[.8rem] mt-2 mb-0 leading-relaxed">{T.rv_now_caveat}</p>}
+        </div>
+      </section>
+    )}
+
     {highlights.length > 0 && (
       <section class="reveal">
         <h2 class={H2}>✨ {T.rv_sec_hl}</h2>
@@ -218,3 +401,10 @@ const TH = 'p-2 text-left text-ink-soft text-[.84rem] font-normal';
     </div>
   </Fragment>
 )}
+
+<style>
+  /* 年份圖在窄螢幕要橫向捲動，預設會停在最左邊（最早的年份）——但先要看到的是最近幾年。
+     direction:rtl 讓捲軸初始位置落在最右端，內層再轉回 ltr 維持年份由左至右。同 /japan/。 */
+  .chart-scroll { direction: rtl; }
+  .chart-scroll > * { direction: ltr; }
+</style>

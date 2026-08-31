@@ -731,15 +731,16 @@ export const REVIEW = (() => {
       at(Y).moves.push({
         slug: p.slug, from: a.zoo_id, to: b.zoo_id, date,
         km: _haversine(_zooLL[a.zoo_id], _zooLL[b.zoo_id]),
-        intl: _zooCountry[a.zoo_id] !== _zooCountry[b.zoo_id],
+        // intl 用小寫 key 比對，因為 data/zoos.json 的歷史資料大小寫不一（france／Germany 並存）。
+        intl: _zooCountryKey[a.zoo_id] !== _zooCountryKey[b.zoo_id],
       });
     }
   }
   const rows = [...years.values()].sort((a, b) => a.y - b.y);
   // 年底在園頭數（全球、全部收錄個體）：訖日不詳且非現居只算到起日當年，
   // 不無限延伸灌水（同 Zoo.astro pop 細條的原則）
-  for (const r of rows) {
-    const t = Math.min(Date.UTC(r.y, 11, 31), today);
+  const popAt = (Y) => {
+    const t = Math.min(Date.UTC(Y, 11, 31), today);
     let n = 0;
     for (const p of all) {
       const rs = p.residences || [];
@@ -752,11 +753,99 @@ export const REVIEW = (() => {
       });
       if (hit) n++;
     }
-    r.pop = n;
-  }
-  const asc = (a, b) => ((a.date || '') < (b.date || '') ? -1 : 1);
+    return n;
+  };
+  for (const r of rows) r.pop = popAt(r.y);
+  // 粒度不齊的日期要排得住：缺月／缺日補 '99'，讓「只知道 2024」排在 2024-12-31 之後、
+  // 「2024-08」排在 2024-08-22 之後——不精確的往後放，才不會插在精確日期中間裝成月初。
+  const dkey = (d) => {
+    const m = String(d || '').match(/^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?/);
+    return m ? `${m[1]}-${m[2] || '99'}-${m[3] || '99'}` : '9999-99-99';
+  };
+  const asc = (a, b) => (dkey(a.date) < dkey(b.date) ? -1 : 1);
   for (const r of rows) { r.births.sort(asc); r.stars.sort(asc); r.moves.sort(asc); }
-  return { years: [...rows].reverse(), nowYear }; // 新→舊（索引頁讀向）
+  // ── 家族大事：第一次當爸媽／第一次當上祖父母 ──────────────────────
+  // 「第一次」＝第一個孩子（孫）出生的那一年。爸媽由 mother/father **欄位**認定，
+  // 不看 sex（檔案卡與蘋果籽的 sex 可能留空，但填在 mother: 的一定是媽媽）。
+  // 只認 wiki 有條目、且未標存疑的親本，否則名單會出現點不進去的名字。
+  const known = (slug) => slug && pandas[slug] && !pandas[slug].unverified;
+  const firstMom = new Map(), firstDad = new Map(), firstGrand = new Map();
+  const earliest = (map, slug, date) => {
+    if (!known(slug)) return;
+    const cur = map.get(slug);
+    if (cur == null || String(date) < String(cur)) map.set(slug, date);
+  };
+  for (const p of all) {
+    if (!yr(p.born)) continue;
+    earliest(firstMom, p.mother, p.born);
+    earliest(firstDad, p.father, p.born);
+    for (const par of [p.mother, p.father]) {
+      const g = known(par) ? pandas[par] : null;
+      if (!g) continue;
+      earliest(firstGrand, g.mother, p.born);
+      earliest(firstGrand, g.father, p.born);
+    }
+  }
+  // slug → 首次日期 的 Map 攤成 年份 → [slug]（依該筆日期升冪，同年頁其他區塊）
+  const spread = (map) => {
+    const o = new Map();
+    for (const [slug, date] of map) {
+      const Y = yr(date);
+      if (!Y) continue;
+      if (!o.has(Y)) o.set(Y, []);
+      o.get(Y).push({ slug, date });
+    }
+    for (const list of o.values()) list.sort(asc);
+    return o;
+  };
+  const momY = spread(firstMom), dadY = spread(firstDad), grandY = spread(firstGrand);
+
+  for (const r of rows) {
+    r.newMoms = (momY.get(r.y) || []).map((x) => x.slug);
+    r.newDads = (dadY.get(r.y) || []).map((x) => x.slug);
+    r.newGrands = (grandY.get(r.y) || []).map((x) => x.slug);
+
+    // 這一年的孩子，現在怎麼樣了：died 有值就不算在世（含 '?' 這種只知道走了、
+    // 不知道哪一天的寫法——寧可少算，不要把失聯當成健在）。
+    const born = r.births.map((b) => pandas[b.slug]).filter(Boolean);
+    const alive = born.filter((p) => !p.died);
+    const zs = new Set(alive.map((p) => p.current_zoo).filter((z) => z != null));
+    const cs = new Set([...zs].map((z) => _zooCountryKey[z]).filter(Boolean));
+    r.now = { n: born.length, alive: alive.length, zoos: zs.size, countries: cs.size };
+
+    // 最熱絡的園：出生 ＋ 搬入 ＋ 搬出，同一座園加總。搬家一次會同時算給兩邊，
+    // 這是刻意的——那一年那座園確實經歷了兩件事（送走一隻、迎來一隻）。
+    const m = new Map();
+    const bump = (z, k) => {
+      if (z == null) return;
+      if (!m.has(z)) m.set(z, { zoo: z, born: 0, in: 0, out: 0 });
+      m.get(z)[k]++;
+    };
+    for (const b of r.births) bump(b.zoo, 'born');
+    for (const mv of r.moves) { bump(mv.from, 'out'); bump(mv.to, 'in'); }
+    r.busy = [...m.values()]
+      .map((x) => ({ ...x, n: x.born + x.in + x.out }))
+      .sort((a, b) => b.n - a.n || a.zoo - b.zoo)
+      .slice(0, 5);
+  }
+
+  // 索引頁圖表用：自最早有紀錄的年份到今年**連續**補齊（沒事件的年份補 0、pop 照算）。
+  // 只鋪有事件的年份會讓年份軸跳號，柱狀圖看起來像資料錯亂；`has` 供圖表決定該年
+  // 能不能點進年頁（年頁只生成有事件的年份）。
+  const byYear = new Map(rows.map((r) => [r.y, r]));
+  const trend = [];
+  for (let y = rows.length ? rows[0].y : nowYear; y <= nowYear; y++) {
+    const r = byYear.get(y);
+    trend.push({
+      y,
+      births: r ? r.births.length : 0,
+      stars: r ? r.stars.length : 0,
+      moves: r ? r.moves.length : 0,
+      pop: r ? r.pop : popAt(y),
+      has: !!r,
+    });
+  }
+  return { years: [...rows].reverse(), trend, nowYear }; // years 新→舊（索引頁讀向）、trend 舊→新
 })();
 
 // ── 國際小熊貓日（/irpd/）─────────────────────────────────────

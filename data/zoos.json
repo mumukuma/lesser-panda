@@ -1456,7 +1456,8 @@
   "map": "https://goo.gl/maps/L9LEZRj1VcS2",
   "website": "https://www.idahofallsidaho.gov/1230/Zoo",
   "logo": null,
-  "aliases": []
+  "aliases": [],
+  "location_zh": "IdahoFalls,Idaho,USA"
  },
  {
   "canonical": "Indianapolis Zoo",
@@ -1826,7 +1827,8 @@
   "map": "https://goo.gl/maps/PXc9L33BQgS2",
   "website": "https://www.meskerparkzoo.com/",
   "logo": null,
-  "aliases": []
+  "aliases": [],
+  "location_zh": "印第安納州埃文斯維爾"
  },
  {
   "canonical": "Mill Mountain Zoo",
@@ -1889,7 +1891,8 @@
   "map": "https://goo.gl/maps/ZdJu1mLMXFu",
   "website": "http://www.mnzoo.org/",
   "logo": null,
-  "aliases": []
+  "aliases": [],
+  "location_zh": "明尼蘇達州蘋果谷"
  },
  {
   "canonical": "Mogo Zoo",
@@ -2558,7 +2561,8 @@
   "map": "https://goo.gl/maps/4ifa2Vic4k92",
   "website": "https://reidparkzoo.org",
   "logo": null,
-  "aliases": []
+  "aliases": [],
+  "location_zh": "Tucson,Arizona,USA"
  },
  {
   "canonical": "Riverside Discovery Center",
@@ -3525,7 +3529,8 @@
   "map": "https://goo.gl/maps/etM24t7HdKG2",
   "website": "http://www.zooboise.org/",
   "logo": null,
-  "aliases": []
+  "aliases": [],
+  "location_zh": "愛達荷州博伊西"
  },
  {
   "canonical": "Zoo Bratislava",

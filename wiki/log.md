@@ -6,6 +6,49 @@
 
 ---
 
+## [2026-08-31] update | 5 隻日本個體的漢字名由 `chinese` 移回 `japanese`
+
+承上一筆。盤點全庫 `chinese:` 有值、`japanese:` 只剩假名者共 11 隻，逐隻確認出身後
+**只有 5 隻是「日文漢字被誤放進 `chinese`」**，依漢字第一的多值慣例搬回 `japanese`
+（`chinese:` 整行移除），H1 括號改斜線、`index.md` 列標籤改全角斜線：
+
+| slug | 舊 | 新 |
+|---|---|---|
+| `kotarou-2005-07-08` | `chinese: 琥太郎` ＋ `japanese: コタロウ` | `japanese: 琥太郎, コタロウ` |
+| `matsuba-2014-07-17` | `chinese: 松葉` ＋ `japanese: まつば` | `japanese: 松葉, まつば` |
+| `rai-rai-2014-07-05` | `chinese: 来来` ＋ `japanese: ライライ` | `japanese: 来来, ライライ` |
+| `shiryu-2007-06-26` | `chinese: 石榴` ＋ `japanese: シーリィウ` | `japanese: 石榴, シーリィウ` |
+| `yueshi-1999-07-08` | `chinese: 月食` ＋ `japanese: ユエシー` | `japanese: 月食, ユエシー` |
+
+中文介面顯示不變（`displayName` 是 `chinese || kanji || name`，搬完由 `extract_kanji`
+從 `japanese` 取回同一個漢字）；日文介面改為顯示多值全串（如「松葉, まつば」），與
+`daichi`／`yume`／`mitsu` 等既有多值條目一致。
+
+**其餘 6 隻不動**——它們的 `chinese` 是另取的中文名、不是日文漢字，`chinese` 欄本來就是對的：
+`i-i-1983`（誼誼，石家莊市動物園出身）、`oolong-2011-06-05`（烏龍，重慶動物園出生）、
+`ke-song-2017-06-11`（可頌，台北市立動物園出生）、`non-2003-07-25`（阿暢）、
+`shin-shin-2000-06-30`（晨星）、`sumire-2004-06-17`（小堇）——後三隻的內文都明寫
+「到台後取中文名『…』」。
+
+⚠️ 順帶記錄：東北サファリパーク 一族有 3 隻是**假名在前、漢字在後**的寫法
+（`tashan-2002-07-01` 稲光／`chuihowa-2010-07-10` 菊花／`tarrei-2002-07-01` 稲妻），
+`extract_kanji` 仍取得到漢字、`kanji` 欄無誤，只是日文介面的顯示順序與慣例相反。未動，待裁定。
+
+## [2026-08-31] update | `Taiyo` (2013-06-15) 補漢字名「太陽」
+
+維護者提供。`taiyo-2013-06-15`（RPF #117、西山動物公園）原本 `japanese: たいよう` 只有假名，
+依漢字第一的多值慣例改為 `japanese: 太陽, たいよう`，H1 括號改斜線、`index.md` 列標籤改
+`Taiyo 太陽／たいよう`。`extract_kanji` 取首個純漢字 token → `kanji: 太陽`，中文介面與站內搜尋
+自此顯示／命中「太陽」（zh-CN 作「太阳」）。
+
+佐證：`docs/西山まとめ對帳/西山まとめ_對帳.md` 第 37 行早已記「太陽たいよう → taiyo-2013-06-15」。
+
+**⚠️ 漢字「太陽」現在有兩隻**：`taiyo-2003-07-03`（RPF #218、群馬サファリパーク 🪽）的
+`japanese` 就是 `太陽`，且該名出自のいち動物公園 2003 年公開募名、11-09 命名式（協會事業報告書），
+是官方正式用字。本次已在 `taiyo-2013-06-15` 的注意同名段與 `index.md` 列標籤補上互指。
+另注意池田動物園 2013 命名式報導與西山動物園官網「レッサーパンダファミリー」頁
+目前都只寫假名「たいよう」，未見園方使用漢字。
+
 ## [2026-08-28] update | 接受 IG 投稿：`Crepe`、`Kexin`、`Keyue`、`Ke Song`、`Yaffa`、`Mirai`、`Marumi`、`Light`、`Tian-Tian`、`Ranmaru`、`Le-Le`、`Anshu`
 
 讀者照片投稿收件匣 14 筆（2026-08-27～28），共 26 個 IG 貼文連結，全部為待補、無需複查項，
@@ -13386,3 +13429,234 @@ https://www.tobezoo.com/shiiku_diary/keeper/article/200904-000788.html
 - `masu` 於 `timur` 2022 年過世後的動向園方未公告，暫記為續居 Virginia Zoological Park
 - 七隻的亞種皆依 RPF 記 `fulgens`，園方公告未提
 - **範圍外、未建檔**：Cleveland Metroparks Zoo 的年長雄性 `Ruskan`（RPF #532，2009-07-09 生，丹佛 → #129 → 2018-03-07 抵 Cleveland）——維護者提供的訪客影片說明寫作 Ruskin，稱他因與兩兄弟年齡差距過大而單獨飼育於大猩猩展區附近。與 `piercy` 無血緣，未展開；另 `timur` 的父 Rocco（RPF #1114）、同胎手足 Kate（#559）、`masu` 的父母 Faith🪽（#680）／Hamlet（#652）皆為第二圈，一律純文字未建。是否要補建請維護者裁示
+
+
+## [2026-08-31] rename | 蘋果籽轉正：Shin-Fa × Kabosu 2026 女兒定名 `Moko`（桃香／もこ，熊本市動植物園投票揭名）
+
+**來源**：
+
+- https://www.ezooko.jp/kiji/pub/detail.aspx?c_id=3&type=top&id=1148 （熊本市動植物園「園からのお知らせ」，最終更新日 2026-08-29：「令和8年（2026年）5月27日に誕生したレッサーパンダの赤ちゃん（メス）の名前の投票イベントを８月８日～８月２３日の期間に実施しました。投票の結果、「桃香(もこ)」に決定いたしました。」——總投票數（正門および公式X）19,452 票，①リンメイ 1,913 票／②ニンファ 1,479 票／③笑香（わこ）5,262 票／(決定!!)④桃香（もこ）10,798 票／無效 14 票；另載「親子の一般公開は、１０月ごろを予定しております」）
+- https://www.instagram.com/kumamoto_doushokubutsuen/p/Dcr6h4PCUXV/ （官方 Instagram，2026-08-31：「その結果、『桃香(もこ)』に決定いたしました」，hashtag 亦寫「#桃香♀(もこ)です！」；同貼文報告近況「約3ヶ月を過ぎ…体重も2キロを超えて、足取りもしっかりしてきました」）
+
+**改名**（`tools/rename.py`）：
+
+- `apple-seed-shin-fa-2026-05-27.md` → **`moko-2026-05-27.md`**（`name:` Apple Seed → Moko）
+
+依轉正流程改寫：移除 `chinese: 蘋果籽` 與 `apple-seed` tag、去掉佔位提示；`japanese: 桃香, もこ`（漢字第一，
+照 `yume-2009-06-20` 等多值慣例）；標題改 `# Moko（桃香／もこ）`，引言補命名投票經過與各候選得票，
+末句「預定 2026 年秋（9–10 月）公開亮相」依官方新公告改為「親子的一般公開改於 2026 年 10 月前後」。
+`instagram:` 與 `sources` 各補該則官方貼文，`sources` 另補園方官網公告。性別 ♀ 早於 2026-07-28 由園方公布，本次無變動。
+
+**讀音**：官方兩處皆印「桃香(もこ)」，讀音採 **もこ**（非「ももか」），羅馬字 `Moko`。
+母 `shin-fa`（シンファ／杏花）、姊 `ako`（あこ／杏香）皆為「園方日文讀音」而非拼音，本隻同此。
+
+**更新條目**：
+
+- `shin-fa-2019-06-19.md`・`kabosu-2018-06-28.md` — 子女表該列由「第二子…蘋果籽佔位，未命名、性別待確認」改為「次女：…（2026，與 ⋯ 所生）」
+- `ako-2023-06-01.md` — 「弟妹（全血緣）…蘋果籽佔位，未命名、性別待確認」改為「妹（全血緣）：…（♀ 2026）」
+- `index.md` — 該列說明欄改為正式名與定名日；「最後更新」改 2026-08-31；條目總數不變（1130）
+
+**工具**：
+
+- `tools/build_db.py` — `OFFICIAL_HOSTS` 加 `ezooko.jp`（熊本市動植物園官網；公告在 `/kiji/pub/detail.aspx?c_id=3&type=top&id=N`，頁面載「最終更新日」即公告日）。此前該園只有 X／IG 兩個官方帳號在白名單，官網來源會被判為非官方
+
+**備注**：舊網址 /p/apple-seed-shin-fa-2026-05-27/ 將失效（站無 redirect）。
+本季熊本這隻轉正後，`grep -l "apple-seed" wiki/*.md` 的季末盤點名單少一隻。
+
+
+## [2026-08-31] add | Indianapolis Zoo 的 `randall-2014` 建檔；`maiya-2014-06-26` 補 2025-05 移園
+
+**來源**：
+
+- https://www.instagram.com/indianapoliszoo/p/DcopIqnjIYP/ （Indianapolis Zoo 官方 IG，2026-08-30：「Red panda Randall was found deceased by animal care staff as they prepared to open the Forests exhibit for guests on Friday… He arrived at the Zoo in 2024 and passed away at 12 years old… He shared his exhibit space with female Maiya, who remains at the Zoo.」；同文亦發於官方 FB）
+- https://www.facebook.com/indianapoliszoo/posts/maiya-is-a-10-year-old-female-red-panda-coming-to-us-from-the-potowatomi-zoo-in-/1107934614698371/ （同園官方 FB，2025-05-23：「Maiya is a 10-year-old female red panda, coming to us from the Potowatomi Zoo in South Bend, IN. She has been exploring her new habitat this week. You can find Maiya and our male red panda, Randall in the forests exhibit.」）
+- https://fox59.com/news/red-panda-found-deceased-at-indianapolis-zoo-staff/ ・ https://wibc.com/895747/red-panda-dies-at-indianapolis-zoo/ （2026-08-30 媒體轉述，非官方，記入 `extra_sources`）
+
+**新增條目**：
+
+- `randall-2014.md` — Randall ♂🪽，2024 年入 Indianapolis Zoo，2026-08-28 歿（得年 12 歲）
+
+**更新條目**：
+
+- `maiya-2014-06-26.md` — `zoos:` 補 Potawatomi Zoo 訖 2025-05-23、新增 `Indianapolis Zoo (2025-05-23 – 現在)`；tags 的 `zoo:` 改 Indianapolis Zoo；引言「現居」改印第安納波利斯，內文補移園與同展區一段；`sources` 補園方 FB／IG 兩則
+- `index.md` — 「海外個體（美國）」下新增一節「Indianapolis Zoo（Randall・Maiya）」；Doofah × Sisu 一節的 Maiya 該列動物園改 Indianapolis Zoo；條目總數 1130 → 1131
+
+**工具**：
+
+- `tools/build_db.py` — `OFFICIAL_FB_PAGES` 與 `OFFICIAL_IG_ACCOUNTS` 各加 `indianapoliszoo`（官網 indianapoliszoo.com 頁尾社群連結指向這兩個帳號，已實開確認）
+
+**判斷與 🚧 留待查證**：
+
+- **生年 `2014` 為推定**：園方只寫「passed away at 12 years old」、未給生日。小熊貓在北半球幾乎都於 5–8 月出生，歿日 2026-08-28 時滿 12 歲即 2014 年夏生（2013 年夏生應已滿 13 歲），故 slug 用 `randall-2014`。經維護者裁示採此寫法（另一選項為檔案卡模式、born 留空）。日後查到確切生日須走 `tools/rename.py`
+- **歿日 `2026-08-28`**：園方 2026-08-30（週日）訃告寫「on Friday」，WTHR 亦寫「prior to opening Friday morning」，該週五即 8/28
+- **出生園不詳**：RPF 全站資料集 `/export/redpanda.json` 全文檢索查無 Randall（2256 筆頂點只命中 Henry Vilas Zoo 的地址「702 S Randall Ave」）；園方官網／官方社群、Google 一般搜尋與 2014–2023 區間搜尋各一輪皆查無他 2024 年前的任何紀錄。故 `birth_zoo: unknown`、亞種欄省略、`rpf_id` 缺
+- ⚠️ 查證中一度出現「He was moved to Henry Vilas Zoo under the Red Panda SSP in 2015」的搜尋摘要，實際是 Google 把 Henry Vilas Zoo 的 `Bandit` 訃告與 FOX59 的 Randall 貼文併在同一段摘要，**與 Randall 無關**、未採用
+- **Maiya 抵 Indianapolis 的日期**只知在 2025 年 5 月（公告寫「this week」），暫採公告日 `2025-05-23` 為上界
+- **範圍外、未建檔**：該園前一代的 Nyima（♀）與 Sampson（♂，後移居 Virginia Zoological Park）——僅有園方舊社群貼文提及，生日不明，未建檔。是否要補建請維護者裁示
+
+
+## [2026-08-31] add | ISB `8643`（山山）對帳：補出第二位配偶 `9170` 與 5 名子女，子女 6 → 11
+
+**來源**：
+
+- https://web.archive.org/web/20120128200628/http://www.rotterdamzoo.nl/import/assetmanager/2/6732/Red%20Panda%20Studbook.pdf （*International Red Panda Studbook*，Rotterdam Zoo／Diergaarde Blijdorp 編，收録至 2008-12-31；原檔存 `sources/isb-red-panda/`）
+- https://redpandafinder.com/#profile/783 （RPF #783；lineage 檔 `pandas/japan/0015_ikeda-zoo/0783_unknown.txt` 記 `en.name: (no name)`／`ja.name: (無名)`、`studbook.id: 9170`）
+
+**起因**：維護者問「`san-san-1984` 還缺什麼、為什麼沒亮綠燈」。掃 ISB 全簿 `sire == 8643` 得 **11 筆**，條目只收了 `8644`（安安）所出的 6 筆；另 5 筆的 dam 是 `9170`——即 wiki 各處長年寫成「(無名)…未取名故無條目」的那隻，`chi-chi-1991-06-16` 的雙胞胎姊妹。
+
+**新增條目**：
+
+- `unnamed-ten-ten-1991-06-16.md` — Unnamed／無名 ♀🪽（ISB `9170`／RPF #783），1991-06-16 生於周南市徳山動物園（父 `chou-chou-1986` 周周・母 `ten-ten-1989-06-26` 天天），1993-11-09 移入池田動物園，2008-05-06 歿（ISB 死因欄 `Old age`），享年 16 歲。與 `san-san-1984` 育有 5 仔
+
+**更新條目**：
+
+- `san-san-1984.md` — 新增「配偶②」與第二張子女表（`9495`／`9496`／`95119`／`95120`／`95121`）；引言與備注改記終生 11 仔；補 `isb_checked: 2026-08-31` 與 ✅ ISB `8643` 逐欄對帳註記
+- `an-an-1984.md` — 補 `isb_checked: 2026-08-31` 與 ✅ ISB `8644` 逐欄對帳註記（`dam == 8644` 得 6 筆，子女表本就完整）；引言與備注加註山山另有第二位配偶、7/11 與 7/12 兩胎母親不同
+- `chi-chi-1991-06-16.md`・`pan-pan-1992-06-27.md`・`rin-rin-1993-06-29.md` — 「(無名)…未取名故無條目」改為 `unnamed-ten-ten-1991-06-16` 的 wikilink
+- `ten-ten-1989-06-26.md`・`chou-chou-1986.md` — 子女表補入該女一列；「尚未建檔／未列入上表」的 ℹ️ 註記改為已建檔說明
+- `ai-1991-06-20.md` — 兩處過時敘述更正：`8643`／`8644`「兩隻尚無 wiki 條目」與同胎手足 `9174`「無條目」，三隻其實都已建檔，改為 wikilink
+- `index.md` — 「池田動物園 中國來源始祖一家」節補入新條目一列並改寫節前說明（山山終生 11 仔）；徳山家族表亦補一列；山山該列說明改記 6+5；條目總數 1131 → 1132
+
+**工具／規範**：
+
+- `SCHEMA.md` — 標籤體系新增 `unnamed`（終生未命名個體的佔位條目；與「還沒命名」的 `apple-seed` 區分）
+
+**判斷與備注**：
+
+- **為什麼替一隻終生無名的個體建檔**：依 CLAUDE.md〈性別門檻〉的同一理由——把有家系連結的個體卡在名單外，會讓對方（尤其種公種母）的子女表殘缺、家系圖斷鏈。不建 `9170`，`san-san-1984` 的子女表就會缺 5 隻，且這 5 隻會變成沒有母親的孤點。命名方式經維護者裁定採 `name: Unnamed`／`chinese: 無名`、slug 沿用佔位名的「名字-媽媽名-生日」形狀（母＝天天）
+- **5 名子女不建條目**：`9495`（8 日）・`9496`（當日）・`95120`（約 5 個月）・`95121`（當日）皆未滿一歲夭折，`95119` 活 2 歲 5 個月但同樣終生無名、除 ISB 外無任何資料。經維護者裁定比照 `shuu-shuu-2001-07-21` 的 `(無名) 🪽` 寫法只列於子女表
+- ⚠️ **1994 年 7 月池田連兩天各一胎、母親不同**：7/11 是安安的 `9493`／`9494`，7/12 是 `9170` 的 `9495`／`9496`，**非同一胎**。三處條目均已加註，避免日後被當成同生群併群
+- ⚠️ **`8643` 的移入紀錄寫 `IKEDA ZOO`、`8644` 與全部子女寫 `OKAYAMA`**，兩個 ISB 機構代碼同指池田動物園（岡山市），非兩座園
+- **RPF／lineage 只收其中 2 隻**：`95119`／`95120`＝#823／#824（皆記 `(無名)`），`9495`・`9496`・`95121` 三隻連 lineage 都查無——這 5 名子女只有 ISB 記得，是「RPF 為線索、ISB 為一手」的又一例
+- `san-san-1984` 的漢字名 🚧 **未解除**：ISB 名字欄 `SAN-SAN` 只佐證讀音，仍待園方一手資料（園報・展牌・官網）
+
+## [2026-08-31] add | Indianapolis Zoo 前一代 `nyima-2004-06-16`・`sampson-2014-07-11` 建檔，並依「展開一圈」補建其家系共 16 筆
+
+**來源**：
+
+- https://cdn.heyzine.com/files/uploaded/v3/e49475ba054d733eea2d3acdfea00943c7e5eab9.pdf （Potawatomi Zoological Society 園報《UPROAR》2021 年秋號，園方紀錄管理員 Anna Pelc 撰：「Born on July 9, 2001, Ty passed away this year at the age of 20, the oldest male red panda in United States zoos… the Animal Welfare Team made the decision to humanely euthanize Ty on July 19… Ty and Luna ended up raising six offspring… All in all, Ty had 10 surviving offspring with three different females. His last offspring, Linus, was born in 2013 to mom, Rusty.」；另載 Luna 2007 年依 SSP 移出、當時仍在世且為全美最年長小熊貓，以及 `justin` 是 Ty 的曾孫）
+- https://www.instagram.com/capemaycountyzoo/p/C5J_N9LNCQD/ （Cape May County Park & Zoo 官方 IG，2024-03-31：Luna 訃告，「euthanize her on March 25, 2024… At 22 years and 9 months old, Luna is the longest lived female red panda on record in the North American SSP. One of 3 cubs in the litter, Luna was born on June 22, 2001 at Zoo Knoxville… came to the Cape May County Zoo in November of 2011… After rearing a total of 6 cubs over her lifetime」）
+- https://virginiazoo.org/animal/red-panda/ （Virginia Zoological Park 官網動物頁：「Male: Sampson (born: July 11, 2014)」「Female: Natasha (born: June 21, 2021)」）
+- https://www.facebook.com/EPZoo/posts/we-are-so-very-sad-to-announce-the-passing-of-our-female-red-panda-amaya-she-liv/10156960700763033/ （Elmwood Park Zoo 官方 FB，2018-12-14：Amaya 訃告）
+- https://www.indianapoliszoo.com/national-veterinary-technician-week/ （Indianapolis Zoo 官網，2024-10-17：「Nyima our female red panda」——Nyima 最後一次由官方確認在園）
+- https://redpandafinder.com/#profile/804 ・ /806 ・ /518 ・ /1184 ・ /530 ・ /632 等（生日・移園日・家系邊的線索來源）
+
+**新增條目**（16 筆，全部依 CLAUDE.md〈展開一圈〉自兩位主角各展開一圈）：
+
+主角
+
+- `nyima-2004-06-16.md` — Nyima ♀（RPF #804，ISB `0418`），2004-06-16 生於 Potawatomi Zoo，2005-03-18 起居 Indianapolis Zoo；**2024-10-17 後動向不明**，記 `last_seen` ＋ `unverified`
+- `sampson-2014-07-11.md` — Sampson ♂（RPF #1184），2014-07-11 生於セントラルパーク動物園，2015 年入 Indianapolis Zoo，2024-05 依 SSP 移居 Virginia Zoological Park
+
+Nyima 的一圈（父母・同胎・兄弟姊妹）
+
+- `ty-2001-07-09.md` — Ty ♂🪽（#518，ISB `0112`），Potawatomi Zoo 種公，2021-07-19 安樂死，園報稱歿時為全美最年長雄性小熊貓
+- `luna-2001-06-22.md` — Luna ♀🪽（#806，ISB `0105`），Ty 首位配偶，2024-03-25 歿於 Cape May，享年 22 歲 9 個月
+- `da-nu-2004-06-16.md` — Da-nu ♀🪽（#805），Nyima 同胎
+- `scooter-2003-05-27.md`・`stella-luna-2005-06-24.md`・`nova-2006-06-27.md`・`celeste-2006-06-27.md` — Ty × Luna 所出的其餘四隻（全血緣手足）
+- `princess-lily-2010-06-27.md`・`basil-2010-06-27.md`・`spud-2010-06-27.md` — Ty × Rose 的三胞胎（½，父方）
+- `linus-2013-06-06.md` — Ty × Rusty 之子、Ty 的最後一胎（½，父方）
+
+Sampson 的一圈（父母・手足）
+
+- `amaya-2008-06-29.md` — Amaya ♀🪽（#530，ISB `0804`），Sampson 之母；**即既有 `takeo-2008-06-29` 條目裡「尚無條目」的雙胞胎姊妹**
+- `biru-2010-06-24.md` — Biru ♂🪽（#632，ISB `1022`），Sampson 之父、`celeste-2006-06-27` 之子
+- `delilah-2013-07-21.md` — Delilah ♀（#1069），Sampson 之姊
+
+**更新條目**：
+
+- `takeo-2008-06-29.md`・`sophia-2002-06-20.md`・`he-ping-1998-06-19.md` — 「Amaya 🪽（RPF #530，尚無條目）」改為 `amaya-2008-06-29` 的 wikilink；he-ping 子女表補一列
+- `tushar-2008-06-19.md`・`duli-2011-07-05.md` — 母 Stella Luna 改 wikilink；`duli` 原本整段沒有父母行（網站上父母顯示不詳），本次補上母／父／同胎三行
+- `razz-2011-06-14.md` — 母「Nova（RPF #626 一脈）」更正為 `nova-2006-06-27`（#623；#626 其實是 Nova 的另一隻幼獸）；原本保留的「Wally・Beatrix 親本組合未查證」🚧 已解除——確認為 Nova × Degan Reid 所出、屬母方 ½
+- `betsy-2015-06-26.md`・`benjamin-2015-06-26.md` — 補父 `basil-2010-06-27` 的 wikilink 與母 Spark 的純文字行；兩隻加 `mother_ref: "isb:1016"`，否則同胎雙胞胎會被網站判成 ½（見 SCHEMA〈幽靈親代〉）
+- `justin-2012-07-01.md` — 補一句「他是 `ty-2001-07-09` 的曾孫」（園報明載），`sources` 補園報
+- `index.md` — 「海外個體（美國）」下新增「Potawatomi Zoo 種公 Ty 一家」（12 列）與「Sampson 一家」（4 列）兩節；Indianapolis 一節的敘述改為連向兩位新條目；條目總數 1131 → 1148
+
+**工具**：
+
+- `tools/build_db.py` — `OFFICIAL_HOSTS` 加 `indianapoliszoo.com`；`OFFICIAL_FB_PAGES` 加 `epzoo`（Elmwood Park Zoo，官網頁尾實開確認）；`OFFICIAL_URLS` 逐條加入園報《UPROAR》2021 秋號的 PDF（實體託管在 cdn.heyzine.com，**不整域列白名單**，該站是通用 PDF 託管服務；歷年園報索引在 potawatomizoo.org/zoo-updates/）
+
+**交叉驗證（官方 × RPF 完全吻合的三處）**：
+
+- 園報「Ty 與 Luna 育有六仔」＝ RPF 中 Luna `children` 恰為 803／804／805／534／623／624 六筆
+- 園報「Ty 共 10 隻存活子女、三位雌性」＝ RPF 的 Luna 6 ＋ Rose 3 ＋ Rusty 1
+- 園報「最後一胎 Linus 2013 年生、母 Rusty」＝ RPF 的 516 親代為 Rusty #836 × Ty #518
+
+**🚧 留待查證**：
+
+- **Nyima 的現況**：官方最後一次提及是 2024-10-17 的官網文章。其後園方只介紹 Randall 與 Maiya，2026-08-30 的 Randall 訃告也只寫 Maiya「仍留在園內」。園方未發訃報或轉出公告，故記 `last_seen: 2024-10-17` ＋ `unverified`，**不猜死亡日期**。ZooChat 2025-05 亦有同好指出「可能已歿或轉出但無公告」
+- **16 筆的生日**只有 `sampson-2014-07-11`（Virginia 官網）、`ty-2001-07-09` 與 `luna-2001-06-22`（園報／訃告）有官方佐證，其餘 13 筆均僅 RPF
+- **移園日期全部出自 RPF**（`sampson` 抵 Virginia 的 `2024-05-10` 取 WAVY 報導日為上界）
+- **現況未經查證者**：`nova`／`celeste`／`princess-lily`／`basil`／`linus`／`delilah` 六隻的「現居」皆依 RPF，未核對園方近況
+- **亞種**全部依 RPF 記 `fulgens`
+- **範圍外、未建檔**：Ty 的父母 Wendell（#1115）／Sian（#916）與同胎 Cyril（#667）；Ty 的另兩位配偶 Rose（#834，ISB `0433`）／Rusty（#836，ISB `0703`）；Biru 之父 Yoda（#637，ISB `0626`）與同胎 Leela（#633）；Stella Luna／Nova／Celeste／Basil／Spud／Linus 各自的配偶與子女（Junjie・Shifu・Yanhua・Beatrix・Wally・Ryo・Nori・Min・Pistol Pete・Joanie・Jerry・Ginger・Natasha・Chestnut・Cheyenne 等）。其中 **Natasha（#1402，2021-06-21 生，Virginia Zoological Park，`spud` 之女，生日有園方官網佐證）** 是 `sampson` 的配對對象、資格其實已足，是否要補建請維護者裁示
+
+
+## [2026-08-31] rename | `unnamed-ten-ten-1991-06-16` → `mei-mei-1991-06-16`（名字由同好流通資料補得「美美（メイメイ）」，維護者裁定採用，解除無名佔位）
+
+（機械變更由 tools/rename.py 產生；以下為補充脈絡。）
+
+**來源**：
+
+- 維護者提供（2026-08-31）——漢字「美美」與讀音「メイメイ」出自同好間流通的資料，**無官方一手佐證**，故條目名字標 🚧、tags 加 `待查證`
+
+**經過**：同日稍早才由 ISB `dam == 9170` 補建此隻（原以佔位名 `Unnamed`／`無名` 建檔，`unnamed` 佔位寫法**未曾上站**）。維護者隨即指出牠有名字、不希望留「無名」，故當日改名。
+
+**同輪一併處理**：
+
+- `mei-mei-1991-06-16.md` — 全文改寫：`name: Mei-Mei`、`japanese: 美美, メイメイ`、移除 `chinese: 無名` 與 `unnamed` tag、加 `待查證`；`sources` 補「維護者提供（2026-08-31）」；新增頁首 ⚠️ 同名區塊與 🚧 名字待確認註記
+- `san-san-1984.md` — 頁首新增 ⚠️ 區塊：**本頁有兩隻「美美」**——配偶② `9170`（メイメイ）與女兒 `9280`（ミーミー）
+- `mii-mii-1992-08-07.md` — 同名注意區塊補上「繼母 `9170` 漢字名也是美美」與對調時序
+- `an-an-1984.md`・`chi-chi-1991-06-16.md`・`pan-pan-1992-06-27.md`・`rin-rin-1993-06-29.md`・`ten-ten-1989-06-26.md`・`chou-chou-1986.md`・`index.md` — 敘述文字由「無名／終生未命名」改為「美美 メイメイ 🚧」
+- `SCHEMA.md` — 移除同日稍早新增的 `unnamed` 標籤（建後即改名，全庫零使用者）
+
+**⚠️ 這個名字有具體的混淆風險，是 🚧 未解除的主因**：
+
+- 山山之女 `9280` 漢字名同為「美美」（ISB 名字欄實記 `MIMI`），**生於池田動物園**，其條目 `english_variants` 收有 `Mei-Mei`／`Meimei`
+- 兩隻在 1993 年 11 月**相隔一天對調**：`9170` 於 **11-09** 由徳山移入池田、`9280` 於 **11-10** 由池田移往徳山
+- 即「1993 年秋之後在池田的美美」是 `9170`、「1993 年秋之前在池田的美美」是 `9280`。同好資料若未標年份，兩隻極易張冠李戴
+- 解 🚧 的條件：園方一手資料（園報・展牌・官網訃報，`9170` 歿於 2008-05-06，池田舊官網訃報或存於 Wayback）
+
+**改名**：
+
+- `unnamed-ten-ten-1991-06-16.md` → **`mei-mei-1991-06-16.md`**（name: → Mei-Mei）
+
+**更新條目**（wikilink／siblings 同步更換；其餘資料未動）：
+
+- `an-an-1984.md` — wikilink ×2
+- `chi-chi-1991-06-16.md` — wikilink ×1
+- `chou-chou-1986.md` — wikilink ×2
+- `pan-pan-1992-06-27.md` — wikilink ×1
+- `rin-rin-1993-06-29.md` — wikilink ×1
+- `san-san-1984.md` — wikilink ×4
+- `ten-ten-1989-06-26.md` — wikilink ×3
+- `index.md` — wikilink ×3；「最後更新」改 2026-08-31；條目總數不變
+
+**備注**：舊網址 /p/unnamed-ten-ten-1991-06-16/ 將失效。
+
+## [2026-08-31] add | 補建 `natasha-2021-06-21`（Sampson 的配偶；維護者裁示補建）
+
+**來源**：
+
+- https://virginiazoo.org/virginia-zoos-asia-trail-has-new-residents/ （Virginia Zoological Park 官方公告，2022-09-28：「Natasha, who turned one year old on June 21, joined Bo at AWC in early spring where they became acquainted with one another.」「Natasha was sent to the Zoo through the Species Survival Plan® recommendation for a possible future breeding recommendation.」；同文記整修後的展區於該日重新開放）
+- https://virginiazoo.org/animal/red-panda/ （同園動物頁：「Female: Natasha (born: June 21, 2021)」）
+- https://www.facebook.com/zooboise/posts/were-thrilled-to-see-that-red-panda-natasha-who-was-born-in-2021-at-zoo-boise-is/465706875594325/ （Zoo Boise 官方 FB，2022-10-05：「red panda Natasha, who was born in 2021 at Zoo Boise, is already a fan favorite in her new home at The Virginia Zoo! She moved as part of The Association of Zoos and Aquariums's Red Panda Species Survival Plan, a conservation program that Zoo Boise participates in.」）
+
+**新增條目**：
+
+- `natasha-2021-06-21.md` — Natasha ♀（RPF #1402），2021-06-21 生於 Zoo Boise，2022 年初春依 SSP 移居 Virginia Zoological Park，2024 年起與 `sampson-2014-07-11` 配對。**生日與出生園皆有官方佐證**；⚠️ **RPF #1402 的 `locations` 是空陣列**，本條目居住史全部出自園方來源、非 RPF
+
+**更新條目**：
+
+- `sampson-2014-07-11.md` — 「配偶候補：Natasha（尚無條目）」改為正式的 `- 配偶：` 行＋wikilink；內文補她的來歷
+- `spud-2010-06-27.md` — 子女表 Natasha 該列改 wikilink；**新增一條 ⚠️**：RPF 記他 `2021-01-01` 抵 Zoo Boise（1/1 是典型「只知年份」佔位），但他 2019-06-20 出生的子女 Joanie／Jerry 在 RPF 上的出生園就是 Zoo Boise，時序矛盾——實際搬入應早於 2019，園方無公告，暫沿用 RPF 值並記下矛盾
+- `index.md` — 「Sampson 一家」加一列並改敘述；Ty 一節的 Spud 該列補 🚧；條目總數 1148 → 1149
+
+**工具**：
+
+- `tools/build_db.py` — `OFFICIAL_FB_PAGES` 加 `zooboise`（官網 zooboise.org 頁尾 Facebook 連結指向 /zooboise，已實開確認）
+
+**🚧 留待查證**：
+
+- **抵 Virginia 的日期 `2022-04-30`**：園方只寫「early spring」，依〈抵園日不明的填法〉取該區間最晚可能日為上界。公開亮相日則明確為 2022-09-28
+- **範圍外、未建檔**：母 Dolly（#819，ISB `1122`，2011-06-08 生）、同胎姊妹 Ginger（#1401，2022-10 移居 Detroit Zoological Society）、全血緣兄姊 Joanie（#1138）／Jerry（#1139，2019-06-20 生的雙胞胎）；另 Virginia Zoo 在 Natasha 之前的雌性 **Bo**（2018-05 起在園，Natasha 到園後移出）亦未建檔——生日不明
