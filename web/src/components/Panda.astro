@@ -419,7 +419,7 @@ const treeBtn = 'pop bg-cream text-rust rounded-full px-3.5 py-1.5 text-[.85rem]
   ].join('')} />
   {p.children.length > 0 && (
     <>
-      <h3 class="font-display text-base mt-4 mb-2 font-semibold">{T.sec_children}</h3>
+      <h3 class="font-display text-base mt-4 mb-2 font-semibold">{T.sec_children}<span class="ml-1 text-[.82rem] font-normal text-ink-soft">（{p.children.length}）</span></h3>
       <table class="w-full text-[.93rem] scroll-x">
         <caption class="sr-only">{T.sec_children}</caption>
         <thead>
