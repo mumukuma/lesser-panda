@@ -154,6 +154,8 @@ OFFICIAL_HOSTS = {
     "zoo-amiens.fr",
     # Tiergarten Kleve（德國北萊茵-西發利亞邦；抵園・出生公告發於官網單頁 /標題-slug/）
     "tiergarten-kleve.de",
+    # Zoo Leipzig（德國薩克森邦；園方公告 /artikel/標題-slug-NNN/，另有 /tiere-erlebniswelten/jungtiere/ 幼獸一覽）
+    "zoo-leipzig.de", "www.zoo-leipzig.de",
     # ZOOM Erlebniswelt（德國蓋爾森基興；新聞稿在 /presse-YYYY/…）
     "zoom-erlebniswelt.de",
     "zoo.saarbruecken.de", "saarbruecken.de",  # Zoo Saarbrücken（德國薩爾邦；薩爾布呂肯市營，公告發於市府網域）

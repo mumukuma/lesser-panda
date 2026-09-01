@@ -1,5 +1,5 @@
 ---
-import { pandas, zoos, family, i18n, placeholderMotherName, SHOW_REVIEW, SHOW_IRPD } from '../lib/data.js';
+import { pandas, zoos, family, i18n, placeholderMotherName, SHOW_REVIEW, SHOW_IRPD, REVIEW } from '../lib/data.js';
 import { pandaUrl, pageUrl } from '../lib/links.js';
 
 const { locale } = Astro.props;
@@ -153,7 +153,23 @@ const leaves = [
     <!-- 年度回顧入口（top-level nav 已滿，見 nav-japan-group 裁定；從紀念日卡連過去最順）。
          SHOW_REVIEW：公開前只在 dev 顯示（見 data.js 開關註解） -->
     {SHOW_REVIEW && (
-      <p class="text-[.88rem] mt-4 mb-0"><a class="text-rust font-semibold no-underline hover:underline" href={pageUrl(base, locale, 'review')}>🪐 {T.rv_title} →</a></p>
+      <div class="mt-4">
+        <p class="text-[.88rem] mb-2"><a class="text-rust font-semibold no-underline hover:underline" href={pageUrl(base, locale, 'review')}>🪐 {T.rv_title} →</a></p>
+        <!-- 提問式入口（2026-09-01）：chips 不揭答案，點了直接飛到那一年（同 /review/ 索引頁那排） -->
+        {REVIEW.ask.length > 0 && (
+          <Fragment>
+            <p class="text-ink-soft text-[.82rem] mb-2">{T.rv_ask_lead}</p>
+            <p class="flex flex-wrap gap-2 m-0">
+              {REVIEW.ask.map((c) => (
+                <a href={pageUrl(base, locale, 'review/' + c.y)}
+                   class="pop inline-flex items-baseline bg-cream border border-line rounded-full px-3.5 py-1.5 text-[.85rem] text-ink no-underline hover:border-amber">
+                  {T[c.k]}
+                </a>
+              ))}
+            </p>
+          </Fragment>
+        )}
+      </div>
     )}
   </div>
 </section>

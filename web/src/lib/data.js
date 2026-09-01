@@ -813,6 +813,15 @@ export const REVIEW = (() => {
     const cs = new Set([...zs].map((z) => _zooCountryKey[z]).filter(Boolean));
     r.now = { n: born.length, alive: alive.length, zoos: zs.size, countries: cs.size };
 
+    // 出生性別小計（♀ 前 ♂ 後，同統計頁金字塔的讀向）。蘋果籽佔位者 sex 常是 unknown，
+    // 渲染與否交給年頁判斷（不詳超過一成不顯示，見 Review.astro）。
+    let bf = 0, bm = 0, bu = 0;
+    for (const b of r.births) {
+      const sx = pandas[b.slug] ? pandas[b.slug].sex : null;
+      if (sx === 'female') bf++; else if (sx === 'male') bm++; else bu++;
+    }
+    r.sexes = { f: bf, m: bm, u: bu };
+
     // 最熱絡的園：出生 ＋ 搬入 ＋ 搬出，同一座園加總。搬家一次會同時算給兩邊，
     // 這是刻意的——那一年那座園確實經歷了兩件事（送走一隻、迎來一隻）。
     const m = new Map();
@@ -823,9 +832,12 @@ export const REVIEW = (() => {
     };
     for (const b of r.births) bump(b.zoo, 'born');
     for (const mv of r.moves) { bump(mv.from, 'out'); bump(mv.to, 'in'); }
+    // 排序：總數 → 出生數 → zoo id。⚠️ 2026-09-01 加出生數 tie-break：
+    // 出生比搬家往來更難得，同總數時生比較多的園要排前面（2015 台北 4 生 0 搬
+    // 曾因純 id tie-break 被擠出 top5）。
     r.busy = [...m.values()]
       .map((x) => ({ ...x, n: x.born + x.in + x.out }))
-      .sort((a, b) => b.n - a.n || a.zoo - b.zoo)
+      .sort((a, b) => b.n - a.n || b.born - a.born || a.zoo - b.zoo)
       .slice(0, 5);
   }
 
@@ -845,7 +857,22 @@ export const REVIEW = (() => {
       has: !!r,
     });
   }
-  return { years: [...rows].reverse(), trend, nowYear }; // years 新→舊（索引頁讀向）、trend 舊→新
+  // ── 提問式入口（首頁＋索引頁的 chips，2026-09-01 維護者選題）────────────
+  // 只比已完結的年份（當年度進行中、數字還會動，不參賽）；性別題另設
+  // 「不詳 ≤ 一成」的自保條件（同年頁性別小計）。k 即 i18n key，components 直接 T[k]。
+  const done = rows.filter((r) => r.y !== nowYear);
+  const maxBy = (arr, f) => arr.reduce((best, x) => (best == null || f(x) > f(best) ? x : best), null);
+  const sexOk = done.filter((r) => r.births.length > 0 && r.sexes.u / r.births.length <= 0.1);
+  const askDefs = [
+    ['rv_ask_births', maxBy(done, (r) => r.births.length), (r) => r.births.length],
+    ['rv_ask_moves', maxBy(done, (r) => r.moves.length), (r) => r.moves.length],
+    ['rv_ask_males', maxBy(sexOk, (r) => r.sexes.m), (r) => r.sexes.m],
+    ['rv_ask_females', maxBy(sexOk, (r) => r.sexes.f), (r) => r.sexes.f],
+    ['rv_ask_stars', maxBy(done, (r) => r.stars.length), (r) => r.stars.length],
+  ];
+  const ask = askDefs.filter(([, r, f]) => r && f(r) > 0).map(([k, r]) => ({ k, y: r.y }));
+
+  return { years: [...rows].reverse(), trend, ask, nowYear }; // years 新→舊（索引頁讀向）、trend 舊→新
 })();
 
 // ── 國際小熊貓日（/irpd/）─────────────────────────────────────

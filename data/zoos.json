@@ -3636,13 +3636,17 @@
   "zh": null,
   "country": "Germany",
   "location_ja": null,
+  "location_zh": "薩克森邦萊比錫",
   "location_en": "Leipzig, Germany",
   "lat": 51.3484866,
   "lng": 12.3687819,
   "map": "https://goo.gl/maps/1GfoNBBE3ahcoeXR7",
   "website": "https://www.zoo-leipzig.de/",
   "logo": null,
-  "aliases": []
+  "aliases": [
+   "Leipzig Zoo",
+   "Leipzig Zoological Garden"
+  ]
  },
  {
   "canonical": "Zoo Ljubljana",
@@ -4446,7 +4450,7 @@
   "lat": 35.0126991,
   "lng": 135.7839212,
   "map": "https://goo.gl/maps/BzPvCJ64eiB2",
-  "website": "http://www5.city.kyoto.jp/zoo/",
+  "website": "https://zoo.city.kyoto.lg.jp/",
   "logo": null,
   "aliases": [
    "Kyoto City Zoo"

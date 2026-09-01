@@ -62,10 +62,14 @@ if (r) {
   if (far) highlights.push(T.rv_hl_longest
     .replace('{p}', link(far.slug))
     .replace('{km}', T.mv_km.replace('{n}', num(Math.round(far.km)))));
-  const topZoo = birthGroups.find((g) => g.zoo != null);
-  if (topZoo && topZoo.list.length >= 2) highlights.push(T.rv_hl_topzoo
-    .replace('{z}', zLink(topZoo.zoo))
-    .replace('{n}', topZoo.list.length));
+  // ⚠️ 2026-09-01 修正：birthGroups 在 08-31 改成時間順序後，find() 拿到的是「最早有寶寶的園」
+  // 而不是「最多寶寶的園」（2015 台北 4 隻才是最多，卻被排在後面）。改成真的取隻數最多；
+  // 同數並列時全部列出，不偏心任何一座園。
+  const withZoo = birthGroups.filter((g) => g.zoo != null);
+  const topN = withZoo.reduce((mx, g) => Math.max(mx, g.list.length), 0);
+  if (topN >= 2) highlights.push(T.rv_hl_topzoo
+    .replace('{z}', withZoo.filter((g) => g.list.length === topN).map((g) => zLink(g.zoo)).join('、'))
+    .replace('{n}', topN));
   const oldest = r.stars.filter((s) => s.age != null).sort((a, b) => b.age - a.age)[0];
   if (oldest) highlights.push(T.rv_hl_oldest
     .replace('{p}', link(oldest.slug))
@@ -99,6 +103,30 @@ const MV_H = 62;
 const yearLabel = (y) => (y % 5 === 0 ? y : '');
 const barH = (n, unit) => Math.max(Math.round(n * unit), n ? 2 : 0);
 
+// ── 逐年回顧曲線選年器（2026-09-01 維護者裁定：51 張年份小卡改成一條可點的曲線）──
+// 曲線＝該年紀錄總數（出生＋星球＋搬家），Catmull-Rom 轉 cubic bezier 平滑化。
+// 每年一個圓點，圓點與其整欄熱區都是 <a>（觸控目標比圓點大得多）；沒紀錄的年份
+// 只畫小灰點、不給連結。無障礙後備：sr-only 的純文字年份清單（供讀屏與搜尋引擎）。
+const CURVE_H = 96;                     // 繪圖區高（年標籤另計）
+const CURVE_LBL = 44;                   // 年標籤帶高（直排 4 位數年份 @10px 需 ~40px）
+const CURVE_PAD = 10;                   // 頂端留白，最高點不貼邊
+const CURVE_W = TR.length * COL;
+const totals = TR.map((t) => t.births + t.stars + t.moves);
+const totMax = Math.max(...totals, 1);
+const cxAt = (i) => Math.round((i + 0.5) * COL * 10) / 10;
+const cyAt = (n) => Math.round((CURVE_H - (n / totMax) * (CURVE_H - CURVE_PAD)) * 10) / 10;
+const pts = totals.map((n, i) => [cxAt(i), cyAt(n)]);
+let curvePath = `M ${pts[0][0]} ${pts[0][1]}`;
+for (let i = 0; i < pts.length - 1; i++) {
+  const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
+  const c1x = (p1[0] + (p2[0] - p0[0]) / 6).toFixed(1), c1y = (p1[1] + (p2[1] - p0[1]) / 6).toFixed(1);
+  const c2x = (p2[0] - (p3[0] - p1[0]) / 6).toFixed(1), c2y = (p2[1] - (p3[1] - p1[1]) / 6).toFixed(1);
+  curvePath += ` C ${c1x} ${c1y}, ${c2x} ${c2y}, ${p2[0]} ${p2[1]}`;
+}
+const areaPath = `${curvePath} L ${pts[pts.length - 1][0]} ${CURVE_H} L ${pts[0][0]} ${CURVE_H} Z`;
+const dotTitle = (t) =>
+  `${t.y}${t.y === R.nowYear ? `（${T.rv_partial}）` : ''}｜🐣 ${t.births}｜🪐 ${t.stars}｜🚚 ${t.moves}`;
+
 const reviewHref = pageUrl(base, locale, 'review');
 const yearHref = (y) => pageUrl(base, locale, 'review/' + y);
 const H2 = 'font-display text-xl font-semibold mt-9 mb-3 border-l-4 border-amber pl-2.5';
@@ -110,6 +138,21 @@ const TH = 'p-2 text-left text-ink-soft text-[.84rem] font-normal';
   <Fragment>
     <h1 class="font-display text-3xl font-semibold mt-6 mb-1">{T.rv_title}</h1>
     <p class="text-ink-soft text-[.95rem] mb-5">{T.rv_intro}</p>
+
+    <!-- 提問式入口（2026-09-01）：不揭答案，點了直接飛到那一年，答案在頁上自己現身 -->
+    {R.ask.length > 0 && (
+      <div class="card-soft p-5 mb-6">
+        <p class="text-ink-soft text-[.9rem] mt-0 mb-3">{T.rv_ask_lead}</p>
+        <p class="flex flex-wrap gap-2 m-0">
+          {R.ask.map((c) => (
+            <a href={yearHref(c.y)}
+               class="pop inline-flex items-baseline bg-cream border border-line rounded-full px-3.5 py-1.5 text-[.88rem] text-ink no-underline hover:border-amber">
+              {T[c.k]}
+            </a>
+          ))}
+        </p>
+      </div>
+    )}
 
     <!-- 歷年變化：三張建置期算好的純 CSS 圖，柱子本身就是年頁入口 -->
     <section class="reveal">
@@ -181,23 +224,48 @@ const TH = 'p-2 text-left text-ink-soft text-[.84rem] font-normal';
       <p class="text-ink-soft text-[.82rem] mt-2 leading-relaxed">{T.rv_chart_tip}</p>
     </section>
 
-    <!-- 逐年回顧：圖表之後的無障礙後備，也是主要入口 -->
+    <!-- 逐年回顧：曲線選年器（2026-09-01 取代 51 張年份小卡）。
+         曲線走勢＝該年紀錄總數；圓點（含整欄熱區）是年頁入口，滑鼠 title、
+         讀屏 aria-label 都帶完整摘要。sr-only 年份清單保留當純文字後備。 -->
     <section class="reveal">
       <h2 class={H2}>{T.rv_sec_years}</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 my-5">
-        {R.years.map((y) => (
-          <a href={yearHref(y.y)} class="stat-card py-4 px-2">
-            <div class="text-2xl sm:text-3xl font-display font-semibold text-rust leading-none">
-              {y.y}{y.y === R.nowYear && <span class={BADGE}>{T.rv_partial}</span>}
-            </div>
-            <div class="text-[.82rem] text-ink-soft mt-1.5">
-              <span class="whitespace-nowrap" title={T.rv_sum_births}>🐣 {y.births.length}</span>
-              <span class="whitespace-nowrap ml-2" title={T.rv_sum_stars}>🪐 {y.stars.length}</span>
-              <span class="whitespace-nowrap ml-2" title={T.rv_sum_moves}>🚚 {y.moves.length}</span>
-            </div>
-          </a>
-        ))}
+      <p class="text-ink-soft text-[.9rem] mb-3">{T.rv_curve_intro}</p>
+      <div class={CARD}>
+        <div class="overflow-x-auto pb-1 chart-scroll">
+          <div dir="ltr" style={`min-width:${CURVE_W}px`}>
+            <svg width={CURVE_W} height={CURVE_H + CURVE_LBL} viewBox={`0 0 ${CURVE_W} ${CURVE_H + CURVE_LBL}`} class="block">
+              <path d={areaPath} fill="var(--rust)" opacity=".13" />
+              <path d={curvePath} fill="none" stroke="var(--rust)" stroke-width="2" stroke-linejoin="round" />
+              {TR.map((t, i) => t.has ? (
+                <a href={yearHref(t.y)} class="rv-yr" aria-label={dotTitle(t)}>
+                  <title>{dotTitle(t)}</title>
+                  <rect x={i * COL} y="0" width={COL} height={CURVE_H + CURVE_LBL} fill="transparent" />
+                  <circle cx={pts[i][0]} cy={pts[i][1]} r="3.5" fill="var(--rust)" stroke="var(--bg-card)" stroke-width="1.5" />
+                  {t.y % 5 === 0 && (
+                    <text x={pts[i][0]} y={CURVE_H + 8} text-anchor="start" writing-mode="tb" fill="var(--ink-soft)" font-size="10">{t.y}</text>
+                  )}
+                </a>
+              ) : (
+                <g aria-hidden="true">
+                  <circle cx={pts[i][0]} cy={pts[i][1]} r="1.5" fill="var(--line)" />
+                  {t.y % 5 === 0 && (
+                    <text x={pts[i][0]} y={CURVE_H + 8} text-anchor="start" writing-mode="tb" fill="var(--ink-soft)" font-size="10">{t.y}</text>
+                  )}
+                </g>
+              ))}
+            </svg>
+          </div>
+        </div>
       </div>
+      <ul class="sr-only">
+        {R.years.map((y) => (
+          <li>
+            <a href={yearHref(y.y)}>
+              {T.rv_title_year.replace('{y}', y.y)}{y.y === R.nowYear ? `（${T.rv_partial}）` : ''}：{T.rv_sum_births} {y.births.length}・{T.rv_sum_stars} {y.stars.length}・{T.rv_sum_moves} {y.moves.length}
+            </a>
+          </li>
+        ))}
+      </ul>
     </section>
   </Fragment>
 ) : (
@@ -220,6 +288,11 @@ const TH = 'p-2 text-left text-ink-soft text-[.84rem] font-normal';
     {r.births.length > 0 && (
       <section class="reveal">
         <h2 class={H2}>🐣 {T.rv_sec_births}（{r.births.length}）</h2>
+        {r.sexes.u / r.births.length <= 0.1 && (r.sexes.f > 0 || r.sexes.m > 0) && (
+          <p class="text-ink-soft text-[.88rem] mt-0 mb-3">
+            {T.rv_births_sex.replace('{f}', r.sexes.f).replace('{m}', r.sexes.m)}
+          </p>
+        )}
         <div class={CARD}>
           {birthGroups.map((g) => (
             <div class="mt-4 first:mt-0">
@@ -407,4 +480,7 @@ const TH = 'p-2 text-left text-ink-soft text-[.84rem] font-normal';
      direction:rtl 讓捲軸初始位置落在最右端，內層再轉回 ltr 維持年份由左至右。同 /japan/。 */
   .chart-scroll { direction: rtl; }
   .chart-scroll > * { direction: ltr; }
+  /* 曲線選年器：整欄都是熱區，滑過或聚焦時圓點放大提示可點 */
+  .rv-yr { cursor: pointer; outline: none; }
+  .rv-yr:hover circle, .rv-yr:focus circle { r: 5.5px; stroke: var(--amber); stroke-width: 2px; }
 </style>
