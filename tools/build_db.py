@@ -286,6 +286,7 @@ def _strip_yaml_comment(value):
 # 短形式 /p/XXXX/ 無從判斷發文者，一律視為非官方（sources 請存完整形式）。
 # ⚠️ 只放園方自己的帳號；同好／個人拍攝帳號請勿加入（會被誤判官方）。
 OFFICIAL_IG_ACCOUNTS = {
+    "nogeyama.zoo401",  # 横浜市立野毛山動物園（官網 hama-midorinokyokai.or.jp/zoo/nogeyama/ 的 Instagram 連結指向此帳號；歷代個體飼育期間發於此）
     "cincinnatizoo",   # Cincinnati Zoo & Botanical Garden 官方 IG（同 cincinnatizoo.org）
     "kumamoto_doushokubutsuen",  # 熊本市動植物園（ezooko.jp）
     "kiryuzoo",  # 桐生が岡動物園（官網 city.kiryu.lg.jp/zoo 首頁 IG banner 連此帳號）
