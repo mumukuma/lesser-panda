@@ -8,6 +8,7 @@ zoos:
   - Assiniboine Park Zoo (2026-06-08 – 現在)
 instagram:
   - https://www.instagram.com/assiniboineparkzoo/p/DbYZijXjgmX/
+  - https://www.instagram.com/p/DceNrXpxrhQ/
 tags: [styani, male, apple-seed, zoo:Assiniboine Park Zoo]
 sources:
   - https://www.instagram.com/assiniboineparkzoo/p/DbYZijXjgmX/

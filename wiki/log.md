@@ -14101,3 +14101,59 @@ father `genki-1989-06-30`，無誤生的手足或父母邊）→ `export_json`�
 → `verify.sh`：audit `--strict` 🔴 **0**／🟡 44／⚪ 474（與前一筆基線相同）、`check_twins` 275 同生群 **0 錯 0 警告**。
 抽驗 `pandas.json`：`rai-rai` 的 `died` = `1974-03`、`residences` 野毛山段 1973–1974、`sources_dev` 空、
 `has_official_source` = true。✅ `redpanda.db` 與 `pipeline/data/*.json` 均已更新，無須另跑 `rebuild.sh`。
+
+---
+
+## [2026-09-03] add | Ross Park Zoo `mei-li` 一家 6 筆建檔（讀者回報「有五隻」帶出）
+
+讀者回報附 Ross Park Zoo 官方 IG 貼文（2026-09-02），文中列出在園五隻：Asha／Ferguson／Mei-Li／Shenmi／Khairo。
+比對後 wiki 只有 `ferguson` 與 `shenmi`，缺 Mei-Li；由 Mei-Li 依〈親屬展開一圈〉補齊配偶與子女共 6 筆。
+
+**來源**：
+- https://www.instagram.com/rossparkzoo/p/DcyL9tDgfQL/ （官方 IG，2026-09-02 在園五隻名單）
+- https://981thehawk.com/binghamton-zoo-at-ross-park-announces-death-of-panda/ （98.1 The Hawk 2014-01-10：園方記者會，`xiao-li` 訃報＋`zhin-li` 生日與赴 Erie 計畫）
+- https://www.bupipedream.com/news/red-panda-2/28273/ （Pipe Dream 2014-01-26：`xiao-li` 死因與 2011 年來園配對經緯）
+- https://www.cbsnews.com/newyork/news/red-panda-gives-birth-to-twins-at-binghamton-zoo-at-ross-park/ （CBS New York 2017-07-08：2017 雙胞胎，`mei-li` 為二度生產）
+- https://wnbf.com/red-panda-cub-born-at-binghamton-zoo-at-ross-park/ （WNBF 2018-07-23：`adzuki` 2018-07-07 出生，體重 387g）
+- https://redpandafinder.com/#profile/408 ・ /406 ・ /409 ・ /450 ・ /451 ・ /439
+
+**新增條目**：
+- `mei-li-2010-05-30.md` — 該園繁殖雌、四隻子女之母（RPF #408，血統登録 `1001`），生於 2010-05-30，現居 Ross Park Zoo
+- `xiao-li-2008-06-10.md` — `mei-li` 第一位配偶，Nashville 出生、2011-12 來園，2014-01-09 歿（RPF #406，血統登録 `0811`）
+- `zhin-li-2013-06-18.md` — `mei-li` × `xiao-li` 之子，2014-11 移居 NEW Zoo、2016-01-20 歿（RPF #409，血統登録 `1327`）
+- `rowan-2017-06-11.md` — `mei-li` × `ferguson` 之子，`hope` 雙胞胎，現居 Lincoln Children's Zoo（RPF #450，血統登録 `1709`）
+- `hope-2017-06-11.md` — `rowan` 雙胞胎，2017-08-05 幼逝（RPF #451，血統登録 `1710`）
+- `adzuki-2018-07-07.md` — `mei-li` × `ferguson` 之女，2019-05 移居 Prospect Park Zoo（RPF #439，血統登録 `1833`）
+
+**更新條目**：
+- `ferguson-2015-06-22.md` — 配偶由「配偶」改為指名 `mei-li`，子女表三筆由純文字改 wikilink
+- `index.md` — 新增〈海外個體（美國 Ross Park Zoo・Mei-Li 一家）〉一節共 6 筆；`ferguson` 說明補配偶；條目總數 1159 → 1165
+- `tools/build_db.py` — `rossparkzoo.org` 進 `OFFICIAL_HOSTS`、`rossparkzoo` 進 `OFFICIAL_IG_ACCOUNTS`（官網頁尾 IG 連結指向該帳號）
+
+**與 RPF 不一致而未採 RPF 之處（均已在條目內標 🚧）**：
+- `xiao-li` 出生園：園方記者會與 Pipe Dream 皆寫 Nashville Zoo，RPF 記 Red River Zoo（同胎 Li-Ming #404 亦然）→ 採 Nashville
+- `xiao-li` 歿日：RPF `2014-01-08`，園方公告寫「Thursday, January 9」→ 採 `2014-01-09`
+- `mei-li` 抵 Ross Park 日：RPF 記 `2010-06-09`（出生僅 10 天）不合理 → 留空
+
+**未建、待維護者裁定**：
+- Asha（♀，2024 年該園出生、遭棄養人工哺育，2024-09 借住 Seneca Park Zoo，2026-09 已回園）——生日未公布、slug 定不了，且「母為 Mei-Li」僅為推定
+- Khairo——在園名單有，疑即 `khairo-2016-06-21`（現記 Red River Zoo），但轉入 Ross Park 查無任何佐證，未動其居住史
+- `rowan` 在 Lincoln Children's Zoo 的五隻子女（RPF #1429／#1430／#1445／#1446／#1447）——屬第二圈，未建
+
+**兩處作業教訓（本筆自身的更正）**：
+- 五筆的媒體轉載一開始誤寫進 `sources:`，`audit.py --strict` 立刻黃燈（cbsnews ×2／981thehawk ×2／wnbf ×1）
+  → 已全部移到 `extra_sources`，只有 `mei-li`（官方 IG）保留 `sources:`。🟡 由 47 回到基線 44、⚪ 474 → 479。
+- 🐛 **`zoos:` 不吃 `YYYY-MM` 粒度**：`xiao-li` 原寫
+  `Nashville Zoo at Grassmere (2008-06-10 – 2011-12)` ／ `Ross Park Zoo (2011-12 – 2014-01-09)`，
+  `gen_residence.py` 的 `DATE_RANGE_RE` 只認 `YYYY` 與 `YYYY-MM-DD`，`2011-12` 被截成 `2011`，
+  下一段更因為破折號比對錯位把訖端 `2014-01-09` **整個吃掉**（變成「2011 – 」＝看起來還在園）。
+  已改為 `(… – 2011)` ／ `(2011 – 2014-01-09)`，「December 2011」的細節寫在內文。全庫 grep 確認
+  無其他條目在 `zoos:` 使用 `YYYY-MM`。
+
+**驗證**：`gen_residence`（1165 檔守門通過）→ `build_db` 走 `DB_PATH` shim ＋ `cat` 覆寫回 repo
+（1165 個體／1718 親子／322 雙胞胎／2098 居住史，與預期增量 +6／+8／+1／+12 完全吻合）
+→ `export_json`（1165 個體／1718 親子／241 動物園，未匹配園名 0 種）
+→ `verify.sh`：audit `--strict` 🔴 **0**／🟡 44（同基線）／⚪ 479、`check_twins` 276 同生群 **0 錯 0 警告**。
+抽驗 `pandas.json`：四筆子女的 `mother` 皆為 `mei-li-2010-05-30`、`zhin-li` 的 `father` 為 `xiao-li-2008-06-10`、
+其餘三筆為 `ferguson-2015-06-22`；`mei-li` 居住史為「Calgary 🐣 2010-05-30 –」＋「Ross Park 🏡 ? – 現在」。
+✅ `redpanda.db` 與 `pipeline/data/*.json` 均已更新，無須另跑 `rebuild.sh`。

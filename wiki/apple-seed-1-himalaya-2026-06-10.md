@@ -7,6 +7,8 @@ species: Ailurus fulgens fulgens
 zoos:
   - Buffalo Zoo (2026-06-10 – 現在)
 tags: [fulgens, apple-seed, zoo:Buffalo Zoo]
+instagram:
+  - https://www.instagram.com/p/DcROJYxxuxv/
 sources:
   - https://buffalozoo.org/pair-of-endangered-red-panda-cubs-born-at-the-buffalo-zoo/
 extra_sources:

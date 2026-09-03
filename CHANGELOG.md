@@ -6,6 +6,18 @@
 
 ---
 
+## 2026-09-03 ・官方來源白名單：Ross Park Zoo（官網＋官方 IG）
+
+配合 Ross Park Zoo 的 Mei-Li 一家 6 筆建檔（見 `wiki/log.md`），`tools/build_db.py` 補兩處：
+`OFFICIAL_HOSTS` 加 **`rossparkzoo.org`**、`OFFICIAL_IG_ACCOUNTS` 加 **`rossparkzoo`**
+（官網頁尾的 Instagram／Facebook 連結皆指向 `@rossparkzoo`，該園的在園個體名單只發在 IG）。
+
+⚠️ 該園幾乎不發個體級公告，Mei-Li 一家其餘 5 筆的佐證都是 CBS New York／WNBF／98.1 The Hawk
+等媒體對園方公告的轉載 → 依既有分工放 `extra_sources`，因此那 5 筆 `has_official_source` 為 false
+（`audit.py` 記為 ⚪，非缺陷）。
+
+---
+
 ## 2026-09-01 ・官方來源白名單：Zoo Leipzig
 
 配合 Zoo Leipzig 的 Kamala × Asa 一家 4 筆建檔（見 `wiki/log.md`），`tools/build_db.py` 的

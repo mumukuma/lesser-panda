@@ -218,6 +218,8 @@ OFFICIAL_HOSTS = {
     "zoomontana.org",  # ZooMontana（美國蒙大拿州比靈斯；/animals/… 個體介紹頁載生日與來源園）
     # Columbus Zoo and Aquarium（美國俄亥俄州；出生・命名公告發於官網 /news/ 與官方 FB／IG）
     "columbuszoo.org",
+    # Ross Park Zoo（賓漢頓動物園，紐約州；官網 rossparkzoo.org）
+    "rossparkzoo.org",
     # Cleveland Metroparks Zoo（美國俄亥俄州；園區為 Cleveland Metroparks 所屬，故 host 是母機構網域。
     # ⚠️ 小熊貓的出生・命名公告未發於官網 /news-press/，只發在官方 X／Facebook／Instagram。）
     "clevelandmetroparks.com",
@@ -302,6 +304,7 @@ OFFICIAL_IG_ACCOUNTS = {
     "assiniboineparkzoo",  # Assiniboine Park Zoo（官網 assiniboinepark.ca/zoo 頁尾 Instagram 連結指向此帳號；出産公告發於此）
     "prospectparkzoo",  # Prospect Park Zoo（WCS；官網 prospectparkzoo.com 頁尾 Instagram 連結指向此帳號）
     "columbuszoo",  # Columbus Zoo and Aquarium（官網 columbuszoo.org 頁尾 Instagram 連結指向此帳號）
+    "rossparkzoo",  # Ross Park Zoo（官網 rossparkzoo.org 頁尾 Instagram 連結指向此帳號；在園個體名單發於此）
     "zoosauvageofficiel",  # Zoo sauvage de Saint-Félicien（加拿大魁北克；貼文內文連回 zoosauvage.org，到園公告發於此）
     "zooknoxville",  # Zoo Knoxville（同 zooknoxville.org；抵園・出産公告發於此）
     "potawatomizoo",  # Potawatomi Zoo（同 potawatomizoo.org；生日・送別公告發於此）
